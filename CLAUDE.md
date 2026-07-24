@@ -26,6 +26,11 @@ the five immediate research priorities driving current work.
 - The project should remain understandable without depending on an AI
   assistant. AI tools support research and production; human review remains
   necessary.
+- Commands should never be blind copy-paste — whether Claude runs one or
+  hands one to the user. When suggesting a command for the user to run
+  themselves, explain what it does and why, especially anything security- or
+  system-relevant. This is part of the project's own subject matter
+  (responsible AI use, verification, human oversight), not just a courtesy.
 
 ## Research discipline
 
@@ -66,6 +71,18 @@ open threads). Key standing rules:
 - When editing `RESEARCH_LOG.md`, preserve the existing entry structure
   (numbered entries, the Source key table with tags, the Open Threads
   section) rather than restructuring it.
+- **New standalone files are the last resort, not the default.** Before
+  creating one for durable content, check whether it can extend an existing
+  file first — most durable detail belongs in `RESEARCH_LOG.md` (as a dated,
+  numbered entry) or as a new section in `PROJECT_BRIEF.md`. A new file only
+  earns its existence if it's a genuinely distinct, closed category that
+  doesn't fit any existing file's purpose — not just because an explanation
+  got long.
+- **Any new file must be added to this file's "Where to look for what"
+  section in the same edit that creates it.** Indexing is not a follow-up
+  task — a file left unindexed at the moment it's created is exactly the
+  "badly indexed" failure mode this rule exists to prevent (see
+  "Relationship to PAWH" in `PROJECT_BRIEF.md`).
 
 ## Known mistakes to not repeat
 
