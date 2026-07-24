@@ -1,0 +1,6 @@
+# Local-only Claude Code memory access shortcut.
+# This is a directory junction pointing to a machine-specific, user-specific
+# path (C:\Users\<you>\.claude\projects\...\memory\) that differs between
+# machines. Never commit it — each machine creates its own local junction.
+# See CLAUDE.md, "Claude's memory: what's in the repo vs. outside it".
+.claude-memory

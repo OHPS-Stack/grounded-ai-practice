@@ -74,6 +74,31 @@ Potential users may include:
 These groups are provisional. Research may show that the project needs a
 narrower initial audience.
 
+## Primary audience (working decision — 24 July 2026)
+
+Based on research to date, the project's creator has made an explicit —
+but still provisional and open to revision — decision to prioritise:
+
+- individuals seeking practical, everyday AI literacy (general public), with
+- particular attention to employees at small organisations who lack the
+  employer-provided L&D infrastructure that existing frameworks assume.
+
+This combines the broadest-reach model with the most clearly evidenced access
+gap found so far. Both PRIMES (`SE-WHATWORKS26`/`SE-PRIMES-EMPLOYER26`) and the
+UK AI Skills Hub (`AISKILLSHUB`) are designed around an *employer* rolling out
+training to staff; individuals at small organisations without that layer —
+alongside the wider general public — are not well served by that model.
+Elements of AI (`EOAI`) demonstrates an individual-facing, vendor-neutral
+approach can reach large numbers without needing an employer sponsor.
+
+This decision does not resolve every open question under Priority 2 in
+RESEARCH_QUESTIONS.md (e.g. barriers and needs specific to this combined
+audience, or whether "small organisation employees" should later be split
+into narrower sub-groups). It is marked explicitly as a working decision,
+subject to change as research and prototyping continue — consistent with the
+project's stated approach of not treating early decisions as fixed
+governance.
+
 ## Central practical idea
 
 Building and operating a small AI-enabled workflow or system can provide a
@@ -112,7 +137,9 @@ The project currently needs to investigate:
 
 The project has not yet determined:
 
-- its primary audience;
+- its primary audience beyond the working decision recorded above (still open:
+  narrower sub-group definition, and confirmation the decision holds as
+  research continues);
 - whether it should first become a guide, roadmap, course, website, software
   tool, repository or another format;
 - its final curriculum or competency levels;

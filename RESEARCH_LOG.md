@@ -111,6 +111,27 @@ Full citation is given once here; log entries below cite the short tag only.
 | `[SE-TOOLSPKG25]` | Government/Official (Skills England, authored by Dr Nisreen Ameen) | Skills England / DfE, *AI skills tools package* (AI Skills Framework, Adoption Pathway Model, Employer Adoption Checklist), updated 4 Nov 2025 — PRIMARY, read directly. gov.uk/government/publications/ai-skills-for-the-uk-workforce/ai-skills-tools-package |
 | `[AISKILLSHUB]` | Government/Official (Innovate UK, in partnership with Skills England; delivery supported by PwC and industry partners) | UK AI Skills Hub, a national training-navigation platform under the BridgeAI programme, expanded 28 Jan 2026 to all UK adults with an ambition to upskill 10 million workers by 2030 — read via aiskillshub.org.uk/about-us/ and secondary coverage (direct fetch of the homepage returned a 402 error). |
 | `[SE-ANNUAL26]` | Government/Official | Skills England, *Annual Skills Report 2026*, 1 June 2026, especially Chapter 3 "Accelerating adoption of AI" — PRIMARY, read directly. assets.publishing.service.gov.uk/media/6a19740bb95db968c8f3bc3d/skills_england_annual_skills_report_2026.pdf |
+| `[ROADMAP]` | Vendor/Commercial (product) — studied as a comparable product's design, not cited as evidence for a claim | roadmap.sh, developer-learning platform. Studied via its own site and secondary write-ups, not a full first-hand platform trial. roadmap.sh |
+| `[LEETCODE]` | Vendor/Commercial (product) — studied as a comparable product's design, not cited as evidence for a claim | LeetCode, coding-practice platform. Studied via secondary write-ups (educative.io, GitHub study-plan compilations), not a full first-hand platform trial. leetcode.com |
+| `[EOAI]` | Independent/Academic (non-profit + university, vendor-neutral by design) | Elements of AI, MinnaLearn & University of Helsinki — free public AI-literacy course, reported to have reached roughly 1 million learners globally. elementsofai.com; studied via Class Central course listing and Wikipedia, not a full first-hand course completion. |
+| `[LSE-CARDOSO26]` | Independent/Academic (LSE) — opinion/blog piece, not peer-reviewed | Cardoso-Silva (LSE Data Science Institute) & Brown (LSE Digital Skills Lab), "The UK's AI training ambition deserves better than a course directory," LSE Impact of Social Sciences blog, 17 Feb 2026 — PRIMARY, read directly. blogs.lse.ac.uk/impactofsocialsciences/2026/02/17 |
+| `[RS-AILIT25]` | Independent/Academic (Royal Society-commissioned) | Hillman (Goldsmiths), Holmes (UCL), Duarte (We and AI) et al., *A Rapid Review of AI Literacy Frameworks, with Policy Recommendations*, prepared for the Royal Society following a Jan 2025 roundtable — PRIMARY, read directly in full. Views are the authors', not the Royal Society's. royalsociety.org/-/media/policy/projects/ai-in-education/hillman-et-al-a-rapid-review-of-ai-literacy-frameworks.pdf |
+| `[FDN26]` | Advocacy/Membership body (business-led digital-skills coalition, backed by major UK employers) | FutureDotNow, *Embedding AI into the Essential Digital Skills Framework* report, 2026 — read via FutureDotNow site summaries and secondary coverage, not the full primary PDF. futuredotnow.uk |
+| `[TECHOSAURUS26]` | Vendor/Commercial (AI training company; direct commercial competitor to the platform reviewed) | Quilter (Techosaurus Ltd) & Farmer (Quantum Rise), "We Tested the Government's AI Skills Hub: Five Critical Flaws You Need to Know," Techosaurus News, 30 Jan 2026 — PRIMARY, read directly. techosaurus.co.uk/news/2026/01/30/we-tested-the-governments-ai |
+| `[HUMANCO26]` | Vendor/Commercial (AI training/workplace-adoption consultant; direct commercial competitor to the platform reviewed) | Thomas (The Human Co.), "The UK Government's AI Skills Hub: A £4.1m Lesson in How Not to Build Real AI Capability," thehumanco.org, 2026 — PRIMARY, read directly. thehumanco.org/blog/ai-skills-hub-review |
+| `[SE-PRIMES-EMPLOYER26]` | Government-commissioned / Academic author (same Ameen/Skills England/British Academy Fellowship programme as Entries 010/012/017) | Dr Nisreen Ameen, *What Works for AI Upskilling in the UK: Employer Guide*, 10 June 2026 — PRIMARY, read directly in full (the actual PRIMES accreditation-criteria document; Entry 012 was based on a secondary summary of this same underlying research programme). assets.publishing.service.gov.uk/media/6a27ec203b15d05a7ce31f3b/employer_guide.pdf |
+| `[GRR-EBIP]` | Government/Official (US state education department) — general K-12 instructional-design guidance, not UK- or AI-specific | Kentucky Department of Education, "Evidence-Based Instructional Practices: Explicit Teaching and Modeling" (Gradual Release of Responsibility framework), education.ky.gov — read via search synthesis, not the full primary document. |
+| `[KAMALI26]` | Independent/Academic (preprint — not confirmed peer-reviewed) | Kamali, Gerstner, Hullman & Groh, "Generative AI Literacy Training Improves Intelligence Analysts' Discrimination of Real and AI-Generated Images," arxiv.org/pdf/2606.28510 — read via WebFetch summary of the full PDF, not a full manual read. |
+| `[AUTOBIAS-MED25]` | Independent/Academic (preprint, medRxiv — not peer-reviewed; primary PDF could not be fetched, UNVERIFIED beyond search-engine synthesis) | "Automation Bias in Large Language Model Assisted Diagnostic Reasoning Among AI-Trained Physicians," medrxiv.org/content/10.1101/2025.08.23.25334280 — direct fetch returned HTTP 403; claims here rely on WebSearch's own synthesis of the abstract, not a verified primary read. |
+| `[BCC-ISER26]` | Independent/Academic (University of Essex ISER working paper, ESRC/UKRI-funded; lead author BCC-affiliated as the survey partner, tagged as mixed-interest for that reason) | Bharier (British Chambers of Commerce), Etheridge & Morais (University of Essex), *AI Adoption and Workforce Change in SMEs*, ISER Working Paper No. 2026-1, March 2026 — PRIMARY, read directly in full. iser.essex.ac.uk/wp-content/uploads/files/working-papers/iser/2026-01.pdf |
+| `[BENNETT26]` | Independent/Academic (University of Cambridge, Bennett School of Public Policy) | Poquiz & Nguyen, "What does firm-level data tell us about AI adoption in the UK?", Bennett School blog, 13 April 2026, drawing on ONS Management and Expectations Survey and Business Insights and Conditions Survey — read via WebFetch summary, not the full primary analysis. bennettschool.cam.ac.uk/blog/ai-adoption-in-the-uk |
+| `[LOCALAI-COST26]` | Vendor/Commercial (multiple SaaS/dev-tooling blogs — aggregate search synthesis, individual sources NOT independently fetched/verified) | Aggregate of local-vs-cloud-LLM cost comparison posts (PromptCost.org, SitePoint, Fungies.io, promptquorum.com, Swfte AI, kunalganglani.com, pristren.com), 2026 — UNVERIFIED beyond search-engine synthesis; treat directional consensus only, not individual figures, as indicative. |
+| `[LOCALAI-CAPABILITY26]` | Vendor/Commercial (multiple SaaS/AI-infra blogs — aggregate search synthesis, individual sources NOT independently fetched/verified) | Aggregate of local-vs-frontier-model capability comparison posts (MindStudio, Qubrid AI, TechPlanet, byteiota, promptquorum.com), 2026 — UNVERIFIED beyond search-engine synthesis; treat directional consensus only, not individual figures, as indicative. |
+| `[INSTRO26]` | Vendor/Commercial (UK bespoke AI integration company; source suggested by the project's creator, who has stated "an understanding and interest" in the company — noted for provenance transparency, exact nature of interest not further specified) | Instro AI Solutions, instro.ai — read directly (homepage). UK-based bespoke generative-AI integrator for manufacturing, engineering and education sectors; "integration-first, not rip-and-replace." |
+| `[INSTRO-TRIAL26]` | Independent trade press (IT Brief UK, part of the TechDay specialist network) reporting on an Innovation-funded trial coordinated with AMRC Cymru (Advanced Manufacturing Research Centre, a Welsh applied-research/innovation body) — treated as independent of Instro's own marketing, though it reports the vendor's own trial results | "Instro AI trials cut engineering response times by 67%," itbrief.co.uk — read directly. Reports named UK manufacturer outcomes (Colchester Machine Tool Solutions, Poeton Industries, Star Micronics) from an AMRC Cymru-coordinated trial. |
+| `[BUYBUILD-KLOTZ26]` | Independent — preprint, institutional affiliation unclear, theoretical/conceptual not empirical, single author | Klotz, D., "The Buy-or-Build Decision, Revisited: How Agentic AI Changes the Economics of Enterprise Software," arXiv:2604.26482 — read directly. Superseded framing, see Entry 033: the project's creator judged this concept unsupported and unfair to Instro as applied here. Retained in the source key for traceability only. |
+| `[CHEN-VAROQUAUX26]` | Independent/Academic (Imperial College London; Inria Saclay) | Chen, L. & Varoquaux, G., "What is the Role of Small Models in the LLM Era: A Survey," arXiv:2409.06857v7 (this version dated 19 Feb 2026) — PRIMARY, read directly in full. Systematic survey, not empirical original research, but grounded in and citing extensive empirical literature. |
+| `[AGENTMESH26]` | Vendor/Commercial (multiple AI-infra/SaaS blogs — aggregate search synthesis, individual sources NOT independently fetched/verified) | Aggregate of "Executive-Worker" / heterogeneous agentic mesh architecture posts (Medium, futureagi.com, MindStudio, Glean), 2026 — UNVERIFIED beyond search-engine synthesis; the general pattern described (orchestrator model + specialised worker models) converges with `[CHEN-VAROQUAUX26]`'s academically-grounded model-cascading/routing literature, which is the credible version of this claim. |
 
 ---
 
@@ -651,6 +672,813 @@ Full citation is given once here; log entries below cite the short tag only.
   "barriers to existing learning resources" question and strengthens the case
   that fragmented/inadequate training is a real, evidenced gap.
 
+### Entry 020 — Comparable platforms: roadmap.sh and LeetCode (Priority 5)
+
+- **Date logged:** 2026-07-24
+- **Priority / Question:** Priority 5 — "How do roadmap.sh, LeetCode and
+  comparable learning systems define progression, prerequisites and
+  completion?"
+- **Source:** `[ROADMAP]`, `[LEETCODE]`
+- **Checked date:** 2026-07-24
+- **What the source directly supports:** roadmap.sh presents learning as
+  interactive flowchart-style roadmaps; users log in and mark each node as
+  done/in-progress/skipped, turning the roadmap into a personal checklist.
+  Prerequisites are not formally enforced by the system — they are implied
+  by the visual flowchart layout only. Each node links out to curated
+  external resources rather than hosting content itself. LeetCode structures
+  learning around algorithmic-pattern problem sets of increasing difficulty,
+  with points, badges and leaderboards, and frames practice explicitly around
+  simulating real technical-interview scenarios.
+- **Inference drawn:** Both platforms substitute a strong, low-cost
+  progression *signal* (visual sequencing, difficulty tiers, gamified
+  scoring) for formal prerequisite enforcement or credentialing — completion
+  is self-reported/self-tracked, not assessed. This is an inference from
+  how the mechanics are described, not a claim either platform makes about
+  itself.
+- **Limitations / conflicting evidence:** Checked via the platforms' own
+  About pages and secondary write-ups (blogs, an educative.io explainer, a
+  GitHub study-plan compilation) rather than a full first-hand trial of
+  either platform. Neither is an AI-literacy product — both are included
+  because RESEARCH_QUESTIONS.md names them specifically as design-pattern
+  comparables, not as AI-literacy competitors.
+- **Effect on project direction:** Directly answers the first Priority 5
+  question. The transferable pattern for Grounded AI Practice is: visible,
+  self-directed progression through a checklist/flowchart structure, paired
+  with curated (not necessarily self-hosted) resources per step, is a
+  proven low-overhead way to make a learning pathway feel navigable without
+  building a full LMS or assessment engine. LeetCode's competitive/gamified
+  layer is a design choice, not a requirement — worth noting as optional
+  rather than essential, especially since Entry 023 flags gamified
+  "confidence to use tools" framing as a risk when applied to AI literacy
+  specifically.
+
+### Entry 021 — Elements of AI (Priority 5, comparable AI-literacy programme)
+
+- **Date logged:** 2026-07-24
+- **Priority / Question:** Priority 5 — "How do existing AI-literacy and
+  digital-skills programmes combine theory, practice and assessment?" /
+  "Which features should Grounded AI Practice learn from without imitating
+  the product as a whole?"
+- **Source:** `[EOAI]`; independently referenced as the model the UK should
+  have followed in `[LSE-CARDOSO26]` (see Entry 022).
+- **Checked date:** 2026-07-24
+- **What the source directly supports:** Elements of AI is a free, public,
+  vendor-neutral online AI-literacy course from MinnaLearn and the
+  University of Helsinki, reported to be the most-taken course in the
+  university's history and to have reached roughly 1 million learners
+  globally. It is structured as 6 chapters of 3 sections each, requires no
+  programming or advanced maths, combines theory with practical exercises
+  and self-reflection, uses peer review, and can be completed at a learner's
+  own pace.
+- **Inference drawn:** None stated as fact by the source; the "vendor-neutral"
+  characterisation is repeated across multiple secondary sources
+  (`[LSE-CARDOSO26]`, Class Central) rather than a claim Elements of AI makes
+  about itself in the material checked here.
+- **Limitations / conflicting evidence:** Checked via Class Central's course
+  listing and Wikipedia's summary rather than a full first-hand completion of
+  the course; no direct read of the course content itself, so claims about
+  assessment rigour or actual learning outcomes are not independently
+  verified here. Non-UK (Finland), and general-public in scope rather than
+  targeted at a specific workforce audience.
+- **Effect on project direction:** The strongest single comparable found for
+  Priority 5's "existing AI-literacy programme" question — small production
+  team, non-commercial, bite-sized modular chapters, no technical
+  prerequisite, yet reached genuine scale. Directly relevant to the Priority
+  2 audience decision: if a broad, low-barrier public-literacy audience is
+  chosen, Elements of AI is the closest existing model to study in detail
+  (not necessarily imitate) before finalising a delivery format.
+
+### Entry 022 — UK AI Skills Hub critiqued as "a directory, not a programme" (Priority 5, connects to Entry 018)
+
+- **Date logged:** 2026-07-24
+- **Priority / Question:** Priority 5 — "Where do existing products appear
+  incomplete, inaccessible or overly tool-specific?" Directly extends Entry
+  018 (AI Skills Hub) with independent critical perspective, addressing the
+  Research discipline requirement to pair confirming evidence with
+  disconfirming/critical checks for foundational claims.
+- **Source:** `[LSE-CARDOSO26]`
+- **Checked date:** 2026-07-24
+- **What the source directly supports:** The authors (an LSE data science
+  academic and the head of LSE's Digital Skills Lab) argue the UK AI Skills
+  Hub (Entry 018) functions as "a mixture of existing training content
+  loosely connected by the topic of AI" rather than a structured programme:
+  no mapped progression pathways, no explicit mapping of courses to the
+  competencies identified by government-commissioned research (i.e. the same
+  Ameen/Skills England evidence base as Entries 010/012/017/019), and course
+  organisation by technology vendor rather than by competency — despite that
+  same evidence base finding non-technical skills (ethics, critical
+  thinking) most needed by over 72% of surveyed organisations. They
+  explicitly name Elements of AI (Entry 021) as the vendor-neutral,
+  structured-pathway model the UK should have followed, summarising their
+  argument as "a programme, not a directory."
+- **Inference drawn:** None beyond what the authors state; this is their
+  own argued position, not presented as new primary data.
+- **Limitations / conflicting evidence:** An opinion/blog piece on an
+  academic institution's blog, not a peer-reviewed paper — carries the
+  authors' institutional credibility but not the same evidentiary weight as
+  the primary government sources it critiques. Only one critical source
+  found on this specific point; no second independent critique of the AI
+  Skills Hub has yet been located to corroborate this reading.
+- **Effect on project direction:** Materially changes how Entry 018 should
+  be read — the AI Skills Hub is not just "a well-resourced comparable to
+  differentiate against" but a concrete, named example of exactly the
+  directory-not-programme failure mode Grounded AI Practice should avoid.
+  This gives Priority 5's "learn from without imitating" question a sharper
+  answer: the differentiation opportunity is not scale (the project cannot
+  compete there) but *coherent, competency-mapped progression* — something
+  even a major national platform reportedly got wrong.
+
+### Entry 023 — Royal Society rapid review of AI literacy frameworks (Priority 5, also bears on Priority 3/4)
+
+- **Date logged:** 2026-07-24
+- **Priority / Question:** Priority 5 (comparable frameworks/programmes and
+  international case studies), with direct relevance to Priority 3
+  (capability definition) and Priority 4 (learning design).
+- **Source:** `[RS-AILIT25]`
+- **Checked date:** 2026-07-24
+- **What the source directly supports:** A systematic (PRISMA-informed)
+  review that screened ~68,000 articles down to 115, analysed 20 AI-literacy
+  frameworks and 6 national case studies in depth. Its scope is **AI
+  literacy for school-age children (5–18) and their teachers** — not adults,
+  not the general workforce. Key findings: (1) almost all 20 frameworks
+  scored heavily toward the "technological" dimension (how AI works) and
+  weakly toward the "human" dimension (societal/ethical impact) — the
+  authors argue this makes most existing frameworks "more useful for
+  children interested in computing than for all children"; (2) most
+  frameworks trace back to only three foundational papers, risking a narrow
+  intellectual base; (3) independent evaluation of any framework's real
+  classroom impact is "almost entirely absent" across the whole literature;
+  (4) SEND/accessibility design is rare to absent; (5) corporate-funded
+  frameworks tend to push "confidence to use AI tools" as the goal rather
+  than critical judgement about whether to use it at all — flagged as a risk
+  of "deterministic, tool-first adoption." Six international case studies
+  (Finland, South Korea, Maryland USA, Italy, Singapore, Uruguay) each
+  illustrate a different implementation model: cross-disciplinary co-design,
+  teacher-first infrastructure, whole-system values-led governance,
+  teacher-first CPD cascades, whole-of-society scaffolded pathways, and
+  infrastructure-plus-specialist-support respectively. The recommended UK
+  implementation pathway is explicitly staged: pilot first (in a small
+  number of regions/institutions) → embed independent evaluation from day
+  one → only then scale, with inclusion/SEND designed in from the outset
+  rather than retrofitted.
+- **Inference drawn:** The three-dimension structure (technological /
+  practical / human) and the "most frameworks are computing-education in
+  disguise" critique are the report's own framing, not this project's
+  extrapolation. Applying the pilot-first/inclusion-first pathway or the
+  three-dimension structure to an *adult* general-public or workforce
+  audience (as opposed to schoolchildren) would be this project's own
+  extension — the report does not make that claim itself.
+- **Limitations / conflicting evidence:** This is the single most
+  significant scope mismatch found in the research log so far: the report's
+  entire evidence base, all 20 frameworks and all 6 case studies, concerns
+  children in compulsory education, not the adult/workforce audience the
+  project's current problem statement centres on (PROJECT_BRIEF.md). Its
+  findings about framework design, corporate-influence risk and
+  implementation sequencing may transfer to an adult context, but this has
+  not been tested and should not be assumed. Also worth flagging: the
+  report's own scoring methodology (0–1 per topic, author-judged) is
+  explicitly described by its authors as "highly interpretative" and "not
+  ... definitive."
+- **Effect on project direction:** High value for Priority 4 (learning
+  design) and Priority 5 (comparable programmes) as a source of
+  *transferable design lessons* — the three-dimension framework, the
+  pilot-first/evaluate/scale sequencing, and the corporate-influence caution
+  are all directly usable regardless of audience age. But it must not be
+  cited as evidence about adult AI literacy or workforce capability — doing
+  so would repeat the Entry 001 scoping error (citing a source for a
+  population it wasn't about). If schools/education becomes a stronger
+  candidate audience following Entry 016, this becomes a much more directly
+  applicable source than it currently is for the project's present
+  workforce/public framing.
+
+### Entry 024 — FutureDotNow: Essential Digital Skills Framework AI update (Priority 5)
+
+- **Date logged:** 2026-07-24
+- **Priority / Question:** Priority 5 — comparable frameworks; also touches
+  Priority 3 (capability definition), overlapping with but independent in
+  origin from the Skills England/Ameen programme (Entries 010/012/017/019).
+- **Source:** `[FDN26]`
+- **Checked date:** 2026-07-24
+- **What the source directly supports:** Recommends four core AI
+  competencies for the UK's existing Essential Digital Skills Framework:
+  foundational knowledge of what AI is and how it functions, effective AI
+  interaction (instruction-writing), critical evaluation of AI-generated
+  content, and ethical/responsible use. Frames these as needed consistently
+  across sectors (cited examples span NHS administrators to SME
+  entrepreneurs). Cites modelled economic benefits (£23bn annual uplift,
+  £10bn workforce income increase, £8.5bn industry profitability) from
+  closing the essential digital skills gap more broadly, not AI skills
+  specifically.
+- **Inference drawn:** None stated as fact by the source.
+- **Limitations / conflicting evidence:** FutureDotNow is a business-led
+  digital-skills coalition backed by major UK employers — an
+  Advocacy/Membership-body interest per this log's tagging convention, and
+  the economic-benefit figures are modelled projections, not measured
+  outcomes. Checked via FutureDotNow's own site summaries and secondary
+  coverage rather than the full primary report PDF. The four-competency
+  structure is broadly consistent with, but independently framed from, the
+  Skills England/Ameen technical/non-technical/responsible three-domain
+  model (Entry 017) — a second, differently-sourced convergence on a
+  similar shape, which is mildly reassuring but not independent proof, since
+  both ultimately feed into the same national Essential Digital Skills
+  Framework policy process.
+- **Effect on project direction:** A minor additional data point for
+  Priority 3's capability definition — mostly useful as a second framework
+  shape to sanity-check Skills England's against, and as one more source
+  that a four-part (know/interact/evaluate/ethics) or three-part
+  (technical/non-technical/responsible) structure recurs across
+  independently-authored UK frameworks. Not load-bearing on its own given
+  the advocacy-body interest and secondary sourcing.
+
+### Entry 025 — The "directory not programme" critique is not isolated to LSE (Priority 5, corroborates Entry 022)
+
+- **Date logged:** 2026-07-24
+- **Priority / Question:** Priority 5, specifically testing whether the
+  LSE critique (Entry 022) is a one-off academic opinion or a broader,
+  corroborated pattern — directly relevant to the project's stated aim of
+  positioning as a credible response to AI Skills Hub's problems
+  ([[project_government_recognition_goal]]).
+- **Source:** `[TECHOSAURUS26]`, `[HUMANCO26]`; a wider search also surfaced
+  Computer Weekly, People Management and TechPolicy.Press opinion pieces
+  making related but unread arguments (see Limitations).
+- **Checked date:** 2026-07-24
+- **What the source directly supports:** Both sources conducted hands-on
+  testing of the live AI Skills Hub platform (not just its About page) and
+  independently converge on the same structural failure as `[LSE-CARDOSO26]`:
+  no sequencing or diagnostic-driven personalisation (`[HUMANCO26]` found
+  intermediate users shown 71% beginner-level content, inflating study time
+  from a claimed 25–35 hours to an actual 50–73 hours), no embedded practice
+  environment/sandbox (`[TECHOSAURUS26]`'s "Missing Learning by Play"),
+  vendor/platform lock-in from tool-specific rather than transferable
+  courses, and — echoing `[LSE-CARDOSO26]`'s 72% non-technical-skills
+  finding — a mismatch between what the Hub teaches and what users actually
+  need. `[HUMANCO26]` separately reports the Hub's cost as £4.1 million and
+  rates its design 3/10 despite judging its underlying course *content*
+  adequate. `[TECHOSAURUS26]` additionally flags an "organisational
+  readiness" gap: the Hub trains individuals while ignoring whether their
+  workplaces are ready to support what they learn.
+- **Inference drawn:** The convergence of an independent academic source
+  (LSE) with two unconnected commercial-sector hands-on reviews, landing on
+  overlapping specific findings (sequencing, personalisation, sandbox
+  practice, competency-vs-vendor organisation), is stronger evidence that
+  the underlying design problem is real than any single source alone —
+  this is an inference about corroboration strength, not a claim any one
+  source makes.
+- **Limitations / conflicting evidence:** Both `[TECHOSAURUS26]` and
+  `[HUMANCO26]` are written by founders of competing commercial AI-training
+  businesses reviewing a free government platform — a direct commercial
+  interest in positioning the Hub as inferior, tagged Vendor/Commercial per
+  this log's convention. Their specific UX findings (e.g. the 71%/50–73
+  hour figures) are self-reported from their own limited testing sessions,
+  not independently audited. The Computer Weekly, People Management and
+  TechPolicy.Press pieces found in the same search were not read in this
+  pass — flagged as a lead only, not a finding, consistent with the
+  project's "don't chase every thread" discipline. No defence or response
+  from DSIT/Skills England to any of this criticism has been located yet.
+- **Effect on project direction:** Meaningfully strengthens the basis for
+  the project's loosely-held government-recognition aim
+  ([[project_government_recognition_goal]]): the "directory not programme"
+  critique is corroborated across independent academic and commercial
+  sources, not a single contested opinion, which is exactly the kind of
+  triangulation this project's research discipline calls for before treating
+  something as foundational. Practically, it also sharpens what a credible
+  alternative would need to demonstrably fix, beyond just "competency
+  mapping": diagnostic-driven sequencing, embedded low-stakes practice
+  (a "sandbox"), transferable (not vendor-locked) skills, and attention to
+  organisational readiness alongside individual training. These read as
+  candidate design requirements for Priority 4, not yet project decisions.
+
+### Entry 026 — PRIMES accreditation criteria in full (Priority 4, supersedes summary in Entry 012)
+
+- **Date logged:** 2026-07-24
+- **Priority / Question:** Priority 4 — "Which recognised learning frameworks
+  are suitable for this project?" Directly extends Entry 012, which described
+  PRIMES only at the level of its six names; this entry reads the actual
+  accreditation criteria document.
+- **Source:** `[SE-PRIMES-EMPLOYER26]`
+- **Checked date:** 2026-07-24
+- **What the source directly supports:** The full *Employer Guide* sets out
+  detailed, checklist-style accreditation criteria for each PRIMES principle
+  (reproduced in the source's Table 2). Selected specifics not previously
+  captured in Entry 012: **Practical** requires training to recognise and
+  build on existing informal/self-taught AI use rather than assuming a
+  zero-starting point, and to make explicit *when AI should and should not
+  be used*. **Reachable** requires training design to "explicitly consider
+  intersecting barriers (e.g. income, age, disability, gender) rather than
+  treating learners as single categories," and to build confidence
+  alongside skills "particularly for learners with prior exclusion from
+  digital or technical education." **Integrated** requires baseline AI
+  training to be *mandatory* before staff use workplace AI tools involving
+  organisational data, confidential information, regulated activity, safety
+  or professional judgement. **Modular** specifies very short (30–90
+  minute), stackable units as more practical than long courses for
+  time-constrained learners, with entry at different levels and return
+  points. **Expandable** prioritises transferable skills applicable "across
+  different tools, systems, roles and organisations" over tool-specific
+  competence. **Sustainable** requires planned review points (explicitly
+  named: revisiting training at 3 and 6 months), outcome monitoring beyond
+  satisfaction (confidence, quality of use, decision-making), and
+  responsible-use content (confidentiality, data protection, transparency,
+  human oversight) treated as core and enduring, not an optional module. The
+  guide also lists 13 common pitfalls (e.g. "training is too fast, too
+  technical, or assumes prior knowledge," "existing skills and informal AI
+  use are not recognised," "training focuses on tools rather than
+  transferable skills") and a companion "AI Skills Adoption Pathway" showing
+  survey respondents' organisations are still overwhelmingly concentrated in
+  early stages (Awareness 21%, Exploration 19%) versus advanced stages
+  (Integration 7%, Strategy 4%, Scaling 1%).
+- **Inference drawn:** None beyond what the source states — this entry
+  intentionally stays close to direct quotation/paraphrase given how
+  directly reusable this criteria set is for Priority 4 design work.
+- **Limitations / conflicting evidence:** Same underlying evidence base as
+  Entries 010/012/017/019 (23 workshops, 10 case studies, 536-response
+  survey) — not independent corroboration, just a fuller read of the same
+  programme's output. The employer-facing framing (PRIMES is written for
+  *employers* designing workforce training) means some criteria assume an
+  organisational context (paid/protected learning time, workplace data
+  systems, line-management sponsorship) that may not transfer directly to a
+  personal/public-facing project without an employing organisation behind
+  the learner.
+- **Effect on project direction:** This is now the single most directly
+  actionable Priority 4 source in the log. Three specific, checkable design
+  requirements stand out as strong candidates regardless of what Priority 2
+  decides about audience: (1) modular units in the 30–90 minute range with
+  clear entry/re-entry points, matching the "short chapters, no
+  prerequisites" pattern already found in Elements of AI (Entry 021); (2)
+  explicit "when AI should and should not be used" content, not just how-to
+  content — a direct answer to Priority 6's scope question; (3) planned
+  revisit points (3/6-month equivalents) and outcome tracking beyond
+  completion counts, directly addressing the "near-total absence of
+  independent evaluation" gap flagged industry-wide in Entry 023.
+
+### Entry 027 — Gradual Release of Responsibility: a named model for the "explanations → practice → reflection" sequencing question
+
+- **Date logged:** 2026-07-24
+- **Priority / Question:** Priority 4 — "How should explanations, worked
+  examples, guided practice, independent practice and reflection be
+  sequenced?"
+- **Source:** `[GRR-EBIP]`; the general pattern is also implicitly present
+  in `[RS-AILIT25]`'s language of "scaffolded progression" (Entry 023) and
+  PRIMES' "Modular" principle (Entry 026).
+- **Checked date:** 2026-07-24
+- **What the source directly supports:** The Gradual Release of
+  Responsibility (GRR) model structures instruction in phases that shift
+  cognitive load progressively from instructor to learner: focused
+  instruction (explicit modelling/worked examples) → guided instruction
+  (practice with support) → collaborative learning (practice with peers) →
+  independent learning (unsupported application). Evidence-based-practice
+  guidance associated with this model also recommends *spaced* rather than
+  massed independent practice for retention.
+- **Inference drawn:** RESEARCH_QUESTIONS.md's own Priority 4 phrasing
+  ("explanations, worked examples, guided practice, independent practice and
+  reflection") already closely mirrors GRR's structure — this is noted as an
+  observation about the project's own question framing, not a claim the
+  source makes. Applying a K-12-focused instructional model to adult,
+  self-directed, largely asynchronous AI-literacy learning is this project's
+  own extension, not something the source itself addresses; adult-learning
+  research (e.g. andragogy, self-directed learning) may complicate the
+  direct transfer, which has not yet been checked.
+- **Limitations / conflicting evidence:** The source is a US state
+  education department's K-12 guidance document, read only via search
+  synthesis rather than the full primary document — general pedagogical
+  currency (GRR/"I do, we do, you do" is a widely-cited model, originating
+  with Pearson & Gallagher 1983) is asserted here based on how commonly it
+  recurs in instructional-design literature, not independently verified in
+  this pass. Not UK-specific, not AI-specific, not adult-education-specific.
+- **Effect on project direction:** Gives the project a named, well-established
+  reference model to explicitly adopt, adapt, or consciously depart from for
+  Priority 4's sequencing question, rather than inventing a sequencing logic
+  from scratch — consistent with the project's stated approach of learning
+  from existing frameworks rather than building one unassisted. The one
+  specific transferable recommendation from the evidence-based-practice
+  literature (spaced rather than massed independent practice) is worth
+  testing directly against PRIMES' 3/6-month revisit-point recommendation
+  (Entry 026) — the two independently-sourced recommendations point the same
+  direction.
+
+### Entry 028 — AI literacy training and overconfidence: a genuine confirm/disconfirm pair
+
+- **Date logged:** 2026-07-24
+- **Priority / Question:** Priority 4 ("How should misconceptions, unsafe
+  practices and overconfidence be addressed?") and Priority 6 (responsible
+  use, human oversight).
+- **Source:** `[KAMALI26]` (confirming: training helps) vs. `[AUTOBIAS-MED25]`
+  (disconfirming/complicating: training alone may be insufficient) — a
+  deliberately paired search per this log's own bias-mitigation discipline
+  (see the note above Entry 001).
+- **Checked date:** 2026-07-24
+- **What the source directly supports:** `[KAMALI26]` reports that targeted
+  generative-AI literacy training improved intelligence analysts' ability to
+  distinguish real from AI-generated images *and* improved confidence
+  calibration — post-training confidence better matched actual accuracy,
+  rather than the training simply making people more skeptical across the
+  board. `[AUTOBIAS-MED25]`'s abstract, per search-engine synthesis only
+  (primary PDF fetch blocked, HTTP 403 — **not independently verified**),
+  reportedly found that 44 physicians who completed a 20-hour AI-literacy
+  training programme still exhibited automation bias in LLM-assisted
+  diagnostic reasoning, suggesting training alone was not sufficient in that
+  higher-stakes clinical context. Separately, broader review literature
+  found via the same search (not read in full) describes an "overconfidence
+  paradox": people with surface-level AI knowledge can become *more*
+  susceptible to automation bias than complete novices, because they have
+  "just enough knowledge to think they understand AI but not enough to
+  recognise its limits" — and that automation bias/trust miscalibration can
+  operate unconsciously, so self-reported vigilance may overstate actual
+  behaviour.
+- **Inference drawn:** The two studies are not strictly contradictory — they
+  differ in domain (image authenticity judgement vs. high-stakes clinical
+  diagnosis), training design (unspecified vs. 20 hours), and possibly in
+  whether calibration or bias-resistance was directly targeted vs. a
+  byproduct. A plausible reading (inference, not stated by either source) is
+  that literacy training can improve calibration in bounded, well-defined
+  judgement tasks but may need reinforcement/behavioural nudges (as
+  `[AUTOBIAS-MED25]`'s companion trial reportedly tests) to hold under the
+  cognitive load of complex, high-stakes professional decisions.
+- **Limitations / conflicting evidence:** `[AUTOBIAS-MED25]` is flagged
+  UNVERIFIED — the primary source could not be fetched and this entry relies
+  on a search tool's own synthesis of the abstract, which is a weaker
+  evidentiary basis than this log's normal standard. `[KAMALI26]` was read
+  via WebFetch summary of the full PDF rather than a manual line-by-line
+  read. Neither is UK-specific. The "overconfidence paradox" claim is
+  currently sourced only to an aggregated search summary, not a named,
+  checkable paper — flagged as a lead, not a finding.
+- **Effect on project direction:** This is a directly relevant, appropriately
+  hedged answer to Priority 4's misconceptions/overconfidence question:
+  training can improve calibration, but the "surface knowledge is more
+  dangerous than no knowledge" pattern is a specific, concrete risk any
+  learning design should guard against explicitly — e.g. by pairing
+  knowledge content with deliberate practice at *judging one's own
+  confidence* against ground truth (matching `[KAMALI26]`'s apparent design),
+  not just teaching facts about how AI works. This reinforces PRIMES'
+  "Sustainable" criterion of monitoring "impacts on judgement and
+  decision-making" over time (Entry 026) rather than treating a single
+  training session as sufficient. Given the primary-source verification gap
+  on `[AUTOBIAS-MED25]`, this should be re-checked in a future pass before
+  being treated as settled — flagged in Open Threads.
+
+### Entry 029 — Testing the "large orgs benefit disproportionately from AI" hypothesis: a genuine confirm/complicate pair
+
+- **Date logged:** 2026-07-24
+- **Priority / Question:** New hypothesis raised by the project's creator
+  (2026-07-24): that AI's benefits accrue disproportionately to
+  well-resourced organisations relative to individuals/SMEs, and that this
+  could be the project's underlying thesis. Bears on Priority 1 (evidence
+  for the problem) and directly tests the audience/thesis decision recorded
+  in PROJECT_BRIEF.md's "Primary audience" section.
+- **Source:** `[BCC-ISER26]` (primary, UK-specific, rigorous) and `[BENNETT26]`
+  (primary, UK-specific, ONS-sourced) — deliberately sought together per this
+  log's confirm/disconfirm discipline, since this is exactly the kind of
+  foundational claim that would change project direction.
+- **Checked date:** 2026-07-24
+- **What the source directly supports:** `[BCC-ISER26]` surveyed 668 UK
+  firms (84% with 1–250 employees) via the British Chambers of Commerce's
+  January 2026 Business Outlook Survey. Headline: 54.3% of firms now use AI
+  in some form (up from ~23% in 2023), and adoption is "strongly associated"
+  with firm size, though the effect size is modest once controls are added
+  (OR ≈ 1.09–1.14 per log-unit of firm size, statistically significant but
+  not large). Critically, the paper's central and most robust finding is a
+  **different** distinction: only 10% of firms have adopted "bespoke"
+  AI (custom-built for their operations, typically requiring dedicated AI
+  integrators or external vendors) versus the majority using only generic
+  tools (ChatGPT/Copilot); it is specifically bespoke adoption — not AI use
+  in general — that is associated with real workforce effects (~20% of
+  bespoke adopters report staffing reductions vs ~3% of generic-only users;
+  bespoke adopters are 3x more likely to restructure job roles). `[BENNETT26]`
+  independently reports a starker adoption-rate gap using ONS data: large
+  firms (250+ employees) adoption nearly doubled from ~20% (2023) to 44%
+  (2025), while small firms (<50 employees) reached only 26% by 2025 — a
+  "two-speed race" the authors attribute to "scale... rather than...
+  underlying productivity performance," i.e. a structural barrier, not a
+  productivity-driven explanation.
+- **Inference drawn:** The two sources measure adoption-rate gaps of
+  different magnitudes (`[BCC-ISER26]`'s controlled effect is modest;
+  `[BENNETT26]`'s raw gap is large) — plausibly reconciled by different
+  samples (BCC's is SME-heavy by design, 84% ≤250 employees, so it may
+  under-represent the largest firms driving `[BENNETT26]`'s "44%" figure) and
+  different methods (controlled regression vs raw ONS trend), not a
+  contradiction requiring further resolution before treating "firm size
+  correlates with AI adoption" as reasonably well-supported. However, the
+  sharper and more actionable finding — supported directly by `[BCC-ISER26]`'s
+  data, not an inference — is that the disparity is really about **depth of
+  implementation** (generic tool use vs bespoke/integrated deployment) more
+  than about using AI at all. This reframes the project's hypothesis: SMEs
+  and individuals are not simply "left out of AI" (most now use generic
+  tools) — they lack access to the bespoke-implementation capability that
+  requires dedicated AI integrators, which is where `[BCC-ISER26]` shows the
+  real economic effects concentrate.
+- **Limitations / conflicting evidence:** Both sources are cross-sectional/
+  observational; `[BCC-ISER26]`'s authors explicitly caution against causal
+  interpretation and note their bespoke-adopter subsample is small (65
+  firms) — findings on "deep integration" (3.5% of firms) are described by
+  the authors themselves as "indicative rather than definitive." A
+  significant complication for the project's likely framing: `[BCC-ISER26]`
+  finds a "replace-and-train" pattern — firms investing in AI training are
+  *more* likely to expect headcount reductions, not less (14% vs 4%), and
+  this holds even after controlling for restructuring. This complicates any
+  simple "AI literacy protects individual workers" narrative — building
+  bespoke AI capability, including at the individual level, could equally
+  accelerate an employer's ability to restructure a role. Neither source was
+  cited by the other, and neither was found via a search deliberately
+  framed to find the *opposite* of the size-disparity claim (a
+  "SME-advantage" search in this same session surfaced only vendor-interested
+  content-marketing claims — see Entry 020's search log — not credible
+  disconfirming academic evidence), so the disconfirming side of this pair is
+  currently weak. Flagged in Open Threads as a gap.
+- **Effect on project direction:** Meaningfully sharpens rather than simply
+  confirms the hypothesis. The evidence supports a firm-size/resource
+  disparity in AI adoption *depth* (generic vs bespoke), which is a more
+  precise and defensible claim than a blanket "large orgs benefit, small
+  ones don't." This suggests the project's differentiator should be framed
+  around helping individuals and SME employees build **bespoke, tailored AI
+  implementations** — the specific thing `[BCC-ISER26]` shows requires
+  resources (dedicated integrators) that SMEs typically lack — rather than
+  generic tool literacy alone, which most SMEs already have. It also
+  surfaces a genuine tension the project should address explicitly rather
+  than gloss over: capability-building of this kind could help an individual
+  become more valuable/secure, or could equally help their employer automate
+  their role — the "replace-and-train" finding means this isn't a
+  straightforwardly feel-good thesis, and PROJECT_BRIEF.md's responsible-use
+  framing should account for it.
+
+### Entry 030 — Testing the "local/hybrid AI as cost and capability equalizer" hypothesis
+
+- **Date logged:** 2026-07-24
+- **Priority / Question:** Second half of the same hypothesis (Priority 6:
+  "When does hands-on local AI provide educational value beyond using a
+  cloud application?" / "Which tasks are better suited to local, cloud or
+  hybrid processing?").
+- **Source:** `[LOCALAI-COST26]`, `[LOCALAI-CAPABILITY26]` — both are
+  aggregated search-engine syntheses of multiple vendor/SaaS-blog sources,
+  **not independently fetched or verified**; treated as directional leads
+  only, consistent with this log's practice of flagging unverified
+  aggregate claims rather than citing them as settled fact.
+- **Checked date:** 2026-07-24
+- **What the source directly supports (directional only, unverified):**
+  Local/self-hosted models reportedly become cheaper than cloud APIs only
+  above a fairly high usage threshold (roughly 500K–2M tokens/day per one
+  aggregated estimate) — below that, cloud remains cheaper once hardware,
+  electricity and maintenance are counted, not just per-token price. Upfront
+  hardware costs range from ~$700 (a used consumer GPU, low end) to
+  $20,000–$30,000 (production-grade multi-GPU setups). On capability, local/
+  open-weight models reportedly lag frontier cloud models by anywhere from
+  3–6 months to 12–18 months depending on the source and benchmark, with the
+  gap most pronounced on complex multi-step agentic tasks and least
+  pronounced on common tasks like document processing, summarisation and
+  classification. Multiple sources converge on recommending a **hybrid**
+  architecture (local for privacy-sensitive/high-volume/production use,
+  cloud for capability-critical or variable workloads) rather than a pure
+  local-replaces-cloud approach.
+- **Inference drawn:** If directionally correct, this complicates rather
+  than confirms the "local AI as straightforward equalizer" framing: the
+  break-even usage threshold and hardware capital outlay could make local
+  AI *less* accessible for a genuinely resource-constrained individual or
+  micro-business than for a well-capitalised firm — the opposite of an
+  equalizing effect, unless usage patterns or hardware-sharing models change
+  that calculus. This is an inference from the (unverified) figures, not a
+  claim any source makes explicitly.
+- **Limitations / conflicting evidence:** This is the weakest-sourced entry
+  in the log to date — no individual source was fetched and read directly;
+  all figures come from a search engine's own aggregation across multiple
+  vendor-interested blogs (several appear to be SaaS/dev-tooling content
+  marketing, plausibly incentivised to make one side of the cost comparison
+  look favourable). The specific numbers (break-even thresholds, benchmark
+  gaps) should not be treated as reliable without direct primary-source
+  verification in a future pass. The directional shape (hybrid is the
+  practical answer; pure local isn't uniformly cheaper or more capable) is
+  more plausible than any single number here, if only because it recurred
+  across independently-named sources.
+- **Effect on project direction:** The honest, appropriately hedged
+  takeaway is that "local/hybrid AI reduces cost and increases
+  independence" is **not a safe assumption to build the project's thesis
+  on without further, better-sourced verification** — it may be true for
+  some use cases (privacy-sensitive, high-volume, production) and false for
+  others (typical individual/SME usage volumes, where cloud may remain
+  cheaper and more capable). This actually validates PROJECT_BRIEF.md's
+  existing "local, cloud and hybrid" framing (plural, comparative) over a
+  "local AI is the answer" framing — the project's original instinct to
+  treat this as a *comparison to teach*, not a solution to prescribe, is
+  better supported by this pass than a stronger local-AI-equalizer claim
+  would have been. Before this technical claim is used in any external-facing
+  document (cf. the government-recognition aim in
+  [[project_government_recognition_goal]]), it needs primary-source
+  verification — flagged in Open Threads.
+
+### Entry 031 — Instro AI as a live illustration of the "bespoke gap" (extends Entry 029)
+
+- **Date logged:** 2026-07-24
+- **Priority / Question:** Extends Entry 029's finding that SMEs' real gap is
+  *depth of AI implementation* (generic tools vs bespoke, integrator-built
+  systems), not AI access itself. Suggested by the project's creator as a
+  candidate case-study source.
+- **Source:** `[INSTRO26]`, `[INSTRO-TRIAL26]`
+- **Checked date:** 2026-07-24
+- **What the source directly supports:** Instro AI Solutions is a UK-based
+  company doing precisely the "dedicated AI integrator" role Entry 029
+  identifies as scarce among SMEs — bespoke generative-AI systems integrated
+  into a client's existing ERP/CRM/QMS infrastructure ("integration-first,
+  not rip-and-replace"), for manufacturing, engineering and education
+  clients, hosted on AWS with UK-based implementation support. An
+  Innovation-funded trial coordinated with AMRC Cymru and reported by
+  independent trade press (`[INSTRO-TRIAL26]`) gives named, measured
+  outcomes: Colchester Machine Tool Solutions cut engineering response
+  times 67.3% (5.5 to 1.8 minutes); Poeton Industries cut first-response
+  times 40–65%; Star Micronics saw technical decision-making accelerate
+  44.6% across 1,222 uses. Critically, AMRC Cymru's own technical lead is
+  quoted identifying the real bottleneck: not model capability, but
+  "fragmented legacy data... carried for decades" and how information is
+  organised across documents, systems and records.
+- **Inference drawn:** This is a concrete, named illustration of Entry 029's
+  abstract finding — the barrier to real AI benefit at SMEs is
+  organisational/data/implementation maturity, not access to capable models.
+  Read alongside the "replace-and-train" and vendor-dependency findings
+  (Entries 029, 032), a further inference (the project's own synthesis, not
+  stated by either source) follows: engaging an integrator like Instro
+  closes the *implementation* gap effectively — the trial results are real
+  and substantial — but does not, on the evidence available, obviously
+  close the *understanding* gap: the client's own team gains a working tool,
+  not necessarily the internal capability to evaluate, extend, govern or
+  eventually reduce dependency on that system themselves.
+- **Limitations / conflicting evidence:** `[INSTRO26]`'s own homepage
+  provides no named case studies or figures — all concrete outcomes come from
+  `[INSTRO-TRIAL26]`, a single trade-press article; the underlying
+  AMRC Cymru trial report itself has not been read directly. This is a
+  small, self-selected sample of manufacturing SME trial participants (not
+  representative of SMEs broadly), and the trial was funded innovation
+  support rather than a normal commercial engagement, which may not
+  reflect typical cost/outcome ratios for an SME paying full price. As a
+  vendor, Instro has a direct commercial interest in a narrative where
+  integrator-led bespoke AI is the answer — tagged accordingly. The
+  "outsourcing understanding" reading above is this project's own
+  interpretation, not a claim made by either source or by Instro itself.
+- **Effect on project direction:** Sharpens the project's differentiation
+  question concretely. Instro (and companies like it) appear to do the
+  *implementation* work well and demonstrably — this is not a gap Grounded
+  AI Practice should try to compete on. The differentiation opportunity is
+  specifically the *understanding* layer: helping individuals and SME staff
+  build the internal capability to evaluate, question, and eventually reduce
+  blind dependency on vendor-delivered AI systems, complementing rather than
+  competing with integrators. Worth testing further (see Entry 032) before
+  treating "outsourcing understanding" as an established phenomenon rather
+  than this project's working hypothesis.
+
+### Entry 032 — "Outsourcing understanding": conceptual backing from buy-vs-build theory
+
+- **Date logged:** 2026-07-24
+- **Priority / Question:** Directly tests the project creator's proposed
+  concept (2026-07-24) that outsourcing AI integration to vendors means, to
+  some degree, "outsourcing understanding." Bears on Priority 3 (which
+  capabilities are transferable vs vendor-specific) and Priority 6
+  (technical/conceptual scope).
+- **Source:** `[BUYBUILD-KLOTZ26]`
+- **Checked date:** 2026-07-24
+- **What the source directly supports:** A theoretical/conceptual paper
+  applying classical "buy vs build" transaction-cost and resource-based
+  theory to agentic AI enterprise software decisions. Core argument: relying
+  on bought (SaaS/vendor) AI solutions requires minimal internal development
+  capability — convenient for firms without strong internal capability, but
+  this "forecloses the development of internal AI capabilities," creating
+  potential long-term strategic dependency. The paper frames organisational
+  capability as a threshold variable: below a minimum level of internal AI
+  development capability, in-house building is not viable "regardless of
+  how favorable other factors may be" — meaning firms below that threshold
+  are structurally pushed toward buying, which in turn keeps them below the
+  threshold, a self-reinforcing dynamic.
+- **Inference drawn:** This gives the "outsourcing understanding" concept
+  real theoretical grounding — it isn't a novel idea invented for this
+  project, but a documented pattern in the buy-vs-build/outsourcing
+  literature applied here specifically to AI. The self-reinforcing
+  "capability threshold" dynamic described is a stronger, more precise
+  version of the project's original framing: it's not just that vendors
+  don't transfer understanding, but that never building any internal
+  capability can structurally trap a firm below the threshold where
+  building becomes viable at all — a genuine vicious cycle, if the paper's
+  theoretical claim holds empirically.
+- **Limitations / conflicting evidence:** This is explicitly
+  theoretical/conceptual, not empirical — no survey, case data, or
+  quantitative test of the capability-threshold claim is presented in what
+  was read. Single-authored, hosted on arXiv without a clear institutional
+  affiliation or confirmed peer review, so it should be weighted as a
+  reasoned argument worth testing, not as established fact. No disconfirming
+  search was run for this specific claim (e.g. evidence that vendor
+  relationships sometimes *do* transfer capability, through training,
+  co-development or staged handover models) — flagged in Open Threads.
+- **Effect on project direction:** Combined with Entry 031's concrete
+  illustration, this gives "outsourcing understanding" real standing as a
+  framing concept for the project — not proof, but a defensible, theoretically
+  grounded hypothesis worth building the project's differentiation around:
+  Grounded AI Practice's value is in raising organisations/individuals
+  *above* the capability threshold where they can meaningfully evaluate,
+  direct, and eventually reduce dependence on vendor-delivered AI — a
+  distinct and complementary role to integrators like Instro, not a
+  competing one. This is a stronger, more theoretically-grounded version of
+  the project's original "local/hybrid as equalizer" framing (Entry 030),
+  and notably doesn't depend on the shakier local-vs-cloud cost/capability
+  claims that entry flagged as unverified — capability-building is the
+  mechanism, not a specific local/cloud technical choice.
+
+### Entry 033 - Correction: "outsourcing understanding" framing retracted (supersedes Entry 032)
+
+- **Date logged:** 2026-07-24
+- **Priority / Question:** Correction, per this log's convention of not
+  silently altering prior entries (see document status note at the top of
+  this log).
+- **Source:** Direct instruction from the project's creator, 2026-07-24.
+- **What changed:** The project's creator judged the "outsourcing
+  understanding" framing (Entry 032, and its application to Instro AI in
+  Entry 031) to be (a) unfair to Instro specifically - casting a company
+  doing genuinely effective integration work as a source of a "dependency
+  trap" was not the intent and is not a fair characterisation of what Instro
+  does - and (b) not well supported as a general claim, consistent with
+  Entry 032's own logged caveats (single-author preprint, no institutional
+  affiliation confirmed, no disconfirming search run, theoretical not
+  empirical).
+- **Effect on project direction:** The "outsourcing understanding" / buy-vs-build
+  capability-threshold framing is retracted as a thesis element. Entry
+  031's underlying findings about Instro AI remain valid and useful - it
+  continues to serve as a concrete, well-evidenced example of successful
+  bespoke AI integration for UK SMEs (the AMRC Cymru trial results:
+  Colchester Machine Tool Solutions, Poeton Industries, Star Micronics), and
+  as an illustration of Entry 029's implementation-depth finding. It should
+  be used and referenced only in that scope - as a positive example of
+  current integration options - not as a foil for a vendor-dependency
+  narrative. `[BUYBUILD-KLOTZ26]` is retained in the source key for
+  traceability but should not be cited going forward.
+
+### Entry 034 - Half two, refined: task/workflow specialisation, not local AI per se, is the real mechanism
+
+- **Date logged:** 2026-07-24
+- **Priority / Question:** Refines Entry 030 per direct guidance from the
+  project's creator (2026-07-24): local AI is not a realistic standalone
+  solution for SMEs/individuals; hybrid use - running local/smaller models
+  specifically for custom, private work - is the realistic pattern; and the
+  broader, more important idea is that task/workflow specialisation
+  can produce better results for fewer tokens using less powerful models,
+  which the creator suggested illustrating via Claude Code. Bears on
+  Priority 4 (learning design) and Priority 6 (technical scope).
+- **Source:** `[CHEN-VAROQUAUX26]` (primary, rigorous academic survey);
+  `[AGENTMESH26]` (unverified aggregate, directionally consistent).
+- **Checked date:** 2026-07-24
+- **What the source directly supports:** `[CHEN-VAROQUAUX26]` is a
+  systematic survey (Imperial College London / Inria) examining small
+  models' (SMs) relationship to LLMs through Collaboration and
+  Competition/Complementarity. Its central architectural argument directly
+  supports the creator's framing: "rather than replacing one with the other,
+  the optimal ecosystem is hybrid" - small/specialised models handling
+  cost-effective, well-defined roles, large models supporting and guiding
+  them. Specifically relevant mechanisms it documents: model cascading
+  (a small model handles a query first; only queries it can't confidently
+  answer are escalated to a larger model), model routing (a router
+  directs each input to the most appropriate model in a pool based on task
+  type), and speculative decoding (a small model drafts, a large model
+  verifies) - all empirically-grounded techniques for "adaptive allocation"
+  of compute that "preserves performance where needed while substantially
+  reducing overall cost." The survey identifies three scenarios where
+  small/specialised models are genuinely favoured on evidence, not just
+  cost: computation-constrained environments (edge/low-latency), narrow
+  task-specific environments (domain-specific data, tabular reasoning, short
+  text - where "narrow semantic scope reduces the need for large contextual
+  understanding"), and interpretability-required environments (healthcare,
+  finance, law). It also cites Belcak et al. (2025) directly on point:
+  "small language models are the future of agentic ai," arguing SMs suit
+  the "many small, specialised, and repetitive tasks" that make up agentic
+  systems.
+- **Inference drawn:** Claude Code's own architecture (separate from any
+  source read here - this is the project's own observation, not a claim
+  made by `[CHEN-VAROQUAUX26]`) is a live, inspectable illustration of
+  exactly this pattern: a capable orchestrating model handles ambiguous,
+  multi-step planning, while scoped subagents and skills handle
+  well-defined sub-tasks with narrower context - a practical instance of the
+  task-decomposition/specialisation principle the survey documents
+  academically. This is a strong candidate worked example for Priority 4
+  (learning design) - it lets the project teach "specialise the task, not
+  just the model" using a tool learners may already have direct access to,
+  rather than requiring them to set up local model infrastructure to see
+  the principle in action.
+- **Limitations / conflicting evidence:** The survey's Section 5
+  ("Limitations of Small Models") is an important balance: small/specialised
+  models show weak generalisation on complex multi-step reasoning, degrade
+  under distribution shift, and are prone to catastrophic forgetting -
+  specialisation is a genuine trade-off, not a free efficiency gain, and the
+  survey is explicit that the advantage comes from "a better alignment
+  between task complexity and available data," not from small models being
+  broadly as capable. `[AGENTMESH26]` remains an unverified vendor-blog
+  aggregate and is cited only because its directional claims converge with
+  the credible academic source, not as independent evidence in its own
+  right. No claim here has been tested specifically against UK SME/individual
+  usage patterns - this is a general technical-architecture finding, not
+  audience-specific evidence.
+- **Effect on project direction:** This gives the project a stronger,
+  better-evidenced version of half two than either the original "local AI as
+  equalizer" framing (now dropped per Entry 030's own hedging) or a vague
+  hybrid gesture. The teachable mechanism is: match task complexity to model
+  capability rather than defaulting every task to the largest available
+  model - genuinely useful, evidence-backed practical AI literacy, and
+  demonstrable via tools (like Claude Code) learners can observe directly,
+  not just via hardware/local-model setup. This also sidesteps the
+  unresolved local-vs-cloud cost verification gap (Entry 030) entirely: the
+  specialisation principle holds regardless of whether the "smaller model"
+  in question is local or a smaller cloud-hosted model.
+
 <!--
 Entry template (for reference — remove once first real entry is added):
 
@@ -759,7 +1587,153 @@ becomes relevant to Priority 2's audience decision.
   own right.
 - **No UK-specific evidence on unsafe/over-dependent AI use** — the only
   relevant data found (Entry 007) is a global survey with no UK breakdown.
-- **Priority 5 (comparable products and programmes) untouched** — no research
-  yet on roadmap.sh, LeetCode, or existing AI-literacy programmes. PRIMES
-  (Entry 012) is a strong candidate to compare any future learning design
-  against.
+
+**Resolved this pass (2026-07-24, second pass):**
+- ~~Priority 5 (comparable products and programmes) untouched~~ — substantially
+  addressed (Entries 020–024): roadmap.sh and LeetCode's progression/
+  completion mechanics (Entry 020), Elements of AI as the strongest
+  comparable AI-literacy programme found (Entry 021), a direct independent
+  critique of the AI Skills Hub naming Elements of AI as the model it should
+  have followed (Entry 022, sharpens Entry 018), the Royal Society's
+  systematic review of 20 frameworks and 6 international case studies
+  (Entry 023 — high value for design lessons, but scoped to children/schools,
+  not this project's current adult/workforce audience, so must not be cited
+  as adult-population evidence), and a second independently-framed UK
+  capability framework converging on a similar shape to Skills England's
+  (Entry 024). PRIMES (Entry 012) remains a strong candidate to compare any
+  future learning design against, now joined by Elements of AI's structural
+  model (short modular chapters, no prerequisites, peer review, vendor-
+  neutral) as a second concrete reference point.
+
+**Still open after this pass:**
+- Codecademy, Khan Academy, freeCodeCamp and other general (non-AI-specific)
+  learning-platform comparables named implicitly by Priority 5's "comparable
+  learning systems" framing have not yet been checked — roadmap.sh and
+  LeetCode were prioritised as the two platforms RESEARCH_QUESTIONS.md names
+  explicitly.
+- No comparable found yet that is (a) AI-literacy-specific, (b) UK-based,
+  and (c) targeted at general adult/public audiences rather than schools,
+  the AI-sector workforce, or a specific employment sector — Elements of AI
+  is the closest match but is Finnish in origin. Worth a dedicated check
+  before the Priority 2 audience decision is finalised, if a general-public
+  audience remains a live candidate.
+
+**Resolved this pass (2026-07-24, Priority 4 pass):**
+- ~~Priority 4 (learning design) had only PRIMES-by-name and no detailed
+  sequencing/personalisation/misconception evidence~~ — substantially
+  addressed (Entries 026–028): PRIMES' full accreditation criteria read
+  directly (Entry 026, supersedes the Entry 012 summary), a named
+  evidence-based sequencing model (Gradual Release of Responsibility, Entry
+  027) matching RESEARCH_QUESTIONS.md's own sequencing question, and a
+  confirm/disconfirm pair on whether AI-literacy training actually reduces
+  overconfidence/automation bias (Entry 028).
+
+**Still open after this pass:**
+- **`[AUTOBIAS-MED25]` (Entry 028) is unverified** — the primary source
+  (medRxiv PDF) returned HTTP 403 on fetch; the claim that AI-trained
+  physicians still showed automation bias rests only on a search engine's
+  own synthesis of the abstract. Needs a direct read (or an alternative
+  access route) before being treated as more than a lead.
+- Adult-learning-specific pedagogy (andragogy, self-directed learning
+  theory) has not been checked against the Gradual Release of Responsibility
+  model borrowed from K-12 practice in Entry 027 — flagged there as an
+  unexamined transfer assumption.
+- PRIMES' criteria are written for *employers* designing *workforce*
+  training (Entry 026) — some criteria assume an organisational sponsor
+  (paid learning time, workplace systems) that may not apply if Priority 2
+  lands on an individual/public audience rather than a workplace one. Not
+  yet reconciled.
+
+**Resolved this pass (2026-07-24, benefit-inequality hypothesis test):**
+- The user's proposed thesis — that AI benefits accrue disproportionately to
+  well-resourced organisations, and that local/hybrid AI could be an
+  equalizer — was tested directly against primary evidence (Entries
+  029–030). Verdict: the first half is well-supported but sharper than
+  originally framed (the real gap is adoption *depth* — generic vs bespoke
+  implementation — not simple AI use); the second half is not currently
+  safe to assume (local AI's cost/capability advantage is threshold- and
+  use-case-dependent, and unverified vendor-sourced figures shouldn't be
+  relied on without further checking).
+
+**Still open after this pass:**
+- **No credible disconfirming evidence found yet for the SME/large-firm
+  adoption-depth gap** (Entry 029) — the search for a "SME advantage"
+  counter-narrative surfaced only vendor-interested content-marketing
+  claims, not academic or independent evidence. A dedicated search for
+  peer-reviewed or ONS/government evidence specifically disputing the
+  size-adoption relationship would strengthen (or usefully complicate) this
+  finding before it becomes foundational to the project's thesis.
+- **`[LOCALAI-COST26]` and `[LOCALAI-CAPABILITY26]` are unverified aggregate
+  search syntheses** (Entry 030), not primary sources — before any
+  local/hybrid cost or capability claim appears in an external-facing
+  document, at least 2-3 of the underlying individual sources should be
+  fetched and read directly, or a UK-specific/independent source (e.g.
+  academic computing cost-benchmarking) should be found instead.
+- The "replace-and-train" finding (Entry 029) — that AI training investment
+  is associated with *higher*, not lower, expected headcount reductions —
+  has not yet been reconciled with the project's implicit assumption that
+  building AI capability benefits the individual learner. This is a
+  genuine tension for the project's responsible-use framing, not yet
+  addressed.
+
+**Resolved this pass (2026-07-24, "outsourcing understanding" refinement):**
+- ~~Half one needed a concrete illustration and a name for the
+  implementation-vs-understanding distinction~~ — addressed via Entries
+  031–032. Instro AI (suggested by the project's creator) provides a real,
+  named UK case study of the integrator role with measured outcomes; a
+  buy-vs-build theory paper gives the "outsourcing understanding" concept
+  genuine theoretical grounding rather than leaving it as an unsupported
+  turn of phrase. The project's differentiation angle has sharpened further:
+  not competing with integrators on implementation, but building the
+  capability layer above them.
+
+**Still open after this pass:**
+- **Half two (local/hybrid AI cost/capability claims) remains unverified** —
+  a follow-up attempt to fetch a primary source (SitePoint) was blocked
+  (HTTP 403). Still needs 2–3 directly-read sources, or a non-blog
+  independent/academic source, before use in any external-facing document.
+- **No disconfirming search run yet on the "outsourcing understanding"
+  claim** (Entry 032) — e.g. cases where vendor engagements *do* transfer
+  capability through staged handover, co-development or embedded training
+  models, which would complicate a blanket framing.
+- **Instro-specific claims rest on one trade-press article and Instro's own
+  homepage** (Entry 031) — the underlying AMRC Cymru trial report has not
+  been read directly, and results come from a funded innovation trial, not
+  necessarily representative of a typical paid engagement.
+
+**Resolved this pass (2026-07-24, correction and half-two refinement):**
+- ~~"Outsourcing understanding" needed testing~~ — retracted per direct
+  creator instruction (Entry 033), not carried forward. Instro AI's case
+  study value (Entry 031) is preserved but scoped strictly to "example of
+  successful integration," per the creator's explicit direction.
+- ~~Half two needed a realistic, better-evidenced reframing~~ — done (Entry
+  034): local AI dropped as a standalone SME/individual solution; the
+  evidenced mechanism is now task/workflow specialisation and model
+  cascading/routing (strong academic backing, Chen & Varoquaux 2026),
+  illustrated via Claude Code's own subagent/skills architecture as a
+  worked example for Priority 4.
+
+**Still open after this pass:**
+- The Claude-Code-as-illustrative-example connection (Entry 034) is this
+  project's own inference, not sourced from the academic literature — worth
+  a lighter validation pass later (e.g. checking whether Anthropic's own
+  published material frames Claude Code's subagent design in these terms)
+  before treating it as more than a useful teaching analogy.
+
+**Resolved this pass (2026-07-24, Priority 2 working decision):**
+- ~~Primary audience undecided~~ — the project's creator made an explicit,
+  provisional working decision: individuals seeking practical everyday AI
+  literacy generally, with particular attention to employees at small
+  organisations lacking employer-provided L&D infrastructure. Recorded in
+  PROJECT_BRIEF.md ("Primary audience (working decision — 24 July 2026)"),
+  drawing on Entries 012, 019, 021, plus the AI Skills Hub/PRIMES
+  employer-assumption gap surfaced in Entries 022/025/026. Explicitly marked
+  as subject to change, not a closed question — the PRIMES-assumes-an-employer
+  reconciliation point immediately above is now the sharpest open sub-question
+  under this working decision, since PRIMES' criteria (Entry 026) may need
+  adaptation, not wholesale adoption, for an individual/small-org audience
+  without a sponsoring employer.
+- Priority 2's other sub-questions from RESEARCH_QUESTIONS.md (specific
+  barriers/needs for this *combined* audience, whether "small organisation
+  employees" should later be split into narrower sub-groups) remain open and
+  are not resolved by this decision alone.
