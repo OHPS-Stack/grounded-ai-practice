@@ -38,24 +38,79 @@ Each entry contains:
 
 ---
 
+## Research calibration for the current project stage (added 2026-07-24)
+
+The bias-mitigation discipline above remains valid, but the project is still
+in scoping — outlining direction, not producing citable final claims — so the
+practical application of it is deliberately lighter for now:
+
+- **Source scope, going forward:** prefer official/government sources
+  (gov.uk, ONS, Parliament), independent academic sources (universities,
+  established research institutes), and established international bodies.
+  Vendor/commercial and advocacy sources are deprioritised, not banned —
+  they're still useful for spotting a claim worth checking, but not treated
+  as evidence on their own for anything scope-defining.
+- **Confirm/disconfirm pairing applies to foundational claims only** — the
+  ones that would actually change project direction — not to every
+  statistic. Exhaustive adversarial verification of every entry is deferred
+  to dedicated deep-research passes later, once scope is firmer and the
+  cost of a dedicated pass is justified by what's riding on the answer.
+- **Known unresolved tensions are parked, not chased further right now:**
+  the technical-vs-literacy framing question (Entry 001 vs. Entry 002 vs.
+  Entry 012) and the gap-widening-vs-declining conflict (Entry 002 vs.
+  Entry 006) remain open, flagged for a dedicated pass later rather than
+  something to keep re-litigating in every session. General research from
+  here should inform direction without needing every internal tension fully
+  resolved first.
+
+A review of this log's own contents on 2026-07-24 found a real problem: every
+search run so far was framed to find evidence *for* an AI capability gap, none
+were framed to test the opposite, and most sources found have a commercial or
+institutional interest in reporting a large gap (recruitment firms,
+consultancies, training vendors, or bodies whose funding is tied to
+demonstrating need). This is confirmation bias in both query design and
+source selection. See Entry 013 for the specific correction.
+
+Going forward, this log follows two additional rules:
+
+1. **Paired search discipline.** For any foundational or headline claim, a
+   "does the opposite hold" or "is this framing contested" search is run
+   alongside the confirming search — not as an afterthought, but before the
+   claim is logged as evidence.
+2. **Source interest tagging.** The Source key table below now includes an
+   "Interest" column, classifying each source as `Independent/Academic`,
+   `Government/Official`, `Vendor/Commercial`, or `Advocacy/Membership body`.
+   This makes it possible to see at a glance how concentrated the evidence
+   base is in parties with a stake in the answer — which was invisible while
+   this information only existed inside individual entries.
+
 ## Source key
 
 Full citation is given once here; log entries below cite the short tag only.
 
-| Tag | Full source |
-|---|---|
-| `[GT-DSIT25]` | Gardiner & Theobald for DSIT, *AI Labour Market Survey 2025 report*, published 28 Jan 2026 — PRIMARY, read directly. assets.publishing.service.gov.uk/media/6960ef384343a0da370869b7/AI_Labour_Market_Survey_2025_report.pdf |
-| `[MPG26]` | ManpowerGroup, 2026 Talent Shortage Survey (UK: 2,261 businesses). manpowergroup.co.uk |
-| `[ONS23]` | ONS, "Understanding AI uptake and sentiment among people and businesses in the UK" (June 2023), cross-checked against the DSIT/CDEI Public Attitudes to Data and AI tracker. ons.gov.uk; rtau.blog.gov.uk |
-| `[BCC26]` | British Chambers of Commerce summary of a claimed February 2026 Parliamentary briefing — UNVERIFIED, see Entry 009. britishchambers.org.uk/news/2026/04 |
-| `[TURING-ADA]` | Alan Turing Institute / Ada Lovelace Institute, nationally representative UK public-attitudes-to-AI surveys (2023 and 2025). turing.ac.uk/research/research-projects/understanding-public-attitudes-ai |
-| `[BLDN26]` | BusinessLDN / Greater London Authority AI and Jobs Taskforce survey (July 2026). resultsense.com/news/2026-07-21 |
-| `[GOTO26]` | GoTo / Workplace Intelligence, "Pulse of Work in 2026" survey (2,500 respondents, 10 countries incl. UK). workplaceintelligence.com; businesswire.com |
-| `[CBP10003]` | House of Commons Library Research Briefing, "AI regulation in the UK," CBP-10003, 10 June 2026, by Elizabeth Rough — PRIMARY, read directly. researchbriefings.files.parliament.uk/documents/CBP-10003/CBP-10003.pdf |
-| `[SE-AMEEN25]` | Dr Nisreen Ameen (Royal Holloway) for Skills England/DSIT, *AI Skills for the UK Workforce*, 30 Oct 2025 — read via secondary summaries only. gov.uk |
-| `[DSIT-PROD26]` | UK Government, *Assessment of AI capabilities and the impact on the UK labour market*, 28 Jan 2026 — PRIMARY, read directly. gov.uk/government/publications/assessment-of-ai-capabilities-and-the-impact-on-the-uk-labour-market |
-| `[EY26]` | EY UK AI upskilling research, as reported via ivee.jobs/blog/uk-ai-skills-gap — secondary source only. |
-| `[SE-WHATWORKS26]` | Dr Nisreen Ameen, British Academy Policy-Led Innovation Fellowship / Skills England, *What Works for AI Upskilling in the UK: Research evidence, analysis and methodology*, 10 June 2026 — PRIMARY, read directly. assets.publishing.service.gov.uk/media/6a26c8d02cdcfdb7436ac0a6/research_evidence_analysis_and_methodology.pdf |
+| Tag | Interest | Full source |
+|---|---|---|
+| `[GT-DSIT25]` | Government-commissioned / Consultancy-authored | Gardiner & Theobald for DSIT, *AI Labour Market Survey 2025 report*, published 28 Jan 2026 — PRIMARY, read directly. assets.publishing.service.gov.uk/media/6960ef384343a0da370869b7/AI_Labour_Market_Survey_2025_report.pdf |
+| `[MPG26]` | Vendor/Commercial (recruitment firm) | ManpowerGroup, 2026 Talent Shortage Survey (UK: 2,261 businesses). manpowergroup.co.uk |
+| `[ONS23]` | Independent/Official statistics | ONS, "Understanding AI uptake and sentiment among people and businesses in the UK" (June 2023), cross-checked against the DSIT/CDEI Public Attitudes to Data and AI tracker. ons.gov.uk; rtau.blog.gov.uk |
+| `[BCC26]` | Advocacy/Membership body — UNVERIFIED | British Chambers of Commerce summary of a claimed February 2026 Parliamentary briefing — see Entry 009. britishchambers.org.uk/news/2026/04 |
+| `[TURING-ADA]` | Independent/Academic | Alan Turing Institute / Ada Lovelace Institute, nationally representative UK public-attitudes-to-AI surveys (2023 and 2025). turing.ac.uk/research/research-projects/understanding-public-attitudes-ai |
+| `[BLDN26]` | Advocacy/Membership body (business membership org + consultancy) | BusinessLDN / Greater London Authority AI and Jobs Taskforce survey (July 2026). resultsense.com/news/2026-07-21 |
+| `[GOTO26]` | Vendor/Commercial (software company) | GoTo / Workplace Intelligence, "Pulse of Work in 2026" survey (2,500 respondents, 10 countries incl. UK). workplaceintelligence.com; businesswire.com |
+| `[CBP10003]` | Independent/Official (Parliamentary research service) | House of Commons Library Research Briefing, "AI regulation in the UK," CBP-10003, 10 June 2026, by Elizabeth Rough — PRIMARY, read directly. researchbriefings.files.parliament.uk/documents/CBP-10003/CBP-10003.pdf |
+| `[SE-AMEEN25]` | Government-commissioned / Academic author | Dr Nisreen Ameen (Royal Holloway) for Skills England/DSIT, *AI Skills for the UK Workforce*, 30 Oct 2025 — PRIMARY, read directly. gov.uk |
+| `[DSIT-PROD26]` | Government/Official | UK Government, *Assessment of AI capabilities and the impact on the UK labour market*, 28 Jan 2026 — PRIMARY, read directly. gov.uk/government/publications/assessment-of-ai-capabilities-and-the-impact-on-the-uk-labour-market |
+| `[EY26]` | Vendor/Commercial (consultancy) | EY UK AI upskilling research, as reported via ivee.jobs/blog/uk-ai-skills-gap — secondary source only. |
+| `[SE-WHATWORKS26]` | Government-commissioned / Academic author | Dr Nisreen Ameen, British Academy Policy-Led Innovation Fellowship / Skills England, *What Works for AI Upskilling in the UK*, 10 June 2026 — PRIMARY, read directly. assets.publishing.service.gov.uk/media/6a26c8d02cdcfdb7436ac0a6/research_evidence_analysis_and_methodology.pdf |
+| `[CRS-SKILLSGAP]` | Independent/Official (US Congressional Research Service) | Congressional Research Service, "Skills Gaps: A Review of Underlying Concepts and Evidence," Congress.gov, R47059. congress.gov/crs-product/R47059 |
+| `[FASTCO-MYTH]` | Independent commentary (opinion/trade press) | Fast Company, "The skills gap is a myth," Jan 2026. fastcompany.com/91469508/the-skills-gap-is-a-myth |
+| `[ONS-BICS26]` | Independent/Official statistics | ONS, "Artificial intelligence in UK businesses: 2023 to 2026" and "Business insights and impact on the UK economy" bulletin (2 July 2026), Business Insights and Conditions Survey (BICS) — PRIMARY, read directly. ons.gov.uk/businessindustryandtrade/business/businessservices/articles/artificialintelligenceinukbusinesses/2023to2026 |
+| `[DFE-TECHSURVEY25]` | Government/Official (DfE, fieldwork by independent agency IFF Research) | Department for Education, *Technology in Schools Survey: 2024 to 2025*, Nov 2025 — PRIMARY, read directly. assets.publishing.service.gov.uk/media/692834a6ce50d215cae9610e/Technology_in_schools_survey_2024_to_2025_research_report.pdf |
+| `[DFE-EARLYADOPTERS25]` | Government/Official | Department for Education, "The biggest risk is doing nothing: insights from early adopters of AI in schools and FE colleges," June 2025 — PRIMARY, read directly (includes a cited National Literacy Trust figure, not independently re-verified). gov.uk/government/publications/ai-in-schools-and-further-education-findings-from-early-adopters |
+| `[PEARSON25]` | Vendor/Commercial (ed-tech/publishing company promoting its own AI certification products) | Pearson, *Pearson School Report 2025*, cited via stocktitan.net — secondary source, flagged for its commercial interest. |
+| `[SE-TOOLSPKG25]` | Government/Official (Skills England, authored by Dr Nisreen Ameen) | Skills England / DfE, *AI skills tools package* (AI Skills Framework, Adoption Pathway Model, Employer Adoption Checklist), updated 4 Nov 2025 — PRIMARY, read directly. gov.uk/government/publications/ai-skills-for-the-uk-workforce/ai-skills-tools-package |
+| `[AISKILLSHUB]` | Government/Official (Innovate UK, in partnership with Skills England; delivery supported by PwC and industry partners) | UK AI Skills Hub, a national training-navigation platform under the BridgeAI programme, expanded 28 Jan 2026 to all UK adults with an ambition to upskill 10 million workers by 2030 — read via aiskillshub.org.uk/about-us/ and secondary coverage (direct fetch of the homepage returned a 402 error). |
+| `[SE-ANNUAL26]` | Government/Official | Skills England, *Annual Skills Report 2026*, 1 June 2026, especially Chapter 3 "Accelerating adoption of AI" — PRIMARY, read directly. assets.publishing.service.gov.uk/media/6a19740bb95db968c8f3bc3d/skills_england_annual_skills_report_2026.pdf |
 
 ---
 
@@ -118,23 +173,45 @@ Full citation is given once here; log entries below cite the short tag only.
   "practical AI capability" over a narrowly technical one — relevant to
   Priority 3.
 
-### Entry 003
+### Entry 003 (updated with current data 2026-07-24)
 
-- **Date logged:** 2026-07-24
+- **Date logged:** 2026-07-24 (originally), updated 2026-07-24
 - **Priority / Question:** Priority 1 — "What reliable evidence exists about
   AI use, understanding and capability in the UK public..."
-- **Source:** `[ONS23]`
+- **Source:** `[ONS23]` (original baseline) and `[ONS-BICS26]` (current
+  trend, added on update)
 - **Checked date:** 2026-07-24
-- **What the source directly supports:** 72% of UK adults could give at least
-  a partial explanation of AI (May 2023 ONS Opinions and Lifestyle Survey),
-  up from 56% a year earlier (2022 CDEI tracker). In the month before the
-  2023 survey, 5% of adults used AI "a lot," 45% "a little," 50% not at all.
-- **Inference drawn:** None — figures stated directly by the source.
-- **Limitations / conflicting evidence:** Data is from 2022–2023, over two
-  years old; usage and awareness have very likely shifted substantially
-  since. No 2025/2026 ONS wave found yet.
-- **Effect on project direction:** Useful as a historical baseline only —
-  should not be cited as current evidence without a more recent wave.
+- **What the source directly supports:** Original 2022–2023 baseline: 72% of
+  UK adults could give at least a partial explanation of AI (May 2023), up
+  from 56% a year earlier; only 5% used AI "a lot" in the prior month.
+  **Updated with `[ONS-BICS26]` (business-side, current):** since September
+  2023, the average number of AI technologies used per business has risen
+  only modestly, from around 1.4 to 1.6 by June 2026 — ONS's own
+  interpretation is that this implies relatively limited transformative
+  impact so far for most AI-adopting firms. The clearest growth is in large
+  language model use (text generation), up from roughly 5% to 17–18% of
+  businesses with 10+ employees since Sept 2023; visual content creation
+  rose similarly. Older (2023) sector data shows adoption concentrated in
+  services (9%) versus manufacturing (5%) and construction (3%). Public
+  sector 2023 data shows AI use highest in central government (47%), health
+  boards and local government (42% each), lower in fire/police (30%), and
+  lowest in education (24%) among the categories tracked.
+- **Inference drawn:** None — figures stated directly by ONS.
+- **Limitations / conflicting evidence:** ONS explicitly labels the business
+  AI figures "official statistics in development" and advises caution. The
+  adoption measure only captures whether a business uses *any* of a list of
+  specific technologies — it doesn't distinguish trial/light use from
+  deep, production-level use, so headline "adoption" figures likely overstate
+  genuine embedded capability. The sector and public-sector breakdowns are
+  still 2023-vintage even in this update; only the business-technology-type
+  figures are current to June 2026.
+- **Effect on project direction:** No longer just a historical baseline —
+  now shows a genuine, official, current trend: adoption is rising but
+  unevenly and modestly, with education the lowest-adopting public-sector
+  category tracked. Useful if education becomes a candidate audience
+  (Priority 2), and useful independent counterweight to the vendor-sourced
+  "urgent gap" framing in Entries 001/002/012 — ONS's own read is closer to
+  "slow, uneven change" than "crisis."
 
 ### Entry 004
 
@@ -153,23 +230,39 @@ Full citation is given once here; log entries below cite the short tag only.
   evidence for the core problem statement if verified — flagged as a priority
   for primary-source verification (see Open threads).
 
-### Entry 005
+### Entry 005 (updated with findings 2026-07-24)
 
 - **Date logged:** 2026-07-24
-- **Priority / Question:** Priority 1 and Priority 2 (audience and need) —
-  identifies a strong existing evidence programme to draw on.
-- **Source:** `[TURING-ADA]`
+- **Priority / Question:** Priority 1 and Priority 2 (audience and need,
+  especially equity dimensions).
+- **Source:** `[TURING-ADA]` — wave 2 (fieldwork 2024/25, published 2025):
+  Modhvadia, Sippy, Field Reid & Margetts, "How Do People Feel About AI?
+  Wave two... designed through a lens of equity and inclusion," Ada Lovelace
+  Institute and Alan Turing Institute — read directly.
 - **Checked date:** 2026-07-24
-- **What the source directly supports:** Confirms the existence of a
-  repeated, methodologically strong, nationally representative UK survey
-  programme covering AI awareness, experience, harms, and views on
-  governance.
-- **Inference drawn:** Likely one of the best-evidenced sources available for
-  this project — inference, not yet confirmed by reading the full reports.
-- **Limitations / conflicting evidence:** Only the project description page
-  has been read so far, not the actual 2025 report findings.
-- **Effect on project direction:** High-priority source to read in full next;
-  candidate as a primary evidence base for the project's problem statement.
+- **What the source directly supports:** Nearly three-quarters of the
+  British public say laws and regulation would make them more comfortable
+  with AI, up from 62% in 2023. Strong majorities see clear benefit in
+  specific high-stakes uses: 91% for facial recognition in policing, 86% for
+  AI-driven cancer risk assessment; 63% see general-purpose LLMs as
+  beneficial overall. Notable equity finding: 80% of each surveyed
+  minoritised ethnic group see general-purpose LLMs as beneficial, compared
+  with 63% of the general population — higher, not lower, perceived benefit.
+  Separately, people on lower incomes and those with fewer digital skills are
+  less likely to perceive AI as beneficial — a different-direction pattern
+  from the ethnicity finding, not a contradiction of it.
+- **Inference drawn:** None stated as fact by the source; noted as a genuine
+  tension in the findings, not smoothed over.
+- **Limitations / conflicting evidence:** The authors themselves caution that
+  even where sample sizes for specific minoritised groups are large enough
+  to report, these remain broad categories (e.g. "Bangladeshi") that obscure
+  real diversity within them.
+- **Effect on project direction:** Upgrades this from "a strong survey
+  programme exists" to real, usable findings. Directly relevant to Priority
+  2: perceived benefit and need don't map onto a single "disadvantaged
+  groups are more sceptical" assumption — some groups see more benefit in
+  some AI uses and less in others, which argues against treating "the
+  underserved" as a single undifferentiated group when defining an audience.
 
 ### Entry 006
 
@@ -331,6 +424,214 @@ Full citation is given once here; log entries below cite the short tag only.
   specific, evidenced barrier patterns per group rather than a single
   undifferentiated "the public" audience.
 
+### Entry 013 — Bias check on the evidence base as a whole
+
+- **Date logged:** 2026-07-24
+- **Priority / Question:** Meta — applies across Priority 1 and the evidence
+  underlying Entries 001, 002, 004 (unverified), 006, 008, 010, 012.
+- **Source:** `[CRS-SKILLSGAP]`, `[FASTCO-MYTH]`, plus a structural review of
+  this log's own source list (see updated Source key "Interest" column).
+- **Checked date:** 2026-07-24
+- **What the source directly supports:** `[CRS-SKILLSGAP]` (US-focused, not
+  AI-specific) documents recognised measurement problems with "skills gap"
+  claims generally: employer-reported vacancies can reflect turnover rather
+  than genuine skill shortages, and employers' own skill requirements shift
+  over time as firms change processes — meaning a reported "gap" can
+  partly reflect employer-side change rather than worker deficit.
+  `[FASTCO-MYTH]` argues a specific sector's "skills gap" is better
+  characterised as a knowledge-transfer gap (retiring experts' undocumented
+  knowledge) than a training deficiency — an alternative framing, not a
+  UK-specific rebuttal. Separately, reviewing this log's own Source key
+  shows 5 of 13 sources are Vendor/Commercial (recruitment firms,
+  consultancies, software vendors) and 2 more are Advocacy/Membership
+  bodies — a majority of the evidence base has some institutional interest
+  in reporting a gap.
+- **Inference drawn:** The searches conducted for Priority 1 so far were
+  framed exclusively to find evidence *for* a capability gap; no searches
+  were run to test the opposite or to check whether "skills gap" as a
+  category is itself contested. This is a process failure, not just a
+  source-quality issue — it would have persisted regardless of how many
+  more confirming sources were added.
+- **Limitations / conflicting evidence:** Neither `[CRS-SKILLSGAP]` nor
+  `[FASTCO-MYTH]` is UK-specific or AI-specific, and neither proves the UK AI
+  capability gap described in PROJECT_BRIEF.md doesn't exist. They establish
+  that the concept is measurement-contested in general, which is a reason for
+  caution, not a disconfirmation of Entries 001–012.
+- **Effect on project direction:** Does not overturn prior entries, but
+  changes how they should be read: employer/employee self-report survey
+  statistics on "AI skills gaps" should be treated as one contested framing
+  among others, not as settled fact, until independently corroborated. Also
+  changes research process going forward — see the new "Bias-mitigation
+  discipline" note above this log's entries.
+
+### Entry 016 — Education sector (fills previously open gap)
+
+- **Date logged:** 2026-07-24
+- **Priority / Question:** Priority 1 — fills the "no education-sector-
+  specific evidence" gap flagged since the first pass.
+- **Source:** `[DFE-TECHSURVEY25]`, `[DFE-EARLYADOPTERS25]`; `[PEARSON25]`
+  noted separately as vendor context, not core evidence.
+- **Checked date:** 2026-07-24
+- **What the source directly supports:** Half of teachers in England
+  responding to a DfE survey now use generative AI tools; of those who
+  don't, 64% say they don't know enough about AI to use it in their role.
+  32% of school/college leaders in England are not considering any changes
+  to account for AI. A National Literacy Trust survey (cited within the DfE
+  report, not independently re-verified here) found the proportion of
+  13–18-year-olds who say they've used generative AI rose from 37% in 2023
+  to 77% in 2024 — a very fast rise if accurate. DfE's own framing across
+  both reports is cautious: adoption is real but early-stage and uneven, not
+  a settled transformation.
+- **Inference drawn:** None stated as fact by DfE; the National Literacy
+  Trust figure is reported secondhand via the DfE document, not checked
+  against the original NLT publication.
+- **Limitations / conflicting evidence:** `[PEARSON25]` (a vendor survey,
+  14,000+ respondents) reports lower teacher confidence — only 9% of
+  teachers feel confident *teaching* AI, 23% not confident *using* it — but
+  as an ed-tech company actively promoting its own AI certification products,
+  it's flagged per this log's interest-tagging convention rather than
+  treated as equivalent to the DfE figures. A TES headline referencing a
+  paper by a former DfE adviser warning uncritical generative AI use could
+  risk pupil "cognitive collapse" was noted but not read in full — flagged
+  as a lead for a future pass, not logged as a finding.
+- **Effect on project direction:** Closes a real gap in the evidence base.
+  DfE's own posture — real but early, uneven adoption, with confidence
+  varying sharply by teacher — is consistent with the "slow, uneven change"
+  reading from Entry 003 (ONS) rather than the "urgent crisis" framing from
+  the vendor-heavy sources. Useful if education becomes a candidate
+  audience or comparison sector for Priority 2/5.
+
+### Entry 017 — AI Skills Framework, Adoption Pathway, and Employer Checklist
+
+- **Date logged:** 2026-07-24
+- **Priority / Question:** Priority 3 (capability definition) and Priority 4
+  (learning design) — directly, not tangentially.
+- **Source:** `[SE-TOOLSPKG25]`
+- **Checked date:** 2026-07-24
+- **What the source directly supports:** A full, official skills framework
+  dividing AI skills into three domains — technical, responsible/ethical,
+  non-technical — across three job levels (entry, mid, managerial), explicitly
+  designed to be cumulative (higher levels retain lower-level skills like AI
+  literacy, prompt writing, output evaluation) rather than replacing them.
+  Explicitly aligns with the UK Standard Skills Classification, the SFIA AI
+  Skills Framework, and the Alan Turing Institute's AI Skills for Business
+  Competency Framework. A companion 9-stage Adoption Pathway Model (Awareness
+  → Exploration → Assessment → Experimentation → Reflection → Upskilling →
+  Integration → Strategy → Scaling) links organisational maturity to which
+  skill types become critical at each stage. A companion Employer AI
+  Adoption Checklist provides self-assessment prompts across strategic
+  alignment, experimentation, skills/capacity, risk, equity/inclusion,
+  support, and evaluation. Notably, the source states non-technical skills
+  (critical thinking, describing AI's relevance to your role, adapting to
+  new tools) were identified by workshop participants as "the most urgently
+  needed" — not technical skills.
+- **Inference drawn:** None — content read directly from the primary
+  document.
+- **Limitations / conflicting evidence:** The framework's authors state it
+  does not yet address sector-specific technical/ethical demands (health,
+  finance, creative, etc. all vary) and should be treated as a starting
+  point rather than a finished standard. It is explicitly derived from the
+  same evidence base as Entries 010/012, so it isn't independent
+  corroboration — it's the same research programme's output.
+- **Effect on project direction:** This is a genuine candidate reference
+  point for defining "practical AI capability" (Priority 3) and structuring
+  a learning pathway (Priority 4) — potentially more directly usable than
+  building a framework from scratch, consistent with the project's stated
+  approach of learning from existing work rather than imitating a whole
+  product. The "non-technical skills are most urgently needed" finding is
+  also a second, independent-ish confirmation of the literacy-over-technical
+  framing first suggested in Entry 002.
+
+### Entry 018 — UK AI Skills Hub (Priority 5 — comparable existing programme)
+
+- **Date logged:** 2026-07-24
+- **Priority / Question:** Priority 5 — comparable products and programmes;
+  also relevant to Priority 10 (positioning/sustainability).
+- **Source:** `[AISKILLSHUB]`
+- **Checked date:** 2026-07-24
+- **What the source directly supports:** A live, government-backed national
+  platform (Innovate UK, with Skills England and PwC/industry support) that
+  curates AI training resources for employers and individuals, benchmarked
+  against Skills England's AI Foundation Skills standard. Initially focused
+  on four sectors (agriculture/food processing, construction, creative, and
+  transport/logistics/warehousing) under the BridgeAI programme, then
+  expanded on 28 Jan 2026 to all UK adults, with a stated ambition to
+  upskill 10 million workers by 2030. Offers curated course libraries, a
+  diagnostic/personalised pathway tool, sector use cases, and a completion
+  badge aligned to the official skills benchmark.
+- **Inference drawn:** None stated as fact; direct homepage fetch failed (402
+  error), so this entry relies on the site's own "About us" page plus
+  secondary press coverage rather than a full first-hand read of the
+  platform itself.
+- **Limitations / conflicting evidence:** Scale and funding here are very
+  different from anything Grounded AI Practice could realistically build —
+  this is a large, funded, multi-partner national platform, not a
+  comparable-sized project. The comparison value is in understanding what
+  already exists and where it does or doesn't serve the project's intended
+  audience, not in matching its scale.
+- **Effect on project direction:** Directly answers a previously untouched
+  Priority 5 question: a well-resourced, official comparable already
+  exists and directly targets UK workforce AI upskilling. This raises a
+  real question for later: what would Grounded AI Practice do differently
+  or in addition to this platform, rather than duplicate it? Worth reading
+  the platform itself directly (not just its About page) in a future pass.
+
+### Entry 019 — Skills England Annual Skills Report 2026 (Chapter 3: AI)
+
+- **Date logged:** 2026-07-24
+- **Priority / Question:** Priority 1 (evidence and problem framing), Priority
+  3 (capability definition) — a major source for both.
+- **Source:** `[SE-ANNUAL26]`
+- **Checked date:** 2026-07-24
+- **What the source directly supports:** The UK's high AI exposure means
+  significant potential benefit — OECD (2025) estimates AI could lift UK
+  productivity growth by 0.4 to 1.3 percentage points over the next decade;
+  IMF analysis (Cazzaniga et al., 2024) estimates around 70% of UK workers
+  are in occupations containing tasks AI could perform or enhance. AI
+  exposure is highest in professional, analytical, higher-paid occupations
+  (cognitive, clerical, data-driven work) and lowest in construction and
+  hospitality. On organisational adoption, ONS (2025) data shows firms with
+  stronger management practices are more likely to adopt AI and realise
+  productivity gains; common barriers are cost/time of implementation, lack
+  of relevant skills, and difficulty identifying viable use cases —
+  especially acute for SMEs despite their usual agility advantage. PwC's AI
+  Jobs Barometer (2025) finds UK employer requirements for AI roles evolving
+  66% faster than other jobs, with a 56% wage premium for AI-skilled
+  workers, and finds AI is "largely being used to support workers rather
+  than replace them." Directly relevant to the technical-vs-literacy framing
+  question open since Entry 001/002: Skills England states, drawing on the
+  Ameen "AI Skills for the UK Workforce" research, that most workers will
+  require practical AI literacy (using, verifying, and safely integrating AI
+  tools) while only a smaller share need specialist technical skills, with
+  employers valuing judgement, problem-solving, collaboration, and
+  responsible AI capability over routine technical execution. The report
+  also introduces a distilled "AI foundation skills for work" benchmark: 6
+  foundation skills across 3 domains (technical, non-technical, responsible/
+  ethical) underpinning the national AI Skills Boost / AI Skills Hub
+  programme (see Entry 018).
+- **Inference drawn:** None beyond what's stated.
+- **Limitations / conflicting evidence:** Notably, the report itself
+  presents a genuine, unresolved disagreement rather than picking a side:
+  KCL research (Klein Teeselink, 2025) and Adzuna (2026) data suggest AI is
+  hurting graduate/entry-level hiring (firms cutting junior roles, fewer
+  vacancies, graduate ads down 45% in 2025), while the LinkedIn Economic
+  Graph Research Institute and an FT analysis (Burn-Murdoch & O'Connor,
+  2026) find no clear evidence AI specifically (rather than post-COVID or
+  cyclical effects) is driving the graduate slowdown. Skills England's own
+  conclusion is "too early to say." This is a good model of the
+  confirm/disconfirm discipline discussed earlier in this log — worth
+  noting as an example, not just a data point. As with Entries 010/012/017,
+  this report draws on the same Ameen research programme for its literacy-
+  vs-technical conclusion, so it isn't fully independent corroboration.
+- **Effect on project direction:** Likely the single most load-bearing
+  official source found so far for both Priority 1 and Priority 3. It gives
+  authoritative current national context, explicit official support for a
+  literacy-first (not technical-first) capability definition, and a
+  ready-made official skills benchmark to reference for Priority 3/4. The
+  technical-vs-literacy tension flagged since Entry 001 is now well-supported
+  toward "literacy first" — not fully independently resolved, but no longer
+  an open coin-flip either.
+
 ### Entry 008
 
 - **Date logged:** 2026-07-24
@@ -392,7 +693,52 @@ section is updated as entries are added, not filled in ahead of time.*
   addressed (Entry 012): SMEs appear consistently across barrier categories
   (cost, informal skills going unrecognised, limited internal capacity).
 
+**Resolved this pass:**
+- ~~Stale ONS baseline~~ — updated (Entry 003) with current official data
+  through June 2026. ONS's own framing is "slow, uneven adoption," a useful
+  independent counterweight to vendor-sourced "urgent gap" claims.
+- ~~Turing/Ada Lovelace findings unread~~ — done (Entry 005 upgraded). Real
+  findings now logged, including a genuine equity nuance rather than a
+  single "disadvantaged = more sceptical" story.
+
+**Resolved this pass:**
+- ~~No education-sector-specific evidence~~ — filled (Entry 016). DfE's own
+  data shows real but early, uneven adoption — consistent with the ONS
+  "slow, uneven change" reading rather than the vendor-sourced "crisis"
+  framing.
+
+**Resolved this pass:**
+- ~~Priority 3/4 capability definition~~ — a genuine candidate framework now
+  exists (Entry 017) rather than needing to be built from scratch.
+- ~~Priority 5 comparables~~ — no longer completely untouched (Entry 018): a
+  well-resourced official comparable exists, raising a real differentiation
+  question for later.
+
+**Partially followed up:** Skills England's Annual Skills Report has now
+been read directly (Entry 019). Its companion Sectoral Skills Needs
+Assessments (10 sector-specific reports, published alongside it) have not
+been read individually — flagged as a lead for later if a specific sector
+becomes relevant to Priority 2's audience decision.
+
+**Resolved this pass:**
+- ~~Skills England Annual Skills Report unread~~ — read directly (Entry
+  019). Confirms this was worth prioritising: it's the strongest single
+  official source found for Priority 1/3 so far.
+
+**Substantially addressed, not fully closed:**
+- **Technical-vs-literacy framing tension** (open since Entry 001/002) — now
+  has explicit official backing toward "practical literacy first, technical
+  specialism for a smaller share" (Entry 019), though this traces back to
+  the same Ameen research programme as Entries 010/012/017 rather than
+  fully independent triangulation.
+
 **Still open:**
+- **Systematic re-check needed on prior "skills gap" claims** (Entry 013) —
+  no entry so far has been tested against disconfirming evidence or an
+  independent replication. Priority: find UK-specific, non-commercial
+  sources (academic, ONS, independent think tank) that either corroborate or
+  complicate Entries 001, 002, 006, 008, 010, 012 before treating the
+  "capability gap" as settled.
 - **The 21%-of-adults figure could not be verified** (Entry 009) — checked
   the most likely Commons Library briefing directly and it isn't there.
   Either find the correct February 2026 briefing or drop this claim.
