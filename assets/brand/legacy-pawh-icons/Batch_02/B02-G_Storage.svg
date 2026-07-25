@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <title>B02-G Storage — reconstruction candidate v02</title>
+  <desc>Three-tier storage cylinder with a coral middle band and two coral status dots. Outer outline is layered last for clean tier joins.</desc>
+
+  <defs>
+    <clipPath id="cylinder-clip">
+      <path d="M106 134
+               C106 100 173 76 256 76
+               C339 76 406 100 406 134
+               L406 378
+               C406 412 339 436 256 436
+               C173 436 106 412 106 378 Z"/>
+    </clipPath>
+  </defs>
+
+  <!-- White cylinder body -->
+  <path d="M106 134
+           C106 100 173 76 256 76
+           C339 76 406 100 406 134
+           L406 378
+           C406 412 339 436 256 436
+           C173 436 106 412 106 378 Z"
+        fill="#FFFFFF"/>
+
+  <!-- Coral middle storage tier -->
+  <path d="M106 226
+           C106 258 173 282 256 282
+           C339 282 406 258 406 226
+           L406 310
+           C406 342 339 366 256 366
+           C173 366 106 342 106 310 Z"
+        fill="#FF5A1F" clip-path="url(#cylinder-clip)"/>
+
+  <!-- Top face -->
+  <ellipse cx="256" cy="134" rx="150" ry="58"
+           fill="#FFFFFF" stroke="#0F1C2F" stroke-width="14"/>
+
+  <!-- Tier separators -->
+  <path d="M106 226
+           C106 258 173 282 256 282
+           C339 282 406 258 406 226"
+        stroke="#0F1C2F" stroke-width="14" fill="none"
+        stroke-linecap="butt"/>
+
+  <path d="M106 310
+           C106 342 173 366 256 366
+           C339 366 406 342 406 310"
+        stroke="#0F1C2F" stroke-width="14" fill="none"
+        stroke-linecap="butt"/>
+
+  <!-- Outer cylinder outline, drawn last to cleanly contain tier fills -->
+  <path d="M106 134
+           C106 100 173 76 256 76
+           C339 76 406 100 406 134
+           L406 378
+           C406 412 339 436 256 436
+           C173 436 106 412 106 378 Z"
+        fill="none" stroke="#0F1C2F" stroke-width="14"
+        stroke-linejoin="round"/>
+
+  <!-- Status dots -->
+  <circle cx="366" cy="224" r="10" fill="#FF5A1F"/>
+  <circle cx="366" cy="374" r="10" fill="#FF5A1F"/>
+</svg>

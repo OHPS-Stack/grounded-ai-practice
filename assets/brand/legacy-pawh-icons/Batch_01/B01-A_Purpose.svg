@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <title>B01-A Purpose — reconstruction candidate v16</title>
+  <desc>Tail placement and size preserved. Tail border reduced further. Negative space remains created by masking the circles where the arrow intersects them.</desc>
+  <defs>
+    <mask id="arrow-clearance" maskUnits="userSpaceOnUse" x="0" y="0" width="512" height="512">
+      <rect x="0" y="0" width="512" height="512" fill="white"/>
+      <!-- Shaft clearance, slightly wider than the shaft itself -->
+      <line x1="256" y1="256" x2="400" y2="136" stroke="black" stroke-width="26" stroke-linecap="round"/>
+      <!-- Tail clearance uses the enlarged traced tail plus a modest stroke to leave negative space -->
+      <polygon points="478.4,102.9 441.7,98.1 441.2,66.7 432.0,61.4 387.6,104.8 381.3,148.8 437.4,148.8" fill="black" stroke="black" stroke-width="12" stroke-linejoin="round" stroke-linecap="round"/>
+    </mask>
+  </defs>
+
+  <!-- Rings stop where the arrow occupies space; no visible white stroke is drawn on the arrow itself. -->
+  <g mask="url(#arrow-clearance)" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="256" cy="256" r="140" stroke="#0F1C2F" stroke-width="16"/>
+    <circle cx="256" cy="256" r="90" stroke="#D1D8E0" stroke-width="16"/>
+    <circle cx="256" cy="256" r="42" stroke="#FF5A1F" stroke-width="16"/>
+  </g>
+
+  <g stroke="#0F1C2F" stroke-width="16" stroke-linecap="round">
+    <line x1="256" y1="102" x2="256" y2="130"/>
+    <line x1="256" y1="382" x2="256" y2="410"/>
+    <line x1="102" y1="256" x2="130" y2="256"/>
+    <line x1="382" y1="256" x2="410" y2="256"/>
+  </g>
+
+  <!-- Arrow body preserved; no white underlay. -->
+  <line x1="256" y1="256" x2="391" y2="142" stroke="#0F1C2F" stroke-width="16" stroke-linecap="round"/>
+  <polygon points="478.4,102.9 441.7,98.1 441.2,66.7 432.0,61.4 387.6,104.8 381.3,148.8 437.4,148.8" fill="#0F1C2F" stroke="#0F1C2F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+  <polygon points="428.2,84.1 400.2,111.1 400.7,131.4 428.2,104.8" fill="#FF5A1F"/>
+  <polygon points="455.2,112.1 434.5,111.6 407.4,138.1 428.2,139.1" fill="#FF5A1F"/>
+</svg>

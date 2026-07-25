@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <title>B01-B Information — reconstruction candidate v02</title>
+  <desc>Refined vector reconstruction from the approved visual reference. Candidate only; not yet approved or locked.</desc>
+  <path d="M 360 324
+           L 372.5 373
+           L 321 360
+           A 127 129 0 1 1 360 324
+           Z"
+        fill="none" stroke="#0F1C2F" stroke-width="16"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="256" cy="190" r="16.5" fill="#FF5A1F"/>
+  <rect x="245" y="230" width="23" height="79" rx="8.5" fill="#FF5A1F"/>
+  <rect x="233" y="226" width="35" height="20" rx="10" fill="#FF5A1F"/>
+  <rect x="232" y="300" width="51" height="19" rx="9.5" fill="#FF5A1F"/>
+</svg>

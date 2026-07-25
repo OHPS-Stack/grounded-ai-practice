@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <title>B05-D Research and Sources — reconstruction candidate v01</title>
+  <desc>Document with folded corner and three text lines, overlaid by a magnifying glass with coral handle.</desc>
+
+  <!-- Document -->
+  <path d="M150 106
+           H296
+           L350 160
+           V332
+           Q350 354 328 354
+           H150
+           Q128 354 128 332
+           V128
+           Q128 106 150 106 Z"
+        fill="#FFFFFF"
+        stroke="#0F1C2F"
+        stroke-width="14"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+  <!-- Folded corner -->
+  <path d="M296 106 V160 H350"
+        fill="none"
+        stroke="#0F1C2F"
+        stroke-width="14"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+  <!-- Document text -->
+  <g stroke="#0F1C2F" stroke-width="12"
+     stroke-linecap="round" stroke-linejoin="round">
+    <line x1="164" y1="184" x2="246" y2="184"/>
+    <line x1="164" y1="232" x2="262" y2="232"/>
+    <line x1="164" y1="280" x2="232" y2="280"/>
+  </g>
+
+  <!-- Magnifier handle, drawn below the lens -->
+  <line x1="354" y1="342" x2="406" y2="394"
+        stroke="#0F1C2F" stroke-width="24"
+        stroke-linecap="round"/>
+  <line x1="354" y1="342" x2="406" y2="394"
+        stroke="#FF5A1F" stroke-width="13"
+        stroke-linecap="round"/>
+
+  <!-- Magnifier lens -->
+  <circle cx="316" cy="304" r="62"
+          fill="#FFFFFF"
+          stroke="#0F1C2F"
+          stroke-width="14"/>
+</svg>

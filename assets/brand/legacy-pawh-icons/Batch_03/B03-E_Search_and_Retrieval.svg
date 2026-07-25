@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <title>B03-E Search and Retrieval — correction candidate v02</title>
+  <desc>Existing lens and content geometry preserved. Handle enlarged slightly, made solid charcoal, and extended beneath the lens outline for a seamless join.</desc>
+
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <!-- Handle drawn first and extended beneath the lens border for a seamless connection -->
+    <path d="M294 294 L408 408"
+          stroke="#0F1C2F" stroke-width="32" fill="none"/>
+
+    <!-- Existing lens retained -->
+    <circle cx="220" cy="220" r="116"
+            stroke="#0F1C2F" stroke-width="14" fill="#FFFFFF"/>
+
+    <!-- Existing inspected-content lines retained -->
+    <line x1="164" y1="184" x2="276" y2="184"
+          stroke="#AEB7C3" stroke-width="12"/>
+    <line x1="164" y1="220" x2="276" y2="220"
+          stroke="#FF5A1F" stroke-width="12"/>
+    <line x1="164" y1="256" x2="252" y2="256"
+          stroke="#AEB7C3" stroke-width="12"/>
+  </g>
+</svg>

@@ -99,10 +99,21 @@ open threads). Key standing rules:
 
 ## Where to look for what
 
-- `PROJECT_BRIEF.md` — problem statement, scope, what's decided vs. open.
+- `PROJECT_BRIEF.md` — problem statement, scope, what's decided vs. open
+  (including the "Visual identity" working decisions: palette, logo type,
+  tone).
 - `RESEARCH_QUESTIONS.md` — the ten priority areas and their questions.
 - `RESEARCH_LOG.md` — source key (with interest-type tags), dated log
   entries, and the Open Threads list showing what's resolved vs. still open.
+- `assets/brand/legacy-pawh-icons/` — inherited PAWH content-icon library
+  (navy/orange). Superseded palette, confirmed incorrect against the current
+  brand decision — shape/structure reference only, not current-palette
+  assets.
+- `assets/brand/logo/candidates/` — locked logo symbol candidates (working,
+  not final — see `PROJECT_BRIEF.md` "Visual identity" for status).
+- `assets/brand/logo/creative_brief.md` — portable creative brief for
+  external logo-generation workflows (not a project research/decision
+  document itself).
 
 ## Claude's memory: what's in the repo vs. outside it
 

@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="302" height="318" viewBox="0 0 302 318" version="1.1" id="grounded_symbol_v01" shape-rendering="geometricPrecision">
+<title>Grounded AI Practice — Symbol candidate v01</title>
+<desc>Working candidate, locked 2026-07-24, refined 2026-07-24 (two passes) per creator's annotated feedback. Pass 2 changes: (1) page_white_fill's left cap rebuilt as a true mirror-symmetric C-shape (yellow-box feedback — was two mismatched curve halves meeting the top edge at a slightly sharp angle; both halves now genuinely mirror about the vertical centre, tangent is vertical at the leftmost point, and the top/bottom edges now both start at x=47 instead of 49/45); (2) terminal_handbook_body's right-side flap edge (formerly a curve from ~(266,245) to (284,229)) changed to a straight line per red-arrow feedback; (3) the curve feeding into that flap (from (263,290) to (266,245)) rebuilt with evenly-spaced control points for a cleaner, more symmetrical single bow per blue-arrow feedback. active_underline still unchanged — purple-box resize/proportion feedback remains pending. Palette unchanged: Ink #27221E body, Ember #F15E4B underline, white page/chevron/cursor.</desc>
+<g id="symbol_element">
+  <path id="page_white_fill" d="M47 232 H241 C253 232 262 241 262 252 V273 C262 284 253 293 242 293 H47 C30 293 17.5 281 17.5 262.5 C17.5 244 30 232 47 232 Z" fill="#FFFFFF" />
+  <path id="terminal_handbook_body" d="M39 24 H249 C260 24 273 31 273 47 V210 C273 220 268 226 261 230 C257 233 252 235 247 236 H52 C37 240 20 250 18 265 C16 280 28 290 46 290 H263 C264 278 265 257 266 245 L284 229 V299 C284 304 282 307 278 307 H41 C22 307 6 292 6 272 V52 C6 32 15 24 39 24 Z" fill="#27221E" />
+  <g id="prompt_group" transform="translate(-13.8,-10.94) scale(1.12)">
+    <path id="prompt_chevron" d="M58 84 L98 116 L58 150" fill="none" stroke="#FFFFFF" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" />
+    <path id="prompt_underscore" d="M119 163.5 H170.5" fill="none" stroke="#FFFFFF" stroke-width="16" stroke-linecap="round" />
+  </g>
+  <rect id="active_underline" x="47" y="255.5" width="194" height="16" rx="8" ry="8" fill="#F15E4B" />
+</g>
+</svg>

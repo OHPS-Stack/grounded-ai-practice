@@ -127,11 +127,30 @@ Full citation is given once here; log entries below cite the short tag only.
 | `[BENNETT26]` | Independent/Academic (University of Cambridge, Bennett School of Public Policy) | Poquiz & Nguyen, "What does firm-level data tell us about AI adoption in the UK?", Bennett School blog, 13 April 2026, drawing on ONS Management and Expectations Survey and Business Insights and Conditions Survey — read via WebFetch summary, not the full primary analysis. bennettschool.cam.ac.uk/blog/ai-adoption-in-the-uk |
 | `[LOCALAI-COST26]` | Vendor/Commercial (multiple SaaS/dev-tooling blogs — aggregate search synthesis, individual sources NOT independently fetched/verified) | Aggregate of local-vs-cloud-LLM cost comparison posts (PromptCost.org, SitePoint, Fungies.io, promptquorum.com, Swfte AI, kunalganglani.com, pristren.com), 2026 — UNVERIFIED beyond search-engine synthesis; treat directional consensus only, not individual figures, as indicative. |
 | `[LOCALAI-CAPABILITY26]` | Vendor/Commercial (multiple SaaS/AI-infra blogs — aggregate search synthesis, individual sources NOT independently fetched/verified) | Aggregate of local-vs-frontier-model capability comparison posts (MindStudio, Qubrid AI, TechPlanet, byteiota, promptquorum.com), 2026 — UNVERIFIED beyond search-engine synthesis; treat directional consensus only, not individual figures, as indicative. |
-| `[INSTRO26]` | Vendor/Commercial (UK bespoke AI integration company; source suggested by the project's creator, who has stated "an understanding and interest" in the company — noted for provenance transparency, exact nature of interest not further specified) | Instro AI Solutions, instro.ai — read directly (homepage). UK-based bespoke generative-AI integrator for manufacturing, engineering and education sectors; "integration-first, not rip-and-replace." |
+| `[INSTRO26]` | Vendor/Commercial (UK bespoke AI integration company; suggested by the project's creator as a research lead) | Instro AI Solutions, instro.ai — read directly (homepage). UK-based bespoke generative-AI integrator for manufacturing, engineering and education sectors; "integration-first, not rip-and-replace." |
 | `[INSTRO-TRIAL26]` | Independent trade press (IT Brief UK, part of the TechDay specialist network) reporting on an Innovation-funded trial coordinated with AMRC Cymru (Advanced Manufacturing Research Centre, a Welsh applied-research/innovation body) — treated as independent of Instro's own marketing, though it reports the vendor's own trial results | "Instro AI trials cut engineering response times by 67%," itbrief.co.uk — read directly. Reports named UK manufacturer outcomes (Colchester Machine Tool Solutions, Poeton Industries, Star Micronics) from an AMRC Cymru-coordinated trial. |
 | `[BUYBUILD-KLOTZ26]` | Independent — preprint, institutional affiliation unclear, theoretical/conceptual not empirical, single author | Klotz, D., "The Buy-or-Build Decision, Revisited: How Agentic AI Changes the Economics of Enterprise Software," arXiv:2604.26482 — read directly. Superseded framing, see Entry 033: the project's creator judged this concept unsupported and unfair to Instro as applied here. Retained in the source key for traceability only. |
 | `[CHEN-VAROQUAUX26]` | Independent/Academic (Imperial College London; Inria Saclay) | Chen, L. & Varoquaux, G., "What is the Role of Small Models in the LLM Era: A Survey," arXiv:2409.06857v7 (this version dated 19 Feb 2026) — PRIMARY, read directly in full. Systematic survey, not empirical original research, but grounded in and citing extensive empirical literature. |
 | `[AGENTMESH26]` | Vendor/Commercial (multiple AI-infra/SaaS blogs — aggregate search synthesis, individual sources NOT independently fetched/verified) | Aggregate of "Executive-Worker" / heterogeneous agentic mesh architecture posts (Medium, futureagi.com, MindStudio, Glean), 2026 — UNVERIFIED beyond search-engine synthesis; the general pattern described (orchestrator model + specialised worker models) converges with `[CHEN-VAROQUAUX26]`'s academically-grounded model-cascading/routing literature, which is the credible version of this claim. |
+| `[SE-FOUNDATIONBENCH26]` | Government/Official (Skills England/DSIT) | UK Government, *AI foundation skills for work benchmark*, gov.uk — PRIMARY, read directly. gov.uk/government/publications/ai-foundation-skills-for-work/ai-foundation-skills-for-work-benchmark |
+| `[TADIMALLA-MAHER25]` | Independent/Academic (peer-reviewed AAAI journal) | Tadimalla, S.Y. & Maher, M.L., "AI literacy as a core component of AI education," *AI Magazine* (Wiley/AAAI), 2025 — read via WebFetch/search synthesis of the abstract and a ResearchGate-hosted copy; full text paywalled on Wiley (HTTP 402), **not read in full** — treat as a verified-abstract-level read, not a complete primary read. onlinelibrary.wiley.com/doi/10.1002/aaai.70007 |
+| `[SAIL4ALL25]` | Independent/Academic (peer-reviewed, *Humanities and Social Sciences Communications*/Springer Nature; validated on UK samples) | "The scale of artificial intelligence literacy for all (SAIL4ALL): assessing knowledge of artificial intelligence in all adult populations," 2025 — read via search-engine synthesis of the abstract/structure only; direct fetch blocked by a Nature.com login wall, **not read in full**. nature.com/articles/s41599-025-05978-3 |
+| `[WAGNER26]` | Independent commentary (opinion blog/Substack, no disclosed institutional affiliation — weak/low-credibility, flagged accordingly) | Michael G. Wagner, "Beyond the Tool: Why True AI Literacy is About Critical Thinking, Not Prompting," *The Augmented Educator* (Substack) — read directly via WebFetch. theaugmentededucator.com/p/beyond-the-tool-why-true-ai-literacy |
+| `[HALLUC-AWARE26]` | Vendor/Commercial (multiple AI-training/content-marketing blogs — aggregate search synthesis, NOT independently fetched/verified) | Aggregate of workplace-AI-literacy-training blog posts (Thirst, GoWinston, Articulate, Ajaia) citing an unattributed "only 28% of adults know AI can fabricate facts" statistic, 2026 — UNVERIFIED, original source of the 28% figure not traced; treat as an unverified lead only, not evidence. |
+| `[USDOL-AILIT26]` | Government/Official (US Department of Labor — **not UK**, included only as an international comparison point) | US Department of Labor, Employment and Training Administration, *Training and Employment Notice 07-25* (national AI Literacy Framework), Feb 2026 — read only via secondary coverage (Ogletree law-firm blog) and search synthesis, **primary PDF not fetched directly**; lists "Evaluating AI Outputs" as one of five key workplace AI-literacy content areas. dol.gov/sites/dolgov/files/ETA/advisories/TEN/2025/TEN%2007-25/TEN%2007-25%20(complete%20document).pdf |
+| `[CALDAROLA-CLOUD26]` | Independent/Academic | Caldarola, F. & Fontanelli, L., "Scaling up to the cloud: Cloud technology use and growth rates in small and large firms," arXiv:2409.17035 (2026 revision) — PRIMARY, read directly (via proxy fetch after direct fetch of the PDF returned unreadable binary). Uses French INSEE firm-level administrative + survey data. About cloud technology generally, not AI specifically. |
+| `[FRB-MONITORING26]` | Government/Official (US central bank research) | Federal Reserve Board, "Monitoring AI Adoption in the US Economy" (FEDS Notes, accessible version), 3 April 2026 — PRIMARY, read directly. federalreserve.gov/econres/notes/feds-notes/monitoring-ai-adoption-in-the-u-s-economy-accessible-20260403.htm |
+| `[STLFED-ASKMATTERS26]` | Government/Official (US central bank research) | Federal Reserve Bank of St. Louis, "Measuring AI Adoption among Firms: How You Ask Matters," On the Economy blog, June 2026 — read via proxy fetch after direct fetch returned HTTP 403. stlouisfed.org/on-the-economy/2026/jun/measuring-ai-adoption-firms-how-you-ask-matters |
+| `[STLFED-MINDGAP26]` | Government/Official (US central bank research) | Federal Reserve Bank of St. Louis, "Mind the Gap: AI Adoption in Europe and the U.S.," On the Economy blog, March 2026 — read via proxy fetch after direct fetch returned HTTP 403. Does not disaggregate by firm size. stlouisfed.org/on-the-economy/2026/mar/mind-gap-ai-adoption-europe-us |
+| `[SBA-ADVOCACY25]` | Government/Official (US Small Business Administration) — UNVERIFIED, could not be fetched | SBA Office of Advocacy, "Research Spotlight: AI in Business — Small Firms Closing In," Sept 2025. Both the PDF and blog-post versions returned HTTP 403 on every fetch attempt; claims about this source rest only on WebSearch's own synthesis, not a direct read. Do not cite beyond "a lead not yet confirmed." advocacy.sba.gov |
+| `[OECD-SMEAI25]` | Government/Official (international body) — UNVERIFIED beyond search synthesis | OECD, "AI adoption by small and medium-sized enterprises," Dec 2025. PDF fetch returned unreadable binary/image content; findings rest on WebSearch synthesis only (large firms 40% vs small firms 11.9% adoption, OECD-wide). Not UK-specific. Confirms rather than disconfirms the size gap. oecd.org |
+| `[MDPI-SMEAI-REVIEW26]` | Independent/Academic (peer-reviewed, open access) | "Artificial Intelligence in SMEs: Enhancing Business Functions Through Technologies and Applications," Information (MDPI), 16(5):415, systematic review of 50 studies 2016–2025 — read via proxy fetch. mdpi.com/2078-2489/16/5/415 |
+| `[EPOCH-ECIGAP26]` | Independent/Academic-adjacent (nonprofit AI-trends research organisation; methodology openly published, Creative Commons licensed) | Epoch AI, "Open models lag state-of-the-art closed models by 4 months," Epoch Capabilities Index data insight, May 2026 — PRIMARY, read directly. epoch.ai/data-insights/open-closed-eci-gap |
+| `[STANFORD-AIINDEX25]` | Independent/Academic | Stanford Institute for Human-Centered AI (HAI), *The 2025 AI Index Report*, "AI becomes more efficient, affordable and accessible" section — PRIMARY, read directly (partial — the specific section quoted, not the full report). hai.stanford.edu/ai-index/2025-ai-index-report |
+| `[PROMPTCOST26]` | Vendor/Commercial — individually verified (was previously only part of the unverified `[LOCALAI-COST26]` aggregate) | PromptCost.org, "Local LLM Total Cost of Ownership 2026: Cloud vs Self-Hosted" — read directly via proxy fetch after direct fetch returned HTTP 403. promptcost.org/en/blog/local-llms-total-cost-ownership-2026/ |
+| `[FUNGIES26]` | Vendor/Commercial (a payments/"merchant of record" platform for SaaS, publishing this as promotional content — not an AI or infrastructure company) — individually verified (was previously only part of `[LOCALAI-COST26]`) | Fungies.io, "Local LLM vs Cloud API: The Complete 2026 Cost Breakdown & Break-Even Guide" — read directly via proxy fetch after direct fetch returned HTTP 403. fungies.io/local-llm-vs-cloud-cost-2026/ |
+| `[PROMPTQUORUM-COMPARE26]` | Vendor/Commercial (the article promotes PromptQuorum's own multi-model comparison product) — individually verified (was previously only part of `[LOCALAI-COST26]`/`[LOCALAI-CAPABILITY26]`) | PromptQuorum, "Local LLMs vs Cloud APIs 2026: Privacy, Cost, and Quality" — PRIMARY, read directly (fetched without needing a proxy). promptquorum.com/local-llms/local-llms-vs-cloud-apis |
+| `[MINDSTUDIO26]` | Vendor/Commercial (MindStudio is a no-code AI workflow platform selling access to 200+ cloud and local models) — individually verified (was previously only part of `[LOCALAI-CAPABILITY26]`) | MindStudio, "Local AI vs Cloud AI in 2026: When to Run Models on Your Own Hardware" — PRIMARY, read directly (fetched without needing a proxy). mindstudio.ai/blog/local-ai-vs-cloud-ai-2026 |
 
 ---
 
@@ -1479,6 +1498,602 @@ Full citation is given once here; log entries below cite the short tag only.
   specialisation principle holds regardless of whether the "smaller model"
   in question is local or a smaller cloud-hosted model.
 
+### Entry 035 — First public output: working decision (Priority 5/7, answers immediate priority Q5)
+
+- **Date logged:** 2026-07-24
+- **Priority / Question:** Immediate research priority 5 — "What should the
+  project build first to test these assumptions?" — and Priority 7's "What is
+  the smallest useful public output that could test the project's core
+  assumptions?"
+- **Source:** Direct instruction from the project's creator, 2026-07-24,
+  choosing between candidate options presented from the existing evidence
+  base (no new sources fetched this entry).
+- **What changed:** The creator decided the first build should be a **single
+  pilot learning unit** — one core capability, PRIMES-sized (30–90 minutes,
+  `SE-PRIMES-EMPLOYER26`), GRR-sequenced (`GRR-EBIP`) — tested with a small
+  number of real learners before any wider course, roadmap or platform
+  structure is built. This was chosen over two alternatives considered: (a)
+  drafting a full competency-mapped skeleton pathway without full content, or
+  (b) deferring the decision pending deeper research into the rest of
+  Priority 7's sub-questions (accessibility, format relationships,
+  install-free access).
+- **Inference drawn:** None beyond the creator's own stated choice; the
+  supporting rationale (pilot-first per `RS-AILIT25`; avoiding the "directory
+  not programme" failure mode per `LSE-CARDOSO26`/`TECHOSAURUS26`/`HUMANCO26`;
+  unit sizing/sequencing per `SE-PRIMES-EMPLOYER26`/`GRR-EBIP`) draws directly
+  on entries already in this log (020–027, 034), not new research.
+- **Limitations / conflicting evidence:** This decides the *shape* of the
+  first output, not which capability it teaches, nor the project's permanent
+  format — both remain open (see `PROJECT_BRIEF.md`). As previously flagged,
+  `RS-AILIT25`'s pilot-first recommendation is drawn from a children's-
+  education evidence base, and `GRR-EBIP`'s sequencing model is K-12-
+  originated (Entry 027) — applying both to adult, self-directed learning is
+  this project's own extension, not something either source tested directly.
+- **Effect on project direction:** Recorded as a working decision in
+  `PROJECT_BRIEF.md` ("First public output"). Converts four sessions of
+  Priority 3–5 research into a concrete, testable next build step, consistent
+  with the project's stated aim of reducing uncertainty before creating new
+  structures. The immediate open question this raises — which single
+  capability the pilot unit should teach — is the natural next decision
+  point.
+
+### Entry 036 — Second track confirmed: local AI workstation, seeded from inherited PAWH architecture
+
+- **Date logged:** 2026-07-24
+- **Priority / Question:** Immediate priority Q5 / Priority 7, continuing
+  Entry 035's first-output decision; also touches Priority 6 (technical
+  scope) via the inherited architecture's content.
+- **Source:** Direct input from the project's creator, 2026-07-24 — a
+  stack summary the creator obtained from a separate ChatGPT project that
+  holds fuller context on the PAWH predecessor's original workstation
+  design. Not an external/independent source; recorded as project
+  provenance, not evidence.
+- **What changed:** The creator confirmed the local/hybrid AI workstation
+  (PowerShell/WSL2 fundamentals as its first module) should be a **second,
+  parallel track**, not a replacement for the general-literacy pilot decided
+  in Entry 035. The full inherited architecture (Windows 11 + Windows
+  Terminal + WSL2 + Docker Compose running Ollama/Open WebUI, with
+  SearXNG/Whisper/Qdrant, later Langflow/n8n/MCP integrations, considered)
+  was recorded in `PROJECT_BRIEF.md` ("Inherited workstation architecture")
+  as historical intent to evaluate, per the existing "Relationship to PAWH"
+  convention — not a committed specification.
+- **Inference drawn:** Terminal/shell basics is a sensible *first module of
+  the workstation track specifically* (Docker, Ollama and everything after
+  it in the described architecture depends on it) — this is the project's
+  own reasoning, not stated by any external source. It would not be a
+  sensible choice for the general-literacy pilot's audience (individuals/SME
+  employees without an L&D layer), which the evidence base (Entries 017,
+  019, 024, 026) consistently points toward practical/non-technical literacy
+  content first, not command-line prerequisites.
+- **Limitations / conflicting evidence:** None of this entry's content is
+  independently sourced evidence — it's project-provenance context (the
+  creator's own prior work) and a scope decision, not a new research finding.
+  The two tracks' relationship (shared modules, sequencing, whether the
+  workstation track needs its own audience research) is unaddressed.
+- **Effect on project direction:** Unblocks work on the workstation track
+  without disturbing the general-literacy pilot's status as the project's
+  first tested output. Gives the workstation track a concrete architectural
+  reference to design lessons against, while keeping the two tracks
+  explicitly distinct in `PROJECT_BRIEF.md` so they aren't accidentally
+  conflated in future sessions.
+
+### Entry 037 — Visual identity: palette and logo-type decision (Priority 7/10)
+
+- **Date logged:** 2026-07-24
+- **Priority / Question:** Priority 7 (delivery format) touches on visual
+  presentation; Priority 10 (sustainability/public presentation) — "visual
+  identity beyond the approved project name" (`PROJECT_BRIEF.md`, "Not yet
+  decided").
+- **Source:** Direct creative decision by the project's creator, 2026-07-24
+  — a design choice, not an evidence-based research finding, so this entry
+  intentionally has no source-key citation.
+- **What changed:** The creator finalised a six-colour palette (Ink, Ember,
+  Sand, Paper, Mist, Sage — see `PROJECT_BRIEF.md`, "Visual identity"),
+  confirmed an icon + wordmark logo type, and confirmed a tone positioned
+  between "grounded/academic" and "approachable/friendly." The existing
+  legacy PAWH icon set (`assets/brand/legacy-pawh-icons/`) was confirmed to
+  use a superseded palette and now needs a recolour/overhaul pass — not
+  done in this entry, flagged as future work.
+- **Inference drawn:** None — a direct decision, not derived from evidence.
+- **Limitations / conflicting evidence:** Not applicable — this is a design
+  decision, not a factual claim requiring corroboration.
+- **Effect on project direction:** Unblocks visual work on the pilot unit
+  (Entry 035) once its core capability is chosen. The logo mark itself
+  remains undesigned, and the legacy icon overhaul is unscheduled — both
+  flagged in Open Threads.
+
+### Entry 038 — Symbol-only candidate locked; wordmark pairing rejected
+
+- **Date logged:** 2026-07-24
+- **Priority / Question:** Continues Entry 037 (Priority 7/10, visual
+  identity).
+- **Source:** Direct creative decision by the project's creator, 2026-07-24
+  — no source-key citation, as with Entry 037.
+- **What changed:** Of the icon concepts sketched, the creator confirmed
+  the recoloured evolution of the approved PAWH "terminal + handbook"
+  symbol (geometry unchanged, recoloured flat to Ink/Ember/white) as
+  correct and worth locking as a working candidate — saved to
+  `assets/brand/logo/candidates/symbol_v01_terminal_handbook_recolour.svg`.
+  The creator intends to further refine this candidate by editing its SVG
+  paths directly. The wordmark tested alongside it ("Grounded AI Practice"
+  in a placeholder bold sans, single-line or stacked) was rejected — it
+  didn't match the symbol's style and read as too long and visually
+  disconnected from the mark. Other symbol concepts remain to be explored;
+  this candidate is not a final decision.
+- **Inference drawn:** None — a direct decision, not derived from evidence.
+- **Limitations / conflicting evidence:** Not applicable.
+- **Effect on project direction:** First concrete logo asset now exists in
+  the repo, but as an explicitly provisional candidate. Wordmark design is
+  now a separately unresolved problem from the symbol — pairing a
+  strong-existing-typeface wordmark with this specific symbol's style is an
+  open task, not solved by this entry.
+
+### Entry 039 — Candidate core capabilities for the pilot unit (answers the open "which single capability" question)
+
+- **Date logged:** 2026-07-25
+- **Priority / Question:** Immediate priority Q5 / Priority 3 — the specific
+  gap Open Threads flags as "the immediate next decision point, not yet
+  addressed": which single core capability the pilot unit (decided in Entry
+  035) should teach.
+- **Source:** Synthesis of existing logged evidence — `[SE-TOOLSPKG25]`,
+  `[SE-ANNUAL26]`, `[SE-WHATWORKS26]`/`[SE-PRIMES-EMPLOYER26]`, `[RS-AILIT25]`,
+  `[FDN26]`, `[EOAI]`, Entry 028's automation-bias findings — plus one new
+  primary source read this pass, `[SE-FOUNDATIONBENCH26]`. No new empirical
+  data collected; this entry re-reads existing entries specifically through
+  the "what's concrete enough for one 30–90 minute sitting" lens, which no
+  prior entry had done directly.
+- **Checked date:** 2026-07-25
+- **What the source directly supports:** Four candidates emerge as
+  independently well-evidenced and concrete enough to teach in one sitting:
+
+  **A. Critically evaluating AI-generated output for accuracy/reliability
+  before acting on it** (spotting hallucination, checking claims, judging
+  when output needs verification). Support: `[SE-TOOLSPKG25]` — workshop
+  participants named non-technical skills including critical thinking as
+  "the most urgently needed," not technical skill. `[RS-AILIT25]` —
+  explicit caution that "confidence to use tools" is a shallow goal
+  corporate-funded frameworks tend to push, versus genuine critical
+  judgement (a design risk to avoid, not evidence this is the right first
+  topic, but relevant to how it should be framed if chosen). `[FDN26]` lists
+  "critical evaluation of AI-generated content" as one of four core
+  competencies. Entry 028 (`[KAMALI26]`) found targeted literacy training
+  measurably improved people's ability to judge real vs. AI-generated
+  content and calibrate confidence accordingly — direct evidence a
+  short training intervention can move this specific skill.
+  Audience fit: no technical prerequisite — a learner can be handed
+  AI output to evaluate without needing to already know how to prompt.
+
+  **B. Writing clear, effective instructions for AI tools (prompting/
+  interaction)**. Support: `[FDN26]` lists "effective AI interaction/
+  instruction-writing" as a core competency; `[SE-FOUNDATIONBENCH26]` lists
+  "writing clear instructions for AI tools" as the first item under the
+  "technical" domain of the UK Government's own six-skill AI foundation
+  benchmark; `[EOAI]` and most comparable courses treat this as early
+  content. Audience fit: genuinely no prerequisite, but is a "production"
+  skill (what to say to AI) rather than a "judgement" skill (what to do with
+  what AI says back) — less directly aimed at the responsible-use gap the
+  project's problem statement centres on.
+
+  **C. Understanding what AI systems can and cannot do — a working mental
+  model of capability/limitation, not mechanism** (e.g. pattern-matching
+  vs. reasoning, why confident-sounding output can still be wrong, what
+  "training data" implies about currency/bias). Support: `[FDN26]` lists
+  "foundational knowledge of what AI is and how it functions" as its
+  first-listed competency; `[EOAI]`'s own chapter 1 opens here;
+  `[SE-ANNUAL26]`'s foundation-skills benchmark groups a "how AI works"-
+  adjacent skill under its domains. Audience fit: strong — genuinely
+  prerequisite-free, and every other candidate arguably depends on some
+  version of it. Risk: closest of the four to becoming abstract/lecture-
+  style content rather than an active, practiced skill, which PRIMES'
+  "Practical" criterion (`[SE-PRIMES-EMPLOYER26]`) and the GRR sequencing
+  model (`[GRR-EBIP]`) both push against.
+
+  **D. Responsible/safe use — what not to share with AI tools, when AI use
+  needs disclosure or extra caution (confidential data, regulated
+  decisions, high-stakes tasks)**. Support: `[FDN26]`'s fourth competency
+  ("ethical/responsible use"); `[SE-PRIMES-EMPLOYER26]`'s "Integrated"
+  criterion requires baseline training on this to be mandatory before staff
+  use AI on organisational/confidential data; `[SE-TOOLSPKG25]`'s
+  responsible/ethical domain. Audience fit: strong for the "employees at
+  small organisations without an L&D layer" half of the audience
+  specifically (this is exactly the training PRIMES says an employer would
+  normally mandate, that this audience is least likely to have received) —
+  weaker fit for the general-public half, who mostly aren't handling
+  organisational data.
+
+- **Inference drawn:** All four are independently attested by at least two
+  non-duplicative sources rather than resting on a single framework. None
+  requires a technical prerequisite, consistent with the audience decision.
+  Candidate A has the broadest direct support across the most independent
+  sources (`[SE-TOOLSPKG25]`, `[RS-AILIT25]`, `[FDN26]`, Entry 028) and maps
+  most directly onto the project's own problem statement in
+  `PROJECT_BRIEF.md` ("appropriate verification and human oversight").
+  This is this entry's own reading of the pattern across sources, not a
+  conclusion any one source states.
+- **Limitations / conflicting evidence:** These four are not mutually
+  exclusive — most real frameworks (`[FDN26]`, `[SE-TOOLSPKG25]`) teach some
+  version of all of them, just not in one 30–90 minute sitting. Picking one
+  is this project's own scoping choice, not something any source instructs.
+  See Entry 040 for a direct disconfirm check on Candidate A specifically,
+  since it looks strongest on this reading.
+- **Effect on project direction:** These are presented as options for the
+  project's creator to choose between, not a recommendation. A rough
+  tradeoff summary: **A (critical evaluation)** has the strongest/broadest
+  evidence as "most urgently needed" and maps closest to the project's
+  stated problem, but is arguably the most conceptually demanding of the
+  four to teach well in under 90 minutes without also covering some of C
+  first (see Entry 040). **B (prompting)** is the easiest to make
+  concretely practical and matches what most comparable courses open with,
+  but is the weakest fit to the project's specific "responsible/verification"
+  framing and the most likely to feel like generic tool-training rather than
+  something distinctive. **C (capability/limitation mental model)** is the
+  safest prerequisite-free choice and may need to precede A regardless of
+  which is chosen as "the" pilot topic (see Entry 040), but risks being
+  inert/lecture-like unless deliberately built around an active task. **D
+  (responsible/safe use)** best fits the "SME employee without an L&D layer"
+  half of the audience specifically and is the most directly tied to
+  PRIMES' "Integrated" criterion, but is the weakest fit for the general-
+  public half of the audience, who are less often handling organisational
+  data day-to-day.
+
+### Entry 040 — Disconfirm/complicate check on Candidate A, plus fresh search for "what's the single best starting point" framing
+
+- **Date logged:** 2026-07-25
+- **Priority / Question:** Per this project's confirm/disconfirm discipline
+  for foundational claims: does evidence or expert argument exist that
+  critical evaluation of AI output (Candidate A in Entry 039) is *not* the
+  right capability to teach first, or that something else is more
+  foundational and should precede it? Also fulfils the separate instruction
+  to search directly for "what's the single best AI-literacy starting
+  point" framing, since existing sources mostly answer "what skills matter
+  overall," not "what's the best first skill" specifically.
+- **Source:** `[TADIMALLA-MAHER25]`, `[SAIL4ALL25]`, re-reading of the
+  already-logged `[FDN26]` competency order, and `[SE-FOUNDATIONBENCH26]`.
+  Weaker/flagged sources also found and noted for completeness: `[WAGNER26]`
+  (opinion blog, argues the opposite conclusion but on weak evidentiary
+  grounds) and an unverified vendor-aggregate statistic (`[HALLUC-AWARE26]`).
+- **Checked date:** 2026-07-25
+- **What the source directly supports:** Several independent sources
+  converge on ordering *foundational knowledge of what AI is/does* ahead of
+  *critical evaluation of AI output*, rather than treating evaluation as
+  the natural entry point:
+  - `[TADIMALLA-MAHER25]` (Tadimalla & Maher, "AI literacy as a core
+    component of AI education," *AI Magazine* — a peer-reviewed AAAI
+    journal, 2025) proposes four curriculum pillars for AI-literacy course
+    design: (1) technical foundations, (2) user-focused/interaction
+    competencies, (3) sociotechnical considerations, (4) ethical
+    perspectives — in that stated order — explicitly noting technical
+    understanding "remains fundamental" even as ethical/societal content is
+    increasingly integrated alongside it. This journal-published,
+    peer-reviewed source directly and explicitly addresses curriculum
+    *sequencing*, which is the specific gap this entry checked for.
+  - `[SAIL4ALL25]` (peer-reviewed, *Humanities and Social Sciences
+    Communications*, validated on three UK adult samples) — an AI-literacy
+    *knowledge* assessment scale, not a curriculum, but its four themes are
+    ordered "What is AI?" → "What can AI do?" → "How does AI work?" → "How
+    should AI be used?" — again placing conceptual/capability knowledge
+    ahead of the evaluative/normative "how should it be used" theme that
+    critical evaluation belongs to.
+  - Re-reading `[FDN26]` (Entry 024): its four competencies are listed in
+    the order foundational knowledge → effective interaction → critical
+    evaluation → ethical/responsible use — the same ordering pattern,
+    independently arrived at.
+  - `[SE-FOUNDATIONBENCH26]` (UK Government, Skills England/DSIT — read
+    directly this pass): the official "AI foundation skills for work"
+    benchmark's first-listed domain is "technical" (writing clear
+    instructions for AI tools; using AI tools to support routine tasks),
+    with "responsible and ethical" (including judgement/risk-related
+    skills) listed third of three. The document itself states no explicit
+    priority order or required sequence — this is suggestive from list
+    order only, not a stated recommendation, and should be weighted
+    accordingly.
+- **Inference drawn:** Taken together, this is a real, moderately-supported
+  disconfirming pattern (one peer-reviewed source directly on sequencing,
+  one peer-reviewed UK-validated instrument whose structure implies the
+  same order, one already-logged source with the same ordering, one
+  government benchmark whose list order is suggestive but explicitly not a
+  stated sequence) — not proof, but enough to complicate treating Candidate
+  A as an uncomplicated first choice. A plausible reading (this entry's own
+  synthesis, not any source's explicit claim): teaching critical evaluation
+  of AI output *without* first giving learners some minimal working model of
+  "what AI is doing when it generates this" risks the evaluation skill being
+  taught as a checklist ("always double-check") rather than genuine
+  judgement grounded in understanding *why* AI output can be wrong — which
+  is exactly the "confidence without judgement" risk `[RS-AILIT25]` warns
+  against from the opposite direction. This suggests Candidate A and
+  Candidate C (foundational capability/limitation mental model, Entry 039)
+  may not be a straightforward either/or — a pilot built around A would
+  likely need to fold in a compressed version of C as scaffolding, which is
+  compatible with a single 30–90 minute unit but is a real design
+  constraint, not a reason to discard A.
+  Separately, `[WAGNER26]` (a Substack opinion piece, no disclosed
+  institutional affiliation) argues the *opposite* of the disconfirming
+  pattern above — that critical thinking/judgement, including "the
+  conscious decision about when not to use AI," should be positioned as
+  AI literacy's *destination*, with tool proficiency treated as
+  secondary — but this is asserted rather than evidenced, and is flagged
+  as the weakest source in this entry, not a counterweight to the
+  peer-reviewed sources above.
+- **Limitations / conflicting evidence:** None of the sequencing sources
+  found are UK-adult/workforce-specific in the way this project needs.
+  `[TADIMALLA-MAHER25]` is framed around computing-education curriculum
+  design generally, not specifically a 30–90 minute standalone unit for a
+  general-public/SME audience — applying its four-pillar *order* to a
+  single short pilot unit (rather than a full course) is this project's own
+  extension, not something the paper tested. `[SAIL4ALL25]`'s theme order
+  is a measurement-instrument structure, not a curriculum sequencing
+  recommendation — treating its ordering as sequencing evidence is an
+  inference, clearly weaker than `[TADIMALLA-MAHER25]`'s direct claim.
+  `[SE-FOUNDATIONBENCH26]` explicitly does not state a sequence, so its
+  list order is the weakest evidence of the four and should not be treated
+  as more than suggestive. `[TADIMALLA-MAHER25]` and `[SAIL4ALL25]` were
+  both blocked by paywalls/login walls and read only at abstract/summary
+  level via search synthesis — not a complete primary read; if either
+  becomes load-bearing for the actual capability decision, they should be
+  re-checked with a full read first, consistent with this log's existing
+  practice for other partially-verified sources (e.g. `[AUTOBIAS-MED25]`).
+  No dedicated, UK-specific empirical study comparing learning outcomes
+  between an "evaluation-first" and a "foundations-first" short AI-literacy
+  unit was found — this remains a genuine evidence gap, not a resolved
+  question either way. The direct "what's the single best first AI-literacy
+  skill" framing was not found answered head-on by any single authoritative
+  source; the sequencing evidence above is the closest available proxy,
+  assembled from sources that address curriculum *structure* rather than
+  posing "what's the one best starting skill" as their own explicit
+  question.
+- **Effect on project direction:** Does not disqualify Candidate A, but
+  meaningfully complicates treating it as a clean, standalone first choice
+  independent of Candidate C. For the creator's decision, this leaves
+  (at least) three live options, presented without a recommendation: (1)
+  choose Candidate A as designed, accepting the design constraint that a
+  compressed capability/limitation primer likely needs to be folded in as
+  the unit's "explicit modelling" phase under GRR (`[GRR-EBIP]`) rather
+  than assuming learners already have that grounding; (2) choose Candidate
+  C (capability/limitation mental model) as the pilot topic in its own
+  right, treating critical evaluation as the natural second unit in a
+  future stack rather than the first; (3) treat this disconfirming pattern
+  as not strong enough to override Candidate A's broader/more direct
+  evidence base (Entry 039) given its own limitations (non-UK,
+  non-adult-specific, one suggestive-only government source), and proceed
+  with A while deliberately designing in a short foundational primer. This
+  entry does not resolve which of the three is correct — that judgement
+  call belongs to the project's creator.
+
+### Entry 041 — Dedicated search for disconfirming evidence on the SME/large-firm adoption-depth gap (Entry 029)
+
+- **Date logged:** 2026-07-25
+- **Priority / Question:** Direct follow-up to the Open Thread flagged after
+  Entry 029/030: "No credible disconfirming evidence found yet for the
+  SME/large-firm adoption-depth gap... A dedicated search for peer-reviewed
+  or ONS/government evidence specifically disputing the size-adoption
+  relationship would strengthen (or usefully complicate) this finding."
+  Bears on Priority 1 and the audience/thesis decision in `PROJECT_BRIEF.md`.
+- **Source:** `[CALDAROLA-CLOUD26]`, `[FRB-MONITORING26]`,
+  `[STLFED-ASKMATTERS26]`, `[MDPI-SMEAI-REVIEW26]`, plus `[OECD-SMEAI25]`
+  and `[SBA-ADVOCACY25]` as unverified leads. Search was deliberately
+  restricted to peer-reviewed, government/central-bank, and
+  international-body sources — vendor/marketing content was excluded from
+  counting as disconfirmation per this task's brief, even though it kept
+  surfacing (e.g. numerous "£78bn opportunity if SMEs caught up"-style UK
+  marketing-blog pieces were seen and discarded).
+- **Checked date:** 2026-07-25
+- **What the source directly supports:**
+  - **`[CALDAROLA-CLOUD26]` — the closest thing found to genuine academic
+    disconfirmation, but not AI-specific.** Using French firm-level
+    administrative data (INSEE), this paper's own abstract states: "Recent
+    empirical evidence shows that investments in ICT disproportionately
+    improve the performance of larger firms versus smaller ones... We find
+    that cloud services positively impact firms' growth rates, with
+    **smaller firms experiencing more significant benefits compared to
+    larger firms**." A genuine, independently-authored finding that at
+    least one modern digital technology category (cloud) produces a
+    **small-firm advantage** in growth outcomes — directly contradicting
+    the general "digital tech favours large firms" pattern the paper itself
+    cites as the norm. It concerns cloud infrastructure broadly, not
+    AI/LLM adoption specifically — the most significant limitation.
+  - **`[FRB-MONITORING26]`** (US Federal Reserve Board) — a genuine
+    measurement-artifact complication, though only a partial one: legacy
+    Census Bureau survey data "showed comparable adoption across smaller
+    firms (1–249 employees), with higher rates only among the largest
+    enterprises (250+)" — historically, most of the size effect was
+    concentrated at the very top, not a smooth small-vs-large gradient. It
+    also states the Census Bureau's November 2025 revision of the AI survey
+    question (from "producing goods or services" to "any of its business
+    functions") coincided with growing divergence by firm size, and that
+    this "definitional shift likely explains some observed divergence...
+    making direct historical comparisons problematic."
+  - **`[STLFED-ASKMATTERS26]`** (St. Louis Fed) — cuts the other way on the
+    measurement-artifact question: excluding firms with fewer than 10
+    employees from adoption calculations (as European surveys do) "does not
+    have a major impact" on measured adoption rates, suggesting the
+    size-based gap is not primarily a small-firm-exclusion artifact, at
+    least for that specific methodological choice.
+  - **`[MDPI-SMEAI-REVIEW26]`** (peer-reviewed systematic review of 50
+    studies, 2016–2025) — found no SME advantage; reinforces the standard
+    narrative (limited financial/human resources, technical skill
+    shortages, organisational resistance to change, a distinct SME "data
+    scarcity problem"). Logged as a genuine, well-sourced *confirming*
+    replication, included for balance rather than as a new disconfirming
+    find.
+  - A widely-repeated WebSearch-synthesised claim — that "by mid-2025, the
+    Federal Reserve found small businesses were adopting AI faster than
+    large firms, a reversal that hadn't happened before" — did **not** hold
+    up under direct primary-source checking. The Fed sources fetched
+    directly describe continued or widening divergence, with one estimate
+    that small businesses remain "about a year behind" large-business
+    adoption trajectories. A useful example of exactly the verification
+    risk this task was checking for.
+  - No UK-specific academic or ONS source disputing the size-adoption
+    relationship was found despite a dedicated UK-focused search pass.
+- **Inference drawn:** Genuine, non-vendor disconfirming/complicating
+  evidence for the *AI-specific* SME/large-firm adoption-depth gap remains
+  essentially absent — consistent with the prior Open Thread note. The one
+  credible academic finding of a small-firm advantage
+  (`[CALDAROLA-CLOUD26]`) is in an adjacent domain (cloud infrastructure,
+  not AI adoption specifically) and non-UK (France), so it should be read
+  as a reason for epistemic humility about assuming digital-tech gaps
+  always favour large firms — not as evidence that overturns Entry 029's
+  AI-specific finding. The measurement-artifact question is genuinely mixed
+  rather than resolved: one Federal Reserve source finds measurement
+  changes partly explain a widening gap; another finds a specific
+  small-firm-exclusion choice doesn't change much. Neither source claims
+  the underlying gap is entirely artifactual.
+- **Limitations / conflicting evidence:** All of the most relevant sources
+  found are US or cross-European, not UK-specific — a meaningful gap
+  against this project's UK evidence-scope preference.
+  `[CALDAROLA-CLOUD26]` is a preprint (arXiv), not confirmed
+  peer-reviewed/published, and concerns cloud technology rather than AI.
+  The OECD and SBA sources could not be directly verified (repeated HTTP
+  403s / unreadable PDF binary) and are flagged UNVERIFIED rather than
+  cited as confirmed findings. This pass should be read as a genuinely
+  thorough but not exhaustive search — a systematic literature search via
+  an academic database (rather than web search) was out of scope here and
+  might surface UK-specific working papers not indexed by general search.
+- **Effect on project direction:** This is itself a valid, useful finding:
+  after a real, source-restricted search, no credible independent/academic
+  evidence was found that disconfirms Entry 029's core AI-specific
+  adoption-depth gap. This should modestly *strengthen* confidence in Entry
+  029 as currently framed — not because the gap was re-confirmed by new
+  AI-specific evidence, but because a genuine adversarial search came up
+  empty on the AI-specific question, while surfacing one adjacent-domain
+  academic counter-example (cloud, `[CALDAROLA-CLOUD26]`) worth keeping in
+  mind as a caution against overgeneralising "digital tech always favours
+  large firms" as a universal law. The measurement-artifact angle is not
+  settled and could be revisited if the SME/large-firm gap becomes more
+  foundational to the project's thesis — it currently sits at "partially
+  complicated, not resolved."
+
+### Entry 042 — Direct verification of the local-AI cost/capability blog aggregate (Entry 030)
+
+- **Date logged:** 2026-07-25
+- **Priority / Question:** Direct follow-up to the Open Thread flagged after
+  Entry 030: "`[LOCALAI-COST26]` and `[LOCALAI-CAPABILITY26]` are unverified
+  aggregate search syntheses... before any local/hybrid cost or capability
+  claim appears in an external-facing document, at least 2-3 of the
+  underlying individual sources should be fetched and read directly, or a
+  UK-specific/independent source... should be found instead." Priority 6.
+- **Source:** Individually fetched and read directly: `[PROMPTCOST26]`,
+  `[FUNGIES26]`, `[PROMPTQUORUM-COMPARE26]` (cost side); `[MINDSTUDIO26]`
+  (capability side) — four of the seven/five named underlying blogs,
+  exceeding the requested 2–3. `[EPOCH-ECIGAP26]` and
+  `[STANFORD-AIINDEX25]` sought and read as independent/academic
+  alternatives. SitePoint was attempted again and again returned HTTP 403;
+  a proxy fetch route (`r.jina.ai/<url>`) was used successfully to read
+  PromptCost.org and Fungies.io directly after direct HTTP 403s — noted
+  here as a technique, since it resolved the exact blocker flagged in the
+  prior pass.
+- **Checked date:** 2026-07-25
+- **What the source directly supports:**
+  - **Cost side, directly verified:**
+    - `[PROMPTCOST26]` states a 7B-model break-even of "500K–2M tokens/day,"
+      with local saving "60–80%" above that threshold — matches Entry 030's
+      aggregate figure closely (unsurprising, since Entry 030's aggregate
+      was partly built from this same source). Claims "12 months of real
+      deployment data" but its actual cited inputs are a mix of real
+      external data (hardware prices from Lambda Labs/CoreWeave,
+      electricity rates from the US EIA, engineering rates from Glassdoor)
+      combined with the author's own cost-model calculations — not a
+      published, peer-reviewed, or third-party-audited study.
+    - `[FUNGIES26]` uses a different framing (dollar/GPU-based rather than
+      token-threshold-based): a solo developer spending ~$80/month on
+      Claude API could break even on a local GPU in as little as ~5–15
+      months depending on GPU tier. Cites no primary data of its own,
+      instead listing other blogs (including SitePoint and PromptQuorum) as
+      general references without linking specific figures to specific
+      sources. Fungies.io itself is a payments platform for SaaS
+      businesses, not an AI or infrastructure company — the article
+      functions as promotional content with a sales call-to-action, a step
+      further from subject-matter authority than the other sources here.
+    - `[PROMPTQUORUM-COMPARE26]` gives current 2026 API rate figures and
+      states local LLMs become "cost-effective within weeks for high-volume
+      use cases," but — read directly — the article "provides no citations
+      or methodology references for benchmark scores, pricing, or
+      performance metrics," per its own content. PromptQuorum is itself a
+      commercial multi-model comparison tool, so this article also
+      functions partly as product marketing.
+  - **Capability side, directly verified:**
+    - `[MINDSTUDIO26]` states open-weight models are "roughly 3–6 months
+      behind frontier on most benchmarks," with the largest gaps in
+      reasoning, multimodal, and complex agentic/instruction-following
+      tasks, and the smallest gaps in structured extraction, classification
+      and straightforward code generation — directionally identical to
+      Entry 030's summary. Cites no peer-reviewed benchmarks or specific
+      numerical scores, referencing only the LMSYS Chatbot Arena leaderboard
+      by name without quoting specific figures. MindStudio is a commercial
+      no-code AI workflow platform selling access to both cloud and local
+      models.
+  - **Independent/academic alternative found and read directly:**
+    - `[EPOCH-ECIGAP26]` (Epoch AI, a nonprofit AI-trends research
+      organisation with openly published methodology) reports, as of its
+      May 2026 measurement (Epoch Capabilities Index, bootstrap-sampled for
+      uncertainty): "the most capable open-weight models have lagged
+      frontier closed models by **an average of four months**." A
+      rigorous, quantified, independently-produced figure that sits at the
+      *low end* of Entry 030's originally-cited "3–6 months to 12–18
+      months" range — suggesting the upper end of that vendor-blog range
+      may be an overstatement, at least by Epoch's measure, though Epoch's
+      own caveat is that open labs don't always release their most capable
+      models publicly, which could understate the true gap in the other
+      direction.
+    - `[STANFORD-AIINDEX25]` (Stanford HAI, an independent academic
+      institute) reports the open/closed performance gap "reducing... from
+      8% to just 1.7%" over a one-year window, alongside a striking
+      cost-efficiency trend: "the inference cost for a system performing at
+      the level of GPT-3.5 dropped over 280-fold between November 2022 and
+      October 2024," with hardware costs declining ~30%/year and energy
+      efficiency improving ~40%/year. Note: a separate, not independently
+      verified WebSearch snippet suggested this same gap widened again to
+      3.3% by a later (2026) edition of the same report — the trend is
+      evidently not monotonic, and should not be read as a settled "gap is
+      closing" story.
+- **Inference drawn:** The directional shape of Entry 030's original claim
+  holds up well under direct reading: local/open-weight models do lag
+  frontier cloud models by a period best estimated (by the more rigorous
+  independent source, Epoch AI) at roughly 3–4 months on general
+  capability, with larger gaps concentrated in reasoning/multimodal/agentic
+  tasks — consistent with, but more precise than, the vendor-blog
+  aggregate. On cost, the general "hybrid is the practical answer, pure
+  local isn't uniformly cheaper" framing also holds up, but the specific
+  break-even numbers vary meaningfully between the individually-read
+  sources themselves (token-threshold framing vs. dollar/GPU-tier framing
+  aren't reconciled with each other), which is itself evidence the numbers
+  are soft estimates rather than a converged consensus.
+- **Limitations / conflicting evidence:** None of the four directly-read
+  blog sources cite peer-reviewed, third-party-audited, or even
+  fully-linked primary data for their headline figures — direct reading
+  confirms rather than resolves the "UNVERIFIED beyond search-engine
+  synthesis" concern; it just replaces search-engine-summarised vendor
+  claims with directly-read vendor claims, a smaller improvement than
+  finding independent verification. Two of the four (Fungies.io,
+  PromptQuorum) are commercial products using the article partly as
+  marketing for an unrelated or adjacent product, a notable
+  interest-conflict not fully visible from the article content alone. No
+  UK-specific source (academic or government) was found for either the
+  cost or capability side, despite a dedicated search — Epoch AI and
+  Stanford HAI are both credible independent/academic sources but are
+  US-based and international in scope, not UK-specific. A genuinely
+  academic on-device cost/energy paper was also found (arXiv:2512.16531,
+  "Scaling Laws for Energy Efficiency of Local LLMs," benchmarking a
+  MacBook Pro M2 and Raspberry Pi 5) but was not fetched/read directly in
+  this pass due to time — flagged as a lead for a future pass, not logged
+  as a finding.
+- **Effect on project direction:** The core directional claim in Entry 030
+  — that local AI is not a straightforward cost/capability equaliser, that
+  break-even depends heavily on usage volume, and that a hybrid approach is
+  the practical answer — is now better supported than before, specifically
+  by `[EPOCH-ECIGAP26]` and `[STANFORD-AIINDEX25]`, which are genuinely
+  independent and more rigorous than the original blog aggregate. The
+  `[LOCALAI-CAPABILITY26]` "3–6 months" lag figure can now be anchored to
+  Epoch AI's directly-measured "~4 months" rather than left as an
+  unverified blog synthesis — this source should be added to, or partially
+  replace, `[LOCALAI-CAPABILITY26]` in any external-facing claim.
+  `[LOCALAI-COST26]` remains weaker: no independent/academic UK or general
+  source was found with comparably rigorous break-even cost figures; the
+  cost side of the claim should still be treated as directional-only
+  (hybrid is sensible; exact break-even numbers are not reliable) rather
+  than citable with specific figures, consistent with Entry 030's original
+  hedge.
+
 <!--
 Entry template (for reference — remove once first real entry is added):
 
@@ -1737,3 +2352,130 @@ becomes relevant to Priority 2's audience decision.
   barriers/needs for this *combined* audience, whether "small organisation
   employees" should later be split into narrower sub-groups) remain open and
   are not resolved by this decision alone.
+
+**Resolved this pass (2026-07-24, immediate priority Q5 / first-output decision):**
+- ~~What should the project build first?~~ — the creator decided (Entry 035,
+  recorded in `PROJECT_BRIEF.md`): a single pilot learning unit, PRIMES-sized
+  and GRR-sequenced, tested with real learners before any wider structure is
+  built. Chosen over drafting a full skeleton pathway or deferring the
+  decision pending more Priority 7 research.
+
+**Still open after this pass:**
+- **Which single core capability the pilot unit should teach** — the
+  immediate next decision point, not yet addressed.
+- Priority 7's other sub-questions (accessibility requirements, install-free
+  access, how Word/web/GitHub outputs should relate) remain unaddressed —
+  deliberately deferred rather than researched ahead of need, since only the
+  pilot unit's shape was needed to unblock the next build step.
+- Priorities 8 (information architecture), 9 (evaluation — e.g. how the pilot
+  will actually be tested/assessed with real learners), and 10
+  (sustainability/public presentation) remain essentially untouched.
+
+**Resolved this pass (2026-07-24, visual identity):**
+- ~~Visual identity beyond the project name~~ — a palette, logo type
+  (icon + wordmark) and tone are now decided (Entry 037,
+  `PROJECT_BRIEF.md` "Visual identity").
+
+**Still open after this pass:**
+- The legacy PAWH icon set (`assets/brand/legacy-pawh-icons/`) is confirmed
+  to need a recolour/overhaul pass against the new palette — unscheduled.
+
+**Resolved this pass (2026-07-24, symbol candidate):**
+- ~~No logo mark existed~~ — a symbol-only working candidate is now locked
+  (Entry 038), though explicitly provisional and pending further path-level
+  refinement.
+
+**Still open after this pass:**
+- Further symbol concepts, beyond the locked candidate, still to be
+  explored.
+- Wordmark design is unresolved — the tested wordmark didn't pair well with
+  the symbol; needs a different approach (typeface, layout, or possibly
+  abbreviation) before a full logo lockup exists.
+- The locked candidate itself is expected to change (creator intends to
+  edit its SVG paths directly) — treat as a snapshot, not a stable
+  reference, until re-confirmed.
+
+**Resolved this pass (2026-07-24, workflow correction):** Two rounds of
+fine curve-level refinement were attempted via iterative AI-described
+feedback (annotated screenshot → prose correction). The creator found this
+arduous, echoing a discouraging pattern from PAWH, and has moved to editing
+`symbol_v01_terminal_handbook_recolour.svg` directly in Inkscape (see
+`PROJECT_BRIEF.md`, "Visual identity" workflow note). Further AI-iterative
+curve editing on this file is not the plan going forward.
+
+**Resolved this pass (2026-07-24, second track confirmed):**
+- ~~Whether shell/terminal basics belongs in the first pilot~~ — resolved
+  (Entry 036): it doesn't belong in the general-literacy pilot, but is a
+  sensible first module for a newly-confirmed **second, parallel track**
+  (the local AI workstation), seeded from inherited PAWH architecture now
+  recorded in `PROJECT_BRIEF.md`.
+
+**Still open after this pass:**
+- The two tracks' relationship (shared foundational modules, if any;
+  whether the workstation track needs its own audience/barrier research
+  the way Priority 2 was done for the general-literacy pilot) is
+  unaddressed.
+- The inherited workstation architecture (Entry 036) has not been checked
+  against current tool landscape/versions — it reflects PAWH-era planning,
+  not a freshly-verified technical review.
+
+**Deferred (2026-07-24):** The creator confirmed the local AI workstation
+track (Entry 036) is not active work for now — parked as a confirmed future
+direction, not dropped. Current focus stays on the general-literacy pilot's
+core-capability decision (Entry 035). Do not resume workstation-track
+drafting until the creator reopens it.
+
+**Resolved this pass (2026-07-25, core-capability options researched):**
+- ~~Which single core capability the pilot unit should teach~~ — options now
+  researched (Entries 039–040), not yet decided. Four evidenced candidates
+  identified (critical evaluation of AI output; effective prompting;
+  capability/limitation mental model; responsible/safe use of data), with a
+  disconfirm check complicating the apparent front-runner (critical
+  evaluation) by finding several independent sources that order foundational
+  "what AI is/does" content ahead of evaluative content. This is genuinely
+  "resolved" only in the sense that the open question now has a well-sourced
+  set of options in front of it — the actual choice remains the creator's,
+  not made by this entry.
+
+**Still open after this pass:**
+- **The core-capability choice itself** (Entry 039's four candidates, Entry
+  040's complication of Candidate A) is the immediate next decision point —
+  same status as before this pass, just better-evidenced now.
+- `[TADIMALLA-MAHER25]` and `[SAIL4ALL25]` (Entry 040) were only read at
+  abstract/summary level (paywalled) — need a full read before being treated
+  as more than suggestive, especially if the sequencing question becomes
+  load-bearing for the final decision.
+- No UK-specific empirical comparison of "evaluation-first" vs.
+  "foundations-first" short AI-literacy units was found (Entry 040) — a
+  genuine evidence gap, not just an unread source.
+
+**Resolved this pass (2026-07-25, verification debt on Entries 029/030):**
+- ~~No disconfirming search run yet on the SME/large-firm adoption-depth
+  gap~~ — done (Entry 041). A genuinely restricted, non-vendor search still
+  found no AI-specific disconfirmation; one adjacent-domain academic
+  counter-example (cloud technology, not AI) was found and logged for
+  epistemic humility rather than as an overturn. Net effect: modestly
+  strengthens Entry 029.
+- ~~`[LOCALAI-COST26]`/`[LOCALAI-CAPABILITY26]` unverified beyond
+  search-engine synthesis~~ — substantially addressed (Entry 042). Four
+  underlying blogs were individually fetched and read directly (confirming
+  but not resolving the "vendor claim, no primary data" concern), and two
+  independent/academic alternatives were found: Epoch AI's Capabilities
+  Index (rigorous, ~4-month open/closed gap — can now anchor
+  `[LOCALAI-CAPABILITY26]`'s figure) and Stanford HAI's AI Index
+  (corroborates directionally, non-monotonic). The cost side remains
+  genuinely unverifiable beyond vendor estimates — no independent
+  alternative was found there.
+
+**Still open after this pass:**
+- The measurement-artifact question for the SME/large-firm gap (Entry 041)
+  is genuinely mixed, not resolved — one Fed source suggests a definitional
+  survey change partly explains a widening gap, another finds a specific
+  small-firm-exclusion choice doesn't change much. Worth revisiting only if
+  this gap becomes more foundational to the project's thesis.
+- The local-AI cost side (Entry 042) still has no independent/academic or
+  UK-specific source — remains directional-only, not citable with specific
+  figures.
+- A genuinely academic on-device cost/energy paper (arXiv:2512.16531) was
+  found but not read directly in this pass — flagged as a lead, not a
+  finding.

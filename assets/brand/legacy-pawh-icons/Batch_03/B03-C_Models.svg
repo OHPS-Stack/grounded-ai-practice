@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+<title>B03-C Models</title>
+<g stroke-linecap="round" stroke-linejoin="round">
+<path d="M256 72 L382 145 V291 L256 364 L130 291 V145 Z" stroke="#FF5A1F" stroke-width="14" fill="none"/>
+<g transform="translate(0,-7)">
+<path d="M256 136 L330 179 L256 222 L182 179 Z" stroke="#0F1C2F" stroke-width="14" fill="#FFFFFF"/>
+<path d="M182 179 V271 L256 314 V222 Z" stroke="#0F1C2F" stroke-width="14" fill="#FFFFFF"/>
+<path d="M330 179 V271 L256 314 V222 Z" stroke="#0F1C2F" stroke-width="14" fill="#FFFFFF"/>
+</g>
+</g>
+</svg>

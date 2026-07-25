@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <title>B05-F Updates and Maintenance — correction candidate v08</title>
+  <desc>Approved gear and arrowheads preserved. The two short line portions marked by the user are removed, leaving one upper circular arrow and one lower circular arrow with tails beginning on the horizontal centreline.</desc>
+
+  <!-- Approved gear: unchanged -->
+  <path d="M 224.0 148.7 L 235.1 117.6 L 276.9 117.6 L 288.0 148.7
+L 293.2 150.3 L 320.4 131.7 L 354.3 156.3 L 345.0 188.0
+L 348.2 192.4 L 381.2 193.3 L 394.1 233.1 L 368.0 253.3
+L 368.0 258.7 L 394.1 278.9 L 381.2 318.7 L 348.2 319.6
+L 345.0 324.0 L 354.3 355.7 L 320.4 380.3 L 293.2 361.7
+L 288.0 363.3 L 276.9 394.4 L 235.1 394.4 L 224.0 363.3
+L 218.8 361.7 L 191.6 380.3 L 157.7 355.7 L 167.0 324.0
+L 163.8 319.6 L 130.8 318.7 L 117.9 278.9 L 144.0 258.7
+L 144.0 253.3 L 117.9 233.1 L 130.8 193.3 L 163.8 192.4
+L 167.0 188.0 L 157.7 156.3 L 191.6 131.7 L 218.8 150.3 Z"
+        fill="#FFFFFF"
+        stroke="#0F1C2F"
+        stroke-width="14"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+  <!-- Upper arrow: right centreline around the top into the left head -->
+  <path d="M 316 256
+           A 60 60 0 0 0 204 226"
+        fill="none"
+        stroke="#FF5A1F"
+        stroke-width="14"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+  <!-- Lower arrow: left centreline around the bottom into the right head -->
+  <path d="M 196 256
+           A 60 60 0 0 0 308 286"
+        fill="none"
+        stroke="#FF5A1F"
+        stroke-width="14"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+  <!-- Existing arrowheads retained exactly -->
+  <polygon points="193.0,245.1 190.6,218.2 217.4,233.8" fill="#FF5A1F"/>
+  <polygon points="319.0,266.9 321.4,293.8 294.6,278.2" fill="#FF5A1F"/>
+</svg>

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <title>B05-I Version Control and Repositories — production candidate v05</title>
+  <desc>Three stacked repository cards with a front coral folder, metadata lines, a commit history, and a smaller coral feature branch. Folder proportions refined, node system slightly reduced, and rear cards kept light grey.</desc>
+
+  <!-- Rear repository cards: light grey -->
+  <rect x="144" y="84" width="286" height="286" rx="28"
+        fill="#E8EBEF" stroke="#0F1C2F" stroke-width="14"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="116" y="112" width="286" height="286" rx="28"
+        fill="#E8EBEF" stroke="#0F1C2F" stroke-width="14"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Front repository card -->
+  <rect x="88" y="140" width="286" height="286" rx="28"
+        fill="#FFFFFF" stroke="#0F1C2F" stroke-width="14"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Coral folder: refined against approved reference -->
+  <path d="M130 176
+           H153
+           L164 187
+           H190
+           Q190 187 190 191
+           V218
+           Q190 222 186 222
+           H130
+           Q126 222 126 218
+           V180
+           Q126 176 130 176 Z"
+        fill="none" stroke="#FF5A1F" stroke-width="11"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Repository title / metadata lines -->
+  <g stroke="#0F1C2F" stroke-width="10" stroke-linecap="round">
+    <line x1="226" y1="192" x2="332" y2="192"/>
+    <line x1="226" y1="219" x2="298" y2="219"/>
+  </g>
+
+  <!-- Main commit history line and nodes: slightly reduced -->
+  <path d="M88 292 H285"
+        fill="none" stroke="#0F1C2F" stroke-width="9"
+        stroke-linecap="round"/>
+  <g fill="#FFFFFF" stroke="#0F1C2F" stroke-width="9">
+    <circle cx="128" cy="292" r="17"/>
+    <circle cx="206" cy="292" r="17"/>
+    <circle cx="284" cy="292" r="17"/>
+  </g>
+
+  <!-- Coral feature branch: slightly smaller and pulled inward so final node no longer clips -->
+  <path d="M246 292
+           C258 304 260 318 260 332
+           V347
+           C260 360 270 368 283 368
+           H323"
+        fill="none" stroke="#FF5A1F" stroke-width="9"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="283" cy="368" r="17"
+          fill="#FFFFFF" stroke="#FF5A1F" stroke-width="9"/>
+  <circle cx="339" cy="368" r="17"
+          fill="#FFFFFF" stroke="#0F1C2F" stroke-width="9"/>
+</svg>
