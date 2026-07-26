@@ -2380,6 +2380,49 @@ Full citation is given once here; log entries below cite the short tag only.
   supplementary derivative assets for the creator's personal/social use,
   not a change to the core brand system.
 
+### Entry 047 — Pilot unit core capability decided: effective prompting
+
+- **Date logged:** 2026-07-26
+- **Priority / Question:** Immediate priority Q5 / Priority 3 — resolves the
+  open question flagged after Entries 039–040: which single core capability
+  the pilot unit (Entry 035) should teach.
+- **Source:** Direct decision by the project's creator, 2026-07-26, made
+  against the four candidates and disconfirm check set out in Entries
+  039–040. Not new external evidence — a scoping choice informed by
+  already-logged sources.
+- **What the source directly supports:** The creator chose **Candidate B
+  (effective prompting)**, with a specific rationale not captured verbatim
+  in Entry 039's tradeoff summary: prompting is well suited to illustrating
+  the gap between what a learner sees (their own typed input) and what the
+  model actually does with it, giving the unit a concrete way to touch on
+  backend model behaviour while still teaching an immediately usable skill
+  applicable to whatever AI tools the learner already has.
+- **Inference drawn:** This framing directly addresses the design constraint
+  Entry 040 raised — that a production-skill candidate (B) or evaluative
+  candidate (A) risks being taught as a checklist unless it folds in some
+  version of Candidate C's capability/limitation mental model as scaffolding.
+  By building the "why" (what the model does with input) into the prompting
+  lesson itself, rather than treating C as a separate prerequisite unit, this
+  choice resolves that tension for the pilot rather than deferring it. This
+  reading is this entry's own synthesis, not something the creator stated in
+  those terms.
+- **Limitations / conflicting evidence:** Entry 039 flagged Candidate B as
+  the weakest fit to the project's stated "responsible/verification" framing
+  (`PROJECT_BRIEF.md`'s problem statement) and the most likely to read as
+  generic tool-training. That risk is not eliminated by this decision — the
+  unit is still a production-skill unit first. It is a scoping choice for
+  *this* pilot, not a claim that responsible-use content is unimportant;
+  Candidate D (responsible/safe use) remains a plausible second unit if the
+  project later stacks further pilots.
+- **Effect on project direction:** Unblocks drafting the pilot unit itself.
+  Working title recorded in `PROJECT_BRIEF.md`: "Effective prompting — what's
+  really happening when you hit send." Naming went through one revision
+  round: an initial draft phrase ("effective prompting, taught through the
+  user-facing input vs. model-processing lens") was rejected by the creator
+  as jargon-heavy and unintuitive, not reflective of substance — plain,
+  concrete wording was preferred over an abstract "lens" framing, consistent
+  with the project's accessibility goal for its general-public/SME audience.
+
 <!--
 Entry template (for reference — remove once first real entry is added):
 
@@ -2763,10 +2806,16 @@ drafting until the creator reopens it.
   set of options in front of it — the actual choice remains the creator's,
   not made by this entry.
 
+**Resolved (2026-07-26, core-capability decided — Entry 047):**
+- ~~The core-capability choice itself~~ — decided. The creator chose
+  Candidate B (effective prompting), specifically framed around the gap
+  between what a learner types and what the model does with it — resolving
+  Entry 040's scaffolding concern by building a compressed version of
+  Candidate C into the prompting lesson itself rather than treating it as a
+  separate prerequisite. Working title: "Effective prompting — what's really
+  happening when you hit send." Unblocks drafting the pilot unit.
+
 **Still open after this pass:**
-- **The core-capability choice itself** (Entry 039's four candidates, Entry
-  040's complication of Candidate A) is the immediate next decision point —
-  same status as before this pass, just better-evidenced now.
 - `[TADIMALLA-MAHER25]` and `[SAIL4ALL25]` (Entry 040) were only read at
   abstract/summary level (paywalled) — need a full read before being treated
   as more than suggestive, especially if the sequencing question becomes

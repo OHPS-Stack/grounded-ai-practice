@@ -124,9 +124,30 @@ critique (`LSE-CARDOSO26`, `TECHOSAURUS26`, `HUMANCO26`): one small, coherent,
 well-sequenced unit is a stronger test of the project's learning-design
 assumptions than a broad but shallow first release.
 
-This decision answers *what shape* the first test should take. It does not
-yet decide *which* core capability that first unit should teach — that
-remains open.
+This decision answers *what shape* the first test should take. See
+"Pilot unit core capability" below for *which* capability it teaches.
+
+## Pilot unit core capability (working decision — 26 July 2026)
+
+The project's creator has decided the pilot unit's core capability:
+**effective prompting**, working title **"Effective prompting — what's
+really happening when you hit send."**
+
+Chosen from four evidenced candidates researched in `RESEARCH_LOG.md`
+(Entries 039–040): critical evaluation of AI output, effective prompting,
+a working capability/limitation mental model, and responsible/safe use of
+data. The rationale: prompting gives the unit a concrete way to show the
+gap between what a learner types and what the model actually does with the
+input, teaching an immediately usable skill while also touching on backend
+model behaviour — rather than treating "how AI works" as separate
+prerequisite content.
+
+This is a deliberate scoping choice, not a claim that responsible-use or
+evaluative content matters less — the unit still centres on a practical
+"production" skill (what to say to AI) rather than the project's stated
+responsible-use/verification framing. Responsible/safe use of data remains
+a plausible second unit if the project stacks further pilots later. See
+`RESEARCH_LOG.md` Entry 047 for the full decision record.
 
 ## Second track: local AI workstation (working decision — 24 July 2026; deferred 24 July 2026)
 
@@ -407,7 +428,6 @@ The project has not yet determined:
   tool, repository, or a combination) — the working decision above only
   fixes the shape of the *first pilot test*, not the project's long-term
   format;
-- which single core capability the first pilot unit should teach;
 - its final curriculum or competency levels;
 - its permanent repository structure;
 - its long-term document and data architecture;
