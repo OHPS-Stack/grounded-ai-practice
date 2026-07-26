@@ -31,6 +31,13 @@ the five immediate research priorities driving current work.
   themselves, explain what it does and why, especially anything security- or
   system-relevant. This is part of the project's own subject matter
   (responsible AI use, verification, human oversight), not just a courtesy.
+- Word documents (`.docx`) get a self-check before being treated as
+  finished: `tools/word_preview.ps1` exports the file through actual
+  Microsoft Word via COM automation to PDF, which Claude then reads
+  directly — not a LibreOffice-rendered approximation. LibreOffice's layout
+  engine has diverged from Word's real rendering on grouped/shape-based
+  content in this project before, so treat a LibreOffice preview as
+  provisional, not confirmation that formatting is correct.
 
 ## Research discipline
 
@@ -119,6 +126,18 @@ open threads). Key standing rules:
 - `assets/brand/logo/creative_brief.md` — portable creative brief for
   external logo-generation workflows (not a project research/decision
   document itself).
+- `drafts/` — work-in-progress, non-authoritative files under active
+  iteration (currently: `Effective_Prompting_Example.docx`, a formatting
+  test for the pilot unit's Word-document template — see `RESEARCH_LOG.md`
+  Entry 047 and the PAWH semantic-callout construction it's adapting).
+  Nothing here reflects a settled decision; contents may be replaced or
+  removed once the format stabilises.
+- `tools/word_preview.ps1` — self-check step for `.docx` work: exports a
+  document through real Microsoft Word (COM automation) to PDF so Claude
+  can visually verify formatting the way Word actually renders it, instead
+  of relying on LibreOffice's approximation. Requires Word and
+  poppler-utils (`pdftoppm`) installed locally; see the "Working approach"
+  note above on why LibreOffice alone isn't trusted for this.
 
 ## Claude's memory: what's in the repo vs. outside it
 
