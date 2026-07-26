@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+<title>Security and privacy</title>
+<g stroke-linecap="round" stroke-linejoin="round">
+<path d="M256 88
+C210 116 170 122 126 124
+V236
+C126 322 182 384 256 426
+C330 384 386 322 386 236
+V124
+C342 122 302 116 256 88 Z"
+stroke="#27221E" stroke-width="14" fill="none"/>
+<path d="M205 236 V195 C205 160 227 138 256 138 C285 138 307 160 307 195 V236" stroke="#27221E" stroke-width="14" fill="none"/>
+<rect x="178" y="226" width="156" height="110" rx="18" fill="#F15E4B"/>
+<circle cx="256" cy="272" r="17" fill="#FFFFFF"/>
+<rect x="248" y="284" width="16" height="32" rx="8" fill="#FFFFFF"/>
+</g>
+</svg>

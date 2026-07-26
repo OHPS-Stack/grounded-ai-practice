@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <title>B02-D Troubleshooting — reconstruction candidate v06</title>
+  <desc>Magnifying-glass handle preserved as a single shape. Wrench revised so the handle is slightly thinner and the full wrench remains inside the inner circumference of the grey circle.</desc>
+
+  <defs>
+    <clipPath id="inner-lens-clip">
+      <circle cx="205" cy="205" r="91"/>
+    </clipPath>
+  </defs>
+
+  <!-- Single-shape magnifying-glass handle -->
+  <rect x="284" y="258" width="156" height="54" rx="15"
+        transform="rotate(45 284 285)"
+        fill="#FFFFFF" stroke="#27221E" stroke-width="10"/>
+
+  <!-- Magnifying-glass lens -->
+  <circle cx="205" cy="205" r="132" fill="#FFFFFF"
+          stroke="#27221E" stroke-width="10"/>
+  <circle cx="205" cy="205" r="96" fill="none"
+          stroke="#D5E2E1" stroke-width="10"/>
+
+  <!-- Wrench revised: slightly reduced/thinner and constrained to the inner grey-circle circumference -->
+  <g clip-path="url(#inner-lens-clip)" transform="translate(205 205) scale(0.90) translate(-205 -205)">
+    <path d="M221 146
+             C199 143 180 151 168 165
+             C158 177 155 194 162 220
+             L121 271
+             Q119 274 124 279
+             L149 300
+             Q153 304 157 299
+             L199 252
+             C219 254 239 246 252 231
+             C265 215 267 194 255 176
+             L225 203
+             L206 198
+             L202 183
+             L223 155
+             Q226 149 221 146 Z"
+          fill="#27221E"/>
+
+    <path d="M210 155
+             C190 157 176 168 170 182
+             C166 192 168 211 172 224
+             L127 278
+             L146 295
+             L194 242
+             C211 245 228 239 240 228
+             C250 218 254 204 252 191
+             L228 214
+             L203 210
+             L198 206
+             L192 179
+             L210 155 Z"
+          fill="#F15E4B"/>
+  </g>
+</svg>

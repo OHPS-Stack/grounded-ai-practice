@@ -105,12 +105,16 @@ open threads). Key standing rules:
 - `RESEARCH_QUESTIONS.md` — the ten priority areas and their questions.
 - `RESEARCH_LOG.md` — source key (with interest-type tags), dated log
   entries, and the Open Threads list showing what's resolved vs. still open.
-- `assets/brand/legacy-pawh-icons/` — inherited PAWH content-icon library
-  (navy/orange). Superseded palette, confirmed incorrect against the current
-  brand decision — shape/structure reference only, not current-palette
-  assets.
-- `assets/brand/logo/candidates/` — locked logo symbol candidates (working,
-  not final — see `PROJECT_BRIEF.md` "Visual identity" for status).
+- `assets/brand/icons/` — the promoted, working content-icon set (36
+  icons, current palette). `svg/` for sources, `png/` for 64/128/256px
+  exports, `README.md` for the filename→topic manifest.
+- `assets/brand/logo/` — the finished logo system, status FINAL:
+  `logo_symbol.svg` (default, shaded), `logo_symbol_flat.svg`,
+  `_mono`/`_reversed` symbol variants, and `logo_lockup_horizontal`/
+  `logo_lockup_vertical` (+ `_mono`/`_reversed`) icon+wordmark lockups, all
+  with wordmark text as real vector paths (Public Sans) and a two-tone
+  colour hierarchy, plus `png/` exports for all of them. See
+  `PROJECT_BRIEF.md` "Visual identity" for the full picture.
 - `assets/brand/logo/creative_brief.md` — portable creative brief for
   external logo-generation workflows (not a project research/decision
   document itself).

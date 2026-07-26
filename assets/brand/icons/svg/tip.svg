@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <title>B02-C Tip — reconstruction candidate v01</title>
+  <desc>Speech-bubble outline containing a light bulb with coral filament and idea rays.</desc>
+
+  <!-- Speech bubble -->
+  <path d="M256 74
+           C157 74 78 145 78 240
+           C78 335 157 406 256 406
+           C292 406 325 397 353 381
+           L433 413
+           L408 338
+           C430 307 442 273 442 237
+           C442 145 360 74 256 74 Z"
+        fill="#FFFFFF" stroke="#27221E" stroke-width="11"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Light bulb outline -->
+  <path d="M256 153
+           C215 153 183 185 183 226
+           C183 253 194 273 211 289
+           L218 326
+           H294
+           L301 289
+           C318 273 329 253 329 226
+           C329 185 297 153 256 153 Z"
+        fill="#FFFFFF" stroke="#27221E" stroke-width="10"
+        stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Coral filament -->
+  <g stroke="#F15E4B" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="237" y1="247" x2="237" y2="318"/>
+    <line x1="275" y1="247" x2="275" y2="318"/>
+    <line x1="237" y1="247" x2="256" y2="264"/>
+    <line x1="275" y1="247" x2="256" y2="264"/>
+  </g>
+  <circle cx="237" cy="247" r="9" fill="#F15E4B"/>
+  <circle cx="275" cy="247" r="9" fill="#F15E4B"/>
+
+  <!-- Bulb base -->
+  <path d="M216 320 H296 L290 346 H222 Z"
+        fill="#FFFFFF" stroke="#27221E" stroke-width="10"
+        stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="229" y1="365" x2="283" y2="365"
+        stroke="#27221E" stroke-width="10" stroke-linecap="round"/>
+
+  <!-- Idea rays -->
+  <g stroke="#F15E4B" stroke-width="9" stroke-linecap="round">
+    <line x1="256" y1="112" x2="256" y2="132"/>
+    <line x1="191" y1="132" x2="207" y2="148"/>
+    <line x1="321" y1="132" x2="305" y2="148"/>
+  </g>
+</svg>

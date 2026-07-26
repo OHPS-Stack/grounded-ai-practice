@@ -2094,6 +2094,260 @@ Full citation is given once here; log entries below cite the short tag only.
   than citable with specific figures, consistent with Entry 030's original
   hedge.
 
+### Entry 039 — Inkscape handoff produced two improved candidates; shaded version preferred
+
+- **Date logged:** 2026-07-24
+- **Priority / Question:** Continues Entries 037/038 (Priority 7/10, visual
+  identity).
+- **Source:** Direct creative work by the project's creator in Inkscape,
+  2026-07-24 — no source-key citation, as with prior visual-identity
+  entries.
+- **What changed:** Following the workflow handoff logged in the previous
+  entry, the creator produced two refined symbol candidates directly in
+  Inkscape: `GAP_logo_flat.svg` (flat Ink/Ember/Paper, proper corner
+  fillets replacing the earlier hand-coded curve approximations) and
+  `GAP_logo_shaded.svg` (the same geometry with added gradient shading — a
+  book-cover gradient, a spine shadow, subtle page depth, and a rounded
+  highlight on the Ember bar). The creator confirmed `GAP_logo_shaded.svg`
+  as the current best version. The earlier AI-iteratively-edited file
+  (`symbol_v01_terminal_handbook_recolour.svg`) has been removed.
+- **Inference drawn:** The shaded version's gradient shading achieves the
+  "3D/book effect" that earlier curve-asymmetry attempts (this log's Entry
+  038 corner tweak) were only partially addressing — this is the project's
+  own read of the outcome, not stated by any external source, but it's a
+  reasonably direct visual comparison.
+- **Limitations / conflicting evidence:** Not applicable — direct creative
+  work, not a research finding.
+- **Effect on project direction:** Confirms the workflow correction from
+  the previous entry was the right call — the handoff produced a clearly
+  better result than continued AI-iterative editing was achieving. Updates
+  `PROJECT_BRIEF.md`'s "Visual identity" section to point at the current
+  files. The wordmark pairing remains the next open piece, now against a
+  meaningfully improved symbol.
+
+### Entry 040 — Legacy PAWH icon set recoloured and structural flags fixed
+
+- **Date logged:** 2026-07-24
+- **Priority / Question:** Continues Entries 037–039 (Priority 7/10, visual
+  identity) — closes the "legacy icon set needs recolour/overhaul" item
+  open since Entry 037.
+- **Source:** Direct work by Claude Code (bulk find/replace across all 35
+  files, verified by grep) plus the project's creator's manual visual
+  review of every icon; four targeted structural fixes reviewed/approved
+  by the creator. No source-key citation, as with other visual-identity
+  entries.
+- **What changed:** All 35 icons in `assets/brand/legacy-pawh-icons/`
+  recoloured from the superseded navy/orange palette to the current one.
+  Full mapping: `#0F1C2F`→`#27221E` (Ink), `#FF5A1F`→`#F15E4B` (Ember),
+  six assorted light-grey variants (`#D1D8E0`, `#AEB7C3`, `#E5E7EB`,
+  `#E8EBEF`, `#C5CDD6`, `#8E97A8`)→`#D5E2E1` (Sage), and three one-off
+  outlier colours found only in `B04-E`→their nearest palette equivalent.
+  White (`#FFFFFF`) left unchanged. Verified via grep that no pre-recolour
+  hex values remain anywhere in the set. The creator then manually checked
+  every icon and confirmed correct rendering and colour application.
+  Separately, four icons were flagged during the recolour pass for
+  construction issues unrelated to colour and fixed: `B04-E`'s
+  non-standard 1254×1254 viewBox normalised to 512×512 via a wrapping
+  transform (no coordinates altered); `B05-L`'s stale
+  CairoSVG-specific-rendering claim in its desc corrected (its paths use
+  no renderer-specific features); `B04-C`'s intentionally-duplicated
+  ink-ring/white-fill paths documented with a comment explaining why
+  (needed for correct rendering on non-white backgrounds, not an
+  accidental duplication); `B04-D`'s live `<text>` "API" element (the only
+  text-based, font-dependent element in the whole set) removed at the
+  creator's request, left empty for manual type-setting in Inkscape. Four
+  other icons (`B02-E`, `B05-B`, `B05-F`, `B03-A`) were flagged only for
+  unusually high prior revision counts (v08–v10 vs. v01–v03 typical), not
+  any identified defect — cleared without changes after the creator's
+  manual review found no problem.
+- **Inference drawn:** None beyond what's stated — this is direct
+  production work, not a research finding.
+- **Limitations / conflicting evidence:** Not applicable.
+- **Effect on project direction:** Closes the legacy-icon-set open item
+  from Entry 037. `B04-D` is not fully finished — it needs the creator to
+  add "API" type by hand in Inkscape before it's usable. Everything else
+  in the set is now current-palette and ready to use.
+
+### Entry 041 — Logo symbol and icon set promoted from candidate/legacy to working assets
+
+- **Date logged:** 2026-07-24
+- **Priority / Question:** Continues Entries 037–040 (Priority 7/10, visual
+  identity) — closes out the visual-identity work for now, leaving only the
+  wordmark unresolved.
+- **Source:** Direct restructuring/production work by Claude Code, per the
+  creator's explicit instruction to promote both assets and clean up the
+  folder structure. No source-key citation, as with other visual-identity
+  entries.
+- **What changed:** The creator manually finished `B04-D_API_MCP.svg` (hand-set
+  the "API" type in Inkscape's text tool) and confirmed both the icon set
+  and logo symbol as finished, no longer provisional. Both were promoted:
+  - **Icon set:** moved from `assets/brand/legacy-pawh-icons/Batch_0X/B0X-Y_Name.svg`
+    (36 files across 5 batch subfolders, an artefact of how the icons were
+    originally produced) to flat, snake_case files at
+    `assets/brand/icons/svg/{topic}.svg` — e.g. `B01-A_Purpose.svg` →
+    `purpose.svg`. Moved via `git mv` to preserve history as renames. PNG
+    exports generated at 64/128/256px (transparent background) via the
+    Inkscape CLI into `assets/brand/icons/png/`, one file per icon per
+    size (108 total). A `README.md` manifest added listing every icon
+    filename against its topic, replacing the discoverability the batch
+    folders used to provide.
+  - **Logo:** `assets/brand/logo/candidates/GAP_logo_shaded.svg` →
+    `assets/brand/logo/logo_symbol.svg` (default/primary) and
+    `GAP_logo_flat.svg` → `logo_symbol_flat.svg` (explicit flat variant).
+    These two were untracked in git (never previously committed), so this
+    was a plain move rather than a tracked rename. PNG exports generated
+    at 32/64/128/256/512/1024px (transparent background) for both
+    variants into `assets/brand/logo/png/` (12 files total).
+  - `assets/brand/legacy-pawh-icons/` and `assets/brand/logo/candidates/`
+    removed entirely once empty.
+  - `PROJECT_BRIEF.md` ("Visual identity") and `CLAUDE.md` ("Where to look
+    for what") updated to the new paths and promoted status.
+- **Inference drawn:** None — direct production/restructuring work.
+- **Limitations / conflicting evidence:** Not applicable. Note: the icon
+  count is 36, not the "35" stated in earlier entries (037/038/040) — a
+  miscount in this log, not a change in the underlying file set; corrected
+  here for the record, earlier entries left as-is per this log's
+  non-alteration convention.
+- **Effect on project direction:** The icon set and logo symbol are now
+  ordinary working assets, referenced directly at their new paths rather
+  than treated as candidates pending promotion. Only the wordmark pairing
+  remains open in the visual-identity thread.
+
+### Entry 042 — Wordmark finalised; full logo variant set produced
+
+- **Date logged:** 2026-07-24
+- **Priority / Question:** Continues Entries 037–041 (Priority 7/10, visual
+  identity) — closes the last open item in the visual-identity thread.
+- **Source:** Direct production work by Claude Code, per the creator's
+  request to finalise the wordmark and produce monochrome/horizontal/
+  vertical logo variants. No source-key citation, as with other
+  visual-identity entries.
+- **What changed:** Tested single-line ("GROUNDED AI PRACTICE") against
+  two-line ("GROUNDED AI" / "PRACTICE") wordmark arrangements against the
+  *current* refined symbol (the earlier "too long and disconnected"
+  verdict was against the pre-Inkscape symbol, not retested until now) —
+  two-line read clearly better and matches the symbol's roughly-square
+  proportions, so it was used as the basis going forward. Recommended
+  **Public Sans** (SIL Open Font License) as the wordmark typeface — a
+  GSA-designed typeface built for federal digital services, a strong
+  conceptual match for the project's evidence-based/anti-hype positioning;
+  noted Manrope as a fallback if it doesn't suit once seen rendered. Eight
+  new SVG files created in `assets/brand/logo/`, all derived from
+  `logo_symbol_flat.svg`'s existing correct geometry via colour/text
+  changes only (no new curve work): `logo_symbol_mono.svg` and
+  `logo_symbol_reversed.svg` (single-Ink and white-on-dark versions of the
+  symbol alone — reversed uses a transparent page-fill so it works on any
+  dark background, not just Ink); `logo_lockup_horizontal.svg` and
+  `logo_lockup_vertical.svg` (icon + two-line wordmark, side-by-side and
+  stacked) each with matching `_mono`/`_reversed` variants. PNG
+  derivatives generated via the Inkscape CLI: 32–1024px for the two square
+  symbol variants, 256–1024px width for the four lockup variants (42 PNGs
+  total). All verified by rendering — including the reversed lockups
+  specifically composited against dark backgrounds to confirm correctness
+  (a transparent PNG viewed directly appears blank against a white
+  preview, which is expected, not a defect). The lockup SVGs declare
+  `font-family="'Public Sans', sans-serif"` but were built using a system
+  sans-serif fallback for layout purposes only, since real downloadable
+  fonts can't be loaded in this chat's rendering — same constraint and
+  same resolution pattern as the logo symbol and the API/MCP icon: the
+  creator still needs to install the real font, apply it, check kerning,
+  and convert the text to paths in Inkscape.
+- **Inference drawn:** None beyond what's stated — direct production work.
+- **Limitations / conflicting evidence:** Not applicable.
+- **Effect on project direction:** Closes the visual-identity thread's
+  last open item at the direction level. What remains is execution
+  polish (real typeface, kerning, path-conversion) rather than an
+  open design decision — a creator task in Inkscape, not a further Claude
+  Code design pass, per the established workflow correction (Entries
+  037/040/041).
+
+### Entry 043 — Stone (neutral grey) added to the palette
+
+- **Date logged:** 2026-07-24
+- **Priority / Question:** Continues the visual-identity thread (Entries
+  037–042, Priority 7/10) — the six-colour palette had no true grey.
+- **Source:** Direct creative decision by the project's creator, 2026-07-24
+  — no source-key citation, as with other visual-identity entries.
+- **What changed:** The creator confirmed they're making manual colour
+  edits during the font-to-path conversion pass in Inkscape and wanted a
+  grey option for sparing use in the monochrome logo variants. Three
+  candidates were proposed with different undertones (warm, matching Ink;
+  cool, matching Sage; fully neutral) — the creator picked **Stone**
+  (`#6E6E6E`), the fully neutral option, specifically because it has no
+  warm/cool lean, unlike every other colour in the palette. Added to the
+  palette table in `PROJECT_BRIEF.md`, explicitly scoped as sparing-use
+  only (monochrome logo detailing initially), not a general UI/text
+  colour.
+- **Inference drawn:** None — a direct decision, not derived from evidence.
+- **Limitations / conflicting evidence:** Not applicable.
+- **Effect on project direction:** The palette is now seven colours. No
+  files were changed to use Stone yet — the creator is applying it
+  manually themselves as part of the same Inkscape pass covering the
+  wordmark font-to-path conversion.
+
+### Entry 044 — Graphite (second neutral grey) added to the palette
+
+- **Date logged:** 2026-07-24
+- **Priority / Question:** Continues Entry 043 — the creator wanted a
+  second, darker grey alongside Stone.
+- **Source:** Direct creative decision by the project's creator, 2026-07-24
+  — no source-key citation, as with other visual-identity entries.
+- **What changed:** Two candidates were proposed, both matching Stone's
+  zero warm/cool lean rather than introducing a third undertone: Graphite
+  (`#404040`, a genuine third step between Stone and Ink) and Charcoal
+  (`#2B2B2B`, matching Ink's depth but neutral). The creator picked
+  **Graphite**. Added to the palette table in `PROJECT_BRIEF.md`, same
+  sparing-use scope as Stone (monochrome logo detailing, not general
+  UI/text colour).
+- **Inference drawn:** None — a direct decision, not derived from evidence.
+- **Limitations / conflicting evidence:** Not applicable.
+- **Effect on project direction:** The palette is now eight colours. No
+  files changed to use Graphite yet — same as Stone, this is for the
+  creator to apply manually during their own Inkscape work.
+
+### Entry 045 — Visual identity finalised: wordmark polished, two-tone hierarchy, reversed variants redesigned
+
+- **Date logged:** 2026-07-24
+- **Priority / Question:** Closes the visual-identity thread (Entries
+  037–044, Priority 7/10) — the creator confirmed final logo revisions are
+  complete.
+- **Source:** Direct manual work by the project's creator in Inkscape,
+  2026-07-24 — no source-key citation, as with other visual-identity
+  entries.
+- **What changed:** The creator completed the outstanding Inkscape work
+  across all ten logo SVGs: installed Public Sans, applied it to every
+  wordmark, tightened "GROUNDED"'s letter-spacing, and converted all
+  wordmark text to vector paths (no font dependency remains anywhere in
+  the brand system now). Beyond the planned polish, the creator introduced
+  a consistent **two-tone wordmark hierarchy** across every variant:
+  "GROUNDED" always takes the variant's most prominent available tone
+  (Ember in full-colour, Graphite in monochrome, white in reversed), while
+  "AI"/"PRACTICE" take a quieter tone (Ink in full-colour/mono, Stone in
+  reversed) — this is the realised use for Stone and Graphite (Entries
+  043/044), not just the "sparing use" originally anticipated when they
+  were added. Separately, the creator redesigned the reversed variants'
+  page-fill area: originally built transparent so it would work on any
+  dark background, all three reversed files (`logo_symbol_reversed.svg`,
+  both reversed lockups) now use an explicit Ink fill instead — a
+  deliberate, consistent choice across all three files, narrowing the
+  reversed variants' intended use to Ink-coloured backgrounds specifically
+  rather than arbitrary dark backgrounds. All 42 PNG derivatives were
+  regenerated from the final SVGs and spot-checked, including compositing
+  the reversed variants against Ink to confirm the two-tone treatment
+  reads correctly (a transparent/white element is invisible against this
+  chat's white preview background, which is expected, not a defect — the
+  same verification step used for earlier reversed-variant checks).
+- **Inference drawn:** None beyond what's stated — direct production work,
+  described accurately from reading the final files rather than assumed
+  from what was originally planned.
+- **Limitations / conflicting evidence:** Not applicable.
+- **Effect on project direction:** The visual identity is now genuinely
+  **FINAL** — `PROJECT_BRIEF.md`'s "Visual identity" section and "Not yet
+  decided" list both updated to reflect this; visual identity removed from
+  the open-questions list entirely. No further Claude Code or Inkscape
+  design work is anticipated on the logo/icon system unless the creator
+  reopens it.
+
 <!--
 Entry template (for reference — remove once first real entry is added):
 
@@ -2399,9 +2653,49 @@ becomes relevant to Priority 2's audience decision.
 fine curve-level refinement were attempted via iterative AI-described
 feedback (annotated screenshot → prose correction). The creator found this
 arduous, echoing a discouraging pattern from PAWH, and has moved to editing
-`symbol_v01_terminal_handbook_recolour.svg` directly in Inkscape (see
-`PROJECT_BRIEF.md`, "Visual identity" workflow note). Further AI-iterative
-curve editing on this file is not the plan going forward.
+directly in Inkscape (see `PROJECT_BRIEF.md`, "Visual identity" workflow
+note). Further AI-iterative curve editing is not the plan going forward.
+
+**Resolved this pass (2026-07-24, Inkscape output):** The handoff produced
+two improved candidates (Entry 039) — `GAP_logo_flat.svg` and
+`GAP_logo_shaded.svg` (creator's preferred version) — superseding the
+earlier AI-edited file, which has been removed. The "more 3D/book effect"
+feedback from Entry 038's blue arrows is now addressed via gradient shading
+rather than curve tweaks.
+
+**Still open after this pass:**
+- The wordmark pairing is unretested against the new candidates.
+
+**Resolved this pass (2026-07-24, legacy icon set):**
+- ~~The legacy PAWH icon set needs its recolour/overhaul pass~~ — done
+  (Entry 040). Recoloured, verified, manually checked by the creator, and
+  four structural issues fixed.
+
+**Resolved this pass (2026-07-24, promotion to working assets):**
+- ~~`B04-D_API_MCP.svg` needs its "API" type hand-set~~ — done by the
+  creator in Inkscape's text tool.
+- ~~Logo symbol and icon set are candidates/legacy, not working assets~~ —
+  both promoted (Entry 041): flat snake_case file structure, PNG
+  derivatives generated, folder/status references updated throughout.
+
+**Resolved this pass (2026-07-24, wordmark finalised):**
+- ~~The wordmark pairing is the one remaining unresolved piece of the
+  visual identity~~ — done (Entry 042). Two-line arrangement, Public Sans
+  recommended, full monochrome/horizontal/vertical/reversed variant set
+  produced.
+
+**Resolved (2026-07-24, visual identity closed out — Entry 045):**
+- ~~Inkscape-side typographic polish (real font, kerning, path-conversion)~~
+  — done. All wordmark text is now real vector paths in Public Sans.
+- The visual identity thread has no further open items. Not carrying a
+  "still open" bullet forward for it.
+
+**Resolved (2026-07-24, addendum to Entry 041):** `api_and_mcp.svg`'s
+hand-set "API" type has been converted to a vector path by the creator
+(Inkscape's Path > Object to Path) — no font dependency remains, matching
+every other icon in the set. Its PNG derivatives (64/128/256px) were
+regenerated to match. This was the last loose end from the icon
+promotion.
 
 **Resolved this pass (2026-07-24, second track confirmed):**
 - ~~Whether shell/terminal basics belongs in the first pilot~~ — resolved

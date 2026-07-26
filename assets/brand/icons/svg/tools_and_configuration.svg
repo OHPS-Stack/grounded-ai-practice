@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <title>B02-E Tools and Configuration — reconstruction candidate v10</title>
+  <desc>Locked eight-tooth gear preserved. Accepted v03 wrench geometry restored unchanged, then clipped in canvas coordinates to the inner circumference.</desc>
+
+  <defs>
+    <clipPath id="inner-circle-visible-area" clipPathUnits="userSpaceOnUse">
+      <circle cx="270" cy="245" r="72"/>
+    </clipPath>
+  </defs>
+
+  <polygon points="230.3,119.1 246.4,86.8 293.6,86.8 309.7,119.1 331.0,127.9 365.2,116.4 398.6,149.8 387.1,184.0 395.9,205.3 428.2,221.4 428.2,268.6 395.9,284.7 387.1,306.0 398.6,340.2 365.2,373.6 331.0,362.1 309.7,370.9 293.6,403.2 246.4,403.2 230.3,370.9 209.0,362.1 174.8,373.6 141.4,340.2 152.9,306.0 144.1,284.7 111.8,268.6 111.8,221.4 144.1,205.3 152.9,184.0 141.4,149.8 174.8,116.4 209.0,127.9"
+           fill="#FFFFFF" stroke="#27221E" stroke-width="14" stroke-linejoin="round"/>
+
+  <circle cx="270" cy="245" r="79" fill="#FFFFFF" stroke="#27221E" stroke-width="14"/>
+
+  <g clip-path="url(#inner-circle-visible-area)">
+    <g transform="translate(65 40) translate(205 205) scale(0.85) translate(-205 -205)">
+      <path d="M221 146
+               C199 143 180 151 168 165
+               C158 177 155 194 162 220
+               L121 271
+               Q113 280 121 289
+               L142 310
+               Q151 319 160 310
+               L199 252
+               C219 254 239 246 252 231
+               C265 215 267 194 255 176
+               L225 203
+               L206 198
+               L202 183
+               L223 155
+               Q226 149 221 146 Z"
+            fill="#27221E"/>
+
+      <path d="M210 155
+               C190 157 176 168 170 182
+               C166 192 168 211 172 224
+               L127 278
+               Q123 282 128 287
+               L144 303
+               Q148 307 152 302
+               L194 242
+               C211 245 228 239 240 228
+               C250 218 254 204 252 191
+               L228 214
+               L203 210
+               L198 206
+               L192 179
+               L210 155 Z"
+            fill="#F15E4B"/>
+    </g>
+  </g>
+</svg>

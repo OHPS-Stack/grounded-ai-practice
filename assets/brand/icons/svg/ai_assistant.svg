@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <title>B04-A AI Assistant — reconstruction candidate v01</title>
+  <desc>Speech bubble containing the approved PAWH cube motif and a coral four-point sparkle.</desc>
+
+  <g stroke-linecap="round" stroke-linejoin="round">
+    <!-- Speech bubble -->
+    <path d="M160 96
+             H350
+             C394 96 422 126 422 166
+             V255
+             C422 298 394 324 350 324
+             H247
+             L166 376
+             L178 324
+             H160
+             C118 324 90 297 90 255
+             V166
+             C90 126 118 96 160 96 Z"
+          fill="#FFFFFF" stroke="#27221E" stroke-width="14"/>
+
+    <!-- Approved cube motif reused from Batch 04 geometry -->
+    <path d="M256 138 L318 173 L256 208 L194 173 Z"
+          fill="#FFFFFF" stroke="#27221E" stroke-width="14"/>
+    <path d="M194 173 V253 L256 288 V208 Z"
+          fill="#FFFFFF" stroke="#27221E" stroke-width="14"/>
+    <path d="M318 173 V253 L256 288 V208 Z"
+          fill="#FFFFFF" stroke="#27221E" stroke-width="14"/>
+
+    <!-- Coral assistant sparkle -->
+    <path d="M355 136
+             C359 151 365 157 380 160
+             C365 163 359 169 355 185
+             C351 169 345 163 330 160
+             C345 157 351 151 355 136 Z"
+          fill="#F15E4B"/>
+  </g>
+</svg>

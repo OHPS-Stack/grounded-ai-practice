@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <title>B02-B Outcomes — reconstruction candidate v01</title>
+  <desc>Three-stage outcome path ending in a highlighted result node with coral rays.</desc>
+
+  <!-- Connecting path drawn first -->
+  <path d="M103 256 H160 M220 256 H286"
+        stroke="#27221E" stroke-width="8" stroke-linecap="round"/>
+
+  <!-- Progress nodes -->
+  <circle cx="73" cy="256" r="30" fill="#FFFFFF" stroke="#27221E" stroke-width="8"/>
+  <circle cx="190" cy="256" r="30" fill="#FFFFFF" stroke="#27221E" stroke-width="8"/>
+
+  <!-- Outcome node -->
+  <circle cx="351" cy="258" r="65" fill="#FFFFFF" stroke="#27221E" stroke-width="8"/>
+  <circle cx="351" cy="258" r="33" fill="#F15E4B"/>
+
+  <!-- Outcome rays -->
+  <g stroke="#F15E4B" stroke-width="8" stroke-linecap="round">
+    <line x1="351" y1="157" x2="351" y2="126"/>
+    <line x1="351" y1="359" x2="351" y2="390"/>
+    <line x1="452" y1="258" x2="483" y2="258"/>
+    <line x1="280" y1="187" x2="258" y2="165"/>
+    <line x1="422" y1="187" x2="444" y2="165"/>
+    <line x1="280" y1="329" x2="258" y2="351"/>
+    <line x1="422" y1="329" x2="444" y2="351"/>
+  </g>
+</svg>

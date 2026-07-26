@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <title>B03-F Containers and Services — reconstruction candidate v01</title>
+  <desc>Connected three-cube cluster reconstructed as editable vector faces with a single shared edge network. Two cubes are white and the lower-right cube is coral.</desc>
+
+  <!-- Filled faces: no individual strokes, avoiding doubled shared edges -->
+  <g>
+    <!-- Upper cube -->
+    <path d="M256 100 L331 143 L256 187 L181 143 Z" fill="#FFFFFF"/>
+    <path d="M181 143 L256 187 L256 276 L181 232 Z" fill="#FFFFFF"/>
+    <path d="M331 143 L331 232 L256 276 L256 187 Z" fill="#FFFFFF"/>
+
+    <!-- Lower-left cube -->
+    <path d="M181 232 L256 276 L181 320 L104 276 Z" fill="#FFFFFF"/>
+    <path d="M104 276 L181 320 L181 409 L104 365 Z" fill="#FFFFFF"/>
+    <path d="M181 320 L256 276 L256 365 L181 409 Z" fill="#FFFFFF"/>
+
+    <!-- Lower-right cube -->
+    <path d="M256 276 L331 232 L407 276 L331 320 Z" fill="#F15E4B"/>
+    <path d="M256 276 L331 320 L331 409 L256 365 Z" fill="#F15E4B"/>
+    <path d="M331 320 L407 276 L407 365 L331 409 Z" fill="#F15E4B"/>
+  </g>
+
+  <!-- One shared edge network -->
+  <g fill="none" stroke="#27221E" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Upper cube -->
+    <path d="M256 100 L331 143 L256 187 L181 143 Z"/>
+    <path d="M181 143 V232 L256 276 L331 232 V143"/>
+    <path d="M256 187 V276"/>
+
+    <!-- Lower-left cube -->
+    <path d="M181 232 L104 276 L181 320 L256 276"/>
+    <path d="M104 276 V365 L181 409 L256 365 V276"/>
+    <path d="M181 320 V409"/>
+
+    <!-- Lower-right cube -->
+    <path d="M331 232 L407 276 L331 320 L256 276"/>
+    <path d="M407 276 V365 L331 409 L256 365"/>
+    <path d="M331 320 V409"/>
+  </g>
+</svg>

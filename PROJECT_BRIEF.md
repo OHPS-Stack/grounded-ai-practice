@@ -172,38 +172,110 @@ direction for Grounded AI Practice:
 | Paper | `#F9F9F9` | main page background |
 | Mist | `#EFEEED` | secondary/alt background |
 | Sage | `#D5E2E1` | soft secondary section background |
+| Stone | `#6E6E6E` | neutral grey — added 24 July 2026, no warm/cool lean by design (unlike every other colour in the palette, all warm-leaning). Realised use: secondary wordmark text ("AI"/"PRACTICE") in the reversed logo variants. |
+| Graphite | `#404040` | darker neutral grey — added 24 July 2026, same zero-lean character as Stone. Realised use: the "GROUNDED" wordmark accent and icon underline in the monochrome logo variants, standing in for Ember where no brand colour is wanted. |
 
-**Status:** the palette and logo type are decided; the logo mark is in
-progress. One **symbol-only working candidate** is locked at
-`assets/brand/logo/candidates/symbol_v01_terminal_handbook_recolour.svg` —
-it reuses the geometry of the approved PAWH "terminal + handbook" symbol
+**Status: FINAL.** The palette, logo type, logo symbol, wordmark and icon
+set are all **promoted, finished working assets** (symbol/icons promoted
+24 July 2026; wordmark and variant set built the same day; final
+typographic polish — real typeface, kerning, path-conversion — completed
+by the creator in Inkscape 24 July 2026). No outstanding visual-identity
+work remains at the direction level.
+
+**Logo** (`assets/brand/logo/`):
+
+- `logo_symbol.svg` — **the logo**, default/primary version. Gradient-shaded
+  (book-cover gradient, spine shadow, page depth, rounded highlight on the
+  Ember bar) for the 3D/book effect that earlier AI-iterative curve edits
+  couldn't satisfyingly achieve. Base palette is still Ink/Ember/Paper;
+  gradient stops are tasteful variants around those for the shading effect,
+  not deviations from the locked palette.
+- `logo_symbol_flat.svg` — flat-colour sibling (Ink `#27221E` / Ember
+  `#F15E4B` / Paper `#F9F9F9`, no gradients), for contexts needing flat
+  reproduction (favicon, single-colour, print, etc.). All variants below
+  derive from this flat version, not the shaded one — gradients don't suit
+  monochrome/reversed utility variants, which prioritise clarity over
+  polish.
+- `logo_symbol_mono.svg` — single-Ink version (Ember underline recoloured
+  to Ink) for one-colour print/embossing.
+- `logo_symbol_reversed.svg` — white-on-dark version, specifically designed
+  for **Ink-coloured backgrounds**: body white, chevron/cursor Ink, Ember
+  underline kept as the surviving accent, page-fill area explicitly
+  Ink-coloured (a deliberate creator choice made during final polish,
+  superseding the original transparent-page-fill design — no longer
+  intended to work on arbitrary dark backgrounds, only Ink specifically).
+- `logo_lockup_horizontal.svg` / `logo_lockup_vertical.svg` (+ `_mono` /
+  `_reversed` for each) — icon + two-line wordmark ("GROUNDED AI" /
+  "PRACTICE"), side-by-side and stacked. All wordmark text is now real
+  vector paths (Public Sans, converted to outlines in Inkscape) — no font
+  dependency remains, consistent with every other text element in the
+  brand system.
+- `png/` — raster exports, regenerated from final SVGs: symbol and symbol
+  variants at 32/64/128/256/512/1024px; lockup variants at 256/512/1024px
+  width. All transparent background.
+
+All symbol geometry reuses the approved PAWH "terminal + handbook" mark
 (an open-book/journal shape containing a terminal prompt chevron and
-cursor) unchanged, recoloured flat to Ink/Ember/white. This is a candidate
-to refine further (the creator intends to edit the SVG paths directly), not
-a final asset, and other symbol concepts are still to be explored — it
-should not be treated as the decided logo. The wordmark pairing tested
-alongside it did not work (didn't match the symbol's style, read as too
-long/disconnected) and remains unresolved separately from the symbol.
+cursor), refined directly in Inkscape by the creator with proper corner
+fillets.
 
-The existing legacy PAWH icon set (`assets/brand/legacy-pawh-icons/`) uses a
-different, superseded palette (navy/orange) and is confirmed **incorrect**
-against this decision — it needs a future recolour/overhaul pass before
-reuse. Until that overhaul happens, those files should be treated as
-shape/structure reference only, not as current-palette assets. Note this is
-a distinct system from the symbol candidate above — the icon library is
-illustrative content icons, not the brand mark.
+**Wordmark, final treatment:** two-line "GROUNDED AI" / "PRACTICE" set in
+**Public Sans**, tightened letter-spacing on "GROUNDED," converted to
+outline paths. A two-tone hierarchy was added across every variant during
+final polish: **"GROUNDED" always takes the variant's most prominent
+tone** (Ember in the full-colour and vertical full-colour lockups,
+Graphite in the monochrome lockups, white in the reversed lockups), while
+**"AI" and "PRACTICE" take a quieter tone** (Ink in full-colour/mono,
+Stone in reversed) — this is the intended, primary use case for Stone and
+Graphite, not just the "sparing use" originally anticipated when they were
+added to the palette.
 
-**Workflow note (24 July 2026):** fine curve-level refinement of the symbol
-candidate (smoothing specific bezier joins, symmetry corrections) was
-attempted through iterative AI-described feedback (screenshot annotation →
-prose correction, repeated) and the creator found this arduous and
-unproductive — a repeat of a discouraging pattern from PAWH. The creator has
-moved to editing the SVG directly in Inkscape. Future sessions should treat
-`assets/brand/logo/candidates/symbol_v01_terminal_handbook_recolour.svg` as
-potentially edited outside this workflow — re-read it fresh rather than
-assuming the last-known state, and don't propose resuming described-feedback
-curve editing; support concept-level exploration instead, or integration
-once the creator brings back a manually-refined version.
+**Icon set** (`assets/brand/icons/`, promoted 24 July 2026, recolour
+completed the same day): 36 content icons, flat (no batch subfolders),
+snake_case names, with an `svg/` source folder, a `png/` folder (64/128/256px,
+transparent), and a `README.md` manifest listing every icon and its topic.
+Recoloured from the superseded navy/orange palette to the current one
+(`#0F1C2F`→Ink `#27221E`, `#FF5A1F`→Ember `#F15E4B`, assorted light
+greys→Sage `#D5E2E1`), verified with no old colours remaining, and manually
+checked by the creator — all render correctly. This is a distinct system
+from the logo symbol above — the icon library is illustrative content
+icons, not the brand mark.
+
+During recolour, four icons were flagged for construction issues beyond
+colour and fixed: **Vector Database and Embeddings** had a non-standard
+1254×1254 viewBox — normalised to the set's standard 512×512 via a single
+wrapping `scale()` transform, no path coordinates touched, pixel-identical
+output. **Quote Callout** had a stale desc note claiming it needed
+CairoSVG specifically — corrected, since its paths use only plain
+line/close commands with no renderer-specific features. **Cloud AI** had
+two paths sharing identical coordinates by design (an ink ring plus an
+explicit white fill needed so the icon works on non-white backgrounds) —
+added a comment so this isn't mistaken for accidental duplication and
+"simplified" incorrectly later. **API and MCP** used a live `<text>`
+element for "API," the only icon in the set built that way — removed, then
+the creator hand-set the type directly in Inkscape's text tool and
+converted it to a vector path (Path > Object to Path), so it's now true
+outline geometry with no font dependency, consistent with every other icon
+in the set. Four further icons (Tools and Configuration,
+Backup and Recovery, Updates and Maintenance, Learning and Documentation)
+were flagged only for having unusually high past revision counts, not any
+identified defect — cleared by the creator's manual visual review, no
+changes made.
+
+**Workflow note (24 July 2026):** fine curve-level refinement of the logo
+symbol was attempted through iterative AI-described feedback (screenshot
+annotation → prose correction, repeated) and the creator found this
+arduous and unproductive — a repeat of a discouraging pattern from PAWH.
+The creator moved to editing directly in Inkscape and this worked well:
+the resulting `logo_symbol.svg`/`logo_symbol_flat.svg` are a clear
+improvement over anything produced through the described-feedback loop.
+Future sessions should treat files in `assets/brand/logo/` and
+`assets/brand/icons/` as potentially edited outside this workflow at any
+time — re-read fresh rather than assuming last-known state — and should
+not propose resuming AI-iterative curve editing; support concept-level
+exploration instead, or integration (palette-fidelity checks, format/size
+variants, documentation) once the creator brings back a manually-refined
+version, as happened here.
 
 ## Inherited workstation architecture (PAWH reference)
 
@@ -332,12 +404,12 @@ The project has not yet determined:
 - its final curriculum or competency levels;
 - its permanent repository structure;
 - its long-term document and data architecture;
-- its visual identity beyond the palette/logo-type/tone decisions recorded
-  above — the logo mark itself is not yet designed, and the legacy PAWH
-  icon set needs a recolour/overhaul pass before it matches the current
-  palette;
 - whether it should eventually become a commercial, community or purely
   personal initiative.
+
+Visual identity (palette, logo type, tone, logo symbol, icon set, wordmark)
+is no longer an open question — see "Visual identity" above, status FINAL
+as of 24 July 2026.
 
 These questions should remain open until supported by research and prototypes.
 

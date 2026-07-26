@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <title>B04-C Cloud AI — approved adjustment candidate v02</title>
+  <desc>Cloud outline with explicit white interior fill placed beneath the centre cube and coral sparkle. The white fill does not encroach on the cube or sparkle. Note on construction (added 2026-07-24): the ink ring path below uses fill-rule="evenodd" with an outer and inner boundary, and the white fill path directly beneath it reuses the exact same inner-boundary coordinates on purpose — this is not accidental duplication needing sync, and not something to "simplify" by deleting the white path. The explicit white fill is required so the icon renders correctly on any background colour (Sand/Mist/Sage sections etc.), not just white — without it, the cloud's interior would be transparent and show whatever is behind it instead of white.</desc>
+
+  <!-- Dark cloud border as ring. -->
+  <path fill="#27221E" fill-rule="evenodd" d="
+    M72.6 266.8
+    C72.6 244 82.8 228 99.8 219.6
+    C112.5 211.2 128.6 201.0 144.6 199.6
+    C147.8 164.0 166.5 133.0 207.0 112.8
+    C238.0 97.0 270.0 107.5 288.6 118.0
+    C302.5 126.5 312.5 137.5 319.4 148.0
+    C347.0 136.5 376.0 144.0 394.2 182.8
+    C397.0 194.0 397.5 204.0 396.6 213.6
+    C425.5 223.0 441.0 249.0 441.0 283.2
+    C441.0 324.0 417.0 350.0 383.8 358.8
+    C338.0 361.0 191.0 361.5 145.8 361.2
+    C102.5 361.0 72.6 329.5 72.6 297.6
+    Z
+
+    M82.6 265.6
+    C83.8 247.0 94.0 233.5 107.8 225.6
+    C121.0 217.8 136.0 210.0 153.0 207.2
+    C154.5 172.0 175.0 140.0 212.2 121.2
+    C242.5 106.8 275.0 116.5 286.6 128.0
+    C299.0 137.0 308.0 148.0 315.0 158.4
+    C343.5 146.0 371.0 157.0 386.6 189.6
+    C388.8 199.5 388.0 210.0 386.6 218.4
+    C416.0 228.5 431.8 252.0 431.8 287.6
+    C431.0 322.0 407.0 344.5 377.8 350.8
+    C330.0 352.8 194.0 352.3 147.8 352.0
+    C111.0 351.8 82.2 327.5 82.2 296.4
+    C82.2 284.0 82.0 274.0 82.6 265.6
+    Z"/>
+
+  <!-- Explicit white cloud interior fill. -->
+  <path fill="#FFFFFF" d="
+    M82.6 265.6
+    C83.8 247.0 94.0 233.5 107.8 225.6
+    C121.0 217.8 136.0 210.0 153.0 207.2
+    C154.5 172.0 175.0 140.0 212.2 121.2
+    C242.5 106.8 275.0 116.5 286.6 128.0
+    C299.0 137.0 308.0 148.0 315.0 158.4
+    C343.5 146.0 371.0 157.0 386.6 189.6
+    C388.8 199.5 388.0 210.0 386.6 218.4
+    C416.0 228.5 431.8 252.0 431.8 287.6
+    C431.0 322.0 407.0 344.5 377.8 350.8
+    C330.0 352.8 194.0 352.3 147.8 352.0
+    C111.0 351.8 82.2 327.5 82.2 296.4
+    C82.2 284.0 82.0 274.0 82.6 265.6
+    Z"/>
+
+  <!-- Cube edge network: one dark silhouette with three white face cut-outs. -->
+  <path fill="#27221E" fill-rule="evenodd" d="
+    M246.2 180.8 L309.4 218.0 L308.6 294.4 L249.4 330.0 L186.2 292.0 L186.6 217.2 Z
+    M247.4 190.0 L297.0 219.2 L248.2 248.4 L199.4 219.2 Z
+    M195.0 226.8 L243.8 256.4 L243.4 318.0 L194.6 288.8 Z
+    M252.2 256.0 L301.0 227.2 L301.4 288.8 L252.6 318.0 Z"/>
+
+  <!-- Coral sparkle. -->
+  <path fill="#F15E4B" d="
+    M346.0 177.4
+    C348.2 177.4 349.0 179.2 349.4 182.2
+    C350.6 190.0 354.2 194.0 364.2 196.8
+    C367.0 197.6 368.2 198.7 368.2 200.5
+    C368.2 202.4 366.8 203.5 364.0 204.2
+    C354.0 206.7 350.0 211.1 348.2 219.2
+    C347.6 222.1 346.4 223.0 344.8 223.0
+    C343.0 223.0 342.0 221.7 341.6 219.2
+    C340.1 211.1 336.5 206.8 327.0 203.7
+    C324.1 202.7 322.9 201.6 322.9 199.9
+    C322.9 198.0 324.3 197.0 327.2 196.2
+    C337.0 193.5 340.6 189.2 342.0 181.2
+    C342.5 178.6 343.7 177.4 346.0 177.4 Z"/>
+</svg>
