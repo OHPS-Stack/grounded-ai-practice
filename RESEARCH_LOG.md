@@ -2348,6 +2348,38 @@ Full citation is given once here; log entries below cite the short tag only.
   design work is anticipated on the logo/icon system unless the creator
   reopens it.
 
+### Entry 046 — Square and circular profile pictures added
+
+- **Date logged:** 2026-07-24
+- **Priority / Question:** Extends the now-FINAL visual identity (Entries
+  037–045, Priority 7/10) with two derivative assets, not a new design
+  decision.
+- **Source:** Direct request from the project's creator, 2026-07-24, who
+  supplied an old PAWH-era circular avatar as a reference for the general
+  composition style (icon centred on a solid disc with an inset ring
+  border) — explicitly noted as using outdated assets/colours, not as a
+  spec to copy literally.
+- **What changed:** Built `profile_picture_square.svg` and
+  `profile_picture_circular.svg` in `assets/brand/logo/`, both using the
+  main shaded `logo_symbol.svg` on a Paper background with a thick Ink
+  ring border. Sizing went through several rounds of creator feedback:
+  initial concept used the reversed symbol on an Ink background (rejected
+  — creator wanted the normal-colour logo on Paper instead), then the
+  icon size and border thickness/position were each adjusted twice before
+  confirmation. Final state: square version's icon is slightly larger
+  than the circular version's, and the border sits close to the image
+  edge on both. PNGs generated at 256/512/1024px. The circular file is
+  built as a true circle (transparent corners via a circular clip), not
+  just a square file — relevant since the creator's specific intended use
+  for it is a GitHub profile picture, and GitHub auto-crops square
+  uploads to a circle regardless, so this file works correctly whether or
+  not further cropping happens.
+- **Inference drawn:** None — direct production work.
+- **Limitations / conflicting evidence:** Not applicable.
+- **Effect on project direction:** None on project direction — these are
+  supplementary derivative assets for the creator's personal/social use,
+  not a change to the core brand system.
+
 <!--
 Entry template (for reference — remove once first real entry is added):
 

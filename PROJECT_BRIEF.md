@@ -213,6 +213,13 @@ work remains at the direction level.
 - `png/` — raster exports, regenerated from final SVGs: symbol and symbol
   variants at 32/64/128/256/512/1024px; lockup variants at 256/512/1024px
   width. All transparent background.
+- `profile_picture_square.svg` / `profile_picture_circular.svg` — avatar
+  treatments for social/profile use (the circular one specifically for
+  GitHub, which auto-crops square uploads to a circle anyway, but this
+  file is a true circle with transparent corners for platforms that
+  don't). Main shaded `logo_symbol.svg` centred on a Paper background with
+  a thick Ink ring border set near the edge; icon sized slightly larger on
+  the square version than the circular one. PNGs at 256/512/1024px.
 
 All symbol geometry reuses the approved PAWH "terminal + handbook" mark
 (an open-book/journal shape containing a terminal prompt chevron and

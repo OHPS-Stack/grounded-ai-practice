@@ -113,7 +113,8 @@ open threads). Key standing rules:
   `_mono`/`_reversed` symbol variants, and `logo_lockup_horizontal`/
   `logo_lockup_vertical` (+ `_mono`/`_reversed`) icon+wordmark lockups, all
   with wordmark text as real vector paths (Public Sans) and a two-tone
-  colour hierarchy, plus `png/` exports for all of them. See
+  colour hierarchy, plus `profile_picture_square`/`profile_picture_circular`
+  avatar derivatives, plus `png/` exports for all of them. See
   `PROJECT_BRIEF.md` "Visual identity" for the full picture.
 - `assets/brand/logo/creative_brief.md` — portable creative brief for
   external logo-generation workflows (not a project research/decision

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" version="1.1" id="grounded_profile_square">
+<title>Grounded AI Practice — Square profile picture</title>
+<desc>Square avatar/profile picture for general use (social media, forums, etc.). Main shaded logo_symbol.svg centred on a Paper (#F9F9F9) background with a thick Ink (#27221E) ring border set near the edge. Created 2026-07-24.</desc>
+<defs>
+  <linearGradient id="bookGrad" x1="3.9673225" y1="22.733453" x2="96.688461" y2="287.651" gradientTransform="matrix(0.88217648,0,0,1.0776949,0.1814255,0)" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#332D27"/>
+    <stop offset="1" stop-color="#201B17"/>
+  </linearGradient>
+  <linearGradient id="emberGrad" x1="11.378801" y1="738.1622" x2="11.378801" y2="819.07207" gradientTransform="scale(2.9221008,0.34221956)" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#ff7a64"/>
+    <stop offset="0.5" stop-color="#f15e4b"/>
+    <stop offset="1" stop-color="#d94e3d"/>
+  </linearGradient>
+</defs>
+<rect x="0" y="0" width="1024" height="1024" fill="#F9F9F9"/>
+<rect x="30.72" y="30.72" width="962.56" height="962.56" fill="none" stroke="#27221E" stroke-width="46.08"/>
+<g transform="translate(143.36,143.36) scale(2.4576)">
+  <g transform="translate(5.5,-15)">
+    <rect fill="#f9f9f9" width="264.68814" height="52.916023" x="17.488634" y="240"/>
+    <path fill="url(#bookGrad)" d="M 37.878906,24.5 C 13.603182,24.445232 4.5725797,32.5715 4.5,52.748047 L 3.6816406,280 C 3.6090608,300.17655 15.281671,310 34.5,310 H 239.50008 A 9.9999219,9.9999219 135 0 0 249.5,300.00008 v -7.00985 l -107.95312,-0.0742 H 40.685547 c -11.932088,0 -21.537109,-11.66638 -21.537109,-24.39649 v -3.88281 C 19.148438,251.9066 28.753459,240 40.685547,240 H 47.615234 249.5 V 34.976484 a 10.022467,10.022467 45.064514 0 0 -9.9999,-10.022441 z" transform="matrix(1.1321775,0,0,1,-0.48658545,0)"/>
+    <path fill="url(#emberGrad)" d="m 52.127345,252.61354 c -11.854122,0 -17.487813,6.23031 -17.487813,12.89155 v 2.03133 c 0,6.66123 5.633691,12.76606 17.487813,12.76606 H 282.1768 v -27.68894 z"/>
+  </g>
+  <g transform="matrix(1.12,0,0,1.12,-8.3,-25.94)">
+    <path d="m 58,84 40,32 -40,34" fill="none" stroke="#f9f9f9" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="m 119,163.5 h 51.5" fill="none" stroke="#f9f9f9" stroke-width="16" stroke-linecap="round"/>
+  </g>
+</g>
+</svg>
