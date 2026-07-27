@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024" version="1.1" id="grounded_profile_circular_inverted">
+<title>Grounded AI Practice — Circular profile picture, inverted</title>
+<desc>Dark-background counterpart to profile_picture_circular.svg (the standard/default as of 2026-07-27) — for use on light surfaces where the standard version's white background wouldn't stand out, or wherever a dark badge is preferred. Ink (#27221E) circular background, a Paper (#F9F9F9) ring set with a clear gap from the edge, and the reversed logo_symbol (white book body with a subtle spine-shadow gradient for depth, Ink chevron/cursor, Ember underline) centred on top — the reversed variant's page_fill is already Ink, so it blends seamlessly into this background by design. This was the original/default circular profile picture; on 2026-07-27 the white-background/dark-book version was confirmed as the new standard and this file renamed to _inverted accordingly (spine-shadow opacity left at its original 0.42 here, since that value already reads clearly against this file's white book — the deepened 0.92 peak was needed only for the dark-book standard, where black-on-near-black needed far more contrast to register).</desc>
+<defs>
+  <clipPath id="circleClip"><circle cx="512" cy="512" r="512"/></clipPath>
+  <linearGradient id="spineGrad" x1="3.9673222" y1="22.733454" x2="45" y2="22.733454" gradientTransform="matrix(1.0034017,0,0,1.0776948,-0.29951376,0)" gradientUnits="userSpaceOnUse">
+    <stop offset="0" stop-color="#000000" stop-opacity="0.42"/>
+    <stop offset="1" stop-color="#000000" stop-opacity="0"/>
+  </linearGradient>
+</defs>
+<g id="background_fill">
+  <circle cx="512" cy="512" r="512" fill="#27221E"/>
+  <circle cx="512" cy="512" r="498" fill="none" stroke="#F9F9F9" stroke-width="28"/>
+</g>
+<g id="symbol_clip" clip-path="url(#circleClip)">
+  <g id="symbol_position" transform="translate(204.8,204.8) scale(2.048)">
+    <g id="symbol_element" transform="translate(5.5,-15)">
+      <rect id="page_fill" fill="#27221E" width="264.68814" height="52.916023" x="17.488634" y="240"/>
+      <path id="book" fill="#FFFFFF" d="M 37.878906,24.5 C 13.603182,24.445232 4.5725797,32.5715 4.5,52.748047 L 3.6816406,280 C 3.6090608,300.17655 15.281671,310 34.5,310 H 239.50008 A 9.9999219,9.9999219 135 0 0 249.5,300.00008 v -7.00985 l -107.95312,-0.0742 H 40.685547 c -11.932088,0 -21.537109,-11.66638 -21.537109,-24.39649 v -3.88281 C 19.148438,251.9066 28.753459,240 40.685547,240 H 47.615234 249.5 V 34.976484 a 10.022467,10.022467 45.064514 0 0 -9.9999,-10.022441 z" transform="matrix(1.1321775,0,0,1,-0.48658545,0)"/>
+      <path id="book_spine_shade" fill="url(#spineGrad)" d="M 42.578204,24.5 C 14.966607,24.445232 4.6950553,32.5715 4.612502,52.748047 L 3.6816869,280 c -0.082553,20.17655 13.1940601,30 35.0532951,30 H 267.3556 a 15.923824,14 0 0 0 15.92382,-14 v -3.00977 l -122.7876,-0.0742 H 45.770522 c -13.571748,0 -24.496652,-11.66638 -24.496652,-24.39649 v -3.88281 C 21.27387,251.9066 32.198774,240 45.770522,240 H 53.652459 283.27942 V 38.956 A 15.923824,14 0 0 0 267.3556,24.926 Z"/>
+      <path id="ember_fill" fill="#F15E4B" d="m 52.127345,252.61354 c -11.854122,0 -17.487813,6.23031 -17.487813,12.89155 v 2.03133 c 0,6.66123 5.633691,12.76606 17.487813,12.76606 H 282.1768 v -27.68894 z"/>
+    </g>
+    <g id="prompt_group" transform="matrix(1.12,0,0,1.12,-8.3,-25.94)">
+      <path id="prompt_chevron" d="m 58,84 40,32 -40,34" fill="none" stroke="#27221E" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+      <path id="prompt_underscore" d="m 119,163.5 h 51.5" fill="none" stroke="#27221E" stroke-width="16" stroke-linecap="round"/>
+    </g>
+  </g>
+</g>
+</svg>

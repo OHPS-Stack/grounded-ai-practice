@@ -251,18 +251,28 @@ work remains at the direction level.
   treatments for social/profile use (the circular one specifically for
   GitHub, which auto-crops square uploads to a circle anyway, but this
   file is a true circle with transparent corners for platforms that
-  don't). **Redesigned 27 July 2026** per a creator-supplied reference
-  image: Ink (`#27221E`) background (was Paper), a Paper ring set flush
-  with the outer edge (was a thick Ink ring inset from the edge), and the
-  **reversed** logo symbol (white book, Ink chevron/cursor, Ember
-  underline) centred on top rather than the shaded/normal-colour symbol —
-  the reversed variant's `page_fill` is already Ink, so it disappears
-  seamlessly into the new background by construction. The book has a
-  subtle depth treatment reusing `logo_symbol.svg`'s spine-shadow
-  technique, deliberately narrowed to stay clear of the chevron rather
-  than washing across the whole cover. Icon sized slightly larger on the
-  square version than the circular one, matching the prior convention.
-  PNGs at 256/512/1024px.
+  don't). **Standard as of 27 July 2026**: pure white (`#FFFFFF`)
+  background, an Ink (`#27221E`) ring set with a clear gap from the edge,
+  and the shaded/normal-colour logo symbol (Ink book body, white
+  chevron/cursor, Ember underline) centred on top — the symbol's
+  `page_fill` is already white, so it disappears seamlessly into the
+  background by construction. The book's spine-shadow gradient peaks at
+  0.92 opacity (up from 0.42), a deepened value needed specifically for
+  this dark-book styling since a black overlay needs much more contrast
+  to read against a book that's already near-black — the same deepened
+  value now applies everywhere the standard dark book symbol is used
+  (`logo_symbol.svg`, `logo_lockup_horizontal.svg`,
+  `logo_lockup_vertical.svg`; the flat/mono variants have no spine shadow
+  to begin with). Icon sized slightly larger on the square version than
+  the circular one, matching the prior convention. Each also has a
+  dark-background `_inverted` counterpart
+  (`profile_picture_circular_inverted.svg` /
+  `profile_picture_square_inverted.svg`): Ink background, Paper ring, the
+  **reversed** logo symbol (white book, Ink chevron/cursor) — this was the
+  original/default styling until the standard/inverted roles were swapped
+  this date; its spine-shadow opacity is unchanged at 0.42, which already
+  reads clearly against a white book. PNGs pending regeneration at
+  256/512/1024px for all four files.
 
 All symbol geometry reuses the approved PAWH "terminal + handbook" mark
 (an open-book/journal shape containing a terminal prompt chevron and

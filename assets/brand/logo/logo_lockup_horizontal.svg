@@ -32,7 +32,7 @@
        y2="22.733454"
        gradientTransform="matrix(1.0034017,0,0,1.0776948,-0.29951376,0)"
        gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#000000" stop-opacity="0.42" id="stop3" />
+      <stop offset="0" stop-color="#000000" stop-opacity="0.92" id="stop3" />
       <stop offset="1" stop-color="#000000" stop-opacity="0" id="stop4" />
     </linearGradient>
     <linearGradient

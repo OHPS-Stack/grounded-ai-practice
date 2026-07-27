@@ -722,3 +722,60 @@ no external citation:
   that isn't a `PROJECT_BRIEF.md`-level current-state summary. This entry
   exists in the file it's documenting the creation of, which is intentional
   — it is itself exactly the kind of entry `PROJECT_LOG.md` is for.
+
+### Entry 018 — Profile pictures: standard/inverted roles swapped, spine-shadow deepened, square standard rebuilt
+
+- **Date logged:** 2026-07-27
+- **Priority / Question:** Continues Entries 012/014 (Priority 7/10,
+  visual identity derivative assets) — a styling/naming correction, not a
+  reopening of the FINAL core brand system (Entry 011).
+- **Source:** Direct creator request and iterative feedback, 2026-07-27,
+  working live against rendered screenshots.
+- **What happened:** The creator asked for a white-background/dark-book
+  circular profile picture (opposite of Entry 014's Ink-background/
+  white-book redesign), initially built and reviewed as
+  `profile_picture_circular_inverted.svg`. The book's existing spine-shadow
+  gradient (a black overlay, originally tuned at 0.42 opacity against a
+  *white* book in Entry 014) proved nearly invisible against this dark Ink
+  book — black-on-near-black has far less inherent contrast than
+  black-on-white — so the creator had it raised in two rounds, 0.42→0.75→
+  0.92, confirmed correct at that final value. The creator then reversed
+  the naming: the white-background/dark-book version is the standard/
+  default going forward, and the original Ink-background/white-book
+  version (Entry 014) is now the `_inverted` variant — opposite of how
+  Entry 012/014 originally set the two up. Both circular files were
+  rewritten under swapped filenames accordingly
+  (`profile_picture_circular.svg` = new standard,
+  `profile_picture_circular_inverted.svg` = former default, spine opacity
+  left at 0.42 since it already read correctly there). The creator also
+  asked for the deepened 0.92 spine-shadow peak applied everywhere else the
+  standard dark book symbol appears with that shading: `logo_symbol.svg`,
+  `logo_lockup_horizontal.svg`, `logo_lockup_vertical.svg` (checked by
+  grep across `assets/brand/logo/` for every `spineGrad`/
+  `stop-opacity="0.42"` occurrence; `logo_symbol_flat.svg` and all `_mono`
+  variants have no spine-shadow element at all, so were correctly out of
+  scope). Finally, the creator asked for a square profile picture built in
+  the circular standard's style — `profile_picture_square.svg` was rebuilt
+  the same way (white background, Ink ring, dark book, 0.92 spine peak,
+  white chevron/cursor) reusing the existing square file's icon
+  position/scale convention (icon sized slightly larger than the circular
+  version, per Entry 012), and the prior Ink-background/white-book square
+  file was renamed to `profile_picture_square_inverted.svg` to match the
+  circular pair.
+- **Inference drawn:** The 0.42→0.92 opacity gap is a direct, derivable
+  consequence of the underlying book colour, not an arbitrary re-tune — a
+  fixed-opacity black overlay reads very differently depending on how dark
+  the base colour already is. This is this entry's own read of why the
+  original value failed here, not something the creator stated in those
+  terms.
+- **Limitations / conflicting evidence:** Not applicable — production
+  record. PNG derivatives for all four profile-picture files (256/512/
+  1024px, per Entry 012's convention) have not yet been regenerated as of
+  this entry — flagged as outstanding.
+- **Effect on project direction:** None on core brand-system direction
+  (still FINAL per Entry 011). Updates `PROJECT_BRIEF.md`'s "Visual
+  identity" section to the new standard/inverted naming and the deepened
+  spine-shadow value. Outstanding: PNG regeneration for all four profile
+  pictures, and confirming whether an export tool/process should be set up
+  for this rather than repeating ad hoc Inkscape CLI calls each time (see
+  `CLAUDE.md`'s self-check-tooling preference).
