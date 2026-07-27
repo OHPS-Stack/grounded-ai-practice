@@ -147,7 +147,7 @@ evaluative content matters less — the unit still centres on a practical
 "production" skill (what to say to AI) rather than the project's stated
 responsible-use/verification framing. Responsible/safe use of data remains
 a plausible second unit if the project stacks further pilots later. See
-`RESEARCH_LOG.md` Entry 047 for the full decision record.
+`PROJECT_LOG.md` Entry 013 for the full decision record.
 
 ## Second track: local AI workstation (working decision — 24 July 2026; deferred 24 July 2026)
 

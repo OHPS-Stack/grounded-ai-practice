@@ -28,7 +28,7 @@ the five immediate research priorities driving current work.
   necessary.
 - Commands should never be blind copy-paste — whether Claude runs one or
   hands one to the user. When suggesting a command for the user to run
-  themselves, explain what it does and why, especially anything security- or
+  themselves, explain what it does and why, especially anything security or
   system-relevant. This is part of the project's own subject matter
   (responsible AI use, verification, human oversight), not just a courtesy.
   For setup/install/configuration commands specifically, default to
@@ -98,16 +98,26 @@ open threads). Key standing rules:
   This project relies on git for version history, not filename suffixes.
 - Markdown is the default format for research/reference documents, matching
   the existing project files.
-- When editing `RESEARCH_LOG.md`, preserve the existing entry structure
-  (numbered entries, the Source key table with tags, the Open Threads
-  section) rather than restructuring it.
-- **New standalone files are the last resort, not the default.** Before
-  creating one for durable content, check whether it can extend an existing
-  file first — most durable detail belongs in `RESEARCH_LOG.md` (as a dated,
-  numbered entry) or as a new section in `PROJECT_BRIEF.md`. A new file only
-  earns its existence if it's a genuinely distinct, closed category that
-  doesn't fit any existing file's purpose — not just because an explanation
-  got long.
+- When editing `RESEARCH_LOG.md` or `PROJECT_LOG.md`, preserve the existing
+  entry structure (numbered entries, the field shape each uses) rather than
+  restructuring it.
+- **`RESEARCH_LOG.md` is for source-backed research findings only** —
+  a dated, numbered entry answering a `RESEARCH_QUESTIONS.md` priority,
+  with a citable source. **`PROJECT_LOG.md` is for everything else durable
+  that isn't research** — scoping/creative decisions, design/production
+  work, technical build notes — also as dated, numbered entries, but
+  without a research citation. **`PROJECT_BRIEF.md` holds the current,
+  standing state** of a decision, not its history (that's `PROJECT_LOG.md`'s
+  job). Getting this wrong is not hypothetical: `RESEARCH_LOG.md` drifted
+  into a mixed dump of both for a while, which produced a real numbering
+  collision (two unrelated tracks each independently numbering entries
+  039-042) before the two were split apart on 2026-07-27 — see
+  `PROJECT_LOG.md` Entry 017.
+- **New standalone files beyond these three are the last resort, not the
+  default.** Before creating one for durable content, check whether it can
+  extend an existing file first. A new file only earns its existence if
+  it's a genuinely distinct, closed category that doesn't fit any existing
+  file's purpose — not just because an explanation got long.
 - **Any new file must be added to this file's "Where to look for what"
   section in the same edit that creates it.** Indexing is not a follow-up
   task — a file left unindexed at the moment it's created is exactly the
@@ -125,6 +135,43 @@ open threads). Key standing rules:
   an *existing* id without first checking nothing references it (gradient
   `url(#...)`, `xlink:href`, `clip-path`) — only add labels to currently
   unlabelled groups unless there's a specific reason to touch a working one.
+
+## Word document conventions
+
+Applies to `.docx` work in this project (currently
+`Effective_Prompting_Example.docx`, `Style_Reference_Example.docx` in
+`drafts/`, and any future Word deliverable built the same way). Established
+2026-07-27 during the style-reference review.
+
+- **Body font is Public Sans, not Calibri.** Installed locally as its own
+  family (`Public Sans`, with regular/bold/italic faces under that one
+  family name), plus separate weight-named families (Black/ExtraBold/
+  ExtraLight/Light/Medium/SemiBold/Thin) if finer control is ever needed.
+  Reference via `w:rFonts w:ascii="Public Sans"` and toggle `<w:b/>`/`<w:i/>`
+  for bold/italic — no separate family string needed for those two faces.
+- **Structural text uses real named Word paragraph styles, not per-run
+  direct formatting.** Title, Subtitle, Heading1/2/3, Normal/body, Caption
+  and Quote each get their own font/size/weight/colour defined once in
+  `styles.xml`'s `<w:rPr>` for that style, so a run using it needs no direct
+  formatting at all. Headings carry a real `<w:outlineLvl>` so Word's native
+  Table of Contents and Navigation pane work without extra setup, and so a
+  section added later can just pick "Heading 1" from the Styles pane and
+  match what's already there. Reserve direct run/cell formatting for
+  content that's genuinely data-driven per instance — callout-card label
+  colour (varies by semantic type), table cell shading, palette swatch
+  text — not for faking a structural role with bold-and-a-bigger-size.
+- **Callout cards use small/medium/large size presets**, each fixing the
+  icon-well size; a card's width (and therefore its text column) is always
+  a free parameter independent of preset, so resizing a card for its
+  content never stretches or squeezes the icon. Built as a Word group
+  (`wpg:wgp`) of sibling shapes, not nested shapes — see `PROJECT_LOG.md`
+  Entry 015 for why (Word rejects a shape nested inside another shape's
+  text box) and the rest of the construction.
+- **Vertical accent/divider bars are pill-shaped** — a narrow `roundRect`
+  with `<a:gd name="adj" fmla="val 50000"/>` (50% corner radius relative to
+  the shape's short side, which fully rounds a narrow bar into a capsule),
+  not a paragraph-border line (`w:pBdr`), which can only draw a straight
+  edge. Used for the callout-card divider and the pull-quote rule.
 
 ## Git conventions
 
@@ -163,6 +210,13 @@ open threads). Key standing rules:
 - `RESEARCH_QUESTIONS.md` — the ten priority areas and their questions.
 - `RESEARCH_LOG.md` — source key (with interest-type tags), dated log
   entries, and the Open Threads list showing what's resolved vs. still open.
+  Research findings only — see "File conventions" above for the boundary
+  with `PROJECT_LOG.md`.
+- `PROJECT_LOG.md` — dated log of scoping/creative decisions and design/
+  production/technical work (visual identity history, icon/logo production
+  notes, Word-document engineering notes, this file's own split from
+  `RESEARCH_LOG.md`). The chronological history behind what
+  `PROJECT_BRIEF.md` currently reflects.
 - `assets/brand/icons/` — the promoted, working content-icon set (36
   icons, current palette). `svg/` for sources, `png/` for 64/128/256px
   exports, `README.md` for the filename→topic manifest.
@@ -177,12 +231,32 @@ open threads). Key standing rules:
 - `assets/brand/logo/creative_brief.md` — portable creative brief for
   external logo-generation workflows (not a project research/decision
   document itself).
-- `drafts/` — work-in-progress, non-authoritative files under active
-  iteration (currently: `Effective_Prompting_Example.docx`, a formatting
-  test for the pilot unit's Word-document template — see `RESEARCH_LOG.md`
-  Entry 047 and the PAWH semantic-callout construction it's adapting).
-  Nothing here reflects a settled decision; contents may be replaced or
-  removed once the format stabilises.
+- `drafts/` — work-in-progress files under active iteration. Currently:
+  `Effective_Prompting_Example.docx`, a formatting test for the pilot
+  unit's Word-document template — see `PROJECT_LOG.md` Entry 015 and the
+  PAWH semantic-callout construction it's adapting — still genuinely a
+  draft, nothing settled; and `AI_Skills_Hub_Briefing.docx`, not yet
+  logged. Nothing here reflects a settled decision; contents may be
+  replaced or removed once the format stabilises. Once a document is
+  approved and no longer a draft, it moves to `documents/` instead.
+- `documents/` — finished, current production exports, promoted out of
+  `drafts/` once approved (not work-in-progress). Currently:
+  `Style_Reference_Example.docx` (+ its self-check `.pdf`), a 6-page
+  catalogue of the Word visual patterns in use, built on a real named-style
+  system (Title/Subtitle/Heading1-3/Normal/Caption/Quote, all Public Sans,
+  all with real outline levels so Word's native TOC and Navigation pane
+  work against them) rather than per-run direct formatting — plus title
+  block, pull quote (pill-bar Word group), callout cards (four semantic
+  types, small/medium/large size presets with a fixed icon well independent
+  of text-column width), three table types, dash/native-bullet/
+  native-number lists, a figure-with-caption, and the palette as swatches.
+  **Approved as canonical for current purposes (2026-07-27, see
+  `PROJECT_LOG.md` Entry 016) — still subject to later refinement, but no
+  longer a first draft**; the "Word document conventions" section above is
+  the extracted rule set. Icon set inconsistencies (padding, mismatched
+  speech-bubble styles across icons) are the one explicitly open exception
+  — separately deferred, creator revisiting the icon set directly in
+  Inkscape.
 - `tools/word_preview.ps1` — self-check step for `.docx` work: exports a
   document through real Microsoft Word (COM automation) to PDF so Claude
   can visually verify formatting the way Word actually renders it, instead
