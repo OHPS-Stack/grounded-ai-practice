@@ -3,6 +3,8 @@
   <title>B05-I Version Control and Repositories — production candidate v05</title>
   <desc>Three stacked repository cards with a front coral folder, metadata lines, a commit history, and a smaller coral feature branch. Folder proportions refined, node system slightly reduced, and rear cards kept light grey.</desc>
 
+  <g transform="translate(-4.746,-0.719) scale(1.00674)" id="icon_canvas">
+
   <!-- Rear repository cards: light grey -->
   <rect x="144" y="84" width="286" height="286" rx="28"
         fill="#D5E2E1" stroke="#27221E" stroke-width="14"
@@ -32,7 +34,7 @@
         stroke-linecap="round" stroke-linejoin="round"/>
 
   <!-- Repository title / metadata lines -->
-  <g stroke="#27221E" stroke-width="10" stroke-linecap="round">
+  <g stroke="#27221E" stroke-width="10" stroke-linecap="round" id="metadata_lines">
     <line x1="226" y1="192" x2="332" y2="192"/>
     <line x1="226" y1="219" x2="298" y2="219"/>
   </g>
@@ -41,7 +43,7 @@
   <path d="M88 292 H285"
         fill="none" stroke="#27221E" stroke-width="9"
         stroke-linecap="round"/>
-  <g fill="#FFFFFF" stroke="#27221E" stroke-width="9">
+  <g fill="#FFFFFF" stroke="#27221E" stroke-width="9" id="commit_nodes">
     <circle cx="128" cy="292" r="17"/>
     <circle cx="206" cy="292" r="17"/>
     <circle cx="284" cy="292" r="17"/>
@@ -59,4 +61,5 @@
           fill="#FFFFFF" stroke="#F15E4B" stroke-width="9"/>
   <circle cx="339" cy="368" r="17"
           fill="#FFFFFF" stroke="#27221E" stroke-width="9"/>
+</g>
 </svg>

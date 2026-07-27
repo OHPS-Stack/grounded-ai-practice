@@ -2,7 +2,9 @@
   <title>B03-A Learning and Documentation — correction candidate v05</title>
   <desc>Closed-book design preserved. Inner vertical line extended to meet the top and bottom page borders. Thin exposed light-grey sections rebuilt as separate smooth slivers to remove bumps at the top-right and bottom-left transitions.</desc>
 
-  <g stroke-linejoin="round">
+  <g transform="translate(-11.209,-13.330) scale(1.06036)" id="icon_canvas">
+
+  <g stroke-linejoin="round" id="book_shape">
     <!-- Rear cover with outer dark border -->
     <rect x="140" y="112" width="252" height="304" rx="24"
           fill="#D5E2E1" stroke="#27221E" stroke-width="14"/>
@@ -29,4 +31,5 @@
     <path d="M286 92 H340 V232 L313 209 L286 232 Z"
           fill="#F15E4B" stroke="#27221E" stroke-width="14" stroke-linecap="round"/>
   </g>
+</g>
 </svg>

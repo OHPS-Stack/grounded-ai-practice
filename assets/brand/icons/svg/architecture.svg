@@ -2,24 +2,27 @@
   <title>B01-F Architecture — reconstruction candidate v03</title>
   <desc>Connector stubs lengthened slightly so they meet the node borders cleanly without entering the box interiors.</desc>
 
+  <g transform="translate(-2.957,-2.957) scale(1.00958)" id="icon_canvas">
+
   <!-- Connectors -->
   <path d="M256 216 V254
            M125 254 H387
            M125 254 V298
            M256 254 V298
            M387 254 V298"
-        stroke="#27221E" stroke-width="12" fill="none"
+        stroke="#27221E" stroke-width="14" fill="none"
         stroke-linecap="round" stroke-linejoin="round"/>
 
   <!-- Parent node -->
   <rect x="215" y="127" width="82" height="82" rx="11"
-        stroke="#27221E" stroke-width="12" fill="#FFFFFF"/>
+        stroke="#27221E" stroke-width="14" fill="#FFFFFF"/>
 
   <!-- Child nodes -->
   <rect x="85" y="304" width="82" height="82" rx="12"
-        stroke="#27221E" stroke-width="12" fill="#FFFFFF"/>
+        stroke="#27221E" stroke-width="14" fill="#FFFFFF"/>
   <rect x="215" y="304" width="82" height="82" rx="12"
-        stroke="#27221E" stroke-width="12" fill="#F15E4B"/>
+        stroke="#27221E" stroke-width="14" fill="#F15E4B"/>
   <rect x="346" y="304" width="82" height="82" rx="12"
-        stroke="#27221E" stroke-width="12" fill="#FFFFFF"/>
+        stroke="#27221E" stroke-width="14" fill="#FFFFFF"/>
+</g>
 </svg>

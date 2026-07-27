@@ -2,7 +2,9 @@
   <title>B03-E Search and Retrieval — correction candidate v02</title>
   <desc>Existing lens and content geometry preserved. Handle enlarged slightly, made solid charcoal, and extended beneath the lens outline for a seamless join.</desc>
 
-  <g stroke-linecap="round" stroke-linejoin="round">
+  <g transform="translate(-29.514,-29.514) scale(1.09602)" id="icon_canvas">
+
+  <g stroke-linecap="round" stroke-linejoin="round" id="magnifier_and_content">
     <!-- Handle drawn first and extended beneath the lens border for a seamless connection -->
     <path d="M294 294 L408 408"
           stroke="#27221E" stroke-width="32" fill="none"/>
@@ -19,4 +21,5 @@
     <line x1="164" y1="256" x2="252" y2="256"
           stroke="#D5E2E1" stroke-width="12"/>
   </g>
+</g>
 </svg>

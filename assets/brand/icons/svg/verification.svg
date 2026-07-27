@@ -1,8 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
   <title>B01-D Verification — reconstruction candidate v01</title>
   <desc>Verification icon reconstructed from the approved visual reference: charcoal circular outline with a coral check mark.</desc>
-  <circle cx="256" cy="256" r="160" stroke="#27221E" stroke-width="16" fill="none"/>
+
+  <g transform="translate(-17.067,-17.067) scale(1.06667)" id="icon_canvas">
+  <circle cx="256" cy="256" r="160" stroke="#27221E" stroke-width="14" fill="none"/>
   <path d="M184 262 L228 306 L329 204"
         stroke="#F15E4B" stroke-width="24" fill="none"
         stroke-linecap="round" stroke-linejoin="round"/>
+</g>
 </svg>

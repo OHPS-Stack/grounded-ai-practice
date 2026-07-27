@@ -1,64 +1,168 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
-  <title>B05-A Hybrid AI — relationship-arrow candidate v07</title>
-  <desc>Approved local AI and cloud AI icon geometries are preserved unchanged. Only the coral relationship arrows are revised: slightly shorter with slightly larger triangle heads.</desc>
-
-  <!-- Top relationship arrow: shortened slightly -->
-  <path d="M164 132 Q249 74 329 128"
-        fill="none" stroke="#F15E4B" stroke-width="13"
-        stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M346 139 L320 135 L333 117 Z"
-        fill="#F15E4B" stroke="#F15E4B"
-        stroke-width="3" stroke-linejoin="round"/>
-
-  <!-- Laptop/workstation: LOCKED -->
-  <g stroke="#27221E" stroke-width="13" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="62" y="160" width="190" height="132" rx="14" fill="#FFFFFF"/>
-    <rect x="46" y="284" width="222" height="30" rx="15" fill="#FFFFFF"/>
-    <line x1="145" y1="299" x2="169" y2="299" stroke-width="9"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 512 512"
+   fill="none"
+   version="1.1"
+   id="svg9"
+   sodipodi:docname="hybrid_ai.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs9" />
+  <sodipodi:namedview
+     id="namedview9"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.2089844"
+     inkscape:cx="236.97576"
+     inkscape:cy="261.78998"
+     inkscape:window-width="1440"
+     inkscape:window-height="829"
+     inkscape:window-x="2552"
+     inkscape:window-y="497"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g9" />
+  <title
+     id="title1">B05-A Hybrid AI — relationship-arrow candidate v07</title>
+  <desc
+     id="desc1">Approved local AI and cloud AI icon geometries are preserved unchanged. Only the coral relationship arrows are revised: slightly shorter with slightly larger triangle heads.</desc>
+  <g
+     transform="translate(45.957,70.618) scale(0.78083)"
+     id="g9"
+     inkscape:label="master">
+    <!-- Top relationship arrow: shortened slightly -->
+    <!-- Laptop/workstation: LOCKED -->
+    <g
+       stroke="#27221e"
+       stroke-width="13"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       id="g3"
+       inkscape:label="laptop"
+       transform="translate(1.4574418e-8,0.41659516)">
+      <rect
+         x="62"
+         y="160"
+         width="190"
+         height="132"
+         rx="14"
+         fill="#ffffff"
+         id="rect2"
+         ry="14" />
+      <rect
+         x="46"
+         y="284"
+         width="222"
+         height="30"
+         rx="15"
+         fill="#ffffff"
+         id="rect3"
+         ry="15" />
+      <line
+         x1="145"
+         y1="299"
+         x2="169"
+         y2="299"
+         stroke-width="9"
+         id="line3" />
+      <g
+         stroke="#27221e"
+         stroke-width="10"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         fill="#ffffff"
+         id="g5"
+         inkscape:label="cube">
+        <path
+           d="m 157,180 38,22 -38,22 -38,-22 z"
+           id="path3" />
+        <path
+           d="m 119,202 v 44 l 38,22 v -44 z"
+           id="path4" />
+        <path
+           d="m 195,202 v 44 l -38,22 v -44 z"
+           id="path5" />
+      </g>
+    </g>
+    <!-- Model cube inside laptop: LOCKED -->
+    <!-- Cloud: LOCKED -->
+    <!-- Larger coral sparkle inside cloud: LOCKED -->
+    <g
+       transform="matrix(1.1858411,0,0,1.1860253,-46.50018,-28.152562)"
+       id="g7"
+       inkscape:label="cloud"
+       style="stroke-width:0.994997">
+      <path
+         d="m 326,292 c -29,0 -48,-19 -48,-44 0,-22 15,-40 36,-45 5,-29 27,-49 55,-49 24,0 44,14 53,34 8,-4 16,-6 25,-6 25,0 45,21 45,47 0,35 -25,63 -59,63 z"
+         fill="#ffffff"
+         stroke="#27221e"
+         stroke-width="12.935"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path6"
+         transform="matrix(0.84745763,0,0,0.84745763,59.491525,34.932203)" />
+      <path
+         d="m 390,205 c 2,0 3.5,2 4,5.5 1.2,7.7 5.4,11.9 14.6,14.5 2.8,0.8 4.1,2 4.1,4 0,2.1 -1.5,3.2 -4.3,4 -9.3,2.3 -13.3,6.6 -15,14.7 -0.6,3.1 -1.7,4.3 -3.4,4.3 -1.9,0 -3,-1.3 -3.5,-4.3 -1.5,-8 -5.1,-12.2 -14,-15.1 -2.9,-0.9 -4.1,-2 -4.1,-3.8 0,-2 1.4,-3.1 4.3,-3.9 9,-2.5 12.5,-6.8 13.8,-14.4 0.4,-2.9 1.7,-5.5 3.5,-5.5 z"
+         fill="#f15e4b"
+         id="path7"
+         style="stroke-width:0.994997" />
+    </g>
+    <!-- Bottom relationship arrow: shortened slightly -->
+    <g
+       id="g14"
+       inkscape:label="arrow_bottom"
+       transform="rotate(178.24828,262.26438,238.37184)">
+      <path
+         d="M 165.83929,138.92029 C 227.75811,99.737364 282.86424,80.339903 330.05669,116.7276"
+         fill="none"
+         stroke="#f15e4b"
+         stroke-width="13"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path13"
+         inkscape:transform-center-x="2.1749258"
+         inkscape:transform-center-y="-0.054177239"
+         sodipodi:nodetypes="cc" />
+      <path
+         d="M 355.1515,145.47492 316.04478,128.21994 344.0686,105.23525 Z"
+         fill="#f15e4b"
+         stroke="#f15e4b"
+         stroke-width="4.89145"
+         stroke-linejoin="round"
+         id="path14" />
+    </g>
+    <g
+       id="g12"
+       inkscape:label="arrow_top"
+       transform="rotate(4.9023997,320.67471,262.8558)">
+      <path
+         d="M 166.56351,147.36376 C 228.48233,108.18084 282.86424,80.339903 330.05669,116.7276"
+         fill="none"
+         stroke="#f15e4b"
+         stroke-width="13"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         id="path11"
+         inkscape:transform-center-x="2.1749258"
+         inkscape:transform-center-y="-0.054177239"
+         sodipodi:nodetypes="cc" />
+      <path
+         d="M 355.1515,145.47492 316.04478,128.21994 344.0686,105.23525 Z"
+         fill="#f15e4b"
+         stroke="#f15e4b"
+         stroke-width="4.89145"
+         stroke-linejoin="round"
+         id="path12" />
+    </g>
   </g>
-
-  <!-- Model cube inside laptop: LOCKED -->
-  <g stroke="#27221E" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="#FFFFFF">
-    <path d="M157 180 L195 202 L157 224 L119 202 Z"/>
-    <path d="M119 202 V246 L157 268 V224 Z"/>
-    <path d="M195 202 V246 L157 268 V224 Z"/>
-  </g>
-
-  <!-- Cloud: LOCKED -->
-  <path d="M326 292
-           C297 292 278 273 278 248
-           C278 226 293 208 314 203
-           C319 174 341 154 369 154
-           C393 154 413 168 422 188
-           C430 184 438 182 447 182
-           C472 182 492 203 492 229
-           C492 264 467 292 433 292 Z"
-        fill="#FFFFFF" stroke="#27221E" stroke-width="13"
-        stroke-linecap="round" stroke-linejoin="round"/>
-
-  <!-- Larger coral sparkle inside cloud: LOCKED -->
-  <g transform="translate(390 229) scale(1.18) translate(-390 -229)">
-    <path d="M390 205
-             C392 205 393.5 207.0 394 210.5
-             C395.2 218.2 399.4 222.4 408.6 225.0
-             C411.4 225.8 412.7 227.0 412.7 229.0
-             C412.7 231.1 411.2 232.2 408.4 233.0
-             C399.1 235.3 395.1 239.6 393.4 247.7
-             C392.8 250.8 391.7 252.0 390 252.0
-             C388.1 252.0 387.0 250.7 386.5 247.7
-             C385.0 239.7 381.4 235.5 372.5 232.6
-             C369.6 231.7 368.4 230.6 368.4 228.8
-             C368.4 226.8 369.8 225.7 372.7 224.9
-             C381.7 222.4 385.2 218.1 386.5 210.5
-             C386.9 207.6 388.2 205 390 205 Z"
-          fill="#F15E4B"/>
-  </g>
-
-  <!-- Bottom relationship arrow: shortened slightly -->
-  <path d="M344 336 Q252 402 177 349"
-        fill="none" stroke="#F15E4B" stroke-width="13"
-        stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M160 336 L185 341 L173 360 Z"
-        fill="#F15E4B" stroke="#F15E4B"
-        stroke-width="3" stroke-linejoin="round"/>
 </svg>

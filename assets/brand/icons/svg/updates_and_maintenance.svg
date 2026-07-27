@@ -3,6 +3,8 @@
   <title>B05-F Updates and Maintenance — correction candidate v08</title>
   <desc>Approved gear and arrowheads preserved. The two short line portions marked by the user are removed, leaving one upper circular arrow and one lower circular arrow with tails beginning on the horizontal centreline.</desc>
 
+  <g transform="translate(-59.510,-59.510) scale(1.23246)" id="icon_canvas">
+
   <!-- Approved gear: unchanged -->
   <path d="M 224.0 148.7 L 235.1 117.6 L 276.9 117.6 L 288.0 148.7
 L 293.2 150.3 L 320.4 131.7 L 354.3 156.3 L 345.0 188.0
@@ -41,4 +43,5 @@ L 167.0 188.0 L 157.7 156.3 L 191.6 131.7 L 218.8 150.3 Z"
   <!-- Existing arrowheads retained exactly -->
   <polygon points="193.0,245.1 190.6,218.2 217.4,233.8" fill="#F15E4B"/>
   <polygon points="319.0,266.9 321.4,293.8 294.6,278.2" fill="#F15E4B"/>
+</g>
 </svg>

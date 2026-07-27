@@ -55,6 +55,8 @@
      id="title1">B04-D API and MCP</title>
   <desc
      id="desc1">Original live &lt;text&gt; "API" label (font-dependent, inconsistent with the rest of the set) removed 2026-07-24, then the creator hand-set new type in Inkscape and converted it to a vector path (Path &gt; Object to Path) the same day — the "API" glyphs below are true outlines now, no font dependency remains.</desc>
+
+  <g transform="translate(-36.202,-36.202) scale(1.14142)" id="icon_canvas">
   <g
      stroke-linecap="round"
      stroke-linejoin="round"
@@ -78,4 +80,5 @@
      id="text4"
      transform="translate(-6.7783203,51.94754)"
      aria-label="API" />
+</g>
 </svg>

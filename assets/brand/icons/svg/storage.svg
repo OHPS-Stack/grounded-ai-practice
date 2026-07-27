@@ -2,6 +2,8 @@
   <title>B02-G Storage — reconstruction candidate v02</title>
   <desc>Three-tier storage cylinder with a coral middle band and two coral status dots. Outer outline is layered last for clean tier joins.</desc>
 
+  <g transform="translate(10.678,10.678) scale(0.95829)" id="icon_canvas">
+
   <defs>
     <clipPath id="cylinder-clip">
       <path d="M106 134
@@ -61,4 +63,5 @@
   <!-- Status dots -->
   <circle cx="366" cy="224" r="10" fill="#F15E4B"/>
   <circle cx="366" cy="374" r="10" fill="#F15E4B"/>
+</g>
 </svg>

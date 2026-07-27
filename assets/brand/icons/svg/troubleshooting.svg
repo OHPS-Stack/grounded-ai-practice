@@ -2,6 +2,8 @@
   <title>B02-D Troubleshooting — reconstruction candidate v06</title>
   <desc>Magnifying-glass handle preserved as a single shape. Wrench revised so the handle is slightly thinner and the full wrench remains inside the inner circumference of the grey circle.</desc>
 
+  <g transform="translate(6.711,6.192) scale(1.03836)" id="icon_canvas">
+
   <defs>
     <clipPath id="inner-lens-clip">
       <circle cx="205" cy="205" r="91"/>
@@ -11,16 +13,16 @@
   <!-- Single-shape magnifying-glass handle -->
   <rect x="284" y="258" width="156" height="54" rx="15"
         transform="rotate(45 284 285)"
-        fill="#FFFFFF" stroke="#27221E" stroke-width="10"/>
+        fill="#FFFFFF" stroke="#27221E" stroke-width="14"/>
 
   <!-- Magnifying-glass lens -->
   <circle cx="205" cy="205" r="132" fill="#FFFFFF"
-          stroke="#27221E" stroke-width="10"/>
+          stroke="#27221E" stroke-width="14"/>
   <circle cx="205" cy="205" r="96" fill="none"
-          stroke="#D5E2E1" stroke-width="10"/>
+          stroke="#D5E2E1" stroke-width="14"/>
 
   <!-- Wrench revised: slightly reduced/thinner and constrained to the inner grey-circle circumference -->
-  <g clip-path="url(#inner-lens-clip)" transform="translate(205 205) scale(0.90) translate(-205 -205)">
+  <g clip-path="url(#inner-lens-clip)" transform="translate(205 205) scale(0.90) translate(-205 -205)" id="wrench_clip">
     <path d="M221 146
              C199 143 180 151 168 165
              C158 177 155 194 162 220
@@ -53,4 +55,5 @@
              L210 155 Z"
           fill="#F15E4B"/>
   </g>
+</g>
 </svg>

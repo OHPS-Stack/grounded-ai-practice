@@ -2423,6 +2423,107 @@ Full citation is given once here; log entries below cite the short tag only.
   concrete wording was preferred over an abstract "lens" framing, consistent
   with the project's accessibility goal for its general-public/SME audience.
 
+### Entry 048 — Icon and logo consistency pass: fill-ratio, stroke width, background-blend fills, layer labelling, profile picture redesign
+
+- **Date logged:** 2026-07-27
+- **Priority / Question:** Priority 7/10 (visual identity, already status FINAL
+  at the direction level per Entries 037–046) — this entry records
+  execution-level technical fixes, not a reopening of that direction, same
+  category as the four-icon construction fixes in Entry 040/041.
+- **Source:** Direct creator review of the icon set and logo assets,
+  2026-07-26/27, working from a self-produced audit (Inkscape CLI geometry
+  queries measuring actual drawn-content bounding boxes against each
+  icon's declared canvas, not just viewBox) plus visual comparison
+  artifacts built during the session.
+- **What changed:**
+  1. **Fill-ratio normalisation.** All 36 icons measured: fill-ratio (content
+     bounding box vs. 512×512 canvas) ranged 0.48–0.90, median 0.64 — the
+     root cause of icons reading as inconsistent sizes despite identical
+     export dimensions. Every icon normalised to a 0.70 target via a
+     uniform scale+recentre transform (aspect ratio preserved, no path
+     coordinates touched), matching the low-risk technique already used
+     for the Vector Database viewBox fix (Entry 040).
+  2. **Stroke-width normalisation (partial, creator-approved subset only).**
+     Full-set stroke-width audit found values from 3 to 32. Creator
+     approved exactly five specific fixes to the 14-weight de facto
+     standard: Information (16→14), Architecture (12→14), Troubleshooting
+     (10→14), Verification's border (16→14), Tip's speech-bubble outline
+     (11→14, explicitly not its lightbulb/filament details). Checked all
+     other icons using the same bubble motif (`ai_assistant`,
+     `quote_callout`) — already correct. Icons mixing several stroke
+     weights deliberately (bold outline + thin inner accent) were reviewed
+     via a rendered side-by-side comparison and the creator confirmed
+     these are intentionally sized, not touched.
+  3. **Background-matching backing fills corrected from Paper to pure
+     white.** Creator's finding: Ink/Paper hardcoded into fills meant to
+     blend with a surrounding background (rather than used as genuine
+     structural/brand colour) don't actually blend with a true-white
+     document page or arbitrary dark surface, since Paper (`#F9F9F9`) and
+     Ink (`#27221E`) are not literally `#FFFFFF`/`#000000`. Checked across
+     the whole icon set and the non-reversed logo files (`logo_symbol.svg`,
+     `_flat`, `_mono`, four lockups): Cloud AI's interior fill was already
+     correct (pure white from original construction); the "page" strip and
+     terminal chevron/cursor across the logo files were on Paper and fixed
+     to pure white (22 occurrences across 7 files, plus an unrelated latent
+     bug found in the process — `logo_symbol_flat.svg`'s chevron/underscore
+     had a `style` attribute silently overriding its own `stroke="#ffffff"`
+     to `#f9f9f9`, now consistent). Vector Database and Embedding's
+     database-stack fill was already pure white; its circular
+     badge-background element was initially changed to white in the same
+     pass, then explicitly reverted by the creator, who wants that specific
+     element to stay page-tinted — a deliberate exception, not an oversight.
+     `logo_symbol_reversed.svg`'s Ink page-fill was separately confirmed
+     as intentional and explicitly left alone (see point 5).
+  4. **SVG layer/group labelling.** Per creator convention (stated while
+     reviewing their own manual edit to `hybrid_ai.svg`): groups/layers
+     should carry clear snake_case labels; individual leaf paths should not
+     be individually named, since the effort doesn't pay for itself. Applied
+     to all 34 icon SVGs that had unlabelled groups (75 groups total across
+     the set) via a script that only adds `id` attributes to currently
+     unlabelled `<g>` elements — never renames an existing id, to avoid
+     breaking any gradient/clip-path reference. `hybrid_ai.svg` skipped (no
+     groups; creator was mid-edit). Logo symbol/lockup files already had
+     adequate existing labels from earlier work, left alone.
+  5. **Reversed-logo judgement call resolved.** Asked whether
+     `logo_symbol_reversed.svg`'s Ink page-fill (Entry 045's "no longer
+     intended to work on arbitrary dark backgrounds, only Ink specifically")
+     should be reconsidered under the new background-fill finding. Creator
+     confirmed it should stay exactly as-is — a genuinely intentional
+     choice, not an instance of the bug being fixed elsewhere.
+  6. **Profile pictures redesigned.** Creator supplied a reference image
+     (external source, style only) and asked for its border/background
+     treatment adapted with navy substituted for Ink. Both
+     `profile_picture_square.svg` and `profile_picture_circular.svg` were
+     rebuilt: Ink background (was Paper), a Paper ring now flush with the
+     canvas edge (was a thick Ink ring inset from the edge — went through
+     an intermediate thin-ring version before the creator asked for it
+     thicker), and the reversed logo symbol (not the shaded/normal-colour
+     one) centred on top — its Ink page-fill disappears into the new
+     background by construction, directly validating the point 5 decision.
+     Added a subtle depth treatment reusing `logo_symbol.svg`'s exact
+     spine-shadow gradient technique, narrowed on creator instruction so it
+     doesn't extend far enough right to visually compete with the terminal
+     chevron. Creator approved the final result.
+- **Inference drawn:** The background-blend-fill problem (point 3) and the
+  reversed-symbol page-fill decision (point 5) are two sides of the same
+  underlying question — whether a colour token in a fill is standing in for
+  "whatever surface this sits on" or is genuine brand colour — and the
+  profile picture redesign (point 6) is a real, working example of the
+  "intentional Ink background" case that justifies keeping point 5 as
+  Ink rather than reverting it to transparent. This connective reading is
+  this entry's own synthesis, not something stated directly by the creator
+  in those terms.
+- **Limitations / conflicting evidence:** Not applicable — this entry
+  records completed, creator-reviewed and rendered-verified production
+  work, not a research finding with counter-evidence to weigh.
+- **Effect on project direction:** None on direction (palette/logo
+  type/tone remain FINAL per Entry 045). All PNG derivatives regenerated
+  from the updated SVGs (icons at 64/128/256px; touched logo/lockup files
+  at their existing size sets; profile pictures at 256/512/1024px) in one
+  batch at the end of the pass, per the creator's own sequencing
+  instruction (fix colours → normalise strokes → redesign profile pictures
+  → regenerate everything once, not repeatedly).
+
 <!--
 Entry template (for reference — remove once first real entry is added):
 
@@ -2854,3 +2955,29 @@ drafting until the creator reopens it.
 - A genuinely academic on-device cost/energy paper (arXiv:2512.16531) was
   found but not read directly in this pass — flagged as a lead, not a
   finding.
+
+**Resolved (2026-07-27, icon/logo consistency pass — Entry 048):**
+- ~~Icons read as inconsistent sizes despite identical export dimensions~~
+  — root cause found (varying fill-ratio, 0.48–0.90 across the set) and
+  fixed via normalisation to a 0.70 target across all 36 icons.
+- ~~Some icon/logo backing fills use Paper/Ink where pure white/black was
+  intended~~ — audited and corrected across icons and the non-reversed
+  logo files; `logo_symbol_reversed.svg`'s Ink page-fill confirmed as a
+  separate, genuinely intentional choice, not an instance of this bug.
+- ~~Profile pictures didn't reflect the creator's preferred border/background
+  treatment~~ — redesigned (Ink background, edge-flush Paper ring, reversed
+  symbol with a narrow spine-shadow depth treatment), approved by the
+  creator.
+- ~~Icon/logo SVG groups were unlabelled, making them harder to edit by
+  hand~~ — snake_case labels added to all 34 icon files with unlabelled
+  groups (`hybrid_ai.svg` and the already-adequately-labelled logo files
+  excluded).
+
+**Still open after this pass:**
+- Stroke-width normalisation only covered five specific creator-approved
+  fixes — the full set of icons mixing multiple stroke weights was reviewed
+  but left as intentional hierarchy, not a closed/completed audit of every
+  possible outlier.
+- `hybrid_ai.svg` has no labelled groups (it currently has none at all,
+  having been hand-edited outside this pass) — revisit if/when it gains
+  group structure worth labelling.

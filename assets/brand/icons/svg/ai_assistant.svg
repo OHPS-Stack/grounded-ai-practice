@@ -2,7 +2,9 @@
   <title>B04-A AI Assistant — reconstruction candidate v01</title>
   <desc>Speech bubble containing the approved PAWH cube motif and a coral four-point sparkle.</desc>
 
-  <g stroke-linecap="round" stroke-linejoin="round">
+  <g transform="translate(-9.175,11.543) scale(1.03584)" id="icon_canvas">
+
+  <g stroke-linecap="round" stroke-linejoin="round" id="bubble_and_cube_artwork">
     <!-- Speech bubble -->
     <path d="M160 96
              H350
@@ -34,4 +36,5 @@
              C345 157 351 151 355 136 Z"
           fill="#F15E4B"/>
   </g>
+</g>
 </svg>

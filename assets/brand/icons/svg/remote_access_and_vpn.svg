@@ -3,12 +3,14 @@
   <title>B05-G Remote Access and VPN — correction candidate v06</title>
   <desc>Globe with latitude and longitude lines, overlaid by a white padlock shifted slightly up and left.</desc>
 
+  <g transform="translate(-18.361,-75.211) scale(1.23586)" id="icon_canvas">
+
   <!-- Globe -->
   <g fill="none"
      stroke="#27221E"
      stroke-width="14"
      stroke-linecap="round"
-     stroke-linejoin="round">
+     stroke-linejoin="round" id="globe_lines">
     <circle cx="222" cy="246" r="116"/>
 
     <!-- Longitude curves -->
@@ -28,7 +30,7 @@
   </g>
 
   <!-- Lock assembly shifted slightly up and left -->
-  <g transform="translate(-76 -12)">
+  <g transform="translate(-76 -12)" id="padlock_assembly">
     <!-- Padlock shackle: charcoal outline with white interior -->
     <path d="M316 318
              V286
@@ -64,4 +66,5 @@
           stroke-width="13"
           stroke-linecap="round"/>
   </g>
+</g>
 </svg>

@@ -2,7 +2,9 @@
   <title>B05-B Backup and Recovery — correction candidate v10</title>
   <desc>Approved storage stack and recovery badge preserved. Restore arrowhead rotated slightly further left so the circular line meets the base of the triangle at its midpoint.</desc>
 
-  <g stroke="#27221E" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+  <g transform="translate(-34.777,-23.507) scale(1.12704)" id="icon_canvas">
+
+  <g stroke="#27221E" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" id="storage_stack">
     <path d="M106 146 V326 C106 350 152 368 210 368 C268 368 314 350 314 326 V146" fill="#FFFFFF"/>
     <ellipse cx="210" cy="146" rx="104" ry="38" fill="#FFFFFF"/>
     <path d="M106 206 C132 226 166 234 210 234 C254 234 288 226 314 206" fill="none"/>
@@ -18,4 +20,5 @@
   <path d="M297 300 L324 277 L340 308 Z"
         fill="#F15E4B"
         transform="rotate(-112 320.333 295)"/>
+</g>
 </svg>

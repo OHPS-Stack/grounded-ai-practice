@@ -3,12 +3,12 @@
 <title>Grounded AI Practice — Symbol, monochrome</title>
 <desc>Single-Ink (#27221E) version of the logo symbol, derived from logo_symbol_flat.svg — the Ember underline is recoloured to Ink so the whole mark reads as one colour; white page/chevron/cursor cutouts are kept white (negative space, not a second colour) for use on light backgrounds. For one-colour print, embossing, watermarks. Created 2026-07-24.</desc>
 <g id="symbol_element" transform="translate(5.5,-15)">
-  <rect style="fill:#f9f9f9;fill-opacity:1;stroke-width:1" id="rect3" width="264.68814" height="52.916023" x="17.488634" y="240" inkscape:label="page_fill" />
+  <rect style="fill:#ffffff;fill-opacity:1;stroke-width:1" id="rect3" width="264.68814" height="52.916023" x="17.488634" y="240" inkscape:label="page_fill" />
   <path id="path21" style="fill:#27221e;stroke-width:0.939816" d="M 37.878906,24.5 C 13.603182,24.445232 4.5725797,32.5715 4.5,52.748047 L 3.6816406,280 C 3.6090608,300.17655 15.281671,310 34.5,310 H 239.50008 A 9.9999219,9.9999219 135 0 0 249.5,300.00008 v -7.00985 l -107.95312,-0.0742 H 40.685547 c -11.932088,0 -21.537109,-11.66638 -21.537109,-24.39649 v -3.88281 C 19.148438,251.9066 28.753459,240 40.685547,240 H 47.615234 249.5 V 34.976484 a 10.022467,10.022467 45.064514 0 0 -9.9999,-10.022441 z" transform="matrix(1.1321775,0,0,1,-0.48658545,0)" />
   <path id="rect4-8" style="display:inline;fill:#27221e;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.999999" d="m 52.127345,252.61354 c -11.854122,0 -17.487813,6.23031 -17.487813,12.89155 v 2.03133 c 0,6.66123 5.633691,12.76606 17.487813,12.76606 H 282.1768 v -27.68894 z" inkscape:label="ink_fill" />
 </g>
 <g id="prompt_group" transform="matrix(1.12,0,0,1.12,-8.3,-25.94)">
-  <path id="prompt_chevron" d="m 58,84 40,32 -40,34" fill="none" stroke="#f9f9f9" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" />
-  <path id="prompt_underscore" d="m 119,163.5 h 51.5" fill="none" stroke="#f9f9f9" stroke-width="16" stroke-linecap="round" />
+  <path id="prompt_chevron" d="m 58,84 40,32 -40,34" fill="none" stroke="#ffffff" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" />
+  <path id="prompt_underscore" d="m 119,163.5 h 51.5" fill="none" stroke="#ffffff" stroke-width="16" stroke-linecap="round" />
 </g>
 </svg>

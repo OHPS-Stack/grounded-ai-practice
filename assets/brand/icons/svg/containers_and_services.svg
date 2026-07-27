@@ -2,8 +2,10 @@
   <title>B03-F Containers and Services — reconstruction candidate v01</title>
   <desc>Connected three-cube cluster reconstructed as editable vector faces with a single shared edge network. Two cubes are white and the lower-right cube is coral.</desc>
 
+  <g transform="translate(-27.502,-26.393) scale(1.10960)" id="icon_canvas">
+
   <!-- Filled faces: no individual strokes, avoiding doubled shared edges -->
-  <g>
+  <g id="cube_faces">
     <!-- Upper cube -->
     <path d="M256 100 L331 143 L256 187 L181 143 Z" fill="#FFFFFF"/>
     <path d="M181 143 L256 187 L256 276 L181 232 Z" fill="#FFFFFF"/>
@@ -21,7 +23,7 @@
   </g>
 
   <!-- One shared edge network -->
-  <g fill="none" stroke="#27221E" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+  <g fill="none" stroke="#27221E" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" id="cube_edges">
     <!-- Upper cube -->
     <path d="M256 100 L331 143 L256 187 L181 143 Z"/>
     <path d="M181 143 V232 L256 276 L331 232 V143"/>
@@ -37,4 +39,5 @@
     <path d="M407 276 V365 L331 409 L256 365"/>
     <path d="M331 320 V409"/>
   </g>
+</g>
 </svg>

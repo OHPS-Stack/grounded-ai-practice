@@ -1,6 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
 <title>B03-D Workflow and Automation</title>
-<g stroke-linecap="round" stroke-linejoin="round">
+
+  <g transform="translate(21.733,32.933) scale(0.93333)" id="icon_canvas">
+<g stroke-linecap="round" stroke-linejoin="round" id="flowchart_nodes">
   <rect x="196" y="54" width="120" height="88" rx="14" stroke="#27221E" stroke-width="14" fill="#FFFFFF"/>
   <!-- left node raised slightly -->
   <rect x="82" y="326" width="120" height="88" rx="14" stroke="#27221E" stroke-width="14" fill="#FFFFFF"/>
@@ -12,5 +14,6 @@
   <path d="M372 222 V282" stroke="#27221E" stroke-width="14" fill="none"/>
   <path d="M126 288 L142 306 L158 288" stroke="#27221E" stroke-width="14" fill="none"/>
   <path d="M356 290 L372 308 L388 290" stroke="#27221E" stroke-width="14" fill="none"/>
+</g>
 </g>
 </svg>

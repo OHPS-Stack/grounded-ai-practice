@@ -2,6 +2,8 @@
   <title>B02-B Outcomes — reconstruction candidate v01</title>
   <desc>Three-stage outcome path ending in a highlighted result node with coral rays.</desc>
 
+  <g transform="translate(45.600,49.600) scale(0.80000)" id="icon_canvas">
+
   <!-- Connecting path drawn first -->
   <path d="M103 256 H160 M220 256 H286"
         stroke="#27221E" stroke-width="8" stroke-linecap="round"/>
@@ -15,7 +17,7 @@
   <circle cx="351" cy="258" r="33" fill="#F15E4B"/>
 
   <!-- Outcome rays -->
-  <g stroke="#F15E4B" stroke-width="8" stroke-linecap="round">
+  <g stroke="#F15E4B" stroke-width="8" stroke-linecap="round" id="outcome_rays">
     <line x1="351" y1="157" x2="351" y2="126"/>
     <line x1="351" y1="359" x2="351" y2="390"/>
     <line x1="452" y1="258" x2="483" y2="258"/>
@@ -24,4 +26,5 @@
     <line x1="280" y1="329" x2="258" y2="351"/>
     <line x1="422" y1="329" x2="444" y2="351"/>
   </g>
+</g>
 </svg>

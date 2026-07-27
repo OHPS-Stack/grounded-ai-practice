@@ -42,7 +42,7 @@
        transform="translate(5.5,-15)"
        id="g2">
       <rect
-         fill="#f9f9f9"
+         fill="#ffffff"
          width="264.68814"
          height="52.916023"
          x="17.488634"
@@ -65,7 +65,7 @@
       <path
          d="m 58,84 40,32 -40,34"
          fill="none"
-         stroke="#f9f9f9"
+         stroke="#ffffff"
          stroke-width="13"
          stroke-linecap="round"
          stroke-linejoin="round"
@@ -73,7 +73,7 @@
       <path
          d="m 119,163.5 h 51.5"
          fill="none"
-         stroke="#f9f9f9"
+         stroke="#ffffff"
          stroke-width="16"
          stroke-linecap="round"
          id="path4" />

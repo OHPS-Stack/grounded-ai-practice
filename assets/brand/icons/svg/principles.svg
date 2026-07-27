@@ -2,7 +2,9 @@
   <title>B02-A Principles — reconstruction candidate v01</title>
   <desc>Balanced scales reconstructed as editable vector geometry from the approved Batch 02 reference.</desc>
 
-  <g stroke="#27221E" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+  <g transform="translate(31.121,17.067) scale(0.87843)" id="icon_canvas">
+
+  <g stroke="#27221E" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" id="scales_shape">
     <!-- Main beam and centre support -->
     <line x1="104" y1="126" x2="408" y2="126"/>
     <line x1="256" y1="164" x2="256" y2="388"/>
@@ -37,4 +39,5 @@
           fill="#FFFFFF"/>
     <rect x="158" y="428" width="196" height="28" rx="8" fill="#F15E4B"/>
   </g>
+</g>
 </svg>

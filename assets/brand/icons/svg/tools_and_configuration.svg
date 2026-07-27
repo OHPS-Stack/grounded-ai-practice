@@ -2,6 +2,8 @@
   <title>B02-E Tools and Configuration — reconstruction candidate v10</title>
   <desc>Locked eight-tooth gear preserved. Accepted v03 wrench geometry restored unchanged, then clipped in canvas coordinates to the inner circumference.</desc>
 
+  <g transform="translate(-36.881,-9.763) scale(1.08475)" id="icon_canvas">
+
   <defs>
     <clipPath id="inner-circle-visible-area" clipPathUnits="userSpaceOnUse">
       <circle cx="270" cy="245" r="72"/>
@@ -13,8 +15,8 @@
 
   <circle cx="270" cy="245" r="79" fill="#FFFFFF" stroke="#27221E" stroke-width="14"/>
 
-  <g clip-path="url(#inner-circle-visible-area)">
-    <g transform="translate(65 40) translate(205 205) scale(0.85) translate(-205 -205)">
+  <g clip-path="url(#inner-circle-visible-area)" id="wrench_clip">
+    <g transform="translate(65 40) translate(205 205) scale(0.85) translate(-205 -205)" id="wrench_shape">
       <path d="M221 146
                C199 143 180 151 168 165
                C158 177 155 194 162 220
@@ -50,4 +52,5 @@
             fill="#F15E4B"/>
     </g>
   </g>
+</g>
 </svg>

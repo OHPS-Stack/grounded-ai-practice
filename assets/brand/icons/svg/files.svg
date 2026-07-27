@@ -2,6 +2,8 @@
   <title>B02-F Files — correction candidate v02</title>
   <desc>Existing master corrected by adding a matching border to the raised rear-tab shading and shifting the document slightly left.</desc>
 
+  <g transform="translate(9.846,-7.877) scale(0.98462)" id="icon_canvas">
+
   <!-- Folder body -->
   <path d="M76 126
            Q76 106 96 106
@@ -34,7 +36,7 @@
         stroke-linejoin="round"/>
 
   <!-- Document shifted 6 px left; all document geometry otherwise preserved. -->
-  <g transform="translate(-6 0)">
+  <g transform="translate(-6 0)" id="document_shape">
     <path d="M238 206
              Q238 190 254 190
              H350
@@ -59,4 +61,5 @@
     <line x1="282" y1="342" x2="362" y2="342" stroke="#D5E2E1" stroke-width="10" stroke-linecap="round"/>
     <line x1="282" y1="380" x2="362" y2="380" stroke="#D5E2E1" stroke-width="10" stroke-linecap="round"/>
   </g>
+</g>
 </svg>

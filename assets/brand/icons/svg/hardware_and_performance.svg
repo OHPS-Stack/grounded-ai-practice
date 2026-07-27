@@ -3,9 +3,11 @@
   <title>B05-C Hardware and Performance — correction candidate v03</title>
   <desc>Rounded microchip with three pins on every side and a circular performance gauge whose arc is shortened slightly inside the two end ticks.</desc>
 
+  <g transform="translate(2.546,2.546) scale(0.99006)" id="icon_canvas">
+
   <!-- Three chip pins on every side -->
   <g stroke="#27221E" stroke-width="14"
-     stroke-linecap="round" stroke-linejoin="round">
+     stroke-linecap="round" stroke-linejoin="round" id="chip_pins">
     <line x1="176" y1="82" x2="176" y2="112"/><line x1="256" y1="82" x2="256" y2="112"/><line x1="336" y1="82" x2="336" y2="112"/>
     <line x1="176" y1="400" x2="176" y2="430"/><line x1="256" y1="400" x2="256" y2="430"/><line x1="336" y1="400" x2="336" y2="430"/>
     <line x1="82" y1="176" x2="112" y2="176"/><line x1="82" y1="256" x2="112" y2="256"/><line x1="82" y1="336" x2="112" y2="336"/>
@@ -24,7 +26,7 @@
 
   <!-- Longer ticks centred across the gauge arc -->
   <g stroke="#27221E" stroke-width="10"
-     stroke-linecap="round" stroke-linejoin="round">
+     stroke-linecap="round" stroke-linejoin="round" id="gauge_ticks">
     <line x1="198.9" y1="279.4" x2="175.3" y2="268.4"/><line x1="222.2" y1="252.9" x2="208.2" y2="230.9"/><line x1="256.0" y1="243.0" x2="256.0" y2="217.0"/><line x1="289.8" y1="252.9" x2="303.8" y2="230.9"/><line x1="313.1" y1="279.4" x2="336.7" y2="268.4"/>
   </g>
 
@@ -36,4 +38,5 @@
   <!-- Needle hub -->
   <circle cx="256" cy="306" r="15"
           fill="#F15E4B" stroke="#27221E" stroke-width="9"/>
+</g>
 </svg>

@@ -230,7 +230,20 @@ work remains at the direction level.
   "PRACTICE"), side-by-side and stacked. All wordmark text is now real
   vector paths (Public Sans, converted to outlines in Inkscape) — no font
   dependency remains, consistent with every other text element in the
-  brand system.
+  brand system. **27 July 2026:** the "page" strip and terminal
+  chevron/cursor across `logo_symbol.svg`, `_flat`, `_mono` and all four
+  non-reversed lockups were found using Paper (`#F9F9F9`) rather than pure
+  white for what's actually a background-matching backing element — same
+  issue as the icon-set check below, fixed the same way (corrected to
+  `#FFFFFF`; `logo_symbol_reversed.svg` and its lockups were left alone,
+  since that variant's Ink page-fill is a confirmed intentional choice, not
+  this bug). The two full-colour lockups (`logo_lockup_horizontal.svg`,
+  `logo_lockup_vertical.svg`) were originally built from the flat symbol
+  geometry rather than the shaded one, so they had flat fills and no spine
+  shadow — fixed 27 July 2026 by carrying the exact `bookGrad`/`spineGrad`/
+  `emberGrad` gradients and the missing spine-shadow path across from
+  `logo_symbol.svg` (book-shape geometry confirmed identical between the
+  two, so this is a direct reuse, not a reconstruction).
 - `png/` — raster exports, regenerated from final SVGs: symbol and symbol
   variants at 32/64/128/256/512/1024px; lockup variants at 256/512/1024px
   width. All transparent background.
@@ -238,9 +251,18 @@ work remains at the direction level.
   treatments for social/profile use (the circular one specifically for
   GitHub, which auto-crops square uploads to a circle anyway, but this
   file is a true circle with transparent corners for platforms that
-  don't). Main shaded `logo_symbol.svg` centred on a Paper background with
-  a thick Ink ring border set near the edge; icon sized slightly larger on
-  the square version than the circular one. PNGs at 256/512/1024px.
+  don't). **Redesigned 27 July 2026** per a creator-supplied reference
+  image: Ink (`#27221E`) background (was Paper), a Paper ring set flush
+  with the outer edge (was a thick Ink ring inset from the edge), and the
+  **reversed** logo symbol (white book, Ink chevron/cursor, Ember
+  underline) centred on top rather than the shaded/normal-colour symbol —
+  the reversed variant's `page_fill` is already Ink, so it disappears
+  seamlessly into the new background by construction. The book has a
+  subtle depth treatment reusing `logo_symbol.svg`'s spine-shadow
+  technique, deliberately narrowed to stay clear of the chevron rather
+  than washing across the whole cover. Icon sized slightly larger on the
+  square version than the circular one, matching the prior convention.
+  PNGs at 256/512/1024px.
 
 All symbol geometry reuses the approved PAWH "terminal + handbook" mark
 (an open-book/journal shape containing a terminal prompt chevron and
@@ -289,6 +311,35 @@ Backup and Recovery, Updates and Maintenance, Learning and Documentation)
 were flagged only for having unusually high past revision counts, not any
 identified defect — cleared by the creator's manual visual review, no
 changes made.
+
+**Consistency refinement pass (27 July 2026):** the creator noticed icons
+read as inconsistent sizes despite identical PNG dimensions. Measured
+directly (Inkscape's geometry query against each icon's actual drawn
+content, not just the declared viewBox): fill-ratio — how much of the
+512×512 canvas each icon's content actually occupies — ranged from 0.48 to
+0.90 across the set (median 0.64). Every icon was normalised to a 0.70
+fill-ratio target via a uniform scale-and-recentre transform (aspect ratio
+preserved, no path coordinates touched), the same low-risk technique
+already used for the Vector Database viewBox fix. Stroke width was left
+alone except for four single-stroke outliers the creator specifically
+approved (Information 16→14, Architecture 12→14, Troubleshooting 10→14,
+plus Verification's border 16→14 and Tip's speech-bubble outline 11→14,
+matching the set's de facto 14-weight standard) — icons mixing multiple
+stroke weights deliberately (bold outline + thinner inner accent) were
+identified and left as intentional hierarchy, not flattened. Separately,
+the creator identified that Ink/Paper used as *background-matching backing
+fills* (rather than genuine structural colour) don't actually blend with a
+true-white document page, since Paper (`#F9F9F9`) isn't pure white. This
+was checked across both icons and logo: Cloud AI's interior backing fill
+was already correct (pure white, `#FFFFFF`, from its original
+construction); Vector Database and Embedding's database-stack fill was
+likewise already pure white, but its circular badge-background element is
+a deliberate exception the creator wants kept page-tinted rather than pure
+white, so it stays Paper on purpose. Wordmark text and genuine
+structural/complementary colour use (e.g. icon linework itself) were
+explicitly out of scope for this check. All 36 icons' groups/layers were
+also labelled in snake_case for editability (individual paths intentionally
+left unnamed) — see `RESEARCH_LOG.md` for the full session record.
 
 **Workflow note (24 July 2026):** fine curve-level refinement of the logo
 symbol was attempted through iterative AI-described feedback (screenshot

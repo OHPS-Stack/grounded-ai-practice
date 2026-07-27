@@ -2,6 +2,8 @@
   <title>B04-C Cloud AI — approved adjustment candidate v02</title>
   <desc>Cloud outline with explicit white interior fill placed beneath the centre cube and coral sparkle. The white fill does not encroach on the cube or sparkle. Note on construction (added 2026-07-24): the ink ring path below uses fill-rule="evenodd" with an outer and inner boundary, and the white fill path directly beneath it reuses the exact same inner-boundary coordinates on purpose — this is not accidental duplication needing sync, and not something to "simplify" by deleting the white path. The explicit white fill is required so the icon renders correctly on any background colour (Sand/Mist/Sage sections etc.), not just white — without it, the cloud's interior would be transparent and show whatever is behind it instead of white.</desc>
 
+  <g transform="translate(6.171,29.320) scale(0.97286)" id="icon_canvas">
+
   <!-- Dark cloud border as ring. -->
   <path fill="#27221E" fill-rule="evenodd" d="
     M72.6 266.8
@@ -72,4 +74,5 @@
     C322.9 198.0 324.3 197.0 327.2 196.2
     C337.0 193.5 340.6 189.2 342.0 181.2
     C342.5 178.6 343.7 177.4 346.0 177.4 Z"/>
+</g>
 </svg>
