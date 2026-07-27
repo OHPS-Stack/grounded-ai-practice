@@ -2524,6 +2524,54 @@ Full citation is given once here; log entries below cite the short tag only.
   instruction (fix colours → normalise strokes → redesign profile pictures
   → regenerate everything once, not repeatedly).
 
+### Entry 049 — Pilot-unit example doc: PAWH callout review and Word-group construction technique
+
+- **Date logged:** 2026-07-27 (records work done 2026-07-26, ahead of Entry
+  048; logged retrospectively after being flagged as a documentation gap).
+- **Priority / Question:** Priority 7 (delivery format) — the Word-document
+  formatting standard for the pilot unit example at
+  `drafts/Effective_Prompting_Example.docx`.
+- **Source:** Direct creator review across several rounds, working from one
+  file shared out of a larger PAWH reference pack: `PAWH_Semantic_Callout_
+  Word_Component_Library_v01.docx` (approved PAWH authority, 2026-07-22:
+  rounded shell, white icon well, internal divider, tinted text area;
+  approved types Note/Warning/Check/Troubleshooting, Tip/Important/Example
+  deferred). Creator explicitly said GAP's callouts aren't limited to
+  PAWH's four types — the full 36-icon set can be used to build further
+  variants in the same style.
+- **What happened:** Rebuilding the callout cards to match that pattern
+  went through three constructions. A table-cell-shading version worked
+  but had square corners. Nesting a rounded shape inside another shape's
+  text box got closer visually but Word refused to open the file outright
+  ("You can't put drawing objects into a text box, callout, comment,
+  footnote or endnote") — a real, hard OOXML constraint, not a bug to work
+  around. The fix: build each card as a Word **group** (`wpg:wgp`) of
+  sibling objects — background shape, icon-well shape, icon picture,
+  divider shape, separate text-box shape — which is how Word's own "group
+  objects" feature works, and matches how the PAWH masters themselves are
+  built (their reuse instructions say "select and copy the complete
+  **grouped** object"). This construction opens correctly in Word and
+  renders with correct text and document-order placement.
+- **Inference drawn:** LibreOffice (the only renderer available in this
+  environment) proved unreliable specifically for grouped shapes with
+  embedded text — it mis-ordered content, produced a duplicated/empty box,
+  and rendered text boxes blank, none of which were real defects once
+  checked in actual Microsoft Word via `tools/word_preview.ps1`. This is
+  this project's own finding, not documented anywhere externally that was
+  checked — treat LibreOffice as reliable for ordinary content but not for
+  this specific shape category going forward.
+- **Limitations / conflicting evidence:** Not applicable — production/
+  technical record, not a research claim.
+- **Effect on project direction:** None on direction. Practical effect: the
+  cosmetic punch list from the creator's real-Word review (icon well size,
+  icon resolution, divider/well height match) was resolved once
+  `tools/word_preview.ps1` existed to self-verify against (see Entry in
+  `CLAUDE.md`'s "Working approach" on self-check tooling). The example doc
+  remains a draft, not the finished pilot unit content — the creator's
+  wider PAWH reference pack also covers a title-card system and a
+  not-yet-reviewed native-table authority, both still open if this thread
+  resumes.
+
 <!--
 Entry template (for reference — remove once first real entry is added):
 

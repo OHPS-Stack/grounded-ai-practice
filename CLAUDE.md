@@ -31,6 +31,11 @@ the five immediate research priorities driving current work.
   themselves, explain what it does and why, especially anything security- or
   system-relevant. This is part of the project's own subject matter
   (responsible AI use, verification, human oversight), not just a courtesy.
+  For setup/install/configuration commands specifically, default to
+  explaining and handing off for the user to run themselves rather than
+  Claude executing directly — even when permission would likely be
+  granted. Reserve direct execution for read-only/diagnostic actions or
+  when the user explicitly asks Claude to run something.
 - Word documents (`.docx`) get a self-check before being treated as
   finished: `tools/word_preview.ps1` exports the file through actual
   Microsoft Word via COM automation to PDF, which Claude then reads
@@ -38,6 +43,24 @@ the five immediate research priorities driving current work.
   engine has diverged from Word's real rendering on grouped/shape-based
   content in this project before, so treat a LibreOffice preview as
   provisional, not confirmation that formatting is correct.
+- More generally: prefer workflows where output can be self-verified
+  against ground truth (a real renderer, the actual target application, a
+  test suite) over iterative guess-and-describe loops. If no such path
+  exists yet but one could plausibly be built, say so explicitly rather
+  than defaulting to repeated manual review rounds.
+- Ask the user directly for cheap-to-state facts about their own
+  environment or preferences (e.g. "is X installed?") rather than running
+  exploratory commands to find out — reserve diagnostic commands for
+  things faster to check than to ask about.
+- If a task's best approach depends on a tool or runtime that turns out to
+  be missing, say so explicitly — what's missing, what it would unlock,
+  brief install instructions — before falling back to a weaker workaround.
+  Never install anything yourself; surface the command for the user to run
+  (see "Commands should never be blind copy-paste" below).
+- When a stated pain point matches a known tool or product (including
+  Anthropic's own — Claude for Word/Excel/PowerPoint, Claude in Chrome,
+  connectors), name it unprompted. Time it to when it's actually relevant
+  to the task in front of you, not as a scattershot list.
 
 ## Research discipline
 
@@ -90,6 +113,34 @@ open threads). Key standing rules:
   task — a file left unindexed at the moment it's created is exactly the
   "badly indexed" failure mode this rule exists to prevent (see
   "Relationship to PAWH" in `PROJECT_BRIEF.md`).
+- **Avoid jargon/buzzwords in naming or reader-facing copy** (unit titles,
+  headings, capability names) — plain, concrete wording beats a clever
+  abstract phrase. The fix for jargon is plainer language, not a simpler
+  underlying idea — the working assumption is a fairly intelligent reader,
+  so don't swing into patronising oversimplification either.
+- **SVG/vector asset groups (`<g>` elements) should carry clear snake_case
+  labels** (`id` and/or `inkscape:label`) so a human can find the right
+  group to edit without guessing. Individual leaf `<path>` elements don't
+  need their own names — that effort doesn't pay for itself. Never rename
+  an *existing* id without first checking nothing references it (gradient
+  `url(#...)`, `xlink:href`, `clip-path`) — only add labels to currently
+  unlabelled groups unless there's a specific reason to touch a working one.
+
+## Git conventions
+
+- **Draft the commit message and show it to the user before running
+  `git commit`**, for any commit with a real message to write (not a
+  one-liner the user dictated directly). A go-ahead like "let's commit
+  this" means prepare it, not execute it unreviewed — commits are
+  semi-permanent and this repo may go public.
+- **Never push to the remote without a separate, explicit go-ahead**, even
+  immediately after a local commit the user asked for. The user handles
+  pushes themselves.
+- **Commit messages (and any other outward-facing prose — docs, summaries)
+  must match the user's own voice**: short, direct, no AI-register
+  em-dash-chaining, and never third-person references to the user (e.g.
+  "the creator") — that framing belongs in `RESEARCH_LOG.md`'s internal
+  entries, not in text written in the user's own voice.
 
 ## Known mistakes to not repeat
 
@@ -172,3 +223,19 @@ this is expected, not a sign that something is being hidden. Starting a
 fresh session is reasonable once a research thread's findings have been
 written into the repo files above, since nothing durable is lost by doing
 so.
+
+**Standing task — periodic rule-extraction pass.** Roughly every ~2 hours
+of active work in a session (self-paced, no hard timer — use judgement on
+when enough has accumulated), read through the local memory files
+(`~/.claude/projects/<project-id>/memory/`) and check each feedback/
+project/user-type entry against this file, `PROJECT_BRIEF.md`, and
+`RESEARCH_LOG.md`: is the durable, process-level rule it describes already
+captured in the repo, or only sitting in local memory? Propose anything
+missing (for review, not a silent edit, same as any other change here) and
+write in what's approved. This exists specifically because local memory
+files are machine-specific and don't travel between machines (desktop vs.
+laptop) or reliably resurface from old conversation logs — the repo is the
+one place guaranteed to travel with the project. Applies in every session
+working in this repo, not just the one that first set this up.
+**Last run: 2026-07-27.** Update this line each time the pass completes,
+so any session can see how stale it's gotten.
