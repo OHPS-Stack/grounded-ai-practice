@@ -2,7 +2,7 @@
 
 ## Document status
 
-Working document, maintained alongside `RESEARCH_LOG.md`. Split out from it
+Working document, maintained alongside `research_log.md`. Split out from it
 on 2026-07-27 (see Entry 017 below) once that file's research-only purpose
 had drifted into a general dump for every kind of durable record.
 
@@ -10,32 +10,32 @@ had drifted into a general dump for every kind of durable record.
 
 Records scoping/creative decisions and design/production/technical work —
 everything durable that is **not** source-backed research evidence (that
-belongs in `RESEARCH_LOG.md`) and is **not** a standing current-state
-summary (that belongs in `PROJECT_BRIEF.md`). Think of it as the
+belongs in `research_log.md`) and is **not** a standing current-state
+summary (that belongs in `project_brief.md`). Think of it as the
 chronological "what happened and why" history behind the decisions
-`PROJECT_BRIEF.md` currently reflects.
+`project_brief.md` currently reflects.
 
 This log is intended to be maintained by Claude, not edited by hand. New
 entries are appended as decisions are made or work is completed; existing
 entries are not silently altered — corrections or supersessions are added
 as new entries that reference the one they update, so history stays
-traceable, consistent with `RESEARCH_LOG.md`'s own non-alteration
+traceable, consistent with `research_log.md`'s own non-alteration
 convention.
 
 ## How to read this log
 
-Same entry shape as `RESEARCH_LOG.md`, adapted for content that usually has
+Same entry shape as `research_log.md`, adapted for content that usually has
 no external citation:
 
 | Field | Meaning |
 |---|---|
-| ID | Sequential entry number (this file's own sequence, separate from `RESEARCH_LOG.md`'s) |
+| ID | Sequential entry number (this file's own sequence, separate from `research_log.md`'s) |
 | Date logged | When the entry was added |
-| Priority / Question | Which `RESEARCH_QUESTIONS.md` priority this touches, if any — some entries (like this file's own creation) aren't tied to one |
+| Priority / Question | Which `research_questions.md` priority this touches, if any — some entries (like this file's own creation) aren't tied to one |
 | Source | Who decided or built something (the creator directly, or Claude Code on the creator's instruction) rather than an external citation |
 | What happened | What changed, decided, or was built |
 | Inference drawn | Any conclusion drawn beyond the plain fact, clearly marked as inference |
-| Limitations / conflicting evidence | Usually "Not applicable" here — kept for structural consistency with `RESEARCH_LOG.md`, since this is a production record, not a claim needing corroboration |
+| Limitations / conflicting evidence | Usually "Not applicable" here — kept for structural consistency with `research_log.md`, since this is a production record, not a claim needing corroboration |
 | Effect on project direction | Whether this changes, confirms, or has no current effect on the brief |
 
 ---
@@ -68,13 +68,13 @@ no external citation:
   on entries already in this log (020–027, 034), not new research.
 - **Limitations / conflicting evidence:** This decides the *shape* of the
   first output, not which capability it teaches, nor the project's permanent
-  format — both remain open (see `PROJECT_BRIEF.md`). As previously flagged,
+  format — both remain open (see `project_brief.md`). As previously flagged,
   `RS-AILIT25`'s pilot-first recommendation is drawn from a children's-
   education evidence base, and `GRR-EBIP`'s sequencing model is K-12-
   originated (Entry 027) — applying both to adult, self-directed learning is
   this project's own extension, not something either source tested directly.
 - **Effect on project direction:** Recorded as a working decision in
-  `PROJECT_BRIEF.md` ("First public output"). Converts four sessions of
+  `project_brief.md` ("First public output"). Converts four sessions of
   Priority 3–5 research into a concrete, testable next build step, consistent
   with the project's stated aim of reducing uncertainty before creating new
   structures. The immediate open question this raises — which single
@@ -98,7 +98,7 @@ no external citation:
   in Entry 001. The full inherited architecture (Windows 11 + Windows
   Terminal + WSL2 + Docker Compose running Ollama/Open WebUI, with
   SearXNG/Whisper/Qdrant, later Langflow/n8n/MCP integrations, considered)
-  was recorded in `PROJECT_BRIEF.md` ("Inherited workstation architecture")
+  was recorded in `project_brief.md` ("Inherited workstation architecture")
   as historical intent to evaluate, per the existing "Relationship to PAWH"
   convention — not a committed specification.
 - **Inference drawn:** Terminal/shell basics is a sensible *first module of
@@ -118,7 +118,7 @@ no external citation:
   without disturbing the general-literacy pilot's status as the project's
   first tested output. Gives the workstation track a concrete architectural
   reference to design lessons against, while keeping the two tracks
-  explicitly distinct in `PROJECT_BRIEF.md` so they aren't accidentally
+  explicitly distinct in `project_brief.md` so they aren't accidentally
   conflated in future sessions.
 
 ### Entry 003 — Visual identity: palette and logo-type decision (Priority 7/10)
@@ -126,13 +126,13 @@ no external citation:
 - **Date logged:** 2026-07-24
 - **Priority / Question:** Priority 7 (delivery format) touches on visual
   presentation; Priority 10 (sustainability/public presentation) — "visual
-  identity beyond the approved project name" (`PROJECT_BRIEF.md`, "Not yet
+  identity beyond the approved project name" (`project_brief.md`, "Not yet
   decided").
 - **Source:** Direct creative decision by the project's creator, 2026-07-24
   — a design choice, not an evidence-based research finding, so this entry
   intentionally has no source-key citation.
 - **What changed:** The creator finalised a six-colour palette (Ink, Ember,
-  Sand, Paper, Mist, Sage — see `PROJECT_BRIEF.md`, "Visual identity"),
+  Sand, Paper, Mist, Sage — see `project_brief.md`, "Visual identity"),
   confirmed an icon + wordmark logo type, and confirmed a tone positioned
   between "grounded/academic" and "approachable/friendly." The existing
   legacy PAWH icon set (`assets/brand/legacy-pawh-icons/`) was confirmed to
@@ -199,7 +199,7 @@ no external citation:
 - **Effect on project direction:** Confirms the workflow correction from
   the previous entry was the right call — the handoff produced a clearly
   better result than continued AI-iterative editing was achieving. Updates
-  `PROJECT_BRIEF.md`'s "Visual identity" section to point at the current
+  `project_brief.md`'s "Visual identity" section to point at the current
   files. The wordmark pairing remains the next open piece, now against a
   meaningfully improved symbol.
 
@@ -278,7 +278,7 @@ no external citation:
     variants into `assets/brand/logo/png/` (12 files total).
   - `assets/brand/legacy-pawh-icons/` and `assets/brand/logo/candidates/`
     removed entirely once empty.
-  - `PROJECT_BRIEF.md` ("Visual identity") and `CLAUDE.md` ("Where to look
+  - `project_brief.md` ("Visual identity") and `CLAUDE.md` ("Where to look
     for what") updated to the new paths and promoted status.
 - **Inference drawn:** None — direct production/restructuring work.
 - **Limitations / conflicting evidence:** Not applicable. Note: the icon
@@ -353,7 +353,7 @@ no external citation:
   cool, matching Sage; fully neutral) — the creator picked **Stone**
   (`#6E6E6E`), the fully neutral option, specifically because it has no
   warm/cool lean, unlike every other colour in the palette. Added to the
-  palette table in `PROJECT_BRIEF.md`, explicitly scoped as sparing-use
+  palette table in `project_brief.md`, explicitly scoped as sparing-use
   only (monochrome logo detailing initially), not a general UI/text
   colour.
 - **Inference drawn:** None — a direct decision, not derived from evidence.
@@ -374,7 +374,7 @@ no external citation:
   zero warm/cool lean rather than introducing a third undertone: Graphite
   (`#404040`, a genuine third step between Stone and Ink) and Charcoal
   (`#2B2B2B`, matching Ink's depth but neutral). The creator picked
-  **Graphite**. Added to the palette table in `PROJECT_BRIEF.md`, same
+  **Graphite**. Added to the palette table in `project_brief.md`, same
   sparing-use scope as Stone (monochrome logo detailing, not general
   UI/text colour).
 - **Inference drawn:** None — a direct decision, not derived from evidence.
@@ -420,7 +420,7 @@ no external citation:
   from what was originally planned.
 - **Limitations / conflicting evidence:** Not applicable.
 - **Effect on project direction:** The visual identity is now genuinely
-  **FINAL** — `PROJECT_BRIEF.md`'s "Visual identity" section and "Not yet
+  **FINAL** — `project_brief.md`'s "Visual identity" section and "Not yet
   decided" list both updated to reflect this; visual identity removed from
   the open-questions list entirely. No further Claude Code or Inkscape
   design work is anticipated on the logo/icon system unless the creator
@@ -462,21 +462,21 @@ no external citation:
 
 - **Date logged:** 2026-07-26
 - **Priority / Question:** Immediate priority Q5 / Priority 3 — resolves the
-  open question flagged after `RESEARCH_LOG.md` Entries 039-040: which single core capability
+  open question flagged after `research_log.md` Entries 039-040: which single core capability
   the pilot unit (Entry 001, this file) should teach.
 - **Source:** Direct decision by the project's creator, 2026-07-26, made
   against the four candidates and disconfirm check set out in
-  `RESEARCH_LOG.md` Entries 039-040. Not new external evidence — a scoping choice informed by
+  `research_log.md` Entries 039-040. Not new external evidence — a scoping choice informed by
   already-logged sources.
 - **What the source directly supports:** The creator chose **Candidate B
   (effective prompting)**, with a specific rationale not captured verbatim
-  in `RESEARCH_LOG.md` Entry 039's tradeoff summary: prompting is well suited to illustrating
+  in `research_log.md` Entry 039's tradeoff summary: prompting is well suited to illustrating
   the gap between what a learner sees (their own typed input) and what the
   model actually does with it, giving the unit a concrete way to touch on
   backend model behaviour while still teaching an immediately usable skill
   applicable to whatever AI tools the learner already has.
 - **Inference drawn:** This framing directly addresses the design constraint
-  `RESEARCH_LOG.md` Entry 040 raised — that a production-skill candidate (B) or evaluative
+  `research_log.md` Entry 040 raised — that a production-skill candidate (B) or evaluative
   candidate (A) risks being taught as a checklist unless it folds in some
   version of Candidate C's capability/limitation mental model as scaffolding.
   By building the "why" (what the model does with input) into the prompting
@@ -484,16 +484,16 @@ no external citation:
   choice resolves that tension for the pilot rather than deferring it. This
   reading is this entry's own synthesis, not something the creator stated in
   those terms.
-- **Limitations / conflicting evidence:** `RESEARCH_LOG.md` Entry 039 flagged Candidate B as
+- **Limitations / conflicting evidence:** `research_log.md` Entry 039 flagged Candidate B as
   the weakest fit to the project's stated "responsible/verification" framing
-  (`PROJECT_BRIEF.md`'s problem statement) and the most likely to read as
+  (`project_brief.md`'s problem statement) and the most likely to read as
   generic tool-training. That risk is not eliminated by this decision — the
   unit is still a production-skill unit first. It is a scoping choice for
   *this* pilot, not a claim that responsible-use content is unimportant;
   Candidate D (responsible/safe use) remains a plausible second unit if the
   project later stacks further pilots.
 - **Effect on project direction:** Unblocks drafting the pilot unit itself.
-  Working title recorded in `PROJECT_BRIEF.md`: "Effective prompting — what's
+  Working title recorded in `project_brief.md`: "Effective prompting — what's
   really happening when you hit send." Naming went through one revision
   round: an initial draft phrase ("effective prompting, taught through the
   user-facing input vs. model-processing lens") was rejected by the creator
@@ -684,7 +684,7 @@ no external citation:
   by default rather than re-deriving formatting choices. The icon set is
   the one explicit open exception, pending the creator's own Inkscape pass.
 
-### Entry 017 — RESEARCH_LOG.md split: this file created to separate decisions/production notes from research findings
+### Entry 017 — research_log.md split: this file created to separate decisions/production notes from research findings
 
 - **Date logged:** 2026-07-27
 - **Priority / Question:** Not tied to a single research priority — a
@@ -692,14 +692,14 @@ no external citation:
 - **Source:** Direct creator request, 2026-07-27: "RESEARCH_LOG is not just
   being used to collate sources and research sessions but now as a general
   dump for all rule files. Can we fix this?"
-- **What happened:** Audited all 52 entries then in `RESEARCH_LOG.md`
+- **What happened:** Audited all 52 entries then in `research_log.md`
   against its own stated Purpose ("records what was actually found" against
-  a `RESEARCH_QUESTIONS.md` priority, with a citable source). ~36 were
+  a `research_questions.md` priority, with a citable source). ~36 were
   genuine research; the other 16 were scoping decisions, design/production
   work, and technical build notes (visual identity, icon/logo production,
   Word-document engineering notes) that had been logged the same way purely
   because `CLAUDE.md`'s file-conventions rule pointed all durable content at
-  `RESEARCH_LOG.md`. Concretely, this also produced a real numbering
+  `research_log.md`. Concretely, this also produced a real numbering
   collision: two unrelated tracks (research and visual-identity/production)
   had each independently numbered entries 039-042, so every one of those
   four numbers pointed at two different entries depending on which track
@@ -708,20 +708,20 @@ no external citation:
   chronological order; internal cross-references between them were updated
   to the new numbers, and the one entry (former Entry 047) that cited the
   *staying* research Entries 039/040 was updated to say so explicitly
-  rather than being remapped. `RESEARCH_LOG.md`'s own Open Threads section
+  rather than being remapped. `research_log.md`'s own Open Threads section
   citations pointing at moved entries were updated the same way. The
   039-042 collision resolved itself once the production-track copies left
-  — `RESEARCH_LOG.md`'s own 039-042 are unique again without renumbering.
+  — `research_log.md`'s own 039-042 are unique again without renumbering.
 - **Inference drawn:** None — this is a direct restructuring in response to
   an explicit instruction, not a research finding.
 - **Limitations / conflicting evidence:** Not applicable — production/
   technical record.
 - **Effect on project direction:** `CLAUDE.md`'s "File conventions" section
-  updated so future durable content is routed correctly: `RESEARCH_LOG.md`
+  updated so future durable content is routed correctly: `research_log.md`
   for source-backed research only, this file for everything else durable
-  that isn't a `PROJECT_BRIEF.md`-level current-state summary. This entry
+  that isn't a `project_brief.md`-level current-state summary. This entry
   exists in the file it's documenting the creation of, which is intentional
-  — it is itself exactly the kind of entry `PROJECT_LOG.md` is for.
+  — it is itself exactly the kind of entry `project_log.md` is for.
 
 ### Entry 018 — Profile pictures: standard/inverted roles swapped, spine-shadow deepened, square standard rebuilt
 
@@ -773,7 +773,7 @@ no external citation:
   1024px, per Entry 012's convention) have not yet been regenerated as of
   this entry — flagged as outstanding.
 - **Effect on project direction:** None on core brand-system direction
-  (still FINAL per Entry 011). Updates `PROJECT_BRIEF.md`'s "Visual
+  (still FINAL per Entry 011). Updates `project_brief.md`'s "Visual
   identity" section to the new standard/inverted naming and the deepened
   spine-shadow value. Outstanding: PNG regeneration for all four profile
   pictures, and confirming whether an export tool/process should be set up
@@ -795,7 +795,7 @@ no external citation:
   quote, callout card, three table types, real header/footer, corrected
   page margins — replacing its original ad-hoc navy/grey styling. Content
   was deepened with three research findings logged after the original
-  24 July draft (`RESEARCH_LOG.md` Entries 026–028: PRIMES' full criteria,
+  24 July draft (`research_log.md` Entries 026–028: PRIMES' full criteria,
   the GRR sequencing model, the overconfidence confirm/disconfirm pair),
   and the closing section was rewritten to reflect the project's decided
   audience/pilot direction instead of the stale "not yet finalised"
@@ -828,9 +828,9 @@ no external citation:
 - **Priority / Question:** Priority 7 (delivery format, long-term),
   Priority 10 (sustainability/public presentation), Priority 5
   (comparables — extends the roadmap.sh design-pattern analysis in
-  `RESEARCH_LOG.md` Entry 020).
+  `research_log.md` Entry 020).
 - **Source:** Direct statement of carefully-considered direction by the
-  project's creator, 2026-07-28, recorded into `PROJECT_BRIEF.md`
+  project's creator, 2026-07-28, recorded into `project_brief.md`
   ("Longer-term direction and positioning") the same day.
 - **What happened:** Four connected considerations were recorded, each
   labelled by evidential status: (1) roadmap.sh as a concrete reference
@@ -912,15 +912,15 @@ no external citation:
      as evidence of that discipline rather than hiding them.
   7. **Housekeeping surfaced by the audit:** three dangling
      `[[wiki-link]]` references to a local memory file that public readers
-     cannot see were replaced with real `PROJECT_BRIEF.md` references;
+     cannot see were replaced with real `project_brief.md` references;
      Word lock files (`~$*`) and OS cruft added to `.gitignore`.
   8. **Instro AI competing interest declared.** The creator has a personal
      connection to Instro AI, which this project's research cites
-     positively (`RESEARCH_LOG.md` Entry 031). Decision: disclose in any
+     positively (`research_log.md` Entry 031). Decision: disclose in any
      published document citing Instro, mandatory and relationship-typed if
      Instro provides funding or backing. The Entry 031 findings stay —
      they are independently sourced, and quiet removal would be worse than
-     disclosure. Recorded in `CONTACTS_AND_FUNDING.md` under "Declared
+     disclosure. Recorded in `contacts_and_funding.md` under "Declared
      interests".
 - **Inference drawn:** None — a structural/production record.
 - **Limitations / conflicting evidence:** The enforcement layer protects
@@ -942,7 +942,7 @@ no external citation:
   defined in Entry 020, built while the creator conducted a manual review
   of the repository.
 - **Source:** Production work by Claude Code, 2026-07-28, on the research
-  logged as `RESEARCH_LOG.md` Entries 043–048.
+  logged as `research_log.md` Entries 043–048.
 - **What happened:**
   1. **Logo asset bug found and fixed.** The README logo rendered wrongly.
      Root cause was not the README: all twelve non-reversed lockup PNGs
@@ -980,7 +980,7 @@ no external citation:
      that it is published by a project proposing an alternative to what it
      criticises, and that the author benefits if the critique persuades.
      No Instro citation appears in this report, so the Instro declaration
-     recorded in `CONTACTS_AND_FUNDING.md` was not required here; it still
+     recorded in `contacts_and_funding.md` was not required here; it still
      applies to any future document citing Instro.
 - **Inference drawn:** None — production record. The report's own
   inferences are labelled inside it.
@@ -1055,3 +1055,71 @@ no external citation:
   both. Adds a hard requirement to the Word conventions. The general
   lesson is broader than Word: a document that displays correctly can
   still be structurally wrong in ways only a different operation reveals.
+
+### Entry 024 — Naming convention standardised; file/reference integrity self-check
+
+- **Date logged:** 2026-07-28
+- **Priority / Question:** Not tied to a research priority — repository
+  hygiene, prompted by the creator noticing inconsistent naming and having
+  removed several files.
+- **Source:** Direct creator instruction, 2026-07-28.
+- **What happened:**
+  1. **Integrity check run first**, before any renaming. It found four
+     dangling references: `contacts_and_funding.md` (including a
+     **clickable link in `README.md`**, the public front page),
+     `Effective_Prompting_Example.docx`, and `AI_Skills_Hub_Briefing.docx`.
+     It also found `Style_Reference_Example.docx` duplicated into
+     `drafts/` alongside the tracked copy in `documents/`.
+  2. **Naming standardised to lower snake_case** for the repository's
+     markdown documents: `PROJECT_BRIEF.md`, `PROJECT_LOG.md`,
+     `RESEARCH_LOG.md` and `RESEARCH_QUESTIONS.md` became
+     `project_brief.md`, `project_log.md`, `research_log.md`,
+     `research_questions.md`. `internal/CONTACTS_AND_FUNDING.md` was
+     renamed to match its siblings. 153 cross-references were rewritten
+     across tracked and internal files.
+  3. **Two deliberate exemptions**, agreed with the creator rather than
+     assumed. `CLAUDE.md` stays uppercase because Claude Code looks for
+     that exact filename. `README.md` stays uppercase because it is a
+     near-universal convention that every developer and GitHub itself
+     recognise on sight — lowercase would read as unfamiliar rather than
+     consistent. The `.docx` deliverables keep `Title_Case_With_Underscores`
+     because they leave the repository as email attachments, where the
+     filename is read by the recipient.
+     **The resulting rule: snake_case for repository files, Title_Case for
+     documents that leave the repository, with README and CLAUDE exempt.**
+  4. **Windows case-rename trap handled.** `core.ignorecase` is true on
+     this machine, so a direct `git mv` of a case-only rename would not
+     have registered. Each file was moved via a temporary name; git
+     recorded all four as true renames, preserving history.
+  5. **`contacts_and_funding.md` moved to `internal/`** by the creator —
+     recorded here as a deliberate reclassification, not a deletion. A
+     register of named people one might approach for funding reads
+     differently in public than a research log does, however carefully
+     worded. `README.md` and `CLAUDE.md` updated accordingly.
+  6. **`MIGRATION_CHECKPOINT.md` deleted** outright as spent; it recorded
+     a one-off validation of the original Claude Project setup and had no
+     inbound references.
+- **Inference drawn:** None — hygiene work.
+- **Limitations / conflicting evidence:** Historical references to the
+  deleted drafts in `project_log.md` Entries 015 and 019, and in
+  `research_log.md`, were **deliberately left intact**. Those entries are
+  records of what was true when written, and this project's own
+  non-alteration convention forbids silently rewriting them to hide that
+  the files once existed. Only current-state documents (`README.md`,
+  `CLAUDE.md`) were corrected. Two items flagged as outstanding during
+  this pass were then resolved in the same session on the creator's
+  instruction: the byte-identical duplicate of
+  `Style_Reference_Example.docx` (and its `.pdf`) was deleted from
+  `drafts/`, leaving the tracked copy in `documents/` as the single
+  source; and `documents/Style_Reference_Example.docx` had
+  `compatibilityMode` 15 applied, closing the last instance of the
+  save-corruption bug diagnosed in Entry 023. Verified by round-trip
+  through real Word — all six shape groups survive the save with no VML
+  downgrade. **Every `.docx` in the project now carries the
+  declaration.** The document's self-check `.pdf` was not regenerated:
+  the change is confined to `settings.xml` and does not affect rendering.
+- **Effect on project direction:** Repository naming is now internally
+  consistent with a stated rule rather than an accident of history. The
+  distinction between current-state documents (which must be corrected
+  when files move) and historical logs (which must not) is now recorded
+  explicitly, since it will recur every time files are removed.

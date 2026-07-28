@@ -1,7 +1,7 @@
 # Grounded AI Practice — Logo Symbol Creative Brief
 
 Working brief for external image-generation workflows (not a project research
-document — see `PROJECT_BRIEF.md` for the project's actual working decisions;
+document — see `project_brief.md` for the project's actual working decisions;
 this file just packages them for portability).
 
 ## Project in one line

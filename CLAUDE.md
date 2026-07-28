@@ -8,13 +8,13 @@ a living document, not a one-time export.
 ## What this project is
 
 **Grounded AI Practice** — practical AI capability through responsible,
-hands-on learning. Full detail: `PROJECT_BRIEF.md`.
+hands-on learning. Full detail: `project_brief.md`.
 
 **Current stage: research/scoping.** Nothing here is a finished
-specification, curriculum, or repo structure. See `RESEARCH_QUESTIONS.md` for
+specification, curriculum, or repo structure. See `research_questions.md` for
 the five immediate research priorities driving current work.
 
-## Working approach (from PROJECT_BRIEF.md)
+## Working approach (from project_brief.md)
 
 - Factual claims must be traceable to sources.
 - Evidence, inference, personal observation, and proposal must be clearly
@@ -89,7 +89,7 @@ the five immediate research priorities driving current work.
 
 ## Research discipline
 
-Full detail and current status: `RESEARCH_LOG.md` (source key, log entries,
+Full detail and current status: `research_log.md` (source key, log entries,
 open threads). Key standing rules:
 
 - **Source scope:** prefer official/government sources (gov.uk, ONS,
@@ -110,7 +110,7 @@ open threads). Key standing rules:
   final product.
 - **Known unresolved tensions are parked, not endlessly re-litigated:** e.g.
   the technical-vs-literacy capability framing question, the gap-widening-
-  vs-declining conflict between sources. Check `RESEARCH_LOG.md`'s Open
+  vs-declining conflict between sources. Check `research_log.md`'s Open
   Threads section before assuming something hasn't been investigated yet.
 - **Don't chase every open thread every session.** Check in on direction
   before spending significant effort, especially for anything that would
@@ -123,21 +123,21 @@ open threads). Key standing rules:
   This project relies on git for version history, not filename suffixes.
 - Markdown is the default format for research/reference documents, matching
   the existing project files.
-- When editing `RESEARCH_LOG.md` or `PROJECT_LOG.md`, preserve the existing
+- When editing `research_log.md` or `project_log.md`, preserve the existing
   entry structure (numbered entries, the field shape each uses) rather than
   restructuring it.
-- **`RESEARCH_LOG.md` is for source-backed research findings only** —
-  a dated, numbered entry answering a `RESEARCH_QUESTIONS.md` priority,
-  with a citable source. **`PROJECT_LOG.md` is for everything else durable
+- **`research_log.md` is for source-backed research findings only** —
+  a dated, numbered entry answering a `research_questions.md` priority,
+  with a citable source. **`project_log.md` is for everything else durable
   that isn't research** — scoping/creative decisions, design/production
   work, technical build notes — also as dated, numbered entries, but
-  without a research citation. **`PROJECT_BRIEF.md` holds the current,
-  standing state** of a decision, not its history (that's `PROJECT_LOG.md`'s
-  job). Getting this wrong is not hypothetical: `RESEARCH_LOG.md` drifted
+  without a research citation. **`project_brief.md` holds the current,
+  standing state** of a decision, not its history (that's `project_log.md`'s
+  job). Getting this wrong is not hypothetical: `research_log.md` drifted
   into a mixed dump of both for a while, which produced a real numbering
   collision (two unrelated tracks each independently numbering entries
   039-042) before the two were split apart on 2026-07-27 — see
-  `PROJECT_LOG.md` Entry 017.
+  `project_log.md` Entry 017.
 - **New standalone files beyond these three are the last resort, not the
   default.** Before creating one for durable content, check whether it can
   extend an existing file first. A new file only earns its existence if
@@ -147,7 +147,7 @@ open threads). Key standing rules:
   section in the same edit that creates it.** Indexing is not a follow-up
   task — a file left unindexed at the moment it's created is exactly the
   "badly indexed" failure mode this rule exists to prevent (see
-  "Relationship to PAWH" in `PROJECT_BRIEF.md`).
+  "Relationship to PAWH" in `project_brief.md`).
 - **Avoid jargon/buzzwords in naming or reader-facing copy** (unit titles,
   headings, capability names) — plain, concrete wording beats a clever
   abstract phrase. The fix for jargon is plainer language, not a simpler
@@ -179,10 +179,11 @@ open threads). Key standing rules:
 
 ## Word document conventions
 
-Applies to `.docx` work in this project (currently
-`Effective_Prompting_Example.docx`, `Style_Reference_Example.docx` in
-`drafts/`, and any future Word deliverable built the same way). Established
-2026-07-27 during the style-reference review.
+Applies to all `.docx` work in this project — currently
+`documents/Style_Reference_Example.docx` (the canonical reference) and
+`drafts/UK_AI_Skills_Ambition_Report.docx`, plus any future Word
+deliverable built the same way. Established 2026-07-27 during the
+style-reference review.
 
 - **Body font is Public Sans, not Calibri.** Installed locally as its own
   family (`Public Sans`, with regular/bold/italic faces under that one
@@ -205,7 +206,7 @@ Applies to `.docx` work in this project (currently
   icon-well size; a card's width (and therefore its text column) is always
   a free parameter independent of preset, so resizing a card for its
   content never stretches or squeezes the icon. Built as a Word group
-  (`wpg:wgp`) of sibling shapes, not nested shapes — see `PROJECT_LOG.md`
+  (`wpg:wgp`) of sibling shapes, not nested shapes — see `project_log.md`
   Entry 015 for why (Word rejects a shape nested inside another shape's
   text box) and the rest of the construction.
 - **`settings.xml` MUST declare `compatibilityMode` 15.** Non-negotiable
@@ -269,13 +270,19 @@ This is the only place the following belong:
 position exists, what its evidential status is, and where the evidenced
 part sits — without reproducing the wording. This preserves the project's
 evidence-vs-opinion discipline without publishing material that damages
-its own aims. Worked examples: `RESEARCH_LOG.md` Entry 046 and
-`PROJECT_BRIEF.md`'s "Longer-term direction and positioning".
+its own aims. Worked examples: `research_log.md` Entry 046 and
+`project_brief.md`'s "Longer-term direction and positioning".
 
-**Counterpart files.** `CONTACTS_AND_FUNDING.md` (tracked, public-safe:
-public roles and published information only) is the public counterpart to
-`internal/contacts_private.md`. Content never migrates from internal to
-tracked.
+**Contacts and funding are internal.** `internal/contacts_and_funding.md`
+holds the register of people and bodies worth approaching for comment plus
+routes to funding or support. It was originally written public-safe and
+tracked, then moved to `internal/` on 2026-07-28 — the creator's judgement
+being that a register of named people one might approach for money reads
+differently in public than a research log does, however carefully worded.
+It keeps its own standing rule: **no approach is made without the
+creator's explicit per-approach instruction**, and no personal contact
+details are recorded. `internal/contacts_private.md` remains the separate,
+always-private file for personal connections.
 
 ### Enforcement, and its honest limits
 
@@ -315,13 +322,13 @@ Three passes, in order, because they catch different things:
    opinion on "would this embarrass you" is worth more than a second run
    of the same model. This has already proven its value once — the
    external review of the AI Skills Hub briefing surfaced real defects
-   (`PROJECT_LOG.md` Entry 019).
+   (`project_log.md` Entry 019).
 3. **Human verification — required, not optional.** The creator decides on
    every flagged item. Neither model decides what is safe to publish.
    Judgement calls about reputation, relationships and political framing
    are the creator's alone.
 
-Record each audit's date and outcome in `PROJECT_LOG.md`. **Last audit:
+Record each audit's date and outcome in `project_log.md`. **Last audit:
 2026-07-28** (initial; found the pre-sharing content issues fixed the same
 day, history clean across 15 commits).
 
@@ -340,13 +347,21 @@ attempt it unilaterally.
   one-liner the user dictated directly). A go-ahead like "let's commit
   this" means prepare it, not execute it unreviewed — commits are
   semi-permanent and this repo may go public.
+- **Match message length to the size of the change.** Routine and
+  maintenance commits (renames, cleanups, single fixes, asset
+  regeneration) get a one-line title and nothing more, matching the
+  existing log — "Removed superseded drafts", "Added document self-check
+  tooling". Reserve a multi-paragraph body for genuine milestones: a new
+  deliverable, a structural change to the repo, or a decision worth
+  reading later. Defaulting to the long form on every commit buries the
+  commits that actually matter.
 - **Never push to the remote without a separate, explicit go-ahead**, even
   immediately after a local commit the user asked for. The user handles
   pushes themselves.
 - **Commit messages (and any other outward-facing prose — docs, summaries)
   must match the user's own voice**: short, direct, no AI-register
   em-dash-chaining, and never third-person references to the user (e.g.
-  "the creator") — that framing belongs in `RESEARCH_LOG.md`'s internal
+  "the creator") — that framing belongs in `research_log.md`'s internal
   entries, not in text written in the user's own voice.
 
 ## Known mistakes to not repeat
@@ -364,19 +379,19 @@ attempt it unilaterally.
 
 ## Where to look for what
 
-- `PROJECT_BRIEF.md` — problem statement, scope, what's decided vs. open
+- `project_brief.md` — problem statement, scope, what's decided vs. open
   (including the "Visual identity" working decisions: palette, logo type,
   tone).
-- `RESEARCH_QUESTIONS.md` — the ten priority areas and their questions.
-- `RESEARCH_LOG.md` — source key (with interest-type tags), dated log
+- `research_questions.md` — the ten priority areas and their questions.
+- `research_log.md` — source key (with interest-type tags), dated log
   entries, and the Open Threads list showing what's resolved vs. still open.
   Research findings only — see "File conventions" above for the boundary
-  with `PROJECT_LOG.md`.
-- `PROJECT_LOG.md` — dated log of scoping/creative decisions and design/
+  with `project_log.md`.
+- `project_log.md` — dated log of scoping/creative decisions and design/
   production/technical work (visual identity history, icon/logo production
   notes, Word-document engineering notes, this file's own split from
-  `RESEARCH_LOG.md`). The chronological history behind what
-  `PROJECT_BRIEF.md` currently reflects.
+  `research_log.md`). The chronological history behind what
+  `project_brief.md` currently reflects.
 - `README.md` — the repository's public front door, written for a reader
   who may be a prospective employer, collaborator or funder. Explains what
   the project is, why the repo is public, the four research rules, and
@@ -389,15 +404,16 @@ attempt it unilaterally.
   containing known private markers. Install per machine with
   `git config core.hooksPath .githooks`. A guardrail against accident,
   not a security control.
-- `CONTACTS_AND_FUNDING.md` — working register of people and bodies worth
-  approaching for comment (academics, government/delivery bodies,
-  scrutiny bodies) and routes to funding or official support. **Written
-  public-safe on purpose** — public roles and published work only, no
-  personal contact details, nothing that would be awkward if the named
-  person read it; keep it that way. Contains a sequencing rule (FOI →
-  academic comment → right of reply before publication → funding last)
-  and a standing rule that **no approach is made without the creator's
-  explicit per-approach instruction**. Nobody listed has been contacted.
+- `internal/contacts_and_funding.md` — **untracked.** Register of people
+  and bodies worth approaching for comment (academics, government/delivery
+  bodies, scrutiny bodies) and routes to funding or official support.
+  Still written to a public-safe standard (public roles and published work
+  only, no personal contact details, nothing awkward if the named person
+  read it) — keep it that way even though it is no longer published.
+  Contains a sequencing rule (FOI → academic comment → right of reply
+  before publication → funding last) and a standing rule that **no
+  approach is made without the creator's explicit per-approach
+  instruction**. Nobody listed has been contacted.
 - `assets/brand/icons/` — the promoted, working content-icon set (36
   icons, current palette). `svg/` for sources, `png/` for 64/128/256px
   exports, `README.md` for the filename→topic manifest.
@@ -408,29 +424,25 @@ attempt it unilaterally.
   with wordmark text as real vector paths (Public Sans) and a two-tone
   colour hierarchy, plus `profile_picture_square`/`profile_picture_circular`
   avatar derivatives, plus `png/` exports for all of them. See
-  `PROJECT_BRIEF.md` "Visual identity" for the full picture.
+  `project_brief.md` "Visual identity" for the full picture.
 - `assets/brand/logo/creative_brief.md` — portable creative brief for
   external logo-generation workflows (not a project research/decision
   document itself).
 - `drafts/` — work-in-progress files under active iteration. Currently:
-  `Effective_Prompting_Example.docx`, a formatting test for the pilot
-  unit's Word-document template — see `PROJECT_LOG.md` Entry 015 and the
-  PAWH semantic-callout construction it's adapting — still genuinely a
-  draft, nothing settled; and `AI_Skills_Hub_Briefing.docx` (+ self-check
-  `.pdf`), rebuilt 2026-07-27/28 on the GAP style system with deepened
-  research and three creator review rounds — see `PROJECT_LOG.md` Entry
-  019. **Production on it is paused (2026-07-28)** pending a wider
-  UK-AI-climate research pass; noted for resumption: merge §2/§3, widen
-  scope beyond the AI Skills Hub, and resolve the bracketed
-  "[institutional disconnect...]" note the creator left in its
-  Overview/Editorial section. Also `UK_AI_Skills_Ambition_Report.docx`
-  (+ self-check `.pdf`), an 8-page report on the UK's AI skills ambition,
-  delivered results and the gap between them — built 2026-07-28 on
-  `RESEARCH_LOG.md` Entries 043–048, **not yet reviewed by the creator**
-  (see `PROJECT_LOG.md` Entry 022). Nothing here reflects a settled
-  decision; contents may be replaced or removed once the format
-  stabilises. Once a document is approved and no longer a draft, it moves
-  to `documents/` instead.
+  `UK_AI_Skills_Ambition_Report.docx` (+ self-check `.pdf`), an 8-page
+  report on the UK's AI skills ambition, delivered results and the gap
+  between them — built 2026-07-28 on `research_log.md` Entries 043–048,
+  **not yet reviewed by the creator** (see `project_log.md` Entry 022).
+  Nothing here reflects a settled decision; contents may be replaced or
+  removed once the format stabilises. Once a document is approved and no
+  longer a draft, it moves to `documents/` instead.
+  **Removed 2026-07-28** as superseded: `Effective_Prompting_Example.docx`
+  (the original Word-template formatting test, superseded by the approved
+  style reference) and `AI_Skills_Hub_Briefing.docx` (whose argument and
+  research were absorbed into the wider UK-climate report). Their
+  construction history remains in `project_log.md` Entries 015 and 019 —
+  those entries are historical records and are deliberately **not**
+  rewritten to hide that the files once existed.
 - `documents/` — finished, current production exports, promoted out of
   `drafts/` once approved (not work-in-progress). Currently:
   `Style_Reference_Example.docx` (+ its self-check `.pdf`), a 6-page
@@ -443,7 +455,7 @@ attempt it unilaterally.
   of text-column width), three table types, dash/native-bullet/
   native-number lists, a figure-with-caption, and the palette as swatches.
   **Approved as canonical for current purposes (2026-07-27, see
-  `PROJECT_LOG.md` Entry 016) — still subject to later refinement, but no
+  `project_log.md` Entry 016) — still subject to later refinement, but no
   longer a first draft**; the "Word document conventions" section above is
   the extracted rule set. Icon set inconsistencies (padding, mismatched
   speech-bubble styles across icons) are the one explicitly open exception
@@ -467,7 +479,7 @@ attempt it unilaterally.
 
 Two separate systems hold context across sessions — don't confuse them:
 
-- **This repo (`PROJECT_BRIEF.md`, `RESEARCH_LOG.md`, `RESEARCH_QUESTIONS.md`,
+- **This repo (`project_brief.md`, `research_log.md`, `research_questions.md`,
   this file)** is the source of truth for project content: decisions,
   findings, working rules. Git-tracked, versioned, fully visible and
   editable by anyone with the repo, survives independently of any chat
@@ -501,8 +513,8 @@ so.
 of active work in a session (self-paced, no hard timer — use judgement on
 when enough has accumulated), read through the local memory files
 (`~/.claude/projects/<project-id>/memory/`) and check each feedback/
-project/user-type entry against this file, `PROJECT_BRIEF.md`, and
-`RESEARCH_LOG.md`: is the durable, process-level rule it describes already
+project/user-type entry against this file, `project_brief.md`, and
+`research_log.md`: is the durable, process-level rule it describes already
 captured in the repo, or only sitting in local memory? Propose anything
 missing (for review, not a silent edit, same as any other change here) and
 write in what's approved. This exists specifically because local memory

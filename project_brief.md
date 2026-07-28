@@ -92,7 +92,7 @@ Elements of AI (`EOAI`) demonstrates an individual-facing, vendor-neutral
 approach can reach large numbers without needing an employer sponsor.
 
 This decision does not resolve every open question under Priority 2 in
-RESEARCH_QUESTIONS.md (e.g. barriers and needs specific to this combined
+research_questions.md (e.g. barriers and needs specific to this combined
 audience, or whether "small organisation employees" should later be split
 into narrower sub-groups). It is marked explicitly as a working decision,
 subject to change as research and prototyping continue — consistent with the
@@ -133,7 +133,7 @@ The project's creator has decided the pilot unit's core capability:
 **effective prompting**, working title **"Effective prompting — what's
 really happening when you hit send."**
 
-Chosen from four evidenced candidates researched in `RESEARCH_LOG.md`
+Chosen from four evidenced candidates researched in `research_log.md`
 (Entries 039–040): critical evaluation of AI output, effective prompting,
 a working capability/limitation mental model, and responsible/safe use of
 data. The rationale: prompting gives the unit a concrete way to show the
@@ -147,7 +147,7 @@ evaluative content matters less — the unit still centres on a practical
 "production" skill (what to say to AI) rather than the project's stated
 responsible-use/verification framing. Responsible/safe use of data remains
 a plausible second unit if the project stacks further pilots later. See
-`PROJECT_LOG.md` Entry 013 for the full decision record.
+`project_log.md` Entry 013 for the full decision record.
 
 ## Longer-term direction and positioning (working considerations — 28 July 2026)
 
@@ -160,7 +160,7 @@ observation, or flagged claim), per the project's evidence discipline.
 - **Deliverable-shape reference model:** roadmap.sh is a strong concrete
   example of the *kind* of thing the project's eventual deliverable could
   be — an accessible, customisable, interactive learning resource hub
-  (see `RESEARCH_LOG.md` Entry 020 for the existing design-pattern
+  (see `research_log.md` Entry 020 for the existing design-pattern
   analysis). GAP could leverage AI alongside explicit learner input to
   tailor content, pathways and learning style. Explicitly not an intention
   to compete with or copy roadmap.sh or similar platforms. This is a
@@ -172,7 +172,7 @@ observation, or flagged claim), per the project's evidence discipline.
   body — are in a unique position to create an official, effective and
   genuinely productive AI-skills resource, given the documented structural
   problems with the current national platform (see the AI Skills Hub
-  critique thread, `RESEARCH_LOG.md` Entries 018/022/025). This firms up
+  critique thread, `research_log.md` Entries 018/022/025). This firms up
   the previously loosely-held government-recognition aim into an explicit
   positioning consideration.
 - **Political-timing observation (creator's own read, not evidence):** a
@@ -405,7 +405,7 @@ white, so it stays Paper on purpose. Wordmark text and genuine
 structural/complementary colour use (e.g. icon linework itself) were
 explicitly out of scope for this check. All 36 icons' groups/layers were
 also labelled in snake_case for editability (individual paths intentionally
-left unnamed) — see `RESEARCH_LOG.md` for the full session record.
+left unnamed) — see `research_log.md` for the full session record.
 
 **Workflow note (24 July 2026):** fine curve-level refinement of the logo
 symbol was attempted through iterative AI-described feedback (screenshot

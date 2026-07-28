@@ -2,7 +2,7 @@
 
 36 content icons in the current brand palette (Ink `#27221E`, Ember `#F15E4B`,
 Sage `#D5E2E1`, white). Promoted from working-candidate status 2026-07-24 —
-see `PROJECT_BRIEF.md` ("Visual identity") and `RESEARCH_LOG.md` (Entries
+see `project_brief.md` ("Visual identity") and `research_log.md` (Entries
 037–041) for the recolour and fix history.
 
 - `svg/` — source vector files, one per icon, flat (no batch subfolders).

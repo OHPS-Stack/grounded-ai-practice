@@ -4,26 +4,26 @@
 
 Research-stage working document. This log is maintained as an ongoing record of
 findings, not a final report. It follows the recording discipline set out in
-RESEARCH_QUESTIONS.md ("Research discipline" section).
+research_questions.md ("Research discipline" section).
 
 ## Purpose
 
 Every entry below corresponds to a specific research question from
-RESEARCH_QUESTIONS.md and records what was actually found, distinguishing
+research_questions.md and records what was actually found, distinguishing
 source-supported fact from inference, and noting any effect on project
 direction.
 
 Scoping/creative decisions, design/production work and technical build
 notes — anything durable that isn't source-backed research evidence — go in
-`PROJECT_LOG.md` instead, not here. This file drifted into a mixed dump of
-both for a while (see `PROJECT_LOG.md` Entry 017); the split below restores
+`project_log.md` instead, not here. This file drifted into a mixed dump of
+both for a while (see `project_log.md` Entry 017); the split below restores
 the boundary.
 
 This log is intended to be maintained by Claude during research passes, not
 edited by hand. New entries are appended as findings are checked; existing
 entries are not silently altered — corrections or supersessions are added as
 new entries that reference the one they update, so history stays traceable
-(consistent with RESEARCH_QUESTIONS.md's requirement that superseded
+(consistent with research_questions.md's requirement that superseded
 information remain traceable).
 
 ## How to read this log
@@ -34,7 +34,7 @@ Each entry contains:
 |---|---|
 | ID | Sequential entry number |
 | Date logged | When the entry was added to this log |
-| Priority / Question | Which numbered research priority and question (from RESEARCH_QUESTIONS.md) this entry addresses |
+| Priority / Question | Which numbered research priority and question (from research_questions.md) this entry addresses |
 | Source | A short tag referencing the Source key below (e.g. `[GT-DSIT25]`) — full citation given once there, not repeated per entry |
 | Checked date | When the source was accessed/verified (may differ from date logged) |
 | What the source directly supports | Only the claim the source itself makes — no extrapolation |
@@ -505,7 +505,7 @@ Full citation is given once here; log entries below cite the short tag only.
   more confirming sources were added.
 - **Limitations / conflicting evidence:** Neither `[CRS-SKILLSGAP]` nor
   `[FASTCO-MYTH]` is UK-specific or AI-specific, and neither proves the UK AI
-  capability gap described in PROJECT_BRIEF.md doesn't exist. They establish
+  capability gap described in project_brief.md doesn't exist. They establish
   that the concept is measurement-contested in general, which is a reason for
   caution, not a disconfirmation of Entries 001–012.
 - **Effect on project direction:** Does not overturn prior entries, but
@@ -729,7 +729,7 @@ Full citation is given once here; log entries below cite the short tag only.
   About pages and secondary write-ups (blogs, an educative.io explainer, a
   GitHub study-plan compilation) rather than a full first-hand trial of
   either platform. Neither is an AI-literacy product — both are included
-  because RESEARCH_QUESTIONS.md names them specifically as design-pattern
+  because research_questions.md names them specifically as design-pattern
   comparables, not as AI-literacy competitors.
 - **Effect on project direction:** Directly answers the first Priority 5
   question. The transferable pattern for Grounded AI Practice is: visible,
@@ -862,7 +862,7 @@ Full citation is given once here; log entries below cite the short tag only.
   significant scope mismatch found in the research log so far: the report's
   entire evidence base, all 20 frameworks and all 6 case studies, concerns
   children in compulsory education, not the adult/workforce audience the
-  project's current problem statement centres on (PROJECT_BRIEF.md). Its
+  project's current problem statement centres on (project_brief.md). Its
   findings about framework design, corporate-influence risk and
   implementation sequencing may transfer to an adult context, but this has
   not been tested and should not be assumed. Also worth flagging: the
@@ -927,7 +927,7 @@ Full citation is given once here; log entries below cite the short tag only.
   LSE critique (Entry 022) is a one-off academic opinion or a broader,
   corroborated pattern — directly relevant to the project's stated aim of
   positioning as a credible response to AI Skills Hub's problems
-  (see `PROJECT_BRIEF.md`, "Longer-term direction and positioning").
+  (see `project_brief.md`, "Longer-term direction and positioning").
 - **Source:** `[TECHOSAURUS26]`, `[HUMANCO26]`; a wider search also surfaced
   Computer Weekly, People Management and TechPolicy.Press opinion pieces
   making related but unread arguments (see Limitations).
@@ -967,7 +967,7 @@ Full citation is given once here; log entries below cite the short tag only.
   from DSIT/Skills England to any of this criticism has been located yet.
 - **Effect on project direction:** Meaningfully strengthens the basis for
   the project's loosely-held government-recognition aim
-  (see `PROJECT_BRIEF.md`, "Longer-term direction and positioning"): the "directory not programme"
+  (see `project_brief.md`, "Longer-term direction and positioning"): the "directory not programme"
   critique is corroborated across independent academic and commercial
   sources, not a single contested opinion, which is exactly the kind of
   triangulation this project's research discipline calls for before treating
@@ -1059,7 +1059,7 @@ Full citation is given once here; log entries below cite the short tag only.
   independent learning (unsupported application). Evidence-based-practice
   guidance associated with this model also recommends *spaced* rather than
   massed independent practice for retention.
-- **Inference drawn:** RESEARCH_QUESTIONS.md's own Priority 4 phrasing
+- **Inference drawn:** research_questions.md's own Priority 4 phrasing
   ("explanations, worked examples, guided practice, independent practice and
   reflection") already closely mirrors GRR's structure — this is noted as an
   observation about the project's own question framing, not a claim the
@@ -1154,7 +1154,7 @@ Full citation is given once here; log entries below cite the short tag only.
   well-resourced organisations relative to individuals/SMEs, and that this
   could be the project's underlying thesis. Bears on Priority 1 (evidence
   for the problem) and directly tests the audience/thesis decision recorded
-  in PROJECT_BRIEF.md's "Primary audience" section.
+  in project_brief.md's "Primary audience" section.
 - **Source:** `[BCC-ISER26]` (primary, UK-specific, rigorous) and `[BENNETT26]`
   (primary, UK-specific, ONS-sourced) — deliberately sought together per this
   log's confirm/disconfirm discipline, since this is exactly the kind of
@@ -1227,7 +1227,7 @@ Full citation is given once here; log entries below cite the short tag only.
   than gloss over: capability-building of this kind could help an individual
   become more valuable/secure, or could equally help their employer automate
   their role — the "replace-and-train" finding means this isn't a
-  straightforwardly feel-good thesis, and PROJECT_BRIEF.md's responsible-use
+  straightforwardly feel-good thesis, and project_brief.md's responsible-use
   framing should account for it.
 
 ### Entry 030 — Testing the "local/hybrid AI as cost and capability equalizer" hypothesis
@@ -1283,14 +1283,14 @@ Full citation is given once here; log entries below cite the short tag only.
   on without further, better-sourced verification** — it may be true for
   some use cases (privacy-sensitive, high-volume, production) and false for
   others (typical individual/SME usage volumes, where cloud may remain
-  cheaper and more capable). This actually validates PROJECT_BRIEF.md's
+  cheaper and more capable). This actually validates project_brief.md's
   existing "local, cloud and hybrid" framing (plural, comparative) over a
   "local AI is the answer" framing — the project's original instinct to
   treat this as a *comparison to teach*, not a solution to prescribe, is
   better supported by this pass than a stronger local-AI-equalizer claim
   would have been. Before this technical claim is used in any external-facing
   document (cf. the government-recognition aim in
-  `PROJECT_BRIEF.md`, "Longer-term direction and positioning"), it needs primary-source
+  `project_brief.md`, "Longer-term direction and positioning"), it needs primary-source
   verification — flagged in Open Threads.
 
 ### Entry 031 — Instro AI as a live illustration of the "bespoke gap" (extends Entry 029)
@@ -1588,7 +1588,7 @@ Full citation is given once here; log entries below cite the short tag only.
   Candidate A has the broadest direct support across the most independent
   sources (`[SE-TOOLSPKG25]`, `[RS-AILIT25]`, `[FDN26]`, Entry 028) and maps
   most directly onto the project's own problem statement in
-  `PROJECT_BRIEF.md` ("appropriate verification and human oversight").
+  `project_brief.md` ("appropriate verification and human oversight").
   This is this entry's own reading of the pattern across sources, not a
   conclusion any one source states.
 - **Limitations / conflicting evidence:** These four are not mutually
@@ -1748,7 +1748,7 @@ Full citation is given once here; log entries below cite the short tag only.
   SME/large-firm adoption-depth gap... A dedicated search for peer-reviewed
   or ONS/government evidence specifically disputing the size-adoption
   relationship would strengthen (or usefully complicate) this finding."
-  Bears on Priority 1 and the audience/thesis decision in `PROJECT_BRIEF.md`.
+  Bears on Priority 1 and the audience/thesis decision in `project_brief.md`.
 - **Source:** `[CALDAROLA-CLOUD26]`, `[FRB-MONITORING26]`,
   `[STLFED-ASKMATTERS26]`, `[MDPI-SMEAI-REVIEW26]`, plus `[OECD-SMEAI25]`
   and `[SBA-ADVOCACY25]` as unverified leads. Search was deliberately
@@ -2066,7 +2066,7 @@ Full citation is given once here; log entries below cite the short tag only.
   Hub critique thread (Entries 018/022/025) by moving part of the evidence
   from third-party review onto the government's own record. Directly
   supplies the "government posture vs. delivered results" spine of the
-  planned UK-climate report (`PROJECT_LOG.md` Entry 020). Also gives the
+  planned UK-climate report (`project_log.md` Entry 020). Also gives the
   project a named, official competency framework (Turing/DSIT, May 2024)
   that a credible alternative could map against — relevant to Priority 3.
 
@@ -2172,7 +2172,7 @@ Full citation is given once here; log entries below cite the short tag only.
   `/2026/07/`. Publication vs. web-posting dates are the likely
   explanation but this has not been confirmed.
 - **Effect on project direction:** Fixes the evidence-collection route for
-  the Hub itself (creator's logged-in session, per `PROJECT_BRIEF.md`
+  the Hub itself (creator's logged-in session, per `project_brief.md`
   "Longer-term direction and positioning"). Identifies two unread
   BridgeAI perspectives pieces and the first (June 2025) White Paper as
   the next primary sources in this vein.
@@ -2302,7 +2302,7 @@ Full citation is given once here; log entries below cite the short tag only.
 - **Inference drawn:** Two readings, both this entry's own.
   1. **This partially evidences a claim previously logged as unfounded.**
      The creator's flagged claim that policymakers lack practical
-     understanding (`PROJECT_BRIEF.md`) now has partial official support:
+     understanding (`project_brief.md`) now has partial official support:
      the responsible department told a select committee that many public
      sector leaders lack technical expertise or training. The match is not
      exact — the PAC finding is about public sector leadership generally,
@@ -2327,7 +2327,7 @@ Full citation is given once here; log entries below cite the short tag only.
   scrutiny source in this log — a parliamentary committee auditing the
   executive, materially stronger than any prior source on
   interest-independence grounds. Forms §4 of the UK-climate report
-  (`PROJECT_LOG.md` Entry 022). Also identifies the NAO as a source vein
+  (`project_log.md` Entry 022). Also identifies the NAO as a source vein
   worth mining further.
 
 ### Entry 048 — The £400bn figure traced: vendor-commissioned consultancy research
@@ -2393,7 +2393,7 @@ Entry template (for reference — remove once first real entry is added):
 
 ## Open threads
 
-*A running list of questions from RESEARCH_QUESTIONS.md that remain
+*A running list of questions from research_questions.md that remain
 uninvestigated or partially investigated, so gaps are visible at a glance. This
 section is updated as entries are added, not filled in ahead of time.*
 
@@ -2499,7 +2499,7 @@ becomes relevant to Priority 2's audience decision.
 - Codecademy, Khan Academy, freeCodeCamp and other general (non-AI-specific)
   learning-platform comparables named implicitly by Priority 5's "comparable
   learning systems" framing have not yet been checked — roadmap.sh and
-  LeetCode were prioritised as the two platforms RESEARCH_QUESTIONS.md names
+  LeetCode were prioritised as the two platforms research_questions.md names
   explicitly.
 - No comparable found yet that is (a) AI-literacy-specific, (b) UK-based,
   and (c) targeted at general adult/public audiences rather than schools,
@@ -2514,7 +2514,7 @@ becomes relevant to Priority 2's audience decision.
   addressed (Entries 026–028): PRIMES' full accreditation criteria read
   directly (Entry 026, supersedes the Entry 012 summary), a named
   evidence-based sequencing model (Gradual Release of Responsibility, Entry
-  027) matching RESEARCH_QUESTIONS.md's own sequencing question, and a
+  027) matching research_questions.md's own sequencing question, and a
   confirm/disconfirm pair on whether AI-literacy training actually reduces
   overconfidence/automation bias (Entry 028).
 
@@ -2615,7 +2615,7 @@ becomes relevant to Priority 2's audience decision.
   provisional working decision: individuals seeking practical everyday AI
   literacy generally, with particular attention to employees at small
   organisations lacking employer-provided L&D infrastructure. Recorded in
-  PROJECT_BRIEF.md ("Primary audience (working decision — 24 July 2026)"),
+  project_brief.md ("Primary audience (working decision — 24 July 2026)"),
   drawing on Entries 012, 019, 021, plus the AI Skills Hub/PRIMES
   employer-assumption gap surfaced in Entries 022/025/026. Explicitly marked
   as subject to change, not a closed question — the PRIMES-assumes-an-employer
@@ -2623,14 +2623,14 @@ becomes relevant to Priority 2's audience decision.
   under this working decision, since PRIMES' criteria (Entry 026) may need
   adaptation, not wholesale adoption, for an individual/small-org audience
   without a sponsoring employer.
-- Priority 2's other sub-questions from RESEARCH_QUESTIONS.md (specific
+- Priority 2's other sub-questions from research_questions.md (specific
   barriers/needs for this *combined* audience, whether "small organisation
   employees" should later be split into narrower sub-groups) remain open and
   are not resolved by this decision alone.
 
 **Resolved this pass (2026-07-24, immediate priority Q5 / first-output decision):**
-- ~~What should the project build first?~~ — the creator decided (`PROJECT_LOG.md` Entry 001,
-  recorded in `PROJECT_BRIEF.md`): a single pilot learning unit, PRIMES-sized
+- ~~What should the project build first?~~ — the creator decided (`project_log.md` Entry 001,
+  recorded in `project_brief.md`): a single pilot learning unit, PRIMES-sized
   and GRR-sequenced, tested with real learners before any wider structure is
   built. Chosen over drafting a full skeleton pathway or deferring the
   decision pending more Priority 7 research.
@@ -2648,8 +2648,8 @@ becomes relevant to Priority 2's audience decision.
 
 **Resolved this pass (2026-07-24, visual identity):**
 - ~~Visual identity beyond the project name~~ — a palette, logo type
-  (icon + wordmark) and tone are now decided (`PROJECT_LOG.md` Entry 003,
-  `PROJECT_BRIEF.md` "Visual identity").
+  (icon + wordmark) and tone are now decided (`project_log.md` Entry 003,
+  `project_brief.md` "Visual identity").
 
 **Still open after this pass:**
 - The legacy PAWH icon set (`assets/brand/legacy-pawh-icons/`) is confirmed
@@ -2657,7 +2657,7 @@ becomes relevant to Priority 2's audience decision.
 
 **Resolved this pass (2026-07-24, symbol candidate):**
 - ~~No logo mark existed~~ — a symbol-only working candidate is now locked
-  (`PROJECT_LOG.md` Entry 004), though explicitly provisional and pending further path-level
+  (`project_log.md` Entry 004), though explicitly provisional and pending further path-level
   refinement.
 
 **Still open after this pass:**
@@ -2674,14 +2674,14 @@ becomes relevant to Priority 2's audience decision.
 fine curve-level refinement were attempted via iterative AI-described
 feedback (annotated screenshot → prose correction). The creator found this
 arduous, echoing a discouraging pattern from PAWH, and has moved to editing
-directly in Inkscape (see `PROJECT_BRIEF.md`, "Visual identity" workflow
+directly in Inkscape (see `project_brief.md`, "Visual identity" workflow
 note). Further AI-iterative curve editing is not the plan going forward.
 
 **Resolved this pass (2026-07-24, Inkscape output):** The handoff produced
-two improved candidates (`PROJECT_LOG.md` Entry 005) — `GAP_logo_flat.svg` and
+two improved candidates (`project_log.md` Entry 005) — `GAP_logo_flat.svg` and
 `GAP_logo_shaded.svg` (creator's preferred version) — superseding the
 earlier AI-edited file, which has been removed. The "more 3D/book effect"
-feedback from `PROJECT_LOG.md` Entry 004's blue arrows is now addressed via gradient shading
+feedback from `project_log.md` Entry 004's blue arrows is now addressed via gradient shading
 rather than curve tweaks.
 
 **Still open after this pass:**
@@ -2689,29 +2689,29 @@ rather than curve tweaks.
 
 **Resolved this pass (2026-07-24, legacy icon set):**
 - ~~The legacy PAWH icon set needs its recolour/overhaul pass~~ — done
-  (`PROJECT_LOG.md` Entry 006). Recoloured, verified, manually checked by the creator, and
+  (`project_log.md` Entry 006). Recoloured, verified, manually checked by the creator, and
   four structural issues fixed.
 
 **Resolved this pass (2026-07-24, promotion to working assets):**
 - ~~`B04-D_API_MCP.svg` needs its "API" type hand-set~~ — done by the
   creator in Inkscape's text tool.
 - ~~Logo symbol and icon set are candidates/legacy, not working assets~~ —
-  both promoted (`PROJECT_LOG.md` Entry 007): flat snake_case file structure, PNG
+  both promoted (`project_log.md` Entry 007): flat snake_case file structure, PNG
   derivatives generated, folder/status references updated throughout.
 
 **Resolved this pass (2026-07-24, wordmark finalised):**
 - ~~The wordmark pairing is the one remaining unresolved piece of the
-  visual identity~~ — done (`PROJECT_LOG.md` Entry 008). Two-line arrangement, Public Sans
+  visual identity~~ — done (`project_log.md` Entry 008). Two-line arrangement, Public Sans
   recommended, full monochrome/horizontal/vertical/reversed variant set
   produced.
 
-**Resolved (2026-07-24, visual identity closed out — `PROJECT_LOG.md` Entry 011):**
+**Resolved (2026-07-24, visual identity closed out — `project_log.md` Entry 011):**
 - ~~Inkscape-side typographic polish (real font, kerning, path-conversion)~~
   — done. All wordmark text is now real vector paths in Public Sans.
 - The visual identity thread has no further open items. Not carrying a
   "still open" bullet forward for it.
 
-**Resolved (2026-07-24, addendum to `PROJECT_LOG.md` Entry 007):** `api_and_mcp.svg`'s
+**Resolved (2026-07-24, addendum to `project_log.md` Entry 007):** `api_and_mcp.svg`'s
 hand-set "API" type has been converted to a vector path by the creator
 (Inkscape's Path > Object to Path) — no font dependency remains, matching
 every other icon in the set. Its PNG derivatives (64/128/256px) were
@@ -2720,24 +2720,24 @@ promotion.
 
 **Resolved this pass (2026-07-24, second track confirmed):**
 - ~~Whether shell/terminal basics belongs in the first pilot~~ — resolved
-  (`PROJECT_LOG.md` Entry 002): it doesn't belong in the general-literacy pilot, but is a
+  (`project_log.md` Entry 002): it doesn't belong in the general-literacy pilot, but is a
   sensible first module for a newly-confirmed **second, parallel track**
   (the local AI workstation), seeded from inherited PAWH architecture now
-  recorded in `PROJECT_BRIEF.md`.
+  recorded in `project_brief.md`.
 
 **Still open after this pass:**
 - The two tracks' relationship (shared foundational modules, if any;
   whether the workstation track needs its own audience/barrier research
   the way Priority 2 was done for the general-literacy pilot) is
   unaddressed.
-- The inherited workstation architecture (`PROJECT_LOG.md` Entry 002) has not been checked
+- The inherited workstation architecture (`project_log.md` Entry 002) has not been checked
   against current tool landscape/versions — it reflects PAWH-era planning,
   not a freshly-verified technical review.
 
 **Deferred (2026-07-24):** The creator confirmed the local AI workstation
-track (`PROJECT_LOG.md` Entry 002) is not active work for now — parked as a confirmed future
+track (`project_log.md` Entry 002) is not active work for now — parked as a confirmed future
 direction, not dropped. Current focus stays on the general-literacy pilot's
-core-capability decision (`PROJECT_LOG.md` Entry 001). Do not resume workstation-track
+core-capability decision (`project_log.md` Entry 001). Do not resume workstation-track
 drafting until the creator reopens it.
 
 **Resolved this pass (2026-07-25, core-capability options researched):**
@@ -2752,7 +2752,7 @@ drafting until the creator reopens it.
   set of options in front of it — the actual choice remains the creator's,
   not made by this entry.
 
-**Resolved (2026-07-26, core-capability decided — `PROJECT_LOG.md` Entry 013):**
+**Resolved (2026-07-26, core-capability decided — `project_log.md` Entry 013):**
 - ~~The core-capability choice itself~~ — decided. The creator chose
   Candidate B (effective prompting), specifically framed around the gap
   between what a learner types and what the model does with it — resolving
@@ -2801,7 +2801,7 @@ drafting until the creator reopens it.
   found but not read directly in this pass — flagged as a lead, not a
   finding.
 
-**Resolved (2026-07-27, icon/logo consistency pass — `PROJECT_LOG.md` Entry 014):**
+**Resolved (2026-07-27, icon/logo consistency pass — `project_log.md` Entry 014):**
 - ~~Icons read as inconsistent sizes despite identical export dimensions~~
   — root cause found (varying fill-ratio, 0.48–0.90 across the set) and
   fixed via normalisation to a 0.70 target across all 36 icons.
@@ -2873,7 +2873,7 @@ drafting until the creator reopens it.
   gaps for AI in four selected sectors" (8 July 2026), and "BridgeAI three
   years on" (21 April 2026) — all identified in Entry 045, none read.
 - **The creator's flagged claim about policymakers' practical AI
-  understanding** (`PROJECT_BRIEF.md`, "Longer-term direction and
+  understanding** (`project_brief.md`, "Longer-term direction and
   positioning") remains unsupported by design — needs direct quotes from
   policymakers before any external use. A political-timing observation
   recorded alongside it (held in internal working notes) is likewise
@@ -2904,7 +2904,7 @@ drafting until the creator reopens it.
   and should not be reintroduced as a thesis; `[BUYBUILD-KLOTZ26]` remains
   uncitable. Watch for scope creep back toward the retracted version.
 
-**Opened 2026-07-28 (external engagement and funding — see `CONTACTS_AND_FUNDING.md`):**
+**Opened 2026-07-28 (external engagement and funding — see `internal/contacts_and_funding.md`):**
 - **No approach to any external party has been made or authorised.** The
   register lists possibilities only; each approach needs the creator's
   explicit instruction.

@@ -52,11 +52,10 @@ Four rules the project holds itself to, visible throughout the logs:
 
 | File | Contents |
 |---|---|
-| [`PROJECT_BRIEF.md`](PROJECT_BRIEF.md) | Problem statement, scope, working decisions, what is still open. **Start here.** |
-| [`RESEARCH_QUESTIONS.md`](RESEARCH_QUESTIONS.md) | The ten research priorities driving the work. |
-| [`RESEARCH_LOG.md`](RESEARCH_LOG.md) | Source key and dated findings — source-backed research only. Ends with a running list of open threads. |
-| [`PROJECT_LOG.md`](PROJECT_LOG.md) | Dated record of decisions, design and production work. |
-| [`CONTACTS_AND_FUNDING.md`](CONTACTS_AND_FUNDING.md) | People and bodies worth approaching for comment; routes to funding or support. |
+| [`project_brief.md`](project_brief.md) | Problem statement, scope, working decisions, what is still open. **Start here.** |
+| [`research_questions.md`](research_questions.md) | The ten research priorities driving the work. |
+| [`research_log.md`](research_log.md) | Source key and dated findings — source-backed research only. Ends with a running list of open threads. |
+| [`project_log.md`](project_log.md) | Dated record of decisions, design and production work. |
 | [`documents/`](documents/) | Finished, approved outputs. |
 | [`drafts/`](drafts/) | Work in progress. Nothing here is settled. |
 | [`assets/brand/`](assets/brand/) | Visual identity: logo system and a 36-icon content set. |
