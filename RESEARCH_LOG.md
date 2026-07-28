@@ -159,6 +159,8 @@ Full citation is given once here; log entries below cite the short tag only.
 | `[MINDSTUDIO26]` | Vendor/Commercial (MindStudio is a no-code AI workflow platform selling access to 200+ cloud and local models) — individually verified (was previously only part of `[LOCALAI-CAPABILITY26]`) | MindStudio, "Local AI vs Cloud AI in 2026: When to Run Models on Your Own Hardware" — PRIMARY, read directly (fetched without needing a proxy). mindstudio.ai/blog/local-ai-vs-cloud-ai-2026 |
 | `[IUK-WP2-26]` | Government/Official (Innovate UK / UKRI, delivered under the BridgeAI programme) — note the delivery-partner interest below | Innovate UK, *Unlocking UK Economic Growth through Artificial Intelligence: case studies and guidance for employers* (second White Paper of the AI Skills Hub programme), February 2026, 54pp — PRIMARY, full PDF downloaded and read directly. Authorship credit on the cover page is "calyo". Its own quantitative benchmarking is stated (Annex A) to be "mainly drawn from" PwC datasets — and PwC was separately commissioned to build the AI Skills Hub the paper promotes, so the paper is not independent of the product it evaluates. iuk-business-connect.org.uk |
 | `[IUK-BRIDGEAI-YR3]` | Government/Official (Digital Catapult, a BridgeAI consortium delivery partner, writing for Innovate UK) — self-reported programme delivery data, not independent evaluation | *Bridging the AI divide — Innovate UK BridgeAI: Year three in review, 2025–2026*, produced by Digital Catapult for Innovate UK, March 2026, 81pp — PRIMARY, full PDF downloaded and read directly. Ministerial foreword by Kanishka Narayan MP, Parliamentary Under-Secretary of State, Minister for AI and Online Safety. iuk-business-connect.org.uk |
+| `[PAC-AIGOV25]` | Government/Official (parliamentary select committee — independent scrutiny of the executive; the strongest source-independence in this log to date) | Committee of Public Accounts, *Use of AI in Government*, Eighteenth Report of Session 2024–25, HC 356, March 2025, 29pp — PRIMARY, full PDF downloaded and read directly. Scope is the public sector's own internal adoption of AI, **not** BridgeAI or the AI Skills Hub. committees.parliament.uk |
+| `[PUBLICFIRST-MSFT]` | Vendor/Commercial (consultancy research commissioned by a technology vendor) | Public First, *Unlocking the UK's AI Potential: Harnessing AI for Economic Growth*, commissioned by Microsoft — read directly. Microsoft's own £2.5bn UK investment commitment is stated on the report page. Headline there is £550bn by 2035; the £400bn-by-2030 figure is the related number cited by Innovate UK and the AI Opportunities Action Plan. microsoftuk.publicfirst.co.uk |
 | `[AISKILLSHUB]` (status update 2026-07-28) | Government/Official — **still not directly readable** | Unauthenticated fetch of aiskillshub.org.uk now returns HTTP 403 (previously HTTP 402 at Entry 018). Two independent failure modes across two passes; treat unauthenticated fetching as a closed route. The project's creator holds an active Hub account — first-hand platform evidence should be collected through that logged-in session rather than by further fetch attempts. |
 
 ---
@@ -2271,6 +2273,102 @@ Full citation is given once here; log entries below cite the short tag only.
   government, PwC or parliamentary response before publishing the
   interest-concentration point.
 
+### Entry 047 — Parliament on government's own AI capability: the first genuinely independent scrutiny source
+
+- **Date logged:** 2026-07-28
+- **Priority / Question:** Priority 1 (problem framing). Directly addresses
+  the standing Open Thread that no independent evaluation of government AI
+  activity had been located — every prior delivery figure was self-reported.
+- **Source:** `[PAC-AIGOV25]`
+- **Checked date:** 2026-07-28
+- **What the source directly supports:**
+  - 70% of government bodies responding to the National Audit Office's
+    survey identified difficulties recruiting and retaining staff with AI
+    skills as a barrier to AI adoption.
+  - Around 50% of roles advertised in civil service digital and data
+    recruitment campaigns were unfilled in 2024.
+  - Of 72 highest-risk legacy digital systems prioritised under the
+    2022–2025 digital and data roadmap, 21 still lacked remediation funding.
+  - **DSIT's own admission to the Committee**, quoted in the report: it
+    "had to be self-critical about digital leadership across government,
+    observing that digital leaders are not well represented at executive
+    level across the public sector and many public sector leaders do not
+    have enough technical expertise or training."
+  - The Committee's own verdict: "We remain sceptical that these reforms
+    will address the issue where previous attempts have failed."
+  - "There is no systematic mechanism for bringing together and
+    disseminating the learning from all the pilot activity across
+    government," risking duplicated effort and cost across siloed pilots.
+- **Inference drawn:** Two readings, both this entry's own.
+  1. **This partially evidences a claim previously logged as unfounded.**
+     The creator's flagged claim that policymakers lack practical
+     understanding (`PROJECT_BRIEF.md`) now has partial official support:
+     the responsible department told a select committee that many public
+     sector leaders lack technical expertise or training. The match is not
+     exact — the PAC finding is about public sector leadership generally,
+     not specifically about those writing AI policy or setting budgets —
+     so the claim is upgraded from "unfounded" to "partially evidenced,
+     with a scope caveat," not to "established."
+  2. **The pilots-don't-scale failure appears on both sides.** Parliament
+     found government cannot systematically capture learning from its own
+     AI pilots; BridgeAI's own report (Entry 044) concluded that barriers
+     persist in translating pilots into production for the businesses it
+     supports. The same structural failure is diagnosed internally and
+     externally in the same period.
+- **Limitations / conflicting evidence:** **Scope discipline matters here.**
+  This report is about government's *internal* use of AI. It is not an
+  evaluation of BridgeAI or the AI Skills Hub, and must not be presented as
+  one. It is legitimate evidence about institutional capability and context;
+  it is not evidence about the Hub's delivery. The report predates the
+  BridgeAI year-three figures (March 2025 vs March 2026). The still-open
+  gap is unchanged in one respect: no independent evaluation of BridgeAI or
+  the Hub *specifically* has been found.
+- **Effect on project direction:** Supplies the first genuinely independent
+  scrutiny source in this log — a parliamentary committee auditing the
+  executive, materially stronger than any prior source on
+  interest-independence grounds. Forms §4 of the UK-climate report
+  (`PROJECT_LOG.md` Entry 022). Also identifies the NAO as a source vein
+  worth mining further.
+
+### Entry 048 — The £400bn figure traced: vendor-commissioned consultancy research
+
+- **Date logged:** 2026-07-28
+- **Priority / Question:** Priority 1 — closes the Open Thread flagged at
+  Entry 043 that the headline economic figure was untraced.
+- **Source:** `[PUBLICFIRST-MSFT]`, traced from `[IUK-WP2-26]`'s citation.
+- **Checked date:** 2026-07-28
+- **What the source directly supports:** Public First's UK AI economic
+  research in this area was **commissioned by Microsoft**, which has
+  separately committed £2.5 billion of UK investment over three years —
+  stated on the report's own page. Its method classified more than 17,000
+  task-occupation combinations **using GPT-4**, applied to the United
+  States **O*NET** occupational database, aggregated using ONS occupational
+  data through a 20-year diffusion S-curve modelled on historical
+  general-purpose-technology adoption. The headline figure on that page is
+  £550bn added to UK GDP by 2035; the £400bn-by-2030 figure cited by
+  Innovate UK and the AI Opportunities Action Plan is the related nearer-term
+  number.
+- **Inference drawn:** The figure underpinning UK AI policy communications
+  is not an official statistical projection. It is consultancy modelling
+  commissioned by a technology vendor with a direct commercial interest in
+  UK AI adoption, built on US occupational data classified by an AI model.
+  None of that makes it wrong, and the method is at least transparently
+  documented — which is more than several sources in this log manage. But
+  it should not be repeated as though it carried ONS or OBR authority, and
+  the project should say so plainly whenever it cites the number.
+- **Limitations / conflicting evidence:** The relationship between the
+  £400bn/2030 and £550bn/2035 figures has not been fully disentangled —
+  some secondary coverage attributes a £400bn figure to Google research
+  rather than Public First, which has not been resolved. The underlying
+  model has not been independently reviewed, only its stated provenance and
+  method read. Treat "commissioned by a technology vendor" as established
+  and the precise figure lineage as partially traced.
+- **Effect on project direction:** Gives the UK-climate report a documented
+  provenance for its opening figure and a second, independent instance of
+  the interest-concentration pattern found with PwC (Entry 046) — this time
+  at the level of the economic case itself rather than the delivery
+  arrangements.
+
 <!--
 Entry template (for reference — remove once first real entry is added):
 
@@ -2832,3 +2930,41 @@ drafting until the creator reopens it.
   change; every eligibility statement recorded needs re-checking at point
   of use. No published evaluation of the closed AI Upskilling Fund has
   been searched for yet.
+
+**Resolved this pass (2026-07-28, primary scrutiny sources — Entries 047–048):**
+- ~~No independent evaluation or scrutiny source at all~~ — partially
+  resolved (Entry 047). The Public Accounts Committee's *Use of AI in
+  Government* is genuine independent scrutiny of the executive, and is now
+  the strongest source in this log on interest-independence grounds.
+  **Caveat: it does not evaluate BridgeAI or the Hub** — that specific gap
+  remains open below.
+- ~~The £400bn figure is untraced~~ — traced (Entry 048) to Public First
+  research commissioned by Microsoft, using GPT-4 classification of US
+  O*NET data. Provenance established; precise figure lineage only
+  partially resolved.
+- ~~The creator's claim about policymakers' practical understanding is
+  wholly unfounded~~ — upgraded to **partially evidenced with a scope
+  caveat** (Entry 047): DSIT told the Committee that many public sector
+  leaders lack sufficient technical expertise or training. Not the same as
+  "those writing AI policy and setting budgets," so the original phrasing
+  still overstates what is evidenced.
+
+**Still open after this pass:**
+- **No independent evaluation of BridgeAI or the AI Skills Hub
+  specifically.** Entry 047 covers government's internal AI use, not these
+  programmes. An NAO value-for-money study, a PAC session, or a
+  departmental evaluation would close this properly. Not yet searched for
+  directly.
+- **The Hub's usage figures remain unpublished** — the FOI route is now
+  named in a published document (the UK-climate report states the project
+  intends to make one), so this should actually be done.
+- **No response sought** from Innovate UK, PwC, Digital Catapult or DSIT
+  on the interest-concentration findings (Entries 046/048). This is now
+  the single largest gap between the project's output and ordinary
+  research-publication standards, and it is stated as a limitation inside
+  the published report itself.
+- **The £400bn vs £550bn figure lineage** is only partially disentangled
+  (Entry 048), including a competing attribution to Google research.
+- **NAO as a source vein is unmined** — only the March 2024 *Use of
+  artificial intelligence in government* report has been identified, and
+  it has not been read directly.

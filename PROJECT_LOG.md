@@ -934,3 +934,124 @@ no external citation:
   reputational and relationship judgements are the creator's alone — no
   model decides what is safe to publish. **This entry doubles as the
   record of the first audit (2026-07-28).**
+
+### Entry 022 — UK AI climate report drafted; lockup PNG aspect-ratio bug fixed
+
+- **Date logged:** 2026-07-28
+- **Priority / Question:** Priority 1 and Priority 10 — the deliverable
+  defined in Entry 020, built while the creator conducted a manual review
+  of the repository.
+- **Source:** Production work by Claude Code, 2026-07-28, on the research
+  logged as `RESEARCH_LOG.md` Entries 043–048.
+- **What happened:**
+  1. **Logo asset bug found and fixed.** The README logo rendered wrongly.
+     Root cause was not the README: all twelve non-reversed lockup PNGs
+     (horizontal and vertical, standard and mono) had been exported onto
+     forced square canvases, ignoring the SVG sources' real aspect ratios
+     (horizontal 420×150, vertical 220×260). Only the reversed variants
+     were correct. All twelve re-exported from source via the Inkscape CLI
+     and verified against expected ratios. The README now also swaps to the
+     reversed lockup under `prefers-color-scheme: dark`, since the standard
+     lockup's Ink wordmark is close to invisible on a dark GitHub theme.
+  2. **Evidence gaps closed before writing**, on the view that better
+     sources produce a measurably better document than better prose does.
+     Two significant finds: the Public Accounts Committee's *Use of AI in
+     Government* (Entry 047), the project's first genuinely independent
+     scrutiny source; and the provenance of the £400bn figure (Entry 048),
+     traced to vendor-commissioned consultancy research.
+  3. **Report built** as `drafts/UK_AI_Skills_Ambition_Report.docx`, eight
+     pages, on the GAP style system. Structure: an opinionated
+     Overview/Editorial, then the ambition, the delivered results, the
+     guidance-versus-product contradiction, institutional capability,
+     supplier concentration, what the evidence supports, where the project
+     fits, and method/limitations/declared interests. Lessons from the AI
+     Skills Hub briefing applied: related critique sections merged rather
+     than split, scope widened beyond the Hub, and sentence complexity kept
+     down.
+  4. **Two defects caught by rendering, not by reading.** An orphaned
+     media file failed schema validation and was removed. More
+     significantly, hard page breaks collided with natural flow and
+     produced a near-blank page five. Fixed properly rather than
+     cosmetically: `keepNext` added to the Heading1/2/3 styles so headings
+     can never orphan, and the manual page breaks removed in favour of
+     natural flow. Document went from ten pages with a blank to eight
+     clean ones.
+  5. **Declared interests section included** — the report states plainly
+     that it is published by a project proposing an alternative to what it
+     criticises, and that the author benefits if the critique persuades.
+     No Instro citation appears in this report, so the Instro declaration
+     recorded in `CONTACTS_AND_FUNDING.md` was not required here; it still
+     applies to any future document citing Instro.
+- **Inference drawn:** None — production record. The report's own
+  inferences are labelled inside it.
+- **Limitations / conflicting evidence:** The report is a first draft and
+  has had no creator review. Its largest stated weakness is its own: no
+  response has been sought from any criticised party, which the document
+  admits in §8. The `keepNext` change to `styles.xml` affects the shared
+  style system and should be carried into the canonical
+  `documents/Style_Reference_Example.docx` if it is regenerated — it is a
+  genuine improvement, not a document-specific hack.
+- **Effect on project direction:** Delivers the Entry 020 deliverable in
+  draft. Confirms the value of closing evidence gaps before writing rather
+  than after. Establishes `keepNext` on headings as a style-system
+  improvement worth propagating.
+
+### Entry 023 — Documents rendered but could not be saved: missing compatibilityMode downgraded every shape group
+
+- **Date logged:** 2026-07-28
+- **Priority / Question:** Priority 7 (delivery format) — a defect
+  affecting every Word document the project has produced.
+- **Source:** Creator bug report (Word refused to save
+  `UK_AI_Skills_Ambition_Report.docx`, reporting "You can't put drawing
+  objects into a text box, callout, comment, footnote or endnote", after
+  which the callout cards became flat uneditable shapes), then direct
+  diagnosis against the on-disk XML.
+- **What happened:** The first hypothesis — that the callout construction
+  was at fault, as in Entry 015 — was **wrong**, and checking rather than
+  assuming is what found the real cause. Comparing the file Claude
+  generated against the file on disk after Word touched it showed Word had
+  rewritten all five `wpg:wgp` DrawingML groups into legacy `v:group` VML,
+  and had written `compatibilityMode` **12** into `settings.xml`.
+  Root cause: the project's `settings.xml` declared no compatibility mode
+  at all, so Word defaulted the document to Word 2007 behaviour. Mode 12
+  predates the `wps`/`wpg` shape extensions (Word 2010+) that every
+  callout card and pull quote uses, so Word downgraded them to VML on
+  save — and a VML group holding both a picture and a text box is exactly
+  the construction that error describes.
+- **Why every rendering check missed it:** `tools/word_preview.ps1` opens
+  documents **read-only**. Word reads `wpg` groups perfectly well; it only
+  breaks on the save path. Three documents passed every visual check while
+  carrying the defect.
+- **Fixes applied:**
+  1. `compatibilityMode` 15 declared in the report's `settings.xml`, and
+     retrofitted into `drafts/Effective_Prompting_Example.docx` and
+     `drafts/AI_Skills_Hub_Briefing.docx` by surgical settings-only
+     rewrite (no content touched).
+  2. **New tool** `tools/word_roundtrip_test.ps1` — opens, saves and
+     closes through real Word and reports success or the actual error.
+     All three fixed documents verified `SAVE OK`, with the report
+     additionally confirmed to retain all five `wpg:wgp` groups and zero
+     VML after a real Word save, and to hold `compatibilityMode` 15
+     across a second round-trip.
+  3. Heading icons corrected in the same pass: icons have real aspect
+     variation (`outcomes` 90x56 vs `verification` 90x90) plus ~30%
+     transparent padding, so a uniform square box rendered the wide ones
+     short and illegible. Now cropped to content bbox and sized by
+     height, with a negative `w:position` to centre them on the cap
+     height instead of sitting on the baseline.
+  4. Both rules written into `CLAUDE.md`'s Word document conventions.
+- **Inference drawn:** None beyond the diagnosis, which is directly
+  evidenced by the before/after XML.
+- **Limitations / conflicting evidence:** `AI_Skills_Hub_Briefing.docx`
+  **was already degraded before the fix** — Word converted its groups to
+  VML during the creator's own edit, and the on-disk copy now has one
+  fewer shape group than was generated. The compatibilityMode fix stops
+  further degradation but does not restore the original DrawingML; that
+  document would need rebuilding to recover it. `documents/Style_Reference_Example.docx`
+  has the same defect and was **left untouched pending the creator's
+  decision**, since it is the approved canonical reference.
+- **Effect on project direction:** Establishes that rendering checks and
+  save checks are different verifications, and that this project needs
+  both. Adds a hard requirement to the Word conventions. The general
+  lesson is broader than Word: a document that displays correctly can
+  still be structurally wrong in ways only a different operation reveals.

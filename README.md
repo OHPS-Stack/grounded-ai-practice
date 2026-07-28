@@ -1,6 +1,9 @@
 <div align="center">
 
-<img src="assets/brand/logo/png/logo_lockup_horizontal_512.png" alt="Grounded AI Practice" width="380">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/brand/logo/png/logo_lockup_horizontal_reversed_512.png">
+  <img src="assets/brand/logo/png/logo_lockup_horizontal_512.png" alt="Grounded AI Practice" width="380">
+</picture>
 
 **Practical AI capability through responsible, hands-on learning.**
 

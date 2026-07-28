@@ -48,6 +48,31 @@ the five immediate research priorities driving current work.
   test suite) over iterative guess-and-describe loops. If no such path
   exists yet but one could plausibly be built, say so explicitly rather
   than defaulting to repeated manual review rounds.
+- **Fine visual/spatial refinement gets handed to a real tool, not
+  iterated through description.** Early concept exploration (comparing
+  directions, testing palettes, rough layouts) works well as an inline
+  SVG/widget loop. But once work reaches curve-level refinement, symmetry
+  corrections or sub-pixel positioning, proactively suggest handing off to
+  a vector editor (Inkscape, Figma, Illustrator) rather than running more
+  screenshot-annotate-describe-guess rounds — Claude cannot see a rendered
+  result the way someone manipulating the curve directly can. Raise it as
+  soon as that level of specificity is needed, not after frustration
+  surfaces; this pattern discouraged the creator once during PAWH and
+  recurred here. If a hand-edited file comes back, treat it as
+  authoritative and re-read it rather than assuming the in-repo copy
+  reflects the latest manual edits.
+- **Use common PowerShell aliases** (`ls`, `cat`, `cd`) rather than full
+  cmdlet names when giving or explaining commands day-to-day. Full
+  official names belong in curriculum content that is specifically
+  teaching command aliasing — that is the point being taught there, not a
+  default for ordinary working sessions.
+- **Flag model fit at task boundaries.** When the current model is overkill
+  for what is coming (mechanical fetch-and-extract, bulk edits, rendering
+  loops), stop and prompt to switch before spending on it. When a task
+  would measurably benefit from a stronger model (multi-step reasoning,
+  subtle tradeoff analysis, high-stakes prose), say so with the reason.
+  Model switching is done by the creator in the app UI, never by Claude.
+  One clear flag at the natural boundary — do not nag.
 - Ask the user directly for cheap-to-state facts about their own
   environment or preferences (e.g. "is X installed?") rather than running
   exploratory commands to find out — reserve diagnostic commands for
@@ -128,6 +153,22 @@ open threads). Key standing rules:
   abstract phrase. The fix for jargon is plainer language, not a simpler
   underlying idea — the working assumption is a fairly intelligent reader,
   so don't swing into patronising oversimplification either.
+- **In published prose, state strong facts flatly and let them imply the
+  conclusion.** Present the facts, withhold the adjective, and close with a
+  short sentence that points at the gap without naming it. The reader draws
+  the conclusion and finds it more convincing for having done so, and there
+  is no characterisation to argue with — only facts. Worked example the
+  creator singled out, from the UK AI climate report: *"...1,700 skills
+  course completions and 126 accreditations, against £74.6 million
+  allocated from a £100 million budget. Both sets of numbers are published
+  by the government. Neither appears next to the other."* This is not only
+  a style preference: understatement matches the project's evidential
+  discipline, and overclaiming would undercut the same document's careful
+  source-tagging. Only use it where the facts genuinely carry it — if a
+  point needs an intensifier to land, the fix is better evidence, not
+  louder prose. Avoid the opposite register ("shockingly, the government
+  has completely failed to...") which tells the reader what to think and
+  invites argument with the characterisation rather than the facts.
 - **SVG/vector asset groups (`<g>` elements) should carry clear snake_case
   labels** (`id` and/or `inkscape:label`) so a human can find the right
   group to edit without guessing. Individual leaf `<path>` elements don't
@@ -167,6 +208,33 @@ Applies to `.docx` work in this project (currently
   (`wpg:wgp`) of sibling shapes, not nested shapes — see `PROJECT_LOG.md`
   Entry 015 for why (Word rejects a shape nested inside another shape's
   text box) and the rest of the construction.
+- **`settings.xml` MUST declare `compatibilityMode` 15.** Non-negotiable
+  for any document using shapes. Without it Word assumes compatibility
+  mode 12 (Word 2007), which predates the DrawingML shape extensions
+  (`wps`/`wpg`, Word 2010+) every callout card and pull quote in this
+  project depends on. Word will *read* and *render* such a document
+  perfectly, then on save silently downgrade the shape groups to legacy
+  VML — which fails with "You can't put drawing objects into a text box,
+  callout, comment, footnote or endnote" and flattens the cards into
+  uneditable blobs. Discovered 2026-07-28 after it had already degraded
+  `AI_Skills_Hub_Briefing.docx` in place. The required block:
+  `<w:compat><w:compatSetting w:name="compatibilityMode"
+  w:uri="http://schemas.microsoft.com/office/word" w:val="15"/></w:compat>`
+- **Rendering is not the same check as saving.** `tools/word_preview.ps1`
+  proves a document *looks* right; it opens read-only and can never catch
+  a save-path defect. `tools/word_roundtrip_test.ps1` opens, saves and
+  closes through real Word to prove the document is actually *editable*.
+  Run both on any new document construction — the compatibilityMode bug
+  above passed every rendering check for three documents running.
+- **Content icons have genuinely different aspect ratios** (`outcomes` is
+  90×56, `verification` is 90×90) and roughly 30% transparent padding.
+  Sizing them to a uniform square box makes the wide ones render short and
+  illegible. For icons inline with text, crop to the content bounding box
+  and size by **height** so every icon shares a consistent visual height,
+  letting width follow the glyph. Inline images sit on the text baseline,
+  so also apply a small negative `<w:position>` (about -4 half-points at
+  13pt) to centre the icon on the cap height rather than leaving it
+  sitting low.
 - **Vertical accent/divider bars are pill-shaped** — a narrow `roundRect`
   with `<a:gd name="adj" fmla="val 50000"/>` (50% corner radius relative to
   the shape's short side, which fully rounds a narrow bar into a capsule),
@@ -355,10 +423,14 @@ attempt it unilaterally.
   UK-AI-climate research pass; noted for resumption: merge §2/§3, widen
   scope beyond the AI Skills Hub, and resolve the bracketed
   "[institutional disconnect...]" note the creator left in its
-  Overview/Editorial section. Nothing here reflects a settled decision;
-  contents may be replaced or removed once the format stabilises. Once a
-  document is approved and no longer a draft, it moves to `documents/`
-  instead.
+  Overview/Editorial section. Also `UK_AI_Skills_Ambition_Report.docx`
+  (+ self-check `.pdf`), an 8-page report on the UK's AI skills ambition,
+  delivered results and the gap between them — built 2026-07-28 on
+  `RESEARCH_LOG.md` Entries 043–048, **not yet reviewed by the creator**
+  (see `PROJECT_LOG.md` Entry 022). Nothing here reflects a settled
+  decision; contents may be replaced or removed once the format
+  stabilises. Once a document is approved and no longer a draft, it moves
+  to `documents/` instead.
 - `documents/` — finished, current production exports, promoted out of
   `drafts/` once approved (not work-in-progress). Currently:
   `Style_Reference_Example.docx` (+ its self-check `.pdf`), a 6-page
@@ -377,6 +449,13 @@ attempt it unilaterally.
   speech-bubble styles across icons) are the one explicitly open exception
   — separately deferred, creator revisiting the icon set directly in
   Inkscape.
+- `tools/word_roundtrip_test.ps1` — the **second** `.docx` self-check:
+  opens a document in real Word, saves it, closes it, and reports whether
+  the save succeeded. Catches defects `word_preview.ps1` structurally
+  cannot, because that one opens read-only. Written 2026-07-28 after a
+  document rendered perfectly but could not be saved (see the
+  `compatibilityMode` rule above). Always run it against a throwaway copy
+   — it saves in place. Same Word-process safety guard as the preview tool.
 - `tools/word_preview.ps1` — self-check step for `.docx` work: exports a
   document through real Microsoft Word (COM automation) to PDF so Claude
   can visually verify formatting the way Word actually renders it, instead
@@ -431,5 +510,14 @@ files are machine-specific and don't travel between machines (desktop vs.
 laptop) or reliably resurface from old conversation logs — the repo is the
 one place guaranteed to travel with the project. Applies in every session
 working in this repo, not just the one that first set this up.
-**Last run: 2026-07-27.** Update this line each time the pass completes,
-so any session can see how stale it's gotten.
+**Last run: 2026-07-28.** Update this line each time the pass completes,
+so any session can see how stale it's gotten. That pass audited all 19
+memory files: 15 were already properly captured here, and four were
+machine-local only — the vector-editing handoff rule, PowerShell alias
+preference, model/cost flagging, and the understated-prose register. All
+four were approved and written in (Working approach, and File conventions
+for the prose one). Deliberate decision the same day: rules that went
+straight into the repo without ever passing through local memory (the
+public/internal split, `compatibilityMode`, icon sizing) are **not**
+mirrored back into memory — the repo is the source of truth and travels
+with the project, so duplicating them would only create drift.
