@@ -173,6 +173,98 @@ Applies to `.docx` work in this project (currently
   not a paragraph-border line (`w:pBdr`), which can only draw a straight
   edge. Used for the callout-card divider and the pull-quote rule.
 
+## Public repo vs. internal working files
+
+**This repository is intended to become publicly visible** and to be shown
+to prospective employers, collaborators, funders and interviewees as proof
+of work. Treat every tracked file as already public. Established
+2026-07-28, when the repo moved from local-only toward selective sharing.
+
+### The rule
+
+**Default: public.** Anything tracked by git is public. If content is not
+fit for a stranger — or for the person it describes — to read, it does not
+go in a tracked file.
+
+**Exception: `internal/`.** Gitignored, hook-blocked, never committed.
+This is the only place the following belong:
+
+- Named private individuals, personal connections, and anything about a
+  relationship that person has not consented to being published.
+- Candid assessments of named organisations or people, especially
+  prospective funders, partners or interviewees.
+- Political opinions and motive readings about identifiable actors.
+- Funding approach strategy and tactical positioning.
+- Anything whose disclosure would embarrass the project or its subjects.
+
+**The pointer pattern.** Tracked files may record *that* an internal
+position exists, what its evidential status is, and where the evidenced
+part sits — without reproducing the wording. This preserves the project's
+evidence-vs-opinion discipline without publishing material that damages
+its own aims. Worked examples: `RESEARCH_LOG.md` Entry 046 and
+`PROJECT_BRIEF.md`'s "Longer-term direction and positioning".
+
+**Counterpart files.** `CONTACTS_AND_FUNDING.md` (tracked, public-safe:
+public roles and published information only) is the public counterpart to
+`internal/contacts_private.md`. Content never migrates from internal to
+tracked.
+
+### Enforcement, and its honest limits
+
+Two layers:
+
+1. `.gitignore` excludes `internal/`.
+2. `.githooks/pre-commit` **blocks** commits that stage anything under
+   `internal/`, or that contain known private markers in tracked files.
+   Install once per machine: `git config core.hooksPath .githooks`
+
+Both are guardrails against accident, **not security controls**:
+
+- `.gitignore` does nothing retroactively and is overridden by `git add -f`.
+- The hook is local-only (cloning does not install it) and is bypassed by
+  `git commit --no-verify`.
+- **Neither protects git history.** Anything ever committed is public the
+  moment the repo is made public, whether or not it was later deleted.
+
+The practical consequence: the audit below matters more than the tooling.
+
+### Repo audit — scheduled, not ad hoc
+
+Run **before any change in who can see the repo** (making it public,
+sharing with a new person, attaching it to an application), and otherwise
+**monthly** while the repo is shared.
+
+Three passes, in order, because they catch different things:
+
+1. **Claude pass.** Scan tracked files and full git history for: named
+   private individuals; candid assessments of named parties; unlabelled
+   opinion presented as evidence; personal contact details; credentials or
+   tokens; dangling references to files readers cannot see (e.g.
+   `[[wiki-links]]` to local memory); stale claims contradicted by later
+   entries. Report findings; do not silently rewrite.
+2. **ChatGPT pass (or another model).** Same brief, run independently by
+   the creator. Different models miss different things, and a second
+   opinion on "would this embarrass you" is worth more than a second run
+   of the same model. This has already proven its value once — the
+   external review of the AI Skills Hub briefing surfaced real defects
+   (`PROJECT_LOG.md` Entry 019).
+3. **Human verification — required, not optional.** The creator decides on
+   every flagged item. Neither model decides what is safe to publish.
+   Judgement calls about reputation, relationships and political framing
+   are the creator's alone.
+
+Record each audit's date and outcome in `PROJECT_LOG.md`. **Last audit:
+2026-07-28** (initial; found the pre-sharing content issues fixed the same
+day, history clean across 15 commits).
+
+### Retroactive rule
+
+Because history is permanent, **anything already committed is already
+public** for practical purposes. If an audit finds something damaging in
+history, rewriting history is possible but disruptive and unreliable once
+a repo has been shared — raise it with the creator as a decision, do not
+attempt it unilaterally.
+
 ## Git conventions
 
 - **Draft the commit message and show it to the user before running
@@ -217,6 +309,27 @@ Applies to `.docx` work in this project (currently
   notes, Word-document engineering notes, this file's own split from
   `RESEARCH_LOG.md`). The chronological history behind what
   `PROJECT_BRIEF.md` currently reflects.
+- `README.md` — the repository's public front door, written for a reader
+  who may be a prospective employer, collaborator or funder. Explains what
+  the project is, why the repo is public, the four research rules, and
+  where to look. Keep it current when structure changes — it is the first
+  and often only thing a visitor reads.
+- `internal/` — **gitignored, never committed.** Private contacts,
+  candid assessments, funding strategy, political reads. See "Public repo
+  vs. internal working files" above for what belongs here and why.
+- `.githooks/pre-commit` — blocks commits staging `internal/` or
+  containing known private markers. Install per machine with
+  `git config core.hooksPath .githooks`. A guardrail against accident,
+  not a security control.
+- `CONTACTS_AND_FUNDING.md` — working register of people and bodies worth
+  approaching for comment (academics, government/delivery bodies,
+  scrutiny bodies) and routes to funding or official support. **Written
+  public-safe on purpose** — public roles and published work only, no
+  personal contact details, nothing that would be awkward if the named
+  person read it; keep it that way. Contains a sequencing rule (FOI →
+  academic comment → right of reply before publication → funding last)
+  and a standing rule that **no approach is made without the creator's
+  explicit per-approach instruction**. Nobody listed has been contacted.
 - `assets/brand/icons/` — the promoted, working content-icon set (36
   icons, current palette). `svg/` for sources, `png/` for 64/128/256px
   exports, `README.md` for the filename→topic manifest.
@@ -235,10 +348,17 @@ Applies to `.docx` work in this project (currently
   `Effective_Prompting_Example.docx`, a formatting test for the pilot
   unit's Word-document template — see `PROJECT_LOG.md` Entry 015 and the
   PAWH semantic-callout construction it's adapting — still genuinely a
-  draft, nothing settled; and `AI_Skills_Hub_Briefing.docx`, not yet
-  logged. Nothing here reflects a settled decision; contents may be
-  replaced or removed once the format stabilises. Once a document is
-  approved and no longer a draft, it moves to `documents/` instead.
+  draft, nothing settled; and `AI_Skills_Hub_Briefing.docx` (+ self-check
+  `.pdf`), rebuilt 2026-07-27/28 on the GAP style system with deepened
+  research and three creator review rounds — see `PROJECT_LOG.md` Entry
+  019. **Production on it is paused (2026-07-28)** pending a wider
+  UK-AI-climate research pass; noted for resumption: merge §2/§3, widen
+  scope beyond the AI Skills Hub, and resolve the bracketed
+  "[institutional disconnect...]" note the creator left in its
+  Overview/Editorial section. Nothing here reflects a settled decision;
+  contents may be replaced or removed once the format stabilises. Once a
+  document is approved and no longer a draft, it moves to `documents/`
+  instead.
 - `documents/` — finished, current production exports, promoted out of
   `drafts/` once approved (not work-in-progress). Currently:
   `Style_Reference_Example.docx` (+ its self-check `.pdf`), a 6-page

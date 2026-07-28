@@ -1,0 +1,60 @@
+#!/bin/sh
+# Grounded AI Practice — pre-commit guard
+#
+# Blocks two classes of mistake before they enter git history:
+#   1. Anything under internal/ (never public)
+#   2. Known private names/markers leaking into tracked files
+#
+# This is a guardrail against ACCIDENT, not a security control:
+#   - it is local-only (not installed by cloning; see CLAUDE.md)
+#   - it can be bypassed with `git commit --no-verify`
+#   - it does nothing about anything already committed
+# Treat it as the seatbelt, not the brakes.
+#
+# Install (run once per machine):
+#   git config core.hooksPath .githooks
+
+fail=0
+
+# --- 1. internal/ must never be staged -------------------------------
+staged_internal=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^internal/' || true)
+if [ -n "$staged_internal" ]; then
+    echo "BLOCKED: files under internal/ are staged and must never be committed:"
+    echo "$staged_internal" | sed 's/^/    /'
+    echo ""
+    fail=1
+fi
+
+# --- 2. private markers must not appear in tracked content -----------
+# Case-insensitive. Keep this list in sync with internal/contacts_private.md.
+# Deliberately narrow: only strings that are unambiguously private.
+markers='[private marker removed]'
+
+staged_files=$(git diff --cached --name-only --diff-filter=ACM | grep -vE '^internal/' || true)
+if [ -n "$staged_files" ]; then
+    for f in $staged_files; do
+        [ -f "$f" ] || continue
+        case "$f" in
+            .githooks/*) continue ;;
+        esac
+        if echo "$markers" | while IFS= read -r m; do
+               [ -n "$m" ] || continue
+               if grep -Fiq "$m" "$f" 2>/dev/null; then
+                   echo "BLOCKED: private marker \"$m\" found in staged file: $f"
+                   exit 1
+               fi
+           done; [ $? -ne 0 ]; then
+            fail=1
+        fi
+    done
+fi
+
+if [ "$fail" -ne 0 ]; then
+    echo "Commit refused by .githooks/pre-commit."
+    echo "See CLAUDE.md, \"Public repo vs. internal working files\"."
+    echo "If this is a genuine false positive, fix the content rather than"
+    echo "using --no-verify."
+    exit 1
+fi
+
+exit 0

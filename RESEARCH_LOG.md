@@ -157,6 +157,9 @@ Full citation is given once here; log entries below cite the short tag only.
 | `[FUNGIES26]` | Vendor/Commercial (a payments/"merchant of record" platform for SaaS, publishing this as promotional content — not an AI or infrastructure company) — individually verified (was previously only part of `[LOCALAI-COST26]`) | Fungies.io, "Local LLM vs Cloud API: The Complete 2026 Cost Breakdown & Break-Even Guide" — read directly via proxy fetch after direct fetch returned HTTP 403. fungies.io/local-llm-vs-cloud-cost-2026/ |
 | `[PROMPTQUORUM-COMPARE26]` | Vendor/Commercial (the article promotes PromptQuorum's own multi-model comparison product) — individually verified (was previously only part of `[LOCALAI-COST26]`/`[LOCALAI-CAPABILITY26]`) | PromptQuorum, "Local LLMs vs Cloud APIs 2026: Privacy, Cost, and Quality" — PRIMARY, read directly (fetched without needing a proxy). promptquorum.com/local-llms/local-llms-vs-cloud-apis |
 | `[MINDSTUDIO26]` | Vendor/Commercial (MindStudio is a no-code AI workflow platform selling access to 200+ cloud and local models) — individually verified (was previously only part of `[LOCALAI-CAPABILITY26]`) | MindStudio, "Local AI vs Cloud AI in 2026: When to Run Models on Your Own Hardware" — PRIMARY, read directly (fetched without needing a proxy). mindstudio.ai/blog/local-ai-vs-cloud-ai-2026 |
+| `[IUK-WP2-26]` | Government/Official (Innovate UK / UKRI, delivered under the BridgeAI programme) — note the delivery-partner interest below | Innovate UK, *Unlocking UK Economic Growth through Artificial Intelligence: case studies and guidance for employers* (second White Paper of the AI Skills Hub programme), February 2026, 54pp — PRIMARY, full PDF downloaded and read directly. Authorship credit on the cover page is "calyo". Its own quantitative benchmarking is stated (Annex A) to be "mainly drawn from" PwC datasets — and PwC was separately commissioned to build the AI Skills Hub the paper promotes, so the paper is not independent of the product it evaluates. iuk-business-connect.org.uk |
+| `[IUK-BRIDGEAI-YR3]` | Government/Official (Digital Catapult, a BridgeAI consortium delivery partner, writing for Innovate UK) — self-reported programme delivery data, not independent evaluation | *Bridging the AI divide — Innovate UK BridgeAI: Year three in review, 2025–2026*, produced by Digital Catapult for Innovate UK, March 2026, 81pp — PRIMARY, full PDF downloaded and read directly. Ministerial foreword by Kanishka Narayan MP, Parliamentary Under-Secretary of State, Minister for AI and Online Safety. iuk-business-connect.org.uk |
+| `[AISKILLSHUB]` (status update 2026-07-28) | Government/Official — **still not directly readable** | Unauthenticated fetch of aiskillshub.org.uk now returns HTTP 403 (previously HTTP 402 at Entry 018). Two independent failure modes across two passes; treat unauthenticated fetching as a closed route. The project's creator holds an active Hub account — first-hand platform evidence should be collected through that logged-in session rather than by further fetch attempts. |
 
 ---
 
@@ -922,7 +925,7 @@ Full citation is given once here; log entries below cite the short tag only.
   LSE critique (Entry 022) is a one-off academic opinion or a broader,
   corroborated pattern — directly relevant to the project's stated aim of
   positioning as a credible response to AI Skills Hub's problems
-  ([[project_government_recognition_goal]]).
+  (see `PROJECT_BRIEF.md`, "Longer-term direction and positioning").
 - **Source:** `[TECHOSAURUS26]`, `[HUMANCO26]`; a wider search also surfaced
   Computer Weekly, People Management and TechPolicy.Press opinion pieces
   making related but unread arguments (see Limitations).
@@ -962,7 +965,7 @@ Full citation is given once here; log entries below cite the short tag only.
   from DSIT/Skills England to any of this criticism has been located yet.
 - **Effect on project direction:** Meaningfully strengthens the basis for
   the project's loosely-held government-recognition aim
-  ([[project_government_recognition_goal]]): the "directory not programme"
+  (see `PROJECT_BRIEF.md`, "Longer-term direction and positioning"): the "directory not programme"
   critique is corroborated across independent academic and commercial
   sources, not a single contested opinion, which is exactly the kind of
   triangulation this project's research discipline calls for before treating
@@ -1285,7 +1288,7 @@ Full citation is given once here; log entries below cite the short tag only.
   better supported by this pass than a stronger local-AI-equalizer claim
   would have been. Before this technical claim is used in any external-facing
   document (cf. the government-recognition aim in
-  [[project_government_recognition_goal]]), it needs primary-source
+  `PROJECT_BRIEF.md`, "Longer-term direction and positioning"), it needs primary-source
   verification — flagged in Open Threads.
 
 ### Entry 031 — Instro AI as a live illustration of the "bespoke gap" (extends Entry 029)
@@ -1970,6 +1973,304 @@ Full citation is given once here; log entries below cite the short tag only.
   than citable with specific figures, consistent with Entry 030's original
   hedge.
 
+### Entry 043 — Innovate UK's second White Paper: the government's own guidance contradicts its own platform
+
+- **Date logged:** 2026-07-28
+- **Priority / Question:** Priority 1 (evidence/problem framing) and
+  Priority 5 (comparables) — first direct read of a primary
+  government-programme document behind the AI Skills Hub, supplied by the
+  project's creator as a key source.
+- **Source:** `[IUK-WP2-26]`
+- **Checked date:** 2026-07-28
+- **What the source directly supports:**
+  - **The headline economic figure, and its actual provenance.** "The AI
+    Opportunities Action Plan and Public First's research identifies that
+    AI adoption could boost the UK economy by up to £400 billion by 2030
+    (Public First, 2024)." This is the figure the project has seen cited
+    as government-backed; the White Paper attributes it to Public First,
+    a consultancy, not to an official statistical body.
+  - **The Hub's own description of itself.** UKRI established the AI
+    Skills Hub in June 2025 as "the UK's first-of-its-kind,
+    government-funded, free at point-of-use, digital platform," funded by
+    Innovate UK under BridgeAI, supported by DSIT. **"PwC was
+    commissioned, following a robust competitive tender process, to
+    design, build, and run the Hub."** The Hub is described as providing
+    "sector-specific, role-based and skill-level-tailored learning
+    pathways, all curated by experts."
+  - **Skills-gap figures.** 96% of employers across four sectors reported
+    a persistent mismatch between AI skills required and available (UKRI's
+    own first White Paper, June 2025); nearly half of UK CEOs view skills
+    shortages as the single biggest barrier to AI adoption (PwC, 2025a);
+    15% of the UK workforce use GenAI daily (PwC, 2025c); only 18% of
+    workers felt AI skill levels were adequate — sourced to The Alan
+    Turing Institute & UK AI Council, **2021**.
+  - **Its own five-step adoption guidance**, whose fifth step
+    ("Upskill the workforce") tells employers to "**use diagnostics** and
+    workforce planning tools to map required capabilities" and to
+    "**design targeted, role-specific learning pathways** — create
+    differentiated learning journeys for leaders, operational teams,
+    technical specialists, and frontline workers."
+  - **Its own focus-group data:** skills gaps are the No. 1 reported
+    barrier when implementing AI (AI Skills Hub focus groups, November
+    2025, 99 UK businesses); 66% of employers say upskilling/reskilling
+    are vital; **86% view tailored, role-relevant AI training as critical
+    to successful adoption.**
+  - **A competency framework already exists.** The Alan Turing Institute's
+    "AI Skills for Business Competency Framework," developed with DSIT and
+    Innovate UK BridgeAI, was formally launched in May 2024, and is
+    described as giving "a clear, role-aligned articulation of the
+    knowledge, skills, and behaviours required."
+- **Inference drawn:** Three findings here are the project's own reading,
+  not claims the source makes about itself.
+  1. **The document contradicts the platform it promotes.** Its guidance
+     tells employers to use diagnostics and build differentiated,
+     role-specific pathways — the exact four capabilities three
+     independent reviews found missing from the Hub (Entries 022/025).
+     The Hub's self-description ("skill-level-tailored learning
+     pathways") is directly contradicted by the reviewer finding that
+     intermediate learners were served ~71% beginner-level content.
+  2. **The contradiction is visible inside the document itself.** Its
+     "Skills for success" table lists three skills (self-development, AI
+     governance and compliance, change management) against a column
+     headed "Relevant courses on the AI Skills Hub" — and every one of
+     the three rows says only "AI Skills Hub course catalogue." Asked to
+     name specific courses for specific skills, the government's own
+     white paper points three times at the undifferentiated catalogue.
+     That is the "directory, not a programme" critique demonstrated in
+     the government's own document, not merely alleged by outside
+     reviewers.
+  3. **The evidence base is not independent of the delivery partner.**
+     PwC built the Hub; PwC's own surveys (`PwC 2025a/b/c`) are, per
+     Annex A, the main source of the paper's quantitative benchmarking
+     ("mainly drawn from large-scale datasets such as the PwC Global CEO
+     Survey, the AI Jobs Barometer, and the Global Hopes and Fears
+     Survey"). The commercial party paid to build the platform is also a
+     principal supplier of the evidence used to argue the platform is
+     needed. This is a structural interest-concentration issue of exactly
+     the kind this log's source-tagging convention exists to surface.
+- **Limitations / conflicting evidence:** This is a promotional
+  government-programme document, not an evaluation — it makes no claim to
+  independently assess the Hub, so "contradiction" here means a gap
+  between stated guidance and independently-reported delivery, not
+  self-refutation within a single evidential claim. The 18%-of-workers
+  figure is a 2021 source used in a 2026 paper without a freshness caveat
+  and should not be cited as current. The £400bn figure is
+  consultancy-produced (Public First) and has not been traced to its
+  underlying method in this pass — treat as "widely cited in official
+  documents," not as verified. The 96% figure comes from UKRI's own
+  earlier white paper, i.e. the same programme, not independent
+  corroboration.
+- **Effect on project direction:** Materially strengthens the AI Skills
+  Hub critique thread (Entries 018/022/025) by moving part of the evidence
+  from third-party review onto the government's own record. Directly
+  supplies the "government posture vs. delivered results" spine of the
+  planned UK-climate report (`PROJECT_LOG.md` Entry 020). Also gives the
+  project a named, official competency framework (Turing/DSIT, May 2024)
+  that a credible alternative could map against — relevant to Priority 3.
+
+### Entry 044 — BridgeAI year-three delivery figures: £100m programme, 1,700 course completions
+
+- **Date logged:** 2026-07-28
+- **Priority / Question:** Priority 1 (problem framing) and Priority 5 —
+  the "actually delivered results" half of the planned UK-climate report.
+- **Source:** `[IUK-BRIDGEAI-YR3]`
+- **Checked date:** 2026-07-28
+- **What the source directly supports:**
+  - **Programme scale:** BridgeAI is backed by £100 million from UKRI's
+    Technologies Mission Fund and Innovate UK, launched 2023, delivered by
+    a consortium of Innovate UK, Digital Catapult, The Alan Turing
+    Institute, BSI and the STFC Hartree Centre.
+  - **Reported delivery at end of 2025:** £74.6 million of grant funding
+    allocated; 5,000+ organisations supported; ~12,000 individuals
+    reached; 820+ AI projects funded; **1,700+ AI skills courses
+    completed**; **126 accreditations gained**; 10,000+ engagements with
+    BridgeAI content (views, comments and downloads).
+  - **The Hub is nearly absent from the report.** Across 81 pages, the AI
+    Skills Hub is named exactly once, in a single subordinate clause:
+    training work "was supported through activity within the AI Skills
+    Hub, which has helped to sustain and expand access to high-quality AI
+    upskilling." No Hub-specific usage, completion or outcome figures are
+    reported.
+  - **Its own conclusions concede the gap.** Under "Skills and
+    leadership": "There is growing demand for AI-related skills across all
+    levels of business... **This needs follow-through with relevant
+    development pathways and curriculums**, facilitated by collaboration
+    across all levels of education." Under "Scaling beyond early
+    adopters": "many businesses remain at the margins of AI adoption.
+    Future efforts could focus on deepening regional engagement and
+    **tailoring support to different levels of readiness**."
+  - A quoted BBC duty manager states "The AI skills ecosystem can feel
+    fragmented," positioning the Turing competency framework as potential
+    "glue."
+  - Ministerial foreword by **Kanishka Narayan MP**, Parliamentary
+    Under-Secretary of State, Minister for AI and Online Safety.
+- **Inference drawn:** The delivery numbers are strikingly small relative
+  to stated ambition, and this is the project's own comparison, not one
+  the report draws. The AI Skills Hub carries a publicly stated ambition
+  to upskill 10 million workers by 2030 (Entry 018); its parent programme
+  reports 1,700+ course completions and 126 accreditations after three
+  years and £74.6m allocated. Even allowing that these are
+  whole-programme figures rather than Hub-specific ones, and that the Hub
+  launched only mid-2025, the order-of-magnitude distance between
+  ambition and reported delivery is the single most concrete piece of
+  "posture vs. results" evidence the project has found. A second inference:
+  the report's own "needs follow-through with relevant development
+  pathways and curriculums" and "tailoring support to different levels of
+  readiness" are, in substance, the same diagnosis as the external
+  "directory not a programme" critique — stated by a delivery partner in
+  a government-published report.
+- **Limitations / conflicting evidence:** These are self-reported figures
+  from a consortium delivery partner (Digital Catapult) writing for the
+  funder (Innovate UK), not an independent evaluation — there is no
+  external audit of them in this source. The report does not define
+  "courses completed" (individual modules vs. full programmes), does not
+  disaggregate Hub activity from wider BridgeAI training, and gives no
+  denominator for what completion was targeted, so the ambition-vs-delivery
+  comparison above is directional, not a like-for-like shortfall
+  calculation. No independent evaluation of BridgeAI has been located yet.
+- **Effect on project direction:** Supplies the delivered-results evidence
+  for the planned UK-climate report. Establishes that the strongest
+  version of the project's critique can be built almost entirely from
+  government-published material, which is a substantially more defensible
+  position than relying on commercially-interested reviewers (Entry 025).
+  Raises a specific, checkable open question: what are the Hub's own usage
+  and completion figures, and have they been published anywhere?
+
+### Entry 045 — AI Skills Hub remains unfetchable; Innovate UK Business Connect scoping
+
+- **Date logged:** 2026-07-28
+- **Priority / Question:** Priority 5 — access route for first-hand
+  platform evidence, plus scoping of the Innovate UK Business Connect
+  knowledge base as a source vein.
+- **Source:** `[AISKILLSHUB]` (status update), plus the Innovate UK
+  Business Connect BridgeAI programme page and its BridgeAI-filtered
+  "Perspectives" listing.
+- **Checked date:** 2026-07-28
+- **What the source directly supports:** aiskillshub.org.uk returned HTTP
+  403 to an unauthenticated fetch, a different failure mode from the HTTP
+  402 recorded at Entry 018 but the same practical outcome across two
+  separate passes. The BridgeAI programme page confirms the programme is
+  still active and accepting applications, targets four low-adoption
+  sectors (agriculture, construction, creative industries, transport/
+  logistics), and offers an "AI Adoption Framework" for organisations to
+  locate their stage in the AI journey; it gives no programme end date and
+  no mention of a successor. The BridgeAI "Perspectives" listing carries
+  eight BridgeAI-tagged articles between July 2025 and July 2026,
+  including "Training and skills gaps for AI in four selected sectors"
+  (8 July 2026) and "BridgeAI three years on: Shaping the future AI
+  ecosystem" (21 April 2026) — neither read in this pass.
+- **Inference drawn:** None beyond the practical conclusion that
+  unauthenticated fetching of the Hub is a closed route and should not be
+  retried; the creator's active account is the only viable path to
+  first-hand platform evidence.
+- **Limitations / conflicting evidence:** Note a discrepancy worth
+  resolving: `[IUK-WP2-26]` states the second White Paper is dated
+  February 2026, while the Business Connect listing dates its
+  corresponding article 16 July 2026, and the PDF's own URL path is
+  `/2026/07/`. Publication vs. web-posting dates are the likely
+  explanation but this has not been confirmed.
+- **Effect on project direction:** Fixes the evidence-collection route for
+  the Hub itself (creator's logged-in session, per `PROJECT_BRIEF.md`
+  "Longer-term direction and positioning"). Identifies two unread
+  BridgeAI perspectives pieces and the first (June 2025) White Paper as
+  the next primary sources in this vein.
+
+### Entry 046 — Delivery-partner interest concentration; "outsourcing understanding" revived against a new target (see Entry 033 retraction)
+
+- **Date logged:** 2026-07-28
+- **Priority / Question:** Priority 1 (problem framing) — an analytical
+  entry building on Entries 043–045, not new source material. Also
+  revisits the framing retracted in Entry 033.
+- **Source:** `[IUK-WP2-26]` and `[IUK-BRIDGEAI-YR3]` (already logged,
+  Entries 043–044), plus a direct reading offered by the project's
+  creator, 2026-07-28. No new external sources fetched for this entry.
+- **What the sources directly support (evidenced, no inference):** PwC was
+  commissioned to design, build and run the AI Skills Hub
+  (`[IUK-WP2-26]`). The same White Paper's Annex A states its quantitative
+  benchmarking was "mainly drawn from large-scale datasets such as the PwC
+  Global CEO Survey, the AI Jobs Barometer, and the Global Hopes and Fears
+  Survey," and PwC surveys are cited three times in its own argument for
+  the scale of the skills gap (`PwC 2025a/b/c`). PwC is additionally named
+  as a delivery partner of the Hub in the same document. These are three
+  distinct roles — builder, evidence supplier, delivery partner — held by
+  one commercial firm, stated on the record in the government's own
+  publication.
+- **Inference drawn (this entry's own, clearly separated):** The
+  interest concentration above is structural rather than incidental: the
+  party paid to build the platform is also a principal supplier of the
+  evidence used to establish that the platform is needed. This does not
+  establish that the evidence is wrong — PwC's survey work may be
+  perfectly sound — but it does mean the paper's skills-gap case is not
+  independent of its delivery arrangements, and the project should not
+  treat those figures as independent corroboration.
+- **Creator's reading (opinion, not evidence — held internally):** the
+  creator holds an editorial position on institutional capacity and on
+  what the delegation to a commercial supplier represents. It is recorded
+  in full in the project's internal working notes rather than here,
+  because this repository is intended to become publicly visible and the
+  parties assessed are prospective funders, collaborators or interviewees
+  (see `CLAUDE.md`, "Public repo vs. internal working files"). What
+  matters for this log: the position is **not evidenced** by anything in
+  Entries 043–046. No source read so far speaks to ministerial or
+  civil-service intent, capability or motive. It is usable in an
+  explicitly editorial register — as already established for the AI
+  Skills Hub briefing's "Overview/Editorial" section — and not in sourced
+  sections. The *structural* observation it rests on (PwC's dual role) is
+  documented above and stands on its own without it.
+- **Relationship to the Entry 033 retraction — the reason this entry
+  exists:** The "outsourcing understanding" framing was **retracted by the
+  creator's own instruction on 2026-07-24** (Entry 033), on two grounds:
+  it was unfair to Instro AI specifically, and it was not well supported
+  as a general claim (resting on `[BUYBUILD-KLOTZ26]`, a single-author
+  preprint with no confirmed affiliation and no disconfirming search).
+  The framing above is a **deliberate revival against a different target**,
+  confirmed with the creator before logging. What has changed:
+  - **Target:** government/consultancy, not SME/integrator. Entry 033's
+    fairness objection was specific to Instro and does not transfer.
+  - **Evidential basis:** a documented, on-the-record arrangement in a
+    government publication, not a theoretical buy-vs-build claim.
+    `[BUYBUILD-KLOTZ26]` is **not** revived and remains uncitable per
+    Entry 033.
+  - **Scope:** a specific observation about one programme's evidence
+    base, not a general thesis about capability transfer.
+  Entry 033's substantive caution still applies to the *general* form of
+  the claim: "outsourcing understanding" as a broad thesis about
+  organisations remains unsupported, and should not be reintroduced as
+  one. Entry 031's Instro findings remain in their Entry 033 scope — a
+  positive example of successful integration, never a foil.
+- **Correction of a figure conflation (recorded to stop it recurring):**
+  three separate money figures are in play and were briefly merged during
+  discussion. For the record: **£4.1m** is the reported cost of the AI
+  Skills Hub alone, and its only source is `[HUMANCO26]`, a commercially
+  competing reviewer — it is **not** government-confirmed. **£100m** is
+  the whole BridgeAI programme (UKRI Technologies Mission Fund + Innovate
+  UK), of which **£74.6m** was allocated by end of 2025. The **1,700+
+  course completions / 126 accreditations** are BridgeAI **programme-wide**
+  skills figures, not Hub figures and not purchased by the £4.1m. Most of
+  the £74.6m went to 820+ funded AI projects, so pairing it with the
+  skills numbers would also misstate the case. The defensible statements
+  are: (a) the Hub has a 10-million-worker-by-2030 ambition and no
+  published usage figures whatsoever; (b) BridgeAI's programme-wide
+  three-year skills output is 1,700+ completions and 126 accreditations.
+- **Limitations / conflicting evidence:** No source consulted so far
+  offers a government or PwC response to the interest-concentration point,
+  and none has been sought — this is one-sided until it is. Competitive
+  tender is the normal route for public procurement, and the White Paper
+  states the tender was competitive, so the arrangement is not
+  irregular on its face; the observation is about evidential
+  independence, not procurement propriety, and should be worded that way
+  to stay defensible. The delivery figures underlying the whole critique
+  remain self-reported and unaudited (Entry 044).
+- **Effect on project direction:** Gives the planned UK-climate report a
+  documented, government-sourced structural critique that does not depend
+  on commercially-interested reviewers. Establishes the register boundary
+  for the report: interest concentration and delivery figures are
+  evidenced and belong in sourced sections; institutional-capacity and
+  political-motive readings are the creator's own and belong in an
+  editorial section, labelled. Adds a disconfirmation task: seek any
+  government, PwC or parliamentary response before publishing the
+  interest-concentration point.
+
 <!--
 Entry template (for reference — remove once first real entry is added):
 
@@ -2427,3 +2728,107 @@ drafting until the creator reopens it.
 - `hybrid_ai.svg` has no labelled groups (it currently has none at all,
   having been hand-edited outside this pass) — revisit if/when it gains
   group structure worth labelling.
+
+**Resolved this pass (2026-07-28, primary government sources — Entries 043–045):**
+- ~~AI Skills Hub critique rests mainly on third-party reviewers, two of
+  them commercially interested~~ — substantially strengthened. The core
+  critique can now be evidenced from government-published material:
+  Innovate UK's own White Paper tells employers to use diagnostics and
+  build role-specific differentiated pathways (the exact features
+  reviewers found missing), and its own "relevant courses" table points
+  three times at an undifferentiated catalogue (Entry 043). BridgeAI's own
+  annual report concedes skills work "needs follow-through with relevant
+  development pathways and curriculums" (Entry 044).
+- ~~No delivered-results data for the government's AI skills programmes~~
+  — found (Entry 044): £74.6m of £100m allocated, 5,000+ organisations,
+  ~12,000 individuals, 1,700+ course completions, 126 accreditations at
+  end of 2025.
+- ~~`[AISKILLSHUB]` access route unclear~~ — settled: unauthenticated
+  fetching is a closed route (403 this pass, 402 at Entry 018). Use the
+  creator's logged-in account instead; stop retrying fetches.
+
+**Still open after this pass:**
+- **No independent evaluation of BridgeAI or the AI Skills Hub has been
+  located** — every delivery figure the project holds is self-reported by
+  a consortium delivery partner writing for the funder (Entry 044). A
+  NAO, Public Accounts Committee, parliamentary-question or academic
+  evaluation would materially change the evidential weight. Not yet
+  searched for.
+- **The Hub's own usage/completion figures are unknown** (Entry 044) — the
+  81-page BridgeAI annual report names the Hub once and reports no
+  Hub-specific metrics. Worth a targeted search, and a candidate FOI/
+  parliamentary-question angle if nothing is published.
+- **The £400bn-by-2030 figure is consultancy-produced and untraced**
+  (Entry 043, Public First 2024) — cited across official documents
+  including the AI Opportunities Action Plan, but its method has not been
+  read. Should be traced before the project repeats it in any
+  external-facing document.
+- **The 18%-of-workers-feel-skills-are-adequate figure is a 2021 source**
+  being used in a 2026 White Paper without a freshness caveat (Entry 043)
+  — find current data or drop it; do not repeat it as current.
+- **PwC interest-concentration is identified but not quantified**
+  (Entry 043) — PwC built the Hub and supplies the paper's main
+  quantitative benchmarking. Worth checking whether any
+  non-PwC-sourced UK figures support the same skills-gap magnitude.
+- **Unread primary sources in this vein:** the *first* Innovate UK White
+  Paper (June 2025, the 96%-of-employers source), "Training and skills
+  gaps for AI in four selected sectors" (8 July 2026), and "BridgeAI three
+  years on" (21 April 2026) — all identified in Entry 045, none read.
+- **The creator's flagged claim about policymakers' practical AI
+  understanding** (`PROJECT_BRIEF.md`, "Longer-term direction and
+  positioning") remains unsupported by design — needs direct quotes from
+  policymakers before any external use. A political-timing observation
+  recorded alongside it (held in internal working notes) is likewise
+  unverified, and sits awkwardly against the only ministerial name this
+  project has actually sourced: Kanishka Narayan MP, Parliamentary
+  Under-Secretary of State for AI and Online Safety, per the BridgeAI
+  report's own foreword (Entry 044). Confirm the current ministerial
+  line-up for AI policy before any positioning argument depends on it.
+- **Date discrepancy** on the second White Paper: stated February 2026,
+  posted July 2026, PDF path `/2026/07/` (Entry 045) — probably
+  publication vs. posting, unconfirmed.
+- **No government, PwC or parliamentary response to the
+  interest-concentration point has been sought** (Entry 046) — the
+  observation is currently one-sided. A disconfirming search is required
+  before it appears in any external-facing document, per this log's
+  confirm/disconfirm discipline for foundational claims.
+- **The creator's institutional-capacity and political-motive reading**
+  (Entry 046; held in internal working notes) has **no supporting evidence
+  in the log at all** — nothing read so far speaks to ministerial or civil
+  service capability or intent. Either find evidence (policymaker quotes,
+  select-committee transcripts, NAO commentary on departmental AI
+  capability) or keep it confined to an explicitly editorial register.
+  Connected to the already-flagged policymaker claim recorded alongside
+  it.
+- **"Outsourcing understanding" is now partially revived** (Entry 046)
+  against government/consultancy, having been retracted for SME/integrator
+  use in Entry 033. The *general* form of the claim remains unsupported
+  and should not be reintroduced as a thesis; `[BUYBUILD-KLOTZ26]` remains
+  uncitable. Watch for scope creep back toward the retracted version.
+
+**Opened 2026-07-28 (external engagement and funding — see `CONTACTS_AND_FUNDING.md`):**
+- **No approach to any external party has been made or authorised.** The
+  register lists possibilities only; each approach needs the creator's
+  explicit instruction.
+- **The project's entity status is an unresolved gate**, not just an
+  administrative detail: most innovation funding requires a registered UK
+  entity (sole trader and CIC both qualify), and most research fellowship
+  funding requires an academic post. Neither currently applies. This is a
+  decision with tax/liability/governance consequences that needs proper
+  external advice, not project-internal reasoning.
+- **The route that funded PRIMES is closed to the project as
+  constituted** — the British Academy Policy-Led Innovation Fellowship
+  requires a HEI/IRO post. Reachable only via academic partnership, which
+  makes the academic contacts in the register strategically relevant, not
+  just editorially useful.
+- **Right of reply has not been sought from any criticised party** and
+  must be, before publication rather than after (see the register's
+  sequencing rule). Currently the largest gap between the project's
+  output and ordinary research-publication standards.
+- **The Hub's missing usage figures are a live FOI candidate** (Entry 044)
+  — free, relationship-neutral, and would convert an absence into citable
+  primary evidence.
+- **Funding-route scan is a first pass, not a shortlist** — schemes
+  change; every eligibility statement recorded needs re-checking at point
+  of use. No published evaluation of the closed AI Upskilling Fund has
+  been searched for yet.

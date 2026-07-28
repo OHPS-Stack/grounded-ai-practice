@@ -1,6 +1,31 @@
+# =====================================================================
+# NEVER-COMMIT PATHS
+# ---------------------------------------------------------------------
+# This repository is intended to become publicly visible. Everything not
+# excluded here is treated as public. See CLAUDE.md, "Public repo vs.
+# internal working files", for the full ruleset and the audit process.
+#
+# WARNING: .gitignore is not a security boundary. It prevents accidental
+# staging; it does NOT protect anything already committed, and it can be
+# overridden with `git add -f`. The pre-commit hook in .githooks/ is the
+# actual enforcement layer. Neither protects git history retroactively.
+# =====================================================================
+
+# Internal working files: planning notes, named private contacts,
+# funding strategy, anything not fit for public reading. Never committed.
+internal/
+
 # Local-only Claude Code memory access shortcut.
 # This is a directory junction pointing to a machine-specific, user-specific
 # path (C:\Users\<you>\.claude\projects\...\memory\) that differs between
 # machines. Never commit it — each machine creates its own local junction.
 # See CLAUDE.md, "Claude's memory: what's in the repo vs. outside it".
 .claude-memory
+
+# Microsoft Word lock/owner files (created while a .docx is open).
+~$*
+
+# OS and editor cruft
+Thumbs.db
+desktop.ini
+.DS_Store

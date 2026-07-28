@@ -149,6 +149,62 @@ responsible-use/verification framing. Responsible/safe use of data remains
 a plausible second unit if the project stacks further pilots later. See
 `PROJECT_LOG.md` Entry 013 for the full decision record.
 
+## Longer-term direction and positioning (working considerations — 28 July 2026)
+
+The project's creator has set out several connected considerations for
+where the project could eventually sit. These are working considerations —
+more developed than open questions, less settled than the working decisions
+above — and each is labelled by what it is (reference model, aim,
+observation, or flagged claim), per the project's evidence discipline.
+
+- **Deliverable-shape reference model:** roadmap.sh is a strong concrete
+  example of the *kind* of thing the project's eventual deliverable could
+  be — an accessible, customisable, interactive learning resource hub
+  (see `RESEARCH_LOG.md` Entry 020 for the existing design-pattern
+  analysis). GAP could leverage AI alongside explicit learner input to
+  tailor content, pathways and learning style. Explicitly not an intention
+  to compete with or copy roadmap.sh or similar platforms. This is a
+  reference point for long-term format thinking, not a build decision —
+  the pilot unit above remains the first output, and "eventual permanent
+  format" stays in "Not yet decided."
+- **Positioning aim (official channel):** the UK government and the GAP
+  project — if it can be pitched to and approved by the correct governing
+  body — are in a unique position to create an official, effective and
+  genuinely productive AI-skills resource, given the documented structural
+  problems with the current national platform (see the AI Skills Hub
+  critique thread, `RESEARCH_LOG.md` Entries 018/022/025). This firms up
+  the previously loosely-held government-recognition aim into an explicit
+  positioning consideration.
+- **Political-timing observation (creator's own read, not evidence):** a
+  view is held on how current political conditions might affect
+  receptiveness to this kind of proposal. It is recorded in the project's
+  internal working notes rather than here, is unverified, and no
+  positioning argument should depend on it until checked. See `CLAUDE.md`,
+  "Public repo vs. internal working files".
+- **Research asset:** the creator holds an active AI Skills Hub account.
+  This enables first-hand evidence collection the project's tools cannot
+  reach unauthenticated — screenshots and examples of direct
+  contradictions between government guidance and government-delivered
+  content, and side-by-side comparisons against genuinely effective
+  learning platforms. To be used in a dedicated evidence-collection pass.
+- **Flagged claim (creator's own flag — currently unsupported):** "UK
+  policymakers, businesses and politicians understand AI's value and
+  importance conceptually, but few have a concrete practical understanding
+  — and some of the least initiated are the ones writing policy and
+  deciding spending." Explicitly marked as needing direct supporting
+  quotes/evidence from policymakers before use in any external-facing
+  document.
+- **Next research deliverable:** a comprehensive Word-document report on
+  the current AI climate in the UK, the government's posture(s), and the
+  actually delivered results — to frame why the current AI skills approach
+  is problematic and foreshadow where GAP could fit: identifying and
+  possibly addressing some of these issues and discrepancies. Initial
+  source set (explicitly non-exhaustive; further similar and competing
+  sources to be identified): the Innovate UK BridgeAI report (March 2026),
+  the Innovate UK "Unlocking UK Economic Growth through AI" white paper,
+  the Innovate UK Business Connect knowledge centre, and the AI Skills Hub
+  itself.
+
 ## Second track: local AI workstation (working decision — 24 July 2026; deferred 24 July 2026)
 
 **Status: deferred.** The creator has confirmed this track is not active
@@ -469,6 +525,9 @@ initiative.
 The project currently needs to investigate:
 
 - UK AI skills, education, employment and adoption;
+- the UK government's AI programmes, postures and actually delivered
+  results (BridgeAI, AI Skills Hub, Innovate UK white papers and their
+  underlying sources);
 - public and organisational AI literacy;
 - recognised competency and learning frameworks;
 - project-based and experiential learning;
@@ -488,7 +547,8 @@ The project has not yet determined:
 - its eventual permanent format (guide, roadmap, course, website, software
   tool, repository, or a combination) — the working decision above only
   fixes the shape of the *first pilot test*, not the project's long-term
-  format;
+  format (see "Longer-term direction and positioning" for the roadmap.sh
+  reference model now informing, but not deciding, this question);
 - its final curriculum or competency levels;
 - its permanent repository structure;
 - its long-term document and data architecture;

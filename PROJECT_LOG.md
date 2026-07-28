@@ -779,3 +779,158 @@ no external citation:
   pictures, and confirming whether an export tool/process should be set up
   for this rather than repeating ad hoc Inkscape CLI calls each time (see
   `CLAUDE.md`'s self-check-tooling preference).
+
+### Entry 019 — AI Skills Hub briefing rebuilt on the GAP style system; production paused
+
+- **Date logged:** 2026-07-28
+- **Priority / Question:** Priority 7 (delivery format) and Priority 10
+  (public presentation) — the second real document built on the approved
+  style system (Entry 016), and the first with substantive external-facing
+  content.
+- **Source:** Production work by Claude Code across 2026-07-27/28, three
+  review rounds by the creator, plus one external review (the creator fed
+  the document to ChatGPT and returned its critique for evaluation).
+- **What happened:** `drafts/AI_Skills_Hub_Briefing.docx` was rebuilt from
+  scratch on the GAP Word style system — named styles, title block, pull
+  quote, callout card, three table types, real header/footer, corrected
+  page margins — replacing its original ad-hoc navy/grey styling. Content
+  was deepened with three research findings logged after the original
+  24 July draft (`RESEARCH_LOG.md` Entries 026–028: PRIMES' full criteria,
+  the GRR sequencing model, the overconfidence confirm/disconfirm pair),
+  and the closing section was rewritten to reflect the project's decided
+  audience/pilot direction instead of the stale "not yet finalised"
+  framing. The external ChatGPT review's points were evaluated
+  individually rather than applied wholesale: evidential-framing fixes,
+  claim moderation, an evidential-role table column, a limitations list,
+  and two renderer-verified defects (WCAG-failing Ember text at small
+  size; a table row splitting across pages) were accepted; its
+  Caption-style contrast complaint was rejected after computing the actual
+  ratio (4.84:1, passes AA), and its endnote/DOI citation overhaul was
+  deferred as out of scope. The creator then hand-rewrote the opening into
+  a deliberately more opinionated "Overview/Editorial" section and
+  flagged that the earlier draft's sentence complexity had over-imitated
+  their casual prompting style — a prose-tightening pass followed
+  (vocabulary/tone matching yes, complexity matching no; see the
+  voice-matching rule refinement in local memory).
+- **Inference drawn:** None — production record.
+- **Limitations / conflicting evidence:** Not applicable.
+- **Effect on project direction:** Production on this document is
+  **paused as of 2026-07-28** at the creator's direction, in favour of a
+  wider research pass (Entry 020). Noted for resumption: §2 and §3 could
+  merge; the document's scope should widen beyond the AI Skills Hub
+  toward the broader UK AI climate as stronger concepts and figures land
+  in research. The document remains in `drafts/`, not approved, not
+  promoted.
+
+### Entry 020 — Longer-term direction: roadmap.sh reference model, official-channel positioning aim, Hub account as research asset
+
+- **Date logged:** 2026-07-28
+- **Priority / Question:** Priority 7 (delivery format, long-term),
+  Priority 10 (sustainability/public presentation), Priority 5
+  (comparables — extends the roadmap.sh design-pattern analysis in
+  `RESEARCH_LOG.md` Entry 020).
+- **Source:** Direct statement of carefully-considered direction by the
+  project's creator, 2026-07-28, recorded into `PROJECT_BRIEF.md`
+  ("Longer-term direction and positioning") the same day.
+- **What happened:** Four connected considerations were recorded, each
+  labelled by evidential status: (1) roadmap.sh as a concrete reference
+  model for the eventual deliverable's *kind* — accessible, customisable,
+  interactive resource hub, with AI leveraged alongside explicit learner
+  input for tailoring; explicitly not competing with or copying it.
+  (2) An official-channel positioning aim — the project pitched to and
+  approved by the correct governing body as the credible fix to the
+  documented AI Skills Hub problems — firming up the previously
+  loosely-held government-recognition aim. (3) A political-timing
+  observation, explicitly the creator's own read and not evidence, on how
+  current political conditions might affect receptiveness — held in
+  internal working notes rather than a tracked file, and unverified. (4) The
+  creator's active AI Skills Hub account recorded as a research asset for
+  first-hand evidence collection (guidance-vs-content contradictions,
+  platform comparisons) that unauthenticated tooling cannot reach. One
+  further claim — that policymakers understand AI's value conceptually
+  but lack practical understanding — was recorded *with the creator's own
+  "unfounded" flag attached*, requiring direct quotes/evidence before any
+  external use.
+- **Inference drawn:** None — a direction record. The creator's own
+  labelling of one claim as unfounded is preserved rather than laundered
+  into an assertion.
+- **Limitations / conflicting evidence:** The positioning aim depends on
+  research not yet done (the UK-climate report, Entry 019's successor
+  deliverable) and on the flagged claim being either supported or
+  dropped. Nothing here commits the project to a platform build.
+- **Effect on project direction:** Defines the next research deliverable:
+  a comprehensive Word report on the UK AI climate, government postures,
+  and actually delivered results — framing where GAP fits. Initial source
+  set (non-exhaustive, competing sources still to be identified): the
+  Innovate UK BridgeAI report (March 2026), the Innovate UK "Unlocking UK
+  Economic Growth through AI" white paper (February 2026), the Innovate
+  UK Business Connect knowledge centre, and the AI Skills Hub platform
+  itself.
+
+### Entry 021 — Repo prepared for public sharing: public/internal split, enforcement, audit process, README
+
+- **Date logged:** 2026-07-28
+- **Priority / Question:** Priority 10 (sustainability and public
+  presentation) — the first substantive work on this priority, which had
+  been essentially untouched.
+- **Source:** Direct instruction from the project's creator, 2026-07-28,
+  triggered by moving from a local-only repository toward selective
+  sharing with trusted contacts and, later, wider public access as proof
+  of work.
+- **What happened:**
+  1. **Audit run first.** All 15 existing commits checked: history is
+     clean, no damaging content. Critically, every politically candid
+     passage was found to be **uncommitted** — working tree only — so the
+     split could be made before anything entered permanent history.
+  2. **Public/internal rule established** (`CLAUDE.md`, "Public repo vs.
+     internal working files"): default public, with a gitignored
+     `internal/` directory as the sole exception for private contacts,
+     candid assessments of named parties, political reads and funding
+     strategy. Tracked files may record *that* a position exists and its
+     evidential status, via a pointer, without reproducing wording — the
+     discipline is preserved without publishing material that damages the
+     project's own aims.
+  3. **Enforcement built and tested.** `.gitignore` excludes `internal/`;
+     `.githooks/pre-commit` blocks any commit staging `internal/` or
+     containing known private markers. Both paths were tested with real
+     staged commits (including the `git add -f` bypass) and confirmed to
+     block. Documented honestly as guardrails against accident, not
+     security controls: local-only, `--no-verify`-bypassable, and useless
+     retroactively.
+  4. **Content moved.** Candid political assessments relocated to
+     `internal/editorial_positions.md`; private named contacts to
+     `internal/contacts_private.md`. Tracked files rewritten to pointers.
+     Verified zero remaining occurrences across all tracked files.
+  5. **Audit process defined** (`CLAUDE.md`): three passes — Claude scan,
+     independent second-model pass, then **required human verification**,
+     with the creator deciding every flagged item. Triggered before any
+     change in repo visibility, otherwise monthly. Outcomes logged here.
+  6. **`README.md` written** as a public front door, assuming a reader who
+     may be a prospective employer, collaborator or funder. Presents the
+     research discipline itself as the project's current output, and
+     points at the retraction (Entry 033) and self-bias-check (Entry 013)
+     as evidence of that discipline rather than hiding them.
+  7. **Housekeeping surfaced by the audit:** three dangling
+     `[[wiki-link]]` references to a local memory file that public readers
+     cannot see were replaced with real `PROJECT_BRIEF.md` references;
+     Word lock files (`~$*`) and OS cruft added to `.gitignore`.
+  8. **Instro AI competing interest declared.** The creator has a personal
+     connection to Instro AI, which this project's research cites
+     positively (`RESEARCH_LOG.md` Entry 031). Decision: disclose in any
+     published document citing Instro, mandatory and relationship-typed if
+     Instro provides funding or backing. The Entry 031 findings stay —
+     they are independently sourced, and quiet removal would be worse than
+     disclosure. Recorded in `CONTACTS_AND_FUNDING.md` under "Declared
+     interests".
+- **Inference drawn:** None — a structural/production record.
+- **Limitations / conflicting evidence:** The enforcement layer protects
+  against accident only. Anything committed in future is permanent for
+  practical purposes once the repo is public, so the audit discipline
+  matters more than the tooling. The `internal/` directory living inside
+  the repo working tree is a deliberate convenience trade-off made by the
+  creator, accepting that a single `--no-verify` would defeat it.
+- **Effect on project direction:** Unblocks selective sharing of the repo.
+  Opens Priority 10 properly for the first time. Establishes that
+  reputational and relationship judgements are the creator's alone — no
+  model decides what is safe to publish. **This entry doubles as the
+  record of the first audit (2026-07-28).**
