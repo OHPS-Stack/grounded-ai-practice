@@ -17,7 +17,7 @@ and what a credible response to it would need to look like.*
 ## What this is
 
 Grounded AI Practice is a research project examining how UK adults and
-small organisations actually build practical AI capability — and why the
+small organisations actually build practical AI capability - and why the
 current national approach appears to be falling short.
 
 It is currently at the **research and pilot-design stage**. This repository
@@ -45,13 +45,8 @@ Four rules the project holds itself to, visible throughout the logs:
 |---|---|
 | **Evidence and inference are never blurred** | Every entry separates what a source directly supports from what the project inferred. Opinion is labelled as opinion. |
 | **Sources are tagged by interest** | Government, independent/academic, vendor/commercial, advocacy. Makes it visible when the evidence base is concentrated in parties with a stake in the answer. |
-| **Confirming and disconfirming evidence are sought together** | For any claim that would change direction. The project caught itself doing the opposite once and logged the correction. |
+| **Confirming and Competing evidence are sought together** | Competing viewpoints and alternative sources are considered to mitigate potential biases and ensure decisions are made objectively.  |
 | **Nothing is silently altered** | Corrections and retractions are added as new entries referencing what they supersede, so the reasoning stays traceable. |
-
-Two worked examples of that discipline: a framing the project developed,
-then [retracted](RESEARCH_LOG.md) when it did not hold up
-(Entry 033); and a bias check the project ran
-[against its own evidence base](RESEARCH_LOG.md) (Entry 013).
 
 ## Where to look
 
@@ -86,9 +81,7 @@ published. The rules governing that split are themselves
 ## Tooling
 
 Research and document production are AI-assisted, with human review at
-every decision point. Word documents are verified by rendering through
-Microsoft Word itself rather than trusting an approximation — see
-[`tools/word_preview.ps1`](tools/word_preview.ps1).
+every decision point. 
 
 ---
 
