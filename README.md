@@ -45,7 +45,7 @@ Four rules the project holds itself to, visible throughout the logs:
 |---|---|
 | **Evidence and inference are never blurred** | Every entry separates what a source directly supports from what the project inferred. Opinion is labelled as opinion. |
 | **Sources are tagged by interest** | Government, independent/academic, vendor/commercial, advocacy. Makes it visible when the evidence base is concentrated in parties with a stake in the answer. |
-| **Confirming and Competing evidence are sought together** | Competing viewpoints and alternative sources are considered to mitigate potential biases and ensure decisions are made objectively.  |
+| **Confirming and competing evidence are sought together** | Competing viewpoints and alternative sources are considered to mitigate potential biases and ensure decisions are made objectively.  |
 | **Nothing is silently altered** | Corrections and retractions are added as new entries referencing what they supersede, so the reasoning stays traceable. |
 
 ## Where to look
