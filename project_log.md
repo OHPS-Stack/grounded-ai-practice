@@ -599,6 +599,7 @@ no external citation:
   artifacts built during the session.
 
 - **What changed:**
+
   1. **Fill-ratio normalisation.** All 36 icons measured: fill-ratio (content
      bounding box vs. 512×512 canvas) ranged 0.48–0.90, median 0.64 — the
      root cause of icons reading as inconsistent sizes despite identical
@@ -606,6 +607,7 @@ no external citation:
      uniform scale+recentre transform (aspect ratio preserved, no path
      coordinates touched), matching the low-risk technique already used
      for the Vector Database viewBox fix (Entry 006).
+
   2. **Stroke-width normalisation (partial, creator-approved subset only).**
      Full-set stroke-width audit found values from 3 to 32. Creator
      approved exactly five specific fixes to the 14-weight de facto
@@ -617,6 +619,7 @@ no external citation:
      weights deliberately (bold outline + thin inner accent) were reviewed
      via a rendered side-by-side comparison and the creator confirmed
      these are intentionally sized, not touched.
+
   3. **Background-matching backing fills corrected from Paper to pure
      white.** Creator's finding: Ink/Paper hardcoded into fills meant to
      blend with a surrounding background (rather than used as genuine
@@ -637,6 +640,7 @@ no external citation:
      element to stay page-tinted — a deliberate exception, not an oversight.
      `logo_symbol_reversed.svg`'s Ink page-fill was separately confirmed
      as intentional and explicitly left alone (see point 5).
+
   4. **SVG layer/group labelling.** Per creator convention (stated while
      reviewing their own manual edit to `hybrid_ai.svg`): groups/layers
      should carry clear snake_case labels; individual leaf paths should not
@@ -647,12 +651,14 @@ no external citation:
      breaking any gradient/clip-path reference. `hybrid_ai.svg` skipped (no
      groups; creator was mid-edit). Logo symbol/lockup files already had
      adequate existing labels from earlier work, left alone.
+
   5. **Reversed-logo judgement call resolved.** Asked whether
      `logo_symbol_reversed.svg`'s Ink page-fill (Entry 011's "no longer
      intended to work on arbitrary dark backgrounds, only Ink specifically")
      should be reconsidered under the new background-fill finding. Creator
      confirmed it should stay exactly as-is — a genuinely intentional
      choice, not an instance of the bug being fixed elsewhere.
+
   6. **Profile pictures redesigned.** Creator supplied a reference image
      (external source, style only) and asked for its border/background
      treatment adapted with navy substituted for Ink. Both
@@ -1005,10 +1011,12 @@ no external citation:
   of work.
 
 - **What happened:**
+
   1. **Audit run first.** All 15 existing commits checked: history is
      clean, no damaging content. Critically, every politically candid
      passage was found to be **uncommitted** — working tree only — so the
      split could be made before anything entered permanent history.
+
   2. **Public/internal rule established** (`CLAUDE.md`, "Public repo vs.
      internal working files"): default public, with a gitignored
      `internal/` directory as the sole exception for private contacts,
@@ -1017,6 +1025,7 @@ no external citation:
      evidential status, via a pointer, without reproducing wording — the
      discipline is preserved without publishing material that damages the
      project's own aims.
+
   3. **Enforcement built and tested.** `.gitignore` excludes `internal/`;
      `.githooks/pre-commit` blocks any commit staging `internal/` or
      containing known private markers. Both paths were tested with real
@@ -1024,23 +1033,28 @@ no external citation:
      block. Documented honestly as guardrails against accident, not
      security controls: local-only, `--no-verify`-bypassable, and useless
      retroactively.
+
   4. **Content moved.** Candid political assessments relocated to
      `internal/editorial_positions.md`; private named contacts to
      `internal/contacts_private.md`. Tracked files rewritten to pointers.
      Verified zero remaining occurrences across all tracked files.
+
   5. **Audit process defined** (`CLAUDE.md`): three passes — Claude scan,
      independent second-model pass, then **required human verification**,
      with the creator deciding every flagged item. Triggered before any
      change in repo visibility, otherwise monthly. Outcomes logged here.
+
   6. **`README.md` written** as a public front door, assuming a reader who
      may be a prospective employer, collaborator or funder. Presents the
      research discipline itself as the project's current output, and
      points at the retraction (Entry 033) and self-bias-check (Entry 013)
      as evidence of that discipline rather than hiding them.
+
   7. **Housekeeping surfaced by the audit:** three dangling
      `[[wiki-link]]` references to a local memory file that public readers
      cannot see were replaced with real `project_brief.md` references;
      Word lock files (`~$*`) and OS cruft added to `.gitignore`.
+
   8. **Instro AI competing interest declared.** The creator has a personal
      connection to Instro AI, which this project's research cites
      positively (`research_log.md` Entry 031). Decision: disclose in any
@@ -1077,6 +1091,7 @@ no external citation:
   logged as `research_log.md` Entries 043–048.
 
 - **What happened:**
+
   1. **Logo asset bug found and fixed.** The README logo rendered wrongly.
      Root cause was not the README: all twelve non-reversed lockup PNGs
      (horizontal and vertical, standard and mono) had been exported onto
@@ -1086,12 +1101,14 @@ no external citation:
      and verified against expected ratios. The README now also swaps to the
      reversed lockup under `prefers-color-scheme: dark`, since the standard
      lockup's Ink wordmark is close to invisible on a dark GitHub theme.
+
   2. **Evidence gaps closed before writing**, on the view that better
      sources produce a measurably better document than better prose does.
      Two significant finds: the Public Accounts Committee's *Use of AI in
      Government* (Entry 047), the project's first genuinely independent
      scrutiny source; and the provenance of the £400bn figure (Entry 048),
      traced to vendor-commissioned consultancy research.
+
   3. **Report built** as `drafts/UK_AI_Skills_Ambition_Report.docx`, eight
      pages, on the GAP style system. Structure: an opinionated
      Overview/Editorial, then the ambition, the delivered results, the
@@ -1101,6 +1118,7 @@ no external citation:
      Skills Hub briefing applied: related critique sections merged rather
      than split, scope widened beyond the Hub, and sentence complexity kept
      down.
+
   4. **Two defects caught by rendering, not by reading.** An orphaned
      media file failed schema validation and was removed. More
      significantly, hard page breaks collided with natural flow and
@@ -1109,6 +1127,7 @@ no external citation:
      can never orphan, and the manual page breaks removed in favour of
      natural flow. Document went from ten pages with a blank to eight
      clean ones.
+
   5. **Declared interests section included** — the report states plainly
      that it is published by a project proposing an alternative to what it
      criticises, and that the author benefits if the critique persuades.
@@ -1164,22 +1183,26 @@ no external citation:
   carrying the defect.
 
 - **Fixes applied:**
+
   1. `compatibilityMode` 15 declared in the report's `settings.xml`, and
      retrofitted into `drafts/Effective_Prompting_Example.docx` and
      `drafts/AI_Skills_Hub_Briefing.docx` by surgical settings-only
      rewrite (no content touched).
+
   2. **New tool** `tools/word_roundtrip_test.ps1` — opens, saves and
      closes through real Word and reports success or the actual error.
      All three fixed documents verified `SAVE OK`, with the report
      additionally confirmed to retain all five `wpg:wgp` groups and zero
      VML after a real Word save, and to hold `compatibilityMode` 15
      across a second round-trip.
+
   3. Heading icons corrected in the same pass: icons have real aspect
      variation (`outcomes` 90x56 vs `verification` 90x90) plus ~30%
      transparent padding, so a uniform square box rendered the wide ones
      short and illegible. Now cropped to content bbox and sized by
      height, with a negative `w:position` to centre them on the cap
      height instead of sitting on the baseline.
+
   4. Both rules written into `CLAUDE.md`'s Word document conventions.
 
 - **Inference drawn:** None beyond the diagnosis, which is directly
@@ -1211,12 +1234,14 @@ no external citation:
 - **Source:** Direct creator instruction, 2026-07-28.
 
 - **What happened:**
+
   1. **Integrity check run first**, before any renaming. It found four
      dangling references: `contacts_and_funding.md` (including a
      **clickable link in `README.md`**, the public front page),
      `Effective_Prompting_Example.docx`, and `AI_Skills_Hub_Briefing.docx`.
      It also found `Style_Reference_Example.docx` duplicated into
      `drafts/` alongside the tracked copy in `documents/`.
+
   2. **Naming standardised to lower snake_case** for the repository's
      markdown documents: `PROJECT_BRIEF.md`, `PROJECT_LOG.md`,
      `RESEARCH_LOG.md` and `RESEARCH_QUESTIONS.md` became
@@ -1224,6 +1249,7 @@ no external citation:
      `research_questions.md`. `internal/CONTACTS_AND_FUNDING.md` was
      renamed to match its siblings. 153 cross-references were rewritten
      across tracked and internal files.
+
   3. **Two deliberate exemptions**, agreed with the creator rather than
      assumed. `CLAUDE.md` stays uppercase because Claude Code looks for
      that exact filename. `README.md` stays uppercase because it is a
@@ -1234,15 +1260,18 @@ no external citation:
      filename is read by the recipient.
      **The resulting rule: snake_case for repository files, Title_Case for
      documents that leave the repository, with README and CLAUDE exempt.**
+
   4. **Windows case-rename trap handled.** `core.ignorecase` is true on
      this machine, so a direct `git mv` of a case-only rename would not
      have registered. Each file was moved via a temporary name; git
      recorded all four as true renames, preserving history.
+
   5. **`contacts_and_funding.md` moved to `internal/`** by the creator —
      recorded here as a deliberate reclassification, not a deletion. A
      register of named people one might approach for funding reads
      differently in public than a research log does, however carefully
      worded. `README.md` and `CLAUDE.md` updated accordingly.
+
   6. **`MIGRATION_CHECKPOINT.md` deleted** outright as spent; it recorded
      a one-off validation of the original Claude Project setup and had no
      inbound references.
@@ -1289,17 +1318,21 @@ no external citation:
 - **What happened:** PAWH — the predecessor project `project_brief.md`
   describes as historical source material — now has its technical
   history on record, in the creator's own analysis:
+
   1. **Where it ran:** a ChatGPT project on a Pro subscription,
      building "conceptually legitimate but badly implemented"
      agent-like tools.
+
   2. **The core mechanism:** periodic "Source of Truth" updates —
      markdown files holding agent guidance, assets and workflows,
      maintained to reduce and optimise context windows and usage —
      delivered by repeatedly uploading a bloated, unorganised zip
      (~400MB at its worst) into the ChatGPT Project Source area.
+
   3. **Around it:** ChatGPT-generated PowerShell scripts modifying
      project files automatically, and rudimentary git integration via
      the GitHub plugin.
+
   4. **The failure mode, in the creator's own attribution:** the
      project folder became too large and complex to manually navigate
      and review; over-reliance on AI with insufficient output checking;
@@ -1308,6 +1341,7 @@ no external citation:
      "an artifact of my poor implementation, not the capability of the
      model used". The attempted cure — meticulously crafted workflows
      per agential task — did not work either.
+
   5. **The resolution:** stepping back, reviewing alternatives, and
      finding that essentially everything being hand-rolled already
      existed as established convention and tooling (the Claude Code
@@ -1365,6 +1399,7 @@ no external citation:
 - **Source:** Direct creator instruction, 2026-07-29.
 
 - **What happened:**
+
   1. **The internal-indexing rule (decided 2026-07-28) is now applied
      in `CLAUDE.md`**, which previously contradicted it: internal files
      are indexed by `internal/README.md`, not by CLAUDE.md's "Where to
@@ -1374,24 +1409,28 @@ no external citation:
      files" section now states the rule and its rationale (a filename
      plus a one-line description can disclose a relationship on its
      own).
+
   2. **Prompt-craft feedback rule added to `CLAUDE.md`** (creator
      request): brief, concrete, occasional feedback where a prompt's
      construction materially shaped the outcome, plus flagging of
      prompts that would make good teaching material for the prompting
      pilot unit. Chosen framing is explicit-but-brief feedback rather
      than covert steering.
+
   3. **Stale-content fixes:** the research log's leftover entry-template
      comment (self-marked for removal "once first real entry is added";
      49 entries existed) deleted; CLAUDE.md's recorded memory path
      de-machined (it embedded a previous machine's absolute path — the
      replacement says resolve per machine instead of trusting a
      recorded example).
+
   4. **Naming/structure check:** this session's new internal files
      conform to the Entry 024 rule (snake_case; README exemption). One
      new explicit rule added to `internal/README.md`: third-party files
      under `reference_material/` keep their original filenames as
      received (provenance); directories the project creates follow
      lowercase snake_case (one directory renamed to comply).
+
   5. **Log-amendment policy adopted** (creator's explicit approval,
      2026-07-29) and written into `CLAUDE.md` as a new "Amending
      existing content" section. Three tiers, reconciling "open by
@@ -1412,6 +1451,7 @@ no external citation:
      `CLAUDE.md`: amending for privacy or for currency is legitimate;
      amending for appearance is not, and a correction of record happens
      in the open or not at all.
+
   6. **Scan result under the adopted policy:** no compromising content
      found in tracked files beyond what is already handled. The
      Instro-related public record (`research_log.md` Entries 031/033
@@ -1421,6 +1461,7 @@ no external citation:
      covers future publications, and a visibility-change trigger is
      recorded in the internal notes. Rewriting them now is the one move
      that could make an innocent record look managed.
+
   7. **Open Threads consolidated** (creator's approval, 2026-07-29).
      The section had reached 602 lines of chronological
      resolved/still-open passes interleaved, no longer serving the
@@ -1441,6 +1482,7 @@ no external citation:
      than deleted, since parked is not resolved; and Priority 3 now
      carries an explicit pointer showing it is blocked behind the
      technical-vs-literacy reconciliation rather than genuinely empty.
+
   7. **Model-prompt candidate parked:** the creator's 2026-07-29
      strategy prompt as annotated teaching material for the prompting
      pilot unit — pending the creator's own quality judgement against
@@ -1565,6 +1607,7 @@ no external citation:
 - **Source:** Direct creator decision, 2026-07-29.
 
 - **What happened:** Three changes to `CLAUDE.md`.
+
   1. **The amendment policy proposed in Entry 026 is now in force, and
      relaxed on adoption.** Its original tier 2 allowed exactly one
      retroactive fix to a dated entry: a broken cross-reference. The
@@ -1576,9 +1619,11 @@ no external citation:
      takes a dated note or superseding entry. Explicitly not licensed:
      condensing entries because the log feels long, and smoothing wording
      that is awkward because the thinking was.
+
   2. **"Log entries earn their length"** — a going-forward format rule.
      Detail belonging in the thing produced lives there and is
      referenced, not restated. Applies to new entries only.
+
   3. **"Lessons learned become learning content, not only rules"** — when
      a lesson here would be a genuine pitfall for a solo practitioner
      building AI capability without an institution behind them, it goes
@@ -1721,3 +1766,34 @@ no external citation:
 - **Effect on project direction:** The logs are materially easier to scan,
   which was the underlying aim behind the readability work in Entries 029
   and 031 rather than an end in itself.
+
+### Entry 033 — Numbered lists folded into the spacing rule, superseding Entry 032's stated limitation
+
+- **Date logged:** 2026-07-29
+
+- **Priority / Question:** Not tied to a research priority — formatting.
+  Supersedes the limitation recorded in Entry 032.
+
+- **Source:** Direct creator instruction, 2026-07-29.
+
+- **What happened:** Entry 032 recorded that numbered (`1.`) lists were
+  left out of the spacing sweep, on a literal reading of an instruction
+  that specified dashed items. The same inconsistency argument applies to
+  them, so the rule is now **all list items, dashed and numbered alike**.
+  A further 116 blank lines were inserted across five tracked files and
+  four internal ones, bringing the total to 939. The rule text in
+  `CLAUDE.md` was updated to match. Nothing else in the repo uses list
+  syntax, so coverage is complete.
+
+- **Inference drawn:** None — mechanical formatting.
+
+- **Limitations / conflicting evidence:** None outstanding. Entry 032's
+  figure of 823 and its statement that numbered lists were excluded were
+  both accurate at the time it was written and are left unedited; this
+  entry supersedes them rather than rewriting the original, per the
+  amendment rule.
+
+- **Effect on project direction:** Closes the formatting work. Also a
+  worked example of the tier-2 rule in practice: Entry 032 had already
+  been committed, so the correction took a new entry rather than an
+  in-place edit.

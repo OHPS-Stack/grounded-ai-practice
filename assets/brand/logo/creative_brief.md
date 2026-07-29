@@ -53,16 +53,21 @@ welcome — these are starting points, not a spec:
 
 1. **Hand + spark** — an open hand/palm supporting a small spark or node.
    Human oversight holding AI, not the reverse.
+
 2. **Lens + spark** — a magnifying glass with a small spark/mark inside the
    lens. Verifying or examining AI output rather than accepting it blindly.
+
 3. **Tree from a chip/base** — a small circuit-board or chip base with a
    tree or growth shape rising from it. Growth and practice rooted in a
    technical foundation.
+
 4. **Stepping stones** — a short ascending sequence of simple shapes
    (squares/stones), the last one filled solid. Practice as a sequential,
    modular path rather than one big leap.
+
 5. **Compass** — a compass body with a two-tone needle (one tip in Ember).
    Practical direction/guidance through AI complexity, not a black box.
+
 6. **Bookmark + check** — a bookmark/ribbon shape with a checkmark cut
    through it. Returning practice plus verified understanding.
 

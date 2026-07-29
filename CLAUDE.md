@@ -226,15 +226,16 @@ as demonstrated to work.
 - Markdown is the default format for research/reference documents, matching
   the existing project files.
 
-- **Every dashed list item is separated by a blank line.** Adopted
-  2026-07-29 and applied across every markdown file in the repo. The
-  older convention ran bullets straight on from one another, which turned
-  any list of more than two or three items into a single indistinguishable
-  wall of text. The rule is unconditional: a blank line before every `- `
-  item, short ones included, at every nesting level. Consistency is the
-  point — a rule with a length threshold produces lists that are spaced in
-  some places and not others, which reads worse than either style applied
-  throughout.
+- **Every list item is separated by a blank line.** Adopted 2026-07-29
+  and applied across every markdown file in the repo. The older
+  convention ran items straight on from one another, which turned any
+  list of more than two or three into a single indistinguishable wall of
+  text. The rule is unconditional: a blank line before every `- ` and
+  every `1.` item, short ones included, at every nesting level.
+  Consistency is the point — a rule with a length threshold, or one
+  covering bullets but not numbered lists, produces lists that are spaced
+  in some places and not others, which reads worse than either style
+  applied throughout.
 
 - **Avoid dense blocks generally.** The same instinct applies beyond
   lists: split long unbroken paragraphs, and treat a paragraph that has
@@ -533,6 +534,7 @@ the sensitive party. Decided by the creator 2026-07-28.
 Two layers:
 
 1. `.gitignore` excludes `internal/`.
+
 2. `.githooks/pre-commit` **blocks** commits that stage anything under
    `internal/`, or that contain known private markers in tracked files.
    Install once per machine: `git config core.hooksPath .githooks`
@@ -563,12 +565,14 @@ Three passes, in order, because they catch different things:
    tokens; dangling references to files readers cannot see (e.g.
    `[[wiki-links]]` to local memory); stale claims contradicted by later
    entries. Report findings; do not silently rewrite.
+
 2. **ChatGPT pass (or another model).** Same brief, run independently by
    the creator. Different models miss different things, and a second
    opinion on "would this embarrass you" is worth more than a second run
    of the same model. This has already proven its value once — the
    external review of the AI Skills Hub briefing surfaced real defects
    (`project_log.md` Entry 019).
+
 3. **Human verification — required, not optional.** The creator decides on
    every flagged item. Neither model decides what is safe to publish.
    Judgement calls about reputation, relationships and political framing

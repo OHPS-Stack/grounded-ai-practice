@@ -85,6 +85,7 @@ Going forward, this log follows two additional rules:
    "does the opposite hold" or "is this framing contested" search is run
    alongside the confirming search — not as an afterthought, but before the
    claim is logged as evidence.
+
 2. **Source interest tagging.** The Source key table below now includes an
    "Interest" column, classifying each source as `Independent/Academic`,
    `Government/Official`, `Vendor/Commercial`, or `Advocacy/Membership body`.
@@ -781,6 +782,7 @@ Full citation is given once here; log entries below cite the short tag only.
   hurting graduate/entry-level hiring (firms cutting junior roles, fewer
   vacancies, graduate ads down 45% in 2025), while the LinkedIn Economic
   Graph Research Institute and an FT analysis (Burn-Murdoch & O'Connor,
+
   2026) find no clear evidence AI specifically (rather than post-COVID or
   cyclical effects) is driving the graduate slowdown. Skills England's own
   conclusion is "too early to say." This is a good model of the
@@ -1740,6 +1742,7 @@ Full citation is given once here; log entries below cite the short tag only.
 - **Priority / Question:** Immediate priority Q5 / Priority 3 — the specific
   gap Open Threads flags as "the immediate next decision point, not yet
   addressed": which single core capability the pilot unit (decided in Entry
+
   035) should teach.
 
 - **Source:** Synthesis of existing logged evidence — `[SE-TOOLSPKG25]`,
@@ -2305,6 +2308,7 @@ Full citation is given once here; log entries below cite the short tag only.
 
 - **Inference drawn:** Three findings here are the project's own reading,
   not claims the source makes about itself.
+
   1. **The document contradicts the platform it promotes.** Its guidance
      tells employers to use diagnostics and build differentiated,
      role-specific pathways — the exact four capabilities three
@@ -2312,6 +2316,7 @@ Full citation is given once here; log entries below cite the short tag only.
      The Hub's self-description ("skill-level-tailored learning
      pathways") is directly contradicted by the reviewer finding that
      intermediate learners were served ~71% beginner-level content.
+
   2. **The contradiction is visible inside the document itself.** Its
      "Skills for success" table lists three skills (self-development, AI
      governance and compliance, change management) against a column
@@ -2322,6 +2327,7 @@ Full citation is given once here; log entries below cite the short tag only.
      That is the "directory, not a programme" critique demonstrated in
      the government's own document, not merely alleged by outside
      reviewers.
+
   3. **The evidence base is not independent of the delivery partner.**
      PwC built the Hub; PwC's own surveys (`PwC 2025a/b/c`) are, per
      Annex A, the main source of the paper's quantitative benchmarking
@@ -2626,6 +2632,7 @@ Full citation is given once here; log entries below cite the short tag only.
     government," risking duplicated effort and cost across siloed pilots.
 
 - **Inference drawn:** Two readings, both this entry's own.
+
   1. **This partially evidences a claim previously logged as unfounded.**
      The creator's flagged claim that policymakers lack practical
      understanding (`project_brief.md`) now has partial official support:
@@ -2635,6 +2642,7 @@ Full citation is given once here; log entries below cite the short tag only.
      not specifically about those writing AI policy or setting budgets —
      so the claim is upgraded from "unfounded" to "partially evidenced,
      with a scope caveat," not to "established."
+
   2. **The pilots-don't-scale failure appears on both sides.** Parliament
      found government cannot systematically capture learning from its own
      AI pilots; BridgeAI's own report (Entry 044) concluded that barriers
@@ -2756,12 +2764,14 @@ Full citation is given once here; log entries below cite the short tag only.
     `project_log.md` Entry 025.
 
 - **Inference drawn (each clearly this entry's own):**
+
   1. The account converges, unprompted, with the two strongest external
      critiques already logged: LSE's "course directory rather than a
      structured programme" (Entry 022) and the Innovate UK White
      Paper's own undifferentiated-catalogue evidence (Entry 043). A
      user experience matching published analysis it had no knowledge of
      is modest corroboration in both directions.
+
   2. The redirect-to-vendor pattern raises a concrete
      metrics-attribution question: if courses are taken and completed
      on third-party platforms after an outbound redirect, published
@@ -2769,6 +2779,7 @@ Full citation is given once here; log entries below cite the short tag only.
      completion data flow back at all? This connects directly to the
      Hub's missing usage figures (Entry 044) and has been sharpened
      into a specific FOI question set, held in the internal register.
+
   3. The stated signup motivation points at the Hub's one asset no
      third-party platform can replicate: official recognition. A
      redirect portal adds no accreditation value to a vendor
@@ -2776,9 +2787,11 @@ Full citation is given once here; log entries below cite the short tag only.
      *if* the Hub confers nothing of its own, which has not been
      verified (Open Thread). If that holds, the "earnest user drawn by
      official status" is exactly the user the current model wastes.
+
   4. The barrier pattern the account describes (redirects, account
      creation, possible payment steps, no pathway) bears directly on
      the plausibility of the 10-million-worker-by-2030 ambition (Entry
+
      018) — a directional observation, not a quantified one.
 
 - **Limitations / conflicting evidence:** n=1; memory-based and not
@@ -2903,12 +2916,14 @@ Full citation is given once here; log entries below cite the short tag only.
     multi-stakeholder engagement and diversity of perspective.
 
 - **Inference drawn (this entry's own, not NIST's):**
+
   1. The proposal as originally framed — a self-check that raises awareness
      of biases — is the specific intervention NIST says does not work.
      Taken at face value the finding does not kill the idea, but it
      redirects it: the useful artefact is a small set of **procedural
      triggers attached to specific moments of work**, not a list of biases
      to hold in mind.
+
   2. Three practices this project already runs are recognisable instances
      of what NIST recommends, arrived at independently and without this
      framing: the confirm/disconfirm pairing on foundational claims is
@@ -2918,17 +2933,20 @@ Full citation is given once here; log entries below cite the short tag only.
      is cadence. This is convergence, not validation — but it means the
      self-check should mostly *name and connect* existing practice rather
      than add new machinery.
+
   3. `selective adherence` is the precise term for a failure mode this
      project is structurally exposed to and has not named: Entry 013 caught
      the *input* form (framing queries to find support), whereas selective
      adherence is the *output* form (accepting AI results that fit the
      thesis with less scrutiny than results that don't). The existing rules
      cover the first and not the second.
+
   4. The `streetlight effect` describes something already visible in this
      log's own evidence base rather than a hypothetical risk: `[AISKILLSHUB]`
      (402 then 403), `[SBA-ADVOCACY25]` (403), `[AUTOBIAS-MED25]` (403) and
      `[SAIL4ALL25]` (login wall) are all unfetchable, so what the log
      contains is shaped in part by what happened to be retrievable.
+
   5. The `McNamara fallacy` is a live risk for the UK climate report
      specifically, whose argument rests on the contrast between published
      numbers. The fallacy would be to let what is counted stand in for what
@@ -3017,6 +3035,7 @@ possibilities is held in the project's internal working notes.
 
 - **The 18%-of-workers-feel-skills-are-adequate figure is from 2021**
   and is used in a 2026 White Paper without a freshness caveat (Entry
+
   043) — find current data or do not repeat it as current.
 
 **Unresolved conflicts and tensions**
@@ -3039,6 +3058,7 @@ possibilities is held in the project's internal working notes.
   for the responsible-use framing. Unaddressed.
 
 - **The measurement-artifact question on the SME/large-firm gap** (Entry
+
   041) is genuinely mixed rather than resolved — one Fed source suggests
   a definitional survey change partly explains the widening, another
   finds a small-firm-exclusion choice changes little. Revisit only if
@@ -3116,6 +3136,7 @@ possibilities is held in the project's internal working notes.
   research.
 
 - **PwC interest-concentration is identified but not quantified** (Entry
+
   043) — worth checking whether any non-PwC-sourced UK figures support
   the same skills-gap magnitude.
 

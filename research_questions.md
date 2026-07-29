@@ -14,10 +14,14 @@ The first research phase should answer five connected questions:
 
 1. What practical AI capability gap is sufficiently evidenced to justify this
    project?
+
 2. Which audience should Grounded AI Practice serve first?
+
 3. What should that audience be able to do after completing an initial learning
    pathway?
+
 4. Which learning methods are most appropriate for developing those capabilities?
+
 5. What should the project build first to test these assumptions?
 
 ## 1. Problem and evidence
