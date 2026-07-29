@@ -1123,3 +1123,327 @@ no external citation:
   distinction between current-state documents (which must be corrected
   when files move) and historical logs (which must not) is now recorded
   explicitly, since it will recur every time files are removed.
+
+### Entry 025 — PAWH's technical history recorded: the failure catalogue behind the project's method
+
+- **Date logged:** 2026-07-29
+- **Priority / Question:** Not tied to a research priority — project
+  history, recorded from the creator's own account (2026-07-29). The
+  research-evidence half of the same account (the AI Skills Hub user
+  journey that prompted PAWH) is `research_log.md` Entry 049; the full
+  primary text is held in the internal working notes.
+- **Source:** Direct creator account, 2026-07-29.
+- **What happened:** PAWH — the predecessor project `project_brief.md`
+  describes as historical source material — now has its technical
+  history on record, in the creator's own analysis:
+  1. **Where it ran:** a ChatGPT project on a Pro subscription,
+     building "conceptually legitimate but badly implemented"
+     agent-like tools.
+  2. **The core mechanism:** periodic "Source of Truth" updates —
+     markdown files holding agent guidance, assets and workflows,
+     maintained to reduce and optimise context windows and usage —
+     delivered by repeatedly uploading a bloated, unorganised zip
+     (~400MB at its worst) into the ChatGPT Project Source area.
+  3. **Around it:** ChatGPT-generated PowerShell scripts modifying
+     project files automatically, and rudimentary git integration via
+     the GitHub plugin.
+  4. **The failure mode, in the creator's own attribution:** the
+     project folder became too large and complex to manually navigate
+     and review; over-reliance on AI with insufficient output checking;
+     regression, long waits and unnecessarily high usage *despite*
+     rules being repeatedly iterated and refined in the project files —
+     "an artifact of my poor implementation, not the capability of the
+     model used". The attempted cure — meticulously crafted workflows
+     per agential task — did not work either.
+  5. **The resolution:** stepping back, reviewing alternatives, and
+     finding that essentially everything being hand-rolled already
+     existed as established convention and tooling (the Claude Code
+     workflow now in use). PAWH was closed out as a learning
+     experience; selected assets and ideas were retained; the project
+     restarted fresh.
+- **Inference drawn:** The failure catalogue maps, item by item, onto
+  existing conventions the project's future curriculum could teach —
+  which makes it distinctive raw material: a genuinely documented
+  record of a motivated newcomer independently reinventing standard
+  practice badly, before discovering it existed.
+  - Source-of-Truth markdown guidance → the `CLAUDE.md` /
+    project-instructions convention.
+  - Bulk zip re-uploads as state management → version control.
+  - Ever-longer rule files fighting regression → context/tooling
+    structure (subagents, skills), not rule volume — connecting to the
+    Entry 034 illustration already logged in the research log.
+  - Unchecked outputs degrading quietly → the verify-against-ground-
+    truth discipline this project now applies (`tools/word_preview.ps1`
+    et al.).
+  Positioning inference, for the creator's later decision rather than
+  action now: the founder's journey — earnest official-pathway user,
+  failed by it (Entry 049), self-taught through documented failure to
+  working practice — is itself the project's strongest single
+  credibility narrative, and the repo is its evidence.
+- **Limitations / conflicting evidence:** A single retrospective
+  self-account; timings and the 400MB figure are the creator's
+  recollection. PAWH's artefacts survive and could corroborate details
+  if that ever matters. How much of the personal framing becomes public
+  is an open decision recorded with the primary text in the internal
+  notes — this entry deliberately carries the technical history only.
+- **Effect on project direction:** Candidate content for the pilot unit
+  ("you will reinvent this badly; here is the existing convention" is a
+  teachable pattern with a true story behind it). Confirms the
+  project's existing bias toward tooling-verified workflows over
+  rule-accumulation as learned, not assumed. No new commitments made.
+
+### Entry 026 — Housekeeping pass: internal-indexing rule applied to CLAUDE.md, prompt-craft feedback rule added, log-amendment policy proposed
+
+- **Date logged:** 2026-07-29
+- **Priority / Question:** Not tied to a research priority — repository
+  hygiene and working-rule changes, on the creator's instruction to
+  transfer the session's conclusions into the repo, verify
+  structure/naming, and address historical-log integrity without
+  sacrificing openness.
+- **Source:** Direct creator instruction, 2026-07-29.
+- **What happened:**
+  1. **The internal-indexing rule (decided 2026-07-28) is now applied
+     in `CLAUDE.md`**, which previously contradicted it: internal files
+     are indexed by `internal/README.md`, not by CLAUDE.md's "Where to
+     look for what"; the ten-line public description of the
+     contacts/funding register was folded into a category-level
+     `internal/` bullet, and the "Public repo vs. internal working
+     files" section now states the rule and its rationale (a filename
+     plus a one-line description can disclose a relationship on its
+     own).
+  2. **Prompt-craft feedback rule added to `CLAUDE.md`** (creator
+     request): brief, concrete, occasional feedback where a prompt's
+     construction materially shaped the outcome, plus flagging of
+     prompts that would make good teaching material for the prompting
+     pilot unit. Chosen framing is explicit-but-brief feedback rather
+     than covert steering.
+  3. **Stale-content fixes:** the research log's leftover entry-template
+     comment (self-marked for removal "once first real entry is added";
+     49 entries existed) deleted; CLAUDE.md's recorded memory path
+     de-machined (it embedded a previous machine's absolute path — the
+     replacement says resolve per machine instead of trusting a
+     recorded example).
+  4. **Naming/structure check:** this session's new internal files
+     conform to the Entry 024 rule (snake_case; README exemption). One
+     new explicit rule added to `internal/README.md`: third-party files
+     under `reference_material/` keep their original filenames as
+     received (provenance); directories the project creates follow
+     lowercase snake_case (one directory renamed to comply).
+  5. **Log-amendment policy adopted** (creator's explicit approval,
+     2026-07-29) and written into `CLAUDE.md` as a new "Amending
+     existing content" section. Three tiers, reconciling "open by
+     design" with record integrity: *living/current-state content*
+     (Open Threads, README, CLAUDE.md, project_brief, source-key status
+     notes) freely amendable, since reflecting current truth is its
+     function; *dated log entries* append-only in spirit — errors
+     corrected by a superseding dated entry or a clearly marked, dated
+     correction note inside the old entry (the Entry 033 / Entry 046
+     pattern), never silently rewritten, because the logs' evidential
+     value depends on being trustworthy records, and a log found to
+     have been quietly edited would cost more credibility than any
+     awkward entry; *compromising content* removed from current files
+     promptly with a dated removal marker, and git history handled per
+     the existing retroactive rule (already-committed is
+     already-public; rewriting history is a creator decision per item,
+     never unilateral). The governing distinction, now stated in
+     `CLAUDE.md`: amending for privacy or for currency is legitimate;
+     amending for appearance is not, and a correction of record happens
+     in the open or not at all.
+  6. **Scan result under the adopted policy:** no compromising content
+     found in tracked files beyond what is already handled. The
+     Instro-related public record (`research_log.md` Entries 031/033
+     and the Entry 021 declaration here) was assessed and
+     **deliberately left unchanged** under tier 2 — they are honest
+     records as written, the standing competing-interests declaration
+     covers future publications, and a visibility-change trigger is
+     recorded in the internal notes. Rewriting them now is the one move
+     that could make an innocent record look managed.
+  7. **Open Threads consolidated** (creator's approval, 2026-07-29).
+     The section had reached 602 lines of chronological
+     resolved/still-open passes interleaved, no longer serving the
+     at-a-glance purpose its own header claimed — the clearest
+     "confusing" finding of the scan, and a tier-1 living-content edit
+     rather than a history change. Every item was traced through its
+     supersessions first: 63 catalogued, of which the genuinely open
+     ones were regrouped under the ten `research_questions.md`
+     priorities plus an external-engagement group and a short,
+     explicitly-labelled tail for production items that are not
+     research questions. Resolved threads were deleted outright, since
+     the dated entry that closed each one is already its record —
+     which is now the section's stated rule going forward. Result: 602
+     lines to 275, no open item lost. Deliberate scope decisions worth
+     recording: the visual-identity thread was dropped entirely (closed
+     out at `project_log.md` Entry 011); the local-AI workstation
+     items were kept but grouped under a standing "parked" note rather
+     than deleted, since parked is not resolved; and Priority 3 now
+     carries an explicit pointer showing it is blocked behind the
+     technical-vs-literacy reconciliation rather than genuinely empty.
+  7. **Model-prompt candidate parked:** the creator's 2026-07-29
+     strategy prompt as annotated teaching material for the prompting
+     pilot unit — pending the creator's own quality judgement against
+     the in-session critique, and requiring redaction (named private
+     parties, the commercial relationship, personal history, internal
+     file references) before any public form exists. The annotated
+     form — a genuinely effective prompt plus its honest improvement
+     list — was judged more teachable than an idealised specimen.
+- **Inference drawn:** None — hygiene and process work.
+- **Limitations / conflicting evidence:** The scan covered tracked
+  files as they currently stand; git history was last audited
+  2026-07-28 (clean across 15 commits) and was not re-audited here.
+  The amendment policy in item 5 is a proposal on record, not a rule in
+  force — nothing in this pass touched a dated entry's content.
+- **Effect on project direction:** `CLAUDE.md` now agrees with the
+  internal-indexing decision instead of contradicting it. The
+  "open by design, but not at the expense of integrity" instruction has
+  a concrete mechanism awaiting approval rather than an ad-hoc
+  practice, and the distinction it rests on — amendment-for-privacy
+  vs. amendment-for-clarity vs. correction-of-record — is now written
+  down.
+
+### Entry 027 — Primary logo superseded: "GAP" wordmark decided, production parked
+
+- **Date logged:** 2026-07-29
+- **Priority / Question:** Not tied to a research priority — visual
+  identity, reversing a working decision of 24 July 2026.
+- **Source:** Direct creator decision, 2026-07-29.
+- **What happened:** The primary mark changes from the existing
+  icon+wordmark to a **stylised vector wordmark of "GAP"**. The creator's
+  assessment: the current symbol is PAWH-derived in character, somewhat
+  generic, and not professional enough to lead. Three reasons recorded:
+  clarity at small sizes; producible directly in Inkscape by the creator,
+  where the earlier symbol needed AI-mediated curve iteration that the
+  project's own vector-handoff rule now steers away from; and "GAP"
+  carrying the project's subject matter, the skills gap, so the mark says
+  something rather than only identifying. Existing symbol, variants and
+  both lockups are **retained as supporting assets — nothing deleted**.
+  `project_brief.md` "Visual identity" updated from status FINAL to
+  "palette and icon set FINAL; primary mark REOPENED", including the
+  explicit note that this reverses its own recorded "not a wordmark-only
+  mark" decision.
+- **Inference drawn:** None — a stated creator preference, not a research
+  finding.
+- **Limitations / conflicting evidence:** **No design work has been done
+  and none is scheduled** — only the direction is decided. Three questions
+  are left open for when production resumes: whether the wordmark stands
+  alone or pairs with a reduced device; how it sits against the existing
+  lockups; and a deliberate similarity check against the well-known
+  clothing retailer of the same name. Different sector, likely fine, but
+  better looked at than discovered late.
+- **Effect on project direction:** Visual identity is no longer fully
+  closed. The change is narrow: which mark leads, not the palette, icon
+  set or any existing file's validity.
+
+### Entry 028 — Bias self-check adopted, and reshaped by the source before it was built
+
+- **Date logged:** 2026-07-29
+- **Priority / Question:** Priority 4 and Priority 6, via the creator's
+  proposal to research human and AI biases and add mitigations as a
+  lightweight self-check in the project's working rules.
+- **Source:** Creator instruction, 2026-07-29, plus `research_log.md`
+  Entry 050 (`[NIST-1270]`, read directly) — that entry holds the
+  evidence; this one holds the decision.
+- **What happened:** The research contradicted the proposal's original
+  shape. NIST states that human biases are largely implicit and that
+  awareness of them does not confer control, and warns that surfacing
+  bias information to users can produce the opposite of the intended
+  effect. An awareness checklist was therefore the one design the
+  evidence specifically argued against. What was adopted into `CLAUDE.md`
+  instead is **five procedural triggers attached to specific moments** —
+  pair foundational claims; apply a reversal test to AI output that
+  supports the thesis; record sources that couldn't be retrieved; say
+  what the numbers don't count; keep the periodic check independent of
+  the author. Three of the five only name practice the project already
+  had. The rule carries an explicit **do-not-grow clause** and a
+  statement of what it does not claim.
+- **Inference drawn:** That the project had independently arrived at
+  three of NIST's recommended structural practices (confirm/disconfirm
+  pairing, second-model audit, scheduled cadence) is convergence worth
+  noting, not validation of them. The one genuine gap it exposed —
+  *selective adherence*, accepting supporting AI output with less
+  scrutiny than contradicting output — is now covered; `research_log.md`
+  Entry 013 had only caught the input-side version of the same problem.
+- **Limitations / conflicting evidence:** `[NIST-1270]` is US, voluntary,
+  and **published March 2022** — it predates general use of
+  conversational AI assistants and addresses algorithmic decision
+  systems, which is not this project's usage pattern. It gives **no
+  effect sizes** for any recommended mitigation, so the alternatives are
+  reasoned, not demonstrated. It was read because it was named as an
+  approved source, not found through a balanced search, and has no
+  disconfirming pair yet — logged as an open thread, since a working rule
+  now rests on it. Whether structured practice beats awareness remains
+  genuinely unsettled across Entries 028 (research log), 050 and this.
+- **Effect on project direction:** A working rule exists where none did.
+  The material is also candidate teaching content, but that is a separate
+  track and is not decided here.
+
+### Entry 029 — Log-amendment policy relaxed; entry-length and lessons-to-content rules added
+
+- **Date logged:** 2026-07-29
+- **Priority / Question:** Not tied to a research priority — working
+  rules, arising from the creator's aim to make the logs more readable
+  and to convert lessons already learned into teaching material.
+- **Source:** Direct creator decision, 2026-07-29.
+- **What happened:** Three changes to `CLAUDE.md`.
+  1. **The amendment policy proposed in Entry 026 is now in force, and
+     relaxed on adoption.** Its original tier 2 allowed exactly one
+     retroactive fix to a dated entry: a broken cross-reference. The
+     creator's compromise widens this to any edit that is minimal and
+     serves clarity or correctness. The operative test written in: does
+     the edit change *what the entry claimed, decided or knew at its
+     date*? If not, edit it and say nothing. If it does — including when
+     the original claim was wrong — it is a correction of record and
+     takes a dated note or superseding entry. Explicitly not licensed:
+     condensing entries because the log feels long, and smoothing wording
+     that is awkward because the thinking was.
+  2. **"Log entries earn their length"** — a going-forward format rule.
+     Detail belonging in the thing produced lives there and is
+     referenced, not restated. Applies to new entries only.
+  3. **"Lessons learned become learning content, not only rules"** — when
+     a lesson here would be a genuine pitfall for a solo practitioner
+     building AI capability without an institution behind them, it goes
+     to two places: the rule that prevents recurrence, and candidate raw
+     material for teaching output, flagged at the moment the rule is
+     written and paired with a research pass so it arrives with evidence
+     rather than as anecdote.
+- **Inference drawn:** Readability of the logs was diagnosed as a
+  navigation problem rather than a length problem, which is why the fix
+  is a forward format rule plus the existing index/Open Threads
+  structure, rather than retroactive condensing.
+- **Limitations / conflicting evidence:** The relaxation creates real
+  room for judgement, and the honest risk is that "clarity" quietly
+  absorbs edits that are really about appearance. The test above is the
+  only guard, and it depends on being applied in good faith; git history
+  remains the backstop. No existing entry was edited under the new rule
+  in this pass.
+- **Effect on project direction:** The record can now be tidied where
+  tidying costs nothing, without opening the door the original rule was
+  written to keep shut. The lessons-to-content rule turns the project's
+  own accumulated mistakes into an input for the teaching output rather
+  than only into internal governance.
+
+### Entry 030 — "Premature governance" reframed: the test is demonstrated need, not timing
+
+- **Date logged:** 2026-07-29
+- **Priority / Question:** Not tied to a research priority — working rules.
+- **Source:** Direct creator decision, 2026-07-29.
+- **What happened:** The standing caution against premature governance was
+  softened in `CLAUDE.md` ("Working approach") and `project_brief.md`
+  ("Relationship to PAWH"). The concern remains valid and the rule still
+  requires a demonstrated need, but the criterion is now stated
+  explicitly as **the need, not the speed at which a rule arrived**.
+  Recency is not evidence of prematurity, and judging a rule, decision or
+  file by how quickly it was added rather than by what it does is not a
+  fair assessment of it. PAWH's defect is restated as one of *fit* —
+  machinery exceeding what the work required — rather than of timing.
+  The bias self-check's do-not-grow clause was also rebased onto its own
+  evidence (`[NIST-1270]` on flagging backfiring) instead of leaning on
+  the general failure-mode framing.
+- **Inference drawn:** None — a stated creator position.
+- **Limitations / conflicting evidence:** `project_log.md` Entry 025
+  records the PAWH failure mode in the creator's own attribution at that
+  date and is **deliberately left unedited**, per the tier-2 rule: this
+  is a change of current stance, not a correction of what was believed
+  then.
+- **Effect on project direction:** Removes a standing bias toward
+  treating new rules as suspect by default, while keeping the
+  requirement that each one earn its place.

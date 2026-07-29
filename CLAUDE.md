@@ -21,8 +21,15 @@ the five immediate research priorities driving current work.
   distinguished — never blur these together.
 - Major decisions are made explicitly, not inferred from drafts.
 - Structures and rules are introduced only when they solve a demonstrated
-  need — avoid premature governance (this is explicitly what PAWH, the
-  project's predecessor, got wrong).
+  need. **The test is the need, not the timing.** A rule is not suspect
+  merely for having been written quickly, and "this was added recently"
+  is not by itself evidence that it was premature — judging a rule,
+  decision or file by how fast it arrived rather than by what it does is
+  not a fair assessment of it. What went wrong in PAWH was governance
+  built for problems the project never actually had, carrying more
+  machinery than the work required; the defect was fit, not speed. So
+  when a rule's value is unclear, ask what would go wrong without it, and
+  retire it if the answer is nothing.
 - The project should remain understandable without depending on an AI
   assistant. AI tools support research and production; human review remains
   necessary.
@@ -73,6 +80,18 @@ the five immediate research priorities driving current work.
   subtle tradeoff analysis, high-stakes prose), say so with the reason.
   Model switching is done by the creator in the app UI, never by Claude.
   One clear flag at the natural boundary — do not nag.
+- **Prompt-craft feedback, brief and when earned.** The creator is
+  deliberately building prompt-engineering skill, and the pilot unit
+  teaches exactly that — so their prompts are legitimate material for
+  concrete feedback. When a prompt's construction materially shaped the
+  outcome — an ambiguity that forced a guess, a request buried
+  mid-paragraph that nearly got missed, an explicit scope/budget
+  statement that let the work be planned properly — say so in a sentence
+  or two at a natural point in the reply, tied to that specific prompt.
+  Not every prompt, no scores, no padded praise, and never withhold a
+  real defect to be polite. When a prompt or its failure mode would make
+  good teaching material for the prompting curriculum, flag it as
+  candidate raw material, redaction needs included.
 - Ask the user directly for cheap-to-state facts about their own
   environment or preferences (e.g. "is X installed?") rather than running
   exploratory commands to find out — reserve diagnostic commands for
@@ -116,6 +135,58 @@ open threads). Key standing rules:
   before spending significant effort, especially for anything that would
   use a lot of tokens/time.
 
+### Bias self-check (adopted 2026-07-29)
+
+Grounded in `[NIST-1270]` — `research_log.md` Entry 050 holds the evidence
+and, importantly, its limits. One finding shaped the design of this list:
+NIST states that human biases are largely implicit and that "simply
+increasing awareness of bias does not ensure control over it." So this is
+deliberately **not** a set of biases to keep in mind. It is five triggers
+attached to specific moments, three of which only name practice this
+project already had.
+
+1. **Foundational claim → pair it.** Before a claim that would change
+   project direction, search for what would disconfirm it, not only what
+   supports it. Already the rule above; NIST's name for the pattern is
+   *effective challenge*.
+2. **AI output that supports the thesis → apply the reversal test.** Ask
+   whether it would have survived the same scrutiny had it concluded the
+   opposite. NIST's term is *selective adherence* — selectively adopting
+   algorithmic advice that matches pre-existing belief. `research_log.md`
+   Entry 013 caught the input-side version of this (framing queries to
+   find support); this covers the output side, which nothing previously
+   did.
+3. **A source couldn't be retrieved → record the hole.** A source that
+   403s or sits behind a login doesn't become absent from the evidence
+   base, it becomes invisible in it. Log it as unfetched rather than
+   letting the reachable evidence quietly stand in for all of it. NIST:
+   *streetlight effect*, searching only where it is easiest to look.
+4. **Argument rests on numbers → say what isn't counted.** State once, in
+   the text, what the figures do not capture. NIST: *McNamara fallacy*,
+   the belief that quantitative information is inherently more valuable
+   than other information. Directly live for the UK climate report, whose
+   argument is built on published figures.
+5. **Periodically → let someone who isn't the author check.** The
+   scheduled repo audit's second-model pass and required human
+   verification already do this. The property that matters is the
+   checker's independence, not the existence of a checklist — NIST warns
+   specifically that those being assessed "may have undue influence on
+   building or using the assessment."
+
+**Do not grow this list.** NIST also found that surfacing bias information
+downstream "does not always result in a directly positive outcome, and can
+in fact create the opposite" — so on the evidence a longer checklist here
+is a worse one, not merely a heavier one. That is the specific reason to
+hold this list at five, rather than a general preference for fewer rules.
+Add an item only when a real defect gets through that no existing item
+would have caught, and say in the log what that defect was.
+
+**What this list does not claim.** NIST gives no effect sizes for any of
+its recommended mitigations, and whether structured practices like these
+change behaviour better than awareness alone is genuinely unsettled — see
+the Priority 4 open threads. Treat these as reasoned working practice, not
+as demonstrated to work.
+
 ## File conventions
 
 - **Files intended to directly replace a previous version keep the exact
@@ -138,6 +209,27 @@ open threads). Key standing rules:
   collision (two unrelated tracks each independently numbering entries
   039-042) before the two were split apart on 2026-07-27 — see
   `project_log.md` Entry 017.
+- **Log entries earn their length.** Adopted 2026-07-29. An entry states
+  what was found or decided, the evidence or reasoning behind it, and what
+  changes as a result — then stops. Detail that belongs in the thing
+  produced (a document, a rule in this file, an asset) lives there and is
+  referenced, not restated in the log. Length is earned by consequence,
+  not by effort spent. This governs **new** entries only: existing ones
+  are not condensed retroactively (see "Amending existing content"), and
+  where an old stretch of log is hard to navigate the fix is the index or
+  the Open Threads section, not the entry.
+- **Lessons learned become learning content, not only rules.** Adopted
+  2026-07-29. When a mistake or hard-won lesson here would be a genuine
+  pitfall for someone in a similar position — a solo practitioner
+  building real AI capability without an institution behind them — it has
+  two destinations rather than one: the working rule that prevents a
+  recurrence (this file), and candidate raw material for the project's
+  actual teaching output. Flag the second at the moment the first is
+  written, while the specifics are still fresh, noting anything that
+  would need redacting. Do this alongside the relevant research pass, so
+  the lesson arrives with evidence attached rather than as unsupported
+  anecdote — the project's own experience is testimony (n=1), and the
+  `research_log.md` Entry 049 precedent is how that gets handled honestly.
 - **New standalone files beyond these three are the last resort, not the
   default.** Before creating one for durable content, check whether it can
   extend an existing file first. A new file only earns its existence if
@@ -176,6 +268,73 @@ open threads). Key standing rules:
   an *existing* id without first checking nothing references it (gradient
   `url(#...)`, `xlink:href`, `clip-path`) — only add labels to currently
   unlabelled groups unless there's a specific reason to touch a working one.
+
+## Amending existing content
+
+Adopted 2026-07-29. The project is open by design, but openness must not
+come at the expense of the integrity of its record. These are not the
+same value and they occasionally pull against each other; this section
+is how that conflict gets resolved. Three tiers, by what the content is
+*for*:
+
+**1. Living / current-state content — amend freely.** `README.md`, this
+file, `project_brief.md`, `research_log.md`'s Open Threads section and
+source-key status notes. Their job is to state what is true *now*, so
+editing them to match current reality is not rewriting history — it is
+the whole point. Stale content here is the defect, not the fix.
+
+**2. Dated log entries — append-only in spirit.** Entries in
+`research_log.md` and `project_log.md` record what was known, decided or
+believed on a given date. They are only worth citing because they do not
+quietly change. So:
+
+- Correct an error with a **new dated entry that supersedes** the old
+  one, or a **clearly marked, dated correction note inside** the
+  original. The established pattern is `research_log.md` Entries 033
+  (retraction) and 046 (deliberate revival with the reasoning shown).
+- **Never silently rewrite an entry** to make the record look tidier,
+  more consistent, or more flattering than it was. Anyone doing
+  diligence can read the git history; a log found to have been quietly
+  edited costs more credibility than any awkward entry ever could.
+- Historical references to deleted files, retracted framings and
+  superseded decisions **stay**. `project_log.md` Entry 024 already
+  settled this for file deletions: current-state documents get
+  corrected, historical logs do not.
+- **Minimal edits for clarity and correctness are allowed** (creator
+  decision, 2026-07-29, relaxing the original rule which permitted only
+  broken cross-references). An old entry may be edited in place to fix a
+  broken cross-reference, a typo, a misspelled name, a mistranscribed
+  figure, or a sentence whose wording obscures what it was trying to
+  say.
+
+  **The test:** does the edit change what the entry *claimed, decided or
+  knew at its date*? If not, edit it and say nothing — the change
+  corrects the expression, not the record. If it does — including when
+  the original claim was simply wrong — that is a correction of record
+  and takes a dated note or a superseding entry, as above. A wrong claim
+  is never quietly fixed; an unclear sentence always can be.
+
+  Two things this does **not** license. Condensing an entry because the
+  log feels long: length is a navigation problem, so fix the index or
+  the going-forward entry format instead (see "Log entries earn their
+  length" below). And smoothing wording that reads awkwardly because the
+  thinking at the time *was* awkward — that awkwardness is the record,
+  and it is often the most useful thing in it.
+
+**3. Compromising content — remove promptly, mark that you did.** If
+something in a tracked file should never have been public — a private
+individual, a candid assessment, a credential — take it out of the
+current file straight away and leave a dated marker saying material was
+removed and why, without restating it. Then handle git history under the
+"Retroactive rule" in "Public repo vs. internal working files": anything
+ever committed is already public in practice, rewriting history is
+disruptive and unreliable once a repo has been shared, and it is a
+creator decision per item — **never unilateral.**
+
+**The distinction to hold onto:** amending for *privacy* (tier 3) and
+amending for *currency* (tier 1) are legitimate and expected. Amending
+for *appearance* is not, and a correction-of-record (tier 2) is done in
+the open or not at all.
 
 ## Word document conventions
 
@@ -273,16 +432,24 @@ evidence-vs-opinion discipline without publishing material that damages
 its own aims. Worked examples: `research_log.md` Entry 046 and
 `project_brief.md`'s "Longer-term direction and positioning".
 
-**Contacts and funding are internal.** `internal/contacts_and_funding.md`
-holds the register of people and bodies worth approaching for comment plus
-routes to funding or support. It was originally written public-safe and
-tracked, then moved to `internal/` on 2026-07-28 — the creator's judgement
-being that a register of named people one might approach for money reads
-differently in public than a research log does, however carefully worded.
-It keeps its own standing rule: **no approach is made without the
-creator's explicit per-approach instruction**, and no personal contact
-details are recorded. `internal/contacts_private.md` remains the separate,
-always-private file for personal connections.
+**Contacts and funding are internal.** The register of people and bodies
+worth approaching, and routes to funding or support, lives under
+`internal/` — originally written public-safe and tracked, then moved on
+2026-07-28, the creator's judgement being that a register of named
+people one might approach for money reads differently in public than a
+research log does, however carefully worded. Its standing rule travels
+with it: **no approach is made without the creator's explicit
+per-approach instruction**.
+
+**Internal files are indexed inside `internal/`, not here.** Internal
+strategy and planning material that could be compromising is not
+indexed, named or described in tracked files unless explicitly required
+— a filename plus a one-line description can disclose a relationship on
+their own. `internal/README.md` is that directory's own index and
+carries the same add-in-the-same-edit discipline this file requires for
+tracked files. Where a tracked file genuinely needs to record that an
+internal position exists, use the pointer pattern above without naming
+the sensitive party. Decided by the creator 2026-07-28.
 
 ### Enforcement, and its honest limits
 
@@ -398,26 +565,22 @@ attempt it unilaterally.
   where to look. Keep it current when structure changes — it is the first
   and often only thing a visitor reads.
 - `internal/` — **gitignored, never committed.** Private contacts,
-  candid assessments, funding strategy, political reads. See "Public repo
-  vs. internal working files" above for what belongs here and why.
+  candid assessments, funding strategy, political reads, third-party
+  reference material. Indexed by its own `internal/README.md`, not
+  here — see "Public repo vs. internal working files" above for what
+  belongs in it, why, and the indexing rule.
 - `.githooks/pre-commit` — blocks commits staging `internal/` or
   containing known private markers. Install per machine with
   `git config core.hooksPath .githooks`. A guardrail against accident,
   not a security control.
-- `internal/contacts_and_funding.md` — **untracked.** Register of people
-  and bodies worth approaching for comment (academics, government/delivery
-  bodies, scrutiny bodies) and routes to funding or official support.
-  Still written to a public-safe standard (public roles and published work
-  only, no personal contact details, nothing awkward if the named person
-  read it) — keep it that way even though it is no longer published.
-  Contains a sequencing rule (FOI → academic comment → right of reply
-  before publication → funding last) and a standing rule that **no
-  approach is made without the creator's explicit per-approach
-  instruction**. Nobody listed has been contacted.
 - `assets/brand/icons/` — the promoted, working content-icon set (36
   icons, current palette). `svg/` for sources, `png/` for 64/128/256px
   exports, `README.md` for the filename→topic manifest.
-- `assets/brand/logo/` — the finished logo system, status FINAL:
+- `assets/brand/logo/` — the finished logo system. All files below remain
+  valid and in use, but **as of 2026-07-29 this is no longer the primary
+  mark**: a stylised "GAP" wordmark supersedes it as the lead identity
+  (direction decided, design not started — `project_log.md` Entry 027).
+  Nothing here is deprecated or deleted.
   `logo_symbol.svg` (default, shaded), `logo_symbol_flat.svg`,
   `_mono`/`_reversed` symbol variants, and `logo_lockup_horizontal`/
   `logo_lockup_vertical` (+ `_mono`/`_reversed`) icon+wordmark lockups, all
@@ -490,8 +653,9 @@ Two separate systems hold context across sessions — don't confuse them:
 - **Claude Code's own cross-session memory** (auto-generated notes about the
   user's preferences, working style, and project context) lives outside
   this repo, at a fixed path tied to the project directory:
-  `~/.claude/projects/<project-id>/memory/` (on this machine:
-  `C:\Users\ThinkPad\.claude\projects\C--Users-ThinkPad-Documents-grounded-ai-practice\memory\`).
+  `~/.claude/projects/<project-id>/memory/` — the concrete path is
+  machine-specific (the project moves between machines; resolve it on
+  the machine in use rather than trusting a recorded example).
   These are real, plain-text `.md` files — not sandboxed, not hidden —
   readable and editable with any text editor at any time. They are *not*
   git-tracked and are not part of this repo. This is where Claude's
