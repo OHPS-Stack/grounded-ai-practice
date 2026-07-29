@@ -2822,15 +2822,22 @@ possibilities is held in the project's internal working notes.
   *awareness of a bias* vs. *practised judgement against ground truth*?
   Entry 028 already suspected this; Entry 050 sharpens it but adds no
   evidence either way.
-- **`[NIST-1270]` has no disconfirming pair** (Entry 050) — it was read
-  because it was named as an approved source, not found through a
-  balanced search, and nothing has yet been sought that argues awareness
-  or reflective self-checks *do* change behaviour. Per this log's own
-  confirm/disconfirm rule this is a foundational-enough claim to warrant
-  the pairing, since a working rule has been adopted on the strength of
-  it. Also unaddressed: NIST predates conversational LLM assistants, so
-  a post-2023 source on human-LLM interaction specifically would be
-  worth more than another decision-systems source.
+- **`[NIST-1270]` disconfirming pair — judged not required** (creator
+  decision, 2026-07-29, closing the debt Entry 050 flagged). NIST was
+  read because it was named as an approved source rather than found
+  through a balanced search, and Entry 050 logged the missing pair as
+  outstanding. The decision: existing precedent for the practices it
+  supports is strong enough without one, and the confirm/disconfirm rule
+  is reserved for claims that would change project direction, which this
+  does not. Recorded as a decision, not an open task.
+
+- **A post-2023 source on human–LLM interaction is still wanted** (low
+  priority, Entry 050). `[NIST-1270]` predates conversational AI
+  assistants and addresses algorithmic decision systems, so it cannot
+  speak to the usage pattern this project actually has. A source on
+  working alongside an assistant would add something no
+  decision-systems source can — worth picking up opportunistically
+  rather than as a dedicated pass.
 
 ### Priority 5 — Comparable products and programmes
 

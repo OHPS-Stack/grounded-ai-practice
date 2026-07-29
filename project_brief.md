@@ -230,16 +230,14 @@ curriculum, sequencing, or relationship to the general-literacy pilot's
 content (e.g. whether the two tracks share any foundational modules) — those
 remain open.
 
-## Visual identity (working decision — 24 July 2026; primary mark reopened 29 July 2026)
+## Visual identity (working decision — 24 July 2026; primary mark 29 July 2026)
 
 The project's creator has finalised an initial colour palette and logo
 direction for Grounded AI Practice:
 
-- **Logo type:** stylised **"GAP" wordmark** as the primary mark, decided
-  2026-07-29 — reversing the 24 July 2026 decision recorded here, which
-  was "icon + wordmark (not a wordmark-only mark)". The existing icon and
-  lockups are retained as supporting assets rather than replaced; see
-  "Primary mark superseded" below. Design not yet started.
+- **Logo type:** stylised **"GAP" wordmark** as the primary mark, with the
+  existing icon and lockups retained as supporting assets. Design not yet
+  started — see "Primary mark" below.
 - **Tone:** between "grounded/academic" and "approachable/friendly" —
   credible and evidence-led without reading as dry, institutional or
   intimidating to the pilot's general-public/SME audience.
@@ -256,22 +254,20 @@ direction for Grounded AI Practice:
 | Stone | `#6E6E6E` | neutral grey — added 24 July 2026, no warm/cool lean by design (unlike every other colour in the palette, all warm-leaning). Realised use: secondary wordmark text ("AI"/"PRACTICE") in the reversed logo variants. |
 | Graphite | `#404040` | darker neutral grey — added 24 July 2026, same zero-lean character as Stone. Realised use: the "GROUNDED" wordmark accent and icon underline in the monochrome logo variants, standing in for Ember where no brand colour is wanted. |
 
-**Status: palette and icon set FINAL; primary mark REOPENED 2026-07-29.**
-The palette, logo symbol, wordmark and icon set are all **promoted,
-finished working assets** (symbol/icons promoted 24 July 2026; wordmark
-and variant set built the same day; final typographic polish — real
-typeface, kerning, path-conversion — completed by the creator in Inkscape
-24 July 2026), and every file listed below remains valid and in use. What
-changed on 2026-07-29 is which mark leads, not the quality or status of
-the existing assets.
+**Status: palette and icon set FINAL; primary mark in design.** The
+palette, logo symbol, wordmark and icon set are all **promoted, finished
+working assets** (symbol/icons promoted 24 July 2026; wordmark and variant
+set built the same day; final typographic polish — real typeface, kerning,
+path-conversion — completed in Inkscape 24 July 2026), and every file
+listed below remains valid and in use.
 
-### Primary mark superseded (decision 2026-07-29; production parked)
+### Primary mark (production parked)
 
-The current symbol is inherited in character from PAWH — a book-and-cursor
-device — and the creator's assessment is that it reads as somewhat generic
-and insufficiently professional to lead the identity. The replacement is a
-**stylised vector wordmark of "GAP"**, for three reasons recorded here so
-the rationale survives the gap before production starts:
+The existing symbol is a book-and-cursor device inherited in character
+from PAWH, which reads as somewhat generic and not professional enough to
+lead the identity. The primary mark is therefore a **stylised vector
+wordmark of "GAP"**, for three reasons recorded here so the rationale
+survives the gap before production starts:
 
 - it is clearer and more distinctive at small sizes than a detailed
   pictorial symbol;
@@ -592,9 +588,9 @@ The project has not yet determined:
 
 Visual identity is mostly settled: palette, tone, icon set and the existing
 symbol/lockup assets are final (24 July 2026) and remain in use. The one
-part reopened is **which mark leads** — a stylised "GAP" wordmark was
-decided on 2026-07-29 to become the primary mark, with design work
-deliberately not yet started. See "Visual identity" above.
+part still outstanding is the primary mark — a stylised "GAP" wordmark,
+decided 29 July 2026, with design work deliberately not yet started. See
+"Visual identity" above.
 
 These questions should remain open until supported by research and prototypes.
 

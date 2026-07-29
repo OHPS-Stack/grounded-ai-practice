@@ -1447,3 +1447,55 @@ no external citation:
 - **Effect on project direction:** Removes a standing bias toward
   treating new rules as suspect by default, while keeping the
   requirement that each one earn its place.
+
+### Entry 031 — Review feedback applied: canonical-check rule, formatting convention, current-state smoothing
+
+- **Date logged:** 2026-07-29
+
+- **Priority / Question:** Not tied to a research priority — working rules,
+  arising from the creator's review of commit `c1eaa3e`.
+
+- **Source:** Direct creator decision, 2026-07-29.
+
+- **What happened:** Four changes.
+
+  1. **Bias self-check trigger 5 rewritten.** It previously read "let
+     someone who isn't the author check", making independence the point.
+     It now reads **"nothing becomes canonical unchecked"**: every
+     AI-produced output gets a human read before it lands as project
+     fact, and that human can be the creator. The risk being addressed
+     is unreviewed material quietly compounding into canon, not a lack
+     of independence. Independent review — a different model, an outside
+     reader — is kept as a separate and less frequent practice, for
+     occasional intervals and on completion of substantial deliverables,
+     explicitly not a substitute for the routine check.
+
+  2. **The `[NIST-1270]` disconfirming-pair debt is closed** rather than
+     carried. Existing precedent for the practices it supports was
+     judged strong enough, and the confirm/disconfirm rule is reserved
+     for claims that would change project direction. The separate gap —
+     no post-2023 source on human–LLM interaction — stays open at low
+     priority.
+
+  3. **Current-state documents smooth over inconsequential changes.**
+     Added as a corollary to amendment tier 1, after `project_brief.md`
+     was written to narrate its own logo reversal. State the position;
+     let `project_log.md` hold the history. Visible supersession notes
+     are reserved for changes a reader would be misled without.
+
+  4. **Markdown formatting convention adopted:** a blank line between
+     list items whenever an item runs to more than one line, plus a
+     general instruction to break up dense blocks. The previous
+     run-straight-on style turned multi-line lists into walls of text.
+
+- **Inference drawn:** None — creator decisions on review.
+
+- **Limitations / conflicting evidence:** The formatting convention is
+  applied to new and substantially edited content only, so the repo will
+  hold both styles until files are touched for other reasons. A full
+  reformatting sweep has not been done and is not scheduled.
+
+- **Effect on project direction:** The self-check's most-used trigger now
+  describes a routine habit rather than an occasional audit, which is
+  what makes it usable day to day. Three of the four changes came out of
+  a review pass, which is itself the trigger-5 practice working.

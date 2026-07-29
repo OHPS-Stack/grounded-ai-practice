@@ -149,6 +149,7 @@ project already had.
    project direction, search for what would disconfirm it, not only what
    supports it. Already the rule above; NIST's name for the pattern is
    *effective challenge*.
+
 2. **AI output that supports the thesis → apply the reversal test.** Ask
    whether it would have survived the same scrutiny had it concluded the
    opposite. NIST's term is *selective adherence* — selectively adopting
@@ -156,22 +157,33 @@ project already had.
    Entry 013 caught the input-side version of this (framing queries to
    find support); this covers the output side, which nothing previously
    did.
+
 3. **A source couldn't be retrieved → record the hole.** A source that
    403s or sits behind a login doesn't become absent from the evidence
    base, it becomes invisible in it. Log it as unfetched rather than
    letting the reachable evidence quietly stand in for all of it. NIST:
    *streetlight effect*, searching only where it is easiest to look.
+
 4. **Argument rests on numbers → say what isn't counted.** State once, in
    the text, what the figures do not capture. NIST: *McNamara fallacy*,
    the belief that quantitative information is inherently more valuable
    than other information. Directly live for the UK climate report, whose
    argument is built on published figures.
-5. **Periodically → let someone who isn't the author check.** The
-   scheduled repo audit's second-model pass and required human
-   verification already do this. The property that matters is the
-   checker's independence, not the existence of a checklist — NIST warns
-   specifically that those being assessed "may have undue influence on
-   building or using the assessment."
+
+5. **Nothing becomes canonical unchecked.** Every AI-produced output gets
+   a human read before it lands as project fact — a rule, a log entry, a
+   claim in a deliverable. The human can be the creator; the point is not
+   independence but that no unreviewed output is allowed to set itself
+   as canonical and then be built on by later work. Unchecked material
+   compounds quietly, which is the risk this addresses.
+
+   Independent review is a **second, less frequent thing**: a different
+   model or an outside reader, at occasional intervals and on completion
+   of any substantial deliverable. That is where NIST's warning applies,
+   that those being assessed "may have undue influence on building or
+   using the assessment." Valuable, but not the every-output check —
+   don't conflate the two, and don't let the rarer one become an excuse
+   to skip the routine one.
 
 **Do not grow this list.** NIST also found that surfacing bias information
 downstream "does not always result in a directly positive outcome, and can
@@ -194,6 +206,17 @@ as demonstrated to work.
   This project relies on git for version history, not filename suffixes.
 - Markdown is the default format for research/reference documents, matching
   the existing project files.
+
+- **Blank line between list items; avoid dense blocks generally.** Adopted
+  2026-07-29. The older convention ran bullets straight on from one
+  another with no separating line, which turns any multi-line list into a
+  single indistinguishable wall of text. Put a blank line between items
+  whenever an item runs to more than one line, so each reads as its own
+  unit. The same instinct applies to prose: split long unbroken
+  paragraphs, and treat a paragraph that has grown past a screenful as a
+  sign the content wants a subheading or a list rather than more
+  sentences. Applies to anything newly written or substantially edited —
+  existing files get reformatted opportunistically, not in a sweep.
 - When editing `research_log.md` or `project_log.md`, preserve the existing
   entry structure (numbered entries, the field shape each uses) rather than
   restructuring it.
@@ -282,6 +305,15 @@ file, `project_brief.md`, `research_log.md`'s Open Threads section and
 source-key status notes. Their job is to state what is true *now*, so
 editing them to match current reality is not rewriting history — it is
 the whole point. Stale content here is the defect, not the fix.
+
+Corollary, added 2026-07-29 after getting it wrong once: **state the
+current position, don't narrate how it changed.** A current-state
+document that says "this reverses the earlier decision recorded here"
+is doing the log's job badly. Where a change is inconsequential to the
+project's integrity — a preference updated, a direction refined — just
+smooth it over and let `project_log.md` hold the history. Reserve
+visible supersession notes for changes a reader would be misled without
+(a retracted claim, a withdrawn recommendation).
 
 **2. Dated log entries — append-only in spirit.** Entries in
 `research_log.md` and `project_log.md` record what was known, decided or
@@ -576,11 +608,10 @@ attempt it unilaterally.
 - `assets/brand/icons/` — the promoted, working content-icon set (36
   icons, current palette). `svg/` for sources, `png/` for 64/128/256px
   exports, `README.md` for the filename→topic manifest.
-- `assets/brand/logo/` — the finished logo system. All files below remain
-  valid and in use, but **as of 2026-07-29 this is no longer the primary
-  mark**: a stylised "GAP" wordmark supersedes it as the lead identity
-  (direction decided, design not started — `project_log.md` Entry 027).
-  Nothing here is deprecated or deleted.
+- `assets/brand/logo/` — the finished logo system, and **supporting rather
+  than primary**: the lead identity is a stylised "GAP" wordmark, decided
+  but not yet designed (`project_log.md` Entry 027). Everything here
+  remains valid and in use, nothing is deprecated.
   `logo_symbol.svg` (default, shaded), `logo_symbol_flat.svg`,
   `_mono`/`_reversed` symbol variants, and `logo_lockup_horizontal`/
   `logo_lockup_vertical` (+ `_mono`/`_reversed`) icon+wordmark lockups, all
