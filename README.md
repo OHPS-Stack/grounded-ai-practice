@@ -65,6 +65,7 @@ Four rules the project holds itself to, visible throughout the logs:
 
 - A research report on the UK's AI climate, government posture, and
   actually delivered results.
+
 - A single pilot learning unit on effective prompting — deliberately small,
   designed to be tested with real learners before anything is scaled.
 

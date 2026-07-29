@@ -30,11 +30,17 @@ daily life. Many users and organisations can now adopt powerful AI tools
 without first developing a strong understanding of:
 
 - their capabilities and limitations;
+
 - appropriate verification and human oversight;
+
 - privacy, security and ethical risks;
+
 - cost and operational trade-offs;
+
 - context, retrieval and tool-connected workflows;
+
 - when local, cloud or hybrid approaches are appropriate;
+
 - how to evaluate whether an AI-enabled process is genuinely effective.
 
 This may create both missed opportunities and unsafe, ineffective or
@@ -49,10 +55,15 @@ Grounded AI Practice is a personal and open-ended attempt to investigate that
 problem through:
 
 - research into AI skills, adoption, education and responsible practice;
+
 - comparison of existing learning platforms, frameworks and programmes;
+
 - development of practical competency and learning models;
+
 - hands-on experiments with local, cloud and hybrid AI systems;
+
 - accessible explanations of the concepts behind those systems;
+
 - prototypes that test different ways of teaching and applying AI capability.
 
 The project does not claim to provide a universal solution to AI upskilling.
@@ -65,10 +76,15 @@ points.
 Potential users may include:
 
 - people seeking stronger everyday AI literacy;
+
 - students and career changers;
+
 - workers adapting to AI-assisted roles;
+
 - technically curious learners;
+
 - educators and trainers;
+
 - small teams or organisations evaluating AI adoption.
 
 These groups are provisional. Research may show that the project needs a
@@ -80,6 +96,7 @@ Based on research to date, the project's creator has made an explicit —
 but still provisional and open to revision — decision to prioritise:
 
 - individuals seeking practical, everyday AI literacy (general public), with
+
 - particular attention to employees at small organisations who lack the
   employer-provided L&D infrastructure that existing frameworks assume.
 
@@ -108,11 +125,14 @@ A **single pilot learning unit**, not a roadmap, full course, repository or
 website. Specifically:
 
 - one core practical AI capability, not a full curriculum;
+
 - sized to PRIMES' "Modular" criterion (`SE-PRIMES-EMPLOYER26`) — roughly
   30–90 minutes, stackable, with a clear entry point;
+
 - sequenced using the Gradual Release of Responsibility pattern
   (`GRR-EBIP`): explicit modelling/worked example → guided practice →
   independent practice → reflection;
+
 - tested with a small number of real learners before any wider structure,
   content library or platform is built.
 
@@ -167,6 +187,7 @@ observation, or flagged claim), per the project's evidence discipline.
   reference point for long-term format thinking, not a build decision —
   the pilot unit above remains the first output, and "eventual permanent
   format" stays in "Not yet decided."
+
 - **Positioning aim (official channel):** the UK government and the GAP
   project — if it can be pitched to and approved by the correct governing
   body — are in a unique position to create an official, effective and
@@ -175,18 +196,21 @@ observation, or flagged claim), per the project's evidence discipline.
   critique thread, `research_log.md` Entries 018/022/025). This firms up
   the previously loosely-held government-recognition aim into an explicit
   positioning consideration.
+
 - **Political-timing observation (creator's own read, not evidence):** a
   view is held on how current political conditions might affect
   receptiveness to this kind of proposal. It is recorded in the project's
   internal working notes rather than here, is unverified, and no
   positioning argument should depend on it until checked. See `CLAUDE.md`,
   "Public repo vs. internal working files".
+
 - **Research asset:** the creator holds an active AI Skills Hub account.
   This enables first-hand evidence collection the project's tools cannot
   reach unauthenticated — screenshots and examples of direct
   contradictions between government guidance and government-delivered
   content, and side-by-side comparisons against genuinely effective
   learning platforms. To be used in a dedicated evidence-collection pass.
+
 - **Flagged claim (creator's own flag — currently unsupported):** "UK
   policymakers, businesses and politicians understand AI's value and
   importance conceptually, but few have a concrete practical understanding
@@ -194,6 +218,7 @@ observation, or flagged claim), per the project's evidence discipline.
   deciding spending." Explicitly marked as needing direct supporting
   quotes/evidence from policymakers before use in any external-facing
   document.
+
 - **Next research deliverable:** a comprehensive Word-document report on
   the current AI climate in the UK, the government's posture(s), and the
   actually delivered results — to frame why the current AI skills approach
@@ -238,9 +263,11 @@ direction for Grounded AI Practice:
 - **Logo type:** stylised **"GAP" wordmark** as the primary mark, with the
   existing icon and lockups retained as supporting assets. Design not yet
   started — see "Primary mark" below.
+
 - **Tone:** between "grounded/academic" and "approachable/friendly" —
   credible and evidence-led without reading as dry, institutional or
   intimidating to the pilot's general-public/SME audience.
+
 - **Palette** (six colours, roles noted):
 
 | Name | Hex | Role |
@@ -271,10 +298,12 @@ survives the gap before production starts:
 
 - it is clearer and more distinctive at small sizes than a detailed
   pictorial symbol;
+
 - it is producible directly by the creator in Inkscape, where the earlier
   symbol work needed several rounds of AI-mediated curve iteration that
   the "hand fine vector work to a real tool" rule now explicitly steers
   away from;
+
 - "GAP" carries the project's own subject matter — the skills gap — so the
   mark says something rather than merely identifying.
 
@@ -298,20 +327,24 @@ discovered late.
   couldn't satisfyingly achieve. Base palette is still Ink/Ember/Paper;
   gradient stops are tasteful variants around those for the shading effect,
   not deviations from the locked palette.
+
 - `logo_symbol_flat.svg` — flat-colour sibling (Ink `#27221E` / Ember
   `#F15E4B` / Paper `#F9F9F9`, no gradients), for contexts needing flat
   reproduction (favicon, single-colour, print, etc.). All variants below
   derive from this flat version, not the shaded one — gradients don't suit
   monochrome/reversed utility variants, which prioritise clarity over
   polish.
+
 - `logo_symbol_mono.svg` — single-Ink version (Ember underline recoloured
   to Ink) for one-colour print/embossing.
+
 - `logo_symbol_reversed.svg` — white-on-dark version, specifically designed
   for **Ink-coloured backgrounds**: body white, chevron/cursor Ink, Ember
   underline kept as the surviving accent, page-fill area explicitly
   Ink-coloured (a deliberate creator choice made during final polish,
   superseding the original transparent-page-fill design — no longer
   intended to work on arbitrary dark backgrounds, only Ink specifically).
+
 - `logo_lockup_horizontal.svg` / `logo_lockup_vertical.svg` (+ `_mono` /
   `_reversed` for each) — icon + two-line wordmark ("GROUNDED AI" /
   "PRACTICE"), side-by-side and stacked. All wordmark text is now real
@@ -331,9 +364,11 @@ discovered late.
   `emberGrad` gradients and the missing spine-shadow path across from
   `logo_symbol.svg` (book-shape geometry confirmed identical between the
   two, so this is a direct reuse, not a reconstruction).
+
 - `png/` — raster exports, regenerated from final SVGs: symbol and symbol
   variants at 32/64/128/256/512/1024px; lockup variants at 256/512/1024px
   width. All transparent background.
+
 - `profile_picture_square.svg` / `profile_picture_circular.svg` — avatar
   treatments for social/profile use (the circular one specifically for
   GitHub, which auto-crops square uploads to a circle anyway, but this
@@ -480,24 +515,30 @@ early architecture. Git/GitHub for version-controlling configuration and
 scripts throughout.
 
 **Planned later modules**, roughly in order of consideration:
+
 - document ingestion, embeddings and RAG (via Qdrant), with explicit
   attention to what gets indexed, where derived data lives, how chunking
   affects answers, and how to verify retrieved information actually
   supports a given answer;
+
 - voice interaction (Whisper speech-to-text, text-to-speech), kept as an
   optional module rather than a core dependency;
+
 - model routing/selection — matching task to the right-sized model (fast
   local model for routine work, larger local model for demanding/private
   tasks, coding-specific models, cloud models when local capability is
   insufficient) rather than assuming one model suits every task;
+
 - automation and visual workflow tools (Langflow, n8n) for scheduled/
   event-driven tasks and reusable prompt/workflow templates, introduced
   only after the underlying services and their security implications were
   understood;
+
 - MCP-style integrations connecting models to files, scripts, APIs,
   databases and other services — explicitly taught as **trust boundaries**
   (what an integration can read/modify, which credentials/network access it
   has, how to roll it back), not merely productivity features;
+
 - optional image/media generation as an experimental extension, not a
   baseline requirement.
 
@@ -540,11 +581,17 @@ The exact project does not need to be identical for every learner. Depending
 on their needs, it might involve:
 
 - improving research and prompting practices;
+
 - evaluating common cloud AI tools;
+
 - building a local AI workspace;
+
 - comparing local and cloud processing;
+
 - designing a hybrid workflow;
+
 - experimenting with retrieval, tools or automation;
+
 - applying responsible-use and verification methods to a workplace task.
 
 The local AI workstation concept from the earlier PAWH project may therefore
@@ -556,16 +603,25 @@ initiative.
 The project currently needs to investigate:
 
 - UK AI skills, education, employment and adoption;
+
 - the UK government's AI programmes, postures and actually delivered
   results (BridgeAI, AI Skills Hub, Innovate UK white papers and their
   underlying sources);
+
 - public and organisational AI literacy;
+
 - recognised competency and learning frameworks;
+
 - project-based and experiential learning;
+
 - comparable platforms such as roadmap.sh and LeetCode;
+
 - practical AI evaluation and responsible-use methods;
+
 - context engineering, RAG, MCP, memory and agent tools;
+
 - information architecture for people and AI retrieval;
+
 - the appropriate first public output and delivery format.
 
 ## Not yet decided
@@ -575,14 +631,19 @@ The project has not yet determined:
 - its primary audience beyond the working decision recorded above (still open:
   narrower sub-group definition, and confirmation the decision holds as
   research continues);
+
 - its eventual permanent format (guide, roadmap, course, website, software
   tool, repository, or a combination) — the working decision above only
   fixes the shape of the *first pilot test*, not the project's long-term
   format (see "Longer-term direction and positioning" for the roadmap.sh
   reference model now informing, but not deciding, this question);
+
 - its final curriculum or competency levels;
+
 - its permanent repository structure;
+
 - its long-term document and data architecture;
+
 - whether it should eventually become a commercial, community or purely
   personal initiative.
 
@@ -616,12 +677,17 @@ explicit review process.
 During the research stage:
 
 - factual claims should be supported by traceable sources;
+
 - evidence, inference, personal observation and proposal should be clearly
   distinguished;
+
 - major decisions should be made explicitly rather than inferred from drafts;
+
 - structures and rules should be introduced only when they solve a demonstrated
   need;
+
 - the project should remain understandable without depending on an AI assistant;
+
 - AI tools may support research and production, but human review remains
   necessary.
 

@@ -6,6 +6,7 @@ see `project_brief.md` ("Visual identity") and `research_log.md` (Entries
 037–041) for the recolour and fix history.
 
 - `svg/` — source vector files, one per icon, flat (no batch subfolders).
+
 - `png/` — raster exports at 64/128/256px, transparent background, named
   `{icon}_{size}.png`.
 

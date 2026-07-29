@@ -70,9 +70,12 @@ welcome — these are starting points, not a spec:
 
 - No generic AI visual cliches: no glowing brain, no robot head, no
   circuit-pattern brain, no blue/purple gradient "tech" look.
+
 - No literal text/lettering inside the icon itself.
+
 - No fine detail that disappears at small sizes — must read clearly as a
   favicon/app icon (~32-48px), not just at large display size.
+
 - No gradients, drop shadows, bevels or 3D rendering — flat colour only.
 
 ## Deliverable format

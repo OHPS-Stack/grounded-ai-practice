@@ -17,9 +17,12 @@ the five immediate research priorities driving current work.
 ## Working approach (from project_brief.md)
 
 - Factual claims must be traceable to sources.
+
 - Evidence, inference, personal observation, and proposal must be clearly
   distinguished — never blur these together.
+
 - Major decisions are made explicitly, not inferred from drafts.
+
 - Structures and rules are introduced only when they solve a demonstrated
   need. **The test is the need, not the timing.** A rule is not suspect
   merely for having been written quickly, and "this was added recently"
@@ -30,9 +33,11 @@ the five immediate research priorities driving current work.
   machinery than the work required; the defect was fit, not speed. So
   when a rule's value is unclear, ask what would go wrong without it, and
   retire it if the answer is nothing.
+
 - The project should remain understandable without depending on an AI
   assistant. AI tools support research and production; human review remains
   necessary.
+
 - Commands should never be blind copy-paste — whether Claude runs one or
   hands one to the user. When suggesting a command for the user to run
   themselves, explain what it does and why, especially anything security or
@@ -43,6 +48,7 @@ the five immediate research priorities driving current work.
   Claude executing directly — even when permission would likely be
   granted. Reserve direct execution for read-only/diagnostic actions or
   when the user explicitly asks Claude to run something.
+
 - Word documents (`.docx`) get a self-check before being treated as
   finished: `tools/word_preview.ps1` exports the file through actual
   Microsoft Word via COM automation to PDF, which Claude then reads
@@ -50,11 +56,13 @@ the five immediate research priorities driving current work.
   engine has diverged from Word's real rendering on grouped/shape-based
   content in this project before, so treat a LibreOffice preview as
   provisional, not confirmation that formatting is correct.
+
 - More generally: prefer workflows where output can be self-verified
   against ground truth (a real renderer, the actual target application, a
   test suite) over iterative guess-and-describe loops. If no such path
   exists yet but one could plausibly be built, say so explicitly rather
   than defaulting to repeated manual review rounds.
+
 - **Fine visual/spatial refinement gets handed to a real tool, not
   iterated through description.** Early concept exploration (comparing
   directions, testing palettes, rough layouts) works well as an inline
@@ -68,11 +76,13 @@ the five immediate research priorities driving current work.
   recurred here. If a hand-edited file comes back, treat it as
   authoritative and re-read it rather than assuming the in-repo copy
   reflects the latest manual edits.
+
 - **Use common PowerShell aliases** (`ls`, `cat`, `cd`) rather than full
   cmdlet names when giving or explaining commands day-to-day. Full
   official names belong in curriculum content that is specifically
   teaching command aliasing — that is the point being taught there, not a
   default for ordinary working sessions.
+
 - **Flag model fit at task boundaries.** When the current model is overkill
   for what is coming (mechanical fetch-and-extract, bulk edits, rendering
   loops), stop and prompt to switch before spending on it. When a task
@@ -80,6 +90,7 @@ the five immediate research priorities driving current work.
   subtle tradeoff analysis, high-stakes prose), say so with the reason.
   Model switching is done by the creator in the app UI, never by Claude.
   One clear flag at the natural boundary — do not nag.
+
 - **Prompt-craft feedback, brief and when earned.** The creator is
   deliberately building prompt-engineering skill, and the pilot unit
   teaches exactly that — so their prompts are legitimate material for
@@ -92,15 +103,18 @@ the five immediate research priorities driving current work.
   real defect to be polite. When a prompt or its failure mode would make
   good teaching material for the prompting curriculum, flag it as
   candidate raw material, redaction needs included.
+
 - Ask the user directly for cheap-to-state facts about their own
   environment or preferences (e.g. "is X installed?") rather than running
   exploratory commands to find out — reserve diagnostic commands for
   things faster to check than to ask about.
+
 - If a task's best approach depends on a tool or runtime that turns out to
   be missing, say so explicitly — what's missing, what it would unlock,
   brief install instructions — before falling back to a weaker workaround.
   Never install anything yourself; surface the command for the user to run
   (see "Commands should never be blind copy-paste" below).
+
 - When a stated pain point matches a known tool or product (including
   Anthropic's own — Claude for Word/Excel/PowerPoint, Claude in Chrome,
   connectors), name it unprompted. Time it to when it's actually relevant
@@ -118,19 +132,23 @@ open threads). Key standing rules:
   evidence for anything scope-defining. Tag every new source's interest
   type (Independent/Academic, Government/Official, Vendor/Commercial,
   Advocacy/Membership body) in the Source key table.
+
 - **Confirm/disconfirm pairing applies to foundational claims** — the ones
   that would actually change project direction — not to every statistic.
   Don't default to only searching for evidence that supports an existing
   hypothesis; this project has already caught itself doing this once (see
   Entry 013 in the log) and corrected for it.
+
 - **Exhaustive adversarial verification of every claim is deferred** to
   dedicated deep-research passes later, once scope is firmer. Right now,
   general research to inform direction is the priority, not a citation-perfect
   final product.
+
 - **Known unresolved tensions are parked, not endlessly re-litigated:** e.g.
   the technical-vs-literacy capability framing question, the gap-widening-
   vs-declining conflict between sources. Check `research_log.md`'s Open
   Threads section before assuming something hasn't been investigated yet.
+
 - **Don't chase every open thread every session.** Check in on direction
   before spending significant effort, especially for anything that would
   use a lot of tokens/time.
@@ -204,22 +222,29 @@ as demonstrated to work.
 - **Files intended to directly replace a previous version keep the exact
   same filename — no version suffixes** (no `_v2`, `_final`, `_updated`).
   This project relies on git for version history, not filename suffixes.
+
 - Markdown is the default format for research/reference documents, matching
   the existing project files.
 
-- **Blank line between list items; avoid dense blocks generally.** Adopted
-  2026-07-29. The older convention ran bullets straight on from one
-  another with no separating line, which turns any multi-line list into a
-  single indistinguishable wall of text. Put a blank line between items
-  whenever an item runs to more than one line, so each reads as its own
-  unit. The same instinct applies to prose: split long unbroken
-  paragraphs, and treat a paragraph that has grown past a screenful as a
-  sign the content wants a subheading or a list rather than more
-  sentences. Applies to anything newly written or substantially edited —
-  existing files get reformatted opportunistically, not in a sweep.
+- **Every dashed list item is separated by a blank line.** Adopted
+  2026-07-29 and applied across every markdown file in the repo. The
+  older convention ran bullets straight on from one another, which turned
+  any list of more than two or three items into a single indistinguishable
+  wall of text. The rule is unconditional: a blank line before every `- `
+  item, short ones included, at every nesting level. Consistency is the
+  point — a rule with a length threshold produces lists that are spaced in
+  some places and not others, which reads worse than either style applied
+  throughout.
+
+- **Avoid dense blocks generally.** The same instinct applies beyond
+  lists: split long unbroken paragraphs, and treat a paragraph that has
+  grown past a screenful as a sign the content wants a subheading or a
+  list rather than more sentences.
+
 - When editing `research_log.md` or `project_log.md`, preserve the existing
   entry structure (numbered entries, the field shape each uses) rather than
   restructuring it.
+
 - **`research_log.md` is for source-backed research findings only** —
   a dated, numbered entry answering a `research_questions.md` priority,
   with a citable source. **`project_log.md` is for everything else durable
@@ -232,6 +257,7 @@ as demonstrated to work.
   collision (two unrelated tracks each independently numbering entries
   039-042) before the two were split apart on 2026-07-27 — see
   `project_log.md` Entry 017.
+
 - **Log entries earn their length.** Adopted 2026-07-29. An entry states
   what was found or decided, the evidence or reasoning behind it, and what
   changes as a result — then stops. Detail that belongs in the thing
@@ -241,6 +267,7 @@ as demonstrated to work.
   are not condensed retroactively (see "Amending existing content"), and
   where an old stretch of log is hard to navigate the fix is the index or
   the Open Threads section, not the entry.
+
 - **Lessons learned become learning content, not only rules.** Adopted
   2026-07-29. When a mistake or hard-won lesson here would be a genuine
   pitfall for someone in a similar position — a solo practitioner
@@ -253,21 +280,25 @@ as demonstrated to work.
   the lesson arrives with evidence attached rather than as unsupported
   anecdote — the project's own experience is testimony (n=1), and the
   `research_log.md` Entry 049 precedent is how that gets handled honestly.
+
 - **New standalone files beyond these three are the last resort, not the
   default.** Before creating one for durable content, check whether it can
   extend an existing file first. A new file only earns its existence if
   it's a genuinely distinct, closed category that doesn't fit any existing
   file's purpose — not just because an explanation got long.
+
 - **Any new file must be added to this file's "Where to look for what"
   section in the same edit that creates it.** Indexing is not a follow-up
   task — a file left unindexed at the moment it's created is exactly the
   "badly indexed" failure mode this rule exists to prevent (see
   "Relationship to PAWH" in `project_brief.md`).
+
 - **Avoid jargon/buzzwords in naming or reader-facing copy** (unit titles,
   headings, capability names) — plain, concrete wording beats a clever
   abstract phrase. The fix for jargon is plainer language, not a simpler
   underlying idea — the working assumption is a fairly intelligent reader,
   so don't swing into patronising oversimplification either.
+
 - **In published prose, state strong facts flatly and let them imply the
   conclusion.** Present the facts, withhold the adjective, and close with a
   short sentence that points at the gap without naming it. The reader draws
@@ -284,6 +315,7 @@ as demonstrated to work.
   louder prose. Avoid the opposite register ("shockingly, the government
   has completely failed to...") which tells the reader what to think and
   invites argument with the characterisation rather than the facts.
+
 - **SVG/vector asset groups (`<g>` elements) should carry clear snake_case
   labels** (`id` and/or `inkscape:label`) so a human can find the right
   group to edit without guessing. Individual leaf `<path>` elements don't
@@ -324,14 +356,17 @@ quietly change. So:
   one, or a **clearly marked, dated correction note inside** the
   original. The established pattern is `research_log.md` Entries 033
   (retraction) and 046 (deliberate revival with the reasoning shown).
+
 - **Never silently rewrite an entry** to make the record look tidier,
   more consistent, or more flattering than it was. Anyone doing
   diligence can read the git history; a log found to have been quietly
   edited costs more credibility than any awkward entry ever could.
+
 - Historical references to deleted files, retracted framings and
   superseded decisions **stay**. `project_log.md` Entry 024 already
   settled this for file deletions: current-state documents get
   corrected, historical logs do not.
+
 - **Minimal edits for clarity and correctness are allowed** (creator
   decision, 2026-07-29, relaxing the original rule which permitted only
   broken cross-references). An old entry may be edited in place to fix a
@@ -382,6 +417,7 @@ style-reference review.
   ExtraLight/Light/Medium/SemiBold/Thin) if finer control is ever needed.
   Reference via `w:rFonts w:ascii="Public Sans"` and toggle `<w:b/>`/`<w:i/>`
   for bold/italic — no separate family string needed for those two faces.
+
 - **Structural text uses real named Word paragraph styles, not per-run
   direct formatting.** Title, Subtitle, Heading1/2/3, Normal/body, Caption
   and Quote each get their own font/size/weight/colour defined once in
@@ -393,6 +429,7 @@ style-reference review.
   content that's genuinely data-driven per instance — callout-card label
   colour (varies by semantic type), table cell shading, palette swatch
   text — not for faking a structural role with bold-and-a-bigger-size.
+
 - **Callout cards use small/medium/large size presets**, each fixing the
   icon-well size; a card's width (and therefore its text column) is always
   a free parameter independent of preset, so resizing a card for its
@@ -400,6 +437,7 @@ style-reference review.
   (`wpg:wgp`) of sibling shapes, not nested shapes — see `project_log.md`
   Entry 015 for why (Word rejects a shape nested inside another shape's
   text box) and the rest of the construction.
+
 - **`settings.xml` MUST declare `compatibilityMode` 15.** Non-negotiable
   for any document using shapes. Without it Word assumes compatibility
   mode 12 (Word 2007), which predates the DrawingML shape extensions
@@ -412,12 +450,14 @@ style-reference review.
   `AI_Skills_Hub_Briefing.docx` in place. The required block:
   `<w:compat><w:compatSetting w:name="compatibilityMode"
   w:uri="http://schemas.microsoft.com/office/word" w:val="15"/></w:compat>`
+
 - **Rendering is not the same check as saving.** `tools/word_preview.ps1`
   proves a document *looks* right; it opens read-only and can never catch
   a save-path defect. `tools/word_roundtrip_test.ps1` opens, saves and
   closes through real Word to prove the document is actually *editable*.
   Run both on any new document construction — the compatibilityMode bug
   above passed every rendering check for three documents running.
+
 - **Content icons have genuinely different aspect ratios** (`outcomes` is
   90×56, `verification` is 90×90) and roughly 30% transparent padding.
   Sizing them to a uniform square box makes the wide ones render short and
@@ -427,6 +467,7 @@ style-reference review.
   so also apply a small negative `<w:position>` (about -4 half-points at
   13pt) to centre the icon on the cap height rather than leaving it
   sitting low.
+
 - **Vertical accent/divider bars are pill-shaped** — a narrow `roundRect`
   with `<a:gd name="adj" fmla="val 50000"/>` (50% corner radius relative to
   the shape's short side, which fully rounds a narrow bar into a capsule),
@@ -451,10 +492,14 @@ This is the only place the following belong:
 
 - Named private individuals, personal connections, and anything about a
   relationship that person has not consented to being published.
+
 - Candid assessments of named organisations or people, especially
   prospective funders, partners or interviewees.
+
 - Political opinions and motive readings about identifiable actors.
+
 - Funding approach strategy and tactical positioning.
+
 - Anything whose disclosure would embarrass the project or its subjects.
 
 **The pointer pattern.** Tracked files may record *that* an internal
@@ -495,8 +540,10 @@ Two layers:
 Both are guardrails against accident, **not security controls**:
 
 - `.gitignore` does nothing retroactively and is overridden by `git add -f`.
+
 - The hook is local-only (cloning does not install it) and is bypassed by
   `git commit --no-verify`.
+
 - **Neither protects git history.** Anything ever committed is public the
   moment the repo is made public, whether or not it was later deleted.
 
@@ -546,6 +593,7 @@ attempt it unilaterally.
   one-liner the user dictated directly). A go-ahead like "let's commit
   this" means prepare it, not execute it unreviewed — commits are
   semi-permanent and this repo may go public.
+
 - **Match message length to the size of the change.** Routine and
   maintenance commits (renames, cleanups, single fixes, asset
   regeneration) get a one-line title and nothing more, matching the
@@ -554,9 +602,11 @@ attempt it unilaterally.
   deliverable, a structural change to the repo, or a decision worth
   reading later. Defaulting to the long form on every commit buries the
   commits that actually matter.
+
 - **Never push to the remote without a separate, explicit go-ahead**, even
   immediately after a local commit the user asked for. The user handles
   pushes themselves.
+
 - **Commit messages (and any other outward-facing prose — docs, summaries)
   must match the user's own voice**: short, direct, no AI-register
   em-dash-chaining, and never third-person references to the user (e.g.
@@ -571,6 +621,7 @@ attempt it unilaterally.
   edited region. When inserting new content immediately before existing
   content, anchor edits narrowly and verify the target file afterward rather
   than assuming the edit landed cleanly.
+
 - Confirmation bias in research query framing was caught once already (only
   searching for evidence *for* the assumed problem, never against it) — stay
   alert to this pattern recurring, especially when sources have a
@@ -581,33 +632,41 @@ attempt it unilaterally.
 - `project_brief.md` — problem statement, scope, what's decided vs. open
   (including the "Visual identity" working decisions: palette, logo type,
   tone).
+
 - `research_questions.md` — the ten priority areas and their questions.
+
 - `research_log.md` — source key (with interest-type tags), dated log
   entries, and the Open Threads list showing what's resolved vs. still open.
   Research findings only — see "File conventions" above for the boundary
   with `project_log.md`.
+
 - `project_log.md` — dated log of scoping/creative decisions and design/
   production/technical work (visual identity history, icon/logo production
   notes, Word-document engineering notes, this file's own split from
   `research_log.md`). The chronological history behind what
   `project_brief.md` currently reflects.
+
 - `README.md` — the repository's public front door, written for a reader
   who may be a prospective employer, collaborator or funder. Explains what
   the project is, why the repo is public, the four research rules, and
   where to look. Keep it current when structure changes — it is the first
   and often only thing a visitor reads.
+
 - `internal/` — **gitignored, never committed.** Private contacts,
   candid assessments, funding strategy, political reads, third-party
   reference material. Indexed by its own `internal/README.md`, not
   here — see "Public repo vs. internal working files" above for what
   belongs in it, why, and the indexing rule.
+
 - `.githooks/pre-commit` — blocks commits staging `internal/` or
   containing known private markers. Install per machine with
   `git config core.hooksPath .githooks`. A guardrail against accident,
   not a security control.
+
 - `assets/brand/icons/` — the promoted, working content-icon set (36
   icons, current palette). `svg/` for sources, `png/` for 64/128/256px
   exports, `README.md` for the filename→topic manifest.
+
 - `assets/brand/logo/` — the finished logo system, and **supporting rather
   than primary**: the lead identity is a stylised "GAP" wordmark, decided
   but not yet designed (`project_log.md` Entry 027). Everything here
@@ -619,9 +678,11 @@ attempt it unilaterally.
   colour hierarchy, plus `profile_picture_square`/`profile_picture_circular`
   avatar derivatives, plus `png/` exports for all of them. See
   `project_brief.md` "Visual identity" for the full picture.
+
 - `assets/brand/logo/creative_brief.md` — portable creative brief for
   external logo-generation workflows (not a project research/decision
   document itself).
+
 - `drafts/` — work-in-progress files under active iteration. Currently:
   `UK_AI_Skills_Ambition_Report.docx` (+ self-check `.pdf`), an 8-page
   report on the UK's AI skills ambition, delivered results and the gap
@@ -637,6 +698,7 @@ attempt it unilaterally.
   construction history remains in `project_log.md` Entries 015 and 019 —
   those entries are historical records and are deliberately **not**
   rewritten to hide that the files once existed.
+
 - `documents/` — finished, current production exports, promoted out of
   `drafts/` once approved (not work-in-progress). Currently:
   `Style_Reference_Example.docx` (+ its self-check `.pdf`), a 6-page
@@ -655,6 +717,7 @@ attempt it unilaterally.
   speech-bubble styles across icons) are the one explicitly open exception
   — separately deferred, creator revisiting the icon set directly in
   Inkscape.
+
 - `tools/word_roundtrip_test.ps1` — the **second** `.docx` self-check:
   opens a document in real Word, saves it, closes it, and reports whether
   the save succeeded. Catches defects `word_preview.ps1` structurally
@@ -662,6 +725,7 @@ attempt it unilaterally.
   document rendered perfectly but could not be saved (see the
   `compatibilityMode` rule above). Always run it against a throwaway copy
    — it saves in place. Same Word-process safety guard as the preview tool.
+
 - `tools/word_preview.ps1` — self-check step for `.docx` work: exports a
   document through real Microsoft Word (COM automation) to PDF so Claude
   can visually verify formatting the way Word actually renders it, instead
@@ -681,6 +745,7 @@ Two separate systems hold context across sessions — don't confuse them:
   project-relevant working rules belong — Claude should propose additions
   here (for review, not silent edits) when something durable and
   process-level emerges, rather than leaving it stranded in chat history.
+
 - **Claude Code's own cross-session memory** (auto-generated notes about the
   user's preferences, working style, and project context) lives outside
   this repo, at a fixed path tied to the project directory:

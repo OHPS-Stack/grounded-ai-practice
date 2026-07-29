@@ -56,11 +56,13 @@ practical application of it is deliberately lighter for now:
   Vendor/commercial and advocacy sources are deprioritised, not banned —
   they're still useful for spotting a claim worth checking, but not treated
   as evidence on their own for anything scope-defining.
+
 - **Confirm/disconfirm pairing applies to foundational claims only** — the
   ones that would actually change project direction — not to every
   statistic. Exhaustive adversarial verification of every entry is deferred
   to dedicated deep-research passes later, once scope is firmer and the
   cost of a dedicated pass is justified by what's riding on the answer.
+
 - **Known unresolved tensions are parked, not chased further right now:**
   the technical-vs-literacy framing question (Entry 001 vs. Entry 002 vs.
   Entry 012) and the gap-widening-vs-declining conflict (Entry 002 vs.
@@ -171,11 +173,15 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 001 (corrected 2026-07-24 — see note below)
 
 - **Date logged:** 2026-07-24
+
 - **Priority / Question:** Priority 1 — "How common are unsafe, ineffective,
   costly or over-dependent forms of AI use?" / "Where are the strongest
   documented gaps between AI adoption and responsible implementation?"
+
 - **Source:** `[GT-DSIT25]`
+
 - **Checked date:** 2026-07-24
+
 - **What the source directly supports:** 97% of respondents identified at
   least one skills gap **in the AI labour market specifically** — this
   survey is about the AI sector/profession workforce (AI specialists,
@@ -187,7 +193,9 @@ Full citation is given once here; log entries below cite the short tag only.
   affected business goals. The report explicitly states its findings and
   recommendations "do not represent Government views or policy" — they are
   G&T's own analysis, commissioned by DSIT.
+
 - **Inference drawn:** None — corrected from initial secondary-source read.
+
 - **Limitations / conflicting evidence:** This is narrower in scope than it
   first appeared: it measures the AI sector's own labour market (a
   specialist/technical workforce), not everyday workplace AI use across the
@@ -195,6 +203,7 @@ Full citation is given once here; log entries below cite the short tag only.
   workers" needing AI literacy would overstate what it actually shows. The
   general-literacy framing is better supported by Entry 002 (ManpowerGroup)
   and Entry 010 (Skills England) instead.
+
 - **Effect on project direction:** Corrects the earlier reading. This source
   should be cited specifically for the *specialist AI workforce* skills gap,
   not as general evidence for the "everyday AI literacy" problem the project
@@ -204,23 +213,30 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 002
 
 - **Date logged:** 2026-07-24
+
 - **Priority / Question:** Priority 1 — same as Entry 001; also relevant to
   Priority 3 (capability definition).
+
 - **Source:** `[MPG26]`
+
 - **Checked date:** 2026-07-24
+
 - **What the source directly supports:** Only 10% of UK employers are using
   AI to replace headcount. For the first time, AI-related skill (19%) was
   identified as the hardest skill for employers to find — described in the
   source as being about literacy and confidence in using AI to support
   existing work, not technical/programming skill. The UK skills gap overall
   is reported as declining for a second consecutive year.
+
 - **Inference drawn:** None stated as fact; the literacy-vs-technical framing
   is the source's own characterisation.
+
 - **Limitations / conflicting evidence:** Directly conflicts with Entry 001 on
   how the gap should be characterised (technical vs. general literacy), and
   "gap declining" conflicts with Entry 006 (BusinessLDN, gap widening in
   London). Needs reconciling — possibly a sectoral or regional difference
   rather than a real contradiction.
+
 - **Effect on project direction:** Supports a literacy/confidence framing of
   "practical AI capability" over a narrowly technical one — relevant to
   Priority 3.
@@ -228,11 +244,15 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 003 (updated with current data 2026-07-24)
 
 - **Date logged:** 2026-07-24 (originally), updated 2026-07-24
+
 - **Priority / Question:** Priority 1 — "What reliable evidence exists about
   AI use, understanding and capability in the UK public..."
+
 - **Source:** `[ONS23]` (original baseline) and `[ONS-BICS26]` (current
   trend, added on update)
+
 - **Checked date:** 2026-07-24
+
 - **What the source directly supports:** Original 2022–2023 baseline: 72% of
   UK adults could give at least a partial explanation of AI (May 2023), up
   from 56% a year earlier; only 5% used AI "a lot" in the prior month.
@@ -248,7 +268,9 @@ Full citation is given once here; log entries below cite the short tag only.
   sector 2023 data shows AI use highest in central government (47%), health
   boards and local government (42% each), lower in fire/police (30%), and
   lowest in education (24%) among the categories tracked.
+
 - **Inference drawn:** None — figures stated directly by ONS.
+
 - **Limitations / conflicting evidence:** ONS explicitly labels the business
   AI figures "official statistics in development" and advises caution. The
   adoption measure only captures whether a business uses *any* of a list of
@@ -257,6 +279,7 @@ Full citation is given once here; log entries below cite the short tag only.
   genuine embedded capability. The sector and public-sector breakdowns are
   still 2023-vintage even in this update; only the business-technology-type
   figures are current to June 2026.
+
 - **Effect on project direction:** No longer just a historical baseline —
   now shows a genuine, official, current trend: adoption is rising but
   unevenly and modestly, with education the lowest-adopting public-sector
@@ -268,16 +291,23 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 004
 
 - **Date logged:** 2026-07-24
+
 - **Priority / Question:** Priority 1 — same as Entry 003.
+
 - **Source:** `[BCC26]`
+
 - **Checked date:** 2026-07-24
+
 - **What the source directly supports:** Claims that only 21% of UK adults
   can explain AI in meaningful detail, and only one in five people in work
   feel confident using it.
+
 - **Inference drawn:** None.
+
 - **Limitations / conflicting evidence:** Secondary source only (a business
   lobby group's blog) — the original Parliamentary/Commons Library briefing
   has not yet been read directly to confirm this figure.
+
 - **Effect on project direction:** Potentially strong, directly relevant
   evidence for the core problem statement if verified — flagged as a priority
   for primary-source verification (see Open threads).
@@ -285,13 +315,17 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 005 (updated with findings 2026-07-24)
 
 - **Date logged:** 2026-07-24
+
 - **Priority / Question:** Priority 1 and Priority 2 (audience and need,
   especially equity dimensions).
+
 - **Source:** `[TURING-ADA]` — wave 2 (fieldwork 2024/25, published 2025):
   Modhvadia, Sippy, Field Reid & Margetts, "How Do People Feel About AI?
   Wave two... designed through a lens of equity and inclusion," Ada Lovelace
   Institute and Alan Turing Institute — read directly.
+
 - **Checked date:** 2026-07-24
+
 - **What the source directly supports:** Nearly three-quarters of the
   British public say laws and regulation would make them more comfortable
   with AI, up from 62% in 2023. Strong majorities see clear benefit in
@@ -303,12 +337,15 @@ Full citation is given once here; log entries below cite the short tag only.
   Separately, people on lower incomes and those with fewer digital skills are
   less likely to perceive AI as beneficial — a different-direction pattern
   from the ethnicity finding, not a contradiction of it.
+
 - **Inference drawn:** None stated as fact by the source; noted as a genuine
   tension in the findings, not smoothed over.
+
 - **Limitations / conflicting evidence:** The authors themselves caution that
   even where sample sizes for specific minoritised groups are large enough
   to report, these remain broad categories (e.g. "Bangladeshi") that obscure
   real diversity within them.
+
 - **Effect on project direction:** Upgrades this from "a strong survey
   programme exists" to real, usable findings. Directly relevant to Priority
   2: perceived benefit and need don't map onto a single "disadvantaged
@@ -319,20 +356,27 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 006
 
 - **Date logged:** 2026-07-24
+
 - **Priority / Question:** Priority 1 — gaps between adoption and responsible
   implementation.
+
 - **Source:** `[BLDN26]`
+
 - **Checked date:** 2026-07-24
+
 - **What the source directly supports:** Share of London employers saying
   their workforce has the skills the business needs fell from 63% to 50% in
   a year (survey of 2,000+ business leaders). Separate City Hall modelling
   estimates 46% of London workers are in roles where AI could automate part
   of the job, against a 38% UK average.
+
 - **Inference drawn:** None.
+
 - **Limitations / conflicting evidence:** London-specific, not necessarily
   representative of the UK as a whole. Conflicts with Entry 002
   (ManpowerGroup's "gap declining" finding) — may reflect a genuine
   regional/sectoral difference rather than contradictory data.
+
 - **Effect on project direction:** Suggests the gap may be widening in at
   least some regions/sectors even as national aggregate figures show decline
   — worth investigating whether this is a London-specific or sector-specific
@@ -341,19 +385,26 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 007
 
 - **Date logged:** 2026-07-24
+
 - **Priority / Question:** Priority 1 — "How common are unsafe, ineffective,
   costly or over-dependent forms of AI use?"
+
 - **Source:** `[GOTO26]`
+
 - **Checked date:** 2026-07-24
+
 - **What the source directly supports:** Globally, 50% of employees say they
   rely too much on AI, 30% feel they can't function without it, 39% feel
   overreliance is eroding their skills, and 70% have used AI for high-stakes
   tasks such as legal work or strategic decisions.
+
 - **Inference drawn:** None.
+
 - **Limitations / conflicting evidence:** Not UK-specific — the UK is one of
   ten countries in the sample, with no UK-only breakdown found. Vendor
   (GoTo)-commissioned survey, which may carry framing bias toward findings
   supporting a governance/training narrative.
+
 - **Effect on project direction:** Useful directional evidence only; a
   genuinely UK-specific study on unsafe/over-dependent AI use has not yet
   been found (see Open threads).
@@ -361,22 +412,29 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 009
 
 - **Date logged:** 2026-07-24
+
 - **Priority / Question:** Priority 1 — attempted verification of Entry 004
   (the "21% of adults can explain AI" claim).
+
 - **Source:** `[CBP10003]`
+
 - **Checked date:** 2026-07-24
+
 - **What the source directly supports:** This briefing does not contain the
   "21% of adults can explain AI" figure, nor the "one in five confident using
   it at work" claim, anywhere in its text. It also is dated June 2026, not
   February 2026 as the secondary source (British Chambers of Commerce blog)
   claimed.
+
 - **Inference drawn:** Either the BCC blog cited a different, unnamed
   February 2026 Parliamentary briefing that has not yet been located, or the
   figure is unsourced/misattributed. Cannot currently confirm this statistic
   from a primary source.
+
 - **Limitations / conflicting evidence:** This does not prove the 21% figure
   is false — only that it could not be verified in the briefing most likely
   to contain it. A further search for a February 2026 briefing is needed.
+
 - **Effect on project direction:** Downgrade Entry 004 to "unverified — do
   not cite" until a primary source is found. This is a useful example of why
   the research discipline requires checking secondary claims before treating
@@ -385,11 +443,15 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 010 (upgraded to primary source 2026-07-24)
 
 - **Date logged:** 2026-07-24
+
 - **Priority / Question:** Priority 1 and Priority 2 (audience and need,
   especially barriers by group).
+
 - **Source:** `[SE-AMEEN25]` — PRIMARY SOURCE, report overview page and
   companion methodology report read directly (gov.uk/government/publications/ai-skills-for-the-uk-workforce/report-overview)
+
 - **Checked date:** 2026-07-24
+
 - **What the source directly supports:** Based on 6 national workshops, a
   senior policy roundtable, and focused research (Oct 2025). Analyses AI
   adoption patterns and skills gaps/barriers across the 10 key growth sectors
@@ -398,12 +460,15 @@ Full citation is given once here; log entries below cite the short tag only.
   marginalised groups, and areas with little AI training/use. Produced an AI
   Skills Framework, an Adoption Pathway Model, and an Employer Adoption
   Checklist.
+
 - **Inference drawn:** None — confirmed directly, no longer inferred from
   secondary summaries.
+
 - **Limitations / conflicting evidence:** The report author states opinions
   are her own and don't necessarily reflect Skills England's views. See
   Entry 012 for the detailed quantitative barriers and methodology
   limitations from the companion evidence report.
+
 - **Effect on project direction:** Confirmed as a high-value primary source
   for Priority 2. See Entry 012 for the fuller evidence base this connects
   to.
@@ -411,20 +476,27 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 011
 
 - **Date logged:** 2026-07-24
+
 - **Priority / Question:** Priority 1 — "How common are unsafe, ineffective,
   costly or over-dependent forms of AI use?"
+
 - **Source:** `[DSIT-PROD26]`
+
 - **Checked date:** 2026-07-24
+
 - **What the source directly supports:** From DSIT's AI adoption survey, 56%
   of firms using AI reported productivity gains, most estimating
   improvements of up to 20%. The report itself flags that these are
   self-assessed, not objectively measured, and states there is currently
   limited robust statistical evidence that higher AI adoption at firm level
   is linked to higher overall productivity.
+
 - **Inference drawn:** None — this caveat is stated directly by the source.
+
 - **Limitations / conflicting evidence:** None noted; this is a government
   source explicitly flagging weak evidence quality on its own headline
   statistic, which is unusually direct.
+
 - **Effect on project direction:** Strong, directly relevant evidence for the
   research-discipline point that adoption ≠ effectiveness — self-reported
   productivity gains should not be treated as proof AI use is genuinely
@@ -434,11 +506,15 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 012
 
 - **Date logged:** 2026-07-24
+
 - **Priority / Question:** Priority 2 (barriers by group), Priority 4
   (learning design), Priority 6 (technical/conceptual scope, sector
   variation).
+
 - **Source:** `[SE-WHATWORKS26]`
+
 - **Checked date:** 2026-07-24
+
 - **What the source directly supports:** Builds on Entry 010, shifting from
   diagnosis to "what works." Evidence base: 23 workshops (~150
   organisations), 10 case studies, and a survey of 536 senior/decision-making
@@ -456,10 +532,12 @@ Full citation is given once here; log entries below cite the short tag only.
   Integrated, Modular, Expandable, Sustainable), each with detailed
   accreditation-style criteria, grounded in the same workshops/case
   studies/survey.
+
 - **Inference drawn:** PRIMES is presented by the source as directly
   evidence-derived, not an external framework being retrofitted — treating it
   as a strong candidate reference point for Priority 4 is a reasonable
   inference, not yet a project decision.
+
 - **Limitations / conflicting evidence:** The 536-response survey was
   collected via Amazon Mechanical Turk, screened for UK-based senior/
   decision-making respondents; the authors themselves state the sample skews
@@ -468,6 +546,7 @@ Full citation is given once here; log entries below cite the short tag only.
   The 23 workshops are described by the authors as rich but not statistically
   representative. Should be cited as strong illustrative/directional
   evidence, not as a representative national picture.
+
 - **Effect on project direction:** Directly actionable for Priority 4 — PRIMES
   is a genuine candidate to learn from (or adapt) rather than building a
   learning-design model from scratch, consistent with the project's own
@@ -479,11 +558,15 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 013 — Bias check on the evidence base as a whole
 
 - **Date logged:** 2026-07-24
+
 - **Priority / Question:** Meta — applies across Priority 1 and the evidence
   underlying Entries 001, 002, 004 (unverified), 006, 008, 010, 012.
+
 - **Source:** `[CRS-SKILLSGAP]`, `[FASTCO-MYTH]`, plus a structural review of
   this log's own source list (see updated Source key "Interest" column).
+
 - **Checked date:** 2026-07-24
+
 - **What the source directly supports:** `[CRS-SKILLSGAP]` (US-focused, not
   AI-specific) documents recognised measurement problems with "skills gap"
   claims generally: employer-reported vacancies can reflect turnover rather
@@ -498,17 +581,20 @@ Full citation is given once here; log entries below cite the short tag only.
   consultancies, software vendors) and 2 more are Advocacy/Membership
   bodies — a majority of the evidence base has some institutional interest
   in reporting a gap.
+
 - **Inference drawn:** The searches conducted for Priority 1 so far were
   framed exclusively to find evidence *for* a capability gap; no searches
   were run to test the opposite or to check whether "skills gap" as a
   category is itself contested. This is a process failure, not just a
   source-quality issue — it would have persisted regardless of how many
   more confirming sources were added.
+
 - **Limitations / conflicting evidence:** Neither `[CRS-SKILLSGAP]` nor
   `[FASTCO-MYTH]` is UK-specific or AI-specific, and neither proves the UK AI
   capability gap described in project_brief.md doesn't exist. They establish
   that the concept is measurement-contested in general, which is a reason for
   caution, not a disconfirmation of Entries 001–012.
+
 - **Effect on project direction:** Does not overturn prior entries, but
   changes how they should be read: employer/employee self-report survey
   statistics on "AI skills gaps" should be treated as one contested framing
@@ -519,11 +605,15 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 016 — Education sector (fills previously open gap)
 
 - **Date logged:** 2026-07-24
+
 - **Priority / Question:** Priority 1 — fills the "no education-sector-
   specific evidence" gap flagged since the first pass.
+
 - **Source:** `[DFE-TECHSURVEY25]`, `[DFE-EARLYADOPTERS25]`; `[PEARSON25]`
   noted separately as vendor context, not core evidence.
+
 - **Checked date:** 2026-07-24
+
 - **What the source directly supports:** Half of teachers in England
   responding to a DfE survey now use generative AI tools; of those who
   don't, 64% say they don't know enough about AI to use it in their role.
@@ -534,9 +624,11 @@ Full citation is given once here; log entries below cite the short tag only.
   to 77% in 2024 — a very fast rise if accurate. DfE's own framing across
   both reports is cautious: adoption is real but early-stage and uneven, not
   a settled transformation.
+
 - **Inference drawn:** None stated as fact by DfE; the National Literacy
   Trust figure is reported secondhand via the DfE document, not checked
   against the original NLT publication.
+
 - **Limitations / conflicting evidence:** `[PEARSON25]` (a vendor survey,
   14,000+ respondents) reports lower teacher confidence — only 9% of
   teachers feel confident *teaching* AI, 23% not confident *using* it — but
@@ -546,6 +638,7 @@ Full citation is given once here; log entries below cite the short tag only.
   paper by a former DfE adviser warning uncritical generative AI use could
   risk pupil "cognitive collapse" was noted but not read in full — flagged
   as a lead for a future pass, not logged as a finding.
+
 - **Effect on project direction:** Closes a real gap in the evidence base.
   DfE's own posture — real but early, uneven adoption, with confidence
   varying sharply by teacher — is consistent with the "slow, uneven change"
@@ -556,10 +649,14 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 017 — AI Skills Framework, Adoption Pathway, and Employer Checklist
 
 - **Date logged:** 2026-07-24
+
 - **Priority / Question:** Priority 3 (capability definition) and Priority 4
   (learning design) — directly, not tangentially.
+
 - **Source:** `[SE-TOOLSPKG25]`
+
 - **Checked date:** 2026-07-24
+
 - **What the source directly supports:** A full, official skills framework
   dividing AI skills into three domains — technical, responsible/ethical,
   non-technical — across three job levels (entry, mid, managerial), explicitly
@@ -577,14 +674,17 @@ Full citation is given once here; log entries below cite the short tag only.
   (critical thinking, describing AI's relevance to your role, adapting to
   new tools) were identified by workshop participants as "the most urgently
   needed" — not technical skills.
+
 - **Inference drawn:** None — content read directly from the primary
   document.
+
 - **Limitations / conflicting evidence:** The framework's authors state it
   does not yet address sector-specific technical/ethical demands (health,
   finance, creative, etc. all vary) and should be treated as a starting
   point rather than a finished standard. It is explicitly derived from the
   same evidence base as Entries 010/012, so it isn't independent
   corroboration — it's the same research programme's output.
+
 - **Effect on project direction:** This is a genuine candidate reference
   point for defining "practical AI capability" (Priority 3) and structuring
   a learning pathway (Priority 4) — potentially more directly usable than
@@ -597,10 +697,14 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 018 — UK AI Skills Hub (Priority 5 — comparable existing programme)
 
 - **Date logged:** 2026-07-24
+
 - **Priority / Question:** Priority 5 — comparable products and programmes;
   also relevant to Priority 10 (positioning/sustainability).
+
 - **Source:** `[AISKILLSHUB]`
+
 - **Checked date:** 2026-07-24
+
 - **What the source directly supports:** A live, government-backed national
   platform (Innovate UK, with Skills England and PwC/industry support) that
   curates AI training resources for employers and individuals, benchmarked
@@ -611,16 +715,19 @@ Full citation is given once here; log entries below cite the short tag only.
   upskill 10 million workers by 2030. Offers curated course libraries, a
   diagnostic/personalised pathway tool, sector use cases, and a completion
   badge aligned to the official skills benchmark.
+
 - **Inference drawn:** None stated as fact; direct homepage fetch failed (402
   error), so this entry relies on the site's own "About us" page plus
   secondary press coverage rather than a full first-hand read of the
   platform itself.
+
 - **Limitations / conflicting evidence:** Scale and funding here are very
   different from anything Grounded AI Practice could realistically build —
   this is a large, funded, multi-partner national platform, not a
   comparable-sized project. The comparison value is in understanding what
   already exists and where it does or doesn't serve the project's intended
   audience, not in matching its scale.
+
 - **Effect on project direction:** Directly answers a previously untouched
   Priority 5 question: a well-resourced, official comparable already
   exists and directly targets UK workforce AI upskilling. This raises a
@@ -631,10 +738,14 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 019 — Skills England Annual Skills Report 2026 (Chapter 3: AI)
 
 - **Date logged:** 2026-07-24
+
 - **Priority / Question:** Priority 1 (evidence and problem framing), Priority
   3 (capability definition) — a major source for both.
+
 - **Source:** `[SE-ANNUAL26]`
+
 - **Checked date:** 2026-07-24
+
 - **What the source directly supports:** The UK's high AI exposure means
   significant potential benefit — OECD (2025) estimates AI could lift UK
   productivity growth by 0.4 to 1.3 percentage points over the next decade;
@@ -661,7 +772,9 @@ Full citation is given once here; log entries below cite the short tag only.
   foundation skills across 3 domains (technical, non-technical, responsible/
   ethical) underpinning the national AI Skills Boost / AI Skills Hub
   programme (see Entry 018).
+
 - **Inference drawn:** None beyond what's stated.
+
 - **Limitations / conflicting evidence:** Notably, the report itself
   presents a genuine, unresolved disagreement rather than picking a side:
   KCL research (Klein Teeselink, 2025) and Adzuna (2026) data suggest AI is
@@ -675,6 +788,7 @@ Full citation is given once here; log entries below cite the short tag only.
   noting as an example, not just a data point. As with Entries 010/012/017,
   this report draws on the same Ameen research programme for its literacy-
   vs-technical conclusion, so it isn't fully independent corroboration.
+
 - **Effect on project direction:** Likely the single most load-bearing
   official source found so far for both Priority 1 and Priority 3. It gives
   authoritative current national context, explicit official support for a
@@ -687,18 +801,25 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 008
 
 - **Date logged:** 2026-07-24
+
 - **Priority / Question:** Priority 2 — "What barriers prevent [learners]
   from using existing learning resources?"
+
 - **Source:** `[EY26]`
+
 - **Checked date:** 2026-07-24
+
 - **What the source directly supports:** Cited claims that only 35% of UK
   business leaders have a mature, organisation-wide AI upskilling programme;
   only 14% of UK workers have undertaken formal AI training; only 11% receive
   what the source calls "adequate" training.
+
 - **Inference drawn:** None.
+
 - **Limitations / conflicting evidence:** Read only via a secondary blog, not
   the original EY report — figures should be treated as provisional until
   verified against the primary source.
+
 - **Effect on project direction:** If verified, directly supports the
   "barriers to existing learning resources" question and strengthens the case
   that fragmented/inadequate training is a real, evidenced gap.
@@ -706,11 +827,15 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 020 — Comparable platforms: roadmap.sh and LeetCode (Priority 5)
 
 - **Date logged:** 2026-07-24
+
 - **Priority / Question:** Priority 5 — "How do roadmap.sh, LeetCode and
   comparable learning systems define progression, prerequisites and
   completion?"
+
 - **Source:** `[ROADMAP]`, `[LEETCODE]`
+
 - **Checked date:** 2026-07-24
+
 - **What the source directly supports:** roadmap.sh presents learning as
   interactive flowchart-style roadmaps; users log in and mark each node as
   done/in-progress/skipped, turning the roadmap into a personal checklist.
@@ -720,18 +845,21 @@ Full citation is given once here; log entries below cite the short tag only.
   learning around algorithmic-pattern problem sets of increasing difficulty,
   with points, badges and leaderboards, and frames practice explicitly around
   simulating real technical-interview scenarios.
+
 - **Inference drawn:** Both platforms substitute a strong, low-cost
   progression *signal* (visual sequencing, difficulty tiers, gamified
   scoring) for formal prerequisite enforcement or credentialing — completion
   is self-reported/self-tracked, not assessed. This is an inference from
   how the mechanics are described, not a claim either platform makes about
   itself.
+
 - **Limitations / conflicting evidence:** Checked via the platforms' own
   About pages and secondary write-ups (blogs, an educative.io explainer, a
   GitHub study-plan compilation) rather than a full first-hand trial of
   either platform. Neither is an AI-literacy product — both are included
   because research_questions.md names them specifically as design-pattern
   comparables, not as AI-literacy competitors.
+
 - **Effect on project direction:** Directly answers the first Priority 5
   question. The transferable pattern for Grounded AI Practice is: visible,
   self-directed progression through a checklist/flowchart structure, paired
@@ -746,13 +874,17 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 021 — Elements of AI (Priority 5, comparable AI-literacy programme)
 
 - **Date logged:** 2026-07-24
+
 - **Priority / Question:** Priority 5 — "How do existing AI-literacy and
   digital-skills programmes combine theory, practice and assessment?" /
   "Which features should Grounded AI Practice learn from without imitating
   the product as a whole?"
+
 - **Source:** `[EOAI]`; independently referenced as the model the UK should
   have followed in `[LSE-CARDOSO26]` (see Entry 022).
+
 - **Checked date:** 2026-07-24
+
 - **What the source directly supports:** Elements of AI is a free, public,
   vendor-neutral online AI-literacy course from MinnaLearn and the
   University of Helsinki, reported to be the most-taken course in the
@@ -761,16 +893,19 @@ Full citation is given once here; log entries below cite the short tag only.
   programming or advanced maths, combines theory with practical exercises
   and self-reflection, uses peer review, and can be completed at a learner's
   own pace.
+
 - **Inference drawn:** None stated as fact by the source; the "vendor-neutral"
   characterisation is repeated across multiple secondary sources
   (`[LSE-CARDOSO26]`, Class Central) rather than a claim Elements of AI makes
   about itself in the material checked here.
+
 - **Limitations / conflicting evidence:** Checked via Class Central's course
   listing and Wikipedia's summary rather than a full first-hand completion of
   the course; no direct read of the course content itself, so claims about
   assessment rigour or actual learning outcomes are not independently
   verified here. Non-UK (Finland), and general-public in scope rather than
   targeted at a specific workforce audience.
+
 - **Effect on project direction:** The strongest single comparable found for
   Priority 5's "existing AI-literacy programme" question — small production
   team, non-commercial, bite-sized modular chapters, no technical
@@ -782,13 +917,17 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 022 — UK AI Skills Hub critiqued as "a directory, not a programme" (Priority 5, connects to Entry 018)
 
 - **Date logged:** 2026-07-24
+
 - **Priority / Question:** Priority 5 — "Where do existing products appear
   incomplete, inaccessible or overly tool-specific?" Directly extends Entry
   018 (AI Skills Hub) with independent critical perspective, addressing the
   Research discipline requirement to pair confirming evidence with
   disconfirming/critical checks for foundational claims.
+
 - **Source:** `[LSE-CARDOSO26]`
+
 - **Checked date:** 2026-07-24
+
 - **What the source directly supports:** The authors (an LSE data science
   academic and the head of LSE's Digital Skills Lab) argue the UK AI Skills
   Hub (Entry 018) functions as "a mixture of existing training content
@@ -802,14 +941,17 @@ Full citation is given once here; log entries below cite the short tag only.
   explicitly name Elements of AI (Entry 021) as the vendor-neutral,
   structured-pathway model the UK should have followed, summarising their
   argument as "a programme, not a directory."
+
 - **Inference drawn:** None beyond what the authors state; this is their
   own argued position, not presented as new primary data.
+
 - **Limitations / conflicting evidence:** An opinion/blog piece on an
   academic institution's blog, not a peer-reviewed paper — carries the
   authors' institutional credibility but not the same evidentiary weight as
   the primary government sources it critiques. Only one critical source
   found on this specific point; no second independent critique of the AI
   Skills Hub has yet been located to corroborate this reading.
+
 - **Effect on project direction:** Materially changes how Entry 018 should
   be read — the AI Skills Hub is not just "a well-resourced comparable to
   differentiate against" but a concrete, named example of exactly the
@@ -822,11 +964,15 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 023 — Royal Society rapid review of AI literacy frameworks (Priority 5, also bears on Priority 3/4)
 
 - **Date logged:** 2026-07-24
+
 - **Priority / Question:** Priority 5 (comparable frameworks/programmes and
   international case studies), with direct relevance to Priority 3
   (capability definition) and Priority 4 (learning design).
+
 - **Source:** `[RS-AILIT25]`
+
 - **Checked date:** 2026-07-24
+
 - **What the source directly supports:** A systematic (PRISMA-informed)
   review that screened ~68,000 articles down to 115, analysed 20 AI-literacy
   frameworks and 6 national case studies in depth. Its scope is **AI
@@ -852,6 +998,7 @@ Full citation is given once here; log entries below cite the short tag only.
   number of regions/institutions) → embed independent evaluation from day
   one → only then scale, with inclusion/SEND designed in from the outset
   rather than retrofitted.
+
 - **Inference drawn:** The three-dimension structure (technological /
   practical / human) and the "most frameworks are computing-education in
   disguise" critique are the report's own framing, not this project's
@@ -859,6 +1006,7 @@ Full citation is given once here; log entries below cite the short tag only.
   three-dimension structure to an *adult* general-public or workforce
   audience (as opposed to schoolchildren) would be this project's own
   extension — the report does not make that claim itself.
+
 - **Limitations / conflicting evidence:** This is the single most
   significant scope mismatch found in the research log so far: the report's
   entire evidence base, all 20 frameworks and all 6 case studies, concerns
@@ -870,6 +1018,7 @@ Full citation is given once here; log entries below cite the short tag only.
   report's own scoring methodology (0–1 per topic, author-judged) is
   explicitly described by its authors as "highly interpretative" and "not
   ... definitive."
+
 - **Effect on project direction:** High value for Priority 4 (learning
   design) and Priority 5 (comparable programmes) as a source of
   *transferable design lessons* — the three-dimension framework, the
@@ -885,11 +1034,15 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 024 — FutureDotNow: Essential Digital Skills Framework AI update (Priority 5)
 
 - **Date logged:** 2026-07-24
+
 - **Priority / Question:** Priority 5 — comparable frameworks; also touches
   Priority 3 (capability definition), overlapping with but independent in
   origin from the Skills England/Ameen programme (Entries 010/012/017/019).
+
 - **Source:** `[FDN26]`
+
 - **Checked date:** 2026-07-24
+
 - **What the source directly supports:** Recommends four core AI
   competencies for the UK's existing Essential Digital Skills Framework:
   foundational knowledge of what AI is and how it functions, effective AI
@@ -900,7 +1053,9 @@ Full citation is given once here; log entries below cite the short tag only.
   £10bn workforce income increase, £8.5bn industry profitability) from
   closing the essential digital skills gap more broadly, not AI skills
   specifically.
+
 - **Inference drawn:** None stated as fact by the source.
+
 - **Limitations / conflicting evidence:** FutureDotNow is a business-led
   digital-skills coalition backed by major UK employers — an
   Advocacy/Membership-body interest per this log's tagging convention, and
@@ -913,6 +1068,7 @@ Full citation is given once here; log entries below cite the short tag only.
   similar shape, which is mildly reassuring but not independent proof, since
   both ultimately feed into the same national Essential Digital Skills
   Framework policy process.
+
 - **Effect on project direction:** A minor additional data point for
   Priority 3's capability definition — mostly useful as a second framework
   shape to sanity-check Skills England's against, and as one more source
@@ -924,15 +1080,19 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 025 — The "directory not programme" critique is not isolated to LSE (Priority 5, corroborates Entry 022)
 
 - **Date logged:** 2026-07-24
+
 - **Priority / Question:** Priority 5, specifically testing whether the
   LSE critique (Entry 022) is a one-off academic opinion or a broader,
   corroborated pattern — directly relevant to the project's stated aim of
   positioning as a credible response to AI Skills Hub's problems
   (see `project_brief.md`, "Longer-term direction and positioning").
+
 - **Source:** `[TECHOSAURUS26]`, `[HUMANCO26]`; a wider search also surfaced
   Computer Weekly, People Management and TechPolicy.Press opinion pieces
   making related but unread arguments (see Limitations).
+
 - **Checked date:** 2026-07-24
+
 - **What the source directly supports:** Both sources conducted hands-on
   testing of the live AI Skills Hub platform (not just its About page) and
   independently converge on the same structural failure as `[LSE-CARDOSO26]`:
@@ -948,6 +1108,7 @@ Full citation is given once here; log entries below cite the short tag only.
   adequate. `[TECHOSAURUS26]` additionally flags an "organisational
   readiness" gap: the Hub trains individuals while ignoring whether their
   workplaces are ready to support what they learn.
+
 - **Inference drawn:** The convergence of an independent academic source
   (LSE) with two unconnected commercial-sector hands-on reviews, landing on
   overlapping specific findings (sequencing, personalisation, sandbox
@@ -955,6 +1116,7 @@ Full citation is given once here; log entries below cite the short tag only.
   the underlying design problem is real than any single source alone —
   this is an inference about corroboration strength, not a claim any one
   source makes.
+
 - **Limitations / conflicting evidence:** Both `[TECHOSAURUS26]` and
   `[HUMANCO26]` are written by founders of competing commercial AI-training
   businesses reviewing a free government platform — a direct commercial
@@ -966,6 +1128,7 @@ Full citation is given once here; log entries below cite the short tag only.
   pass — flagged as a lead only, not a finding, consistent with the
   project's "don't chase every thread" discipline. No defence or response
   from DSIT/Skills England to any of this criticism has been located yet.
+
 - **Effect on project direction:** Meaningfully strengthens the basis for
   the project's loosely-held government-recognition aim
   (see `project_brief.md`, "Longer-term direction and positioning"): the "directory not programme"
@@ -982,12 +1145,16 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 026 — PRIMES accreditation criteria in full (Priority 4, supersedes summary in Entry 012)
 
 - **Date logged:** 2026-07-24
+
 - **Priority / Question:** Priority 4 — "Which recognised learning frameworks
   are suitable for this project?" Directly extends Entry 012, which described
   PRIMES only at the level of its six names; this entry reads the actual
   accreditation criteria document.
+
 - **Source:** `[SE-PRIMES-EMPLOYER26]`
+
 - **Checked date:** 2026-07-24
+
 - **What the source directly supports:** The full *Employer Guide* sets out
   detailed, checklist-style accreditation criteria for each PRIMES principle
   (reproduced in the source's Table 2). Selected specifics not previously
@@ -1018,9 +1185,11 @@ Full citation is given once here; log entries below cite the short tag only.
   survey respondents' organisations are still overwhelmingly concentrated in
   early stages (Awareness 21%, Exploration 19%) versus advanced stages
   (Integration 7%, Strategy 4%, Scaling 1%).
+
 - **Inference drawn:** None beyond what the source states — this entry
   intentionally stays close to direct quotation/paraphrase given how
   directly reusable this criteria set is for Priority 4 design work.
+
 - **Limitations / conflicting evidence:** Same underlying evidence base as
   Entries 010/012/017/019 (23 workshops, 10 case studies, 536-response
   survey) — not independent corroboration, just a fuller read of the same
@@ -1030,6 +1199,7 @@ Full citation is given once here; log entries below cite the short tag only.
   systems, line-management sponsorship) that may not transfer directly to a
   personal/public-facing project without an employing organisation behind
   the learner.
+
 - **Effect on project direction:** This is now the single most directly
   actionable Priority 4 source in the log. Three specific, checkable design
   requirements stand out as strong candidates regardless of what Priority 2
@@ -1045,13 +1215,17 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 027 — Gradual Release of Responsibility: a named model for the "explanations → practice → reflection" sequencing question
 
 - **Date logged:** 2026-07-24
+
 - **Priority / Question:** Priority 4 — "How should explanations, worked
   examples, guided practice, independent practice and reflection be
   sequenced?"
+
 - **Source:** `[GRR-EBIP]`; the general pattern is also implicitly present
   in `[RS-AILIT25]`'s language of "scaffolded progression" (Entry 023) and
   PRIMES' "Modular" principle (Entry 026).
+
 - **Checked date:** 2026-07-24
+
 - **What the source directly supports:** The Gradual Release of
   Responsibility (GRR) model structures instruction in phases that shift
   cognitive load progressively from instructor to learner: focused
@@ -1060,6 +1234,7 @@ Full citation is given once here; log entries below cite the short tag only.
   independent learning (unsupported application). Evidence-based-practice
   guidance associated with this model also recommends *spaced* rather than
   massed independent practice for retention.
+
 - **Inference drawn:** research_questions.md's own Priority 4 phrasing
   ("explanations, worked examples, guided practice, independent practice and
   reflection") already closely mirrors GRR's structure — this is noted as an
@@ -1069,6 +1244,7 @@ Full citation is given once here; log entries below cite the short tag only.
   own extension, not something the source itself addresses; adult-learning
   research (e.g. andragogy, self-directed learning) may complicate the
   direct transfer, which has not yet been checked.
+
 - **Limitations / conflicting evidence:** The source is a US state
   education department's K-12 guidance document, read only via search
   synthesis rather than the full primary document — general pedagogical
@@ -1076,6 +1252,7 @@ Full citation is given once here; log entries below cite the short tag only.
   with Pearson & Gallagher 1983) is asserted here based on how commonly it
   recurs in instructional-design literature, not independently verified in
   this pass. Not UK-specific, not AI-specific, not adult-education-specific.
+
 - **Effect on project direction:** Gives the project a named, well-established
   reference model to explicitly adopt, adapt, or consciously depart from for
   Priority 4's sequencing question, rather than inventing a sequencing logic
@@ -1090,14 +1267,18 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 028 — AI literacy training and overconfidence: a genuine confirm/disconfirm pair
 
 - **Date logged:** 2026-07-24
+
 - **Priority / Question:** Priority 4 ("How should misconceptions, unsafe
   practices and overconfidence be addressed?") and Priority 6 (responsible
   use, human oversight).
+
 - **Source:** `[KAMALI26]` (confirming: training helps) vs. `[AUTOBIAS-MED25]`
   (disconfirming/complicating: training alone may be insufficient) — a
   deliberately paired search per this log's own bias-mitigation discipline
   (see the note above Entry 001).
+
 - **Checked date:** 2026-07-24
+
 - **What the source directly supports:** `[KAMALI26]` reports that targeted
   generative-AI literacy training improved intelligence analysts' ability to
   distinguish real from AI-generated images *and* improved confidence
@@ -1116,6 +1297,7 @@ Full citation is given once here; log entries below cite the short tag only.
   recognise its limits" — and that automation bias/trust miscalibration can
   operate unconsciously, so self-reported vigilance may overstate actual
   behaviour.
+
 - **Inference drawn:** The two studies are not strictly contradictory — they
   differ in domain (image authenticity judgement vs. high-stakes clinical
   diagnosis), training design (unspecified vs. 20 hours), and possibly in
@@ -1125,6 +1307,7 @@ Full citation is given once here; log entries below cite the short tag only.
   judgement tasks but may need reinforcement/behavioural nudges (as
   `[AUTOBIAS-MED25]`'s companion trial reportedly tests) to hold under the
   cognitive load of complex, high-stakes professional decisions.
+
 - **Limitations / conflicting evidence:** `[AUTOBIAS-MED25]` is flagged
   UNVERIFIED — the primary source could not be fetched and this entry relies
   on a search tool's own synthesis of the abstract, which is a weaker
@@ -1133,6 +1316,7 @@ Full citation is given once here; log entries below cite the short tag only.
   read. Neither is UK-specific. The "overconfidence paradox" claim is
   currently sourced only to an aggregated search summary, not a named,
   checkable paper — flagged as a lead, not a finding.
+
 - **Effect on project direction:** This is a directly relevant, appropriately
   hedged answer to Priority 4's misconceptions/overconfidence question:
   training can improve calibration, but the "surface knowledge is more
@@ -1150,17 +1334,21 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 029 — Testing the "large orgs benefit disproportionately from AI" hypothesis: a genuine confirm/complicate pair
 
 - **Date logged:** 2026-07-24
+
 - **Priority / Question:** New hypothesis raised by the project's creator
   (2026-07-24): that AI's benefits accrue disproportionately to
   well-resourced organisations relative to individuals/SMEs, and that this
   could be the project's underlying thesis. Bears on Priority 1 (evidence
   for the problem) and directly tests the audience/thesis decision recorded
   in project_brief.md's "Primary audience" section.
+
 - **Source:** `[BCC-ISER26]` (primary, UK-specific, rigorous) and `[BENNETT26]`
   (primary, UK-specific, ONS-sourced) — deliberately sought together per this
   log's confirm/disconfirm discipline, since this is exactly the kind of
   foundational claim that would change project direction.
+
 - **Checked date:** 2026-07-24
+
 - **What the source directly supports:** `[BCC-ISER26]` surveyed 668 UK
   firms (84% with 1–250 employees) via the British Chambers of Commerce's
   January 2026 Business Outlook Survey. Headline: 54.3% of firms now use AI
@@ -1181,6 +1369,7 @@ Full citation is given once here; log entries below cite the short tag only.
   "two-speed race" the authors attribute to "scale... rather than...
   underlying productivity performance," i.e. a structural barrier, not a
   productivity-driven explanation.
+
 - **Inference drawn:** The two sources measure adoption-rate gaps of
   different magnitudes (`[BCC-ISER26]`'s controlled effect is modest;
   `[BENNETT26]`'s raw gap is large) — plausibly reconciled by different
@@ -1197,6 +1386,7 @@ Full citation is given once here; log entries below cite the short tag only.
   tools) — they lack access to the bespoke-implementation capability that
   requires dedicated AI integrators, which is where `[BCC-ISER26]` shows the
   real economic effects concentrate.
+
 - **Limitations / conflicting evidence:** Both sources are cross-sectional/
   observational; `[BCC-ISER26]`'s authors explicitly caution against causal
   interpretation and note their bespoke-adopter subsample is small (65
@@ -1215,6 +1405,7 @@ Full citation is given once here; log entries below cite the short tag only.
   content-marketing claims — see Entry 020's search log — not credible
   disconfirming academic evidence), so the disconfirming side of this pair is
   currently weak. Flagged in Open Threads as a gap.
+
 - **Effect on project direction:** Meaningfully sharpens rather than simply
   confirms the hypothesis. The evidence supports a firm-size/resource
   disparity in AI adoption *depth* (generic vs bespoke), which is a more
@@ -1234,16 +1425,20 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 030 — Testing the "local/hybrid AI as cost and capability equalizer" hypothesis
 
 - **Date logged:** 2026-07-24
+
 - **Priority / Question:** Second half of the same hypothesis (Priority 6:
   "When does hands-on local AI provide educational value beyond using a
   cloud application?" / "Which tasks are better suited to local, cloud or
   hybrid processing?").
+
 - **Source:** `[LOCALAI-COST26]`, `[LOCALAI-CAPABILITY26]` — both are
   aggregated search-engine syntheses of multiple vendor/SaaS-blog sources,
   **not independently fetched or verified**; treated as directional leads
   only, consistent with this log's practice of flagging unverified
   aggregate claims rather than citing them as settled fact.
+
 - **Checked date:** 2026-07-24
+
 - **What the source directly supports (directional only, unverified):**
   Local/self-hosted models reportedly become cheaper than cloud APIs only
   above a fairly high usage threshold (roughly 500K–2M tokens/day per one
@@ -1259,6 +1454,7 @@ Full citation is given once here; log entries below cite the short tag only.
   architecture (local for privacy-sensitive/high-volume/production use,
   cloud for capability-critical or variable workloads) rather than a pure
   local-replaces-cloud approach.
+
 - **Inference drawn:** If directionally correct, this complicates rather
   than confirms the "local AI as straightforward equalizer" framing: the
   break-even usage threshold and hardware capital outlay could make local
@@ -1267,6 +1463,7 @@ Full citation is given once here; log entries below cite the short tag only.
   equalizing effect, unless usage patterns or hardware-sharing models change
   that calculus. This is an inference from the (unverified) figures, not a
   claim any source makes explicitly.
+
 - **Limitations / conflicting evidence:** This is the weakest-sourced entry
   in the log to date — no individual source was fetched and read directly;
   all figures come from a search engine's own aggregation across multiple
@@ -1278,6 +1475,7 @@ Full citation is given once here; log entries below cite the short tag only.
   practical answer; pure local isn't uniformly cheaper or more capable) is
   more plausible than any single number here, if only because it recurred
   across independently-named sources.
+
 - **Effect on project direction:** The honest, appropriately hedged
   takeaway is that "local/hybrid AI reduces cost and increases
   independence" is **not a safe assumption to build the project's thesis
@@ -1297,12 +1495,16 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 031 — Instro AI as a live illustration of the "bespoke gap" (extends Entry 029)
 
 - **Date logged:** 2026-07-24
+
 - **Priority / Question:** Extends Entry 029's finding that SMEs' real gap is
   *depth of AI implementation* (generic tools vs bespoke, integrator-built
   systems), not AI access itself. Suggested by the project's creator as a
   candidate case-study source.
+
 - **Source:** `[INSTRO26]`, `[INSTRO-TRIAL26]`
+
 - **Checked date:** 2026-07-24
+
 - **What the source directly supports:** Instro AI Solutions is a UK-based
   company doing precisely the "dedicated AI integrator" role Entry 029
   identifies as scarce among SMEs — bespoke generative-AI systems integrated
@@ -1318,6 +1520,7 @@ Full citation is given once here; log entries below cite the short tag only.
   quoted identifying the real bottleneck: not model capability, but
   "fragmented legacy data... carried for decades" and how information is
   organised across documents, systems and records.
+
 - **Inference drawn:** This is a concrete, named illustration of Entry 029's
   abstract finding — the barrier to real AI benefit at SMEs is
   organisational/data/implementation maturity, not access to capable models.
@@ -1329,6 +1532,7 @@ Full citation is given once here; log entries below cite the short tag only.
   close the *understanding* gap: the client's own team gains a working tool,
   not necessarily the internal capability to evaluate, extend, govern or
   eventually reduce dependency on that system themselves.
+
 - **Limitations / conflicting evidence:** `[INSTRO26]`'s own homepage
   provides no named case studies or figures — all concrete outcomes come from
   `[INSTRO-TRIAL26]`, a single trade-press article; the underlying
@@ -1341,6 +1545,7 @@ Full citation is given once here; log entries below cite the short tag only.
   integrator-led bespoke AI is the answer — tagged accordingly. The
   "outsourcing understanding" reading above is this project's own
   interpretation, not a claim made by either source or by Instro itself.
+
 - **Effect on project direction:** Sharpens the project's differentiation
   question concretely. Instro (and companies like it) appear to do the
   *implementation* work well and demonstrably — this is not a gap Grounded
@@ -1355,13 +1560,17 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 032 — "Outsourcing understanding": conceptual backing from buy-vs-build theory
 
 - **Date logged:** 2026-07-24
+
 - **Priority / Question:** Directly tests the project creator's proposed
   concept (2026-07-24) that outsourcing AI integration to vendors means, to
   some degree, "outsourcing understanding." Bears on Priority 3 (which
   capabilities are transferable vs vendor-specific) and Priority 6
   (technical/conceptual scope).
+
 - **Source:** `[BUYBUILD-KLOTZ26]`
+
 - **Checked date:** 2026-07-24
+
 - **What the source directly supports:** A theoretical/conceptual paper
   applying classical "buy vs build" transaction-cost and resource-based
   theory to agentic AI enterprise software decisions. Core argument: relying
@@ -1374,6 +1583,7 @@ Full citation is given once here; log entries below cite the short tag only.
   how favorable other factors may be" — meaning firms below that threshold
   are structurally pushed toward buying, which in turn keeps them below the
   threshold, a self-reinforcing dynamic.
+
 - **Inference drawn:** This gives the "outsourcing understanding" concept
   real theoretical grounding — it isn't a novel idea invented for this
   project, but a documented pattern in the buy-vs-build/outsourcing
@@ -1384,6 +1594,7 @@ Full citation is given once here; log entries below cite the short tag only.
   capability can structurally trap a firm below the threshold where
   building becomes viable at all — a genuine vicious cycle, if the paper's
   theoretical claim holds empirically.
+
 - **Limitations / conflicting evidence:** This is explicitly
   theoretical/conceptual, not empirical — no survey, case data, or
   quantitative test of the capability-threshold claim is presented in what
@@ -1393,6 +1604,7 @@ Full citation is given once here; log entries below cite the short tag only.
   search was run for this specific claim (e.g. evidence that vendor
   relationships sometimes *do* transfer capability, through training,
   co-development or staged handover models) — flagged in Open Threads.
+
 - **Effect on project direction:** Combined with Entry 031's concrete
   illustration, this gives "outsourcing understanding" real standing as a
   framing concept for the project — not proof, but a defensible, theoretically
@@ -1410,10 +1622,13 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 033 - Correction: "outsourcing understanding" framing retracted (supersedes Entry 032)
 
 - **Date logged:** 2026-07-24
+
 - **Priority / Question:** Correction, per this log's convention of not
   silently altering prior entries (see document status note at the top of
   this log).
+
 - **Source:** Direct instruction from the project's creator, 2026-07-24.
+
 - **What changed:** The project's creator judged the "outsourcing
   understanding" framing (Entry 032, and its application to Instro AI in
   Entry 031) to be (a) unfair to Instro specifically - casting a company
@@ -1423,6 +1638,7 @@ Full citation is given once here; log entries below cite the short tag only.
   Entry 032's own logged caveats (single-author preprint, no institutional
   affiliation confirmed, no disconfirming search run, theoretical not
   empirical).
+
 - **Effect on project direction:** The "outsourcing understanding" / buy-vs-build
   capability-threshold framing is retracted as a thesis element. Entry
   031's underlying findings about Instro AI remain valid and useful - it
@@ -1438,6 +1654,7 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 034 - Half two, refined: task/workflow specialisation, not local AI per se, is the real mechanism
 
 - **Date logged:** 2026-07-24
+
 - **Priority / Question:** Refines Entry 030 per direct guidance from the
   project's creator (2026-07-24): local AI is not a realistic standalone
   solution for SMEs/individuals; hybrid use - running local/smaller models
@@ -1446,9 +1663,12 @@ Full citation is given once here; log entries below cite the short tag only.
   can produce better results for fewer tokens using less powerful models,
   which the creator suggested illustrating via Claude Code. Bears on
   Priority 4 (learning design) and Priority 6 (technical scope).
+
 - **Source:** `[CHEN-VAROQUAUX26]` (primary, rigorous academic survey);
   `[AGENTMESH26]` (unverified aggregate, directionally consistent).
+
 - **Checked date:** 2026-07-24
+
 - **What the source directly supports:** `[CHEN-VAROQUAUX26]` is a
   systematic survey (Imperial College London / Inria) examining small
   models' (SMs) relationship to LLMs through Collaboration and
@@ -1473,6 +1693,7 @@ Full citation is given once here; log entries below cite the short tag only.
   "small language models are the future of agentic ai," arguing SMs suit
   the "many small, specialised, and repetitive tasks" that make up agentic
   systems.
+
 - **Inference drawn:** Claude Code's own architecture (separate from any
   source read here - this is the project's own observation, not a claim
   made by `[CHEN-VAROQUAUX26]`) is a live, inspectable illustration of
@@ -1485,6 +1706,7 @@ Full citation is given once here; log entries below cite the short tag only.
   just the model" using a tool learners may already have direct access to,
   rather than requiring them to set up local model infrastructure to see
   the principle in action.
+
 - **Limitations / conflicting evidence:** The survey's Section 5
   ("Limitations of Small Models") is an important balance: small/specialised
   models show weak generalisation on complex multi-step reasoning, degrade
@@ -1498,6 +1720,7 @@ Full citation is given once here; log entries below cite the short tag only.
   right. No claim here has been tested specifically against UK SME/individual
   usage patterns - this is a general technical-architecture finding, not
   audience-specific evidence.
+
 - **Effect on project direction:** This gives the project a stronger,
   better-evidenced version of half two than either the original "local AI as
   equalizer" framing (now dropped per Entry 030's own hedging) or a vague
@@ -1513,10 +1736,12 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 039 — Candidate core capabilities for the pilot unit (answers the open "which single capability" question)
 
 - **Date logged:** 2026-07-25
+
 - **Priority / Question:** Immediate priority Q5 / Priority 3 — the specific
   gap Open Threads flags as "the immediate next decision point, not yet
   addressed": which single core capability the pilot unit (decided in Entry
   035) should teach.
+
 - **Source:** Synthesis of existing logged evidence — `[SE-TOOLSPKG25]`,
   `[SE-ANNUAL26]`, `[SE-WHATWORKS26]`/`[SE-PRIMES-EMPLOYER26]`, `[RS-AILIT25]`,
   `[FDN26]`, `[EOAI]`, Entry 028's automation-bias findings — plus one new
@@ -1524,7 +1749,9 @@ Full citation is given once here; log entries below cite the short tag only.
   data collected; this entry re-reads existing entries specifically through
   the "what's concrete enough for one 30–90 minute sitting" lens, which no
   prior entry had done directly.
+
 - **Checked date:** 2026-07-25
+
 - **What the source directly supports:** Four candidates emerge as
   independently well-evidenced and concrete enough to teach in one sitting:
 
@@ -1592,12 +1819,14 @@ Full citation is given once here; log entries below cite the short tag only.
   `project_brief.md` ("appropriate verification and human oversight").
   This is this entry's own reading of the pattern across sources, not a
   conclusion any one source states.
+
 - **Limitations / conflicting evidence:** These four are not mutually
   exclusive — most real frameworks (`[FDN26]`, `[SE-TOOLSPKG25]`) teach some
   version of all of them, just not in one 30–90 minute sitting. Picking one
   is this project's own scoping choice, not something any source instructs.
   See Entry 040 for a direct disconfirm check on Candidate A specifically,
   since it looks strongest on this reading.
+
 - **Effect on project direction:** These are presented as options for the
   project's creator to choose between, not a recommendation. A rough
   tradeoff summary: **A (critical evaluation)** has the strongest/broadest
@@ -1621,6 +1850,7 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 040 — Disconfirm/complicate check on Candidate A, plus fresh search for "what's the single best starting point" framing
 
 - **Date logged:** 2026-07-25
+
 - **Priority / Question:** Per this project's confirm/disconfirm discipline
   for foundational claims: does evidence or expert argument exist that
   critical evaluation of AI output (Candidate A in Entry 039) is *not* the
@@ -1629,16 +1859,20 @@ Full citation is given once here; log entries below cite the short tag only.
   to search directly for "what's the single best AI-literacy starting
   point" framing, since existing sources mostly answer "what skills matter
   overall," not "what's the best first skill" specifically.
+
 - **Source:** `[TADIMALLA-MAHER25]`, `[SAIL4ALL25]`, re-reading of the
   already-logged `[FDN26]` competency order, and `[SE-FOUNDATIONBENCH26]`.
   Weaker/flagged sources also found and noted for completeness: `[WAGNER26]`
   (opinion blog, argues the opposite conclusion but on weak evidentiary
   grounds) and an unverified vendor-aggregate statistic (`[HALLUC-AWARE26]`).
+
 - **Checked date:** 2026-07-25
+
 - **What the source directly supports:** Several independent sources
   converge on ordering *foundational knowledge of what AI is/does* ahead of
   *critical evaluation of AI output*, rather than treating evaluation as
   the natural entry point:
+
   - `[TADIMALLA-MAHER25]` (Tadimalla & Maher, "AI literacy as a core
     component of AI education," *AI Magazine* — a peer-reviewed AAAI
     journal, 2025) proposes four curriculum pillars for AI-literacy course
@@ -1649,6 +1883,7 @@ Full citation is given once here; log entries below cite the short tag only.
     increasingly integrated alongside it. This journal-published,
     peer-reviewed source directly and explicitly addresses curriculum
     *sequencing*, which is the specific gap this entry checked for.
+
   - `[SAIL4ALL25]` (peer-reviewed, *Humanities and Social Sciences
     Communications*, validated on three UK adult samples) — an AI-literacy
     *knowledge* assessment scale, not a curriculum, but its four themes are
@@ -1656,10 +1891,12 @@ Full citation is given once here; log entries below cite the short tag only.
     should AI be used?" — again placing conceptual/capability knowledge
     ahead of the evaluative/normative "how should it be used" theme that
     critical evaluation belongs to.
+
   - Re-reading `[FDN26]` (Entry 024): its four competencies are listed in
     the order foundational knowledge → effective interaction → critical
     evaluation → ethical/responsible use — the same ordering pattern,
     independently arrived at.
+
   - `[SE-FOUNDATIONBENCH26]` (UK Government, Skills England/DSIT — read
     directly this pass): the official "AI foundation skills for work"
     benchmark's first-listed domain is "technical" (writing clear
@@ -1669,6 +1906,7 @@ Full citation is given once here; log entries below cite the short tag only.
     priority order or required sequence — this is suggestive from list
     order only, not a stated recommendation, and should be weighted
     accordingly.
+
 - **Inference drawn:** Taken together, this is a real, moderately-supported
   disconfirming pattern (one peer-reviewed source directly on sequencing,
   one peer-reviewed UK-validated instrument whose structure implies the
@@ -1696,6 +1934,7 @@ Full citation is given once here; log entries below cite the short tag only.
   secondary — but this is asserted rather than evidenced, and is flagged
   as the weakest source in this entry, not a counterweight to the
   peer-reviewed sources above.
+
 - **Limitations / conflicting evidence:** None of the sequencing sources
   found are UK-adult/workforce-specific in the way this project needs.
   `[TADIMALLA-MAHER25]` is framed around computing-education curriculum
@@ -1723,6 +1962,7 @@ Full citation is given once here; log entries below cite the short tag only.
   assembled from sources that address curriculum *structure* rather than
   posing "what's the one best starting skill" as their own explicit
   question.
+
 - **Effect on project direction:** Does not disqualify Candidate A, but
   meaningfully complicates treating it as a clean, standalone first choice
   independent of Candidate C. For the creator's decision, this leaves
@@ -1744,12 +1984,14 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 041 — Dedicated search for disconfirming evidence on the SME/large-firm adoption-depth gap (Entry 029)
 
 - **Date logged:** 2026-07-25
+
 - **Priority / Question:** Direct follow-up to the Open Thread flagged after
   Entry 029/030: "No credible disconfirming evidence found yet for the
   SME/large-firm adoption-depth gap... A dedicated search for peer-reviewed
   or ONS/government evidence specifically disputing the size-adoption
   relationship would strengthen (or usefully complicate) this finding."
   Bears on Priority 1 and the audience/thesis decision in `project_brief.md`.
+
 - **Source:** `[CALDAROLA-CLOUD26]`, `[FRB-MONITORING26]`,
   `[STLFED-ASKMATTERS26]`, `[MDPI-SMEAI-REVIEW26]`, plus `[OECD-SMEAI25]`
   and `[SBA-ADVOCACY25]` as unverified leads. Search was deliberately
@@ -1758,8 +2000,11 @@ Full citation is given once here; log entries below cite the short tag only.
   counting as disconfirmation per this task's brief, even though it kept
   surfacing (e.g. numerous "£78bn opportunity if SMEs caught up"-style UK
   marketing-blog pieces were seen and discarded).
+
 - **Checked date:** 2026-07-25
+
 - **What the source directly supports:**
+
   - **`[CALDAROLA-CLOUD26]` — the closest thing found to genuine academic
     disconfirmation, but not AI-specific.** Using French firm-level
     administrative data (INSEE), this paper's own abstract states: "Recent
@@ -1773,6 +2018,7 @@ Full citation is given once here; log entries below cite the short tag only.
     the general "digital tech favours large firms" pattern the paper itself
     cites as the norm. It concerns cloud infrastructure broadly, not
     AI/LLM adoption specifically — the most significant limitation.
+
   - **`[FRB-MONITORING26]`** (US Federal Reserve Board) — a genuine
     measurement-artifact complication, though only a partial one: legacy
     Census Bureau survey data "showed comparable adoption across smaller
@@ -1784,12 +2030,14 @@ Full citation is given once here; log entries below cite the short tag only.
     functions") coincided with growing divergence by firm size, and that
     this "definitional shift likely explains some observed divergence...
     making direct historical comparisons problematic."
+
   - **`[STLFED-ASKMATTERS26]`** (St. Louis Fed) — cuts the other way on the
     measurement-artifact question: excluding firms with fewer than 10
     employees from adoption calculations (as European surveys do) "does not
     have a major impact" on measured adoption rates, suggesting the
     size-based gap is not primarily a small-firm-exclusion artifact, at
     least for that specific methodological choice.
+
   - **`[MDPI-SMEAI-REVIEW26]`** (peer-reviewed systematic review of 50
     studies, 2016–2025) — found no SME advantage; reinforces the standard
     narrative (limited financial/human resources, technical skill
@@ -1797,6 +2045,7 @@ Full citation is given once here; log entries below cite the short tag only.
     scarcity problem"). Logged as a genuine, well-sourced *confirming*
     replication, included for balance rather than as a new disconfirming
     find.
+
   - A widely-repeated WebSearch-synthesised claim — that "by mid-2025, the
     Federal Reserve found small businesses were adopting AI faster than
     large firms, a reversal that hadn't happened before" — did **not** hold
@@ -1805,8 +2054,10 @@ Full citation is given once here; log entries below cite the short tag only.
     that small businesses remain "about a year behind" large-business
     adoption trajectories. A useful example of exactly the verification
     risk this task was checking for.
+
   - No UK-specific academic or ONS source disputing the size-adoption
     relationship was found despite a dedicated UK-focused search pass.
+
 - **Inference drawn:** Genuine, non-vendor disconfirming/complicating
   evidence for the *AI-specific* SME/large-firm adoption-depth gap remains
   essentially absent — consistent with the prior Open Thread note. The one
@@ -1820,6 +2071,7 @@ Full citation is given once here; log entries below cite the short tag only.
   changes partly explain a widening gap; another finds a specific
   small-firm-exclusion choice doesn't change much. Neither source claims
   the underlying gap is entirely artifactual.
+
 - **Limitations / conflicting evidence:** All of the most relevant sources
   found are US or cross-European, not UK-specific — a meaningful gap
   against this project's UK evidence-scope preference.
@@ -1831,6 +2083,7 @@ Full citation is given once here; log entries below cite the short tag only.
   thorough but not exhaustive search — a systematic literature search via
   an academic database (rather than web search) was out of scope here and
   might surface UK-specific working papers not indexed by general search.
+
 - **Effect on project direction:** This is itself a valid, useful finding:
   after a real, source-restricted search, no credible independent/academic
   evidence was found that disconfirms Entry 029's core AI-specific
@@ -1848,12 +2101,14 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 042 — Direct verification of the local-AI cost/capability blog aggregate (Entry 030)
 
 - **Date logged:** 2026-07-25
+
 - **Priority / Question:** Direct follow-up to the Open Thread flagged after
   Entry 030: "`[LOCALAI-COST26]` and `[LOCALAI-CAPABILITY26]` are unverified
   aggregate search syntheses... before any local/hybrid cost or capability
   claim appears in an external-facing document, at least 2-3 of the
   underlying individual sources should be fetched and read directly, or a
   UK-specific/independent source... should be found instead." Priority 6.
+
 - **Source:** Individually fetched and read directly: `[PROMPTCOST26]`,
   `[FUNGIES26]`, `[PROMPTQUORUM-COMPARE26]` (cost side); `[MINDSTUDIO26]`
   (capability side) — four of the seven/five named underlying blogs,
@@ -1864,9 +2119,13 @@ Full citation is given once here; log entries below cite the short tag only.
   PromptCost.org and Fungies.io directly after direct HTTP 403s — noted
   here as a technique, since it resolved the exact blocker flagged in the
   prior pass.
+
 - **Checked date:** 2026-07-25
+
 - **What the source directly supports:**
+
   - **Cost side, directly verified:**
+
     - `[PROMPTCOST26]` states a 7B-model break-even of "500K–2M tokens/day,"
       with local saving "60–80%" above that threshold — matches Entry 030's
       aggregate figure closely (unsurprising, since Entry 030's aggregate
@@ -1876,6 +2135,7 @@ Full citation is given once here; log entries below cite the short tag only.
       electricity rates from the US EIA, engineering rates from Glassdoor)
       combined with the author's own cost-model calculations — not a
       published, peer-reviewed, or third-party-audited study.
+
     - `[FUNGIES26]` uses a different framing (dollar/GPU-based rather than
       token-threshold-based): a solo developer spending ~$80/month on
       Claude API could break even on a local GPU in as little as ~5–15
@@ -1886,6 +2146,7 @@ Full citation is given once here; log entries below cite the short tag only.
       businesses, not an AI or infrastructure company — the article
       functions as promotional content with a sales call-to-action, a step
       further from subject-matter authority than the other sources here.
+
     - `[PROMPTQUORUM-COMPARE26]` gives current 2026 API rate figures and
       states local LLMs become "cost-effective within weeks for high-volume
       use cases," but — read directly — the article "provides no citations
@@ -1893,7 +2154,9 @@ Full citation is given once here; log entries below cite the short tag only.
       performance metrics," per its own content. PromptQuorum is itself a
       commercial multi-model comparison tool, so this article also
       functions partly as product marketing.
+
   - **Capability side, directly verified:**
+
     - `[MINDSTUDIO26]` states open-weight models are "roughly 3–6 months
       behind frontier on most benchmarks," with the largest gaps in
       reasoning, multimodal, and complex agentic/instruction-following
@@ -1904,7 +2167,9 @@ Full citation is given once here; log entries below cite the short tag only.
       by name without quoting specific figures. MindStudio is a commercial
       no-code AI workflow platform selling access to both cloud and local
       models.
+
   - **Independent/academic alternative found and read directly:**
+
     - `[EPOCH-ECIGAP26]` (Epoch AI, a nonprofit AI-trends research
       organisation with openly published methodology) reports, as of its
       May 2026 measurement (Epoch Capabilities Index, bootstrap-sampled for
@@ -1917,6 +2182,7 @@ Full citation is given once here; log entries below cite the short tag only.
       own caveat is that open labs don't always release their most capable
       models publicly, which could understate the true gap in the other
       direction.
+
     - `[STANFORD-AIINDEX25]` (Stanford HAI, an independent academic
       institute) reports the open/closed performance gap "reducing... from
       8% to just 1.7%" over a one-year window, alongside a striking
@@ -1928,6 +2194,7 @@ Full citation is given once here; log entries below cite the short tag only.
       3.3% by a later (2026) edition of the same report — the trend is
       evidently not monotonic, and should not be read as a settled "gap is
       closing" story.
+
 - **Inference drawn:** The directional shape of Entry 030's original claim
   holds up well under direct reading: local/open-weight models do lag
   frontier cloud models by a period best estimated (by the more rigorous
@@ -1940,6 +2207,7 @@ Full citation is given once here; log entries below cite the short tag only.
   sources themselves (token-threshold framing vs. dollar/GPU-tier framing
   aren't reconciled with each other), which is itself evidence the numbers
   are soft estimates rather than a converged consensus.
+
 - **Limitations / conflicting evidence:** None of the four directly-read
   blog sources cite peer-reviewed, third-party-audited, or even
   fully-linked primary data for their headline figures — direct reading
@@ -1959,6 +2227,7 @@ Full citation is given once here; log entries below cite the short tag only.
   MacBook Pro M2 and Raspberry Pi 5) but was not fetched/read directly in
   this pass due to time — flagged as a lead for a future pass, not logged
   as a finding.
+
 - **Effect on project direction:** The core directional claim in Entry 030
   — that local AI is not a straightforward cost/capability equaliser, that
   break-even depends heavily on usage volume, and that a hybrid approach is
@@ -1979,19 +2248,25 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 043 — Innovate UK's second White Paper: the government's own guidance contradicts its own platform
 
 - **Date logged:** 2026-07-28
+
 - **Priority / Question:** Priority 1 (evidence/problem framing) and
   Priority 5 (comparables) — first direct read of a primary
   government-programme document behind the AI Skills Hub, supplied by the
   project's creator as a key source.
+
 - **Source:** `[IUK-WP2-26]`
+
 - **Checked date:** 2026-07-28
+
 - **What the source directly supports:**
+
   - **The headline economic figure, and its actual provenance.** "The AI
     Opportunities Action Plan and Public First's research identifies that
     AI adoption could boost the UK economy by up to £400 billion by 2030
     (Public First, 2024)." This is the figure the project has seen cited
     as government-backed; the White Paper attributes it to Public First,
     a consultancy, not to an official statistical body.
+
   - **The Hub's own description of itself.** UKRI established the AI
     Skills Hub in June 2025 as "the UK's first-of-its-kind,
     government-funded, free at point-of-use, digital platform," funded by
@@ -2000,6 +2275,7 @@ Full citation is given once here; log entries below cite the short tag only.
     design, build, and run the Hub."** The Hub is described as providing
     "sector-specific, role-based and skill-level-tailored learning
     pathways, all curated by experts."
+
   - **Skills-gap figures.** 96% of employers across four sectors reported
     a persistent mismatch between AI skills required and available (UKRI's
     own first White Paper, June 2025); nearly half of UK CEOs view skills
@@ -2007,22 +2283,26 @@ Full citation is given once here; log entries below cite the short tag only.
     15% of the UK workforce use GenAI daily (PwC, 2025c); only 18% of
     workers felt AI skill levels were adequate — sourced to The Alan
     Turing Institute & UK AI Council, **2021**.
+
   - **Its own five-step adoption guidance**, whose fifth step
     ("Upskill the workforce") tells employers to "**use diagnostics** and
     workforce planning tools to map required capabilities" and to
     "**design targeted, role-specific learning pathways** — create
     differentiated learning journeys for leaders, operational teams,
     technical specialists, and frontline workers."
+
   - **Its own focus-group data:** skills gaps are the No. 1 reported
     barrier when implementing AI (AI Skills Hub focus groups, November
     2025, 99 UK businesses); 66% of employers say upskilling/reskilling
     are vital; **86% view tailored, role-relevant AI training as critical
     to successful adoption.**
+
   - **A competency framework already exists.** The Alan Turing Institute's
     "AI Skills for Business Competency Framework," developed with DSIT and
     Innovate UK BridgeAI, was formally launched in May 2024, and is
     described as giving "a clear, role-aligned articulation of the
     knowledge, skills, and behaviours required."
+
 - **Inference drawn:** Three findings here are the project's own reading,
   not claims the source makes about itself.
   1. **The document contradicts the platform it promotes.** Its guidance
@@ -2051,6 +2331,7 @@ Full citation is given once here; log entries below cite the short tag only.
      principal supplier of the evidence used to argue the platform is
      needed. This is a structural interest-concentration issue of exactly
      the kind this log's source-tagging convention exists to surface.
+
 - **Limitations / conflicting evidence:** This is a promotional
   government-programme document, not an evaluation — it makes no claim to
   independently assess the Hub, so "contradiction" here means a gap
@@ -2063,6 +2344,7 @@ Full citation is given once here; log entries below cite the short tag only.
   documents," not as verified. The 96% figure comes from UKRI's own
   earlier white paper, i.e. the same programme, not independent
   corroboration.
+
 - **Effect on project direction:** Materially strengthens the AI Skills
   Hub critique thread (Entries 018/022/025) by moving part of the evidence
   from third-party review onto the government's own record. Directly
@@ -2074,26 +2356,34 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 044 — BridgeAI year-three delivery figures: £100m programme, 1,700 course completions
 
 - **Date logged:** 2026-07-28
+
 - **Priority / Question:** Priority 1 (problem framing) and Priority 5 —
   the "actually delivered results" half of the planned UK-climate report.
+
 - **Source:** `[IUK-BRIDGEAI-YR3]`
+
 - **Checked date:** 2026-07-28
+
 - **What the source directly supports:**
+
   - **Programme scale:** BridgeAI is backed by £100 million from UKRI's
     Technologies Mission Fund and Innovate UK, launched 2023, delivered by
     a consortium of Innovate UK, Digital Catapult, The Alan Turing
     Institute, BSI and the STFC Hartree Centre.
+
   - **Reported delivery at end of 2025:** £74.6 million of grant funding
     allocated; 5,000+ organisations supported; ~12,000 individuals
     reached; 820+ AI projects funded; **1,700+ AI skills courses
     completed**; **126 accreditations gained**; 10,000+ engagements with
     BridgeAI content (views, comments and downloads).
+
   - **The Hub is nearly absent from the report.** Across 81 pages, the AI
     Skills Hub is named exactly once, in a single subordinate clause:
     training work "was supported through activity within the AI Skills
     Hub, which has helped to sustain and expand access to high-quality AI
     upskilling." No Hub-specific usage, completion or outcome figures are
     reported.
+
   - **Its own conclusions concede the gap.** Under "Skills and
     leadership": "There is growing demand for AI-related skills across all
     levels of business... **This needs follow-through with relevant
@@ -2102,11 +2392,14 @@ Full citation is given once here; log entries below cite the short tag only.
     adopters": "many businesses remain at the margins of AI adoption.
     Future efforts could focus on deepening regional engagement and
     **tailoring support to different levels of readiness**."
+
   - A quoted BBC duty manager states "The AI skills ecosystem can feel
     fragmented," positioning the Turing competency framework as potential
     "glue."
+
   - Ministerial foreword by **Kanishka Narayan MP**, Parliamentary
     Under-Secretary of State, Minister for AI and Online Safety.
+
 - **Inference drawn:** The delivery numbers are strikingly small relative
   to stated ambition, and this is the project's own comparison, not one
   the report draws. The AI Skills Hub carries a publicly stated ambition
@@ -2122,6 +2415,7 @@ Full citation is given once here; log entries below cite the short tag only.
   readiness" are, in substance, the same diagnosis as the external
   "directory not a programme" critique — stated by a delivery partner in
   a government-published report.
+
 - **Limitations / conflicting evidence:** These are self-reported figures
   from a consortium delivery partner (Digital Catapult) writing for the
   funder (Innovate UK), not an independent evaluation — there is no
@@ -2131,6 +2425,7 @@ Full citation is given once here; log entries below cite the short tag only.
   denominator for what completion was targeted, so the ambition-vs-delivery
   comparison above is directional, not a like-for-like shortfall
   calculation. No independent evaluation of BridgeAI has been located yet.
+
 - **Effect on project direction:** Supplies the delivered-results evidence
   for the planned UK-climate report. Establishes that the strongest
   version of the project's critique can be built almost entirely from
@@ -2142,13 +2437,17 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 045 — AI Skills Hub remains unfetchable; Innovate UK Business Connect scoping
 
 - **Date logged:** 2026-07-28
+
 - **Priority / Question:** Priority 5 — access route for first-hand
   platform evidence, plus scoping of the Innovate UK Business Connect
   knowledge base as a source vein.
+
 - **Source:** `[AISKILLSHUB]` (status update), plus the Innovate UK
   Business Connect BridgeAI programme page and its BridgeAI-filtered
   "Perspectives" listing.
+
 - **Checked date:** 2026-07-28
+
 - **What the source directly supports:** aiskillshub.org.uk returned HTTP
   403 to an unauthenticated fetch, a different failure mode from the HTTP
   402 recorded at Entry 018 but the same practical outcome across two
@@ -2162,16 +2461,19 @@ Full citation is given once here; log entries below cite the short tag only.
   including "Training and skills gaps for AI in four selected sectors"
   (8 July 2026) and "BridgeAI three years on: Shaping the future AI
   ecosystem" (21 April 2026) — neither read in this pass.
+
 - **Inference drawn:** None beyond the practical conclusion that
   unauthenticated fetching of the Hub is a closed route and should not be
   retried; the creator's active account is the only viable path to
   first-hand platform evidence.
+
 - **Limitations / conflicting evidence:** Note a discrepancy worth
   resolving: `[IUK-WP2-26]` states the second White Paper is dated
   February 2026, while the Business Connect listing dates its
   corresponding article 16 July 2026, and the PDF's own URL path is
   `/2026/07/`. Publication vs. web-posting dates are the likely
   explanation but this has not been confirmed.
+
 - **Effect on project direction:** Fixes the evidence-collection route for
   the Hub itself (creator's logged-in session, per `project_brief.md`
   "Longer-term direction and positioning"). Identifies two unread
@@ -2181,12 +2483,15 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 046 — Delivery-partner interest concentration; "outsourcing understanding" revived against a new target (see Entry 033 retraction)
 
 - **Date logged:** 2026-07-28
+
 - **Priority / Question:** Priority 1 (problem framing) — an analytical
   entry building on Entries 043–045, not new source material. Also
   revisits the framing retracted in Entry 033.
+
 - **Source:** `[IUK-WP2-26]` and `[IUK-BRIDGEAI-YR3]` (already logged,
   Entries 043–044), plus a direct reading offered by the project's
   creator, 2026-07-28. No new external sources fetched for this entry.
+
 - **What the sources directly support (evidenced, no inference):** PwC was
   commissioned to design, build and run the AI Skills Hub
   (`[IUK-WP2-26]`). The same White Paper's Annex A states its quantitative
@@ -2198,6 +2503,7 @@ Full citation is given once here; log entries below cite the short tag only.
   distinct roles — builder, evidence supplier, delivery partner — held by
   one commercial firm, stated on the record in the government's own
   publication.
+
 - **Inference drawn (this entry's own, clearly separated):** The
   interest concentration above is structural rather than incidental: the
   party paid to build the platform is also a principal supplier of the
@@ -2206,6 +2512,7 @@ Full citation is given once here; log entries below cite the short tag only.
   perfectly sound — but it does mean the paper's skills-gap case is not
   independent of its delivery arrangements, and the project should not
   treat those figures as independent corroboration.
+
 - **Creator's reading (opinion, not evidence — held internally):** the
   creator holds an editorial position on institutional capacity and on
   what the delegation to a commercial supplier represents. It is recorded
@@ -2220,6 +2527,7 @@ Full citation is given once here; log entries below cite the short tag only.
   Skills Hub briefing's "Overview/Editorial" section — and not in sourced
   sections. The *structural* observation it rests on (PwC's dual role) is
   documented above and stands on its own without it.
+
 - **Relationship to the Entry 033 retraction — the reason this entry
   exists:** The "outsourcing understanding" framing was **retracted by the
   creator's own instruction on 2026-07-24** (Entry 033), on two grounds:
@@ -2228,12 +2536,15 @@ Full citation is given once here; log entries below cite the short tag only.
   preprint with no confirmed affiliation and no disconfirming search).
   The framing above is a **deliberate revival against a different target**,
   confirmed with the creator before logging. What has changed:
+
   - **Target:** government/consultancy, not SME/integrator. Entry 033's
     fairness objection was specific to Instro and does not transfer.
+
   - **Evidential basis:** a documented, on-the-record arrangement in a
     government publication, not a theoretical buy-vs-build claim.
     `[BUYBUILD-KLOTZ26]` is **not** revived and remains uncitable per
     Entry 033.
+
   - **Scope:** a specific observation about one programme's evidence
     base, not a general thesis about capability transfer.
   Entry 033's substantive caution still applies to the *general* form of
@@ -2241,6 +2552,7 @@ Full citation is given once here; log entries below cite the short tag only.
   organisations remains unsupported, and should not be reintroduced as
   one. Entry 031's Instro findings remain in their Entry 033 scope — a
   positive example of successful integration, never a foil.
+
 - **Correction of a figure conflation (recorded to stop it recurring):**
   three separate money figures are in play and were briefly merged during
   discussion. For the record: **£4.1m** is the reported cost of the AI
@@ -2255,6 +2567,7 @@ Full citation is given once here; log entries below cite the short tag only.
   are: (a) the Hub has a 10-million-worker-by-2030 ambition and no
   published usage figures whatsoever; (b) BridgeAI's programme-wide
   three-year skills output is 1,700+ completions and 126 accreditations.
+
 - **Limitations / conflicting evidence:** No source consulted so far
   offers a government or PwC response to the interest-concentration point,
   and none has been sought — this is one-sided until it is. Competitive
@@ -2264,6 +2577,7 @@ Full citation is given once here; log entries below cite the short tag only.
   independence, not procurement propriety, and should be worded that way
   to stay defensible. The delivery figures underlying the whole critique
   remain self-reported and unaudited (Entry 044).
+
 - **Effect on project direction:** Gives the planned UK-climate report a
   documented, government-sourced structural critique that does not depend
   on commercially-interested reviewers. Establishes the register boundary
@@ -2277,29 +2591,40 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 047 — Parliament on government's own AI capability: the first genuinely independent scrutiny source
 
 - **Date logged:** 2026-07-28
+
 - **Priority / Question:** Priority 1 (problem framing). Directly addresses
   the standing Open Thread that no independent evaluation of government AI
   activity had been located — every prior delivery figure was self-reported.
+
 - **Source:** `[PAC-AIGOV25]`
+
 - **Checked date:** 2026-07-28
+
 - **What the source directly supports:**
+
   - 70% of government bodies responding to the National Audit Office's
     survey identified difficulties recruiting and retaining staff with AI
     skills as a barrier to AI adoption.
+
   - Around 50% of roles advertised in civil service digital and data
     recruitment campaigns were unfilled in 2024.
+
   - Of 72 highest-risk legacy digital systems prioritised under the
     2022–2025 digital and data roadmap, 21 still lacked remediation funding.
+
   - **DSIT's own admission to the Committee**, quoted in the report: it
     "had to be self-critical about digital leadership across government,
     observing that digital leaders are not well represented at executive
     level across the public sector and many public sector leaders do not
     have enough technical expertise or training."
+
   - The Committee's own verdict: "We remain sceptical that these reforms
     will address the issue where previous attempts have failed."
+
   - "There is no systematic mechanism for bringing together and
     disseminating the learning from all the pilot activity across
     government," risking duplicated effort and cost across siloed pilots.
+
 - **Inference drawn:** Two readings, both this entry's own.
   1. **This partially evidences a claim previously logged as unfounded.**
      The creator's flagged claim that policymakers lack practical
@@ -2316,6 +2641,7 @@ Full citation is given once here; log entries below cite the short tag only.
      persist in translating pilots into production for the businesses it
      supports. The same structural failure is diagnosed internally and
      externally in the same period.
+
 - **Limitations / conflicting evidence:** **Scope discipline matters here.**
   This report is about government's *internal* use of AI. It is not an
   evaluation of BridgeAI or the AI Skills Hub, and must not be presented as
@@ -2324,6 +2650,7 @@ Full citation is given once here; log entries below cite the short tag only.
   BridgeAI year-three figures (March 2025 vs March 2026). The still-open
   gap is unchanged in one respect: no independent evaluation of BridgeAI or
   the Hub *specifically* has been found.
+
 - **Effect on project direction:** Supplies the first genuinely independent
   scrutiny source in this log — a parliamentary committee auditing the
   executive, materially stronger than any prior source on
@@ -2334,10 +2661,14 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 048 — The £400bn figure traced: vendor-commissioned consultancy research
 
 - **Date logged:** 2026-07-28
+
 - **Priority / Question:** Priority 1 — closes the Open Thread flagged at
   Entry 043 that the headline economic figure was untraced.
+
 - **Source:** `[PUBLICFIRST-MSFT]`, traced from `[IUK-WP2-26]`'s citation.
+
 - **Checked date:** 2026-07-28
+
 - **What the source directly supports:** Public First's UK AI economic
   research in this area was **commissioned by Microsoft**, which has
   separately committed £2.5 billion of UK investment over three years —
@@ -2349,6 +2680,7 @@ Full citation is given once here; log entries below cite the short tag only.
   £550bn added to UK GDP by 2035; the £400bn-by-2030 figure cited by
   Innovate UK and the AI Opportunities Action Plan is the related nearer-term
   number.
+
 - **Inference drawn:** The figure underpinning UK AI policy communications
   is not an official statistical projection. It is consultancy modelling
   commissioned by a technology vendor with a direct commercial interest in
@@ -2357,6 +2689,7 @@ Full citation is given once here; log entries below cite the short tag only.
   documented — which is more than several sources in this log manage. But
   it should not be repeated as though it carried ONS or OBR authority, and
   the project should say so plainly whenever it cites the number.
+
 - **Limitations / conflicting evidence:** The relationship between the
   £400bn/2030 and £550bn/2035 figures has not been fully disentangled —
   some secondary coverage attributes a £400bn figure to Google research
@@ -2364,6 +2697,7 @@ Full citation is given once here; log entries below cite the short tag only.
   model has not been independently reviewed, only its stated provenance and
   method read. Treat "commissioned by a technology vendor" as established
   and the precise figure lineage as partially traced.
+
 - **Effect on project direction:** Gives the UK-climate report a documented
   provenance for its opening figure and a second, independent instance of
   the interest-concentration pattern found with PwC (Entry 046) — this time
@@ -2373,44 +2707,54 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 049 — First-hand account: the creator's own AI Skills Hub user journey (primary testimony)
 
 - **Date logged:** 2026-07-29
+
 - **Priority / Question:** Priority 1 (problem framing) and Priority 5 —
   the first-hand platform evidence whose access route Entry 045 fixed
   (the creator's account is the only viable path; unauthenticated
   fetching is closed).
+
 - **Source:** First-hand account given by the project's creator,
   2026-07-29. Participant testimony (n=1), not an external source; the
   full primary text is held in the project's internal working notes,
   with this entry as its evidence-formatted derivative. No source-key
   tag, following the Entry 033/046 precedent for creator-direct
   material.
+
 - **Checked date:** 2026-07-29 (date of recording — the experience
   itself predates the project's founding and is not precisely dated;
   see limitations).
+
 - **What the account directly supports (as testimony):**
+
   - The creator sought out the AI Skills Hub as an earnest prospective
     user before this project existed, aiming to move from conceptual
     familiarity with AI (long-standing interest, podcasts, videos) to
     practical capability — backend systems, infrastructure, conventions,
     best practices. The project was founded partly *because of* what
     followed, not the other way round.
+
   - Route in: the relevant government skills-guidance pages, then Hub
     signup. The stated reason for choosing the official route over
     better-known free alternatives (Khan Academy, LeetCode, roadmap.sh
     — in the creator's words, "more accessible, better built"): the
     hope that official pathways would be **better accredited and
     recognised**.
+
   - What they found on signup: a large catalogue of loosely related
     content with no learning guidance, pathways or personalisation;
     jargon-heavy copy; presentation quality conceded ("well presented
     and polished").
+
   - The course-signup pattern: selecting a course redirected to a
     third-party provider requiring new account creation — first Google,
     with indications of possible future payment obligations, then
     Microsoft with a similar result. The creator abandoned both signups,
     and stopped after the pattern repeated further.
+
   - The experience directly prompted starting the predecessor project
     (PAWH, in ChatGPT) — the production history of which is recorded at
     `project_log.md` Entry 025.
+
 - **Inference drawn (each clearly this entry's own):**
   1. The account converges, unprompted, with the two strongest external
      critiques already logged: LSE's "course directory rather than a
@@ -2436,6 +2780,7 @@ Full citation is given once here; log entries below cite the short tag only.
      creation, possible payment steps, no pathway) bears directly on
      the plausibility of the 10-million-worker-by-2030 ambition (Entry
      018) — a directional observation, not a quantified one.
+
 - **Limitations / conflicting evidence:** n=1; memory-based and not
   precisely dated; and from the project's founder — a motivated
   observer whose project benefits if the Hub looks bad. The chronology
@@ -2462,6 +2807,7 @@ Full citation is given once here; log entries below cite the short tag only.
   to the published report if the creator decides it belongs there. That
   decision is deliberately deferred to report-drafting rather than made
   by this entry (creator's call, 2026-07-29).
+
 - **Effect on project direction:** Gives the planned UK-climate report
   a documented user-journey spine to hang the already-logged numbers on
   — subject to the creator's decision on how much personal framing to
@@ -2478,22 +2824,29 @@ Full citation is given once here; log entries below cite the short tag only.
 ### Entry 050 — NIST on bias: awareness is not a mitigation, and the disconfirming finding lands on this project's own proposed self-check
 
 - **Date logged:** 2026-07-29
+
 - **Priority / Question:** Priority 4 ("How should misconceptions, unsafe
   practices and overconfidence be addressed?") and Priority 6 (responsible
   use, human oversight). Also bears directly on this log's own method.
+
 - **Source:** `[NIST-1270]` — PRIMARY, read directly.
+
 - **Checked date:** 2026-07-29
+
 - **Origin of the question:** the creator proposed researching human and AI
   biases in order to add bias-prevention measures as a lightweight
   self-check in the project's own working rules, and to reuse the material
   as learning content. This entry is the first research pass against that
   proposal. It substantially complicates it.
+
 - **What the source directly supports:**
+
   - NIST identifies **three categories of AI bias — systemic, statistical/
     computational, and human** — and argues the field over-attends to the
     computational category. Its Fig. 1 renders this as an iceberg, with
     statistical/computational bias above the waterline and human and
     systemic bias below it.
+
   - The **human** category is subdivided into *individual* and *group*
     biases. Named individual biases include automation complacency,
     anchoring, availability heuristic, confirmation, Dunning–Kruger,
@@ -2502,6 +2855,7 @@ Full citation is given once here; log entries below cite the short tag only.
     Rashomon effect, presentation and ranking. Named group biases are
     groupthink, funding, deployment and sunk cost fallacy. NIST states the
     list is "not exhaustive."
+
   - Glossary definitions relevant here, quoted precisely because the
     distinctions matter: **selective adherence** is "Decision-makers'
     inclination to selectively adopt algorithmic advice when it matches
@@ -2515,6 +2869,7 @@ Full citation is given once here; log entries below cite the short tag only.
     "but it can also be the individual researcher"; the **McNamara
     fallacy** is "The belief that quantitative information is more valuable
     than other information."
+
   - **The disconfirming finding.** NIST states twice, in near-identical
     terms, that awareness does not fix bias: human heuristics and biases
     "are implicit; as such, simply increasing awareness of bias does not
@@ -2523,16 +2878,19 @@ Full citation is given once here; log entries below cite the short tag only.
     therefore unable to be easily controlled or mitigated. Any assumption
     that biases can be remedied by human control or awareness is not a
     recipe for success" (§2.1.1).
+
   - It extends this to oversight arrangements specifically: the perception
     that a human "can effectively and objectively oversee the use of
     algorithmic decision systems is a problematic assumption," and, in a
     framed warning, "Reliance on various downstream professionals to act as
     a governor on automated processes in complex societal systems is not a
     viable approach" (§3.3.1).
+
   - It further warns that surfacing bias information to downstream users
     "does not always result in a directly positive outcome, and can in fact
     create the opposite" (§3.3.2) — i.e. a flagging mechanism can make
     things worse, not merely fail.
+
   - **What it recommends instead** (§3.3.2, "Human Factors Guidance") is
     structural rather than attitudinal: *effective challenge* — described
     as a practice creating an environment where practitioners "can actively
@@ -2543,6 +2901,7 @@ Full citation is given once here; log entries below cite the short tag only.
     *independence of assessment*, warning that those being assessed "may
     have undue influence on building or using the assessment"; and
     multi-stakeholder engagement and diversity of perspective.
+
 - **Inference drawn (this entry's own, not NIST's):**
   1. The proposal as originally framed — a self-check that raises awareness
      of biases — is the specific intervention NIST says does not work.
@@ -2574,7 +2933,9 @@ Full citation is given once here; log entries below cite the short tag only.
      specifically, whose argument rests on the contrast between published
      numbers. The fallacy would be to let what is counted stand in for what
      matters.
+
 - **Limitations / conflicting evidence:**
+
   - **Published March 2022, and this matters more than the date alone
     suggests.** It predates general public use of conversational LLM
     assistants. Its subject is algorithmic *decision* systems — hiring,
@@ -2583,21 +2944,25 @@ Full citation is given once here; log entries below cite the short tag only.
     human biases are general cognitive phenomena and transfer reasonably;
     the deployment picture does not transfer cleanly and should not be
     treated as though it does.
+
   - US, not UK. Voluntary guidance explicitly "not intended to serve as or
     supersede existing regulations," and by its own description a "first
     step on the roadmap" rather than a settled standard.
+
   - Its primary audience is those "designing, developing, deploying,
     evaluating, and governing AI systems" — organisations, not individual
     practitioners. Applying it to a one-person project is an extension
     beyond its stated scope, and specifically, its diversity and
     multi-stakeholder recommendations have no direct single-operator
     analogue. The second-model audit pass is a thin substitute at best.
+
   - It offers **no empirical effect sizes** for any recommended mitigation.
     Effective challenge, cadence and independence are presented as
     reasoned recommendations drawn from a literature review, not as
     measured interventions. The strength of the negative claim (awareness
     doesn't work) is not matched by comparable evidence that the
     alternatives do.
+
   - Not yet paired with a disconfirming source. The claim that awareness
     training fails is *convergent* with Entry 028's `[AUTOBIAS-MED25]`
     (trained physicians still showed automation bias) and in tension with
@@ -2605,6 +2970,7 @@ Full citation is given once here; log entries below cite the short tag only.
     Entry 028's unresolved question — when does training work? — is
     unresolved still, and this entry does not settle it. Flagged in Open
     Threads.
+
 - **Effect on project direction:** Provides the evidence base for a bias
   self-check, and changes its shape before anything was built: procedural
   triggers at named moments, not an awareness checklist. Adds
@@ -2641,11 +3007,14 @@ possibilities is held in the project's internal working notes.
   non-commercial sources that corroborate or complicate them before the
   "capability gap" is treated as settled. Entry 041 did this for the SME
   adoption-depth gap only.
+
 - **The 21%-of-adults figure could not be verified** (Entry 009) — the
   most likely Commons Library briefing was checked directly and does not
   contain it. Find the correct February 2026 briefing or drop the claim.
+
 - **EY upskilling statistics** (Entry 008) are still only checked via a
   secondary blog; the primary EY report has not been located.
+
 - **The 18%-of-workers-feel-skills-are-adequate figure is from 2021**
   and is used in a 2026 White Paper without a freshness caveat (Entry
   043) — find current data or do not repeat it as current.
@@ -2659,13 +3028,16 @@ possibilities is held in the project's internal working notes.
   independent triangulation; Entry 012 measures a different axis
   (skill-category difficulty) than the original question. Needs explicit
   reconciliation — **Priority 3 is blocked behind it.**
+
 - **Gap widening vs. declining** — Entry 002 (national, declining) and
   Entry 006 (London, widening) still disagree; not investigated further.
+
 - **The replace-and-train finding** (Entry 029) — AI training investment
   is associated with *higher*, not lower, expected headcount reductions.
   This sits against the project's implicit assumption that building AI
   capability benefits the individual learner, and is a genuine tension
   for the responsible-use framing. Unaddressed.
+
 - **The measurement-artifact question on the SME/large-firm gap** (Entry
   041) is genuinely mixed rather than resolved — one Fed source suggests
   a definitional survey change partly explains the widening, another
@@ -2688,20 +3060,24 @@ possibilities is held in the project's internal working notes.
   use, not these programmes. An NAO value-for-money study, a PAC session
   or a departmental evaluation would close this. Not searched for
   directly.
+
 - **The Hub's usage and completion figures are unpublished** (Entry
   044). The FOI route is now named in a published document, so this
   should actually be done. The sharpened question set — definitions,
   third-party attribution and data-sharing, funnel numbers,
   accreditation, contract value — is held in the internal register.
+
 - **Pin every figure to exact published wording before drafting any
   FOI** (Entry 049). The recalled "1 million delivered" claim is not
   located in any logged source; the figures this log holds are the 10m
   ambition (Entry 018) and BridgeAI's programme-wide 1,700+/126 (Entry
   044, with Entry 046's conflation warning still in force).
+
 - **The Hub's accreditation and recognition claims are unread** (Entry
   049). The inference that a redirect portal adds no accreditation value
   of its own depends entirely on what the Hub actually promises. Verify
   before any external use.
+
 - **Current-state re-verification of the Hub user journey** (Entry 049)
   — walk the signup-to-course path via the creator's logged-in session
   (the route Entry 045 fixed) with dated screenshots at each step,
@@ -2710,6 +3086,7 @@ possibilities is held in the project's internal working notes.
   then-state, and the two must be labelled separately if they differ.
   Screenshots carry the creator's account identity and stay in internal
   working files until redacted.
+
 - **Hub signup date corroboration** (Entry 049) — the creator's
   account-creation date would date the experience and evidence its
   before-the-project chronology.
@@ -2729,15 +3106,19 @@ possibilities is held in the project's internal working notes.
   Innovate UK White Paper (June 2025, the 96%-of-employers source),
   "Training and skills gaps for AI in four selected sectors" (8 July
   2026), and "BridgeAI three years on" (21 April 2026).
+
 - **NAO as a source vein is unmined** — only the March 2024 *Use of
   artificial intelligence in government* report has been identified, and
   it has not been read directly.
+
 - **The £400bn vs. £550bn figure lineage** is only partially
   disentangled (Entry 048), including a competing attribution to Google
   research.
+
 - **PwC interest-concentration is identified but not quantified** (Entry
   043) — worth checking whether any non-PwC-sourced UK figures support
   the same skills-gap magnitude.
+
 - **Date discrepancy on the second White Paper** — stated February 2026,
   posted July 2026, PDF path `/2026/07/` (Entry 045). Publication vs.
   posting is the likely explanation, unconfirmed.
@@ -2752,18 +3133,21 @@ possibilities is held in the project's internal working notes.
   evidenced. Confirm the current ministerial line-up before any
   positioning argument depends on it — the only sourced name this
   project holds is Kanishka Narayan MP (Entry 044).
+
 - **Institutional-capacity and political-motive readings** (Entry 046,
   held in internal working notes) have no supporting evidence in this
   log at all. Either find direct evidence — policymaker quotes,
   select-committee transcripts, NAO commentary on departmental AI
   capability — or keep them confined to an explicitly editorial
   register.
+
 - **"Outsourcing understanding" scope creep** — retracted for
   SME/integrator use (Entry 033), deliberately revived against
   government/consultancy (Entry 046). The *general* form of the claim
   remains unsupported and must not be reintroduced as a thesis;
   `[BUYBUILD-KLOTZ26]` remains uncitable. Watch for drift back toward
   the retracted version.
+
 - **Instro-specific claims rest on thin sourcing** (Entry 031) — one
   trade-press article and Instro's own homepage. The underlying AMRC
   Cymru trial report has not been read directly, and the results come
@@ -2775,6 +3159,7 @@ possibilities is held in the project's internal working notes.
   2026-07-24 working decision: the specific barriers and needs of the
   *combined* audience, and whether "small organisation employees" should
   later be split into narrower sub-groups.
+
 - **Schools and universities as learner populations in their own right**
   remain uncovered — Entry 012 covers employment sectors and training
   provision, Entry 016 covers education-sector adoption. Low priority
@@ -2791,26 +3176,32 @@ possibilities is held in the project's internal working notes.
   returned HTTP 403, so the claim that AI-trained physicians still
   showed automation bias rests only on a search engine's synthesis of
   the abstract. Needs a direct read or an alternative access route.
+
 - **`[TADIMALLA-MAHER25]` and `[SAIL4ALL25]` were read at abstract level
   only** (Entry 040, paywalled) — need full reads before being treated
   as more than suggestive, especially if the sequencing question becomes
   load-bearing.
+
 - **Adult-learning pedagogy is unchecked** — andragogy and
   self-directed learning theory have not been tested against the
   Gradual Release of Responsibility model borrowed from K-12 practice
   (Entry 027), which flags this as an unexamined transfer assumption.
+
 - **PRIMES assumes an organisational sponsor** (Entry 026) — paid
   learning time, workplace systems — which may not hold for an
   individual or small-org audience without a sponsoring employer.
   Adaptation vs. wholesale adoption is unreconciled, and this is the
   sharpest open sub-question under the Priority 2 working decision.
+
 - **No UK-specific empirical comparison of "evaluation-first" vs.
   "foundations-first" short AI-literacy units** (Entry 040) — a genuine
   evidence gap, not merely an unread source.
+
 - **The Claude-Code-as-illustrative-example connection** (Entry 034) is
   this project's own inference rather than sourced from the literature —
   worth a light validation pass before treating it as more than a
   teaching analogy.
+
 - **When does bias/literacy training actually work?** Unresolved across
   Entries 028 and 050. `[KAMALI26]` found targeted training improved
   calibration; `[AUTOBIAS-MED25]` found trained physicians still showed
@@ -2822,6 +3213,7 @@ possibilities is held in the project's internal working notes.
   *awareness of a bias* vs. *practised judgement against ground truth*?
   Entry 028 already suspected this; Entry 050 sharpens it but adds no
   evidence either way.
+
 - **`[NIST-1270]` disconfirming pair — judged not required** (creator
   decision, 2026-07-29, closing the debt Entry 050 flagged). NIST was
   read because it was named as an approved source rather than found
@@ -2845,6 +3237,7 @@ possibilities is held in the project's internal working notes.
   freeCodeCamp and others implied by Priority 5's framing. roadmap.sh
   and LeetCode were prioritised because `research_questions.md` names
   them explicitly.
+
 - **No comparable found that is simultaneously AI-literacy-specific,
   UK-based and aimed at general adults** rather than schools, the
   AI-sector workforce or one employment sector. Elements of AI is the
@@ -2861,12 +3254,15 @@ drafting until the creator reopens it. Its carried open items:
   source** (Entry 042) and remains directional-only, not citable with
   specific figures. The capability side is now anchored by Epoch AI's
   Capabilities Index.
+
 - **A genuinely academic on-device cost/energy paper**
   (arXiv:2512.16531) was found but not read — a lead, not a finding.
+
 - **The two tracks' relationship is unaddressed** — shared foundational
   modules if any, and whether the workstation track needs its own
   audience/barrier research the way Priority 2 was done for the
   general-literacy pilot.
+
 - **The inherited workstation architecture reflects PAWH-era planning**
   and has never been checked against the current tool landscape or
   versions.
@@ -2878,6 +3274,7 @@ drafting until the creator reopens it. Its carried open items:
   remain unaddressed. Deliberately deferred rather than researched ahead
   of need, since only the pilot unit's shape was required to unblock the
   build.
+
 - **Priorities 8 (information and knowledge architecture), 9
   (evaluation) and 10 (sustainability and public presentation)** remain
   essentially untouched. Priority 9 — including how the pilot will
@@ -2896,11 +3293,13 @@ this section governs all of it.
   requires an academic post. Neither currently applies. This carries
   tax, liability and governance consequences and needs proper external
   advice rather than project-internal reasoning.
+
 - **The route that funded PRIMES is closed to the project as
   constituted** — the British Academy Policy-Led Innovation Fellowship
   requires a HEI/IRO post. Reachable only via academic partnership,
   which makes the academic contacts strategically relevant rather than
   only editorially useful.
+
 - **The funding-route scan is a first pass, not a shortlist** — schemes
   open, close and change criteria, so every eligibility statement
   recorded needs re-checking at point of use. No published evaluation of
@@ -2915,6 +3314,7 @@ it ever grows its own open-items list.*
   — it covered five specific creator-approved fixes; the wider set of
   icons mixing stroke weights was reviewed and left as intentional
   hierarchy.
+
 - **`hybrid_ai.svg` has no labelled groups** — it has none at all,
   having been hand-edited outside that pass. Revisit if it gains group
   structure worth labelling.
