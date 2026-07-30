@@ -1797,3 +1797,182 @@ no external citation:
   worked example of the tier-2 rule in practice: Entry 032 had already
   been committed, so the correction took a new entry rather than an
   in-place edit.
+
+### Entry 034 — Domain and project email acquired; website direction noted, architecture not yet decided
+
+- **Date logged:** 2026-07-29
+
+- **Priority / Question:** Not tied to a research priority — project
+  infrastructure and a working consideration on deliverable shape.
+
+- **Source:** Direct creator decision, 2026-07-29.
+
+- **What happened:** `groundedaipractice.co.uk` registered via GoDaddy,
+  with a one-year Microsoft 365 mailbox alongside it. Three intended uses
+  named, none yet decided:
+
+  1. host the pilot learner trial;
+
+  2. host an accompanying chatbot, provisionally OpenWebUI with agents
+     built per learner profile — which connects to the deferred "local AI
+     workstation" second track in `project_brief.md`;
+
+  3. serve as a linkable proof of work from GitHub and LinkedIn.
+
+  No site exists, no hosting is chosen, and the creator has stated no
+  prior website-building experience, so this is direction only.
+
+- **Inference drawn (this entry's own):** The static site and the chatbot
+  have **incompatible hosting requirements** and should not be treated as
+  one decision. A proof-of-work site is static and hosts free on GitHub
+  Pages or similar, which also reinforces the repo-as-evidence angle.
+  OpenWebUI is a stateful containerised application needing a persistent
+  server. The standard resolution is a subdomain split — static site at
+  the apex, chatbot at something like `chat.` — which keeps the two
+  decisions independent rather than letting the harder one dictate both.
+
+- **Limitations / conflicting evidence:** Two risks are flagged but
+  unresearched. **Email deliverability:** a newly registered domain has no
+  sending reputation, and Microsoft 365 configures SPF and DKIM but
+  typically not DMARC, so outreach sent early from this address could be
+  filtered — university mail systems especially. **Data protection:** a
+  learner trial that builds per-learner agent profiles is personal-data
+  processing and profiling under UK GDPR, which affects trial design and
+  may require ICO registration. Neither has been checked against a source.
+
+- **Effect on project direction:** Adds a concrete hosting question to the
+  deliverable-shape thread. The data-protection point is not merely
+  compliance overhead here — a project about responsible AI practice
+  handling learner data carelessly would undercut its own argument, so
+  getting it right is a credibility asset. Outreach-channel implications
+  are held internally.
+
+### Entry 035 — Existing PC identified as the server host; deferred, but it revives the second track
+
+- **Date logged:** 2026-07-29
+
+- **Priority / Question:** Not tied to a research priority — infrastructure
+  availability. Bears on the deferred "local AI workstation" second track
+  in `project_brief.md`.
+
+- **Source:** Direct creator statement, 2026-07-29, with full component
+  list supplied.
+
+- **What happened:** There are **two machines, with distinct roles.**
+
+  - **Main desktop** — Ryzen 7 7800X3D, Radeon RX 7900 XT (20 GB VRAM),
+    32 GB. Also used for gaming. This is the machine the inherited PAWH
+    workstation architecture was scoped around, already recorded under
+    "Inherited workstation architecture" in `project_brief.md`.
+
+  - **Secondary machine, earmarked as a dedicated server** — Ryzen 5
+    5600X (6c/12t), 32 GB DDR4-3600, GTX 1060 6 GB, 500 GB M.2 SATA SSD
+    plus a 500 GB HDD, 450 W PSU, Mini ITX. Originally intended as a
+    Linux media player. A UPS is planned for it.
+
+  The secondary machine can host the chatbot server rather than renting a
+  VPS, removing the monthly hosting cost noted in Entry 034.
+  **Explicitly deferred — not a current priority.**
+
+- **Inference drawn (this entry's own):**
+
+  1. The secondary machine is comfortably adequate for server duty,
+     because **OpenWebUI is a web front end and does not itself need a
+     GPU** — it talks to a backend, which can be a hosted API. CPU and
+     RAM are the binding constraints for that use and both are generous.
+
+  2. The GPU only matters if inference runs locally, and the two machines
+     differ sharply there. The secondary machine's GTX 1060 (6 GB, Pascal,
+     no tensor cores) realistically fits a 7–8B model at 4-bit
+     quantisation with limited context — adequate for demonstrating local
+     inference, not for serving it. The main desktop's 7900 XT has 20 GB
+     and handles substantially larger models. So the natural split is
+     **serving and always-on duty on the secondary machine, local
+     inference experiments on the main desktop** — which also matches the
+     PAWH architecture's own assumption that services stop cleanly so
+     gaming performance isn't compromised.
+
+  3. The build-out is genuine teaching material of exactly the kind the
+     lessons-to-content rule anticipates — Linux, containers, reverse
+     proxy, TLS, firewalling, backups, monitoring — with the advantage
+     that it would be written from having done it rather than researched.
+
+- **Limitations / conflicting evidence:** Three risks unresearched, all of
+  them specific to the secondary machine in continuous-duty use. Its
+  **PSU dates from the 2015 CX450M line** and is the component most likely
+  to fail under 24/7 operation. **Single-drive storage with no redundancy
+  or backup** matters more than usual because a learner trial would hold
+  personal data, which UK GDPR requires be protected against loss, not
+  only against disclosure. And **home hosting has connectivity
+  constraints** — dynamic IP, possible CGNAT, and residential ISP terms
+  that often disallow inbound services.
+
+- **Effect on project direction:** Removes the recurring VPS cost from the
+  chatbot plan. It does **not** revive the deferred second track — that
+  was deferred as a matter of focus rather than for want of hardware, and
+  remains closed until the creator reopens it. What this changes is that
+  the second track, whenever it resumes, now has two machines with a
+  natural division of labour rather than one shared with gaming. Nothing
+  is scheduled; this records availability, not a decision to proceed.
+
+### Entry 036 — Raster-to-vector tracing pipeline established; GAP wordmark traced
+
+- **Date logged:** 2026-07-30
+
+- **Priority / Question:** Not tied to a research priority — tooling and
+  design production. Prompted by the creator selecting a wordmark concept
+  and needing it as an editable vector rather than a redraw from visual
+  reference.
+
+- **Source:** Direct creator instruction, 2026-07-30.
+
+- **What happened:**
+
+  1. **Concept chosen.** Five stylised "GAP" wordmark directions were
+     written as image-generation prompts. The creator generated them in
+     Ideogram (Pro subscription — free generation had been withdrawn since
+     the third-party pricing summaries consulted were written) and selected
+     the concept in which the A is negative space, bridged by an Ember
+     crossbar. Kept as `gap_reference_1.png`, with a baseline-bar variant
+     kept as `gap_reference_2.png`.
+
+  2. **Traced, not redrawn.** The reference was colour-separated with
+     Pillow, each mask traced through Inkscape 1.4.4's `object-trace`
+     action (potrace), and reassembled with exact palette values into
+     `assets/logo/logo_wordmark.svg`. Verified by rendering the
+     result back to PNG and comparing it against the reference.
+
+  3. **Generalised into `tools/trace_reference.py`**, the one-off pipeline
+     having worked. Testing auto-detection against both references exposed
+     two defects, since fixed. The quantiser was starved at too few
+     colours and spent its palette on background variations, missing the
+     artwork. And anti-aliasing ramps between background and artwork passed
+     both the distance and pixel-share filters, crowding out the genuine
+     accent colour. The second is fixed geometrically — a candidate lying
+     on the line between the background and an already-accepted colour is
+     rejected as a blend artifact — rather than by threshold tuning, which
+     had already failed once.
+
+  4. **Rule recorded** in `CLAUDE.md` under Working approach, "Raster
+     concept to editable vector", with the tool indexed in the same edit.
+
+- **Inference drawn:** None beyond the creator's own assessment that this
+  removes a recurring pain point in AI asset creation.
+
+- **Limitations / conflicting evidence:** The traced wordmark is **not a
+  finished asset.** It reproduces the source raster's irregularities: the
+  two angled cuts facing the gap do not share an exact angle, corner radii
+  vary between the G and the P, baseline and cap height are not level, and
+  long edges wobble by a pixel or two. These are hand-corrections in
+  Inkscape, and the file should not be exported to PNG, built into lockups,
+  or used in any document until they are made. Separately,
+  `object-trace`'s parameter format is absent from `--help` and was
+  recovered by reading the action's own error output — a future Inkscape
+  release could change it without notice.
+
+- **Effect on project direction:** Unblocks the visual-identity work that
+  the report redraft and README rewrite are waiting on. More generally, it
+  establishes a repeatable capability: a flat concept from any raster
+  generator can now reach Inkscape as real geometry, removing the blind-SVG
+  iteration loop that discouraged the creator during PAWH and recurred
+  here.

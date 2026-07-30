@@ -77,6 +77,28 @@ the five immediate research priorities driving current work.
   authoritative and re-read it rather than assuming the in-repo copy
   reflects the latest manual edits.
 
+- **Raster concept to editable vector: trace, never redraw.** Adopted
+  2026-07-30. Visual concepts are explored in raster tools (Ideogram,
+  ChatGPT/DALL-E, Midjourney), where generation is unconstrained by
+  Claude's inability to see what it draws, then converted to SVG with
+  `tools/trace_reference.py` before hand refinement in Inkscape. The
+  script colour-separates the reference, traces each colour through
+  Inkscape's potrace engine, applies exact brand palette values, and
+  renders the result back to PNG as a self-check.
+
+  This closes a gap the rule above leaves open. That rule says fine
+  refinement belongs in a vector editor; it says nothing about how a
+  raster concept gets into one. The failure mode it replaces is redrawing
+  from visual reference — whether by hand from scratch, or by Claude
+  writing SVG blind and iterating on described feedback.
+
+  **A trace is a starting point, never a finished asset.** It reproduces
+  its source faithfully, and that includes the irregularities of a
+  generated raster: edges that are nearly straight, radii that nearly
+  match, symmetry that is nearly exact. Correcting those by hand is a
+  required step, not an optional polish pass, before anything is treated
+  as final.
+
 - **Use common PowerShell aliases** (`ls`, `cat`, `cd`) rather than full
   cmdlet names when giving or explaining commands day-to-day. Full
   official names belong in curriculum content that is specifically
@@ -407,7 +429,7 @@ the open or not at all.
 ## Word document conventions
 
 Applies to all `.docx` work in this project — currently
-`documents/Style_Reference_Example.docx` (the canonical reference) and
+`exports/Style_Reference_Example.docx` (the canonical reference) and
 `drafts/UK_AI_Skills_Ambition_Report.docx`, plus any future Word
 deliverable built the same way. Established 2026-07-27 during the
 style-reference review.
@@ -667,13 +689,17 @@ attempt it unilaterally.
   `git config core.hooksPath .githooks`. A guardrail against accident,
   not a security control.
 
-- `assets/brand/icons/` — the promoted, working content-icon set (36
+- `assets/icons/` — the promoted, working content-icon set (36
   icons, current palette). `svg/` for sources, `png/` for 64/128/256px
   exports, `README.md` for the filename→topic manifest.
 
-- `assets/brand/logo/` — the finished logo system, and **supporting rather
-  than primary**: the lead identity is a stylised "GAP" wordmark, decided
-  but not yet designed (`project_log.md` Entry 027). Everything here
+- `assets/logo/` — the finished logo system, and **supporting rather
+  than primary**: the lead identity is a stylised "GAP" wordmark.
+  `logo_wordmark.svg` holds that mark, traced from an Ideogram concept
+  reference via `tools/trace_reference.py` and **in hand refinement, not
+  final** — see `project_log.md` Entry 036 for its production and the
+  specific irregularities still to correct. `gap_reference_1.png` and
+  `gap_reference_2.png` are the source concepts. Everything else here
   remains valid and in use, nothing is deprecated.
   `logo_symbol.svg` (default, shaded), `logo_symbol_flat.svg`,
   `_mono`/`_reversed` symbol variants, and `logo_lockup_horizontal`/
@@ -683,7 +709,7 @@ attempt it unilaterally.
   avatar derivatives, plus `png/` exports for all of them. See
   `project_brief.md` "Visual identity" for the full picture.
 
-- `assets/brand/logo/creative_brief.md` — portable creative brief for
+- `assets/logo/creative_brief.md` — portable creative brief for
   external logo-generation workflows (not a project research/decision
   document itself).
 
@@ -694,7 +720,7 @@ attempt it unilaterally.
   **not yet reviewed by the creator** (see `project_log.md` Entry 022).
   Nothing here reflects a settled decision; contents may be replaced or
   removed once the format stabilises. Once a document is approved and no
-  longer a draft, it moves to `documents/` instead.
+  longer a draft, it moves to `exports/` instead.
   **Removed 2026-07-28** as superseded: `Effective_Prompting_Example.docx`
   (the original Word-template formatting test, superseded by the approved
   style reference) and `AI_Skills_Hub_Briefing.docx` (whose argument and
@@ -703,7 +729,7 @@ attempt it unilaterally.
   those entries are historical records and are deliberately **not**
   rewritten to hide that the files once existed.
 
-- `documents/` — finished, current production exports, promoted out of
+- `exports/` — finished, current production exports, promoted out of
   `drafts/` once approved (not work-in-progress). Currently:
   `Style_Reference_Example.docx` (+ its self-check `.pdf`), a 6-page
   catalogue of the Word visual patterns in use, built on a real named-style
@@ -736,6 +762,17 @@ attempt it unilaterally.
   of relying on LibreOffice's approximation. Requires Word and
   poppler-utils (`pdftoppm`) installed locally; see the "Working approach"
   note above on why LibreOffice alone isn't trusted for this.
+
+- `tools/trace_reference.py` — converts a flat raster reference (an
+  Ideogram or DALL-E concept, a photographed sketch) into a
+  colour-separated, labelled SVG ready for hand refinement in Inkscape.
+  Auto-detects the reference's colours and snaps them to the brand
+  palette, or takes explicit `--colors` and `--labels`. Traces through
+  Inkscape's potrace engine, then renders the result back to PNG as a
+  self-check. Requires Python with Pillow (`pip install pillow`) and
+  Inkscape 1.x, both discovered automatically. See "Raster concept to
+  editable vector" under Working approach for when to reach for it, and
+  why its output is never a finished asset.
 
 ## Claude's memory: what's in the repo vs. outside it
 

@@ -177,6 +177,14 @@ more developed than open questions, less settled than the working decisions
 above — and each is labelled by what it is (reference model, aim,
 observation, or flagged claim), per the project's evidence discipline.
 
+- **Domain and project email (fact, 2026-07-29):**
+  `groundedaipractice.co.uk` is registered, with a Microsoft 365 mailbox
+  alongside it. Intended to host the pilot learner trial and an
+  accompanying chatbot, and to act as linkable proof of work. Nothing is
+  built and no hosting is chosen; the static site and a stateful chatbot
+  have different hosting needs and are treated as separate decisions.
+  See `project_log.md` Entry 034.
+
 - **Deliverable-shape reference model:** roadmap.sh is a strong concrete
   example of the *kind* of thing the project's eventual deliverable could
   be — an accessible, customisable, interactive learning resource hub
@@ -255,6 +263,24 @@ curriculum, sequencing, or relationship to the general-literacy pilot's
 content (e.g. whether the two tracks share any foundational modules) — those
 remain open.
 
+**Available hardware (fact, 2026-07-29).** Two machines exist, which
+matters for this track because the inherited architecture below was
+scoped around one:
+
+- **Main desktop** — Ryzen 7 7800X3D, Radeon RX 7900 XT (20 GB VRAM),
+  32 GB. Also used for gaming. Suited to local inference experiments,
+  including models too large for the secondary machine.
+
+- **Secondary machine** — Ryzen 5 5600X, 32 GB, GTX 1060 6 GB, Mini ITX.
+  Earmarked as a dedicated always-on Linux server; a UPS is planned.
+  Suited to serving and continuous-duty work, not to local inference
+  beyond small quantised models.
+
+The natural split is serving on the secondary machine and inference
+experiments on the main desktop. See `project_log.md` Entry 035, including
+the unresearched risks around its PSU age, lack of storage redundancy and
+home-hosting connectivity.
+
 ## Visual identity (working decision — 24 July 2026; primary mark 29 July 2026)
 
 The project's creator has finalised an initial colour palette and logo
@@ -319,7 +345,7 @@ similarity of a "GAP" wordmark to the well-known clothing retailer, which
 is a different sector but worth having looked at and decided rather than
 discovered late.
 
-**Logo** (`assets/brand/logo/`):
+**Logo** (`assets/logo/`):
 
 - `logo_symbol.svg` — **the logo**, default/primary version. Gradient-shaded
   (book-cover gradient, spine shadow, page depth, rounded highlight on the
@@ -412,7 +438,7 @@ Stone in reversed) — this is the intended, primary use case for Stone and
 Graphite, not just the "sparing use" originally anticipated when they were
 added to the palette.
 
-**Icon set** (`assets/brand/icons/`, promoted 24 July 2026, recolour
+**Icon set** (`assets/icons/`, promoted 24 July 2026, recolour
 completed the same day): 36 content icons, flat (no batch subfolders),
 snake_case names, with an `svg/` source folder, a `png/` folder (64/128/256px,
 transparent), and a `README.md` manifest listing every icon and its topic.
@@ -480,8 +506,8 @@ arduous and unproductive — a repeat of a discouraging pattern from PAWH.
 The creator moved to editing directly in Inkscape and this worked well:
 the resulting `logo_symbol.svg`/`logo_symbol_flat.svg` are a clear
 improvement over anything produced through the described-feedback loop.
-Future sessions should treat files in `assets/brand/logo/` and
-`assets/brand/icons/` as potentially edited outside this workflow at any
+Future sessions should treat files in `assets/logo/` and
+`assets/icons/` as potentially edited outside this workflow at any
 time — re-read fresh rather than assuming last-known state — and should
 not propose resuming AI-iterative curve editing; support concept-level
 exploration instead, or integration (palette-fidelity checks, format/size
@@ -554,7 +580,10 @@ restore procedures, and rollback before risky changes.
 **Target hardware:** a Windows 11 desktop (Ryzen 7 7800X3D, Radeon RX 7900
 XT/20GB VRAM, 32GB DDR5) also used for gaming — services were intended to
 run on demand and stop cleanly (e.g. via Docker Compose profiles) so gaming
-performance wasn't compromised.
+performance wasn't compromised. PAWH assumed this single machine; a second
+machine is now available for always-on duty, which removes the need for
+that stop-cleanly constraint on anything hosted there — see "Available
+hardware" under the second track above.
 
 **Security/maintainability defaults considered:** bind locally unless
 remote access is deliberately needed; prefer VPN/private access over public

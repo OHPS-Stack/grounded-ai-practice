@@ -1,8 +1,8 @@
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/brand/logo/png/logo_lockup_horizontal_reversed_512.png">
-  <img src="assets/brand/logo/png/logo_lockup_horizontal_512.png" alt="Grounded AI Practice" width="380">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/logo/png/logo_lockup_horizontal_reversed_512.png">
+  <img src="assets/logo/png/logo_lockup_horizontal_512.png" alt="Grounded AI Practice" width="380">
 </picture>
 
 **Practical AI capability through responsible, hands-on learning.**
@@ -56,9 +56,9 @@ Four rules the project holds itself to, visible throughout the logs:
 | [`research_questions.md`](research_questions.md) | The ten research priorities driving the work. |
 | [`research_log.md`](research_log.md) | Source key and dated findings — source-backed research only. Ends with a running list of open threads. |
 | [`project_log.md`](project_log.md) | Dated record of decisions, design and production work. |
-| [`documents/`](documents/) | Finished, approved outputs. |
+| [`exports/`](exports/) | Finished, approved outputs. |
 | [`drafts/`](drafts/) | Work in progress. Nothing here is settled. |
-| [`assets/brand/`](assets/brand/) | Visual identity: logo system and a 36-icon content set. |
+| [`assets/`](assets/) | Visual identity: logo system and a 36-icon content set. |
 | [`CLAUDE.md`](CLAUDE.md) | Working rules and conventions, including how this repo separates public from internal material. |
 
 ## Current focus

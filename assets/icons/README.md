@@ -11,7 +11,7 @@ see `project_brief.md` ("Visual identity") and `research_log.md` (Entries
   `{icon}_{size}.png`.
 
 These are illustrative content icons for individual topics — a distinct
-system from the brand mark itself (`assets/brand/logo/`).
+system from the brand mark itself (`assets/logo/`).
 
 | File | Topic |
 |---|---|
