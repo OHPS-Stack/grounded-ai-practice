@@ -63,6 +63,19 @@ the five immediate research priorities driving current work.
   exists yet but one could plausibly be built, say so explicitly rather
   than defaulting to repeated manual review rounds.
 
+- **Any bespoke tool built for a task that might need reusing goes in
+  `tools/`, not left as a one-off script in a scratch directory.**
+  Adopted 2026-07-31. Applies the moment a script does something more
+  than a single throwaway check — a real fix, a repeatable transform, a
+  self-check with actual logic in it — not only to things explicitly
+  planned as reusable in advance; whether it turns out to be reused is
+  not knowable ahead of time, and scratch-directory scripts are outside
+  the repo entirely and gone once the session's temp files clear.
+  Promoting it means: give it a real docstring in the style of the
+  existing tools (why it exists, how it works, requirements), a CLI
+  rather than only importable functions, and an index entry here in the
+  same edit that adds it, per the standing indexing rule below.
+
 - **Fine visual/spatial refinement gets handed to a real tool, not
   iterated through description.** Early concept exploration (comparing
   directions, testing palettes, rough layouts) works well as an inline
@@ -461,6 +474,23 @@ style-reference review.
   Entry 015 for why (Word rejects a shape nested inside another shape's
   text box) and the rest of the construction.
 
+- **Card and quote height must fit the text inside, not be set once at
+  construction time.** A `wpg:wgp` group's height is a static number in
+  its XML; nothing in Word recomputes it when the text is edited, so a
+  card built for two lines and later filled with eight keeps the two-line
+  box and reads as badly over-padded — found 2026-07-31 across every
+  callout in a drafted report, and to a lesser extent in two of the six
+  groups in the style reference itself. Use `tools/fitshapes.py` after
+  writing or editing a card or quote's text, never hand-picked heights.
+
+- **A `.docx` produced by string-substituting into an existing card or
+  quote template inherits that template's height regardless of how much
+  the new text differs from the original** — this is exactly the failure
+  mode the rule above exists for, and it is the ordinary way these get
+  built (see `tools/fitshapes.py`'s docstring for how the bug was found).
+  Run the fitter as a matter of course whenever a template like this is
+  reused, not only when padding looks visibly wrong.
+
 - **`settings.xml` MUST declare `compatibilityMode` 15.** Non-negotiable
   for any document using shapes. Without it Word assumes compatibility
   mode 12 (Word 2007), which predates the DrawingML shape extensions
@@ -754,7 +784,10 @@ attempt it unilaterally.
   **Approved as canonical for current purposes (2026-07-27, see
   `project_log.md` Entry 016) — still subject to later refinement, but no
   longer a first draft**; the "Word document conventions" section above is
-  the extracted rule set. Icon set inconsistencies (padding, mismatched
+  the extracted rule set. Its callout cards and pull quote were refitted
+  to their text content 2026-07-31 (see `tools/fitshapes.py` and the card/
+  quote height rule above) and re-approved on that basis — see
+  `project_log.md` Entry 039. Icon set inconsistencies (padding, mismatched
   speech-bubble styles across icons) are the one explicitly open exception
   — separately deferred, creator revisiting the icon set directly in
   Inkscape.
@@ -784,6 +817,21 @@ attempt it unilaterally.
   Inkscape 1.x, both discovered automatically. See "Raster concept to
   editable vector" under Working approach for when to reach for it, and
   why its output is never a finished asset.
+
+- `tools/fitshapes.py` — fits a `.docx`'s callout-card and pull-quote
+  drawing groups to the text they actually contain. These are Word groups
+  (`wpg:wgp`) built with a fixed height at construction time; nothing
+  recomputes that height when the text is edited, so cards and quotes
+  drift out of proportion with their content — found 2026-07-31 across
+  every callout in a drafted report. Measures real Public Sans metrics
+  (actual glyph widths, real wrapping at the text box's actual width) and
+  recentres the icon, divider bar and text box to fit, without touching
+  width. Takes a `.docx` in and writes a `.docx` out — `--in-place` to
+  overwrite, or a destination path. Requires Python with Pillow and the
+  Public Sans TTF faces installed as system fonts. **Does not verify its
+  own output** — always run `word_preview.ps1` and
+  `word_roundtrip_test.ps1` after, same as any other document construction
+  step.
 
 ## Claude's memory: what's in the repo vs. outside it
 

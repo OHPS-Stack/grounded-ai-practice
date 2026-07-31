@@ -2109,3 +2109,96 @@ no external citation:
 - **Effect on project direction:** The visual identity is complete for current
   purposes. The README rewrite, the report redraft and the LinkedIn profile
   are unblocked.
+
+### Entry 039 — Callout-card and pull-quote padding bug found and fixed; fitshapes.py built and promoted to tools/
+
+- **Date logged:** 2026-07-31
+
+- **Priority / Question:** Not tied to a research priority — document
+  construction defect and tooling.
+
+- **Source:** Creator's visual review of the redrafted report, with an
+  annotated screenshot marking the intended vertical extent against the
+  actual rendered extent.
+
+- **What happened:**
+
+  1. **The defect.** Callout cards and pull quotes are built as `wpg:wgp`
+     drawing groups with a height set once at construction time. Nothing
+     in Word recomputes that height when the text inside changes, so a
+     card built by copying an existing card's XML and substituting new
+     text keeps the old card's height regardless of how much text now
+     fills it. Present in all three callout cards in the redrafted report
+     (up to 136.1pt for a two-line label plus body against a 65pt icon
+     well) and, to a smaller extent, in two of the six groups in
+     `exports/Style_Reference_Example.docx` itself — the other four had
+     already been built correctly, height matching the icon well almost
+     exactly.
+
+  2. **`tools/fitshapes.py` built** to fix it properly rather than by
+     hand. Measures each paragraph's real wrapped height using the
+     installed Public Sans font faces at their actual weight, style, size
+     and line-spacing multiplier — not an estimated line height — then
+     sets card height to `max(text height, icon-well height) + 2x padding`
+     (quote height to `text height + 2x padding`), recentring the icon,
+     divider bar and text box. Widths are never touched, preserving the
+     existing size-preset rule that the icon well is fixed and only the
+     text column resizes.
+
+  3. **A real bug found and fixed during testing, not before shipping.**
+     The tool's first version detected a callout card by checking for the
+     literal substring `<pic:pic>` inside its group. This missed every
+     callout in the report, because Word had serialised those particular
+     picture elements as `<pic:pic xmlns:pic="...">` — the same element,
+     carrying its own inline namespace declaration, which is valid and
+     ordinary OOXML but broke an exact-substring check. The bug was
+     silent: the tool ran without error and reported success, having
+     quietly skipped all three callout cards and fitted only the report's
+     three pull quotes (which don't need picture detection). Found by
+     noticing the report's callout heights were unmoved after a run that
+     claimed to have fitted 3 groups, when 6 were expected. Fixed by
+     matching `<pic:pic\b` instead of the exact tag. Re-run against the
+     style reference confirmed the fix produced byte-identical output
+     there, since that document's picture elements happened to serialise
+     without the inline namespace.
+
+  4. **Both fixed documents verified through real Word**, not rendering
+     alone — `word_roundtrip_test.ps1` (save survives) and
+     `word_preview.ps1` (renders correctly), per this project's own rule
+     that a render is not a save check. The style reference dropped from
+     72.4–124.7pt group heights to 54.3–104.5pt range; six of its groups
+     were already close to correct and moved by under 1pt.
+
+  5. **Style reference promoted** to `exports/Style_Reference_Example.docx`
+     as the corrected version, re-approved as canonical on this basis. The
+     redrafted report was re-fitted with the same tool and both files
+     placed back in `drafts/`.
+
+- **Inference drawn:** A template-substitution build process (write once,
+  copy the XML, swap the text) is the ordinary way these documents get
+  built in this project, and it is also the ordinary way this specific bug
+  gets introduced — the geometry is never wrong by design, only stale
+  relative to text that has since changed. This is now a standing
+  construction rule (see CLAUDE.md, "Word document conventions") rather
+  than a one-off fix, since it will recur every time a card or quote
+  template is reused with different content.
+
+- **Limitations / conflicting evidence:** The tool does not verify its own
+  output — it explicitly says so, both in its docstring and in its own
+  final line of console output — because Word verification already has
+  dedicated tooling that handles the safety-critical parts (confirming a
+  genuinely new WINWORD.exe process before automating it) and duplicating
+  that here would be redundant and riskier. The `has_pic` bug is the kind
+  of defect that would have shipped silently if the report's callout
+  heights hadn't been checked against the expected group count — worth
+  remembering when trusting this tool's console output alone in future
+  runs, rather than the actual rendered result.
+
+- **Effect on project direction:** Removes a defect that would otherwise
+  have recurred in every future document built from these templates.
+  Unblocks treating the redrafted report as visually finished, subject to
+  the creator's own outstanding wording and formatting edits noted
+  separately. `tools/fitshapes.py` is now indexed in `CLAUDE.md` alongside
+  the other Word tooling, per the newly adopted rule that any bespoke tool
+  which might be reused is promoted to `tools/` rather than left in a
+  scratch directory.
