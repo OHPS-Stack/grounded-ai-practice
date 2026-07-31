@@ -172,8 +172,15 @@ Full citation is given once here; log entries below cite the short tag only.
 | `[AILMS25]` | Government/Official (DSIT-commissioned, delivered by Gardiner & Theobald, a consultancy). The report itself states its findings "do not represent Government views or policy and are instead G&T views" | DSIT / Gardiner & Theobald, *AI Labour Market Survey 2025* — PRIMARY, full PDF obtained and sections 1–3 (executive summary, methodology, respondent overview) read directly. n=119 self-selected organisations, 3% response rate, scoped to the AI sector. See Entry 056. gov.uk |
 | `[AIOPP-RESP25]` | Government/Official (the government's formal reply to its own commissioned adviser — a statement of policy intent, unlike `[AIOPP-PLAN25]` which is not) | HM Government, *AI Opportunities Action Plan: government response*, 13 January 2025, Command Paper CP 1242, ISBN 978-1-5286-5363-3 — PRIMARY, read directly. Answers each of the 50 recommendations individually with a verdict and a target date. gov.uk |
 | `[AISKILLSLIFE-RER26]` | Independent/Academic, government-supported (authored by Prof Rob Procter, Warwick University and the Alan Turing Institute; supported by DSIT and the DCMS R&D Science and Analysis Programme) — a materially better interest position than the vendor and consultancy sources elsewhere in this log | DSIT/DCMS, *AI Skills for Life and Work: Rapid Evidence Review*, published 28 January 2026 — PRIMARY, obtained in full and read at section level rather than end to end. gov.uk |
-| `[FEWEEK-HUB26]` | Independent (education-sector trade journalism; no commercial stake in AI training provision — a materially better source position than the vendor reviewers in Entries 022/025) | FE Week, "AI Skills Hub risks 'copy and paste of past failure'" — read via fetch summary, **not** the full article. Carries quotes from Skills England chair Phil Smith and from Sue Pember of HOLEX. feweek.co.uk |
-| `[SKILLSTOOLKIT-OSR21]` | Independent/Official (the UK statistics regulator) — **NOT read directly** | Office for Statistics Regulation correspondence to DfE's chief statistician, March 2021, on The Skills Toolkit's registration and completion figures. Known only through FE Week's reporting of it across two March 2021 articles. The letter itself has not been retrieved. |
+| `[FEWEEK-HUB26]` | Independent (education-sector trade journalism; no commercial stake in AI training provision — a materially better source position than the vendor reviewers in Entries 022/025) | FE Week, "AI Skills Hub risks 'copy and paste of past failure'", 30 January 2026, by Anviksha Patel — article retrieved and its content extracted directly, superseding the earlier fetch-summary read. Carries quotes from Skills England chair Phil Smith and from Sue Pember of HOLEX, and the three-minute completion detail. feweek.co.uk |
+| `[SKILLSTOOLKIT-OSR21]` | Independent/Official (the UK statistics regulator) | Office for Statistics Regulation, *Mary Gregory to Neil McIvor: Use of unpublished data during Parliamentary Questions*, 8 March 2021 — PRIMARY, **now read directly** via OSR's published correspondence archive, superseding the "not retrieved" status this row previously carried. Full letter text read salutation to sign-off; the PDF attachment was not opened separately. Concerns two uses of unpublished Skills Toolkit data in answers to Parliamentary Questions, and two requested presentational improvements. See Entry 059 for what it does **not** say. osr.statisticsauthority.gov.uk |
+| `[FEWEEK-TOOLKIT21]` | Independent (education-sector trade journalism) | FE Week's Skills Toolkit reporting: "Registrations for DfE's £1m 'skills toolkit' could be from all around the globe", 29 January 2021; "DfE knuckles rapped by stats watchdog over Skills Toolkit data", 22 March 2021; "DfE admits official Skills Toolkit completion data may just be starts", 25 March 2021. **Headlines and search-result summaries only — none of the three read in full.** This is the actual source of the web-hits, geography and starts-not-completions findings that Entry 055 wrongly attributed to the regulator. feweek.co.uk |
+| `[SKILLSENGLAND-GOV]` | Government/Official (the body's own listing) | Skills England organisation page, gov.uk, with establishment and machinery-of-government dates corroborated by the House of Commons Library briefing *Skills policy in England* (CBP-10365). Executive agency; created in shadow form 22 July 2024 under DfE; fully established 2 June 2025; skills brief moved to DWP 7 September 2025. Used for a descriptive gloss only. gov.uk |
+| `[INNOVATEUK-GOV]` | Government/Official (the body's own listing) | Innovate UK organisation page, gov.uk — "the UK's innovation agency", part of UK Research and Innovation. Used for a descriptive gloss only. gov.uk |
+| `[DIGICAT-ABOUT]` | Vendor/Commercial-adjacent (the organisation's own self-description; part of the Innovate UK Catapult Network, so not independent of the body it reports to) | Digital Catapult, About us — describes itself as a deep tech innovation organisation and as part of the Innovate UK Catapult Network. Used for a descriptive gloss, and for the observation in the report's §8 that the BridgeAI delivery figures are reported to a funder whose own network the reporter belongs to. digicatapult.org.uk |
+| `[OSR-ABOUT]` | Independent/Official (the regulator describing its own remit) | Office for Statistics Regulation, *What we do*, and its *Official Statistics in Development* policy page. Source of the OSR's self-description as "the regulatory arm of the UK Statistics Authority", and of the September 2023 renaming of "experimental statistics" to "official statistics in development". osr.statisticsauthority.gov.uk |
+| `[AIOPP-DELIVERY26]` | Government/Official — **self-assessment**, the strongest caveat in this table. DSIT and Number 10 Data Science scoring their own department's delivery against their own plan, with no stated criterion for what "Commitment Met" requires and no external verification | *AI Opportunities Action Plan — 2026 Progress*, delivery.ai.gov.uk, January 2026 — PRIMARY, read directly. A page per recommendation carrying the CP 1242 response and a 2026 progress update; all 50 are served from `/data/ai-opportunities.json`, which is how they were read. Headline: 38 of 50 met (76%), 12 in progress. **Blocks ordinary fetching (403 site-wide); reachable through a browser.** See Entries 060 and 061. |
+| `[AISKILLS-JUN25]` | Government/Official (DSIT announcing its own partnership) | DSIT, "Tech giants join government to kick off plans to boost British worker AI skills", 14 June 2025 — PRIMARY, read via fetch extraction rather than raw text. Source of the original **7.5 million workers by 2030** target, the eleven named partners, and the separate projection that "around 10 million workers" would be *using* AI by **2035**. gov.uk |
 | `[OPENBADGES]` | Independent/Reference (an open technical standard) | Mozilla Open Badges, published 15 September 2011 with MacArthur Foundation funding; version 1.0 in 2012; stewardship passed to IMS Global, now 1EdTech, in 2017. Used here only to date the technology, not as evidence about its effectiveness. |
 
 ---
@@ -3350,6 +3357,12 @@ Full citation is given once here; log entries below cite the short tag only.
   understated register: quote the claim, state the year the standard was
   published, and stop.
 
+- **Attribution corrected 2026-07-31 — see Entry 059.** The OSR letter has
+  since been retrieved and read directly. It does **not** contain the
+  completion-definition or geographic-filtering findings this entry credits
+  to the regulator; those are FE Week's, and the department's own admissions.
+  The facts stand, the attribution in this entry does not.
+
 ### Entry 056 — What "accurately assess the size of the skills gap" delivered: 119 self-selected AI-sector organisations
 
 - **Date logged:** 2026-07-31
@@ -3535,6 +3548,214 @@ Full citation is given once here; log entries below cite the short tag only.
   authored source making the same point. For a report whose argument is built
   on government's own material, that is the difference between an inference
   and a citation.
+
+### Entry 059 — The OSR letter, read directly: the regulator did not find what Entry 055 attributed to it (supersedes part of Entry 055)
+
+- **Date logged:** 2026-07-31
+
+- **Priority / Question:** Priority 1/5 — closes the "not read directly"
+  limitation Entry 055 flagged against its own central source, and tests
+  whether that entry's inference survives contact with the document.
+
+- **Source:** `[SKILLSTOOLKIT-OSR21]`, `[FEWEEK-TOOLKIT21]`, `[FEWEEK-HUB26]`
+
+- **Checked date:** 2026-07-31
+
+- **What the source directly supports:**
+
+  - **The letter is public.** OSR publishes its correspondence as a matter of
+    course. It was not paywalled, login-gated or FOI-only. Entry 055's
+    "has not been retrieved" recorded not having looked, not unavailability —
+    a materially different evidential position, and the report's wording
+    implied the wrong one.
+
+  - Mary Gregory, Deputy Director for Regulation, OSR, to Neil McIvor, Chief
+    Data Officer and Chief Statistician, DfE, 8 March 2021, headed *Use of
+    unpublished data during Parliamentary Questions*.
+
+  - Its subject is two uses of unpublished Skills Toolkit data in answers to
+    Parliamentary Questions: registrations in October 2020, where OSR's view
+    was that "the response should have drawn on the latest published data"
+    and the figures "have since been revised and updated"; and course
+    completions in January 2021.
+
+  - Two presentational improvements requested: that the data sit under an
+    "Additional Analysis section. This may not be clear to users looking for
+    these data in the release", and that "not all limitations of the data are
+    included for example they do not currently inform users of what the
+    geographical coverage is".
+
+  - The undertaking obtained: the department "will follow the principles of
+    the Code of Practice, in particular ensuring that sufficient
+    methodological detail is available for readers to fully understand the
+    figures".
+
+  - Its register throughout is cooperative — "We welcome…", "It is positive
+    that you sought to provide analytical support…", "some improvements we
+    would like to see" — not the reprimand secondary coverage describes.
+
+- **What the letter does not contain:** web hits counted as registrations; a
+  three-minute completion threshold; any statement that a completion may mean
+  a user merely accessed material; any finding that registrations were
+  globally unfiltered; any mention of experimental statistics.
+
+- **Inference drawn:** Entry 055 stated that "the statistics regulator found
+  that predecessor's numbers unreliable in precisely the two respects that
+  apply to the 1,001,147 figure in Entry 053: what 'completion' operationally
+  means, and whether the count is geographically filtered." **That attribution
+  is wrong.** Those were FE Week's findings and the department's own
+  subsequent admissions. The regulator's letter is narrower and procedural:
+  unpublished figures used in Parliament, and how limitations are presented.
+  The underlying facts survive unchanged and the 2021-versus-2026 comparison
+  still holds — only the credit was misassigned. The corrected version is
+  arguably the stronger one: a trade paper's investigation found the defects,
+  and the regulator's own response was mild.
+
+- **Limitations / conflicting evidence:** The letter was read as published
+  HTML; the PDF attachment was not opened separately. **The three 2021 FE Week
+  articles still have not been read in full** — the web-hits, geography and
+  starts-not-completions claims rest on their headlines and on search-result
+  summaries. The geography claim has no direct-read source at all and is the
+  weakest thing now standing in the report's §4. The 30 January 2026 FE Week
+  article was retrieved directly and does support the web-hits and
+  three-minute details. The £1 million cost figure remains untraced to any
+  departmental publication.
+
+- **Effect on project direction:** `drafts/UK_AI_Skills_Ambition_Report.docx`
+  §4 rebuilt on the corrected attribution, with the letter's undertaking
+  sentence added as a pull quote — a 2021 commitment that enough
+  methodological detail be published for readers to understand the figures,
+  set against 2026's withheld breakdowns and undefined "completed". The
+  general lesson is that Entry 055's own honest limitation note is what made
+  this correction findable; the practice of recording what was *not* read is
+  doing real work and should not be relaxed.
+
+### Entry 060 — The government's own delivery tracker: Recommendation 14 marked met, and the one recommendation about ordinary workers is not
+
+- **Date logged:** 2026-07-31
+
+- **Priority / Question:** Priority 1 — resolves the Entry 056/057 open thread
+  on whether Skills England's assessment work satisfies Recommendation 14, by
+  going to what government itself claims it delivered.
+
+- **Source:** `[AIOPP-DELIVERY26]`
+
+- **Checked date:** 2026-07-31
+
+- **What the source directly supports:**
+
+  - A per-recommendation progress site published by DSIT and Number 10 Data
+    Science, dated January 2026. Headline score: **38 of 50 met (76%)**, 12 in
+    progress.
+
+  - **Recommendation 14 is marked "Commitment Met."** Five publications are
+    named as the delivery: *Skills for Growth and Opportunity* (June 2025),
+    *AI Skills for the UK Workforce* (October 2025), *UK Standard Skills
+    Classification* (November 2025), *The AI Skills for Life and Work
+    Collection* (January 2026), and *AI Skills in the UK Labour Market*
+    (January 2026). Skills England "will continue to produce regular Skills
+    Needs Assessments".
+
+  - The last of those five is `[AILMS25]`, and government's own description of
+    it scopes it exactly as Entry 056 found: it assesses "trends, skills,
+    gaps, and evolving skills needs **in the AI sector**."
+
+  - **Skills & Talent: 7 met, 2 in progress.** The two outstanding are
+    Recommendation 16 (diversity of the talent pool) and **Recommendation 19,
+    "Ensure its lifelong skills programme is ready for AI."** Recommendations
+    15, 17, 18, 20, 21 and 22 — graduates, education pathways, the Spärck AI
+    scholarship, internal headhunting, visa routes, Turing fellowships — are
+    all marked met.
+
+  - Recommendation 49, "Drive AI adoption across the whole country", is also
+    in progress. Recommendation 45's AI Knowledge Hub launched 23 May 2025 and
+    reports "over 50,000 views since May 2025" — a different platform from the
+    AI Skills Hub, aimed at public sector teams.
+
+- **Inference drawn:** Entry 051 established that Recommendation 19 is the only
+  one in the plan addressing the general working population, inside a section
+  otherwise about scientists and founders. The government's own tracker now
+  scores every AI-professional recommendation in that section as met, and the
+  one covering everyone else as still in progress. That is the Entry 051 and
+  Entry 058 finding restated in the government's own delivery scoring, which
+  is a stronger evidential position than this project's reading of the plan's
+  structure. Separately, the project **cannot** claim Recommendation 14 went
+  undelivered: five artefacts are named, three of which are already in this log.
+
+- **Limitations / conflicting evidence:** **This is self-assessment**, and the
+  interest tag should travel with every citation of it — DSIT and Number 10
+  scoring their own plan, with no stated test for what "Commitment Met"
+  requires and no external audit. "38 of 50" is government's own mark of its
+  own homework. Two of the five Recommendation 14 publications (*Skills for
+  Growth and Opportunity*, *UK Standard Skills Classification*) have not been
+  read. The site returns 403 to ordinary fetching and was read through a
+  browser via its underlying JSON, so the rendered pages themselves were
+  sampled rather than each read individually.
+
+- **Effect on project direction:** Closes the Entry 056/057 thread. The
+  UK-climate report's §2 must stop implying the AI Labour Market Survey is the
+  artefact produced under Recommendation 14, and its callout must name the
+  wider assessment work. The Recommendation 19 finding is the strongest
+  single-sentence corroboration the report has for its central claim about
+  where attention went.
+
+### Entry 061 — The target was 7.5 million, not 10 million: three government sources disagree (bears on the report's opening paragraph)
+
+- **Date logged:** 2026-07-31
+
+- **Priority / Question:** Priority 1 — tests the figure the UK-climate report
+  opens with, after `[AIOPP-DELIVERY26]` gave a different number from
+  `[AISKILLSBOOST26]`.
+
+- **Source:** `[AISKILLS-JUN25]`, `[AIOPP-DELIVERY26]`, `[AISKILLSBOOST26]`
+
+- **Checked date:** 2026-07-31
+
+- **What the source directly supports:**
+
+  - **The June 2025 announcement set 7.5 million, not 10 million.** DSIT,
+    14 June 2025: "Leading tech firms join talks with ambitions to train 7.5
+    million UK workers in essential AI skills" — by 2030, roughly a fifth of
+    the workforce. The eleven partners named are exactly those the report
+    lists.
+
+  - The same release contains a 10 million figure, but as a different measure
+    entirely: "we expect around 10 million workers to be **using** AI in their
+    day-to-day role by **2035**." Different verb, different year, a projection
+    rather than a target.
+
+  - The delivery tracker's Recommendation 19 entry: 7.5 million agreed with
+    eleven companies in June 2025; the AI Skills Boost platform launched
+    January 2026 with 24 partners, and government "announced it would expand
+    the programme to provide 10 million workers with key AI skills by 2030."
+
+  - `[AISKILLSBOOST26]`, January 2026, describes the 10-million-by-2030 target
+    as "announced by the Prime Minister in June 2025 at London Tech Week."
+
+- **Inference drawn:** The explainer's attribution is not supported by the
+  June 2025 announcement, and is contradicted by the department's own delivery
+  tracker. On the documented sequence the target was set at 7.5 million in June
+  2025 and raised to 10 million in January 2026 — the same month the first
+  progress figure, 1,001,147 courses, was published. The million courses
+  therefore accrued against a target a third smaller than the one they are now
+  reported against.
+
+- **Limitations / conflicting evidence:** The June 2025 release was read
+  through a fetch extraction rather than raw text, and it now carries the
+  report's opening paragraph, so it needs a direct read before publication.
+  The Prime Minister's 9 June Tech Week speech has **not** been read and is a
+  separate artefact from this 14 June DSIT release; the tracker says only "In
+  June 2025", so what was said on stage is unestablished and it remains
+  possible the explainer is describing that. **The coincidence between the
+  10m/2035 usage projection and the later 10m/2030 target is noted and must
+  not be presented as a finding** — there is no evidence connecting them, and
+  implying one would be exactly the kind of inference this report criticises.
+
+- **Effect on project direction:** Changes the UK-climate report's first two
+  sentences, which currently attach the million-course figure to a target that
+  did not exist while those courses accrued. The corrected sequence is both
+  more accurate and a stronger construction, since every element is
+  government-published and needs no characterisation.
 
 ## Open threads
 
@@ -3948,18 +4169,31 @@ it ever grows its own open-items list.*
 
 **Still open after this pass:**
 
-- **The OSR correspondence still has not been read directly** (Entry 055).
-  Two further details were recovered from trade-press reporting — the letter
-  went to DfE chief statistician Neil McIvor, and it also challenged the
-  department's use of unpublished Skills Toolkit data in parliamentary
-  answers — but the letter itself remains unretrieved after three attempts,
-  and it is the one primary source the precedent argument would most benefit
-  from.
+- **The June 2025 announcement needs a direct read** (Entry 061). It was read
+  through a fetch extraction, and it now carries the report's opening
+  paragraph — the 7.5 million target, the eleven named partners and the
+  separate 10-million-by-2035 *usage* projection all rest on it.
 
-- **Whether Skills England's own work satisfies the Recommendation 14
-  commitment** (Entry 057) has not been tested. Entries 017 and 019 hold
-  relevant material already read; nobody has set them against the
-  commitment's actual wording.
+- **The Prime Minister's 9 June 2025 London Tech Week speech is unread**
+  (Entry 061), and is a separate artefact from the 14 June DSIT release. It
+  is the one place `[AISKILLSBOOST26]`'s "announced by the Prime Minister in
+  June 2025" attribution could still turn out to be correct.
+
+- **Two of the five publications government names as delivering
+  Recommendation 14 are unread** (Entry 060): *Skills for Growth and
+  Opportunity* (June 2025) and *UK Standard Skills Classification*
+  (November 2025).
+
+- **No "Commitment Met" status has been independently verified** (Entry 060).
+  The tracker is DSIT and Number 10 scoring their own plan and states no test
+  for what the label requires. Its 38-of-50 headline should never be quoted
+  without that attached.
+
+- **The three 2021 FE Week Skills Toolkit articles have not been read in
+  full** (Entry 059). The web-hits, geography and starts-not-completions
+  claims rest on headlines and search-result summaries; the geography claim
+  has no direct-read source at all and is the weakest thing now standing in
+  the report's §4.
 
 - **`AI Skills for Life and Work: Labour market and skills projections`**
   remains unread, as does `Assessment of AI capabilities and the impact on

@@ -25,6 +25,12 @@ internal/
 # Microsoft Word lock/owner files (created while a .docx is open).
 ~$*
 
+# Microsoft Word recovery/scratch files. Word leaves these behind after a
+# crash or an interrupted save, and unlike ~$ lock files they survive the
+# session — one turned up in drafts/ on 2026-07-31 and would have been
+# committed by `git add -A`.
+~WRL*.tmp
+
 # OS and editor cruft
 Thumbs.db
 desktop.ini

@@ -2202,3 +2202,168 @@ no external citation:
   the other Word tooling, per the newly adopted rule that any bespoke tool
   which might be reused is promoted to `tools/` rather than left in a
   scratch directory.
+
+### Entry 040 — Report revision tooling built; §4 rebuilt on a corrected attribution
+
+- **Date logged:** 2026-07-31
+
+- **Priority / Question:** Not tied to a research priority — document
+  production and tooling, arising from the creator's review pass over
+  `drafts/UK_AI_Skills_Ambition_Report.docx`.
+
+- **Source:** Production work, 2026-07-31, on the research in
+  `research_log.md` Entry 059.
+
+- **What happened:**
+
+  1. **`tools/docx_text.py` built** to read a `.docx` as plain text
+     including shape content, because reviewing prose that lives inside
+     callout cards and pull quotes previously meant rendering the whole
+     document to PDF. It drops Word's `<mc:Fallback>` duplicate of every
+     shape; without that, every card and quote is reported twice.
+
+  2. **`tools/docx_edit.py` built** as its editing counterpart, after
+     manual copy-paste of revisions into Word introduced three defects in
+     one pass — an orphaned paragraph where a replacement removed its own
+     lead-in sentence, a stray quote mark and a `?` in a table cell, and a
+     doubled dash in a §8 bullet. It applies a declared list of edits and
+     writes nothing unless every one matches the expected number of times.
+
+  3. **Three structural defects found in that tool by the project's own
+     checks, not by inspection**, each now a permanent guard in it:
+     ElementTree renamed every namespace prefix to `ns0:`-style on
+     serialisation, which left `fitshapes.py` reporting zero shape groups
+     in a document that had six; it wrote empty elements as `<tag />`
+     where Word writes `<tag/>`, which crashed the fitter's regexes; and
+     it dropped root-element namespace declarations that no element uses
+     but `mc:Ignorable` names, which Word rejects as a corrupt file rather
+     than as a namespace error. Only the last was caught by Word itself —
+     the first would have passed every check except a shape count.
+
+  4. **Report revised** across §1, §4, §5, §6, §8 and the source list.
+     The substantive change is §4, rebuilt after Entry 059 established
+     that findings the section credited to the statistics regulator were
+     FE Week's journalism and the department's own admissions. The OSR
+     letter's undertaking on methodological detail was added as a seventh
+     drawing group, cloned from an existing pull quote.
+
+- **Inference drawn:** None beyond the above — production record. The
+  attribution correction and its reasoning are Entry 059.
+
+- **Limitations / conflicting evidence:** The XSD validator in the bundled
+  docx skill could not run (`defusedxml` missing); Word's own save and
+  render checks stood in for it, which is the stronger test anyway.
+
+- **Visual check completed later the same day, and it found two defects
+  nothing else had.** poppler-utils was installed and all eight rendered
+  pages were read. Both defects were **pre-existing** — present in the
+  pre-edit file, confirmed by running the same diagnostic against it —
+  and both came from prose being pasted into Word by hand:
+
+  1. **252 non-breaking spaces** across five pasted paragraphs. Word
+     cannot break a line at a non-breaking space, so it broke mid-word
+     instead: "it p / ublished", "throu / ghout", "Forty- / eight". In the
+     §1 NOTE callout this also overflowed the shape, clipping the last
+     line — and `fitshapes.py` could not have prevented it, because it
+     measures assuming normal word wrapping and its height was correct
+     for that assumption.
+
+  2. **§1's heading had lost its `Heading1` style**, leaving only a stray
+     `spacing after=60`. It rendered at body size, and silently dropped
+     out of the outline level that Word's navigation pane and any table
+     of contents depend on — the exact thing the named-style system in
+     "Word document conventions" exists to guarantee.
+
+  A third, smaller version of the same thing: three Overview paragraphs
+  carried a direct `spacing after=60` the surrounding paragraphs do not,
+  so they sat visibly tighter than the rest of the page.
+
+  All three were fixed with two new `docx_edit.py` operations — a bulk
+  character replacement, and `set_style`, which restores a named style or
+  clears direct paragraph formatting. Re-verified: SAVE OK, 8 pages, all
+  read.
+
+  **The general lesson is that none of this was visible in the text.**
+  `docx_text.py` reported the document as correct throughout, because the
+  words were correct. Only the render showed it. Pasting prose into Word
+  by hand is the mechanism that introduced every one of these, which is
+  the argument for routing revisions through `docx_edit.py` instead.
+
+- **Effect on project direction:** Gives the project a read/edit pair for
+  `.docx` prose revision, which is the loop the report is now in. Both are
+  indexed in `CLAUDE.md`. The guards in `docx_edit.py` are the reusable
+  part: they encode what Word and `fitshapes.py` each silently tolerate.
+
+### Entry 041 — Report review completed: 29 edits, three research corrections, and what a human read caught that no check could
+
+- **Date logged:** 2026-07-31
+
+- **Priority / Question:** Not tied to a research priority — the record of
+  the creator's full review pass over
+  `drafts/UK_AI_Skills_Ambition_Report.docx`.
+
+- **Source:** Review session, 2026-07-31. Research findings are
+  `research_log.md` Entries 059–061.
+
+- **What happened:**
+
+  1. **Twenty-nine edits across three passes**, each proposed with its
+     defect named, approved individually, then applied through
+     `docx_edit.py` with a dry run first. Sections 1 and 4 were rebuilt,
+     §6 went from three paragraphs to six, and the report grew from eight
+     pages to nine.
+
+  2. **Three research corrections came out of the review, not out of
+     planned research.** The creator asked whether the OSR letter was
+     actually available; it was, and reading it showed the report had
+     credited the statistics regulator with findings that were FE Week's
+     journalism and the department's own admissions (Entry 059). The
+     creator then spotted the government's delivery tracker, which marks
+     Recommendation 14 delivered and names five publications, and shows
+     the only recommendation addressing the general workforce sitting
+     among the two skills items *not* met (Entry 060). Following the
+     numbers on that tracker produced the largest correction of all: the
+     June 2025 target was 7.5 million, not 10 million, and three
+     government sources disagree about it (Entry 061). That last one sat
+     in the report's opening sentence.
+
+  3. **The bias self-check fired, and the existing list caught it.**
+     Item 2, the reversal test, applied to §6: the report was scrutinising
+     a 119-organisation government survey while presenting the PRIMES
+     framework's own evidence base without caveat — a 536-response survey
+     run through Amazon Mechanical Turk that its authors say skews
+     London-based and AI-engaged. The caveat is now in §6. No new item was
+     added to the list, because an existing item covered it. Per the rule
+     in `CLAUDE.md`, that is the outcome that keeps the list at five.
+
+  4. **A seventh drawing group** was added — the OSR letter's undertaking
+     as a pull quote, cloned from an existing quote rather than
+     hand-written, then refitted.
+
+- **Inference drawn:** The review caught a class of defect that none of
+  this project's checks can reach. `word_roundtrip_test.ps1` proves a file
+  saves, `word_preview.ps1` proves it renders, `docx_text.py` proves what
+  it says — and every one of those passed on a document that credited the
+  wrong party with a regulator's findings, introduced four public bodies
+  without explaining any of them, and opened on a target that did not
+  exist when the figure beneath it was counted. Those needed a reader.
+  The relevant rule already exists as bias self-check item 5, that nothing
+  becomes canonical unchecked; this is the clearest evidence so far of
+  what it is for.
+
+- **Limitations / conflicting evidence:** The June 2025 announcement now
+  carrying the report's opening paragraph was read through a fetch
+  extraction rather than raw, and the Prime Minister's 9 June Tech Week
+  speech is unread — so the target correction rests on a source that
+  itself needs a direct read. The three 2021 FE Week articles remain
+  unread in full, leaving §4's geographic-filter claim without a
+  direct-read source. Both are logged as open threads. File placement had
+  to be handed to the creator throughout, because the shell in this
+  session could not write into the repository.
+
+- **Effect on project direction:** The report is materially more accurate
+  than it was this morning, and its weakest remaining claims are now
+  named rather than buried. The working loop — propose with the defect
+  stated, approve individually, accumulate, dry-run, apply, refit, verify
+  through real Word, hand back — is the method for any future document
+  revision, and is what the two new tools exist to serve.

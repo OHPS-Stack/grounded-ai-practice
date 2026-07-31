@@ -211,11 +211,22 @@ project already had.
    find support); this covers the output side, which nothing previously
    did.
 
-3. **A source couldn't be retrieved → record the hole.** A source that
-   403s or sits behind a login doesn't become absent from the evidence
-   base, it becomes invisible in it. Log it as unfetched rather than
-   letting the reachable evidence quietly stand in for all of it. NIST:
-   *streetlight effect*, searching only where it is easiest to look.
+3. **A source couldn't be retrieved → record the hole, and say which
+   kind of hole it is.** A source that 403s or sits behind a login
+   doesn't become absent from the evidence base, it becomes invisible in
+   it. Log it as unfetched rather than letting the reachable evidence
+   quietly stand in for all of it. NIST: *streetlight effect*, searching
+   only where it is easiest to look.
+
+   **Sharpened 2026-07-31:** distinguish *could not be obtained* from
+   *nobody has looked yet*. They carry very different weight, and any
+   wording that blurs them will be read as the stronger of the two. The
+   OSR letter sat in this log and in a drafted report as "has not been
+   read directly" — which reads as unavailable — when it was published
+   on the regulator's own website the whole time, and its contents did
+   not support what had been attributed to it (`research_log.md` Entry
+   059). This is a sharpening of an existing trigger, not a sixth item;
+   the list stays at five.
 
 4. **Argument rests on numbers → say what isn't counted.** State once, in
    the text, what the figures do not capture. NIST: *McNamara fallacy*,
@@ -465,6 +476,22 @@ style-reference review.
   content that's genuinely data-driven per instance — callout-card label
   colour (varies by semantic type), table cell shading, palette swatch
   text — not for faking a structural role with bold-and-a-bigger-size.
+
+- **Prose revisions go through `tools/docx_edit.py`, not through pasting
+  into Word.** Pasting strips a paragraph's named style and injects
+  non-breaking spaces. Found 2026-07-31, when a pasted revision cost §1 of
+  the UK-climate report its `Heading1` style — and with it the outline
+  level the rule above exists to guarantee, so the section silently
+  dropped out of the navigation pane and any TOC — and put 252
+  non-breaking spaces into five paragraphs. Word cannot break a line at a
+  non-breaking space, so it broke mid-word instead ("throu / ghout"), and
+  in one callout the text overflowed its shape and clipped. `fitshapes.py`
+  cannot prevent that: it measures assuming normal word wrapping, and its
+  height was correct for that assumption. **None of it was visible in the
+  document's text.** `docx_text.py` reported the words as correct, because
+  they were; only the render disagreed. So this is also the case for
+  running `word_preview.ps1` and *looking at the pages* after any hand
+  edit, not only after a construction step.
 
 - **Callout cards use small/medium/large size presets**, each fixing the
   icon-well size; a card's width (and therefore its text column) is always
@@ -833,6 +860,49 @@ attempt it unilaterally.
   `word_roundtrip_test.ps1` after, same as any other document construction
   step.
 
+- `tools/docx_text.py` — extracts a `.docx`'s readable text, including the
+  text inside callout cards and pull quotes, which are drawing shapes
+  rather than body text and so are missed by anything reading only
+  paragraphs. For diffing one revision against the last, grepping for a
+  phrase, quoting into a log entry, or handing a section out for a wording
+  pass. Complements rather than duplicates `word_preview.ps1`: that one
+  answers "does it render correctly", this one answers "what does it say",
+  and needs no Word process to do it. Marks and numbers shape text boxes
+  as it goes, since editing text inside one means `fitshapes.py` has to be
+  re-run over the document afterwards. Drops Word's `<mc:Fallback>`
+  duplicate of every shape and any `<w:del>` tracked-deletion — without
+  that, every card and quote is reported twice and deleted text reads as
+  though it were still present. `--styles` labels each paragraph with its
+  Word style (useful for checking heading structure), `--no-shapes` gives
+  body text only, `-o` writes to a file. Requires Python, standard library
+  only — no Pillow, no Word, no Inkscape. Reads `word/document.xml` only:
+  headers, footers, footnotes and comments live in separate parts and are
+  not extracted.
+
+- `tools/docx_edit.py` — the editing counterpart to `docx_text.py`. Applies
+  a JSON list of find/replace operations to a `.docx`, reaching text inside
+  callout cards and pull quotes as well as body paragraphs and table cells,
+  and matching across split runs so a sentence Word has fragmented into five
+  `<w:r>` elements is still found. A `clone` operation copies a paragraph —
+  or a whole drawing group — and inserts it elsewhere with its text
+  substituted, which is how a new pull quote gets added without hand-writing
+  `wpg:wgp` XML. A `set_style` operation restores a named paragraph style
+  or clears direct paragraph formatting, which is what repairing a pasted
+  revision needs; `"count": "all"` on a replace handles bulk character
+  fixes such as stripping non-breaking spaces. **It writes nothing unless
+  every edit in the batch matches the number of times declared for it**,
+  since an edit that silently does nothing is this project's known failure
+  mode (`project_log.md` Entry 039).
+  Three structural guards, each added after that exact defect was caught
+  here on 2026-07-31: namespace prefixes are preserved, because ElementTree
+  renames them to `ns0:` and `fitshapes.py` then sees zero shape groups;
+  empty elements are written Word's way (`<tag/>`, not `<tag />`) because
+  the other tools match Word's form literally; and the source root element
+  is restored, because `mc:Ignorable` names prefixes no element actually
+  uses and dropping them makes Word reject the file as corrupt rather than
+  report a namespace error. Requires Python, standard library only. Always
+  run `fitshapes.py` and then both Word checks afterwards.
+
 ## Claude's memory: what's in the repo vs. outside it
 
 Two separate systems hold context across sessions — don't confuse them:
@@ -882,7 +952,16 @@ files are machine-specific and don't travel between machines (desktop vs.
 laptop) or reliably resurface from old conversation logs — the repo is the
 one place guaranteed to travel with the project. Applies in every session
 working in this repo, not just the one that first set this up.
-**Last run: 2026-07-28.** Update this line each time the pass completes,
+**Last run: 2026-07-31.** That pass audited all six memory files and found
+five of them correctly machine-local — three are interaction-level
+(agent-spawning, tool preferences, how to handle short pasted fragments)
+and belong in memory rather than the repo, and the government-recognition
+goal is already in `project_brief.md` under "Longer-term direction and
+positioning". The one item that needed moving into the repo came from the
+session itself rather than from a memory file: the unfetchable-versus-
+unfetched distinction, now folded into bias self-check item 3 above.
+Previous line, kept for the record: last run 2026-07-28. Update this line
+each time the pass completes,
 so any session can see how stale it's gotten. That pass audited all 19
 memory files: 15 were already properly captured here, and four were
 machine-local only — the vector-editing handoff rule, PowerShell alias

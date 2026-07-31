@@ -82,6 +82,10 @@ SCALE = 64  # render font this many times larger, for measurement precision
 
 FONT_DIR_CANDIDATES = [
     r"C:\Windows\Fonts",
+    # Windows per-user font folder. This is where a right-click > Install
+    # puts a font, which is the default action, so it is at least as likely
+    # as the system folder above. Left unexpanded and skipped off Windows.
+    os.path.expandvars(r"%LOCALAPPDATA%\Microsoft\Windows\Fonts"),
     "/Library/Fonts",
     "/System/Library/Fonts",
     os.path.expanduser("~/.local/share/fonts"),
