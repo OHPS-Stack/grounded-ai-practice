@@ -166,6 +166,15 @@ Full citation is given once here; log entries below cite the short tag only.
 | `[PUBLICFIRST-MSFT]` | Vendor/Commercial (consultancy research commissioned by a technology vendor) | Public First, *Unlocking the UK's AI Potential: Harnessing AI for Economic Growth*, commissioned by Microsoft — read directly. Microsoft's own £2.5bn UK investment commitment is stated on the report page. Headline there is £550bn by 2035; the £400bn-by-2030 figure is the related number cited by Innovate UK and the AI Opportunities Action Plan. microsoftuk.publicfirst.co.uk |
 | `[AISKILLSHUB]` (status update 2026-07-28) | Government/Official — **still not directly readable** | Unauthenticated fetch of aiskillshub.org.uk now returns HTTP 403 (previously HTTP 402 at Entry 018). Two independent failure modes across two passes; treat unauthenticated fetching as a closed route. The project's creator holds an active Hub account — first-hand platform evidence should be collected through that logged-in session rather than by further fetch attempts. |
 | `[NIST-1270]` | Government/Official (US National Institute of Standards and Technology) — **not UK**, and voluntary guidance rather than regulation | Schwartz, Vassilev, Greene, Perine, Burt & Hall, *Towards a Standard for Identifying and Managing Bias in Artificial Intelligence*, NIST Special Publication 1270, March 2022, 86pp — PRIMARY, read directly (Executive Summary, §2.1–2.3, §3.3 Human Factors, and the Glossary read in full; §3.1 datasets and §3.2 TEVV not read, being computational rather than human-factors material). doi.org/10.6028/NIST.SP.1270 |
+| `[AIOPP-PLAN25]` | Government/Official — but note the status: an **independent report to government**, written in the first person by Matt Clifford, an appointed adviser, not a departmental policy statement | HM Government, *AI Opportunities Action Plan*, 13 January 2025, Command Paper CP1241, ISBN 978-1-5286-5362-6 — PRIMARY, full text read directly via the gov.uk content API. Makes 50 recommendations. gov.uk |
+| `[AIOPP-1YEAR26]` | Government/Official (DSIT reporting its own progress against its own plan — self-assessment, not evaluation) | HM Government, *AI Opportunities Action Plan: One Year On*, 29 January 2026 — PRIMARY, full text read directly. Forewords by the Prime Minister and by Liz Kendall MP as Secretary of State for DSIT. gov.uk |
+| `[AISKILLSBOOST26]` | Government/Official (DSIT, publishing figures supplied to it by eleven commercial delivery partners) | DSIT, *AI Skills Boost: explainer*, 28 January 2026 — PRIMARY, read directly. Source of the 1,001,147 course-completion figure, of the definition of what that figure counts, and of DSIT's own hedged economic modelling. gov.uk |
+| `[AILMS25]` | Government/Official (DSIT-commissioned, delivered by Gardiner & Theobald, a consultancy). The report itself states its findings "do not represent Government views or policy and are instead G&T views" | DSIT / Gardiner & Theobald, *AI Labour Market Survey 2025* — PRIMARY, full PDF obtained and sections 1–3 (executive summary, methodology, respondent overview) read directly. n=119 self-selected organisations, 3% response rate, scoped to the AI sector. See Entry 056. gov.uk |
+| `[AIOPP-RESP25]` | Government/Official (the government's formal reply to its own commissioned adviser — a statement of policy intent, unlike `[AIOPP-PLAN25]` which is not) | HM Government, *AI Opportunities Action Plan: government response*, 13 January 2025, Command Paper CP 1242, ISBN 978-1-5286-5363-3 — PRIMARY, read directly. Answers each of the 50 recommendations individually with a verdict and a target date. gov.uk |
+| `[AISKILLSLIFE-RER26]` | Independent/Academic, government-supported (authored by Prof Rob Procter, Warwick University and the Alan Turing Institute; supported by DSIT and the DCMS R&D Science and Analysis Programme) — a materially better interest position than the vendor and consultancy sources elsewhere in this log | DSIT/DCMS, *AI Skills for Life and Work: Rapid Evidence Review*, published 28 January 2026 — PRIMARY, obtained in full and read at section level rather than end to end. gov.uk |
+| `[FEWEEK-HUB26]` | Independent (education-sector trade journalism; no commercial stake in AI training provision — a materially better source position than the vendor reviewers in Entries 022/025) | FE Week, "AI Skills Hub risks 'copy and paste of past failure'" — read via fetch summary, **not** the full article. Carries quotes from Skills England chair Phil Smith and from Sue Pember of HOLEX. feweek.co.uk |
+| `[SKILLSTOOLKIT-OSR21]` | Independent/Official (the UK statistics regulator) — **NOT read directly** | Office for Statistics Regulation correspondence to DfE's chief statistician, March 2021, on The Skills Toolkit's registration and completion figures. Known only through FE Week's reporting of it across two March 2021 articles. The letter itself has not been retrieved. |
+| `[OPENBADGES]` | Independent/Reference (an open technical standard) | Mozilla Open Badges, published 15 September 2011 with MacArthur Foundation funding; version 1.0 in 2012; stewardship passed to IMS Global, now 1EdTech, in 2017. Used here only to date the technology, not as evidence about its effectiveness. |
 
 ---
 
@@ -2712,6 +2721,13 @@ Full citation is given once here; log entries below cite the short tag only.
   at the level of the economic case itself rather than the delivery
   arrangements.
 
+- **Attribution corrected 2026-07-31 — see Entry 052.** The £400bn figure
+  does not come from the Microsoft-commissioned report named above. The
+  Action Plan's own footnote cites Public First's *Google's Impact in the
+  UK 2023*. The provenance reasoning in this entry stands; the specific
+  attribution, and the GPT-4/O*NET method described above, belong to the
+  Microsoft study and must not be attached to the £400bn number.
+
 ### Entry 049 — First-hand account: the creator's own AI Skills Hub user journey (primary testimony)
 
 - **Date logged:** 2026-07-29
@@ -2999,6 +3015,526 @@ Full citation is given once here; log entries below cite the short tag only.
   separate track and is not decided here.
 
 ---
+
+### Entry 051 — The AI Opportunities Action Plan, read directly: government states it does not know the size of the skills gap
+
+- **Date logged:** 2026-07-31
+
+- **Priority / Question:** Priority 1 — the upstream policy document every
+  programme this log has examined descends from. Cited repeatedly across
+  Entries 043–048, never read.
+
+- **Source:** `[AIOPP-PLAN25]`
+
+- **Checked date:** 2026-07-31
+
+- **What the source directly supports:**
+
+  - **Status.** An independent report by Matt Clifford, written in the first
+    person ("my judgement is", "I have tried to draw"), commissioned by the
+    Secretary of State and presented to Parliament as CP1241 on 13 January
+    2025. It makes 50 recommendations. It is not itself a statement of
+    government policy, and must not be cited as one.
+
+  - **The skills gap was unmeasured, and the plan says so.** Recommendation
+    14: "Accurately assess the size of the skills gap. Current estimates are
+    imprecise and outdated; the last government-funded AI labour market
+    survey was in 2020 and the Unit for Future Skills' jobs and skills
+    dashboard, while a step in the right direction, still uses supply data
+    from 2019. The success of the following recommendations depends on
+    accurately understanding the skills gap, and so government must make
+    efforts to come to a concrete and up-to-date number."
+
+  - **The skills section is about AI professionals, not the workforce.**
+    Section 1.3 is titled "Training, attracting and retaining the next
+    generation of AI scientists and founders". Recommendations 15–22 cover
+    AI graduates, diversity in the AI pipeline, routes into the AI
+    profession, a Rhodes-scale scholarship, internal headhunting, visa
+    routes and Turing fellowships. Recommendation 19, "Ensure its lifelong
+    skills programme is ready for AI", is the only one addressing the wider
+    working population, and commits to nothing specific — government "should
+    ensure there are sufficient opportunities" and might "consider the merit"
+    of approaches used in Singapore and South Korea.
+
+  - **SMEs get one sentence.** Recommendation 49: "A particular focus should
+    be put on supporting SMEs and the specific challenges they face."
+
+  - **Footnote provenance.** The two concrete productivity claims in section
+    2.1 — AI assistants "freeing up to 20% of an employee's time", and
+    drafting cutting document production times "by 20-80%" — are both
+    footnoted to "Business leader interviews, August 2024": unpublished,
+    unquantified, no sample stated. The "tens of thousands of AI
+    professionals" target is "Based on internal DSIT estimates".
+    Recommendation 36's civil-service pay benchmarking is sourced to the
+    Tony Blair Institute.
+
+  - Recommendation 45 proposes a single "AI Knowledge Hub" as "a single
+    place to access frameworks and insights" for technical and non-technical
+    users alike.
+
+- **Inference drawn:** The plan the UK's AI skills programmes descend from
+  states that it does not know the size of the problem, and makes fixing
+  that a stated precondition for everything else in its skills section.
+  Separately, the general adult workforce — this project's chosen audience —
+  is addressed by one non-committal recommendation inside a section
+  explicitly about scientists and founders. That is a gap at the top of the
+  policy chain, not only at delivery level, and it is visible in the
+  government's own published text.
+
+- **Limitations / conflicting evidence:** The government's formal response
+  was published the same day but has **not been read**. The claim that it
+  accepted all 50 recommendations rests on secondary coverage and must be
+  verified before use — nothing here supports "the government committed to
+  X" — **resolved 2026-07-31, see Entry 057: the response has now been read,
+  and the correct statement is 48 recommendations agreed and 2 partially
+  agreed, not "all 50 accepted".** Matt Clifford's own position (co-founder of Entrepreneur First, chair
+  of ARIA) sits alongside a plan that repeatedly recommends startup-
+  favourable measures, including that Innovate UK prioritise AI funding for
+  startups; that is an observation with no disconfirming search run against
+  it, and it is not usable externally in its current state. The gov.uk page
+  carries an `updated` timestamp of 23 July 2026, which is a bulk
+  republication — five related documents were re-stamped within two minutes
+  — not a content change.
+
+- **Effect on project direction:** Supplies the upstream frame the UK-climate
+  report lacks. Recommendation 14 in particular gives that report a
+  documented starting point in the government's own words: the ambition was
+  set before the gap was measured. Whether it was measured afterwards is
+  Entry 054.
+
+### Entry 052 — Correction: the £400bn figure is Google-commissioned, not Microsoft-commissioned (supersedes part of Entry 048)
+
+- **Date logged:** 2026-07-31
+
+- **Priority / Question:** Priority 1 — corrects an attribution in Entry 048
+  that has already been repeated in a drafted external-facing document.
+
+- **Source:** `[AIOPP-PLAN25]` footnote 19; `[PUBLICFIRST-MSFT]`
+
+- **Checked date:** 2026-07-31
+
+- **What the source directly supports:** The Action Plan's section 2.4
+  states "AI adoption could grow the UK economy by an additional £400
+  billion by 2030 through enhancing innovation and productivity in the
+  workplace", and attaches footnote 19. Footnote 19 reads: "Public First,
+  'Google's Impact in the UK 2023', 2024 (accessed 15 October 2024)". The
+  plan's nineteen footnotes were counted through to confirm the mapping.
+
+- **Inference drawn:** Entry 048 attributed the £400bn figure to Public
+  First's **Microsoft-commissioned** report, whose own headline is £550bn by
+  2035, and recorded the competing Google attribution as unresolved. The
+  Action Plan's own citation resolves it the other way. Both reports exist
+  and both are by the same consultancy. This does not weaken the
+  interest-concentration finding of Entries 046/048 — it sharpens it: one
+  consultancy produced headline UK AI economic figures for two different
+  large technology vendors, and the government's flagship AI plan cites one
+  of them.
+
+- **Limitations / conflicting evidence:** Public First's Google report has
+  **not** been read, so unlike the Microsoft report its method is untraced.
+  The GPT-4 / O*NET / 17,000-task-combination method described in Entry 048
+  belongs to the Microsoft study and must not be attached to the £400bn
+  figure. Entry 048's reasoning about provenance stands; only its
+  attribution is wrong.
+
+- **Effect on project direction:** `drafts/UK_AI_Skills_Ambition_Report.docx`
+  §1, its NOTE callout and its source list all carry the wrong attribution
+  and the wrong method description. They must be corrected before the report
+  goes anywhere.
+
+### Entry 053 — AI Skills Boost: what the million-course figure actually counts
+
+- **Date logged:** 2026-07-31
+
+- **Priority / Question:** Priority 1 — the delivered-results figure for the
+  programme that carries the 10-million-worker target. Supersedes the
+  BridgeAI 1,700-completions figure (Entry 044) as the right number to set
+  against that target.
+
+- **Source:** `[AISKILLSBOOST26]`, `[AIOPP-1YEAR26]`
+
+- **Checked date:** 2026-07-31
+
+- **What the source directly supports:**
+
+  - AI Skills Boost is the programme carrying the target: "a
+    government-industry initiative to improve UK workforce readiness by
+    upskilling 10 million UK workers in AI skills by 2030, which was
+    announced by the Prime Minister in June 2025 at London Tech Week." The
+    revamped AI Skills Hub is its platform.
+
+  - The figure: "1,001,147 AI training courses have been completed according
+    to course completion data shared with DSIT by industry partners in
+    January 2026."
+
+  - What it covers: "all AI skills courses delivered by partners since June
+    2025, from introductory AI literacy to advanced training in areas like
+    data science and machine learning engineering, for both external
+    learners (customers, clients, platform users) and internal learners
+    (partner employees)."
+
+  - The eleven partners: Accenture, Amazon, BT, Barclays, IBM, Google,
+    Intuit, Microsoft, SAS, Sage and Salesforce.
+
+  - It "includes courses delivered through the government's One Big Thing
+    initiative in 2025" — the civil service's own internal learning day.
+
+  - "Specific partner or course-level breakdowns of course completion are
+    not shareable due to commercial sensitivity."
+
+  - Benchmarking is partial: the launch release states that "A selection of
+    industry-developed AI courses, newly available on government's AI Skills
+    Hub, have been checked against Skills England's AI foundation skills for
+    work benchmark."
+
+  - `[AIOPP-1YEAR26]` reports "38 of the 50 actions" met and repeats the
+    million-course figure in both the Prime Minister's and the Secretary of
+    State's forewords.
+
+  - DSIT's own economic modelling in the explainer publishes its equations
+    and states of its £55–140 billion GVA estimate: "This estimate is highly
+    uncertain."
+
+- **Inference drawn:** The target is expressed in workers; the reported
+  progress is expressed in courses. Those are different units, and one
+  worker completing several short courses counts several times. The count is
+  supplied by eleven companies with a direct commercial interest in AI
+  adoption, spans their own employees as well as their customers, includes a
+  civil service internal training day, and carries no published breakdown.
+  The Skills England benchmark covers a selection of courses on the Hub,
+  while the figure spans all partner courses since June 2025 including
+  advanced machine-learning training well outside a foundation-skills
+  standard — so what proportion of the million meets the government's own
+  benchmark is not publicly knowable. None of this makes the figure false.
+  It makes it unverifiable.
+
+- **Limitations / conflicting evidence:** The explainer does not state
+  whether the figure is restricted to UK learners, or by what mechanism,
+  although the programme is described throughout as targeting UK workers.
+  Individual partner claims quoted in the launch release — Microsoft "more
+  than 1.5 million people", Google "1.2 million" — each exceed the
+  programme's own total, which indicates a different accounting basis; that
+  was read only through a fetch summary and is not established. DSIT's
+  hedged modelling is a point in the department's favour and should be
+  reported alongside the criticism, not omitted: it contrasts with the
+  unhedged £400bn figure (Entry 052).
+
+- **Effect on project direction:** Materially changes the UK-climate report.
+  Setting BridgeAI's 1,700 completions against the 10-million target
+  compares a different programme's figure to that ambition, and a reader who
+  knows the million-course number will read the report as cherry-picked. It
+  also gives the planned FOI a precise target: UK filtering, the
+  internal/external split, the operational definition of "completed", and
+  the benchmarked proportion.
+
+### Entry 054 — Recommendation 14 was delivered: the AI Labour Market Survey 2025
+
+- **Date logged:** 2026-07-31
+
+- **Priority / Question:** Priority 1 — tests whether the Action Plan's own
+  stated precondition (Entry 051) was ever met. Run as a deliberate
+  disconfirming check on the assumption that it was not.
+
+- **Source:** `[AILMS25]`
+
+- **Checked date:** 2026-07-31
+
+- **What the source directly supports:** DSIT commissioned Gardiner &
+  Theobald "to examine the UK AI skills labour market in 2025", building on
+  the 2020 study. The executive summary states: "The findings contribute to
+  the delivery of the AI Opportunities Action Plan (2025), aimed at
+  accurately identifying AI skills shortages and supporting policy decisions
+  to strengthen the UK's AI ecosystem." Headline findings: 97% of
+  respondents identified at least one gap in the AI labour market; 57% of
+  businesses reported a technical skills gap and 30% a non-technical one;
+  the largest single gap is in "understanding AI concepts and algorithms",
+  rising from 55% to 60% over five years.
+
+- **Inference drawn:** Recommendation 14 was acted on. The project **cannot**
+  claim the gap went unmeasured, and an argument built on that claim would
+  have been wrong. This is a disconfirming finding against the convenient
+  version of the project's own argument, produced by looking for it
+  deliberately rather than by accident.
+
+- **Limitations / conflicting evidence:** **The survey's scope is
+  unverified, and it is the load-bearing question.** The executive summary
+  refers throughout to "the UK AI skills labour market" — the same framing
+  that required Entry 001 to be corrected, when the 2020 survey turned out
+  to be scoped to the AI sector rather than the general workforce. If 2025
+  repeats that scoping, then the general-workforce gap that the
+  10-million-worker target addresses is still unmeasured, and Entry 051's
+  finding survives in a narrower but still substantial form. The full PDF
+  has not been read; sample size and surveyed population are unknown.
+
+- **Effect on project direction:** Blocks an overstatement the project was
+  close to making, and makes a full read of this survey the highest-priority
+  remaining check before the report is redrafted.
+
+- **Scope resolved 2026-07-31 — see Entry 056.** The full report was
+  obtained and its methodology read. The survey is scoped to the AI sector,
+  covers 119 self-selected organisations at a 3% response rate, and half its
+  respondents are in Greater London.
+
+### Entry 055 — The Skills Toolkit precedent, and what the statistics regulator found about its numbers
+
+- **Date logged:** 2026-07-31
+
+- **Priority / Question:** Priority 1/5 — whether the AI Skills Boost
+  delivery model has a documented predecessor, and whether that predecessor
+  was evaluated.
+
+- **Source:** `[FEWEEK-HUB26]`, `[SKILLSTOOLKIT-OSR21]`, `[OPENBADGES]`
+
+- **Checked date:** 2026-07-31
+
+- **What the source directly supports:**
+
+  - DfE launched The Skills Toolkit in April 2020: over £1 million of public
+    money on a page within the National Careers Service signposting to free
+    online courses from Amazon, Microsoft, LinkedIn, the Open University and
+    Google Digital Garage.
+
+  - Per FE Week's reporting of an OSR letter to DfE's chief statistician in
+    March 2021, the regulator found that registration figures included web
+    hits and were unfiltered by geography, so could come from anywhere in
+    the world; that "a completion may simply represent that a user has
+    accessed learning material, not necessarily that they completed the
+    course"; and that the data sat in an "additional analysis section" that
+    "may not be clear to users looking for these data in the release".
+    The letter went to DfE's chief statistician, Neil McIvor, and also
+    challenged the department's use of unpublished Skills Toolkit data in
+    answers to multiple parliamentary questions. DfE moved to publishing the
+    figures as experimental statistics under the Code of Practice.
+
+  - Sue Pember, policy lead at HOLEX, draws the comparison to AI Skills
+    Boost directly: "While the ambition is positive, the lesson from the
+    skills toolkit should be that take-up and outcomes matter more than
+    headline registration numbers."
+
+  - Skills England chair Phil Smith, on the new programme: "It's also a huge
+    step forward that everyone who completes these short courses will get
+    digital badges that properly recognise what they've learned. It's a
+    simple idea that will make a huge difference."
+
+  - The Open Badges standard was published by Mozilla on 15 September 2011.
+
+- **Inference drawn:** The delivery model has a close documented predecessor
+  — government-branded signposting to free vendor courses, with headline
+  figures supplied by those same vendors — and the statistics regulator
+  found that predecessor's numbers unreliable in precisely the two respects
+  that apply to the 1,001,147 figure in Entry 053: what "completion"
+  operationally means, and whether the count is geographically filtered.
+  This is the strongest structural argument found so far, because it needs
+  no characterisation: the facts and the dates carry it. Separately, digital
+  badging was a fourteen-year-old open standard at the point it was
+  described as a step forward.
+
+- **Limitations / conflicting evidence:** **The OSR correspondence has not
+  been read directly.** All of it rests on FE Week's reporting across two
+  March 2021 articles, and the FE Week piece on AI Skills Boost was read via
+  a fetch summary rather than in full. Both need direct reads before
+  publication; the £1m figure is likewise second-hand. HOLEX is a membership
+  body for adult and community education, so it has an institutional
+  interest in how adult skills funding is directed — though not a commercial
+  stake in the platform, which is a materially better source position than
+  two of the three reviewers relied on in Entries 022/025. Phil Smith's
+  public roles (former CEO and chair of Cisco UK & Ireland, former chair of
+  Innovate UK) are relevant context, but the dates have not been checked and
+  any characterisation of a named individual belongs in internal notes and
+  requires right of reply first.
+
+- **Effect on project direction:** Gives the report a documented precedent
+  with a regulator's findings attached — structurally stronger than the
+  three platform reviews currently carrying its critique, two of which are
+  commercially interested. The badge observation is usable in the project's
+  understated register: quote the claim, state the year the standard was
+  published, and stop.
+
+### Entry 056 — What "accurately assess the size of the skills gap" delivered: 119 self-selected AI-sector organisations
+
+- **Date logged:** 2026-07-31
+
+- **Priority / Question:** Priority 1 — resolves the scope question Entry 054
+  flagged as load-bearing.
+
+- **Source:** `[AILMS25]`, sections 1–3 of the full report read directly.
+
+- **Checked date:** 2026-07-31
+
+- **What the source directly supports:**
+
+  - **Scope is the AI sector, not the working population.** "This market is
+    defined as UK organisations that fall into the three categories outlined
+    within Section 3, which are those who are commercially developing AI,
+    those who are internally developing AI and those who are procuring AI."
+    66% of respondents are commercially developing AI solutions.
+
+  - **Sample: 119 organisations**, from 3,940 contacted. The report states:
+    "Although that represents a 3% response rate, it is a similar number of
+    responses and response rate to the 2020 survey." Twenty interviews were
+    conducted, down from fifty in 2020.
+
+  - **Self-selecting, and flagged as such by its authors.** Under "To note
+    before reading": "Self-selection participation to the survey may create a
+    biased sample."
+
+  - **Concentrated.** 93% of respondents are SMEs and 82% are small or micro
+    organisations. Greater London accounts for 50% of responses and the
+    South of England a further 27%; regions outside southern England make up
+    24%. Scotland returned six organisations, Wales two, Northern Ireland one.
+
+  - **Not a statement of government view.** "subsequent findings or
+    recommendations do not represent Government views or policy and are
+    instead G&T views."
+
+  - Its own account of its role: "The findings of this report contribute to
+    meeting that recommendation, as well as forming part of DSIT's wider work
+    assessing trends in the UK's AI labour market."
+
+- **Inference drawn:** Entry 054 established that Recommendation 14 was acted
+  on, and that stands. What it could not then say is what the action
+  consisted of. The survey describing itself as contributing to that
+  recommendation covers 119 self-selected organisations inside the AI sector,
+  half of them in Greater London, at a 3% response rate, with its authors'
+  own caveat about bias — and it measures the AI industry's demand for AI
+  professionals, not whether the general working population can use AI tools.
+  That is a different question from the one the 10-million-worker target
+  addresses. The Action Plan called the existing estimates "imprecise and
+  outdated"; its successor is precise about a different and far smaller
+  population.
+
+- **Limitations / conflicting evidence:** This survey is explicitly one input
+  among several, **not** the whole of the government's response to
+  Recommendation 14 — the response committed Skills England to a wider
+  assessment (Entry 057), and Skills England's own published work is already
+  in this log at Entries 017 and 019. The report must not claim this survey
+  *is* the government's skills-gap assessment. The 97% / 57% / 30% figures
+  widely reported from it are the responses of 119 self-selected AI companies
+  and should never be quoted without that denominator attached.
+
+- **Effect on project direction:** Entry 051's finding survives in its
+  stronger form: the general-workforce gap the 10-million-worker target
+  addresses is not measured by this survey. The report can now state
+  precisely what was measured instead, in the survey's own published numbers.
+
+### Entry 057 — The government response (CP 1242): what was committed on skills, and by when
+
+- **Date logged:** 2026-07-31
+
+- **Priority / Question:** Priority 1 — closes the open item in Entry 051,
+  where the response was identified but unread and the "accepted all 50"
+  claim rested on secondary coverage.
+
+- **Source:** `[AIOPP-RESP25]`
+
+- **Checked date:** 2026-07-31
+
+- **What the source directly supports:**
+
+  - Command Paper CP 1242, presented to Parliament on 13 January 2025 — the
+    same day as the plan it answers.
+
+  - Each of the 50 recommendations receives an individual verdict and a
+    target date. **48 are answered "Agree" and 2 "Partially agree"** — the
+    copyright-cleared British media training dataset, and the immigration
+    and visa recommendation. The widely repeated claim that government
+    "accepted all 50" is very nearly, but not exactly, right.
+
+  - **Recommendation 14, in full:** "Agree. Working closely with DSIT and the
+    Industrial Strategy Council, Skills England will bring businesses,
+    training partners and unions together with national and local government
+    to develop a clear assessment of the country's skills need – including AI
+    and digital skills – and map pathways by which they can be filled.
+    Updated assessments will be published regularly." Target date given:
+    **Spring 2025.**
+
+  - **Recommendation 19** ("Ensure its lifelong skills programme is ready for
+    AI"): "Agree. DFE will take this forward with Skills England, aligning
+    with the work of the independent Curriculum and Assessment Review."
+    Target date: Autumn 2025.
+
+- **Inference drawn:** The commitment was to assess **the country's** skills
+  need, led by Skills England, with businesses, unions and local government
+  at the table, published on a repeating basis, by Spring 2025. That is a
+  materially wider undertaking than the AI-sector survey in Entry 056, which
+  is the artefact most visibly produced under that heading.
+
+- **Limitations / conflicting evidence:** Whether Skills England's own
+  published assessments (Entries 017 and 019) satisfy the Recommendation 14
+  commitment has **not** been tested directly, and this entry does not claim
+  the commitment was unmet — only that the commitment and the survey are not
+  the same thing. Target dates are as stated in the response; delivery
+  against them has not been checked beyond Recommendation 14.
+
+- **Effect on project direction:** Gives the report the government's own
+  words on what it promised and by when. Promise and delivery can now be set
+  beside each other from two government documents, which is a stronger
+  construction than either alone.
+
+### Entry 058 — Government's own evidence review: policy has focused on AI professionals, and evidence on AI skills for life is "necessarily limited"
+
+- **Date logged:** 2026-07-31
+
+- **Priority / Question:** Priority 1/3 — independent corroboration, from
+  inside government's own evidence base, of Entry 051's reading of where UK
+  AI skills policy has directed its attention.
+
+- **Source:** `[AISKILLSLIFE-RER26]`
+
+- **Checked date:** 2026-07-31
+
+- **What the source directly supports:**
+
+  - Published 28 January 2026 — the same day as the AI Skills Boost launch,
+    and the day before *One Year On*. Authored by Prof Rob Procter of Warwick
+    University and the Alan Turing Institute, supported by DSIT and the DCMS
+    R&D Science and Analysis Programme.
+
+  - **On where attention has gone:** "The UK's focus to-date has largely been
+    on increasing the supply of AI skills for work through investment in
+    tertiary education."
+
+  - **On the evidence base:** "The evidence on current levels of AI skills
+    for life in the UK is necessarily limited at this time but it is
+    reasonable to assume that they are at a relatively low base compared to
+    EDS for Life."
+
+  - Its stated research questions include "To what extent does the UK have or
+    lack these skills in the labour force?"
+
+  - **On public recognition of AI**, citing ONS: 17% of adults report they
+    can often or always recognise when they are using AI; 50% some of the
+    time or occasionally; 33% hardly ever or never. Adults aged 70 and over
+    are least likely to recognise it.
+
+  - **On the underlying constraint:** a significant proportion of the UK
+    population hold only partial Essential Digital Skills, and the review
+    argues AI skills for life cannot be realised without that digital
+    literacy foundation.
+
+- **Inference drawn:** The observation that UK AI skills policy has
+  concentrated on professional supply is not this project's inference alone —
+  it is stated in a review government itself commissioned and published.
+  That materially strengthens Entry 051, which rested on this project's own
+  reading of the Action Plan's structure. The review also supplies a
+  government-supported statement that evidence on AI skills for life is
+  limited, for exactly the population the 10-million-worker target names.
+
+- **Limitations / conflicting evidence:** Read at section level rather than
+  end to end — roughly 167,000 characters, of which the executive summary,
+  introduction and the AI-skills-gap sections were read. Its ONS figures date
+  from 2023, so "17% of adults" is not a current statistic and must not be
+  presented as one. The juxtaposition of its publication date with the AI
+  Skills Boost launch is a fact about publication dates only; whether the
+  review was written substantially earlier has not been checked, and its 2023
+  citations suggest it may have been. The companion *Labour market and skills
+  projections* report remains unread.
+
+- **Effect on project direction:** Replaces this project's own structural
+  reading of the Action Plan with a government-published, academically
+  authored source making the same point. For a report whose argument is built
+  on government's own material, that is the difference between an inference
+  and a citation.
 
 ## Open threads
 
@@ -3339,3 +3875,98 @@ it ever grows its own open-items list.*
 - **`hybrid_ai.svg` has no labelled groups** — it has none at all,
   having been hand-edited outside that pass. Revisit if it gains group
   structure worth labelling.
+
+**Resolved this pass (2026-07-31, upstream policy read — Entries 051–055):**
+
+- ~~The AI Opportunities Action Plan had never been read directly~~ — done
+  (Entry 051). It is an adviser's report rather than government policy, and
+  it states in its own words that the size of the skills gap was unknown.
+
+- ~~The £400bn figure's attribution~~ — corrected (Entry 052). It traces to
+  Public First's Google-commissioned research, not the Microsoft-commissioned
+  report named in Entry 048.
+
+- ~~No delivered-results figure for the programme carrying the
+  10-million-worker target~~ — found (Entry 053): 1,001,147 courses,
+  supplied by eleven commercial partners, no published breakdown.
+
+- ~~Whether Recommendation 14 was ever delivered~~ — it was (Entry 054), and
+  the project cannot claim the gap went unmeasured.
+
+- ~~No independent, non-commercially-interested critique of the Hub~~ —
+  partly resolved (Entry 055): FE Week and HOLEX have no stake in the
+  AI-training market, unlike two of the three reviewers in Entries 022/025.
+
+**Still open after this pass:**
+
+- ~~The AI Labour Market Survey 2025's scope is unverified~~ — resolved
+  (Entry 056). It does repeat the AI-sector scoping that Entry 001 had to be
+  corrected for, so the general-workforce gap remains unmeasured and Entry
+  051's finding survives in its stronger form.
+
+- ~~`AI Skills for Life and Work: Rapid Evidence Review` unread~~ — read at
+  section level (Entry 058). Its companion `Labour market and skills
+  projections` and a third document, `Assessment of AI capabilities and the
+  impact on the UK labour market`, both remain unread.
+
+- **The OSR correspondence on The Skills Toolkit has not been read
+  directly** (Entry 055) — the entire precedent argument currently rests on
+  trade-press reporting of it.
+
+- ~~The government's formal response to the Action Plan is unread~~ — read
+  (Entry 057). The correct statement is **48 agreed, 2 partially agreed**,
+  not "all 50 accepted".
+
+- **Public First's Google-commissioned report is unread** (Entry 052), so
+  the £400bn figure's method remains untraced even though its provenance is
+  now settled.
+
+- **Whether the 1,001,147 figure is UK-only is unknown** (Entry 053), and is
+  now the sharpest FOI question alongside the internal/external learner
+  split and the operational definition of "completed".
+
+- **Matt Clifford's interest position** (Entry 051) is recorded as a
+  one-sided observation with no disconfirming search run — not usable in
+  external-facing work in its current state.
+
+**Resolved this pass (2026-07-31, second research pass — Entries 056–058):**
+
+- ~~The AI Labour Market Survey 2025's scope~~ — resolved (Entry 056), and it
+  is the AI sector: 119 self-selected organisations, 3% response rate, half
+  of them in Greater London. Entry 051's finding survives in its stronger
+  form.
+
+- ~~The government response to the Action Plan was unread~~ — read (Entry
+  057). 48 recommendations agreed, 2 partially agreed. Recommendation 14's
+  commitment was a Skills England assessment of "the country's skills need",
+  due Spring 2025.
+
+- ~~`AI Skills for Life and Work: Rapid Evidence Review` unread~~ — read at
+  section level (Entry 058). It states in government's own commissioned
+  words that UK focus has been on professional supply, and that evidence on
+  AI skills for life is "necessarily limited".
+
+**Still open after this pass:**
+
+- **The OSR correspondence still has not been read directly** (Entry 055).
+  Two further details were recovered from trade-press reporting — the letter
+  went to DfE chief statistician Neil McIvor, and it also challenged the
+  department's use of unpublished Skills Toolkit data in parliamentary
+  answers — but the letter itself remains unretrieved after three attempts,
+  and it is the one primary source the precedent argument would most benefit
+  from.
+
+- **Whether Skills England's own work satisfies the Recommendation 14
+  commitment** (Entry 057) has not been tested. Entries 017 and 019 hold
+  relevant material already read; nobody has set them against the
+  commitment's actual wording.
+
+- **`AI Skills for Life and Work: Labour market and skills projections`**
+  remains unread, as does `Assessment of AI capabilities and the impact on
+  the UK labour market`.
+
+- **Public First's Google-commissioned report is unread** (Entry 052), so the
+  £400bn method remains untraced.
+
+- **Whether the 1,001,147 figure is UK-only is unknown** (Entry 053) and
+  remains the sharpest FOI question.
