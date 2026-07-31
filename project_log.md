@@ -1965,7 +1965,8 @@ no external citation:
   vary between the G and the P, baseline and cap height are not level, and
   long edges wobble by a pixel or two. These are hand-corrections in
   Inkscape, and the file should not be exported to PNG, built into lockups,
-  or used in any document until they are made. Separately,
+  or used in any document until they are made. **These were made on
+  2026-07-31 — see Entry 037.** Separately,
   `object-trace`'s parameter format is absent from `--help` and was
   recovered by reading the action's own error output — a future Inkscape
   release could change it without notice.
@@ -1976,3 +1977,135 @@ no external citation:
   generator can now reach Inkscape as real geometry, removing the blind-SVG
   iteration loop that discouraged the creator during PAWH and recurred
   here.
+
+### Entry 037 — GAP wordmark refined and finished; variant set produced
+
+- **Date logged:** 2026-07-31
+
+- **Priority / Question:** Not tied to a research priority — design
+  production, completing what Entry 036 deliberately left unfinished.
+
+- **Source:** Creator's hand refinement in Inkscape, 30–31 July 2026, plus
+  direct instruction.
+
+- **What happened:**
+
+  1. **The concept was fixed, not merely tidied.** The traced reference read
+     as "G — P": a floating dash, not a letter. The prompt that generated it
+     had specified the A as pure negative space "bridged by one small
+     floating horizontal crossbar", and Ideogram executed exactly that. The
+     refinement inverts which part carries colour. Ember now marks the A's
+     two counters — the triangle at its apex, and the opening below its
+     crossbar — so the white band between them reads as the crossbar itself.
+     The A is still undrawn negative space; what changed is that its
+     internal structure became visible.
+
+  2. **Letterforms regularised against Public Sans Bold**, the typeface used
+     elsewhere in the identity. The master keeps a hidden copy of that
+     reference type (`a_overlay`, `display:none`), now documented in an XML
+     comment as deliberate rather than leftover, on the creator's
+     instruction to retain it.
+
+  3. **A non-uniform vertical stretch was found and removed.** The outer
+     group carried sx=1.0592, sy=1.1701 — roughly 10% of vertical stretch,
+     applied by dragging rather than redrawing, which thickens horizontal
+     strokes relative to verticals. Corrected by bringing sy down to match
+     sx, restoring the aspect ratio from 2.512 to 2.778 against the traced
+     2.790, and the canvas was refitted to the artwork. Done as a direct XML
+     edit rather than a round-trip through Inkscape's plain-SVG exporter,
+     which would have stripped the live path effects.
+
+  4. **Variant set produced**, following the conventions the symbol variants
+     already set: `logo_wordmark_mono.svg` (Ember recoloured to Ink, single
+     colour) and `logo_wordmark_reversed.svg` (letterforms white, Ember
+     retained, transparent background). Nine PNG exports at 256/512/1024
+     across the three files.
+
+- **Inference drawn:** The mono variant works because the A is defined by
+  the white space around its counters rather than by their colour, so
+  recolouring them to Ink leaves the letter legible. Checked by rendering,
+  not assumed.
+
+- **Correction, 2026-07-31 (same day).** The claim immediately above — that
+  the mono variant was "checked by rendering, not assumed" — overstates what
+  happened, and the check it describes was worthless. That render was produced
+  by Inkscape, which recomputes a path's geometry from `inkscape:original-d`
+  wherever a live path effect is attached, and therefore displays a corrected
+  shape even when the stored `d` attribute, the only thing any other renderer
+  reads, is wrong. The variants were in fact broken at the time; the creator
+  found this by opening them in a browser. Verifying Inkscape's output with
+  Inkscape is circular and proves nothing, in the same way a LibreOffice
+  preview cannot confirm a Word document. The variants recorded above were
+  subsequently rebuilt and checked in a browser (Entry 038).
+
+- **Limitations / conflicting evidence:** Minimum usable width is around
+  160px; by 110px the white crossbar between the two Ember shapes begins to
+  close and the A degrades. The lower Ember trapezoid still carries its own
+  non-uniform transform (sx/sy 0.787, about 1.1 degrees of skew), so its
+  corner radii do not match the triangle's — left alone deliberately, since
+  changing it would alter the design rather than correct an accident. The
+  similarity check against the well-known clothing retailer's "GAP"
+  wordmark remains outstanding and is recorded in `project_brief.md` as
+  still open.
+
+- **Effect on project direction:** The primary mark is finished, which
+  unblocks the README rewrite, the report redraft, and the LinkedIn
+  profile. No lockup pairing the GAP wordmark with a reduced device has
+  been produced; whether one is wanted is undecided.
+
+### Entry 038 — Wordmark finished; profile-picture set built
+
+- **Date logged:** 2026-07-31
+
+- **Priority / Question:** Not tied to a research priority — design
+  production, closing out the visual identity.
+
+- **Source:** Creator's Inkscape work and direct instruction, 31 July 2026.
+
+- **What happened:**
+
+  1. **Further hand refinement** of `logo_wordmark.svg` beyond Entry 037,
+     including path labels corrected to snake_case (`g_p`, `top_void`,
+     `bottom_void`).
+
+  2. **The remaining vertical stretch is deliberate and stays.** The outer
+     group carries sx=1.0592, sy=1.0920 — roughly 3% of non-uniform vertical
+     scale, applied because the creator could not achieve the intended
+     proportions by moving nodes directly. Recorded explicitly so a later
+     pass does not "correct" it. This must not be confused with the 10%
+     stretch removed in Entry 037, which was accidental. Resulting aspect
+     ratio is 2.693.
+
+  3. **Variants regenerated** from the finished master — `logo_wordmark_mono`
+     and `logo_wordmark_reversed`, plus nine PNG exports.
+
+  4. **Profile-picture set built**: square and circular, each in standard,
+     inverted and monochrome treatments, at 84% and 80% of a 1024 canvas with
+     an edge-flush border, following the construction of the existing
+     symbol-based avatars. Eighteen PNG exports. The wordmark is scaled
+     uniformly in all six, so the deliberate stretch carries through
+     unchanged, and live path effects are stripped so the exports are plain,
+     self-contained SVG rather than files whose `d` could drift from their
+     `inkscape:original-d`.
+
+  5. **The clothing-retailer similarity question is closed** — the creator's
+     decision, having looked at it deliberately, that the two marks are
+     visually unrelated and the sectors differ, so the shared word needs no
+     design response. Recorded in `project_brief.md`.
+
+  6. **A browser-based self-check was added to `tools/trace_reference.py`,
+     then reverted** on the creator's instruction. The tool stands as
+     committed in b03d76d.
+
+- **Inference drawn:** None.
+
+- **Limitations / conflicting evidence:** The wordmark avatars hold to about
+  64px. Below that the A's crossbar closes, and the symbol-based avatars
+  remain the correct choice — a 2.7:1 mark cannot survive a 32px favicon, so
+  the two sets are complementary rather than one superseding the other. No
+  lockup pairing the wordmark with a reduced device has been produced;
+  whether one is wanted remains undecided.
+
+- **Effect on project direction:** The visual identity is complete for current
+  purposes. The README rewrite, the report redraft and the LinkedIn profile
+  are unblocked.

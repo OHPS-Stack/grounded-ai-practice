@@ -693,14 +693,25 @@ attempt it unilaterally.
   icons, current palette). `svg/` for sources, `png/` for 64/128/256px
   exports, `README.md` for the filename→topic manifest.
 
-- `assets/logo/` — the finished logo system, and **supporting rather
-  than primary**: the lead identity is a stylised "GAP" wordmark.
-  `logo_wordmark.svg` holds that mark, traced from an Ideogram concept
-  reference via `tools/trace_reference.py` and **in hand refinement, not
-  final** — see `project_log.md` Entry 036 for its production and the
-  specific irregularities still to correct. `gap_reference_1.png` and
-  `gap_reference_2.png` are the source concepts. Everything else here
-  remains valid and in use, nothing is deprecated.
+- `assets/logo/` — the finished logo system. The lead identity is the
+  stylised "GAP" wordmark: `logo_wordmark.svg` (Ink letterforms, Ember
+  marking the A's two counters), plus `logo_wordmark_mono.svg` (single
+  Ink) and `logo_wordmark_reversed.svg` (white letterforms, Ember
+  retained, transparent ground). Concepted in Ideogram, traced with
+  `tools/trace_reference.py`, refined by hand in Inkscape — production
+  history in `project_log.md` Entries 036–037. Two things to know before
+  editing it: the master holds a hidden Public Sans reference glyph
+  (`a_overlay`, `display:none`) that is **deliberate, not leftover**, and
+  minimum usable width is about 160px, below which the A's crossbar
+  closes up. Source concepts are `png/gap_reference_1.png` and `_2.png`.
+  Wordmark avatars: `profile_picture_square_wordmark` and
+  `profile_picture_circular_wordmark` (+ `_inverted`/`_mono` for each),
+  built at 84%/80% of a 1024 canvas with an edge-flush border. They hold
+  to roughly 64px; below that use the symbol-based avatars instead, since
+  a 2.7:1 mark cannot survive a 32px favicon.
+
+  The symbol system below is **supporting rather than primary**, and all
+  of it remains valid and in use, nothing deprecated:
   `logo_symbol.svg` (default, shaded), `logo_symbol_flat.svg`,
   `_mono`/`_reversed` symbol variants, and `logo_lockup_horizontal`/
   `logo_lockup_vertical` (+ `_mono`/`_reversed`) icon+wordmark lockups, all

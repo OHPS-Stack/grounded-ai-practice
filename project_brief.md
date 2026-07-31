@@ -21,7 +21,7 @@ and transferable AI capability through a combination of research, guided
 learning and hands-on projects.
 
 It is intended to make AI concepts and systems more understandable without
-assuming that every learner is—or intends to become—an AI engineer.
+assuming that every learner is (or intends to become) an AI engineer.
 
 ## Problem being investigated
 
@@ -307,14 +307,15 @@ direction for Grounded AI Practice:
 | Stone | `#6E6E6E` | neutral grey — added 24 July 2026, no warm/cool lean by design (unlike every other colour in the palette, all warm-leaning). Realised use: secondary wordmark text ("AI"/"PRACTICE") in the reversed logo variants. |
 | Graphite | `#404040` | darker neutral grey — added 24 July 2026, same zero-lean character as Stone. Realised use: the "GROUNDED" wordmark accent and icon underline in the monochrome logo variants, standing in for Ember where no brand colour is wanted. |
 
-**Status: palette and icon set FINAL; primary mark in design.** The
-palette, logo symbol, wordmark and icon set are all **promoted, finished
-working assets** (symbol/icons promoted 24 July 2026; wordmark and variant
+**Status: palette, icon set and primary mark FINAL.** The palette, logo
+symbol, lockup wordmark and icon set are all **promoted, finished working
+assets** (symbol/icons promoted 24 July 2026; lockup wordmark and variant
 set built the same day; final typographic polish — real typeface, kerning,
 path-conversion — completed in Inkscape 24 July 2026), and every file
-listed below remains valid and in use.
+listed below remains valid and in use. The primary "GAP" wordmark was
+built 30–31 July 2026 and is described immediately below.
 
-### Primary mark (production parked)
+### Primary mark
 
 The existing symbol is a book-and-cursor device inherited in character
 from PAWH, which reads as somewhat generic and not professional enough to
@@ -337,13 +338,21 @@ survives the gap before production starts:
 lockups stay in the repo as valid supporting assets. This is a change of
 which mark is primary, not a deprecation, and nothing is deleted.
 
-**Production is deliberately parked.** No design work has been done and
-none is scheduled; only the direction is decided. Open when it resumes:
-whether the wordmark stands alone or pairs with a reduced device; how it
-sits against the existing lockups; and a deliberate check on the
-similarity of a "GAP" wordmark to the well-known clothing retailer, which
-is a different sector but worth having looked at and decided rather than
-discovered late.
+**Built** — `logo_wordmark.svg`. The G and P are solid Ink letterforms
+whose facing inner edges converge as true diagonals. The A between them is
+not drawn: it is the space those diagonals leave, made legible by two Ember
+shapes marking its counter and the opening below its crossbar. Concepted in
+Ideogram, traced with `tools/trace_reference.py`, then refined by hand in
+Inkscape against Public Sans Bold. Production history in `project_log.md`
+Entries 036–037.
+
+**Clothing-retailer similarity: checked and closed (31 July 2026).** The
+creator's decision, having looked at it deliberately rather than discovering
+it late: the two marks are visually unrelated and the sectors are different,
+so the shared word is not a problem worth designing around.
+
+**Still open.** Whether the wordmark should also pair with a reduced device,
+beyond the existing symbol lockups, is undecided.
 
 **Logo** (`assets/logo/`):
 
@@ -676,11 +685,10 @@ The project has not yet determined:
 - whether it should eventually become a commercial, community or purely
   personal initiative.
 
-Visual identity is mostly settled: palette, tone, icon set and the existing
-symbol/lockup assets are final (24 July 2026) and remain in use. The one
-part still outstanding is the primary mark — a stylised "GAP" wordmark,
-decided 29 July 2026, with design work deliberately not yet started. See
-"Visual identity" above.
+Visual identity is settled: palette, tone, icon set and the existing
+symbol/lockup assets are final (24 July 2026) and remain in use, and the
+primary mark — a stylised "GAP" wordmark, decided 29 July 2026 — was built
+30–31 July 2026. See "Visual identity" above.
 
 These questions should remain open until supported by research and prototypes.
 

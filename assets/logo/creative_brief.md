@@ -1,4 +1,4 @@
-# Grounded AI Practice — Logo Symbol Creative Brief
+# Grounded AI Practice — Logo Creative Brief
 
 Working brief for external image-generation workflows (not a project research
 document — see `project_brief.md` for the project's actual working decisions;
@@ -14,9 +14,26 @@ product.
 ## What's needed
 
 Polished **symbol/icon concepts only** — not a full logo lockup, not a
-wordmark. The wordmark is being solved separately. Deliver each concept as a
-clean, single-colour-capable vector-style mark (even if generated as a raster
-image) — no embedded text.
+wordmark. The wordmark is resolved and recorded below for reference; it is
+not an open brief. Deliver each concept as a clean, single-colour-capable
+vector-style mark (even if generated as a raster image) — no embedded text.
+
+## Wordmark (resolved 31 July 2026 — reference, not an open brief)
+
+The stylised "GAP" wordmark is the project's lead identity.
+
+The G and P are solid Ink letterforms whose facing inner edges converge as
+true diagonals. The A between them is not drawn — it is the space those
+diagonals leave. Two Ember shapes make that space resolve as a letter: a
+triangle for the A's counter, and a trapezoid for the opening below its
+crossbar. The white band between them is the crossbar itself.
+
+Letterforms were regularised against Public Sans Bold, matching the type
+used elsewhere in the identity. The source file keeps a hidden copy of that
+reference type, labelled `a_overlay` and marked in the file as deliberate.
+
+Live file: `logo_wordmark.svg`. Production history: `project_log.md`
+Entries 036–037.
 
 ## Tone
 
@@ -29,7 +46,7 @@ general-public audience with no technical background.
 | Name | Hex | Role |
 |---|---|---|
 | Ink | `#27221E` | primary mark colour (dark, warm near-black — not pure black) |
-| Ember | `#F15E4B` | single accent colour — use sparingly, one element per mark |
+| Ember | `#F15E4B` | single accent colour — one accent device per mark, used sparingly. A device may be more than one shape where they read as a single idea, as in the wordmark's two A counters |
 | Paper | `#F9F9F9` | background |
 
 (Sand `#F9E8DC`, Mist `#EFEEED`, Sage `#D5E2E1` exist in the wider brand
