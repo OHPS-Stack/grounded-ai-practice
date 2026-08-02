@@ -227,16 +227,20 @@ observation, or flagged claim), per the project's evidence discipline.
   quotes/evidence from policymakers before use in any external-facing
   document.
 
-- **Next research deliverable:** a comprehensive Word-document report on
-  the current AI climate in the UK, the government's posture(s), and the
-  actually delivered results — to frame why the current AI skills approach
-  is problematic and foreshadow where GAP could fit: identifying and
-  possibly addressing some of these issues and discrepancies. Initial
-  source set (explicitly non-exhaustive; further similar and competing
-  sources to be identified): the Innovate UK BridgeAI report (March 2026),
-  the Innovate UK "Unlocking UK Economic Growth through AI" white paper,
-  the Innovate UK Business Connect knowledge centre, and the AI Skills Hub
-  itself.
+- **Primary research deliverable (current state, 2026-08-01):** a short
+  public-audience report on the UK's AI skills programme, written for a
+  general reader. Core argument: the government prices AI's promise in
+  the hundreds of billions and has promised ten million upskilled workers
+  by 2030, but publishes progress in numbers nobody outside government
+  can check — counted in courses rather than people, supplied by the
+  eleven companies delivering the training — while the delivery structure
+  underserves the general public and small organisations the ambition
+  implies. It closes constructively: government already owns the tools to
+  fix its own measurement. GAP appears as a declared interest only, not
+  as the solution. The existing technical draft
+  (`drafts/UK_AI_Skills_Ambition_Report.docx`, fully source-tagged) is
+  retained as the evidence companion behind it. Decision and triage
+  record: `project_log.md` Entry 042.
 
 ## Second track: local AI workstation (working decision — 24 July 2026; deferred 24 July 2026)
 

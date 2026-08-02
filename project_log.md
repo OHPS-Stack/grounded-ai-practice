@@ -2367,3 +2367,154 @@ no external citation:
   stated, approve individually, accumulate, dry-run, apply, refit, verify
   through real Word, hand back — is the method for any future document
   revision, and is what the two new tools exist to serve.
+
+### Entry 042 — External review returns; report reframed around a public-audience accountability argument
+
+- **Date logged:** 2026-08-01
+
+- **Priority / Question:** Priority 1/10 — the direction of the project's
+  primary deliverable. Follows Entry 041's revision record.
+
+- **Source:** External review arranged and relayed by the creator:
+  professionals in the field, plus non-technical readers matching the
+  project's stated target audience. Reviewers deliberately not named in
+  this tracked file.
+
+- **What happened:**
+
+  1. **The findings.** The report's arguments read as abstract and vague
+     to a lay reader; qualifiers and technical detail smother structurally
+     sound points; the document lacks a single comprehensible conclusion;
+     and the fully AI-generated prose register contributes to all three.
+
+  2. **The decision.** The report is reframed for the project's actual
+     target audience, the general reader. Its argument is no longer
+     organised toward "where GAP fits". The new spine, per the creator's
+     sketch: government prices AI's promise in the hundreds of billions
+     and promises ten million upskilled workers; its published progress
+     cannot be checked by anyone outside government; the delivery and the
+     evidence base are concentrated in companies with a stake in the
+     answer; the population the ambition implies — the general public and
+     small organisations, increasingly exposed to AI whether they know it
+     or not — is the one the structure underserves; and government
+     already owns the tools to fix the measurement. GAP appears as a
+     declared interest, not as the solution.
+
+  3. **Claim triage against the evidence base.** Most of the sketch is
+     already carried by logged findings: the target/figure sequence and
+     unit mismatch (Entries 053/061), self-assessment throughout the
+     delivery chain (Entries 044/053/060), the Skills Toolkit precedent
+     and the OSR letter (Entries 055/059), interest concentration in the
+     evidence base (Entries 046/048/052), the professional-supply policy
+     focus and the Recommendation 19 gap (Entries 051/058/060), public
+     exposure and recognition figures (Entry 058), and the benchmark's
+     partial application (Entry 053).
+
+  4. **Three elements ruled unpublishable as worded, substitutes
+     adopted:**
+
+     - Any suggestion a party "could be intentionally misrepresenting"
+       figures. Substitute: the published definition itself includes the
+       partners' internal training, the breakdown is withheld, and the
+       figure is therefore unverifiable — the report's existing
+       construction, which carries the point without alleging intent.
+
+     - "Government does not understand AI well enough to make informed
+       policy." This claim has sat in `project_brief.md` as
+       flagged-unsupported since July. Substitute: state what the record
+       shows — estimates the Action Plan itself called imprecise and
+       outdated, a government-commissioned review calling the evidence
+       base limited, productivity claims footnoted to unpublished
+       business interviews — and let the reader conclude.
+
+     - "The initiative will fail its target" as prediction. Substitute:
+       on the published numbers, progress toward a workers target cannot
+       be known at all, because the count is in courses; the one number
+       that would settle it — distinct workers — is unpublished, which is
+       what the planned FOI asks for.
+
+  5. **Five research threads opened** (recorded in `research_log.md`
+     Open Threads): direct evidence of policymaker comprehension;
+     verification of partner-claimed totals; a citable source for AI
+     embedding in everyday products; an official SME-population cite; and
+     a decision on whether regulator capability enters scope.
+
+  6. **Pending creator decisions:** final thesis wording; confirmation of
+     the two-document shape (short public report plus the existing draft
+     as technical companion); the drafting process for the public
+     document's voice; and whether the FOI is now sent (standing
+     constraint: no external approach without explicit per-approach
+     instruction).
+
+- **Inference drawn:** The independent-review tier of the bias self-check
+  (item 5's rarer second tier) has now earned its place twice — Entry 019
+  and this. A lay reader catches a register problem that expert review
+  and every in-repo check structurally cannot.
+
+- **Limitations / conflicting evidence:** Feedback arrived via the
+  creator's summary rather than reviewers' verbatim notes. The triage
+  classifications are Claude's, reviewed by the creator in session but
+  not yet tested against a redraft.
+
+- **Effect on project direction:** The nine-page draft is demoted to
+  evidence companion. The primary deliverable becomes a short
+  public-audience report built on the reframed argument. No document
+  edits made yet; the redraft begins once the pending decisions are
+  taken.
+
+### Entry 043 — Reframe decisions taken: blended thesis, creator-voiced prose, infographics convention
+
+- **Date logged:** 2026-08-01
+
+- **Priority / Question:** Priority 10 / deliverable direction — answers
+  most of the pending decisions recorded in Entry 042.
+
+- **Source:** Creator decisions, 2026-08-01.
+
+- **What happened:**
+
+  1. **Thesis.** The public report's spine blends all three candidate
+     framings — accountability (the counting handed to the companies
+     selling the training), steering blind (progress reported in numbers
+     government cannot verify, against a workforce it has not measured),
+     and reach (AI arriving in everyone's life while the training reaches
+     the people who already had it) — presented as one cohesive argument
+     rather than a choice among them.
+
+  2. **Prose process.** For outward-facing documents, Claude supplies the
+     agreed structure, the arguments and a rough draft; the creator
+     writes most of the final prose over it. Written into `CLAUDE.md`
+     Working approach the same day. This answers the external-review
+     finding that a fully AI-generated register contributed to the
+     draft's problems.
+
+  3. **The comprehension claim is reinstated in evidential form.** The
+     creator pushed back on Entry 042's route-around, holding that the
+     claim was flagged pending research rather than judged wrong, and
+     pointed at the Prime Minister's London Tech Week speech. The speech
+     was read the same day and the pushback was borne out — see
+     `research_log.md` Entry 062 for the confirmed misstatement, the
+     closed attribution question, and the four-claim verification
+     catalogue still open. The published form states the checkable record
+     and lets the reader conclude.
+
+  4. **Infographics adopted as a standing convention**, serving the
+     publishing funnel: LinkedIn post → profile → synopsis document →
+     technical companion → repository, with each element standing alone.
+     Two production lanes are defined in `CLAUDE.md`: data-driven figures
+     scripted and reproducible from the repo, and bespoke narrative
+     graphics through the existing raster-concept-to-trace pipeline.
+     Every outward graphic carries its own source-and-date line. First
+     candidate figures, from logged findings: courses-versus-people; the
+     2021/2026 precedent parallel; the 7.5m-to-10m target move set
+     against the course count; the met/unmet recommendation split.
+
+- **Inference drawn:** None — decision record.
+
+- **Limitations / conflicting evidence:** The FOI decision (Entry 042
+  item 6) remains open. Substitutions 1 and 3 from Entry 042 were not
+  contested and stand.
+
+- **Effect on project direction:** Unblocks the redraft. Next concrete
+  step: Claude produces the structure-and-arguments rough draft of the
+  synopsis document for the creator's prose pass, per the new process.

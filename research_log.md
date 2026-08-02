@@ -181,6 +181,13 @@ Full citation is given once here; log entries below cite the short tag only.
 | `[OSR-ABOUT]` | Independent/Official (the regulator describing its own remit) | Office for Statistics Regulation, *What we do*, and its *Official Statistics in Development* policy page. Source of the OSR's self-description as "the regulatory arm of the UK Statistics Authority", and of the September 2023 renaming of "experimental statistics" to "official statistics in development". osr.statisticsauthority.gov.uk |
 | `[AIOPP-DELIVERY26]` | Government/Official — **self-assessment**, the strongest caveat in this table. DSIT and Number 10 Data Science scoring their own department's delivery against their own plan, with no stated criterion for what "Commitment Met" requires and no external verification | *AI Opportunities Action Plan — 2026 Progress*, delivery.ai.gov.uk, January 2026 — PRIMARY, read directly. A page per recommendation carrying the CP 1242 response and a 2026 progress update; all 50 are served from `/data/ai-opportunities.json`, which is how they were read. Headline: 38 of 50 met (76%), 12 in progress. **Blocks ordinary fetching (403 site-wide); reachable through a browser.** See Entries 060 and 061. |
 | `[AISKILLS-JUN25]` | Government/Official (DSIT announcing its own partnership) | DSIT, "Tech giants join government to kick off plans to boost British worker AI skills", 14 June 2025 — PRIMARY, read via fetch extraction rather than raw text. Source of the original **7.5 million workers by 2030** target, the eleven named partners, and the separate projection that "around 10 million workers" would be *using* AI by **2035**. gov.uk |
+| `[PMLTW25]` | Government/Official (the Prime Minister's published remarks) | Prime Minister's remarks at London Tech Week, 9 June 2025, Olympia — PRIMARY. The page is headed "Transcript of the speech, exactly as it was delivered" and runs roughly 3,100 words. **Read only via scoped extractions, never end to end** (a full reproduction was declined on copyright grounds), and the first pass missed a claim in plain text — treat every extraction from it as a search, not a read, until a human has read the page. Source of "7.5 million workers", "£185 million", and "50 recommendations, all of them accepted by the government". gov.uk |
+| `[AISKILLSBOOST-EXPAND26]` | Government/Official (DSIT announcing its own programme's expansion) | DSIT, "Free AI training for all as government and industry programme expands to provide 10 million workers with key AI skills by 2030", 28 January 2026 — PRIMARY, comprehensive extraction, not read end to end. Source of universal adult eligibility, the 27-partner list, the 2-million-SME-employee target, the AI foundations badge, and the absence of any stated measurement framework. gov.uk |
+| `[AIPLAYBOOK25]` | Government/Official (GDS, Cabinet Office) | *Artificial Intelligence Playbook for the UK Government*, published 10 February 2025, superseding the Generative AI Framework for HMG (January 2024) — PRIMARY, comprehensive extraction, **not read end to end**; a human read is required before characterising it in print. Written for civil servants and public sector organisations, not the public. Ten principles; states "We didn't pretend to have all of the answers". gov.uk |
+| `[IAI-GOV]` | Government/Official (Cabinet Office delivery unit) | Incubator for AI (i.AI), ai.gov.uk — PRIMARY, read in the browser after WebFetch returned 403. A product-building unit, not a public resource: Extract, Consult, Lex, Minute, Medguard, Caddy, AI Classroom Tutors, Sovereign Benchmark. Careers at /opportunities. Contact via cabinetoffice.gov.uk. |
+| `[AIKNOWLEDGEHUB]` | Government/Official (i.AI, Cabinet Office) | AI Knowledge Hub, ai.gov.uk/knowledge-hub — PRIMARY, read in the browser. Task-oriented resource for public-sector teams ("Find tools. Explore approaches. Improve delivery."), populated by the public sector community. The artefact government cites as delivering Action Plan Recommendation 45. |
+| `[PMLTW25-VIDEO]` | Government/Official content via Broadcast/Commercial host (Sky News upload of the speech) | Sky News, "Starmer says artificial intelligence 'makes us more human' — London Tech Week speech", YouTube `KB4DzJhHZU8`, 45m24s — **NOT read.** The only caption track is auto-generated (ASR); YouTube returns HTTP 200 with an empty body to every programmatic caption request, signed out, across all formats. Auto-captions would in any case be an unsafe basis for quoting a head of government, since ASR mis-renders exactly the numbers this project cites. Any use requires the timestamped-verification protocol in `CLAUDE.md`. |
+| `[TECHFIRST25]` | Government/Official (No.10/DSIT press release) | "PM launches national skills drive to unlock opportunities for young people in tech", 8 June 2025 — PRIMARY, read via targeted extraction. States "£187 million" for TechFirst and "7.5 million UK workers to gain essential AI skills by 2030 through industry partnership". gov.uk |
 | `[OPENBADGES]` | Independent/Reference (an open technical standard) | Mozilla Open Badges, published 15 September 2011 with MacArthur Foundation funding; version 1.0 in 2012; stewardship passed to IMS Global, now 1EdTech, in 2017. Used here only to date the technology, not as evidence about its effectiveness. |
 
 ---
@@ -3757,6 +3764,366 @@ Full citation is given once here; log entries below cite the short tag only.
   more accurate and a stronger construction, since every element is
   government-published and needs no characterisation.
 
+### Entry 062 — The Prime Minister's speech, read: 7.5 million in his own words, and a budget misstated against the previous day's release
+
+- **Date logged:** 2026-08-01
+
+- **Priority / Question:** Priority 1 — closes the speech thread left open
+  by Entry 061, and begins the evidence base for the
+  policymaker-communications claim the creator reinstated (see
+  `project_log.md` Entry 043).
+
+- **Source:** `[PMLTW25]`, `[TECHFIRST25]`, cross-checked against
+  `[AISKILLS-JUN25]`, `[AISKILLSBOOST26]`, `[AIOPP-DELIVERY26]`.
+
+- **Checked date:** 2026-08-01
+
+- **What the source directly supports:**
+
+  - Speech, verbatim: "A partnership with 11 major companies to train 7.5
+    million workers in AI by 2030."
+
+  - Speech, verbatim: "That's a £185 million investment, embedding AI
+    right through our education system, starting in our secondary
+    schools." The press release announcing the same programme the
+    previous day states "£187 million investment in national skills
+    programme". The Prime Minister's published remarks misstate the
+    budget of the programme they announce, against the government's own
+    release of the day before.
+
+  - TechFirst release, 8 June, verbatim: "7.5 million UK workers to gain
+    essential AI skills by 2030 through industry partnership" — a third
+    contemporaneous government statement of the 7.5 million target.
+
+  - Further claims in the speech catalogued, none yet checked against a
+    primary: "in 2023, our AI sector grew 30 times faster than the rest
+    of the economy"; "This industry supports over 2 million jobs" (no
+    source named); a "£1.5 billion" investment figure; and the Extract
+    anecdote ("A hundred planning records per day, and the usual average
+    up till now is five").
+
+- **Inference drawn:** Entry 061's last caveat is closed. The explainer's
+  claim that the 10-million target was "announced by the Prime Minister
+  in June 2025 at London Tech Week" is contradicted by the Prime
+  Minister's own published words — and now by three contemporaneous
+  government sources. The documented sequence stands: 7.5 million
+  announced June 2025, raised to 10 million in January 2026, the month
+  the first progress figure appeared, with the department's explainer
+  misattributing the target's origin. Separately, the £185m/£187m
+  misstatement is small in magnitude but exact in kind: the flagship
+  speech does not withstand checking against the government's own
+  release of the previous day.
+
+- **Limitations / conflicting evidence:** The speech was read via
+  targeted extraction with verbatim passages captured, not end to end; a
+  full read is still advisable before quoting it in print. A £2 million
+  misstatement could be a drafting slip and on its own must not carry
+  more weight than that — one confirmed error is a data point, not a
+  pattern, which is why the four-claim verification catalogue matters
+  more than this single confirmation. An initial search found no press
+  fact-check of the speech to lean on either way.
+
+- **Effect on project direction:** The reframed report's comprehension
+  argument now has its evidential form: state the checkable record — a
+  speech misstating its own announcement, an explainer misattributing
+  its own target, productivity claims footnoted to unpublished
+  interviews (Entry 051), estimates the plan itself called imprecise and
+  outdated — and let the reader conclude. Completing the catalogue is
+  the remaining work before any of it is published.
+
+- **Second error confirmed, same day, after creator challenge.** The
+  creator identified a further inaccuracy this entry had missed, and it
+  is on the same gov.uk page. Verbatim: **"We put that plan out at the
+  beginning of the year. We're really proud of it—50 recommendations,
+  all of them accepted by the government."** Entry 057 established from
+  Command Paper CP 1242 that 48 were agreed and 2 partially agreed —
+  the copyright-cleared British media training dataset, and the
+  immigration and visa recommendation. Partial agreement is not
+  acceptance, so the statement is wrong, though only narrowly.
+
+  Its value is not the magnitude but the attribution. The UK-climate
+  report's §1 NOTE callout already records that "the widely repeated
+  claim that all fifty were accepted is very nearly, but not exactly,
+  right." That claim now has a named source: the Prime Minister, in the
+  flagship speech, on a page gov.uk heads "Transcript of the speech,
+  exactly as it was delivered." The report can stop calling it widely
+  repeated and attribute it.
+
+  **Two confirmed errors in one speech** — this and the £185m/£187m
+  misstatement — moves the finding past what a single drafting slip
+  supports, which is what the creator argued and what this entry
+  originally under-read.
+
+  **Method note, recorded because it caused the miss.** This source was
+  extracted twice with scoped prompts (skills and figures the first
+  time, Action Plan terms the second) and the first pass missed a claim
+  sitting in plain text on the same page. A scoped extraction is a
+  search, not a read, and must not be logged as though it were a read.
+  The gov.uk page could not subsequently be reproduced in full — the
+  fetch declined on copyright grounds — so a complete claim catalogue
+  requires a human read of the page.
+
+### Entry 063 — The full London Tech Week recording: gov.uk publishes the prepared half, and the unscripted half is where the Action Plan gets misdescribed
+
+- **Date logged:** 2026-08-01
+
+- **Priority / Question:** Priority 1 — resolves whether `[PMLTW25]` is the
+  complete record, and continues the policymaker-communications catalogue
+  opened in Entry 062.
+
+- **Source:** `[PMLTW25-VIDEO]` — auto-generated transcript of the Sky News
+  recording, supplied by the creator after YouTube blocked every
+  programmatic route. Cross-checked against `[PMLTW25]`, `[AIOPP-PLAN25]`,
+  `[AIOPP-RESP25]`, `[TECHFIRST25]`.
+
+- **Checked date:** 2026-08-01
+
+- **What the source directly supports:**
+
+  - **The event has two halves, and gov.uk publishes one.** Prepared
+    remarks run 0:00–18:49; a conversation between the Prime Minister,
+    Jensen Huang of NVIDIA and a host runs 19:01–45:22. The gov.uk
+    transcript, headed "exactly as it was delivered", corresponds to the
+    prepared remarks. The creator's contention that the published page is
+    not the whole speech is **correct**: roughly 26 of 45 minutes are
+    absent from the official record.
+
+  - **"50 recommendations, all of them accepted by the government"** at
+    8:16, matching the gov.uk text word for word. This is the one claim in
+    this entry independently confirmed against a published transcript and
+    therefore safe to quote. Against `[AIOPP-RESP25]`: 48 agreed, 2
+    partially agreed.
+
+  - **The Action Plan described as the government's own work**, in the
+    unscripted half at 35:24: "Almost everything we had in our action plan
+    that we produced in January of this year was as a result of
+    conversations with people in this room and beyond this room." At 8:16
+    the same framing: "We put that plan out at the beginning of the year."
+    Entry 051 established from the document itself that it is an
+    independent report by Matt Clifford, written in the first person and
+    explicitly not a statement of government policy.
+
+  - **Further numeric claims, located and timestamped, none yet verified:**
+    "over 2 million jobs" (6:11); "in 2023 our AI sector grew 30 times
+    faster than the rest of the economy" (6:25); Liquidity's "£1.5 billion
+    investment into our economy" (7:56); "an extra £1 billion of funding to
+    scale up our compute power by a factor of 20" (8:41); Extract's "100
+    planning records a day… the average up till now is five" (11:57); "up
+    to 1 million young people" and "£185 million" (15:06–15:15); "we're in
+    the top three in the world" (43:51).
+
+  - **The compute figure needs reconciling.** The speech says "an extra £1
+    billion"; the delivery tracker's Recommendation 1 entry (Entry 060)
+    describes the UK Compute Roadmap as "backed by £2 billion". These may
+    be consistent — different baselines, or one figure inside the other —
+    but the relationship is unestablished and the report must not use
+    either figure until it is.
+
+  - **A vendor's claims delivered from the same platform, unchallenged.**
+    Huang, whose company sells the hardware the compute announcement buys,
+    states that the UK has "the third largest AI venture capital
+    investment anywhere in the world" (32:13), that it is "the largest AI
+    ecosystem in the world without its own infrastructure" (32:50), and
+    that "in the last 10 years, AI has advanced 1 million times" (40:39).
+
+- **Inference drawn:** The "all fifty accepted" error is not isolated
+  phrasing. Across both halves the Prime Minister treats an independent
+  adviser's commissioned report as a plan his government produced and then
+  accepted — a construction that cannot be right in both directions, since
+  a government does not accept its own plan. The distinction the
+  UK-climate report spends a paragraph of §1 establishing is one the Prime
+  Minister does not observe. That is a stronger and fairer finding than any
+  single misstated figure, because it concerns what the plan *is* rather
+  than a number that could be a briefing slip.
+
+  Separately, the structure of the record matters in its own right: the
+  unscripted half, where a speaker departs from the brief, is the half not
+  published.
+
+- **Limitations / conflicting evidence:** **This transcript is
+  auto-generated and demonstrably unreliable at exactly the points this
+  project cites** — it renders "in AI by 2030" as "in a by 2030", "extra £1
+  billion" as "extra1 billion", the Prime Minister's name as "Kia" and
+  President Zelensky as "Zalinski". Every timestamp above is a locator, not
+  a quotation, and nothing here may be quoted without hearing it, per the
+  protocol now in `CLAUDE.md`. The single exception is the 8:16 passage,
+  which the gov.uk transcript independently corroborates.
+
+  **"Our action plan" admits a weaker reading** — it may be loose speech
+  for "the action plan of this government" rather than a claim of
+  authorship, and it should be recorded as an observation supported by the
+  8:16 error rather than asserted as a second error on its own.
+  Huang's statements are a vendor's and carry that interest; they are noted
+  as context for the concentration argument, not adopted as evidence.
+  Publishing prepared remarks rather than a full event transcript is
+  ordinary government practice and must not be characterised as
+  concealment.
+
+- **Effect on project direction:** Closes the completeness thread on
+  `[PMLTW25]`. Gives the reframed report a second, better-grounded strand
+  for its accountability argument, and sharpens §1: the report already
+  distinguishes the adviser's plan from the government's response, and can
+  now show that distinction being collapsed at the top. Seven claims remain
+  to verify before the catalogue is publishable.
+
+- **Audio verification completed for the two load-bearing passages,
+  2026-08-01.** The creator listened to the recording and confirms that
+  35:24 ("our action plan that we produced in January of this year") and
+  15:15 ("£185 million") are said as the transcript renders them. Under the
+  spoken-source protocol both are now quotable, cited to speaker, event,
+  date and timestamp. The 8:16 passage was already corroborated by the
+  gov.uk text. The remaining six timestamps stay unverified and unquotable,
+  and are only worth verifying if the underlying claims fail fact-checking.
+
+### Entry 064 — The January 2026 expansion, and the government AI estate: several criticisms already answered, and a fragmentation finding that is stronger than either
+
+- **Date logged:** 2026-08-01
+
+- **Priority / Question:** Priority 1/5 — tests the reframed argument
+  (`project_log.md` Entry 042) against the current state of government
+  provision, at the creator's direction.
+
+- **Source:** `[AISKILLSBOOST-EXPAND26]`, `[AIPLAYBOOK25]`, `[IAI-GOV]`,
+  `[AIKNOWLEDGEHUB]`; cross-checked against `[AIOPP-DELIVERY26]`,
+  `[AISKILLS-JUN25]`, `[AIOPP-PLAN25]`.
+
+- **Checked date:** 2026-08-01
+
+- **What the sources directly support:**
+
+  - **Universal eligibility is stated.** The 28 January 2026 expansion
+    release: "Every adult in the UK is eligible to take free, newly
+    benchmarked courses." The programme is not, on its own terms,
+    restricted to industry professionals.
+
+  - **The partner base is now 27, not 11**, and includes public bodies and
+    SME representative organisations: the eleven founding companies plus
+    the British Chambers of Commerce, Cisco, Cognizant, the CBI, the
+    Department for Education, the Department for Work and Pensions, the
+    Federation of Small Businesses, the Institute of Directors, the Local
+    Government Association, Multiverse, the NHS and techUK, with Pax8,
+    LinkedIn and PwC also named.
+
+  - **SMEs are explicitly targeted**: "at least 2 million SME employees",
+    consistent with the delivery tracker's Recommendation 19 entry.
+
+  - **Benchmarking has a visible artefact.** A selection of courses is
+    checked against Skills England's AI foundation skills for work
+    benchmark, and completers receive "a virtual AI foundations badge".
+
+  - **No measurement framework is stated.** The release describes no
+    mechanism for tracking progress toward ten million beyond partner
+    self-reporting, which its own footnote identifies as the source of the
+    course figure.
+
+  - **The target moves without being described as moving.** The release
+    presents "a major expansion to upskill 10 million workers" against
+    "one million courses since June". The 7.5 million figure appears only
+    inside a partner's quoted statement, not as the previous government
+    target being revised.
+
+  - **The government AI estate is spread across at least three owners.**
+    `ai.gov.uk` is the Incubator for AI, a Cabinet Office delivery unit
+    building products (Extract, Consult, Lex, Minute, Medguard, Caddy, AI
+    Classroom Tutors). `ai.gov.uk/knowledge-hub` is a public-sector
+    practitioner resource, itself an i.AI project. `delivery.ai.gov.uk` is
+    the DSIT and No.10 Data Science progress tracker. The AI Playbook is
+    GDS/Cabinet Office guidance for civil servants. The AI Skills Hub is
+    DSIT's public-facing platform. The Playbook additionally directs
+    readers to Civil Service Learning, Government Campus AI courses, the
+    Digital Excellence Programme, separate "AI insights articles", the
+    Algorithmic Transparency Recording Standard hub, the Technology Code
+    of Practice and the Service Standard — and situates itself against the
+    Action Plan, the 2021 National AI Strategy, the 2024 Generative AI
+    Framework and the 2023 pro-innovation white paper.
+
+  - **The Playbook is explicit about audience and about uncertainty.** It
+    is for "government departments and public sector organisations", and
+    its preface states: "We didn't pretend to have all of the answers in
+    such a fast-moving field." Its ten principles open with "You know what
+    AI is and what its limitations are" and include "You have the skills
+    and expertise needed to implement and use AI solutions". It notes "the
+    current shortage of AI talent".
+
+- **Inference drawn:** Three of the reframed argument's intended criticisms
+  are weaker than the sketch assumed, and must be corrected before
+  drafting. Eligibility is universal, not professional-only. SMEs are
+  explicitly targeted and their representative bodies are now programme
+  partners. A benchmark exists and has a learner-visible credential. A
+  report attacking those points would be answered from a single press
+  release.
+
+  What survives is narrower and better evidenced: the count is still
+  courses rather than people; it is still supplied by the delivering
+  partners with no stated verification; only a selection of courses is
+  benchmarked; and the target grew by a third in an announcement that does
+  not present it as a change.
+
+  **The stronger argument is the creator's own observation**, and it is
+  new to this log: provision is not absent, it is scattered. A citizen or
+  small employer looking for what government offers on AI faces at least
+  eight distinct properties across DSIT, the Cabinet Office, GDS, i.AI and
+  No.10, each with a different audience and none presenting the others.
+  The Action Plan's Recommendation 45 asked for exactly one thing — "a
+  single place to access frameworks and insights" — and that instinct has
+  been delivered narrowly, for public-sector practitioners, while the
+  wider estate has multiplied around it. This is a constructive criticism
+  with an obvious remedy, which suits the reframed report better than an
+  absence claim would.
+
+- **Limitations / conflicting evidence:** All four sources were read
+  through model-mediated extraction with comprehensive prompts, **not end
+  to end**; per Entry 062's method note these are searches, not reads, and
+  the Playbook in particular is long enough that a human read is needed
+  before it is characterised in print. `gds.blog.gov.uk/category/ai` and
+  the Public Sector Executive taskforce article were **not** read this
+  pass. Whether Recommendation 45's single-hub commitment is met is a
+  matter of scope, not fact: the Knowledge Hub does exist as a single
+  place for its stated audience, so the report must argue fragmentation
+  across the estate, not non-delivery of R45. The count of "at least
+  eight properties" is this project's own enumeration and is not a
+  published figure.
+
+- **Effect on project direction:** Requires the reframed argument to drop
+  or rewrite its eligibility, SME and benchmark-absence criticisms, and to
+  lead instead on unverifiable counting, partial benchmarking, the moved
+  target and fragmentation. Materially improves the report's fairness and
+  its usefulness, since fragmentation is fixable and the remedy is cheap.
+
+- **Refined 2026-08-01, and the refinement is better than what it
+  replaces.** The creator's response to the above moves both criticisms
+  from provision to composition: eligibility is not in question, *uptake*
+  is — how many completions were self-initiated by members of the public
+  rather than directed by an employer; and the SME target is not in
+  question, *delivery against it* is — what proportion of the million
+  reached small firms rather than large ones.
+
+  Checked, and **neither is published.** DSIT withholds partner and
+  course-level breakdowns as commercially sensitive (Entry 053); the "at
+  least 2 million SME employees" figure is a target, not measured delivery
+  (`[AISKILLSBOOST-EXPAND26]`); and no employer-directed versus
+  self-initiated split appears anywhere in the published material. The
+  two questions the creator asks are precisely the two the withheld
+  breakdown would answer.
+
+  This converts the planned Freedom of Information request from a
+  supporting action into the load-bearing one, with six specific
+  questions: (1) whether the figure is restricted to UK learners;
+  (2) the internal — partner employees — versus external learner split;
+  (3) the operational definition of "completed"; (4) what proportion of
+  counted courses meets Skills England's benchmark; (5) any breakdown by
+  employer size, against the 2-million SME commitment; and (6) whether
+  completions are recorded as employer-directed or self-initiated. A "not
+  held" answer to (5) or (6) is itself a finding: it would mean the
+  department cannot know whether the programme is reaching the population
+  its own target names.
+
+  **Leads not yet followed**, both surfaced while checking this and both
+  Advocacy/Commentary rather than primary: "The UK's AI strategy isn't
+  built for small businesses" (thehumansintheloop.ai) and the LSE Impact
+  blog's February 2026 piece on the programme as a course directory,
+  which may overlap the existing `[LSE-CARDOSO26]` entry.
+
 ## Open threads
 
 *Currently open questions only, grouped by `research_questions.md`
@@ -4174,11 +4541,6 @@ it ever grows its own open-items list.*
   paragraph — the 7.5 million target, the eleven named partners and the
   separate 10-million-by-2035 *usage* projection all rest on it.
 
-- **The Prime Minister's 9 June 2025 London Tech Week speech is unread**
-  (Entry 061), and is a separate artefact from the 14 June DSIT release. It
-  is the one place `[AISKILLSBOOST26]`'s "announced by the Prime Minister in
-  June 2025" attribution could still turn out to be correct.
-
 - **Two of the five publications government names as delivering
   Recommendation 14 are unread** (Entry 060): *Skills for Growth and
   Opportunity* (June 2025) and *UK Standard Skills Classification*
@@ -4204,3 +4566,62 @@ it ever grows its own open-items list.*
 
 - **Whether the 1,001,147 figure is UK-only is unknown** (Entry 053) and
   remains the sharpest FOI question.
+
+**Opened by the 2026-08-01 reframe (`project_log.md` Entry 042):**
+
+- **Policymaker-communications error catalogue: in progress** (Entry 062).
+  **Two confirmed:** "50 recommendations, all of them accepted by the
+  government" against CP 1242's 48 agreed and 2 partially agreed; and
+  the speech's "£185 million" against the previous day's release stating
+  "£187 million". Separately the explainer's 10-million attribution is
+  contradicted by three contemporaneous government sources. Still to
+  verify against primaries: "AI sector grew 30 times faster than the
+  rest of the economy" in 2023 (against the DSIT AI Sector Study); "over
+  2 million jobs" (no source named in the speech); the "£1.5 billion"
+  investment figure; and the Extract planning anecdote, "a hundred
+  planning records per day, and the usual average up till now is five".
+  The claim stays scoped to what the communications show, not to what
+  ministers understand.
+
+- **Seven London Tech Week claims need verifying before the catalogue is
+  publishable** (Entry 063), each located with a timestamp: the 2-million
+  jobs figure, the "30 times faster" AI sector growth claim for 2023, the
+  £1.5bn Liquidity investment, the "extra £1 billion" compute figure and
+  its relationship to the Compute Roadmap's £2 billion, the Extract
+  planning productivity numbers, the £185m/£187m TechFirst discrepancy,
+  and the "top three in the world" ranking. Under the spoken-source
+  protocol none may be quoted until heard on the recording.
+
+- **Audio verification: partially complete** (Entry 063). 35:24 and 15:15
+  are confirmed by ear and quotable; 8:16 is corroborated by the gov.uk
+  text. The remaining six timestamps rest on the auto-transcript alone and
+  should only be verified if fact-checking shows the underlying claim is
+  wrong.
+
+- **Whether the AI Skills Hub's courses are pitched at the general public
+  or at employees is unexamined**, and is answerable without an FOI. The
+  creator holds an active Hub account (`project_brief.md`, "Research
+  asset"), so the catalogue, entry requirements and framing can be
+  inspected directly. This addresses the uptake question from the
+  provision side while the FOI addresses it from the numbers side.
+
+- **Partner-claimed totals are unverified** (Entry 053): Microsoft "more
+  than 1.5 million", Google "1.2 million" — each exceeding the
+  programme's own 1,001,147 total — were read via fetch summary only.
+  Verify directly before the report uses "the partners' own claims exceed
+  the programme total" or leans on the internal-training-inflation point.
+
+- **"AI is increasingly embedded in everyday products, exposing people
+  without their knowledge" needs a citable source.** The ONS-2023
+  recognition figures (Entry 058) cover awareness, not embedding. Find a
+  primary source for the embedding claim itself.
+
+- **SME share of the business population needs an official cite** (DBT
+  business population estimates or equivalent) if the reach argument
+  quantifies who a corporate-centred delivery structure misses.
+
+- **Regulator capability: in scope or out.** The reframe sketch touched
+  "ill-equipped to independently educate and regulate"; the evidence base
+  currently holds nothing on regulator capability. Either a research pass
+  (the delivery tracker's R25–R28 entries are the lead) or an explicit
+  exclusion from the reframed report.

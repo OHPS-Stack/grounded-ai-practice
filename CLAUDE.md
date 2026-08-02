@@ -112,6 +112,30 @@ the five immediate research priorities driving current work.
   required step, not an optional polish pass, before anything is treated
   as final.
 
+- **Final prose in outward-facing documents is the creator's; Claude
+  supplies structure and a rough draft.** Adopted 2026-08-01, after
+  external review of the UK-climate report found that a fully
+  AI-generated register contributed to it reading as abstract and
+  over-qualified. The workflow: agree the reasoning and argument
+  structure first; Claude produces a rough draft carrying the evidence,
+  anchors and citations; the creator writes most of the final prose over
+  it. Treat AI-register drafts as raw material, never as candidate
+  finals.
+
+- **Infographics are a standing output lane, produced two ways.** Adopted
+  2026-08-01 for the publishing funnel (LinkedIn post → profile →
+  synopsis document → technical companion → repository). Most viewers
+  only ever see the first step, so **every outward graphic carries its
+  own source-and-date line on the image** — each element must stand
+  alone. Data-driven figures (charts, number comparisons) are produced
+  from a script with the data checked into the repo, brand palette
+  applied, exported SVG and PNG — reproducible, never hand-drawn numbers;
+  the specific charting tool is decided at first build. Bespoke narrative
+  graphics go through the existing raster-concept route:
+  Ideogram/ChatGPT concept → `tools/trace_reference.py` → Inkscape
+  refinement, per the trace rule above. Posting anything externally
+  remains a per-item creator decision.
+
 - **Use common PowerShell aliases** (`ls`, `cat`, `cd`) rather than full
   cmdlet names when giving or explaining commands day-to-day. Full
   official names belong in curriculum content that is specifically
@@ -153,7 +177,78 @@ the five immediate research priorities driving current work.
 - When a stated pain point matches a known tool or product (including
   Anthropic's own — Claude for Word/Excel/PowerPoint, Claude in Chrome,
   connectors), name it unprompted. Time it to when it's actually relevant
-  to the task in front of you, not as a scattershot list.
+  to the task in front of you, not as a scattershot list. The
+  surface-level version of this — Claude Code vs. the claude.ai app's
+  other tools — has its own section below.
+
+## Choosing the right Claude surface
+
+Adopted 2026-08-01. This project was built entirely in Claude Code, and
+the habit that came with it — treat Claude Code as *the* workspace and
+solve everything inside it — is now a limitation rather than a
+simplification. Claude Code, and the claude.ai app's Projects, Research,
+Cowork and Design, are separate surfaces on one subscription with
+genuinely different strengths.
+
+**The standing rule: route the request, don't absorb it.** When a request
+would be materially better served on another surface, say so before
+starting — which surface, why, and what moving it costs. Same discipline
+as the model-fit flag above: one clear flag at the natural boundary, no
+nagging. Staying in Claude Code is often the right answer; the point is
+that it becomes a decision rather than an assumption.
+
+- **Research** — breadth-first source discovery on a
+  `research_questions.md` priority, and the adversarial verification
+  passes this project has deferred. It runs many searches over minutes
+  and returns a cited report. **Its output is a lead list, not
+  evidence.** Every claim still earns its `research_log.md` entry through
+  the normal source-scope and interest-type check, exactly as a vendor
+  source would.
+
+- **Cowork** — multi-step work over files that does not need the local
+  toolchain: reorganising notes, drafting from a folder of sources,
+  synthesis across many documents. Same agentic architecture as Claude
+  Code, without the terminal.
+
+- **Design** — visual concept exploration, one-pagers, decks. It does
+  **not** supersede the raster-concept-to-vector rule above: anything
+  becoming a repo asset still goes through `tools/trace_reference.py` and
+  Inkscape. Treat Design output exactly as an Ideogram concept — a
+  starting point, never a finished asset.
+
+- **Projects** — persistent instructions and repo context for ordinary
+  chat, on any device. Best for thinking, reviewing and asking questions
+  about the project away from the desk.
+
+- **Claude Code** — anything touching the local toolchain, git, or
+  tracked files. Specifically and non-negotiably: the `.docx` pipeline
+  (`word_preview.ps1` and `word_roundtrip_test.ps1` drive real local Word
+  through COM; `fitshapes.py` measures the locally installed Public Sans
+  faces), `trace_reference.py` (local Inkscape), every git operation, and
+  every edit to a tracked file. Document work is the trap here — it looks
+  like Cowork's territory, but the self-checks that make it trustworthy
+  only exist on this machine.
+
+**Continuity: the repo is the source of truth, and syncing is manual.** A
+Project's GitHub context is a point-in-time copy of file contents on a
+branch — no commit history, no uncommitted work — and it refreshes only
+when someone clicks "Sync now". So work done in Claude Code is invisible
+to every other surface until it is committed, pushed, *and* re-synced.
+Before starting substantial work on another surface, check the repo is
+pushed and say so if it is not; after finishing a stretch in Claude Code,
+flag that a re-sync is needed. Anything durable produced elsewhere comes
+back here and lands in the repo files under the usual rules — the repo
+travels with the project, a chat session does not.
+
+**Never grant a remote surface access to the repo root.** `internal/` and
+the `.claude-memory` junction both sit inside
+`C:\dev\grounded-ai-practice`, and Cowork processes work on Anthropic's
+servers rather than locally by default. Pointing it at the project folder
+would send exactly the material the public/internal split exists to keep
+out of circulation. Grant access to a specific subfolder — `drafts/`,
+`exports/` — or to a copy made for the purpose, never the root. Note that
+`.gitignore` and the pre-commit hook do nothing here: they guard commits,
+not file access, so this rule has no enforcement layer behind it.
 
 ## Research discipline
 
@@ -167,6 +262,32 @@ open threads). Key standing rules:
   evidence for anything scope-defining. Tag every new source's interest
   type (Independent/Academic, Government/Official, Vendor/Commercial,
   Advocacy/Membership body) in the Source key table.
+
+- **Spoken sources are located by transcript and quoted only after
+  verification.** Adopted 2026-08-01. An automatic transcript — YouTube
+  ASR, Whisper, a platform's own captions — may be used to *find* a claim
+  and its timestamp. It is never the text of a quotation. Any passage
+  quoted in a deliverable must be confirmed against the recording itself,
+  and cited with speaker, event, date and timestamp. Tag auto-generated
+  transcripts as such in the source key, and treat any claim resting on
+  one alone as unverified until heard.
+
+  The reason is specific rather than fussy: ASR mis-renders exactly what
+  this project cites. The London Tech Week transcript alone produced
+  "train 7.5 million workers in a by 2030", "extra1 billion pounds",
+  "Kia" for the Prime Minister's name and "Zalinski" for President
+  Zelensky. A figure quoted straight out of that would have been wrong in
+  print, in a report whose entire argument is that other people's figures
+  do not survive checking.
+
+  **Prepared remarks are not the whole event.** Where a department
+  publishes a transcript, check what it covers before calling it the
+  record — gov.uk's page for that speech carries the ~18-minute prepared
+  remarks and not the ~26-minute unscripted conversation that followed
+  (`research_log.md` Entry 063). Publishing the prepared portion is
+  ordinary practice, not concealment, but the unscripted portion is where
+  a speaker departs from the brief, so it is usually the more revealing
+  half and it will not be in the official text.
 
 - **Confirm/disconfirm pairing applies to foundational claims** — the ones
   that would actually change project direction — not to every statistic.
