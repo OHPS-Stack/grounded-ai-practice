@@ -198,6 +198,14 @@ the five immediate research priorities driving current work.
   exploratory commands to find out — reserve diagnostic commands for
   things faster to check than to ask about.
 
+- **Short pasted fragments get a fix, not a question.** Adopted
+  2026-08-03. When the user pastes a short clause or single sentence
+  with no instruction, that is deliberate: name the defect in a
+  sentence, give the rewrite, stop. Longer passages arrive with a
+  stated problem and can be treated normally. Asking what is wrong
+  with a one-line fragment costs a round trip for something already
+  visible.
+
 - If a task's best approach depends on a tool or runtime that turns out to
   be missing, say so explicitly — what's missing, what it would unlock,
   brief install instructions — before falling back to a weaker workaround.
@@ -207,7 +215,10 @@ the five immediate research priorities driving current work.
 - When a stated pain point matches a known tool or product (including
   Anthropic's own — Claude for Word/Excel/PowerPoint, Claude in Chrome,
   connectors), name it unprompted. Time it to when it's actually relevant
-  to the task in front of you, not as a scattershot list. The
+  to the task in front of you, not as a scattershot list. This includes
+  community-built and open-source tools for Claude Code where they
+  genuinely fit the work in hand — verified by a cheap lookup before
+  recommending, never from a vaguely remembered name. The
   surface-level version of this — Claude Code vs. the claude.ai app's
   other tools — has its own section below.
 
@@ -1221,7 +1232,21 @@ files are machine-specific and don't travel between machines (desktop vs.
 laptop) or reliably resurface from old conversation logs — the repo is the
 one place guaranteed to travel with the project. Applies in every session
 working in this repo, not just the one that first set this up.
-**Last run: 2026-07-31.** That pass audited all six memory files and found
+**Last run: 2026-08-03.** That pass found the memory system had been
+silently out of service: all six files sat under the *old* project path
+(`C--Users-ThinkPad-Documents-grounded-ai-practice`), orphaned when the
+repo moved to `C:\dev\`, so no memory had loaded since the move and the
+`.claude-memory` junction resolved to nothing. Two items were promoted
+into this file — the short-pasted-fragments rule (Working approach) and
+an extension of the tool-surfacing bullet to cover community-built
+Claude Code tools. Two were already fully captured (the research
+workflow here, the government-recognition goal in `project_brief.md`)
+and one is now enforced by harness configuration (agent-spawning). The
+structural finding matters more than any single item: local memory did
+not survive a folder move on one machine, which is the strongest
+evidence yet for keeping durable rules in the repo.
+Previous line, kept for the record:
+**last run 2026-07-31.** That pass audited all six memory files and found
 five of them correctly machine-local — three are interaction-level
 (agent-spawning, tool preferences, how to handle short pasted fragments)
 and belong in memory rather than the repo, and the government-recognition
