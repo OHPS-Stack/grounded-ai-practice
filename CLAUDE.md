@@ -99,10 +99,12 @@ the five immediate research priorities driving current work.
   survive). Zero new dependencies: tkinter (standard library)
   for Python tools, WinForms (built into Windows PowerShell) for the
   PowerShell tools. Applies retroactively to the existing tools and to
-  every future one — Entry 047 will record the current retrofit status
-  (done: `prep_photos`, `trace_reference`, `make_share_folder`; the
-  Claude-driven docx/Word pipeline tools pending; `embed_logo`
-  proposed as the build-utility exception).
+  every future one — Entry 047 records the retrofit (done:
+  `prep_photos`, `trace_reference`, `make_share_folder`). The
+  Claude-driven docx/Word pipeline tools and `embed_logo` stay
+  command-line by decision (Entry 049): Claude or a build step runs
+  those, not a person, so the rule's test — would someone without a
+  terminal habit ever run this — does not reach them.
 
 - **Fine visual/spatial refinement gets handed to a real tool, not
   iterated through description.** Early concept exploration (comparing
@@ -822,8 +824,14 @@ Three passes, in order, because they catch different things:
    are the creator's alone.
 
 Record each audit's date and outcome in `project_log.md`. **Last audit:
-2026-07-28** (initial; found the pre-sharing content issues fixed the same
-day, history clean across 15 commits).
+2026-08-03** (`project_log.md` Entry 048; found the private marker inside
+the pre-commit hook itself, six days public across 17 of 33 commits —
+history rewritten, marker list moved out of tracked content, review gate
+adopted; two stale current-state claims corrected; no other findings. The
+independent second-model pass was not run.) Previous: 2026-07-28
+(initial; pre-sharing content issues fixed the same day, history clean
+across 15 commits — the audit that the hook was written immediately
+after, and so did not cover).
 
 ### Retroactive rule
 
@@ -871,6 +879,17 @@ attempt it unilaterally.
   em-dash-chaining, and never third-person references to the user (e.g.
   "the creator") — that framing belongs in `research_log.md`'s internal
   entries, not in text written in the user's own voice.
+
+- **No AI co-author attribution on commits.** Adopted 2026-08-03 at the
+  user's direction. Commit messages carry no `Co-Authored-By: Claude`
+  trailer and no equivalent AI-contributor line, so the commit history
+  and the GitHub contributor list read as the user's own work — which
+  is what they are: every commit is reviewed and decided by the user
+  before it is made. Claude Code's default is to append that trailer,
+  so this rule has to be applied deliberately in each session rather
+  than assumed. The AI-assisted working method is stated openly in
+  `README.md` and throughout the logs; it does not also need a
+  machine-readable authorship claim on every commit.
 
 ## Known mistakes to not repeat
 

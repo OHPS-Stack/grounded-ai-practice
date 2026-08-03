@@ -2751,3 +2751,114 @@ no external citation:
   `fitshapes.py`, `word_preview.ps1`, `word_roundtrip_test.ps1`.
   Proposed exception: `embed_logo.py` (build utility). `CLAUDE.md`
   rule and index updated to match.
+
+### Entry 048 — The guard carried the name it guarded against; history rewritten; repo audit
+
+- **Date logged:** 2026-08-03
+
+- **Priority / Question:** Priority 10 (public presentation); repo
+  privacy discipline. Also the audit record required by `CLAUDE.md`,
+  "Repo audit — scheduled, not ad hoc".
+
+- **Source:** Pre-commit review and creator decisions, 2026-08-03. Work
+  done in session.
+
+- **What happened:**
+
+  1. **The defect.** `.githooks/pre-commit` — a tracked, public file —
+     carried the private marker name in plain text, beside a comment
+     pointing at the private contacts file under `internal/`. The hook
+     skipped scanning itself, so it could never have caught it. The
+     disclosure was not only the name: the name plus its context
+     identified that person as one held in the project's private
+     contacts file.
+
+  2. **The audit gap.** The hook entered history in commit `c6734cb`,
+     2026-07-28, titled "Prepare for public release". The audit recorded
+     that day covered 15 commits — the state *before* that commit. The
+     guard written during the pre-publication audit is what carried the
+     name past it. Exposure: a public repo, six days, 17 of 33 commits,
+     with no forks or stars at the time of the rewrite.
+
+  3. **Go-forward fix.** The marker list moved to
+     `internal/private_markers.txt`, never tracked. `pre-commit` was
+     rebuilt to read it and to refuse to run if it is missing, and a new
+     `pre-push` re-scans the whole tracked tree and the pushed commits
+     before anything leaves the machine. Both tested: a poisoned staged
+     file blocks, clean states pass.
+
+  4. **History rewritten.** The creator's decision was that the privacy
+     concern supersedes both the disruption of rewriting shared history
+     and the project's preference for showing its record openly. A
+     mirror backup was taken first
+     (`C:\dev\gap-history-backup-2026-08-03.git`, 33 commits);
+     `git filter-repo` replaced the name across all commits;
+     verification scanned every revision individually and found zero
+     hits; both `.docx` deliverables were integrity-checked after the
+     blob rewrite. All hashes from 2026-07-28 onward changed. The
+     force-push landed the same day; a GitHub Support request to purge
+     the overwritten commits follows it.
+
+  5. **New rule.** Every commit and push now gets a review gate
+     (`CLAUDE.md`, Git conventions) — the judgement layer above what the
+     hooks enforce mechanically.
+
+  6. **Audit record.** The creator's decision is that this counts as the
+     scheduled repo audit. Passes run: the Claude scan of tracked files
+     and full history, and creator verification of every flagged item.
+     Findings beyond the marker: two current-state documents carrying
+     stale claims, both corrected (the `drafts/` index still calling the
+     report unreviewed, and a brief bullet still calling a flagged claim
+     unsupported after `research_log.md` Entries 062–063 evidenced its
+     core). No emails, credentials, dangling cross-references or private
+     content found in tracked files, the new tools, or any historical
+     `.docx` blob.
+
+- **Inference drawn:** The defect was structural rather than careless.
+  The hook was the one tracked file the marker check exempted, so no
+  amount of care in writing it would have been caught by the tooling.
+  That is why the fix is a review gate rather than a resolution to be
+  more careful.
+
+- **Limitations / conflicting evidence:** A rewrite cannot retract what
+  was already public. Anyone who cloned during the six-day window holds
+  a copy; GitHub keeps overwritten commits reachable by their hash until
+  garbage collection or a Support purge; third-party mirrors and
+  crawlers are outside anyone's control. Whether the repo was public for
+  the whole window is not verifiable from local data. The independent
+  second-model pass was not run this time, so this audit rests on one
+  model plus creator verification.
+
+- **Effect on project direction:** Hooks, marker file and review gate
+  are in place; `CLAUDE.md`'s audit line updated to 2026-08-03. Flagged
+  as candidate teaching material, and a strong one: a guard that
+  published the thing it existed to block, and the fact that deleting a
+  file never removes it from git history. Redaction need: the name
+  itself, which must not appear in any teaching version.
+
+### Entry 049 — Claude-driven tools stay command-line
+
+- **Date logged:** 2026-08-03
+
+- **Priority / Question:** Priority 7 (delivery format).
+
+- **Source:** Creator decision, 2026-08-03. Settles the pending list and
+  the proposed exception in Entry 047.
+
+- **What happened:** The docx/Word pipeline tools — `docx_text.py`,
+  `docx_edit.py`, `fitshapes.py`, `word_preview.ps1` and
+  `word_roundtrip_test.ps1` — need only a command line for now, and
+  `embed_logo.py`'s proposed build-utility exception is confirmed on the
+  same basis. Claude or a build step runs all six; a person does not, so
+  Entry 045's justification does not reach them.
+
+- **Inference drawn:** The rule's operative test is therefore *would a
+  person without a terminal habit ever run this*, not *is it a tool*. If
+  any of the six later becomes something a learner runs directly, this
+  decision reopens with it.
+
+- **Limitations / conflicting evidence:** Not applicable.
+
+- **Effect on project direction:** Clears Entry 047's pending list.
+  `CLAUDE.md`'s GUI rule states the decision rather than a pending
+  retrofit.
