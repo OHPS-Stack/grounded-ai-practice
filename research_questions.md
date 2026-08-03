@@ -208,6 +208,39 @@ The first research phase should answer five connected questions:
 
 - What level of maintenance can realistically be sustained?
 
+- What evidence exists — beyond this project's own experience — that
+  structured, persistent context (project files, working rules, promoted
+  tooling) measurably improves output quality or reduces usage cost
+  compared with unstructured chat use?
+
+- Can this repository produce that evidence itself: a defined task run
+  cold versus with the full context system, measuring tokens, iteration
+  rounds and output quality?
+
+- Which SME AI cost and quality problems are documented in credible
+  independent or official sources, rather than vendor marketing or
+  anecdote?
+
+- Whether and what SMEs and individuals would pay for this capability —
+  and how demand could be tested cheaply before anything is built?
+
+- Who already serves SMEs on AI enablement and optimisation, what do
+  they offer, and which needs remain unmet?
+
+- As platform vendors absorb the context-and-workflow layer into native
+  features, what remains durable for GAP to teach on top of that layer,
+  given the adopted stance of leveraging it rather than competing with
+  it?
+
+- Can any published data verify the saturation inference in
+  `project_log.md` Entry 044 — that large-employer training pools are
+  saturating and the remaining untrained population is shifting toward
+  small organisations and individuals?
+
+- Within the adopted product direction, is the offer the system itself
+  or the method taught — and what evidence would justify narrowing,
+  changing or abandoning the direction?
+
 ## Research discipline
 
 For each material finding, record:

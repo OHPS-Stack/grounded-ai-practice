@@ -174,8 +174,8 @@ a plausible second unit if the project stacks further pilots later. See
 The project's creator has set out several connected considerations for
 where the project could eventually sit. These are working considerations —
 more developed than open questions, less settled than the working decisions
-above — and each is labelled by what it is (reference model, aim,
-observation, or flagged claim), per the project's evidence discipline.
+above — and each is labelled by what it is (reference model, direction,
+aim, observation, or flagged claim), per the project's evidence discipline.
 
 - **Domain and project email (fact, 2026-07-29):**
   `groundedaipractice.co.uk` is registered, with a Microsoft 365 mailbox
@@ -195,6 +195,37 @@ observation, or flagged claim), per the project's evidence discipline.
   reference point for long-term format thinking, not a build decision —
   the pilot unit above remains the first output, and "eventual permanent
   format" stays in "Not yet decided."
+
+- **Product direction (working direction, adopted 2026-08-03):** the
+  project's most distinctive artifact is the practice system itself —
+  the file structure, working rules, verification tooling, logs and
+  memory architecture, built so an LLM can parse and act on them in
+  support of the creator's own learning and research. Individual
+  reports are worked examples that system produces, not the headline;
+  as proof of capability to peers and employers, the system outweighs
+  any single document. The adopted direction is to package this
+  practice as a learning and research capability for SMEs and
+  individuals: proper use of the AI tools now available to them,
+  optimising the context a model is given in each case, and custom —
+  sometimes fully local — tools and workflows where those cut usage
+  cost, increase privacy and reduce reliance on cloud services.
+  Platform vendors productising this layer (persistent project context,
+  skills, memory, agent tooling) are treated as infrastructure to
+  leverage and teach, not as competition. The aim is to let small
+  organisations adapt and integrate AI in the custom ways large
+  organisations already can. The underserved market this responds to is
+  evidenced; one tagged inference — that meeting the government's
+  workforce ambition will eventually require reaching exactly this
+  population, making a completed GAP unit or a GAP-guided custom tool a
+  candidate countable "upskilled" outcome — connects the direction to
+  the positioning aim below. Full reasoning, citations and the
+  claims-by-tier separation: `project_log.md` Entry 044. The demand
+  side is unresearched — whether and what SMEs would pay sits as an
+  open validation question under `research_questions.md` Priority 10 —
+  and this direction does not reorder current work: the pilot unit
+  remains the first output, the public report the primary research
+  deliverable, and the eventual product format stays in "Not yet
+  decided."
 
 - **Positioning aim (official channel):** the UK government and the GAP
   project — if it can be pitched to and approved by the correct governing
@@ -219,13 +250,17 @@ observation, or flagged claim), per the project's evidence discipline.
   content, and side-by-side comparisons against genuinely effective
   learning platforms. To be used in a dedicated evidence-collection pass.
 
-- **Flagged claim (creator's own flag — currently unsupported):** "UK
-  policymakers, businesses and politicians understand AI's value and
+- **Flagged claim (creator's own flag — core now partially evidenced):**
+  "UK policymakers, businesses and politicians understand AI's value and
   importance conceptually, but few have a concrete practical understanding
   — and some of the least initiated are the ones writing policy and
-  deciding spending." Explicitly marked as needing direct supporting
-  quotes/evidence from policymakers before use in any external-facing
-  document.
+  deciding spending." The broad version remains unproven, but direct
+  evidence now exists at its core: the Prime Minister misstated his own
+  programme's budget against the previous day's release, and misdescribed
+  the Action Plan in the same event's unscripted half (`research_log.md`
+  Entries 062–063). External use states the checkable record and lets the
+  reader conclude, per the evidential form agreed in `project_log.md`
+  Entry 043.
 
 - **Primary research deliverable (current state, 2026-08-01):** a short
   public-audience report on the UK's AI skills programme, written for a

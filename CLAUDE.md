@@ -76,6 +76,34 @@ the five immediate research priorities driving current work.
   rather than only importable functions, and an index entry here in the
   same edit that adds it, per the standing indexing rule below.
 
+- **Every human-run tool gets a GUI as well as a CLI.** Adopted
+  2026-08-03 at the creator's direction (see `project_log.md` Entries
+  045-047, to follow): the audience the project now aims at — learners and small
+  organisations without a terminal habit — is exactly the audience a
+  CLI-only tool turns away. The pattern is set by
+  `tools/prep_photos.py`: run with no arguments (or `--gui`) the script
+  opens a small window; run with any argument it behaves exactly as
+  before, so scripts and Claude-driven runs are unaffected. The GUI is
+  a thin layer calling the same functions as the CLI — never a second
+  implementation — and it exposes only the few decisions a person
+  actually makes, leaving the full flag surface on the CLI;
+  missing-dependency errors become plain-language dialogs carrying the
+  install command. The GUI carries the brand: the GAP palette applied
+  through ttk's built-in `clam` theme in the roles `project_brief.md`
+  records (Paper ground, Ink text, Stone hints, Ember reserved for the
+  primary action), and the wordmark and symbol embedded in the script
+  as base64 PNG — the creator's explicit call over runtime asset
+  loading, so a copied script keeps its branding; `tools/embed_logo.py`
+  generates and refreshes the blobs, and Tk decodes them natively (the
+  symbol serves as the window icon, where the 2.7:1 wordmark cannot
+  survive). Zero new dependencies: tkinter (standard library)
+  for Python tools, WinForms (built into Windows PowerShell) for the
+  PowerShell tools. Applies retroactively to the existing tools and to
+  every future one — Entry 047 will record the current retrofit status
+  (done: `prep_photos`, `trace_reference`, `make_share_folder`; the
+  Claude-driven docx/Word pipeline tools pending; `embed_logo`
+  proposed as the build-utility exception).
+
 - **Fine visual/spatial refinement gets handed to a real tool, not
   iterated through description.** Early concept exploration (comparing
   directions, testing palettes, rough layouts) works well as an inline
@@ -436,6 +464,16 @@ as demonstrated to work.
   where an old stretch of log is hard to navigate the fix is the index or
   the Open Threads section, not the entry.
 
+- **Tracked log entries record decisions and reasoning, never verbatim
+  planning/pitch language.** Adopted 2026-08-03. Noting that a framing
+  was considered and screened out displays the self-checking and is
+  fine; reproducing its wording publishes planning sentiment the record
+  does not need. The prompting case: a rejected marketing-register
+  claim was drafted into `project_log.md` Entry 044 as a verbatim quote
+  and caught at review — the landed entry keeps a quoteless screening
+  note instead. State what was considered and why it was kept or
+  discarded; quote-level candour lives in `internal/`.
+
 - **Lessons learned become learning content, not only rules.** Adopted
   2026-07-29. When a mistake or hard-won lesson here would be a genuine
   pitfall for someone in a similar position — a solo practitioner
@@ -736,15 +774,20 @@ Two layers:
 1. `.gitignore` excludes `internal/`.
 
 2. `.githooks/pre-commit` **blocks** commits that stage anything under
-   `internal/`, or that contain known private markers in tracked files.
-   Install once per machine: `git config core.hooksPath .githooks`
+   `internal/` or that contain a private marker, and `.githooks/pre-push`
+   re-scans the whole tracked tree and the pushed commits at push time.
+   Both read the marker list from `internal/private_markers.txt` — never
+   tracked, so the public hooks carry no private strings, and a machine
+   without that file refuses to commit or push until it exists (an empty
+   file is a valid, deliberate choice). Install once per machine:
+   `git config core.hooksPath .githooks`
 
 Both are guardrails against accident, **not security controls**:
 
 - `.gitignore` does nothing retroactively and is overridden by `git add -f`.
 
-- The hook is local-only (cloning does not install it) and is bypassed by
-  `git commit --no-verify`.
+- The hooks are local-only (cloning does not install them) and are
+  bypassed by `--no-verify`.
 
 - **Neither protects git history.** Anything ever committed is public the
   moment the repo is made public, whether or not it was later deleted.
@@ -791,6 +834,18 @@ a repo has been shared — raise it with the creator as a decision, do not
 attempt it unilaterally.
 
 ## Git conventions
+
+- **Every commit and push gets a review gate.** Adopted 2026-08-03,
+  after a pre-commit review found the hook itself carrying in public
+  the private name it exists to block. Before preparing any commit,
+  review the full set of changes for: private names or markers,
+  personal contact details, credentials, candid assessments of named
+  parties, dangling cross-references, and claims contradicted by later
+  log entries — and report findings for decision rather than silently
+  fixing them. The hooks enforce the mechanical part (`internal/`
+  staging, the marker list in `internal/private_markers.txt`); this
+  review is the judgement part. Neither replaces the scheduled repo
+  audit, which also covers history.
 
 - **Draft the commit message and show it to the user before running
   `git commit`**, for any commit with a real message to write (not a
@@ -862,10 +917,14 @@ attempt it unilaterally.
   here — see "Public repo vs. internal working files" above for what
   belongs in it, why, and the indexing rule.
 
-- `.githooks/pre-commit` — blocks commits staging `internal/` or
-  containing known private markers. Install per machine with
-  `git config core.hooksPath .githooks`. A guardrail against accident,
-  not a security control.
+- `.githooks/` — the local guard layer: `pre-commit` blocks commits
+  staging `internal/` or containing a private marker; `pre-push`
+  re-scans the whole tracked tree and the pushed commits before
+  anything leaves the machine. Both read their marker list from
+  `internal/private_markers.txt` (never tracked; a missing file blocks,
+  an empty one is a deliberate opt-out). Install per machine with
+  `git config core.hooksPath .githooks`. Guardrails against accident,
+  not security controls.
 
 - `assets/icons/` — the promoted, working content-icon set (36
   icons, current palette). `svg/` for sources, `png/` for 64/128/256px
@@ -905,8 +964,10 @@ attempt it unilaterally.
 - `drafts/` — work-in-progress files under active iteration. Currently:
   `UK_AI_Skills_Ambition_Report.docx` (+ self-check `.pdf`), an 8-page
   report on the UK's AI skills ambition, delivered results and the gap
-  between them — built 2026-07-28 on `research_log.md` Entries 043–048,
-  **not yet reviewed by the creator** (see `project_log.md` Entry 022).
+  between them — built 2026-07-28 on `research_log.md` Entries 043–048.
+  Externally reviewed and reframed 2026-08-01: the draft is demoted to
+  evidence companion behind a planned short public-audience report — see
+  `project_log.md` Entries 042–043 for the review findings and decisions.
   Nothing here reflects a settled decision; contents may be replaced or
   removed once the format stabilises. Once a document is approved and no
   longer a draft, it moves to `exports/` instead.
@@ -964,7 +1025,9 @@ attempt it unilaterally.
   self-check. Requires Python with Pillow (`pip install pillow`) and
   Inkscape 1.x, both discovered automatically. See "Raster concept to
   editable vector" under Working approach for when to reach for it, and
-  why its output is never a finished asset.
+  why its output is never a finished asset. Run with no arguments (or
+  `--gui`) for the windowed interface — pick the image, preview the
+  colour separation, trace — per the GUI rule under Working approach.
 
 - `tools/fitshapes.py` — fits a `.docx`'s callout-card and pull-quote
   drawing groups to the text they actually contain. These are Word groups
@@ -1023,6 +1086,72 @@ attempt it unilaterally.
   uses and dropping them makes Word reject the file as corrupt rather than
   report a namespace error. Requires Python, standard library only. Always
   run `fitshapes.py` and then both Word checks afterwards.
+
+- `tools/make_share_folder.ps1` — builds a slimmed copy of the repo for the
+  Claude surfaces that take a folder: Cowork and Design. Not for Projects,
+  which reads a branch on GitHub rather than a local folder, and whose size
+  limit is fixed by deselecting `assets/` and `drafts/` in its own file
+  picker. Solves two problems at once: the repo is ~6.7 MB but
+  6.3 MB of that is binary output no surface can reason about, and
+  `internal/` plus the `.claude-memory` junction sit inside the repo root,
+  which must never be handed to a remotely-executing surface (see "Choosing
+  the right Claude surface"). `-Mode Docs` (default) copies the root
+  markdown, `tools/` and `exports/` — 15 files, 0.88 MB. `-Mode Design`
+  copies logo and icon SVGs, the creative brief and `project_brief.md` for
+  the palette — 62 files, 0.32 MB, skipping the 3.2 MB of raster logo
+  exports. `-Mode All` does both. The destination defaults to
+  `C:\dev\gap-share` and **must be outside the repo**; the script refuses
+  otherwise. It wipes and rebuilds the destination each run, so it will only
+  write to a folder carrying the `.gap-share-folder` marker it drops or to a
+  path that does not exist yet — pointing it at a folder of your own files
+  aborts rather than deleting them. After copying it re-scans the output for
+  `internal/` and `.claude-memory` and deletes everything if either appears.
+  Copies the working tree, not a commit, so unlike a Project's GitHub sync
+  it does include uncommitted work. The output is disposable: re-run to
+  refresh it, and never treat it as a second source of truth. PowerShell
+  only — no Word, Python or Inkscape; the window is WinForms, built into
+  Windows PowerShell. **Bare invocation opens the window** (before
+  2026-08-03 it ran a Docs build) — scripted and Claude-driven runs pass
+  `-Mode` explicitly, as the usage examples always showed.
+
+- `tools/prep_photos.py` — prepares phone photos for AI upload: takes what
+  any mainstream phone produces (HEIC/HEIF, JPEG, PNG, WebP, TIFF, BMP,
+  GIF, AVIF — not RAW/DNG), converts to PNG or JPEG, and renames
+  `<YYYY-MM-DD>_<label>_<NN>` (`--label` sets the slug, default `img`;
+  numbering runs per date, in capture order; date from EXIF capture time,
+  file-modified time as the stated fallback). `--ai` is the compression
+  preset for AI use: JPEG quality 85, long edge capped at 1568 px — the
+  point past which most Claude models downscale server-side anyway, per
+  Anthropic's vision guidance; `--max-edge 2576` reaches the current
+  high-resolution models' ceiling at ~3x the image-token cost. Each of
+  `--format`/`--max-edge`/`--quality` also works standalone. Bakes EXIF
+  orientation into the pixels, carries remaining EXIF across, flattens
+  transparency to white for JPEG, never overwrites (a taken name advances
+  the sequence), skips its own output when scanning folders so re-runs are
+  safe, leaves originals untouched, and re-opens every file it writes as
+  an integrity check. `--dry-run` previews, `-o` collects output into one
+  folder, `--recurse` descends. Run with no arguments (or `--gui`) for
+  the windowed interface over the same code — per the GUI rule under
+  Working approach. Default (no `--ai`) output is full-size
+  PNG — several times the source size for photographs. Requires Python
+  with Pillow; pillow-heif (`pip install pillow-heif`, wheel bundles
+  libheif) only when HEIC is among the inputs.
+
+- `tools/embed_logo.py` — embeds the GAP logo into a tool's GUI as
+  base64 PNG constants, per the GUI rule's branding requirement: fills
+  (or first inserts, or refreshes) the `LOGO_*_PNG` constants in a
+  target script from the canonical exports in `assets/logo/png/` —
+  wordmark resized for the header (default 180 px, kept above the
+  wordmark's ~160 px minimum usable width), symbol at its native 64 and
+  32 px for the title bar. Tk decodes base64 PNG natively, so a patched
+  tool gains no imports. Python targets get triple-quoted constants,
+  inserted above `__main__` if absent; PowerShell targets get
+  `@'...'@` here-strings, replace-only — add the three placeholders by
+  hand once (see `make_share_folder.ps1` for the shape). Refuses a
+  partial constant set, and verifies a patched `.py` still parses
+  before writing anything. Re-run over every GUI tool if the brand
+  assets change. A build utility run at development time, not a
+  learner-facing tool. Requires Python with Pillow.
 
 ## Claude's memory: what's in the repo vs. outside it
 

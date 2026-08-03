@@ -1,0 +1,62 @@
+#!/bin/sh
+# Grounded AI Practice — pre-push guard
+#
+# The last local gate before anything reaches the remote. The pre-commit
+# hook checks what each commit STAGES; this one re-checks the whole
+# tracked tree at push time, catching anything that slipped past it via
+# --no-verify, a hookless machine, or an edit landing between commits.
+#
+#   1. Every tracked file is scanned for the private markers listed in
+#      internal/private_markers.txt (same format and same missing-file
+#      refusal as pre-commit).
+#   2. The commits being pushed are checked for paths under internal/.
+#
+# Same honest limits as pre-commit: local-only, bypassed by
+# `git push --no-verify`, and powerless over history already pushed.
+
+fail=0
+markers_file="internal/private_markers.txt"
+
+# --- 1. markers must not appear anywhere in the tracked tree ---------
+if [ ! -f "$markers_file" ]; then
+    echo "BLOCKED: $markers_file is missing, so the marker check cannot run."
+    echo "Create it (an empty file is valid) before pushing."
+    fail=1
+else
+    for f in $(git ls-files); do
+        [ -f "$f" ] || continue
+        while IFS= read -r m || [ -n "$m" ]; do
+            m=$(printf '%s' "$m" | tr -d '\r')
+            case "$m" in ''|\#*) continue ;; esac
+            if grep -Fiq "$m" "$f" 2>/dev/null; then
+                echo "BLOCKED: a private marker (see $markers_file) appears in tracked file: $f"
+                fail=1
+            fi
+        done < "$markers_file"
+    done
+fi
+
+# --- 2. pushed commits must not touch internal/ ----------------------
+# Refs being pushed arrive on stdin: <local ref> <local sha> <remote ref> <remote sha>
+zero=0000000000000000000000000000000000000000
+while read -r local_ref local_sha remote_ref remote_sha; do
+    [ "$local_sha" = "$zero" ] && continue   # deleting a remote ref
+    if [ "$remote_sha" = "$zero" ]; then
+        tracked_internal=$(git ls-tree -r --name-only "$local_sha" | grep -E '^internal/' || true)
+    else
+        tracked_internal=$(git diff --name-only "$remote_sha" "$local_sha" | grep -E '^internal/' || true)
+    fi
+    if [ -n "$tracked_internal" ]; then
+        echo "BLOCKED: commits being pushed touch internal/ paths:"
+        echo "$tracked_internal" | sed 's/^/    /'
+        fail=1
+    fi
+done
+
+if [ "$fail" -ne 0 ]; then
+    echo "Push refused by .githooks/pre-push."
+    echo "See CLAUDE.md, \"Public repo vs. internal working files\"."
+    exit 1
+fi
+
+exit 0

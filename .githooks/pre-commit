@@ -3,7 +3,14 @@
 #
 # Blocks two classes of mistake before they enter git history:
 #   1. Anything under internal/ (never public)
-#   2. Known private names/markers leaking into tracked files
+#   2. Private markers leaking into tracked files
+#
+# The marker list lives OUTSIDE tracked content, in
+# internal/private_markers.txt — one case-insensitive substring per line,
+# blank lines and lines starting with # ignored — so this public file
+# never carries the strings it exists to block. A missing marker file
+# refuses the commit: create it (even empty) so running without markers
+# is a deliberate state, never a silent one.
 #
 # This is a guardrail against ACCIDENT, not a security control:
 #   - it is local-only (not installed by cloning; see CLAUDE.md)
@@ -15,6 +22,7 @@
 #   git config core.hooksPath .githooks
 
 fail=0
+markers_file="internal/private_markers.txt"
 
 # --- 1. internal/ must never be staged -------------------------------
 staged_internal=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^internal/' || true)
@@ -25,27 +33,24 @@ if [ -n "$staged_internal" ]; then
     fail=1
 fi
 
-# --- 2. private markers must not appear in tracked content -----------
-# Case-insensitive. Keep this list in sync with internal/contacts_private.md.
-# Deliberately narrow: only strings that are unambiguously private.
-markers='[private marker removed]'
-
-staged_files=$(git diff --cached --name-only --diff-filter=ACM | grep -vE '^internal/' || true)
-if [ -n "$staged_files" ]; then
+# --- 2. private markers must not appear in staged content ------------
+if [ ! -f "$markers_file" ]; then
+    echo "BLOCKED: $markers_file is missing, so the marker check cannot run."
+    echo "Create it — one private name/marker per line; an empty file is"
+    echo "valid — so that running without markers is a deliberate choice."
+    fail=1
+else
+    staged_files=$(git diff --cached --name-only --diff-filter=ACM | grep -vE '^internal/' || true)
     for f in $staged_files; do
         [ -f "$f" ] || continue
-        case "$f" in
-            .githooks/*) continue ;;
-        esac
-        if echo "$markers" | while IFS= read -r m; do
-               [ -n "$m" ] || continue
-               if grep -Fiq "$m" "$f" 2>/dev/null; then
-                   echo "BLOCKED: private marker \"$m\" found in staged file: $f"
-                   exit 1
-               fi
-           done; [ $? -ne 0 ]; then
-            fail=1
-        fi
+        while IFS= read -r m || [ -n "$m" ]; do
+            m=$(printf '%s' "$m" | tr -d '\r')
+            case "$m" in ''|\#*) continue ;; esac
+            if grep -Fiq "$m" "$f" 2>/dev/null; then
+                echo "BLOCKED: a private marker (see $markers_file) appears in staged file: $f"
+                fail=1
+            fi
+        done < "$markers_file"
     done
 fi
 

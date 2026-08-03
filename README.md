@@ -20,6 +20,17 @@ Grounded AI Practice is a research project examining how UK adults and
 small organisations actually build practical AI capability - and why the
 current national approach appears to be falling short.
 
+It is also its own first case study. The file structure, working rules,
+verification tooling and logged decisions here are built so that an AI
+assistant can read them and work from them directly. That system is what
+produces the research in this repository — so how it is built, and why,
+is on show alongside what it found.
+
+Whether the same practice can be taught to other people is a working
+hypothesis, not a finding, and the brief records it as one. Most people
+using AI today use it as a chatbot and stop there. The untested claim is
+that a practice like this one produces better results at lower cost.
+
 It is currently at the **research and pilot-design stage**. This repository
 is the working record: the sources, the reasoning, the decisions, and the
 things still unresolved.

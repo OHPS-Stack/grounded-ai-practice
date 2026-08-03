@@ -2518,3 +2518,236 @@ no external citation:
 - **Effect on project direction:** Unblocks the redraft. Next concrete
   step: Claude produces the structure-and-arguments rough draft of the
   synopsis document for the creator's prose pass, per the new process.
+
+### Entry 044 — Reframing: the practice system is the project's primary artifact; product direction adopted
+
+- **Date logged:** 2026-08-03
+
+- **Priority / Question:** Priority 10 / project direction, eventual
+  format and commercial potential; touches Priority 7 (delivery format)
+  and Priority 2 (audience).
+
+- **Source:** Creator realisation and decisions, 2026-08-03. Evidence
+  citations below are to `research_log.md`.
+
+- **What happened:**
+
+  1. **The realisation.** The project's most distinctive artifact is not
+     any single research report but the system that produces them: the
+     file structure, working rules, verification tooling, logs and memory
+     architecture, deliberately built so any LLM can parse and act on
+     them. In effect the repo is a custom research-and-learning agent
+     with built-in tools and workflows — a working demonstration of the
+     practical AI capability the project exists to teach. The AI Skills
+     Hub research is not displaced by this framing; it becomes the case
+     study the system produced, proof the method finds things official
+     channels miss.
+
+  2. **Working direction adopted (creator decision, 2026-08-03).** GAP's
+     product direction is to package this practice as a learning and
+     research capability for SMEs and individuals: educating users in
+     proper use of the AI tools now available to them, optimising the
+     context they give a model in each case, and building custom —
+     sometimes fully local — tools and workflows where those reduce
+     usage cost, increase privacy and decrease reliance on cloud
+     services. Platform vendors productising the context-and-workflow
+     layer (persistent project context, skills, memory, agent tooling)
+     is treated as infrastructure to leverage and teach, not as
+     competition: GAP's role is helping people choose and use that layer
+     well. The aim is to let small organisations adapt and integrate AI
+     in the custom ways large organisations already can — helping the
+     smaller actor keep up. Evidential status: the large/small adoption
+     gap is evidenced (Entry 029, complications logged in Entry 041;
+     `[OECD-SMEAI25]`: 40% large-firm vs 11.9% small-firm adoption,
+     OECD-wide), and the claims-separation below governs the rest. The
+     decision is a direction, not a validation — the demand side remains
+     unresearched (see effect section). Marketing-register framings were
+     screened out under the evidence discipline before recording.
+
+  3. **What the research log supports in this positioning, cited
+     precisely.** Government-led AI skills delivery and its counting run
+     through eleven large commercial partners (Entries 046, 053); the
+     delivery design assumes an employer rolling training out to staff,
+     a layer SMEs and individuals lack (Entry 026 and the primary-
+     audience decision, `project_brief.md`); the one Action Plan
+     recommendation about ordinary workers is not met (Entry 060);
+     government's own evidence review concedes policy has focused on AI
+     professionals and evidence on AI skills for life is "necessarily
+     limited" (Entry 058); and no published breakdown of completions by
+     employer size exists (Entry 064), so who is actually being trained
+     cannot be verified from outside. One delivery partner holds
+     builder, evidence-supplier and delivery-partner roles
+     simultaneously (Entry 046) — recorded as documented role
+     concentration. The claim "almost all training happens at large
+     firms" is deliberately not made: the checkable version — the
+     structure tilts toward large-firm delivery and the published
+     figures cannot show who is trained — is stronger and survives
+     scrutiny.
+
+  4. **Inference recorded as inference.** As large-employer training
+     pools saturate, meeting the workforce ambition — 7.5 million
+     workers by 2030 as originally stated, with government sources
+     disagreeing on the later 10-million framing (Entry 061) — would
+     require reaching smaller organisations and individuals: the
+     population GAP targets. In that context a completed GAP unit, or a
+     custom tool or workflow built with GAP guidance, is a candidate
+     countable "upskilled" outcome, connecting this direction to the
+     official-channel positioning aim already in `project_brief.md`.
+     This saturation argument is unverified inference, not evidence.
+
+  5. **Motive attribution excluded.** Why this market is underserved is
+     a motive question about identifiable actors; per the public/
+     internal rule it is not recorded in tracked files. The fact of
+     underservice stands on the entries cited above.
+
+- **Inference drawn:** The repo can generate the missing cost/quality
+  evidence itself: a controlled before/after comparison (a defined task
+  run cold versus with the full context system, measuring tokens,
+  iteration rounds and output quality) would convert the creator's n=1
+  experience into checkable data. Logged as a research question, not yet
+  scheduled.
+
+- **Limitations / conflicting evidence:** The demand side (whether SMEs
+  will pay, what they would pay for) is untested against any evidence.
+  The adoption-gap evidence carries logged complications (Entry 041).
+  The cost/quality mechanism rests on the creator's own experience
+  (n=1) until the comparison above is run. The distance from a bespoke
+  personal system — one person, one machine, one toolchain — to a
+  generalisable product is the actual hard work and is not addressed by
+  the reframing.
+
+- **Effect on project direction:** `project_brief.md` gains this as a
+  working direction under "Longer-term direction and positioning";
+  `research_questions.md` Priority 10 gains validation questions
+  covering the demand side and the before/after measurement. The pilot
+  unit remains the first output and the public report the primary
+  research deliverable — this reframes how existing work is presented,
+  it does not reorder the queue. Flagged as candidate teaching material
+  for the prompting/context curriculum: the chatbot-level-usage pattern
+  and its cost consequences are exactly the pitfall the pilot audience
+  faces (no redaction needs identified).
+
+### Entry 045 — Every human-run tool gets a GUI; pattern set in prep_photos.py
+
+- **Date logged:** 2026-08-03
+
+- **Decision (creator):** Every GAP tool a human drives gets a simple
+  graphical interface alongside its CLI — retroactively for the
+  existing tools and as standard for future ones. The reasoning
+  connects to Entry 044's audience framing: the learners and small
+  organisations the project now aims at are exactly the users a
+  terminal-only tool turns away, and the creator includes themselves in
+  that assessment for day-to-day use.
+
+- **Pattern (established and verified in `tools/prep_photos.py`):**
+  running the script with no arguments (or `--gui`) opens a small
+  tkinter window; any argument gives the exact CLI behaviour, so
+  scripts and Claude-driven runs are unaffected. The window is a thin
+  layer calling the same functions as the CLI — never a second
+  implementation — and exposes only the decisions a person actually
+  makes (which photos, the naming word, AI-size vs full quality,
+  destination), with a preview step mirroring `--dry-run` before
+  anything is written. Missing-dependency errors become plain-language
+  dialogs carrying the install command. Zero new dependencies: tkinter
+  ships with Python on Windows; the PowerShell tools will use WinForms,
+  built into Windows PowerShell. Verified by CLI regression (identical
+  behaviour after refactoring shared functions out of `main()`) and a
+  scripted GUI run — populated programmatically, previewed, screenshot
+  inspected, then a real conversion through the window's threaded path.
+
+- **Effect:** Standing rule added to `CLAUDE.md` Working approach the
+  same day. Retrofits pending for the seven other tools: `docx_text`,
+  `docx_edit`, `fitshapes`, `trace_reference`, `word_preview`,
+  `word_roundtrip_test`, `make_share_folder` — queued for creator
+  review of the pattern before rollout.
+
+### Entry 046 — GUI pattern refinement: GAP branding, embedded in the script
+
+- **Date logged:** 2026-08-03
+
+- **Decision (creator):** the tool GUIs carry GAP branding — the
+  palette and a small logo — kept lightweight and compatible. On the
+  logo's delivery the creator overrode the first implementation:
+  runtime loading from `assets/logo/png/` (with a text fallback) was
+  replaced by embedding the images in the script as base64, since
+  users of a copied script won't have the repo structure alongside,
+  and a few kilobytes of image data is not meaningfully "bulk".
+
+- **How:** palette applied through ttk's built-in `clam` theme in the
+  roles `project_brief.md` records — Paper ground, Ink text, Stone
+  hints, Mist/Sand neutral buttons, Ember reserved for the primary
+  action (Convert). Wordmark at 180 px in the header, above its
+  ~160 px minimum usable width; symbol as the 64/32 px window icon,
+  where the 2.7:1 wordmark cannot survive. Blobs generated by the new
+  `tools/embed_logo.py` (re-runnable whenever brand assets change;
+  inserts or refreshes the constants, refuses partial sets, verifies
+  the patched file still parses before writing). Net cost ~10 KB of
+  PNG (~13 KB as base64) in a 41 KB tool; Tk decodes base64 PNG
+  natively, so the patched tool gains no imports.
+
+- **Verification:** scripted run of the branded window (preview,
+  screenshot inspected, real conversion including HEIC through the
+  threaded path); CLI dry-run regression unchanged.
+
+- **Effect:** `CLAUDE.md` GUI rule amended with the branding
+  requirement and `embed_logo.py` indexed, same day. Applies to all
+  retrofits. One open point for the creator: `embed_logo.py` is a
+  development-time build utility rather than a learner-facing tool —
+  proposed as the recognised exception to the GUI rule, rather than
+  getting a window of its own.
+
+### Entry 047 — GUI retrofit: trace_reference.py and make_share_folder.ps1
+
+- **Date logged:** 2026-08-03
+
+- **Decision (creator):** retrofit the GUI pattern to the remaining
+  user-facing tools — identified as `trace_reference.py` (a person
+  picks a concept image and traces it) and `make_share_folder.ps1`
+  (run by hand before a Cowork/Design session) — then commit the GUI
+  body of work. The docx/Word pipeline tools are Claude-driven
+  self-check steps rather than user-facing, so their retrofits stay
+  pending without blocking the commit.
+
+- **What was built:**
+
+  1. `trace_reference.py`: pipeline extracted from `main()` into
+     `run_trace()` and `resolve_palette()` (shared by CLI and window;
+     `TraceError` replaces mid-pipeline `sys.exit` so the window can
+     catch failures), plus a branded tkinter window — reference
+     picker, derived output path, colour count, snap-to-palette
+     toggle, a "Detect colours" preview that runs the real detection
+     without tracing, and the trace itself threaded with the same log
+     lines as the CLI.
+
+  2. `make_share_folder.ps1`: build wrapped in `Invoke-ShareFolder`
+     (CLI and window share it), plus the first WinForms window — mode
+     radios, destination with browse, Ember build button, log pane.
+     **Bare invocation now opens the window rather than running a
+     Docs build**; scripted runs pass `-Mode`, as the usage lines
+     always showed. A `-GuiSelfTest` switch renders the window,
+     screenshots it and builds into a test folder — the scripted
+     verification hook for a language where driving a window from
+     outside is harder than in tkinter.
+
+  3. `embed_logo.py` extended to PowerShell targets: `$NAME = @'...'@`
+     here-strings, replace-only (a `.ps1` has no `__main__` anchor to
+     insert above), decoded in WinForms via `Convert.FromBase64String`.
+
+- **Verification:** make_share_folder — the CLI Docs build and the
+  window's build produce the identical 17-file set; window screenshot
+  inspected (wordmark, symbol title-bar icon, palette correct).
+  trace_reference — window screenshot inspected; the detect/preview
+  path verified end to end (near-brand test colours snapped correctly
+  to Ember and Ink); the missing-Inkscape refusal behaves exactly as
+  before. **The actual trace run is unverified on this machine, which
+  has no Inkscape install** — first use on the Inkscape machine should
+  confirm it, though the pipeline is the same lines relocated, not
+  rewritten.
+
+- **Effect:** GUI retrofit status — done: `prep_photos.py`,
+  `trace_reference.py`, `make_share_folder.ps1`. Pending
+  (Claude-driven pipeline tools, deprioritised by the creator's
+  user-facing narrowing): `docx_text.py`, `docx_edit.py`,
+  `fitshapes.py`, `word_preview.ps1`, `word_roundtrip_test.ps1`.
+  Proposed exception: `embed_logo.py` (build utility). `CLAUDE.md`
+  rule and index updated to match.
