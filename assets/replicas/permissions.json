@@ -1,0 +1,17 @@
+{
+  "type": "ubuntu_terminal",
+  "user": "yourname",
+  "host": "gap-server",
+  "cwd": "~",
+  "cols": 78,
+  "blocks": [
+    {
+      "command": "ls -l /srv",
+      "output": [
+        "total 8",
+        "drwxr-xr-x 5 yourname yourname 4096 Aug  5 21:14 media",
+        "drwxr-x--- 3 yourname yourname 4096 Aug  5 21:14 site"
+      ]
+    }
+  ]
+}

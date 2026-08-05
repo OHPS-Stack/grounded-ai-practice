@@ -1,0 +1,23 @@
+{
+  "type": "ubuntu_terminal",
+  "user": "yourname",
+  "host": "gap-server",
+  "cwd": "~",
+  "cols": 76,
+  "blocks": [
+    {
+      "command": "lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINTS",
+      "output": [
+        "NAME        SIZE TYPE FSTYPE MOUNTPOINTS",
+        "sda       465.8G disk",
+        "\u2514\u2500sda1    465.8G part ntfs",
+        "sdb         1.8T disk",
+        "\u251c\u2500sdb1      100M part ntfs",
+        "\u2514\u2500sdb2      1.8T part ntfs",
+        "nvme0n1   465.8G disk",
+        "\u251c\u2500nvme0n1p1   1G part vfat   /boot/efi",
+        "\u2514\u2500nvme0n1p2 464.8G part ext4   /"
+      ]
+    }
+  ]
+}

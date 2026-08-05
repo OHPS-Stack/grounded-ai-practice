@@ -1,0 +1,25 @@
+{
+  "type": "ubuntu_terminal",
+  "user": "yourname",
+  "host": "gap-server",
+  "cwd": "~",
+  "cols": 80,
+  "blocks": [
+    {
+      "command": "sudo smartctl -H -A /dev/sdb",
+      "password": true,
+      "output": [
+        "smartctl 7.4 2023-08-01 r5530 [x86_64-linux-6.8.0-51-generic]",
+        "",
+        "=== START OF READ SMART DATA SECTION ===",
+        "SMART overall-health self-assessment test result: PASSED",
+        "",
+        "ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH RAW_VALUE",
+        "  5 Reallocated_Sector_Ct   0x0033   100   100   010    0",
+        "  9 Power_On_Hours          0x0032   062   062   000    33421",
+        "197 Current_Pending_Sector  0x0012   100   100   000    0",
+        "198 Offline_Uncorrectable   0x0010   100   100   000    0"
+      ]
+    }
+  ]
+}

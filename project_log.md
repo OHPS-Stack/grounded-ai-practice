@@ -2862,3 +2862,483 @@ no external citation:
 - **Effect on project direction:** Clears Entry 047's pending list.
   `CLAUDE.md`'s GUI rule states the decision rather than a pending
   retrofit.
+
+### Entry 050 — Second track reopened for the server build; home server project adopted
+
+- **Date logged:** 2026-08-04
+
+- **Priority / Question:** Priority 6 (technical and conceptual scope) for
+  the build itself; bears on the deferred second track in
+  `project_brief.md`.
+
+- **Source:** Creator decision, 2026-08-04, with a full hardware
+  inventory, settled-decision list and step-by-step build guide supplied
+  from prior work in a separate conversation.
+
+- **What happened:** An established home server project — Linux install,
+  storage, remote access, self-hosted services, a small NAS and a small
+  website — was brought into the repo. It runs on the secondary machine
+  recorded in Entry 035, and the creator has **reopened the deferred
+  second track** for the server half specifically. Local inference, RAG,
+  voice, model routing and automation stay deferred.
+
+  Three scoping decisions were taken at adoption:
+
+  1. **The build is project work, not merely infrastructure.** Entry 035
+     recorded the machine's availability while explicitly declining to
+     revive the track. That is now reversed by decision rather than by
+     drift.
+
+  2. **The AV workstream stays outside the repo.** The wider project also
+     covers a home cinema. None of it is tracked. What survives in the
+     build documents is only the part that constrains the server: the GPU
+     is the sole display output, audio leaves the machine over HDMI to a
+     receiver, the projector is the display (so Ubuntu Desktop rather
+     than Server), and the machine sits in a living space rather than a
+     garage, which makes noise a design constraint.
+
+  3. **Room photographs are internal only.** Several frames carry a named
+     private individual, personal likenesses and a third-party business
+     name with a phone number. They go to `internal/build_photos/` under
+     the same treatment as the LinkedIn headshot. Noted at the time: the
+     pre-commit marker scan reads text, so it offers no protection
+     against a name inside an image.
+
+  **Correction to Entry 035's hardware record.** That entry listed the
+  secondary machine as holding "a 500 GB M.2 SATA SSD plus a 500 GB HDD".
+  The current state is the SSD alone, with three spare HDDs — one known to
+  be 2 TB, the other two of unknown capacity, age and health — none yet
+  fitted. Whether the 500 GB HDD is among those three is unresolved and
+  sits as an open question in the build document. Entry 035 is left
+  unedited; this entry supersedes its inventory.
+
+- **Inference drawn:** Two of the three risks Entry 035 flagged are
+  answered by decisions the incoming project had already taken
+  independently — storage redundancy by the no-RAID plan with a dedicated
+  rsync target and an out-of-machine cold spare, and home-hosting
+  connectivity by Tailscale and Cloudflare Tunnel, both of which avoid
+  inbound ports and sidestep dynamic IP and CGNAT entirely. **PSU age is
+  not addressed by anything in the incoming project**, and on a 450 W unit
+  from the 2015 CX450M line facing continuous duty it is the least
+  mitigated risk in the build. It is carried into
+  `drafts/home_server_build.md` as an open item rather than left to lapse
+  with Entry 035.
+
+- **Limitations / conflicting evidence:** The build guide is
+  AI-generated and has not been verified against the hardware. It
+  self-flags at least one assumption — that populating the M.2 slot with a
+  SATA drive disables a SATA port through lane sharing — as needing
+  confirmation against the ASRock AB350 Gaming-ITX/ac manual. Under bias
+  self-check item 5 it lands as a draft carrying marked unverified claims,
+  not as canonical procedure. Its instructions are followed and corrected
+  as the build proceeds; corrections are the point of keeping it in
+  `drafts/`.
+
+- **Effect on project direction:** `project_brief.md`'s second-track
+  section moves from deferred to active for the server half. Two new
+  files in `drafts/`: `home_server_build.md` (standing state) and
+  `home_server_build_guide.md` (procedure), both indexed in `CLAUDE.md`.
+  Nothing in the current research or pilot-unit work is reordered — the
+  public report and the prompting unit remain ahead of this. Entry 035's
+  third inference stands: the build-out is teaching material of the kind
+  the lessons-to-content rule anticipates, now written from having done it
+  rather than researched, and that connection should be revisited when the
+  build completes rather than mined for content while it is in progress.
+
+### Entry 051 — Markdown-to-Word conversion tooling; the build guide as first output
+
+- **Date logged:** 2026-08-04
+
+- **Priority / Question:** Priority 7 (delivery format) and Priority 8
+  (information architecture — how Word, web and repository outputs relate
+  without becoming duplicate authorities).
+
+- **Source:** Creator request, 2026-08-04, following Entry 050: the build
+  guide is easier to follow as a formatted document than as Markdown in a
+  code editor.
+
+- **What happened:** Two command-line tools were built and the guide's
+  Word version produced from them.
+
+  `tools/md_to_docx.py` converts Markdown to a house-style `.docx`. The
+  design decision worth recording is that it **contributes no formatting
+  of its own** — `styles.xml`, `numbering.xml` and `settings.xml` are
+  taken from a template document, by default
+  `exports/Style_Reference_Example.docx`. Every earlier Word deliverable
+  here was built by hand-writing `word/document.xml`, which is
+  proportionate for a six-page catalogue built once and not for a
+  document regenerated whenever its source changes. A converter holding
+  its own copy of the house style would drift from the reference the
+  moment either changed, and the drift would stay invisible until two
+  documents were compared side by side.
+
+  `tools/build_server_guide_figures.py` draws the guide's five figures.
+
+  Both are command-line only, consistent with Entry 049 — a build step
+  runs them, not a person, so Entry 045's GUI rule does not reach them.
+
+  **Two findings from building it.** The machine in use has no Inkscape
+  installed and no `cairosvg` or `matplotlib`, so the figures are drawn
+  with Pillow, which is present because `fitshapes.py` depends on it.
+  This is not a departure from the raster-to-vector rule: that rule
+  governs concept artwork, where Claude cannot see what it draws, and
+  these are boxes and arrows on a computed grid with no curve work in
+  them. Separately, the first figure drafted showed the media drive being
+  backed up, which the guide's own cron job does not do — it copies
+  `/home` and `/opt` only. The figure was corrected and a NOTE callout
+  added making the gap explicit in the text.
+
+- **Inference drawn:** A generated document introduces a duplicate-
+  authority risk that the repo's existing conventions do not cover, since
+  every previous `.docx` here was itself the source. The rule adopted is
+  that the Markdown is authoritative and the `.docx` is an artefact:
+  editing the document directly loses the edit at the next rebuild.
+  Recorded in `CLAUDE.md` against the file rather than as a general rule,
+  because it is currently true of exactly one document.
+
+- **Limitations / conflicting evidence:** The converter handles the
+  constructs this guide uses and no more — no nested lists, no inline
+  links, no footnotes. It has been exercised on one document. Callout
+  heights are emitted as a guess and depend on `fitshapes.py` to be
+  right, so the existing post-construction sequence is not optional.
+
+- **Effect on project direction:** Markdown-sourced Word output is now a
+  route this project has. Whether the UK-climate report or the pilot unit
+  should use it is not decided here — both have hand-built construction
+  histories and neither is a straightforward Markdown source.
+
+### Entry 052 — Build guide split public/internal; synopsis published; three findings corrected
+
+- **Date logged:** 2026-08-05
+
+- **Priority / Question:** Priority 7 (delivery format) and Priority 10
+  (public presentation). The guide is also the structural prototype for
+  the planned learning units, which reaches Priority 4.
+
+- **Source:** Creator decision, 2026-08-05, plus four checks recorded
+  below.
+
+- **What happened:** The home server guide moved to `internal/` and a
+  shorter public account, `drafts/home_server_synopsis.md`, was written to
+  stand in the repository. The standing-state document moved with it. The
+  split is by **what the content is about**, not by sensitivity grading:
+  the guide is about one machine on one home network and includes
+  recovering personal data from an old drive, none of which generalises;
+  the synopsis is the decisions and their reasoning, which is the part a
+  stranger can use.
+
+  The guide was substantially rewritten rather than relocated. Extended
+  Linux orientation section, a graphical route given alongside every
+  command-line one, the PAWH command-unit teaching pattern applied
+  throughout (instruction, command, replica, check), and terminal replicas
+  in place of bare code blocks — see Entry 053 for that tooling.
+
+  **Four things were checked and three of them changed what the document
+  says.**
+
+  1. **Neither UK sports service supports Linux.** NOW's platform list
+     excludes it and the check is on the operating system, not the
+     browser, so user-agent spoofing does not defeat it; discovery+/HBO
+     Max omits Linux browsers likewise. Compounding it, Widevine on Linux
+     is L3 (software) only, which caps most premium services at 720p and
+     rules out 4K. The guide previously implied this was configurable. It
+     is not, by any route or provider, and the recommendation is now a
+     separate streaming device on the receiver's second HDMI input.
+
+  2. **Docker publishes past UFW.** UFW manages the `INPUT` chain; Docker
+     writes its published ports into `FORWARD` via NAT. A container port
+     is therefore reachable across the network while `ufw status` reports
+     it closed, with no warning. The build now binds containers to
+     `127.0.0.1` and verifies with `ss -tlnp` rather than trusting the
+     firewall's own summary. This is the single most consequential
+     correction in the rewrite.
+
+  3. **`unattended-upgrades` covers less than assumed.** It ships
+     configured for the Ubuntu `-security` pocket only, so Tailscale,
+     Docker and Caddy — all installed from their own repositories — never
+     update automatically. A monthly manual update is now part of the
+     documented routine.
+
+  4. **Windows 7 Professional had no BitLocker** (Ultimate and Enterprise
+     only), which confirmed the old 2 TB drive's data is recoverable
+     despite three forgotten account passwords. A Windows password
+     controls login, not encryption. This one confirmed rather than
+     overturned the working assumption.
+
+  Storage paths also changed from `/mnt/media` to `/srv/media`. The FHS
+  defines `/srv` as data served by this system, which is what a media
+  library and a Samba share are; `/mnt` is for temporary mounts. The
+  original followed the common home-server convention, which is simply
+  wrong on this point.
+
+- **Inference drawn:** The public/internal boundary here is not about
+  embarrassment, which is what `CLAUDE.md`'s existing framing mostly
+  anticipates. It is about **generality** — the guide is not unfit to
+  publish, it is uninteresting to anyone who does not own this machine,
+  and it names a home network. That is a third reason for the split and
+  worth naming as one.
+
+- **Limitations / conflicting evidence:** None of the four findings has
+  been confirmed against the hardware, because the build has not reached
+  those steps. They rest on vendor documentation and, for the Docker
+  behaviour, on Docker's own networking documentation plus consistent
+  independent reporting. The SATA lane-sharing question was **retired
+  rather than answered**: published sources contradict each other and
+  mostly describe a different board, so the guide now instructs reading
+  the BIOS storage screen, which is ground truth.
+
+- **Effect on project direction:** The repository gains a public artifact
+  about the build and loses the operational detail. `CLAUDE.md`'s index
+  and `internal/README.md` are updated. The guide's structure —
+  orientation before action, one idea per step, a stated check per step,
+  replicas of what the learner should see — is now the working prototype
+  for the learning units, and is the first thing to review when those
+  start rather than being redesigned from nothing.
+
+### Entry 053 — PAWH replica system adapted; terminal replicas replace bare code blocks
+
+- **Date logged:** 2026-08-05
+
+- **Priority / Question:** Priority 4 (learning design) and Priority 7
+  (delivery format).
+
+- **Source:** `GAP_Replica_System_Transfer_Pack_2026-08-05`, supplied by
+  the creator — the PAWH replica framework packaged for migration, with
+  its own rules extract, source audit and honest limitations list.
+
+- **What happened:** `tools/replica.py` now renders terminal replicas from
+  a JSON description: a picture of a shell session showing the window, the
+  prompt colouring and the returned output, generated rather than
+  screenshotted.
+
+  The reason is a teaching one. A fenced code block shows what to type and
+  not what happens, and a learner who has never opened a terminal cannot
+  tell from one whether they have succeeded. Real screenshots were not an
+  option: they would have to be taken on the machine being built, before
+  it is built, and would carry its real hostname and network.
+
+  **What was carried over:** the template-generation strategy over one-off
+  images, generic names only, application chrome kept faithful to the real
+  application rather than restyled into GAP's palette, nothing inside the
+  window but prompt, command and output, and the five-step command-unit
+  teaching sequence.
+
+  **What was deliberately changed, each with a reason:**
+
+  1. **The primary renderer is Ubuntu's GNOME Terminal, not PowerShell.**
+     PAWH taught Windows; this build is Ubuntu. PowerShell is retained
+     because parts of the build genuinely happen on Windows — writing the
+     install USB, and connecting over SSH.
+
+  2. **JSON input, not YAML.** PyYAML is not a dependency of this repo and
+     every tool here that can be standard-library-only is. The pack's
+     schema was already JSON Schema.
+
+  3. **No File Explorer renderer.** The pack's audit records that the
+     manifest and schema describe one the generator never implemented.
+     Claiming it would reproduce exactly the defect that audit exists to
+     flag.
+
+  4. **Validation refuses a real user path.** The pack states the
+     generic-names rule; enforcing it in code means it cannot be forgotten
+     under time pressure.
+
+  One implementation detail worth recording because it was not obvious:
+  the renderer draws on a **fixed character grid**, placing each character
+  at its own cell rather than letting the font advance. Box-drawing
+  characters in `lsblk` and `systemctl` output do not occupy exactly one
+  cell in Consolas, so drawing whole strings left every column after one
+  of them slightly askew — subtle enough to look like carelessness rather
+  than a bug, which is worse. A terminal is a grid; the renderer is now
+  one too.
+
+- **Inference drawn:** Generating the illustration from the same data that
+  describes the command removes a class of drift the project would
+  otherwise have to police by hand — a corrected command cannot leave a
+  stale screenshot behind, because there is no screenshot to go stale.
+  That property is the reason to prefer this over screenshots even once
+  the machine exists.
+
+- **Limitations / conflicting evidence:** The font is a substitution —
+  Ubuntu ships Ubuntu Mono, absent on Windows, so Consolas stands in and
+  metrics differ slightly from a real terminal. Everything carrying
+  meaning is accurate. Coverage is two renderers and the tests are smoke
+  tests, not visual regression; a rendering change would be caught by a
+  person looking, not by the suite.
+
+- **Effect on project direction:** The transfer pack stays unchanged as a
+  reference snapshot; `tools/replica.py` is the active GAP implementation.
+  Replica specs and renders live in `assets/replicas/`, JSON as the source
+  of truth. Available to the learning units when they start, which was the
+  point of migrating it rather than rebuilding it later.
+
+### Entry 054 — Server-track technical findings: Windows disk recovery, BIOS revision, SATA question retired, Linux DRM ceiling
+
+- **Date logged:** 2026-08-05
+
+- **Priority / Question:** Not tied to a research priority — technical
+  findings on the server track. Finding 4 bears on Priority 6 (technical
+  scope) and on any future claim the project makes about Linux as a
+  platform to recommend.
+
+- **Source:** Web sources cited below, all checked 2026-08-05. Build
+  execution detail is held internally, per Entry 052.
+
+- **What happened:** Four findings.
+
+  **1. A Windows account password does not encrypt a disk.** It controls
+  login. Mounted from another operating system, the files are readable
+  whoever has forgotten what. The only barrier would be full-disk
+  encryption, and **Windows 7 Professional did not include BitLocker for
+  fixed drives** — Ultimate and Enterprise only, per Microsoft's edition
+  documentation and contemporaneous reviews. Absent a deliberate EFS
+  choice, such a disk is plain NTFS and fully readable. Consequence for
+  the build: a recovery pass now precedes any formatting step, because
+  "the password is lost" is not a reason to treat data as gone.
+
+  **2. BIOS instructions rewritten for the actual board and revision.**
+  ASRock Fatal1ty AB350 Gaming-ITX/ac on UEFI P7.40, with real menu paths
+  rather than generic setting names. Two additions the original lacked:
+  **CSM disabled**, to force a clean UEFI install rather than a legacy one
+  that is harder to repair later; and an explicit instruction **not to
+  flash the BIOS**, since P7.40 already carries the AGESA that permits a
+  Zen 3 chip on B350 — which is why the machine posts at all — and a
+  failed flash on this board has no easy recovery.
+
+  **3. The SATA lane-sharing question was retired rather than answered.**
+  Published sources contradict each other on which port an M.2 SATA module
+  disables, and most describe the AB350 Pro4, a different board with two
+  M.2 slots. ASRock's own specification page for the ITX board carries no
+  footnote on it. Rather than pick a source, the guide now directs reading
+  `Advanced > Storage Configuration`, which lists what the board actually
+  sees. With two drives in a board having at least three usable ports, the
+  answer changes no decision.
+
+  **4. Live UK sport cannot run on this machine.** NOW does not support
+  Linux — an operating-system check rather than a browser one, since
+  user-agent spoofing does not defeat it — and discovery+/TNT Sports does
+  not list Linux browsers among its supported platforms. Independently,
+  Widevine on Linux is L3 (software) only, which most premium services cap
+  at 720p and which cannot serve 4K. The decision is therefore
+  architectural rather than a matter of provider choice: a dedicated
+  streaming device on a second RX-V677 HDMI input.
+
+- **Inference drawn:** The DRM finding generalises past this build. Any
+  future project claim about Linux as a media or workstation platform has
+  to account for commercial streaming being partly closed to it — not by
+  technical incapability but by platform policy and a DRM tier Linux
+  cannot reach. That is a concrete, citable instance of a constraint this
+  project should understand before recommending Linux to a learner
+  audience, and it belongs in any teaching material that comes out of this
+  build.
+
+- **Limitations / conflicting evidence:** The BIOS menu paths are written
+  from ASRock's AM4 UEFI conventions and are **not verified against P7.40
+  on the machine** — the guide flags where labels vary and instructs
+  proceeding without any setting that cannot be found. The board manual
+  PDF could not be parsed when fetched (binary content), so it is logged
+  as unfetched rather than as absent, per bias self-check item 3. The
+  streaming-platform support pages are vendor sources and were not
+  cross-checked against a second independent source; they are, however,
+  the operators' own statements about their own products, which is the
+  appropriate authority for what a service supports.
+
+- **Effect on project direction:** Finding 4 is the one that reaches past
+  this build, and is carried into the project's own claims rather than
+  only into the guide. The build documents absorb the rest; they are
+  internal, per Entry 052, and their revision detail belongs with them.
+
+- **Sources (all checked 2026-08-05):**
+
+  - ASRock, product specification page, Fatal1ty AB350 Gaming-ITX/ac.
+    Vendor/Commercial. Confirms four SATA3 ports and one Ultra M.2 socket
+    supporting M.2 SATA and PCIe modules; carries no lane-sharing
+    footnote.
+
+  - NOW, help centre, "Watch NOW on your laptop or computer".
+    Vendor/Commercial. Supported browsers are Windows and macOS only.
+
+  - discovery+, help centre, "Browsers and devices supported by
+    discovery+". Vendor/Commercial. Device list excludes Linux browsers.
+
+  - Widevine security-level documentation and secondary technical
+    coverage of L1/L2/L3. Mixed Vendor/Commercial and
+    Independent/Academic. Linux desktop is L3-only; L3 is
+    software-based and publicly broken, hence common 720p caps.
+
+  - Microsoft edition documentation and contemporaneous technical
+    reviews of Windows 7 BitLocker. Vendor/Commercial and
+    Independent. BitLocker for fixed drives is Ultimate and Enterprise
+    only; Professional excluded.
+
+  - ASRock AM4 UEFI conventions, from the vendor's published manuals for
+    the AM4 board family. Vendor/Commercial. Used for the menu paths;
+    not verified against P7.40 on the machine, per the limitation above.
+
+### Entry 055 — Public landing site built: docs/ serves GitHub Pages and the domain
+
+- **Date logged:** 2026-08-05
+
+- **Priority / Question:** Not tied to a research priority — project
+  infrastructure. Delivers the third intended use of the domain recorded
+  in Entry 034 (a linkable proof of work), and gives the Entry 044
+  product direction its outward face.
+
+- **Source:** Creator request, 2026-08-05. Security claims verified
+  against GitHub's Pages documentation, a GitHub community statement on
+  response headers, and MDN's CSP reference — the links sit next to the
+  claims they support in `docs/README.md`.
+
+- **What happened:** A single-page static site in `docs/` — no
+  framework, no build step, no JavaScript, nothing loaded from a third
+  party — ready for GitHub Pages to serve from `/docs` on `main`, and
+  portable unchanged to `groundedaipractice.co.uk` or any host. Content
+  drawn from the current direction: the courses-versus-people evidence
+  (`research_log.md` Entries 044/053/061/062), the four research rules,
+  the practice-system framing and SME direction (Entry 044, this log),
+  and current work. Four figures are scripted in
+  `tools/build_site_figures.py` per the data-driven figures rule — data
+  transcribed with entry citations beside the constants, light and dark
+  variants, source-and-date line on every image, and a WCAG 2.1 AA
+  contrast audit that refuses to build on a failing pair. Security
+  posture: attack surface reduced to nearly nothing (no scripts, no
+  cookies, no third-party loads), CSP via `<meta>` with
+  `default-src 'none'`, and the limits stated rather than papered over
+  — GitHub Pages cannot set response headers, so `frame-ancestors` and
+  HSTS are unavailable there; the header set to apply on any
+  header-capable host is recorded in `docs/README.md`, as is the safe
+  custom-domain order (verify the TXT record before touching DNS, per
+  GitHub's domain-takeover guidance). Rendering verified against the
+  real engine: text-geometry probes over every figure (no overflow, no
+  collisions), both themes, mobile width, all assets loading, console
+  clean. Same-day addition: Public Sans ships self-hosted —
+  `tools/build_site_fonts.py` subsets the installed faces to five WOFF2
+  files (~200 KB total, OFL licence text alongside), with `local()`
+  sources preferred so an installed copy downloads nothing; font
+  loading re-verified in the preview afterwards.
+
+- **Inference drawn:** None — build record. One verification note: the
+  OECD adoption figures (40% / 20.4% / 11.9% by firm size, 2024) were
+  re-corroborated by search on 2026-08-05 before being charted; the PDF
+  itself remains unread and `[OECD-SMEAI25]` keeps its UNVERIFIED-
+  beyond-synthesis status in the research log's source key.
+
+- **Limitations / conflicting evidence:** The site's prose is Claude's
+  rough draft and falls under the outward-facing prose rule — the
+  creator writes the final copy before Pages is enabled. Figure text renders in the
+  viewer's installed fonts — browsers fetch no external fonts for
+  `<img>`-embedded SVGs — so the brand face is guaranteed on the pages,
+  not inside the figures. Geometry was verified by
+  in-browser measurement, not yet by a human eye on a composited
+  screen.
+
+- **Effect on project direction:** The repo gains `docs/` and
+  `tools/build_site_figures.py`, both indexed in `CLAUDE.md` in the
+  same change. Enabling Pages, pointing the domain, updating the
+  canonical URLs to it, and posting the link anywhere each remain
+  per-item creator decisions. Also recorded openly: this session found
+  two entries in this file numbered 052 and renumbered the second
+  (“Drives fitted”, dated 2026-08-05, uncommitted) to 054 — a
+  numbering-collision fix in the Entry 017 category; CLAUDE.md,
+  project_brief.md and internal/README.md were checked first and
+  nothing referenced the old number.

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="301"
+   height="301"
+   viewBox="0 0 301 301"
+   version="1.1"
+   id="grounded_symbol_v01"
+   shape-rendering="geometricPrecision"
+   sodipodi:docname="symbol_v01_terminal_handbook_recolour.svg"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   inkscape:export-filename="terminal_handbook.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs1">
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect5"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,9.9999219,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,9.9999219,0,1"
+       radius="0"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect4"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1"
+       radius="0"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect3"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,1.0410249,0,1 @ F,0,0,1,0,6.6531158,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1"
+       radius="0"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect2"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1"
+       radius="0"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+    <rect
+       x="25"
+       y="30"
+       width="220"
+       height="120"
+       id="rect2" />
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect1"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,7.3163118,0,1 @ F,0,0,1,0,7.3163118,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,7.9962768,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1"
+       radius="0"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+  </defs>
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="2"
+     inkscape:cx="161.75"
+     inkscape:cy="162.75"
+     inkscape:window-width="1440"
+     inkscape:window-height="829"
+     inkscape:window-x="2552"
+     inkscape:window-y="497"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="symbol_element"
+     inkscape:export-bgcolor="#a6a6a600">
+    <inkscape:grid
+       id="grid1"
+       units="px"
+       originx="0"
+       originy="0"
+       spacingx="1"
+       spacingy="1"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       enabled="true"
+       visible="false" />
+  </sodipodi:namedview>
+  <title
+     id="title1">Grounded AI Practice — Symbol candidate v01</title>
+  <desc
+     id="desc1">Working candidate, locked 2026-07-24, refined 2026-07-24 (two passes) per creator's annotated feedback. Pass 2 changes: (1) page_white_fill's left cap rebuilt as a true mirror-symmetric C-shape (yellow-box feedback — was two mismatched curve halves meeting the top edge at a slightly sharp angle; both halves now genuinely mirror about the vertical centre, tangent is vertical at the leftmost point, and the top/bottom edges now both start at x=47 instead of 49/45); (2) terminal_handbook_body's right-side flap edge (formerly a curve from ~(266,245) to (284,229)) changed to a straight line per red-arrow feedback; (3) the curve feeding into that flap (from (263,290) to (266,245)) rebuilt with evenly-spaced control points for a cleaner, more symmetrical single bow per blue-arrow feedback. active_underline still unchanged — purple-box resize/proportion feedback remains pending. Palette unchanged: Ink #27221E body, Ember #F15E4B underline, white page/chevron/cursor.</desc>
+  <g
+     id="symbol_element"
+     transform="translate(5.5,-15)">
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke-width:1"
+       id="rect3"
+       width="264.68814"
+       height="52.916023"
+       x="17.488634"
+       y="240"
+       inkscape:label="page_fill" />
+    <path
+       id="path21"
+       style="fill:#27221e;stroke-width:0.939816"
+       inkscape:label="book"
+       d="M 37.878906,24.5 C 13.603182,24.445232 4.5725797,32.5715 4.5,52.748047 L 3.6816406,280 C 3.6090608,300.17655 15.281671,310 34.5,310 H 239.50008 A 9.9999219,9.9999219 135 0 0 249.5,300.00008 v -7.00985 l -107.95312,-0.0742 H 40.685547 c -11.932088,0 -21.537109,-11.66638 -21.537109,-24.39649 v -3.88281 C 19.148438,251.9066 28.753459,240 40.685547,240 H 47.615234 249.5 V 34.976484 a 10.022467,10.022467 45.064514 0 0 -9.9999,-10.022441 z"
+       inkscape:path-effect="#path-effect5"
+       inkscape:original-d="M 37.878906,24.5 C 13.603182,24.445232 4.5725797,32.5715 4.5,52.748047 L 3.6816406,280 C 3.6090608,300.17655 15.281671,310 34.5,310 h 215 v -17.00977 l -107.95312,-0.0742 H 40.685547 c -11.932088,0 -21.537109,-11.66638 -21.537109,-24.39649 v -3.88281 C 19.148438,251.9066 28.753459,240 40.685547,240 H 47.615234 249.5 V 24.976562 Z"
+       transform="matrix(1.1321775,0,0,1,-0.48658545,0)" />
+    <path
+       id="rect4-8"
+       style="display:inline;fill:#f15e4b;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.999999;stroke-opacity:1"
+       d="m 52.127345,252.61354 c -11.854122,0 -17.487813,6.23031 -17.487813,12.89155 v 2.03133 c 0,6.66123 5.633691,12.76606 17.487813,12.76606 H 282.1768 v -27.68894 z"
+       sodipodi:nodetypes="ssssccs"
+       inkscape:label="orange_fill" />
+  </g>
+  <metadata
+     id="metadata1">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>Grounded AI Practice — Symbol candidate v01</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="prompt_group"
+     transform="matrix(1.12,0,0,1.12,-8.3,-25.94)">
+    <path
+       id="prompt_chevron"
+       d="m 58,84 40,32 -40,34"
+       fill="none"
+       stroke="#ffffff"
+       stroke-width="13"
+       stroke-linecap="round"
+       stroke-linejoin="round"
+       style="fill-rule:evenodd;stroke:#ffffff;stroke-opacity:1" />
+    <path
+       id="prompt_underscore"
+       d="m 119,163.5 h 51.5"
+       fill="none"
+       stroke="#ffffff"
+       stroke-width="16"
+       stroke-linecap="round"
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-opacity:1" />
+  </g>
+</svg>

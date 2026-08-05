@@ -1,0 +1,17 @@
+{
+  "type": "ubuntu_terminal",
+  "user": "yourname",
+  "host": "gap-server",
+  "cwd": "~",
+  "cols": 74,
+  "blocks": [
+    {
+      "command": "df -h /srv/media /srv/backup",
+      "output": [
+        "Filesystem      Size  Used Avail Use% Mounted on",
+        "/dev/sdb1       1.8T   28K  1.7T   1% /srv/media",
+        "/dev/sda1       458G   28K  435G   1% /srv/backup"
+      ]
+    }
+  ]
+}

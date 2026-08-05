@@ -1,0 +1,21 @@
+{
+  "type": "ubuntu_terminal",
+  "user": "yourname",
+  "host": "gap-server",
+  "cwd": "~",
+  "cols": 78,
+  "blocks": [
+    {
+      "command": "mkdir /srv/media",
+      "output": [
+        "mkdir: cannot create directory '/srv/media': Permission denied"
+      ],
+      "error": true
+    },
+    {
+      "command": "sudo mkdir /srv/media",
+      "output": [],
+      "password": true
+    }
+  ]
+}

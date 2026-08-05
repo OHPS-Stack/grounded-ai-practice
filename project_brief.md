@@ -277,12 +277,21 @@ aim, observation, or flagged claim), per the project's evidence discipline.
   retained as the evidence companion behind it. Decision and triage
   record: `project_log.md` Entry 042.
 
-## Second track: local AI workstation (working decision — 24 July 2026; deferred 24 July 2026)
+## Second track: local AI workstation (working decision — 24 July 2026; reopened 4 August 2026)
 
-**Status: deferred.** The creator has confirmed this track is not active
-work for now — it remains a confirmed future direction, not the project's
-current focus. Do not propose building or drafting workstation-track content
-until the creator explicitly reopens it.
+**Status: active, scoped to the server build.** The always-on Linux server
+on the secondary machine is live work. The public account of it — what it
+does, the decisions taken and the reasoning behind each — is
+`drafts/home_server_synopsis.md`. The full build procedure and its
+standing state are held internally, since they carry one specific machine
+on one home network; `project_log.md` Entry 052 records that split.
+
+The rest of the track remains future direction rather than current focus:
+local inference, RAG and embeddings, voice, model routing, and workflow
+automation are all still deferred, and workstation-track content covering
+them should not be drafted until the creator reopens that half too. What
+has reopened is the infrastructure the rest would eventually sit on, not
+the architecture itself.
 
 Alongside the general-literacy pilot above, the project's creator has
 confirmed a second, parallel learning track aimed at a more technically
@@ -302,23 +311,30 @@ curriculum, sequencing, or relationship to the general-literacy pilot's
 content (e.g. whether the two tracks share any foundational modules) — those
 remain open.
 
-**Available hardware (fact, 2026-07-29).** Two machines exist, which
-matters for this track because the inherited architecture below was
+**Available hardware (fact, updated 2026-08-04).** Two machines exist,
+which matters for this track because the inherited architecture below was
 scoped around one:
 
 - **Main desktop** — Ryzen 7 7800X3D, Radeon RX 7900 XT (20 GB VRAM),
   32 GB. Also used for gaming. Suited to local inference experiments,
   including models too large for the secondary machine.
 
-- **Secondary machine** — Ryzen 5 5600X, 32 GB, GTX 1060 6 GB, Mini ITX.
-  Earmarked as a dedicated always-on Linux server; a UPS is planned.
-  Suited to serving and continuous-duty work, not to local inference
-  beyond small quantised models.
+- **Secondary machine** — Ryzen 5 5600X, 32 GB DDR4-3600, GTX 1060 6 GB,
+  Mini ITX, 450 W PSU. Storage is a 500 GB M.2 SATA SSD holding the OS,
+  plus three spare HDDs of unverified capacity and health — one known to
+  be 2 TB — none of them yet fitted. No integrated graphics on this CPU,
+  so the GTX 1060 is its only display output. Now in active build as a
+  dedicated always-on Linux server; a UPS is planned. Suited to serving
+  and continuous-duty work, not to local inference beyond small quantised
+  models.
 
 The natural split is serving on the secondary machine and inference
-experiments on the main desktop. See `project_log.md` Entry 035, including
-the unresearched risks around its PSU age, lack of storage redundancy and
-home-hosting connectivity.
+experiments on the main desktop. See `project_log.md` Entry 035 for the
+original availability record and Entry 050 for the build's adoption. Of
+the three risks Entry 035 flagged, storage redundancy and home-hosting
+connectivity are addressed by the build's own decisions; **PSU age remains
+open and unresearched**, and is carried forward as an open item in the
+build's own standing-state document.
 
 ## Visual identity (working decision — 24 July 2026; primary mark 29 July 2026)
 

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 558" width="960" height="558" role="img" aria-labelledby="t d">
+<title id="t">The repository is the system</title>
+<desc id="d">Working rules, research and decision logs, verification tooling and persistent memory are read by any capable AI assistant, which produces research reports, learning units and custom local tools. Human review gates every decision.</desc>
+<rect width="960" height="558" fill="#27221E"/>
+<text x="48" y="60.0" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="28" font-weight="700" fill="#F9F9F9" text-anchor="start">The repository is the system</text>
+<rect x="48" y="104" width="268" height="62" rx="10" fill="#404040"/>
+<text x="182.0" y="129.1" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="15" font-weight="500" fill="#F9F9F9" text-anchor="middle">Working rules and</text>
+<text x="182.0" y="150.9" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="15" font-weight="500" fill="#F9F9F9" text-anchor="middle">conventions</text>
+<rect x="48" y="182" width="268" height="62" rx="10" fill="#404040"/>
+<text x="182.0" y="218.0" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="15" font-weight="500" fill="#F9F9F9" text-anchor="middle">Research and decision logs</text>
+<rect x="48" y="260" width="268" height="62" rx="10" fill="#404040"/>
+<text x="182.0" y="296.0" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="15" font-weight="500" fill="#F9F9F9" text-anchor="middle">Verification tooling</text>
+<rect x="48" y="338" width="268" height="62" rx="10" fill="#404040"/>
+<text x="182.0" y="374.0" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="15" font-weight="500" fill="#F9F9F9" text-anchor="middle">Persistent project memory</text>
+<rect x="400" y="204" width="240" height="96" rx="12" fill="none" stroke="#F15E4B" stroke-width="3"/>
+<text x="520.0" y="245.7" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="17" font-weight="700" fill="#F9F9F9" text-anchor="middle">Any capable AI</text>
+<text x="520.0" y="270.3" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="17" font-weight="700" fill="#F9F9F9" text-anchor="middle">assistant</text>
+<rect x="704" y="125" width="240" height="70" rx="10" fill="#404040"/>
+<text x="824.0" y="165.0" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="15" font-weight="600" fill="#F9F9F9" text-anchor="middle">Research reports</text>
+<rect x="704" y="217" width="240" height="70" rx="10" fill="#404040"/>
+<text x="824.0" y="257.0" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="15" font-weight="600" fill="#F9F9F9" text-anchor="middle">Learning units</text>
+<rect x="704" y="309" width="240" height="70" rx="10" fill="#404040"/>
+<text x="824.0" y="349.0" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="15" font-weight="600" fill="#F9F9F9" text-anchor="middle">Custom local tools</text>
+<line x1="316" y1="252" x2="390" y2="252" stroke="#6E6E6E" stroke-width="2"/>
+<path d="M 382 246 L 392 252 L 382 258" fill="none" stroke="#6E6E6E" stroke-width="2"/>
+<line x1="640" y1="252" x2="694" y2="252" stroke="#6E6E6E" stroke-width="2"/>
+<path d="M 686 246 L 696 252 L 686 258" fill="none" stroke="#6E6E6E" stroke-width="2"/>
+<rect x="280.0" y="434" width="400" height="53" rx="10" fill="#404040"/>
+<text x="480.0" y="460.0" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="16" font-weight="600" fill="#F9F9F9" text-anchor="middle">Human review at every decision point</text>
+<line x1="480.0" y1="300" x2="480.0" y2="428" stroke="#6E6E6E" stroke-width="2" stroke-dasharray="4 4"/>
+<text x="48" y="527.2" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#EFEEED" text-anchor="start">groundedaipractice.co.uk · Aug 2026</text>
+</svg>

@@ -152,7 +152,7 @@ Full citation is given once here; log entries below cite the short tag only.
 | `[STLFED-ASKMATTERS26]` | Government/Official (US central bank research) | Federal Reserve Bank of St. Louis, "Measuring AI Adoption among Firms: How You Ask Matters," On the Economy blog, June 2026 — read via proxy fetch after direct fetch returned HTTP 403. stlouisfed.org/on-the-economy/2026/jun/measuring-ai-adoption-firms-how-you-ask-matters |
 | `[STLFED-MINDGAP26]` | Government/Official (US central bank research) | Federal Reserve Bank of St. Louis, "Mind the Gap: AI Adoption in Europe and the U.S.," On the Economy blog, March 2026 — read via proxy fetch after direct fetch returned HTTP 403. Does not disaggregate by firm size. stlouisfed.org/on-the-economy/2026/mar/mind-gap-ai-adoption-europe-us |
 | `[SBA-ADVOCACY25]` | Government/Official (US Small Business Administration) — UNVERIFIED, could not be fetched | SBA Office of Advocacy, "Research Spotlight: AI in Business — Small Firms Closing In," Sept 2025. Both the PDF and blog-post versions returned HTTP 403 on every fetch attempt; claims about this source rest only on WebSearch's own synthesis, not a direct read. Do not cite beyond "a lead not yet confirmed." advocacy.sba.gov |
-| `[OECD-SMEAI25]` | Government/Official (international body) — UNVERIFIED beyond search synthesis | OECD, "AI adoption by small and medium-sized enterprises," Dec 2025. PDF fetch returned unreadable binary/image content; findings rest on WebSearch synthesis only (large firms 40% vs small firms 11.9% adoption, OECD-wide). Not UK-specific. Confirms rather than disconfirms the size gap. oecd.org |
+| `[OECD-SMEAI25]` | Government/Official (international body) — PRIMARY, read directly | OECD, "AI adoption by small and medium-sized enterprises," discussion paper for the G7, Dec 2025. Read directly 2026-08-05, pp. 1–12 (adoption trends and gaps) — see Entry 065; earlier PDF fetch failures resolved by downloading the file itself. 40% large (250+) / 20.4% medium (50–249) / 11.9% small (10–49 employees) firms using AI, 2024 or latest available year per country (UK: 2020); enterprises with 10+ employees; unweighted average. Underlying data: OECD ICT Access and Usage by Businesses database. Not UK-specific. oecd.org |
 | `[MDPI-SMEAI-REVIEW26]` | Independent/Academic (peer-reviewed, open access) | "Artificial Intelligence in SMEs: Enhancing Business Functions Through Technologies and Applications," Information (MDPI), 16(5):415, systematic review of 50 studies 2016–2025 — read via proxy fetch. mdpi.com/2078-2489/16/5/415 |
 | `[EPOCH-ECIGAP26]` | Independent/Academic-adjacent (nonprofit AI-trends research organisation; methodology openly published, Creative Commons licensed) | Epoch AI, "Open models lag state-of-the-art closed models by 4 months," Epoch Capabilities Index data insight, May 2026 — PRIMARY, read directly. epoch.ai/data-insights/open-closed-eci-gap |
 | `[STANFORD-AIINDEX25]` | Independent/Academic | Stanford Institute for Human-Centered AI (HAI), *The 2025 AI Index Report*, "AI becomes more efficient, affordable and accessible" section — PRIMARY, read directly (partial — the specific section quoted, not the full report). hai.stanford.edu/ai-index/2025-ai-index-report |
@@ -4625,3 +4625,63 @@ it ever grows its own open-items list.*
   currently holds nothing on regulator capability. Either a research pass
   (the delivery tracker's R25–R28 entries are the lead) or an explicit
   exclusion from the reframed report.
+
+### Entry 065 — OECD SME adoption paper read directly: figures confirmed, year and scope corrected
+
+- **Date logged:** 2026-08-05
+
+- **Priority / Question:** Priority 1/2 — the large/small adoption gap
+  underpinning the product direction (`project_log.md` Entry 044) and
+  now charted on the public landing site. Upgrades `[OECD-SMEAI25]`
+  from search synthesis to a direct read, at the creator's direction
+  that landing-site claims rest on read sources, not synthesis.
+
+- **Source:** `[OECD-SMEAI25]`, pp. 1–12 read directly (cover through
+  the adoption-gap section, including Figures 1 and 2 and their notes).
+
+- **Checked date:** 2026-08-05
+
+- **What the source directly supports:**
+
+  - The headline figures as previously synthesised, verbatim: "across
+    the OECD, while 40% of firms with 250 or more employees were using
+    AI in 2024 (or in the most recent available year), only 20.4% of
+    firms of between 50 to 249 employees and only 11.9% of firms with
+    between 10 and 49 employees used AI." Firms with 10–49 employees
+    "were less than one-third as likely to use AI" than large firms.
+
+  - **The year is not uniformly 2024.** Figure 2's note lists latest
+    available years by country — "2020 for Colombia, Israel, United
+    Kingdom; 2021 for Japan, Switzerland, United States; 2022 for
+    Australia, New Zealand; 2023 for Canada, Korea; 2024 for the
+    remaining countries." The United Kingdom's data point in this
+    dataset is therefore five years old.
+
+  - **Scope:** enterprises with 10 or more employees only — micro
+    firms are outside the data entirely; unweighted averages across
+    member countries; "years and definitions may differ across
+    countries." Underlying data is the OECD ICT Access and Usage by
+    Businesses database, accessed July 2025.
+
+  - Growth context: the share of firms using AI across OECD members
+    rose from 5.6% (2020) to 14% (2024).
+
+  - Document identity: an OECD discussion paper prepared at the
+    request of Canada's 2025 G7 Presidency, published under the
+    Secretary-General's responsibility, CC BY 4.0. A discussion paper
+    informing the proposed G7 SME AI Adoption Blueprint, not an OECD
+    statistical release.
+
+- **Inference drawn:** None new — the size-gap finding stands as
+  logged. The correction is to precision, not direction.
+
+- **Limitations / conflicting evidence:** Pages 13–47 (taxonomy, case
+  studies, enablers, policy chapters) were not read; nothing on the
+  site rests on them. The UK's 2020 vintage in this dataset means the
+  paper cannot say what the UK gap is now.
+
+- **Effect on project direction:** The landing-site adoption figure's
+  caption and caveat are corrected to "2024 or latest available year",
+  with the 10+-employee scope and the UK's 2020 vintage stated
+  (`tools/build_site_figures.py`). Source key upgraded. Any future use
+  of these figures should carry the same qualifiers.

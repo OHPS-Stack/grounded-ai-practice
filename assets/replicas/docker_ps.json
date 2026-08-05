@@ -1,0 +1,17 @@
+{
+  "type": "ubuntu_terminal",
+  "user": "yourname",
+  "host": "gap-server",
+  "cwd": "~",
+  "cols": 82,
+  "blocks": [
+    {
+      "command": "docker ps --format 'table {{.Names}}\\t{{.Status}}\\t{{.Ports}}'",
+      "output": [
+        "NAMES      STATUS         PORTS",
+        "jellyfin   Up 4 minutes",
+        "caddy      Up 4 minutes   80/tcp, 443/tcp"
+      ]
+    }
+  ]
+}

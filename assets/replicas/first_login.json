@@ -1,0 +1,27 @@
+{
+  "type": "ubuntu_terminal",
+  "user": "yourname",
+  "host": "gap-server",
+  "cwd": "~",
+  "cols": 72,
+  "blocks": [
+    {
+      "command": "whoami",
+      "output": [
+        "yourname"
+      ]
+    },
+    {
+      "command": "pwd",
+      "output": [
+        "/home/yourname"
+      ]
+    },
+    {
+      "command": "ls",
+      "output": [
+        "Desktop  Documents  Downloads  Music  Pictures  Public  Videos"
+      ]
+    }
+  ]
+}

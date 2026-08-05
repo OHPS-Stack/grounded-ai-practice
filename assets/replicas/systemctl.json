@@ -1,0 +1,20 @@
+{
+  "type": "ubuntu_terminal",
+  "user": "yourname",
+  "host": "gap-server",
+  "cwd": "~",
+  "cols": 80,
+  "blocks": [
+    {
+      "command": "systemctl status ssh",
+      "output": [
+        "\u25cf ssh.service - OpenBSD Secure Shell server",
+        "     Loaded: loaded (/usr/lib/systemd/system/ssh.service; enabled)",
+        "     Active: active (running) since Tue 2026-08-05 21:03:11 BST",
+        "   Main PID: 1187 (sshd)",
+        "      Tasks: 1 (limit: 38221)",
+        "     Memory: 1.8M (peak: 2.1M)"
+      ]
+    }
+  ]
+}
