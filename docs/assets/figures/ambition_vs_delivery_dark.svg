@@ -1,31 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 689" width="960" height="689" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 494" width="960" height="494" role="img" aria-labelledby="t d">
 <title id="t">Counted in courses, promised in people</title>
-<desc id="d">7.5 million workers were promised AI training by 2030; progress is published as 1,001,147 course completions supplied by the eleven delivery partners; the number of distinct workers trained is not published. BridgeAI, the government&#x27;s 100 million pound AI programme, reports 1,700+ completions, 126 accreditations and 74.6 million pounds allocated; the programme funds projects and business support as well as training.</desc>
-<rect width="960" height="689" fill="#27221E"/>
+<desc id="d">Two figures side by side, in different units. The promise, in people: 10 million workers promised AI training by 2030, announced as 7.5 million in June 2025 and raised in January 2026. The count, in courses: 1,001,147 course completions reported by the eleven partner companies, January 2026, the latest figure published. Below, in a dashed box: people actually trained is not published, the number that would connect the two.</desc>
+<rect width="960" height="494" fill="#27221E"/>
 <text x="48" y="64.0" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="30" font-weight="700" fill="#F9F9F9" text-anchor="start">Counted in courses, promised in people</text>
-<text x="48" y="156.0" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="46" font-weight="700" fill="#F15E4B" text-anchor="start">7.5 million</text>
-<text x="360" y="134.0" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="17" font-weight="400" fill="#F9F9F9" text-anchor="start">workers promised training in AI by 2030 — announced June</text>
-<text x="360" y="158.7" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="17" font-weight="400" fill="#F9F9F9" text-anchor="start">2025, raised to 10 million in January 2026</text>
-<text x="48" y="232.7" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="46" font-weight="700" fill="#F15E4B" text-anchor="start">1,001,147</text>
-<text x="360" y="210.7" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="17" font-weight="400" fill="#F9F9F9" text-anchor="start">course completions reported as progress, January 2026 —</text>
-<text x="360" y="235.3" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="17" font-weight="400" fill="#F9F9F9" text-anchor="start">counted and supplied by the eleven companies delivering</text>
-<text x="360" y="259.9" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="17" font-weight="400" fill="#F9F9F9" text-anchor="start">the training; includes their own employees; no breakdown</text>
-<text x="360" y="284.6" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="17" font-weight="400" fill="#F9F9F9" text-anchor="start">published</text>
-<rect x="48" y="324.6" width="864" height="86" rx="10" fill="#404040"/>
-<text x="72" y="354.6" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="18" font-weight="600" fill="#F9F9F9" text-anchor="start">Distinct workers trained — the number that would connect the two — is not</text>
-<text x="72" y="380.7" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="18" font-weight="600" fill="#F9F9F9" text-anchor="start">published.</text>
-<text x="48" y="454.8" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="15" font-weight="600" fill="#EFEEED" text-anchor="start">BridgeAI, the government&#x27;s £100 million AI programme, over the same period:</text>
-<text x="48.0" y="488.8" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="28" font-weight="700" fill="#F9F9F9" text-anchor="start">£100m</text>
-<text x="48.0" y="512.8" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="13" font-weight="400" fill="#EFEEED" text-anchor="start">programme budget</text>
-<text x="264.0" y="488.8" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="28" font-weight="700" fill="#F9F9F9" text-anchor="start">£74.6m</text>
-<text x="264.0" y="512.8" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="13" font-weight="400" fill="#EFEEED" text-anchor="start">allocated by end 2025</text>
-<text x="480.0" y="488.8" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="28" font-weight="700" fill="#F9F9F9" text-anchor="start">1,700+</text>
-<text x="480.0" y="512.8" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="13" font-weight="400" fill="#EFEEED" text-anchor="start">course completions</text>
-<text x="696.0" y="488.8" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="28" font-weight="700" fill="#F9F9F9" text-anchor="start">126</text>
-<text x="696.0" y="512.8" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="13" font-weight="400" fill="#EFEEED" text-anchor="start">accreditations</text>
-<line x1="48" y1="566.8" x2="912" y2="566.8" stroke="#6E6E6E" stroke-width="1" opacity="0.5"/>
-<text x="48" y="592.8" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="14" font-weight="400" fill="#EFEEED" text-anchor="start" font-style="italic">Figures are self-reported by delivery partners; “course” is not defined in the source; courses do not equal</text>
-<text x="48" y="613.1" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="14" font-weight="400" fill="#EFEEED" text-anchor="start" font-style="italic">people. BridgeAI&#x27;s £100 million funds projects and business support as well as training.</text>
-<text x="48" y="639.7" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#EFEEED" text-anchor="start">Sources: gov.uk — Prime Minister&#x27;s London Tech Week speech, Jun 2025; DSIT, AI Skills Boost explainer, 28 Jan 2026;</text>
-<text x="48" y="657.8" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#EFEEED" text-anchor="start">Innovate UK, BridgeAI Year 3 report, 2025 · groundedaipractice.co.uk · Aug 2026</text>
+<text x="48" y="122" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="0.08em" fill="#EFEEED">THE PROMISE, IN PEOPLE</text>
+<text x="508" y="122" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="0.08em" fill="#EFEEED">THE COUNT, IN COURSES</text>
+<line x1="480" y1="104" x2="480" y2="256" stroke="#6E6E6E" stroke-width="1" opacity="0.6"/>
+<text x="48" y="174.0" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="44" font-weight="700" fill="#F9F9F9" text-anchor="start">10 million</text>
+<text x="48" y="204.0" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="14" font-weight="400" fill="#EFEEED" text-anchor="start">workers promised AI training by 2030. Announced as</text>
+<text x="48" y="224.3" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="14" font-weight="400" fill="#EFEEED" text-anchor="start">7.5 million in June 2025; raised in January 2026.</text>
+<text x="508" y="174.0" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="44" font-weight="700" fill="#F15E4B" text-anchor="start">1,001,147</text>
+<text x="508" y="204.0" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="14" font-weight="400" fill="#EFEEED" text-anchor="start">course completions reported by the eleven partner</text>
+<text x="508" y="224.3" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="14" font-weight="400" fill="#EFEEED" text-anchor="start">companies. January 2026, the latest figure</text>
+<text x="508" y="244.6" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="14" font-weight="400" fill="#EFEEED" text-anchor="start">published.</text>
+<rect x="48" y="270" width="864" height="68" rx="10" fill="none" stroke="#EFEEED" stroke-width="2" stroke-dasharray="7 5"/>
+<text x="72" y="300.0" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="19" font-weight="700" fill="#F9F9F9" text-anchor="start">People actually trained: not published.</text>
+<text x="72" y="322.0" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="13.5" font-weight="400" fill="#EFEEED" text-anchor="start">the number that would connect the two</text>
+<line x1="48" y1="372" x2="912" y2="372" stroke="#6E6E6E" stroke-width="1" opacity="0.5"/>
+<text x="48" y="398.0" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="14" font-weight="400" fill="#EFEEED" text-anchor="start" font-style="italic">Completions are self-reported by the delivery partners; one person can complete several courses, and the count</text>
+<text x="48" y="418.3" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="14" font-weight="400" fill="#EFEEED" text-anchor="start" font-style="italic">includes the partners&#x27; own employees.</text>
+<text x="48" y="444.9" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#EFEEED" text-anchor="start">Sources: DSIT, AI Skills Boost explainer, 28 Jan 2026; DSIT and No.10, AI Opportunities delivery tracker, Jan 2026; gov.uk,</text>
+<text x="48" y="463.0" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#EFEEED" text-anchor="start">Prime Minister&#x27;s London Tech Week speech, Jun 2025 · groundedaipractice.co.uk · Aug 2026</text>
 </svg>

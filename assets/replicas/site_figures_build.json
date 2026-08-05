@@ -1,0 +1,33 @@
+{
+  "type": "powershell",
+  "cwd": "C:\\gap",
+  "cols": 80,
+  "blocks": [
+    {
+      "command": "python tools\\build_site_figures.py --og",
+      "output": [
+        "contrast audit (WCAG 2.1):",
+        "       ink on paper    14.95:1  need 4.5  ok   (body text, light)",
+        "  graphite on paper     9.85:1  need 4.5  ok   (secondary text, light)",
+        "     stone on paper     4.84:1  need 4.5  ok   (source lines, light)",
+        "     ember on paper     3.10:1  need 3.0  ok   (large stat numbers, light)",
+        "       ink on sand     13.20:1  need 4.5  ok   (gap strip and callouts, light)",
+        "       ink on mist     13.59:1  need 4.5  ok   (cards and flow boxes, light)",
+        "       ink on sage     11.84:1  need 4.5  ok   (output cards, light)",
+        "     paper on ink      14.95:1  need 4.5  ok   (body text, dark)",
+        "      mist on ink      13.59:1  need 4.5  ok   (secondary text, dark)",
+        "     ember on ink       4.83:1  need 3.0  ok   (large stat numbers, dark)",
+        "     paper on graphite  9.85:1  need 4.5  ok   (raised strip text, dark)",
+        "wrote docs\\assets\\figures\\ambition_vs_delivery.svg  (960x494)",
+        "wrote docs\\assets\\figures\\ambition_vs_delivery_dark.svg  (960x494)",
+        "wrote docs\\assets\\figures\\bridgeai_glance.svg  (960x303)",
+        "wrote docs\\assets\\figures\\bridgeai_glance_dark.svg  (960x303)",
+        "wrote docs\\assets\\figures\\adoption_gap.svg  (960x492)",
+        "wrote docs\\assets\\figures\\adoption_gap_dark.svg  (960x492)",
+        "wrote docs\\assets\\figures\\not_found.svg  (640x250)",
+        "wrote docs\\assets\\figures\\not_found_dark.svg  (640x250)",
+        "wrote docs\\assets\\figures\\og_card.png"
+      ]
+    }
+  ]
+}

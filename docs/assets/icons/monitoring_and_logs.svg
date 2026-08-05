@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <title>B05-E Monitoring and Logs — reconstruction candidate v01</title>
+  <desc>Rounded monitor showing a four-point trend line and three coral bars, with a compact centred stand.</desc>
+
+  <g transform="translate(-6.144,2.048) scale(1.02400)" id="icon_canvas">
+
+  <!-- Monitor body -->
+  <rect x="88" y="104" width="336" height="242" rx="24"
+        fill="#FFFFFF"
+        stroke="#27221E"
+        stroke-width="14"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+  <!-- Trend line -->
+  <path d="M144 244 L206 188 L264 216 L334 158"
+        fill="none"
+        stroke="#27221E"
+        stroke-width="12"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+  <!-- Trend nodes -->
+  <g fill="#FFFFFF"
+     stroke="#27221E"
+     stroke-width="10" id="trend_nodes">
+    <circle cx="144" cy="244" r="12"/>
+    <circle cx="206" cy="188" r="12"/>
+    <circle cx="264" cy="216" r="12"/>
+    <circle cx="334" cy="158" r="12"/>
+  </g>
+
+  <!-- Monitoring bars -->
+  <g fill="#F15E4B" id="monitoring_bars">
+    <rect x="188" y="272" width="30" height="50" rx="5"/>
+    <rect x="244" y="250" width="30" height="72" rx="5"/>
+    <rect x="300" y="220" width="30" height="102" rx="5"/>
+  </g>
+
+  <!-- Monitor stand -->
+  <g fill="none"
+     stroke="#27221E"
+     stroke-width="14"
+     stroke-linecap="round"
+     stroke-linejoin="round" id="monitor_stand">
+    <path d="M220 346 L210 392"/>
+    <path d="M292 346 L302 392"/>
+    <path d="M184 392 H328"/>
+  </g>
+</g>
+</svg>

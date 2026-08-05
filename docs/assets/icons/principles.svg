@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <title>B02-A Principles — reconstruction candidate v01</title>
+  <desc>Balanced scales reconstructed as editable vector geometry from the approved Batch 02 reference.</desc>
+
+  <g transform="translate(31.121,17.067) scale(0.87843)" id="icon_canvas">
+
+  <g stroke="#27221E" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" id="scales_shape">
+    <!-- Main beam and centre support -->
+    <line x1="104" y1="126" x2="408" y2="126"/>
+    <line x1="256" y1="164" x2="256" y2="388"/>
+    <circle cx="256" cy="126" r="38" fill="#FFFFFF"/>
+
+    <!-- Left suspension -->
+    <line x1="128" y1="132" x2="62" y2="286"/>
+    <line x1="128" y1="132" x2="194" y2="286"/>
+
+    <!-- Right suspension -->
+    <line x1="384" y1="132" x2="318" y2="286"/>
+    <line x1="384" y1="132" x2="450" y2="286"/>
+
+    <!-- Scale bowls -->
+    <path d="M58 286 H198
+             C194 328 165 352 128 352
+             C91 352 62 328 58 286 Z"
+          fill="#F15E4B"/>
+    <path d="M314 286 H454
+             C450 328 421 352 384 352
+             C347 352 318 328 314 286 Z"
+          fill="#F15E4B"/>
+
+    <!-- Pedestal -->
+    <path d="M199 390
+             H313
+             Q326 390 329 403
+             L334 430
+             H178
+             L183 403
+             Q186 390 199 390 Z"
+          fill="#FFFFFF"/>
+    <rect x="158" y="428" width="196" height="28" rx="8" fill="#F15E4B"/>
+  </g>
+</g>
+</svg>

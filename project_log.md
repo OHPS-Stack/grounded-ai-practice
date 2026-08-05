@@ -1688,7 +1688,8 @@ no external citation:
 - **Date logged:** 2026-07-29
 
 - **Priority / Question:** Not tied to a research priority — working rules,
-  arising from the creator's review of commit `c1eaa3e`.
+  arising from the creator's review of the commit that added the bias
+  self-check, 2026-07-29.
 
 - **Source:** Direct creator decision, 2026-07-29.
 
@@ -2095,7 +2096,7 @@ no external citation:
 
   6. **A browser-based self-check was added to `tools/trace_reference.py`,
      then reverted** on the creator's instruction. The tool stands as
-     committed in b03d76d.
+     committed, without it.
 
 - **Inference drawn:** None.
 
@@ -2773,8 +2774,8 @@ no external citation:
      identified that person as one held in the project's private
      contacts file.
 
-  2. **The audit gap.** The hook entered history in commit `c6734cb`,
-     2026-07-28, titled "Prepare for public release". The audit recorded
+  2. **The audit gap.** The hook entered history in the commit titled
+     "Prepare for public release", 2026-07-28. The audit recorded
      that day covered 15 commits — the state *before* that commit. The
      guard written during the pre-publication audit is what carried the
      name past it. Exposure: a public repo, six days, 17 of 33 commits,
@@ -3371,3 +3372,263 @@ no external citation:
   draft, review, apply per block, rather than creator rewrites of
   every block. The review gate, and item 5 of the bias self-check,
   are unchanged.
+
+### Entry 057 — Landing site rebuilt on the asset system; prose sweep completed; unit hosting opened
+
+- **Date logged:** 2026-08-05
+
+- **Priority / Question:** Project infrastructure — continues Entries
+  055 and 056. Creator direction: review the whole site, finish the
+  prose in the established register, use the existing icons, replicas
+  and callout patterns, and fix the custom diagrams that read poorly.
+
+- **Source:** Creator direction and review, 2026-08-05.
+
+- **What happened:**
+
+  1. The two abstract SVG diagrams (claim-verification flow,
+     practice-system) are retired. Both are now native HTML in the
+     page, built from the brand icon set with white icon wells matching
+     the Word callout construction. Real text scales, wraps and reads
+     to screen readers; the data figures stay scripted per the
+     data-driven rule, and only content that is genuinely a chart is
+     drawn. The four method cards moved to a fixed two-by-two grid.
+
+  2. First use of the replica system outside the build guide: the
+     system section now shows `tools/replica.py` output of the site's
+     own figure build, contrast audit included. The spec is
+     `assets/replicas/site_figures_build.json`; its output lines are
+     verbatim from a real run, after the figure script switched to
+     printing repo-relative paths so the replica cannot drift from
+     real behaviour.
+
+  3. The Word callout pattern translated to CSS (icon well, Ember
+     divider, warm ground) and applied to the "what this is not" note.
+
+  4. Register sweep over everything not yet reviewed block by block:
+     figure-internal strings, alt text, the share-card sub-line, the
+     brand link's screen-reader label, and `docs/README.md` in full.
+     Visible page text now carries zero em dashes; the em dash in the
+     page title stays as a deliberate exception, a conventional
+     separator in a browser tab rather than prose.
+
+  5. Hosting the pilot unit on the site is opened as a working
+     consideration: a `learn/` folder using the same stylesheet, whose
+     callout, flow and card styles are already the unit's visual
+     language. A static unit page collects nothing from a learner,
+     keeping the trial's data-protection questions (Entry 034) with
+     the trial rather than the site. Publishing remains per-item.
+
+- **Inference drawn:** None — build record.
+
+- **Limitations / conflicting evidence:** Blocks 1 to 6 were reviewed
+  individually by the creator; this pass's changes are applied but
+  await the same review on the rendered page before any commit.
+
+- **Effect on project direction:** `CLAUDE.md` updated in the same
+  change (figures tool entry, `docs/` entry, `assets/replicas/`
+  entry). The site prose pass is complete pending the creator's read;
+  the domain steps in `docs/README.md` are the next action after
+  commit and push.
+
+### Entry 058 — Autonomous refinement pass: projection chart, BridgeAI reframed, the how-gap made concrete
+
+- **Date logged:** 2026-08-05
+
+- **Priority / Question:** Project infrastructure — the landing site,
+  continuing Entries 055-057. Executed autonomously at the creator's
+  direction while they were away, against their written notes.
+
+- **Source:** Creator notes, 2026-08-05: five prose corrections; the
+  courses figure redesigned as a line graph with projections; BridgeAI
+  explained before its numbers are used; the large-versus-small
+  infrastructure difference made concrete.
+
+- **What happened:**
+
+  1. **The evidence figure is now a projection chart.** Course
+     completions from June 2025 (the counting start [AISKILLSBOOST26]
+     states) to the January 2026 figure, then a straight line at that
+     pace to 2030, reaching about 9.4 million against the dashed
+     targets: 7.5 million workers (June 2025) and 10 million (drawn
+     from January 2026, where that framing appeared). The legend's
+     third entry is a line that cannot be drawn: workers trained, no
+     data published. This respects the Entry 042 decision against
+     failure predictions: the chart does not say the target will be
+     missed; it shows the count is on course only in a unit that is
+     not people. The projection is computed in the script from the
+     logged dates and count, with the assumption stated on the image.
+
+  2. **BridgeAI corrected and explained.** The previous strip said
+     "over the same period", which was wrong: BridgeAI's figures run
+     from its 2023 launch to end 2025, the partnership's from June
+     2025. The page now explains what BridgeAI is before using its
+     numbers, and a separate at-a-glance strip carries them (including
+     820+ projects funded, so the programme is not misread as
+     training-only). Entry 053's cherry-pick warning is respected:
+     1,700 is never set against the 10-million target.
+
+  3. **The how-gap paragraph and comparison diagram.** The system
+     section now states the practical difference in how large and
+     small organisations deploy AI, anchored to the OECD paper's
+     depth-of-use finding (among SMEs using generative AI, only 29%
+     use it in core activities — added to Entry 065 in the research
+     log the same day). An icon-based two-column comparison makes it
+     visual. The direction paragraph now closes on the point the
+     creator asked for: the same pattern large firms deploy, scaled
+     down.
+
+  4. **Creator's five prose corrections applied** (hero lead, bracket
+     subclause, groundwork sentence, evidence intro, infrastructure
+     paragraph), and the replica regenerated against the new build
+     output — during which the self-check caught a shell-mangled
+     backslash that had put a control character into the pictured
+     command, exactly the drift the verbatim rule exists to stop.
+
+- **Inference drawn:** None — build record.
+
+- **Limitations / conflicting evidence:** The projection assumes the
+  first seven months' pace continues; the image says so. All changes
+  await the creator's review of the rendered page.
+
+- **Effect on project direction:** `CLAUDE.md` figure-tool entry and
+  `docs/README.md` updated. The chart, strip and comparison are the
+  templates for future figure work: charts scripted, diagrams native.
+### Entry 059 — Site figures settled as stat strips; interest-concentration facts added to the page
+
+- **Date logged:** 2026-08-05
+
+- **Priority / Question:** Project infrastructure, closing the landing
+  site's figure and prose work. Continues Entries 055-058.
+
+- **Source:** Creator review and rulings, 2026-08-05. Claims cited to
+  `research_log.md` Entries 046, 048, 052 and 066.
+
+- **What happened:**
+
+  1. **Three figure concepts were tried and the simplest won.** A
+     projection line chart, then a two-lane timeline, were both
+     rejected by the creator as convoluted and conceptually flawed:
+     plotting courses against worker targets on any shared axis
+     performs the conflation the page criticises, and no amount of
+     legend text undoes that. The settled figure is a stat strip in
+     the same grammar as the BridgeAI one: two labelled groups in
+     different units and different colours either side of a divider,
+     with the missing number below in a dashed outline, kept
+     deliberately quieter than the two figures so it reads as the gap
+     between them rather than a third statistic. The reasoning is
+     written into the script's docstring, because a later reader may
+     otherwise assume a strip should "obviously" be a chart.
+
+  2. **The terminal replica was removed from the page** at the
+     creator's direction: a contrast-audit window in the system
+     section asked the reader to do technical work in the middle of an
+     argument about small firms, weakening the large-versus-small
+     comparison that follows it. The spec, image and sync tool stay in
+     the repository for a learning-unit page, and the CSS stays with a
+     comment; `tools/build_site_replica.py` no longer copies into
+     `docs/`.
+
+  3. **Three interest-concentration facts added**, each stated flatly
+     with no characterisation, under a new heading in the evidence
+     section: PwC's three roles around the AI Skills Hub (Entry 046);
+     the £400bn figure's footnote citing Google-commissioned research
+     by Public First, and the same consultancy's £550bn figure for
+     Microsoft, both companies being among the eleven partners
+     (Entries 048/052); and the promise outlasting the Prime Minister
+     who made it (Entry 066). The block closes by conceding what the
+     facts do not show — that the figures are wrong — and stating only
+     what they do.
+
+  4. **A drafting error caught by checking rather than by review.**
+     The vendor-attribution sentence was first drafted from memory
+     with the £400bn credited to Microsoft. Entry 052 exists precisely
+     to correct that attribution, and reading it before writing
+     produced the accurate version. Recorded because the failure mode
+     is the one the project's own method exists to catch, and it
+     nearly reached a public page.
+
+  5. A fourth candidate, the vendor's claims from the London Tech Week
+     stage, was proposed and rejected: Entry 063 limits that material
+     to context rather than evidence, and using it would spend
+     credibility the other three facts earn. The investment-emphasis
+     angle stays off the page until the relevant timestamps are heard
+     under the spoken-source protocol.
+
+- **Inference drawn:** None — build and decision record.
+
+- **Limitations / conflicting evidence:** Public First's Google report
+  is still unread (Entry 052's limitation), so the page states its
+  commissioning and citation, never its method. The creator's final
+  visual review of the settled figure is outstanding.
+
+- **Effect on project direction:** The figure grammar is now settled
+  for the site: charts only where the content is genuinely a chart,
+  stat strips where two numbers must not be compared, native HTML for
+  diagrams. `CLAUDE.md` and `docs/README.md` updated in the same
+  change.
+### Entry 060 — Rule extraction pass; commit-message format fixed and history normalised
+
+- **Date logged:** 2026-08-06
+
+- **Priority / Question:** Working rules and repository record. Runs the
+  standing extraction pass and settles a defect in how commits are
+  written.
+
+- **Source:** Creator direction and rulings, 2026-08-06.
+
+- **What happened:**
+
+  1. **Extraction pass.** The five pre-move memory files are all
+     already captured in the repo and none needed migrating; they stay
+     orphaned under the old project path and load in no session. The
+     one file under the current path concerns wording public guidance
+     and stays machine-local by its own logic. Four rules were promoted
+     out of this session instead: feedback on a draft produces a
+     revised draft rather than an edit; a claim going into a
+     deliverable is re-read from its log entry rather than recalled;
+     generated visual assets get a geometry self-check; both logs are
+     CRLF on append.
+
+  2. **Three orphaned commit references found and fixed.** The
+     2026-08-03 history rewrite silently invalidated every commit SHA
+     cited in this file, including the one inside Entry 048's own
+     account of that rewrite. All three now reference commits by title
+     and date, which survive a rewrite. Corrected in place as broken
+     cross-references, per the amendment policy.
+
+  3. **A commit-message format was adopted** after an audit of all 37
+     messages found five subject-line styles (imperative, past tense,
+     third-person present, bare noun phrase, and GitHub's default
+     "Update README.md"), inconsistent trailing full stops, bodies both
+     hard-wrapped and not, and one message repeating its own subject as
+     its first body line. The format is in `CLAUDE.md` under Git
+     conventions. The substantive change is that bodies are no longer
+     hard-wrapped at 72 columns: that convention serves terminal
+     `git log`, while these commits are read on GitHub, where every
+     hard break becomes a mid-sentence tear.
+
+  4. **History was normalised to the format.** Permitted under the
+     amendment policy's own test, which asks whether an edit changes
+     what the record claimed at its date: reformatting tense, wrapping
+     and structure corrects expression, not record. Two constraints
+     held throughout. **No claim was altered**, including claims later
+     found wrong — the commit stating the £400bn figure was
+     Microsoft-commissioned keeps that wording, because
+     `research_log.md` Entry 052 correcting it to Google is part of the
+     record the repository exists to show. **No body was invented** for
+     a commit that never had one; bare messages had their subject line
+     normalised and nothing more.
+
+- **Inference drawn:** None — decision and maintenance record.
+
+- **Limitations / conflicting evidence:** A rewrite changes every
+  commit SHA, so any clone must be re-cloned rather than pulled, and
+  any SHA recorded outside this repository is now stale. This is the
+  second rewrite; the first is what orphaned the references fixed in
+  item 2, which is the reason commits are now cited by title and date.
+
+- **Effect on project direction:** `CLAUDE.md` gains the four rules and
+  the commit format, and its extraction-pass line moves to today. Future
+  commits follow the format; future references to commits use titles,
+  not hashes.

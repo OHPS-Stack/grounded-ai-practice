@@ -153,6 +153,7 @@ Full citation is given once here; log entries below cite the short tag only.
 | `[STLFED-MINDGAP26]` | Government/Official (US central bank research) | Federal Reserve Bank of St. Louis, "Mind the Gap: AI Adoption in Europe and the U.S.," On the Economy blog, March 2026 — read via proxy fetch after direct fetch returned HTTP 403. Does not disaggregate by firm size. stlouisfed.org/on-the-economy/2026/mar/mind-gap-ai-adoption-europe-us |
 | `[SBA-ADVOCACY25]` | Government/Official (US Small Business Administration) — UNVERIFIED, could not be fetched | SBA Office of Advocacy, "Research Spotlight: AI in Business — Small Firms Closing In," Sept 2025. Both the PDF and blog-post versions returned HTTP 403 on every fetch attempt; claims about this source rest only on WebSearch's own synthesis, not a direct read. Do not cite beyond "a lead not yet confirmed." advocacy.sba.gov |
 | `[OECD-SMEAI25]` | Government/Official (international body) — PRIMARY, read directly | OECD, "AI adoption by small and medium-sized enterprises," discussion paper for the G7, Dec 2025. Read directly 2026-08-05, pp. 1–12 (adoption trends and gaps) — see Entry 065; earlier PDF fetch failures resolved by downloading the file itself. 40% large (250+) / 20.4% medium (50–249) / 11.9% small (10–49 employees) firms using AI, 2024 or latest available year per country (UK: 2020); enterprises with 10+ employees; unweighted average. Underlying data: OECD ICT Access and Usage by Businesses database. Not UK-specific. oecd.org |
+| `[STARMER-RESIGN26]` | Independent/Media (multiple outlets, single public fact) | NPR, CNN, Al Jazeera, CBS News, 22 Jun 2026: Keir Starmer resigns as Prime Minister; a Labour leadership contest follows, with Andy Burnham reported as the likely successor. Used for one dated fact on the landing-site chart. npr.org / edition.cnn.com / aljazeera.com / cbsnews.com |
 | `[MDPI-SMEAI-REVIEW26]` | Independent/Academic (peer-reviewed, open access) | "Artificial Intelligence in SMEs: Enhancing Business Functions Through Technologies and Applications," Information (MDPI), 16(5):415, systematic review of 50 studies 2016–2025 — read via proxy fetch. mdpi.com/2078-2489/16/5/415 |
 | `[EPOCH-ECIGAP26]` | Independent/Academic-adjacent (nonprofit AI-trends research organisation; methodology openly published, Creative Commons licensed) | Epoch AI, "Open models lag state-of-the-art closed models by 4 months," Epoch Capabilities Index data insight, May 2026 — PRIMARY, read directly. epoch.ai/data-insights/open-closed-eci-gap |
 | `[STANFORD-AIINDEX25]` | Independent/Academic | Stanford Institute for Human-Centered AI (HAI), *The 2025 AI Index Report*, "AI becomes more efficient, affordable and accessible" section — PRIMARY, read directly (partial — the specific section quoted, not the full report). hai.stanford.edu/ai-index/2025-ai-index-report |
@@ -4663,6 +4664,15 @@ it ever grows its own open-items list.*
     countries." Underlying data is the OECD ICT Access and Usage by
     Businesses database, accessed July 2025.
 
+  - SME depth of use, page 11: generative AI among micro firms and
+    SMEs "is mostly used for peripheral rather than core tasks", and
+    "Among SMEs using generative AI, only 29% report using it in their
+    core activities", citing a representative OECD survey. The paper's
+    case-study taxonomy (AI Novices relying on embedded tools, through
+    to AI Champions embedding AI across operations) spans the full
+    range. Noted 2026-08-05, same day as the original read: the landing
+    site now cites the 29% figure.
+
   - Growth context: the share of firms using AI across OECD members
     rose from 5.6% (2020) to 14% (2024).
 
@@ -4685,3 +4695,51 @@ it ever grows its own open-items list.*
   with the 10+-employee scope and the UK's 2020 vintage stated
   (`tools/build_site_figures.py`). Source key upgraded. Any future use
   of these figures should carry the same qualifiers.
+### Entry 066 — The change of Prime Minister, verified for the site's timeline; no course figure newer than January 2026 found
+
+- **Date logged:** 2026-08-05
+
+- **Priority / Question:** Priority 1 context — the institutional
+  continuity of the skills promise, needed because the landing-site
+  chart now marks the change of Prime Minister on its promise lane.
+
+- **Source:** `[STARMER-RESIGN26]`; cross-checked against
+  `[AIOPP-DELIVERY26]` and `[AISKILLSBOOST26]` for the target's
+  continuity, plus a fresh search for any later completion figure.
+
+- **Checked date:** 2026-08-05
+
+- **What the sources directly support:**
+
+  - Keir Starmer resigned as Prime Minister on 22 June 2026, with a
+    Labour leadership contest following. Contemporaneous reporting
+    named Andy Burnham as the likely successor.
+
+  - The 10-million-by-2030 target predates the resignation (January
+    2026 expansion) and its programme pages remain live. Nothing found
+    retracts or revises the target.
+
+  - A search for a course-completion figure newer than January 2026's
+    1,001,147 found none; the January figure is the latest located,
+    and the chart labels it "the latest figure published". This is a
+    looked-and-not-found result, recorded as such — not an
+    unfetchable source.
+
+- **Inference drawn:** The promise has institutional continuity
+  independent of the person who announced its first version. Usable on
+  the site in exactly that factual form, with no motive attached.
+
+- **Limitations / conflicting evidence:** Media sources, used for a
+  single dated public fact; who holds office now was not needed for
+  the chart and was not separately verified. The creator's own
+  statement that the 10-million figure was said directly by the
+  departing Prime Minister matches the department explainer's
+  attribution, which Entry 061 found contradicted by the department's
+  own tracker and by the speech itself; the chart therefore carries
+  the documented sequence (7.5 million, June 2025; raised to 10
+  million, January 2026), and the discrepancy was raised with the
+  creator rather than silently resolved either way.
+
+- **Effect on project direction:** The chart's promise lane carries
+  the milestone "The Prime Minister leaves office (June 2026); the
+  target stands." Source key gains `[STARMER-RESIGN26]`.

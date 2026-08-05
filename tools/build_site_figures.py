@@ -3,13 +3,27 @@
 
 Why this exists
 ---------------
-The public landing site (`docs/`) carries four figures: the
-courses-versus-people comparison, the OECD adoption gap by firm size, the
-claim-verification method, and the practice-system diagram. Under the
+The public landing site (`docs/`) carries three data figures — the
+promise-versus-count strip, the BridgeAI delivery strip and the OECD
+adoption gap by firm size — plus the decorative 404 mark. Under the
 data-driven figures rule in `CLAUDE.md`, outward graphics are produced
 from a script with their data checked into the repo — never hand-drawn
-numbers — and every one carries its own source-and-date line on the
-image, because in the publishing funnel each element must stand alone.
+numbers — and each data figure carries its own source-and-date line on
+the image, because in the publishing funnel each element must stand
+alone.
+
+The first two are stat strips rather than plotted charts, and that is
+a decision rather than a shortcut: earlier drafts plotted courses
+against worker targets on a shared axis, which performed the very
+conflation the page criticises. Where two figures are in different
+units, the honest presentation separates them and names the missing
+number between them.
+
+The claim-verification flow and the practice-system diagram were
+figures here once and are now native HTML on the page, built from the
+brand icon set: real text beats drawn text for accessibility, for
+responsive layout, and for staying consistent with the rest of the
+page. Only content that is genuinely a chart is drawn here.
 
 Every number here is transcribed from a logged, cited finding in
 `research_log.md`; the entry references sit next to the data below. If a
@@ -71,50 +85,50 @@ FONT = "'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif"
 # Transcribed from research_log.md; the entry numbers are the audit trail.
 
 AMBITION_DATA = {
-    # Entry 061/062: 7.5m announced June 2025 (PM speech + DSIT + TechFirst
-    # releases, verbatim confirmed); raised to 10m January 2026, the month
-    # the first progress figure appeared.
-    "workers_target": "7.5 million",
-    "workers_target_desc": (
-        "workers promised training in AI by 2030 — announced June 2025, "
-        "raised to 10 million in January 2026"
+    # [AISKILLSBOOST26] via Entry 053: "1,001,147 AI training courses have
+    # been completed according to course completion data shared with DSIT
+    # by industry partners in January 2026", covering "all AI skills
+    # courses delivered by partners since June 2025". Targets: 7.5m
+    # workers announced June 2025, 10m framing from January 2026
+    # (Entries 061/062).
+    "announce": (2025, 6),
+    "figure_at": (2026, 1),
+    "courses": 1001147,
+    "target_first": 7500000,
+    "target_raised": 10000000,
+    "horizon": (2030, 12),
+    "caveat": (
+        "Completions are self-reported by the delivery partners; one "
+        "person can complete several courses, and the count includes "
+        "the partners' own employees."
     ),
-    # Entry 044 (research log) + [AISKILLSBOOST26], DSIT explainer,
-    # 28 Jan 2026, read directly: 1,001,147 completions; counts partners'
-    # customers, their own employees, and civil-service internal training;
-    # no partner- or course-level breakdown published.
-    "courses_reported": "1,001,147",
-    "courses_reported_desc": (
-        "course completions reported as progress, January 2026 — counted "
-        "and supplied by the eleven companies delivering the training; "
-        "includes their own employees; no breakdown published"
+    "source": (
+        "Sources: DSIT, AI Skills Boost explainer, 28 Jan 2026; DSIT and "
+        "No.10, AI Opportunities delivery tracker, Jan 2026; gov.uk, "
+        "Prime Minister's London Tech Week speech, Jun 2025 · "
+        "groundedaipractice.co.uk · Aug 2026"
     ),
-    "gap_line": (
-        "Distinct workers trained — the number that would connect the two "
-        "— is not published."
+}
+
+BRIDGEAI_DATA = {
+    # Entry 044 (research log), [IUK-BRIDGEAI-YR3]: launched 2023, £100m
+    # backed by UKRI's Technologies Mission Fund and Innovate UK; figures
+    # to end of 2025.
+    "intro": (
+        "The government's own £100 million AI programme. Launched 2023, "
+        "run by Innovate UK; funds projects and business support as well "
+        "as training. From launch to the end of 2025:"
     ),
-    # Entry 044 (research log), [IUK-BRIDGEAI-YR3]: BridgeAI year-three
-    # figures, end of 2025.
-    "bridgeai": [
-        ("£100m", "programme budget"),
-        ("£74.6m", "allocated by end 2025"),
+    "stats": [
+        ("£74.6m", "of £100m allocated"),
+        ("820+", "AI projects funded"),
         ("1,700+", "course completions"),
         ("126", "accreditations"),
     ],
-    "bridgeai_label": (
-        "BridgeAI, the government's £100 million AI programme, over the "
-        "same period:"
-    ),
-    "caveat": (
-        "Figures are self-reported by delivery partners; “course” is "
-        "not defined in the source; courses do not equal people. "
-        "BridgeAI's £100 million funds projects and business support as "
-        "well as training."
-    ),
+    "caveat": "Figures are self-reported by the delivery consortium.",
     "source": (
-        "Sources: gov.uk — Prime Minister's London Tech Week speech, Jun 2025; "
-        "DSIT, AI Skills Boost explainer, 28 Jan 2026; Innovate UK, BridgeAI "
-        "Year 3 report, 2025 · groundedaipractice.co.uk · Aug 2026"
+        "Source: Innovate UK, BridgeAI Year 3 report, 2025 · "
+        "groundedaipractice.co.uk · Aug 2026"
     ),
 }
 
@@ -140,31 +154,6 @@ ADOPTION_DATA = {
         "Source: OECD, “AI adoption by small and medium-sized enterprises”, "
         "Dec 2025 · groundedaipractice.co.uk · Aug 2026"
     ),
-}
-
-METHOD_STEPS = [
-    "A claim worth using appears",
-    "Find the primary source; tag whose interest it serves — "
-    "government, academic, vendor, advocacy",
-    "Search for what would disconfirm it, not only what supports it",
-    "Log what the source directly supports — and what it does not",
-    "Cite it in deliverables — or retract it, in the open",
-]
-
-SYSTEM_DATA = {
-    "inputs": [
-        "Working rules and conventions",
-        "Research and decision logs",
-        "Verification tooling",
-        "Persistent project memory",
-    ],
-    "engine": "Any capable AI assistant",
-    "gate": "Human review at every decision point",
-    "outputs": [
-        "Research reports",
-        "Learning units",
-        "Custom local tools",
-    ],
 }
 
 SITE_STAMP = "groundedaipractice.co.uk · Aug 2026"
@@ -195,9 +184,9 @@ CONTRAST_PAIRS = [
     ("graphite", "paper", 4.5, "secondary text, light"),
     ("stone", "paper", 4.5, "source lines, light"),
     ("ember", "paper", 3.0, "large stat numbers, light"),
-    ("ink", "sand", 4.5, "gap strip text, light"),
-    ("ink", "mist", 4.5, "method boxes, light"),
-    ("ink", "sage", 4.5, "system output boxes, light"),
+    ("ink", "sand", 4.5, "gap strip and callouts, light"),
+    ("ink", "mist", 4.5, "cards and flow boxes, light"),
+    ("ink", "sage", 4.5, "output cards, light"),
     ("paper", "ink", 4.5, "body text, dark"),
     ("mist", "ink", 4.5, "secondary text, dark"),
     ("ember", "ink", 3.0, "large stat numbers, dark"),
@@ -309,73 +298,137 @@ def footer_lines(parts, width, y, t):
 # ------------------------------------------------------------- figure 1
 
 def fig_ambition(dark):
+    """The promise and the count as a glanceable strip, in the same
+    format as the BridgeAI figure. Two groups in different units and
+    different colours, a divider between them, and the number that
+    would connect them shown as an absence with the same visual weight
+    as the numbers. No shared axis, no timeline: the point is that
+    these are different kinds of thing, and the layout says so without
+    machinery."""
     t = theme(dark)
     W = 960
-    parts = []
     title = "Counted in courses, promised in people"
     desc = (
-        "7.5 million workers were promised AI training by 2030; progress is "
-        "published as 1,001,147 course completions supplied by the eleven "
-        "delivery partners; the number of distinct workers trained is not "
-        "published. BridgeAI, the government's 100 million pound AI "
-        "programme, reports 1,700+ completions, 126 accreditations and "
-        "74.6 million pounds allocated; the programme funds projects and "
-        "business support as well as training."
+        "Two figures side by side, in different units. The promise, in "
+        "people: 10 million workers promised AI training by 2030, "
+        "announced as 7.5 million in June 2025 and raised in January "
+        "2026. The count, in courses: 1,001,147 course completions "
+        "reported by the eleven partner companies, January 2026, the "
+        "latest figure published. Below, in a dashed box: people "
+        "actually trained is not published, the number that would "
+        "connect the two."
     )
-    y = 64
-    block, _ = text_block(48, y, [title], 30, t["text"], weight="700")
+    parts = []
+    block, _ = text_block(48, 64, [title], 30, t["text"], weight="700")
     parts.append(block)
-    y += 58
 
-    # two big stat rows: number column, description column
-    for num, desckey in (
-        (AMBITION_DATA["workers_target"], AMBITION_DATA["workers_target_desc"]),
-        (AMBITION_DATA["courses_reported"], AMBITION_DATA["courses_reported_desc"]),
-    ):
-        block, _ = text_block(48, y + 34, [num], 46, t["accent"], weight="700")
-        parts.append(block)
-        dlines = wrap(desckey, 17, W - 420)
-        block, dy = text_block(360, y + 12, dlines, 17, t["text"])
-        parts.append(block)
-        y = max(y + 70, dy + 40)
+    # group labels
+    parts.append('<text x="48" y="122" font-family="%s" font-size="13" '
+                 'font-weight="700" letter-spacing="0.08em" fill="%s">'
+                 'THE PROMISE, IN PEOPLE</text>' % (FONT, t["muted"]))
+    parts.append('<text x="508" y="122" font-family="%s" font-size="13" '
+                 'font-weight="700" letter-spacing="0.08em" fill="%s">'
+                 'THE COUNT, IN COURSES</text>' % (FONT, t["muted"]))
 
-    # the gap strip
-    strip_lines = wrap(AMBITION_DATA["gap_line"], 18, W - 160)
-    strip_h = 34 + len(strip_lines) * 18 * 1.45
-    parts.append(
-        f'<rect x="48" y="{y}" width="{W - 96}" height="{strip_h:.0f}" '
-        f'rx="10" fill="{t["panel"]}"/>'
-    )
-    block, _ = text_block(72, y + 30, strip_lines, 18, t["panel_text"], weight="600")
+    # divider between the two groups
+    parts.append('<line x1="480" y1="104" x2="480" y2="256" stroke="%s" '
+                 'stroke-width="1" opacity="0.6"/>' % t["hairline"])
+
+    # the promise
+    block, _ = text_block(48, 174, ["10 million"], 44, t["text"],
+                          weight="700")
     parts.append(block)
-    y += strip_h + 44
-
-    # BridgeAI mini-stats
-    lbl = wrap(AMBITION_DATA["bridgeai_label"], 15, W - 96)
-    block, ly = text_block(48, y, lbl, 15, t["muted"], weight="600")
+    left_sub = wrap(
+        "workers promised AI training by 2030. Announced as 7.5 million "
+        "in June 2025; raised in January 2026.", 14, 400)
+    block, _ = text_block(48, 204, left_sub, 14, t["muted"])
     parts.append(block)
-    y = ly + 34
-    col_w = (W - 96) / 4
-    for i, (num, sub) in enumerate(AMBITION_DATA["bridgeai"]):
-        x = 48 + i * col_w
-        block, _ = text_block(x, y, [num], 28, t["text"], weight="700")
-        parts.append(block)
-        sub_lines = wrap(sub, 13, col_w - 24)
-        block, _ = text_block(x, y + 24, sub_lines, 13, t["muted"])
-        parts.append(block)
-    y += 78
 
-    parts.append(f'<line x1="48" y1="{y}" x2="{W - 48}" y2="{y}" '
-                 f'stroke="{t["hairline"]}" stroke-width="1" opacity="0.5"/>')
+    # the count
+    block, _ = text_block(508, 174, ["1,001,147"], 44, t["accent"],
+                          weight="700")
+    parts.append(block)
+    right_sub = wrap(
+        "course completions reported by the eleven partner companies. "
+        "January 2026, the latest figure published.", 14, 400)
+    block, _ = text_block(508, 204, right_sub, 14, t["muted"])
+    parts.append(block)
+
+    # The number that would connect them, shown as an absence. Kept
+    # deliberately quieter than the two figures above: it is the gap
+    # between them, not a third statistic.
+    parts.append('<rect x="48" y="270" width="%d" height="68" rx="10" '
+                 'fill="none" stroke="%s" stroke-width="2" '
+                 'stroke-dasharray="7 5"/>' % (W - 96, t["faint"]))
+    block, _ = text_block(72, 300,
+                          ["People actually trained: not published."],
+                          19, t["text"], weight="700")
+    parts.append(block)
+    block, _ = text_block(72, 322,
+                          ["the number that would connect the two"],
+                          13.5, t["muted"])
+    parts.append(block)
+
+    y = 372
+    parts.append('<line x1="48" y1="%d" x2="%d" y2="%d" stroke="%s" '
+                 'stroke-width="1" opacity="0.5"/>'
+                 % (y, W - 48, y, t["hairline"]))
     y += 26
+    d = AMBITION_DATA
     block, y = footer_lines(
-        [("caveat", AMBITION_DATA["caveat"]), ("source", AMBITION_DATA["source"])],
-        W, y, t)
+        [("caveat", d["caveat"]), ("source", d["source"])], W, y, t)
     parts.append(block)
-
     H = int(y + 8)
     return (svg_open(W, H, t["bg"], title, desc) + "\n" +
             "\n".join(parts) + "\n</svg>\n", "ambition_vs_delivery", W, H)
+
+
+# ----------------------------------------------------------- figure 1b
+
+def fig_bridgeai(dark):
+    t = theme(dark)
+    W = 960
+    d = BRIDGEAI_DATA
+    title = "BridgeAI, at a glance"
+    desc = (
+        "BridgeAI is the government's own 100 million pound AI programme, "
+        "launched 2023 and run by Innovate UK; it funds projects and "
+        "business support as well as training. From launch to the end of "
+        "2025: 74.6 of 100 million pounds allocated, 820 plus AI projects "
+        "funded, 1,700 plus course completions, 126 accreditations."
+    )
+    parts = []
+    y = 56
+    block, _ = text_block(48, y, [title], 24, t["text"], weight="700")
+    parts.append(block)
+    y += 34
+    intro_lines = wrap(d["intro"], 16, W - 96)
+    block, iy = text_block(48, y, intro_lines, 16, t["muted"])
+    parts.append(block)
+    y = iy + 46
+
+    col_w = (W - 96) / 4
+    row_bottom = y
+    for i, (num, sub) in enumerate(d["stats"]):
+        x = 48 + i * col_w
+        block, _ = text_block(x, y, [num], 30, t["text"], weight="700")
+        parts.append(block)
+        sub_lines = wrap(sub, 13.5, col_w - 24)
+        block, sy = text_block(x, y + 26, sub_lines, 13.5, t["muted"])
+        parts.append(block)
+        row_bottom = max(row_bottom, sy)
+    y = row_bottom + 34
+
+    parts.append('<line x1="48" y1="%d" x2="%d" y2="%d" stroke="%s" '
+                 'stroke-width="1" opacity="0.5"/>'
+                 % (y, W - 48, y, t["hairline"]))
+    y += 26
+    block, y = footer_lines(
+        [("caveat", d["caveat"]), ("source", d["source"])], W, y, t)
+    parts.append(block)
+    H = int(y + 8)
+    return (svg_open(W, H, t["bg"], title, desc) + "\n" +
+            "\n".join(parts) + "\n</svg>\n", "bridgeai_glance", W, H)
 
 
 # ------------------------------------------------------------- figure 2
@@ -431,144 +484,29 @@ def fig_adoption(dark):
             "\n".join(parts) + "\n</svg>\n", "adoption_gap", W, H)
 
 
-# ------------------------------------------------------------- figure 3
+# ------------------------------------------------------- figure 3 (404)
 
-def fig_method(dark):
+def fig_notfound(dark):
+    """The 404 mark. Carries no data, so it takes no source line — the
+    source-and-date rule exists to attribute claims, and a decorative
+    mark makes none. Built from a single <text> with three <tspan>s so
+    the glyphs flow on their own metrics; nothing here needs hand
+    positioning, and no curve work is attempted (see the vector-editor
+    rule in CLAUDE.md)."""
     t = theme(dark)
-    W = 760
-    title = "How a claim earns its place"
-    desc = ("Five steps: " + "; ".join(s.replace("—", "-") for s in METHOD_STEPS) + ".")
-    parts = []
-    y = 60
-    block, _ = text_block(48, y, [title], 28, t["text"], weight="700")
-    parts.append(block)
-    y += 48
-
-    box_w = W - 96
-    for i, step in enumerate(METHOD_STEPS):
-        lines = wrap(step, 17, box_w - 110)
-        box_h = 36 + len(lines) * 17 * 1.45
-        parts.append(f'<rect x="48" y="{y}" width="{box_w}" height="{box_h:.0f}" '
-                     f'rx="10" fill="{t["box"]}"/>')
-        # step number in an Ember disc
-        cx, cy = 84, y + box_h / 2
-        parts.append(f'<circle cx="{cx}" cy="{cy:.0f}" r="17" fill="{t["accent"]}"/>')
-        parts.append(f'<text x="{cx}" y="{cy + 6:.0f}" font-family="{FONT}" '
-                     f'font-size="17" font-weight="700" fill="{PALETTE["ink"]}" '
-                     f'text-anchor="middle">{i + 1}</text>')
-        block, _ = text_block(122, y + 30, lines, 17, t["box_text"], weight="500")
-        parts.append(block)
-        y += box_h
-        if i < len(METHOD_STEPS) - 1:
-            parts.append(f'<line x1="{W / 2}" y1="{y + 4}" x2="{W / 2}" y2="{y + 24}" '
-                         f'stroke="{t["hairline"]}" stroke-width="2"/>')
-            parts.append(f'<path d="M {W / 2 - 6} {y + 20} L {W / 2} {y + 30} '
-                         f'L {W / 2 + 6} {y + 20}" fill="none" '
-                         f'stroke="{t["hairline"]}" stroke-width="2"/>')
-            y += 38
-
-    y += 30
-    block, y = footer_lines([("source", SITE_STAMP)], W, y, t)
-    parts.append(block)
-    H = int(y + 8)
+    W, H = 640, 250
+    title = "404"
+    desc = ("The numerals four, zero, four, with the zero drawn as an "
+            "outline rather than filled.")
+    parts = [
+        f'<text x="{W / 2}" y="178" font-family="{FONT}" font-size="170" '
+        f'font-weight="800" text-anchor="middle" letter-spacing="6">'
+        f'<tspan fill="{t["text"]}">4</tspan>'
+        f'<tspan fill="none" stroke="{t["accent"]}" stroke-width="7">0</tspan>'
+        f'<tspan fill="{t["text"]}">4</tspan></text>'
+    ]
     return (svg_open(W, H, t["bg"], title, desc) + "\n" +
-            "\n".join(parts) + "\n</svg>\n", "method_steps", W, H)
-
-
-# ------------------------------------------------------------- figure 4
-
-def fig_system(dark):
-    t = theme(dark)
-    W = 960
-    title = "The repository is the system"
-    desc = (
-        "Working rules, research and decision logs, verification tooling and "
-        "persistent memory are read by any capable AI assistant, which "
-        "produces research reports, learning units and custom local tools. "
-        "Human review gates every decision."
-    )
-    parts = []
-    y = 60
-    block, _ = text_block(48, y, [title], 28, t["text"], weight="700")
-    parts.append(block)
-    y += 44
-
-    top = y
-    in_w, in_h, in_gap = 268, 62, 16
-    # input stack
-    iy = top
-    for label in SYSTEM_DATA["inputs"]:
-        lines = wrap(label, 15, in_w - 32)
-        parts.append(f'<rect x="48" y="{iy}" width="{in_w}" height="{in_h}" '
-                     f'rx="10" fill="{t["box"]}"/>')
-        oy = iy + in_h / 2 - (len(lines) - 1) * 15 * 1.45 / 2 + 5
-        block, _ = text_block(48 + in_w / 2, oy, lines, 15, t["box_text"],
-                              weight="500", anchor="middle")
-        parts.append(block)
-        iy += in_h + in_gap
-    stack_h = iy - in_gap - top
-
-    # engine box, centred against the stack
-    en_w, en_h = 240, 96
-    ex, ey = 400, top + stack_h / 2 - en_h / 2
-    parts.append(f'<rect x="{ex}" y="{ey:.0f}" width="{en_w}" height="{en_h}" '
-                 f'rx="12" fill="none" stroke="{t["accent"]}" stroke-width="3"/>')
-    en_lines = wrap(SYSTEM_DATA["engine"], 17, en_w - 36)
-    oy = ey + en_h / 2 - (len(en_lines) - 1) * 17 * 1.45 / 2 + 6
-    block, _ = text_block(ex + en_w / 2, oy, en_lines, 17, t["text"],
-                          weight="700", anchor="middle")
-    parts.append(block)
-
-    # output stack
-    out_w, out_h, out_gap = 240, 70, 22
-    ox = 704
-    out_total = len(SYSTEM_DATA["outputs"]) * out_h + (len(SYSTEM_DATA["outputs"]) - 1) * out_gap
-    oy0 = top + stack_h / 2 - out_total / 2
-    yy = oy0
-    for label in SYSTEM_DATA["outputs"]:
-        lines = wrap(label, 15, out_w - 32)
-        parts.append(f'<rect x="{ox}" y="{yy:.0f}" width="{out_w}" height="{out_h}" '
-                     f'rx="10" fill="{t["out_box"]}"/>')
-        ly = yy + out_h / 2 - (len(lines) - 1) * 15 * 1.45 / 2 + 5
-        block, _ = text_block(ox + out_w / 2, ly, lines, 15, t["out_text"],
-                              weight="600", anchor="middle")
-        parts.append(block)
-        yy += out_h + out_gap
-
-    # connectors
-    mid = top + stack_h / 2
-    parts.append(f'<line x1="{48 + in_w}" y1="{mid:.0f}" x2="{ex - 10}" y2="{mid:.0f}" '
-                 f'stroke="{t["hairline"]}" stroke-width="2"/>')
-    parts.append(f'<path d="M {ex - 18} {mid - 6:.0f} L {ex - 8} {mid:.0f} '
-                 f'L {ex - 18} {mid + 6:.0f}" fill="none" stroke="{t["hairline"]}" '
-                 f'stroke-width="2"/>')
-    parts.append(f'<line x1="{ex + en_w}" y1="{mid:.0f}" x2="{ox - 10}" y2="{mid:.0f}" '
-                 f'stroke="{t["hairline"]}" stroke-width="2"/>')
-    parts.append(f'<path d="M {ox - 18} {mid - 6:.0f} L {ox - 8} {mid:.0f} '
-                 f'L {ox - 18} {mid + 6:.0f}" fill="none" stroke="{t["hairline"]}" '
-                 f'stroke-width="2"/>')
-
-    # human-review gate below the engine
-    gy = top + stack_h + 34
-    g_w = 400
-    gx = (W - g_w) / 2
-    g_lines = wrap(SYSTEM_DATA["gate"], 16, g_w - 36)
-    g_h = 30 + len(g_lines) * 16 * 1.45
-    parts.append(f'<rect x="{gx}" y="{gy}" width="{g_w}" height="{g_h:.0f}" '
-                 f'rx="10" fill="{t["panel"]}"/>')
-    ly = gy + 26
-    block, _ = text_block(W / 2, ly, g_lines, 16, t["panel_text"],
-                          weight="600", anchor="middle")
-    parts.append(block)
-    parts.append(f'<line x1="{W / 2}" y1="{ey + en_h:.0f}" x2="{W / 2}" y2="{gy - 6}" '
-                 f'stroke="{t["hairline"]}" stroke-width="2" stroke-dasharray="4 4"/>')
-
-    y = gy + g_h + 40
-    block, y = footer_lines([("source", SITE_STAMP)], W, y, t)
-    parts.append(block)
-    H = int(y + 8)
-    return (svg_open(W, H, t["bg"], title, desc) + "\n" +
-            "\n".join(parts) + "\n</svg>\n", "practice_system", W, H)
+            "\n".join(parts) + "\n</svg>\n", "not_found", W, H)
 
 
 # ------------------------------------------------------------- og card
@@ -600,7 +538,7 @@ def build_og_card(out_dir):
     f_tag = ImageFont.truetype(bold, 40)
     f_sub = ImageFont.truetype(regular, 26)
     tag = "Practical AI capability through responsible, hands-on learning."
-    sub = "Independent, evidence-led research on the UK's AI skills gap"
+    sub = "Independent research on the UK's AI skills gap"
     for textv, font, yy, fill in ((tag, f_tag, 384, PALETTE["ink"]),
                                   (sub, f_sub, 448, PALETTE["graphite"])):
         tw = draw.textlength(textv, font=font)
@@ -611,7 +549,7 @@ def build_og_card(out_dir):
     out = os.path.join(out_dir, "og_card.png")
     img.save(out)
     Image.open(out).verify()
-    print(f"wrote {out}")
+    print(f"wrote {os.path.relpath(out)}")
 
 
 # ----------------------------------------------------------------- main
@@ -627,14 +565,14 @@ def main():
     audit_contrast()
     os.makedirs(args.out, exist_ok=True)
 
-    for fig in (fig_ambition, fig_adoption, fig_method, fig_system):
+    for fig in (fig_ambition, fig_bridgeai, fig_adoption, fig_notfound):
         for dark in (False, True):
             svg, name, w, h = fig(dark)
             suffix = "_dark" if dark else ""
             path = os.path.join(args.out, f"{name}{suffix}.svg")
             with open(path, "w", encoding="utf-8") as fh:
                 fh.write(svg)
-            print(f"wrote {path}  ({w}x{h})")
+            print(f"wrote {os.path.relpath(path)}  ({w}x{h})")
 
     if args.og:
         build_og_card(args.out)

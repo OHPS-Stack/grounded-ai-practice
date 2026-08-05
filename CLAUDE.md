@@ -160,6 +160,26 @@ the five immediate research priorities driving current work.
   AI-assisted method is disclosed wherever the work is published. What
   the rule guards is that review and ownership, not who types.
 
+- **Feedback on a draft produces a revised draft, not an edit.**
+  Adopted 2026-08-06. When the creator comments on drafted prose or a
+  drafted asset, the response is a corrected version shown for review;
+  writing it to the file needs an explicit go-ahead. Caught during the
+  landing-site prose pass, where a block was revised and applied in one
+  step and the creator pointed out they had never seen the revision.
+  The review gate is the whole justification for Claude drafting
+  candidate final prose at all, so skipping it removes the ground the
+  rule above stands on.
+
+- **Generated visual assets get a geometry self-check before they are
+  accepted.** Adopted 2026-08-06. A script that draws an SVG cannot see
+  its own output, so every figure on the landing site was verified by
+  loading it in a browser and measuring the rendered text: labels
+  probed for overflow past the canvas edge, pairwise collision against
+  each other, and containment inside the box each belongs to. Same
+  instinct as `word_preview.ps1` for documents, and it caught real
+  defects repeatedly. Applies to any generated diagram or figure, not
+  only the site's.
+
 - **Infographics are a standing output lane, produced two ways.** Adopted
   2026-08-01 for the publishing funnel (LinkedIn post → profile →
   synopsis document → technical companion → repository). Most viewers
@@ -312,6 +332,17 @@ open threads). Key standing rules:
   type (Independent/Academic, Government/Official, Vendor/Commercial,
   Advocacy/Membership body) in the Source key table.
 
+- **A claim going into a deliverable is re-read from its log entry,
+  never recalled.** Adopted 2026-08-06. Claude's recollection of a
+  logged finding is not evidence of it. During the landing-site build a
+  sentence was drafted attributing the £400bn figure to
+  Microsoft-commissioned research; `research_log.md` Entry 052 exists
+  precisely to correct that attribution to Google, and reading the entry
+  before writing produced the accurate version. Recall is the mechanism
+  by which an already-corrected error gets reintroduced downstream,
+  which is worse than the original error because the correction makes it
+  look settled.
+
 - **Spoken sources are located by transcript and quoted only after
   verification.** Adopted 2026-08-01. An automatic transcript — YouTube
   ASR, Whisper, a platform's own captions — may be used to *find* a claim
@@ -461,6 +492,11 @@ as demonstrated to work.
 - When editing `research_log.md` or `project_log.md`, preserve the existing
   entry structure (numbered entries, the field shape each uses) rather than
   restructuring it.
+
+- **Both logs are CRLF; append accordingly.** Writing to them with a
+  tool that emits bare newlines leaves mixed line endings and a diff
+  that appears to rewrite the entire file. Convert on write, then
+  confirm no stray LFs remain before staging.
 
 - **`research_log.md` is for source-backed research findings only** —
   a dated, numbered entry answering a `research_questions.md` priority,
@@ -832,6 +868,20 @@ Two layers:
    file is a valid, deliberate choice). Install once per machine:
    `git config core.hooksPath .githooks`
 
+   The pre-commit hook carries a **third check**, added 2026-08-05 after
+   an unreviewed log entry reached the staging area (see "Tracked logs
+   record the project, not the person"). It scans **only added lines**,
+   in two tiers: a narrow set of legally-sensitive terms that **blocks**,
+   and heuristic phrasing plus machine-specific absolute paths that
+   **prints for review without blocking**. The split is deliberate — a
+   fuzzy pattern that refuses a commit teaches you to reach for
+   `--no-verify`, which switches off checks 1 and 2 as well, so the
+   uncertain tier stays advisory to keep the certain ones enforceable.
+   `.githooks/` is excluded from its own scan, since the file necessarily
+   contains the words it looks for. It cannot catch the general case,
+   which is semantic rather than lexical; the review gate is the actual
+   guard and this is the backstop.
+
 Both are guardrails against accident, **not security controls**:
 
 - `.gitignore` does nothing retroactively and is overridden by `git add -f`.
@@ -913,14 +963,36 @@ attempt it unilaterally.
   this" means prepare it, not execute it unreviewed — commits are
   semi-permanent and this repo may go public.
 
-- **Match message length to the size of the change.** Routine and
-  maintenance commits (renames, cleanups, single fixes, asset
-  regeneration) get a one-line title and nothing more, matching the
-  existing log — "Removed superseded drafts", "Added document self-check
-  tooling". Reserve a multi-paragraph body for genuine milestones: a new
-  deliverable, a structural change to the repo, or a decision worth
-  reading later. Defaulting to the long form on every commit buries the
-  commits that actually matter.
+- **Commit messages follow one fixed format.** Adopted 2026-08-06 after
+  an audit found five subject-line styles across the history (imperative,
+  past tense, third-person present, bare noun phrase, and GitHub's
+  default "Update README.md"), some with trailing full stops and some
+  without.
+
+  **Subject:** imperative mood, capitalised, no trailing full stop, 70
+  characters or fewer. A semicolon joins two related changes. "Add the
+  landing site" — never "Added…", "Adds…", "Landing site updates", or a
+  trailing period.
+
+  **Body:** blank line after the subject, then one paragraph per idea,
+  each written as **a single unwrapped line**. Do not hard-wrap at 72
+  columns: that convention serves terminal `git log`, while these
+  commits are read on GitHub, which soft-wraps and turns every hard
+  break into a mid-sentence tear. Bullets are `- ` and are likewise
+  unwrapped. Never repeat the subject line as the body's first line.
+
+  **Voice and length:** the user's own — short, direct, no
+  em-dash-chaining, no third-person "the creator". Length matches the
+  size of the change: routine work (renames, cleanups, single fixes,
+  asset regeneration) gets a subject line and nothing else, and a
+  multi-paragraph body is reserved for a new deliverable, a structural
+  change, or a decision worth reading later. Defaulting to the long form
+  buries the commits that matter.
+
+  **History was normalised to this format on 2026-08-06** (`project_log.md`
+  Entry 060). That pass changed expression only: no claim was altered,
+  including claims later found wrong, and no body was invented for a
+  commit that never had one.
 
 - **Never push to the remote without a separate, explicit go-ahead**, even
   immediately after a local commit the user asked for. The user handles
@@ -986,10 +1058,11 @@ attempt it unilaterally.
   on `main` (enabled in the repo's Pages settings) and intended to answer
   for `groundedaipractice.co.uk` once the domain is pointed at it. A
   single-page static site: no framework, no build step, no JavaScript,
-  nothing loaded from a third party. Its four figures are generated by
+  nothing loaded from a third party. Its data figures are generated by
   `tools/build_site_figures.py` — correct the data constants and re-run,
-  never edit the SVGs — and its logo files are copies of the canonical
-  exports in `assets/logo/`. `docs/README.md` is the folder's own index:
+  never edit the SVGs; its diagrams are native HTML built from the icon
+  set; and its logo files and icons are copies of the canonical assets
+  in `assets/`. `docs/README.md` is the folder's own index:
   deployment, the security posture and its honest limits (GitHub Pages
   cannot set response headers, so CSP rides a `<meta>` tag and
   `frame-ancestors`/HSTS are unavailable there), and the safe order for
@@ -1006,13 +1079,15 @@ attempt it unilaterally.
   belongs in it, why, and the indexing rule.
 
 - `.githooks/` — the local guard layer: `pre-commit` blocks commits
-  staging `internal/` or containing a private marker; `pre-push`
-  re-scans the whole tracked tree and the pushed commits before
-  anything leaves the machine. Both read their marker list from
-  `internal/private_markers.txt` (never tracked; a missing file blocks,
-  an empty one is a deliberate opt-out). Install per machine with
-  `git config core.hooksPath .githooks`. Guardrails against accident,
-  not security controls.
+  staging `internal/` or containing a private marker, and additionally
+  scans **added lines only** for legally-sensitive terms (blocking) and
+  for personal-circumstance phrasing and machine-specific paths
+  (advisory, printed not blocked); `pre-push` re-scans the whole tracked
+  tree and the pushed commits before anything leaves the machine. Both
+  read their marker list from `internal/private_markers.txt` (never
+  tracked; a missing file blocks, an empty one is a deliberate opt-out).
+  Install per machine with `git config core.hooksPath .githooks`.
+  Guardrails against accident, not security controls.
 
 - `assets/icons/` — the promoted, working content-icon set (36
   icons, current palette). `svg/` for sources, `png/` for 64/128/256px
@@ -1094,10 +1169,11 @@ attempt it unilaterally.
   either document. Shared by the public synopsis and the internal guide,
   which is why they live in `assets/` rather than beside either one.
 
-- `assets/replicas/` — terminal replicas for the build guide: a `.json`
-  spec and its rendered `.png` per screenshot, generated by
-  `tools/replica.py`. **The JSON is the source of truth**; edit it and
-  re-render rather than touching the PNG. All of them use generic names
+- `assets/replicas/` — terminal replicas for the build guide and the
+  landing site: a `.json` spec and its rendered `.png` per screenshot,
+  generated by `tools/replica.py` (`site_figures_build` is the landing
+  site's one; the rest belong to the guide). **The JSON is the source of
+  truth**; edit it and re-render rather than touching the PNG. All of them use generic names
   (`yourname`, `gap-server`) — the renderer refuses a real user path, and
   that guard is the reason these are safe to keep in a public directory
   even though the guide they illustrate is internal.
@@ -1319,11 +1395,19 @@ attempt it unilaterally.
   not installed on every machine this repo runs on, while Pillow already
   is. Requires Python with Pillow and the Public Sans faces installed.
 
-- `tools/build_site_figures.py` — draws the landing site's four figures
-  (courses-versus-people, the OECD adoption gap by firm size, the
-  claim-verification method, the practice-system diagram) as light and
-  dark SVG variants into `docs/assets/figures/`, plus the social-share
-  card with `--og`. Data is transcribed from logged findings with the
+- `tools/build_site_figures.py` — draws the landing site's data figures
+  (the promise-versus-count strip, the BridgeAI delivery strip, and the
+  OECD adoption gap by firm size) plus the 404 mark, as light and dark
+  SVG variants into `docs/assets/figures/`, and the social-share card
+  with `--og`. The first two are stat strips by decision, not shortcut:
+  earlier drafts plotted courses against worker targets on a shared
+  axis, performing the conflation the page criticises. Where two
+  figures are in different units, the honest presentation separates
+  them and names the missing number between them. The
+  claim-verification flow and the practice-system diagram are
+  deliberately not here: they carry no data, so they are native HTML in
+  the page, built from the icon set — only content that is genuinely a
+  chart gets drawn. Data is transcribed from logged findings with the
   entry numbers recorded beside the constants, per the data-driven
   figures rule, and every variant carries its own source-and-date line.
   Before writing anything it audits every palette pair the figures and
@@ -1332,6 +1416,18 @@ attempt it unilaterally.
   accessibility record. Standard library only for the SVGs; Pillow and
   the Public Sans faces are needed only for `--og`. Command-line by the
   Entry 049 decision — a build step, not a learner-facing tool.
+
+- `tools/build_site_replica.py` — keeps the landing site's terminal
+  replica verbatim-true to the tool it pictures: runs the real figure
+  build, captures its output, rewrites the replica spec and renders it
+  through `tools/replica.py`. The landing page does not currently show
+  the replica (tried in the system section, removed as a distraction
+  mid-argument); the asset is kept for a learning-unit page. Exists
+  because a hand-synced spec drifted once (a shell-mangled backslash put
+  a control character into the pictured command); `--check` compares the
+  stored spec against a fresh run without writing, for use before
+  commits that touch the figure script. Run after every figure-script
+  change. Command-line by the Entry 049 decision.
 
 - `tools/build_site_fonts.py` — builds the landing site's web fonts:
   subsets the locally installed Public Sans faces to the five WOFF2
@@ -1414,7 +1510,22 @@ files are machine-specific and don't travel between machines (desktop vs.
 laptop) or reliably resurface from old conversation logs — the repo is the
 one place guaranteed to travel with the project. Applies in every session
 working in this repo, not just the one that first set this up.
-**Last run: 2026-08-03.** That pass found the memory system had been
+**Last run: 2026-08-06.** That pass confirmed the five pre-move memory
+files are all captured in the repo already (short pasted fragments,
+community-built tools, the government-recognition goal in
+`project_brief.md`, the research workflow, and agent-spawning now
+enforced by harness configuration), so nothing needed migrating from
+them. They remain orphaned under the old project path and no longer
+load in any session. The current path holds one file, on wording public
+guidance, which stays machine-local by its own logic. Four rules were
+promoted out of the session itself rather than out of memory: feedback
+produces a revised draft, claims are re-read from their log entry
+rather than recalled, generated visual assets get a geometry
+self-check, and both logs are CRLF on append. The structural finding
+repeats the last pass's: local memory contributed nothing this time,
+and everything durable came from the working session.
+Previous line, kept for the record:
+**last run 2026-08-03.** That pass found the memory system had been
 silently out of service: all six files sat under the *old* project path
 (`C--Users-ThinkPad-Documents-grounded-ai-practice`), orphaned when the
 repo moved to `C:\dev\`, so no memory had loaded since the move and the

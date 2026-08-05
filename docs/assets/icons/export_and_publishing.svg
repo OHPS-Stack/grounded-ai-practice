@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <title>B05-J Export and Publishing — production candidate v03</title>
+  <desc>
+    Editable document-and-export icon reconstructed from the approved visual
+    reference. The midpoint of the coral diagonal shaft is aligned exactly
+    with the centre of the export badge.
+  </desc>
+
+  <g transform="translate(4.449,18.344) scale(0.95829)" id="icon_canvas">
+
+  <!-- Main document -->
+  <path d="M132 70
+           H298
+           L360 132
+           V395
+           H132
+           Q104 395 104 367
+           V98
+           Q104 70 132 70 Z"
+        fill="#FFFFFF"
+        stroke="#27221E"
+        stroke-width="18"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+  <!-- Folded corner -->
+  <path d="M298 70 V132 H360"
+        fill="none"
+        stroke="#27221E"
+        stroke-width="18"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+  <!-- Document text -->
+  <g fill="none"
+     stroke="#27221E"
+     stroke-width="14"
+     stroke-linecap="round" id="document_lines">
+    <line x1="148" y1="197" x2="258" y2="197"/>
+    <line x1="148" y1="256" x2="276" y2="256"/>
+    <line x1="148" y1="312" x2="242" y2="312"/>
+  </g>
+
+  <!-- Export badge -->
+  <rect x="275" y="280" width="146" height="146" rx="25"
+        fill="#FFFFFF"
+        stroke="#27221E"
+        stroke-width="18"
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+  <!-- Coral export arrow.
+       Badge centre: (348,353)
+       Shaft midpoint: ((318+378)/2, (383+323)/2) = (348,353) -->
+  <g fill="none"
+     stroke="#F15E4B"
+     stroke-width="18"
+     stroke-linecap="round"
+     stroke-linejoin="round" id="export_arrow">
+    <line x1="318" y1="383" x2="378" y2="323"/>
+    <path d="M340 323 H378 V361"/>
+  </g>
+</g>
+</svg>

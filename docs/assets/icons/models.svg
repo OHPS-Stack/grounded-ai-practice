@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+<title>B03-C Models</title>
+
+  <g transform="translate(-43.838,0.669) scale(1.17124)" id="icon_canvas">
+<g stroke-linecap="round" stroke-linejoin="round" id="hexagon_and_cube">
+<path d="M256 72 L382 145 V291 L256 364 L130 291 V145 Z" stroke="#F15E4B" stroke-width="14" fill="none"/>
+<g transform="translate(0,-7)" id="cube_offset">
+<path d="M256 136 L330 179 L256 222 L182 179 Z" stroke="#27221E" stroke-width="14" fill="#FFFFFF"/>
+<path d="M182 179 V271 L256 314 V222 Z" stroke="#27221E" stroke-width="14" fill="#FFFFFF"/>
+<path d="M330 179 V271 L256 314 V222 Z" stroke="#27221E" stroke-width="14" fill="#FFFFFF"/>
+</g>
+</g>
+</g>
+</svg>

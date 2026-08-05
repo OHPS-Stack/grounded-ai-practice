@@ -149,6 +149,8 @@ h3 { font-size: 1.15rem; font-weight: 700; }
 
 p + p, .prose > * + * { margin-top: 1rem; }
 
+.prose h3 { margin-top: 2rem; }
+
 a {
   color: inherit;
   text-decoration: underline;
@@ -263,6 +265,12 @@ a:hover {
 .hero-mark { margin-bottom: 2rem; }
 .hero-mark img { width: min(340px, 70vw); height: auto; }
 
+.notfound-mark { margin-bottom: 1.5rem; }
+.notfound-mark img { width: min(320px, 62vw); height: auto; }
+
+.notfound-brand { margin-top: 3.5rem; }
+.notfound-brand img { width: min(180px, 45vw); height: auto; opacity: 0.75; }
+
 .hero .lead { margin-top: 1.25rem; max-width: 46rem; }
 .hero p:not(.lead) { max-width: 46rem; }
 
@@ -339,17 +347,226 @@ blockquote.pull footer {
   margin-bottom: 0.9rem;
 }
 
-.rule-num {
+.card-grid.rules {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 40rem) {
+  .card-grid.rules { grid-template-columns: 1fr; }
+}
+
+/* ---------------------------------------------------------- icon wells
+   Icons are Ink linework with white interior fills, so they sit on a
+   white well in both themes — the same construction as the Word
+   callout cards' icon wells. */
+
+.icon-well {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2rem; height: 2rem;
+  background: #FFFFFF;
+  border: 1px solid var(--hairline);
+  border-radius: 0.6rem;
+  padding: 0.35rem;
+  flex: none;
+}
+
+.icon-well img { width: 34px; height: 34px; }
+
+.card .icon-well { margin-bottom: 0.9rem; }
+.card .icon-well img { width: 40px; height: 40px; }
+
+/* ---------------------------------------------------------- claim flow */
+
+.flowwrap { margin-top: 2.5rem; max-width: 46rem; }
+.flowwrap h3 { margin-bottom: 1.1rem; }
+.flowwrap .small { margin-top: 1rem; }
+
+ol.flow {
+  list-style: none;
+  counter-reset: step;
+  display: grid;
+  gap: 0.7rem;
+}
+
+ol.flow li {
+  counter-increment: step;
+  position: relative;
+  background: var(--band);
+  border: 1px solid var(--hairline);
+  border-radius: 0.6rem;
+  padding: 0.8rem 1.1rem 0.8rem 3.6rem;
+  font-weight: 500;
+}
+
+ol.flow li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.9rem; height: 1.9rem;
   border-radius: 50%;
   background: var(--ember);
   color: var(--ink);
   font-weight: 800;
-  margin-bottom: 0.8rem;
+  display: grid;
+  place-items: center;
 }
+
+/* ------------------------------------------------------ system diagram */
+
+.sysdiagram {
+  display: grid;
+  grid-template-columns: 1fr 2.2rem minmax(12rem, 0.9fr) 2.2rem 1fr;
+  gap: 1.1rem;
+  align-items: center;
+  margin-top: 2.25rem;
+}
+
+.sys-col {
+  list-style: none;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.sys-col li {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  border-radius: 0.6rem;
+  padding: 0.55rem 0.8rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.sys-in li { background: var(--mist); color: var(--ink); }
+.sys-out li { background: var(--sage); color: var(--ink); }
+
+.sys-col .icon-well { padding: 0.25rem; border-radius: 0.5rem; }
+.sys-col .icon-well img { width: 24px; height: 24px; }
+
+.sys-engine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  text-align: center;
+  border: 3px solid var(--ember);
+  border-radius: 0.8rem;
+  padding: 1.3rem 1rem;
+  font-weight: 700;
+}
+
+.sys-engine .icon-well img { width: 40px; height: 40px; }
+
+.sys-arrow {
+  text-align: center;
+  color: var(--faint);
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.sys-arrow::before { content: "\2192"; }
+
+.sys-gate {
+  grid-column: 1 / -1;
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: var(--band-warm);
+  border-radius: 0.6rem;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+}
+
+.syscaption { margin-top: 1rem; }
+
+@media (max-width: 52rem) {
+  .sysdiagram { grid-template-columns: 1fr; }
+  .sys-arrow::before { content: "\2193"; }
+  .sys-engine { justify-self: stretch; }
+}
+
+@media (prefers-color-scheme: dark) {
+  .sys-in li { background: var(--card); color: var(--text); }
+  .sys-out li {
+    background: var(--card);
+    color: var(--text);
+    border-left: 3px solid var(--sage);
+  }
+}
+
+/* ------------------------------------------------------------ callout */
+
+.callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: var(--band-warm);
+  border-radius: 0.75rem;
+  padding: 1.1rem 1.25rem;
+  max-width: 46rem;
+}
+
+.callout .icon-well { margin-top: 0.15rem; }
+
+.callout-body {
+  border-left: 5px solid var(--ember);
+  border-radius: 3px;
+  padding-left: 1rem;
+}
+
+/* --------------------------------------------------------- comparison */
+
+.compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.compare-col {
+  background: var(--card);
+  border: 1px solid var(--hairline);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+}
+
+.compare-col h3 {
+  font-size: 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.compare-col ul {
+  list-style: none;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.compare-col li {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.compare-col .icon-well { padding: 0.25rem; border-radius: 0.5rem; }
+.compare-col .icon-well img { width: 24px; height: 24px; }
+
+@media (max-width: 46rem) {
+  .compare { grid-template-columns: 1fr; }
+}
+
+/* ------------------------------------------------------------ replica
+   Terminal replicas are not currently shown on the site; these rules
+   stay because the pattern is ready for a learning-unit page, where a
+   picture of a real shell session earns its place. */
+
+figure.replica { max-width: 44rem; }
+figure.replica img { width: 100%; }
 
 /* ------------------------------------------------------------- footer */
 
