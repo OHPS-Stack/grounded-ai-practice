@@ -1,9 +1,11 @@
 #!/bin/sh
 # Grounded AI Practice — pre-commit guard
 #
-# Blocks two classes of mistake before they enter git history:
+# Blocks three classes of mistake before they enter git history:
 #   1. Anything under internal/ (never public)
 #   2. Private markers leaking into tracked files
+#   3. Legally-sensitive terms, and phrasing that has previously marked a
+#      log entry written from a chat rather than from the project
 #
 # The marker list lives OUTSIDE tracked content, in
 # internal/private_markers.txt — one case-insensitive substring per line,
@@ -52,6 +54,84 @@ else
             fi
         done < "$markers_file"
     done
+fi
+
+# --- 3. personal circumstances and legally-sensitive terms ------------
+#
+# Added 2026-08-05 after a log entry written in an earlier session reached
+# the staging area carrying the creator's forgotten disk passwords, their
+# personal media stack, and a chat request that had been declined. See
+# CLAUDE.md, "Tracked logs record the project, not the person".
+#
+# Scans ONLY ADDED LINES. Re-flagging existing content on every commit
+# would bury the signal, and a noisy hook gets bypassed with --no-verify,
+# which switches off checks 1 and 2 as well. Keeping this quiet is what
+# keeps those two working.
+#
+# Two tiers, deliberately:
+#
+#   BLOCK   terms that should not appear in this repository's tracked
+#           content at all. Narrow, so a hit is almost certainly real.
+#
+#   REVIEW  phrasing that has actually indicated the failure above.
+#           Heuristic, so it prints loudly and does NOT block — a fuzzy
+#           pattern that refuses the commit teaches you to reach for
+#           --no-verify, and that costs more than it saves.
+#
+# What this cannot do: "the creator has forgotten three passwords" is a
+# semantic problem, not a lexical one, and no pattern list catches the
+# general case. The review gate in CLAUDE.md is the actual guard. This is
+# the backstop for the specific wordings that have gone wrong once.
+#
+# .githooks/ is excluded from the scan because this file necessarily
+# contains the words it searches for.
+#
+# Assumes GNU grep (\b word boundaries), which Git for Windows provides.
+
+block_re='\b(iptv|piracy|pirated?|debrid|torbox|torrents?|warez)\b'
+review_re='\b(forgot|forgotten|lost) (the |my |three )?passwords?\b|\bpasswords? (is|are|was|were) (not )?(remembered|forgotten|lost)\b|\bcreator (had )?(offered|asked me|wanted me|told me)\b|\bmy (house|home|flat|bedroom|landlord|neighbour)\b|\bwas declined\b'
+generic_path='(yourname|youruser|username|user|someuser|example|test|name)'
+
+review_hits=""
+scan_files=$(git diff --cached --name-only --diff-filter=ACM \
+    | grep -vE '^(internal/|\.githooks/)' \
+    | grep -viE '\.(png|jpe?g|gif|pdf|docx?|woff2?|ico|zip|ttf|svg)$' || true)
+
+for f in $scan_files; do
+    added=$(git diff --cached -U0 --diff-filter=ACM -- "$f" \
+        | grep '^+' | grep -v '^+++' | sed 's/^+//' || true)
+    [ -n "$added" ] || continue
+
+    hit=$(printf '%s\n' "$added" | grep -inE "$block_re" || true)
+    if [ -n "$hit" ]; then
+        echo "BLOCKED: legally-sensitive term in lines added to: $f"
+        printf '%s\n' "$hit" | sed 's/^/    /' | head -5
+        echo ""
+        fail=1
+    fi
+
+    hit=$(printf '%s\n' "$added" | grep -inE "$review_re" || true)
+    [ -n "$hit" ] && review_hits="$review_hits
+  $f
+$(printf '%s\n' "$hit" | sed 's/^/    /' | head -3)"
+
+    # Absolute user paths, minus the generic placeholders the guides use
+    # deliberately (/home/yourname and friends).
+    hit=$(printf '%s\n' "$added" \
+        | grep -oiE '(c:\\+users\\+[a-z0-9._-]+|/home/[a-z0-9._-]+)' \
+        | grep -viE "[\\\\/]$generic_path$" | sort -u || true)
+    [ -n "$hit" ] && review_hits="$review_hits
+  $f — machine-specific path
+$(printf '%s\n' "$hit" | sed 's/^/    /' | head -3)"
+done
+
+if [ -n "$review_hits" ]; then
+    echo "REVIEW: added lines match phrasing that has previously indicated"
+    echo "personal detail reaching a tracked file. Not blocking — read them"
+    echo "and decide. See CLAUDE.md, \"Tracked logs record the project, not"
+    echo "the person\"."
+    printf '%s\n' "$review_hits"
+    echo ""
 fi
 
 if [ "$fail" -ne 0 ]; then

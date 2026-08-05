@@ -3342,3 +3342,32 @@ no external citation:
   numbering-collision fix in the Entry 017 category; CLAUDE.md,
   project_brief.md and internal/README.md were checked first and
   nothing referenced the old number.
+
+### Entry 056 — Outward-prose rule refined: shared drafting, creator review as the gate
+
+- **Date logged:** 2026-08-05
+
+- **Priority / Question:** Process — refines the Entry 043 prose rule,
+  during the landing-site prose pass.
+
+- **Source:** Creator decision, 2026-08-05.
+
+- **What happened:** The creator relaxed the requirement that final
+  outward prose be written by them alone. Claude may now draft
+  candidate final prose in the creator's register and plain language;
+  every passage still passes the creator's review before publication,
+  and the creator rewrites at will. Recorded in `CLAUDE.md` alongside
+  the original rule, worded around what the rule protects (ownership,
+  review, and open disclosure of the AI-assisted method) so the public
+  rule cannot be misread as the work being AI-generated without
+  oversight. First applied to the landing-site hero, Block 1 of the
+  prose pass.
+
+- **Inference drawn:** None — decision record.
+
+- **Limitations / conflicting evidence:** None noted.
+
+- **Effect on project direction:** The site prose pass proceeds as
+  draft, review, apply per block, rather than creator rewrites of
+  every block. The review gate, and item 5 of the bias self-check,
+  are unchanged.

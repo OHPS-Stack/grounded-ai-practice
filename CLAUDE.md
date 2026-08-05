@@ -152,6 +152,14 @@ the five immediate research priorities driving current work.
   it. Treat AI-register drafts as raw material, never as candidate
   finals.
 
+  Refined 2026-08-05: the division of labour is about ownership, not
+  keystrokes. Claude may draft candidate final prose when it holds to
+  the creator's register and plain language; the creator reviews every
+  passage, edits freely, and nothing is published without approval. The
+  argument, the voice and the final say stay the creator's, and the
+  AI-assisted method is disclosed wherever the work is published. What
+  the rule guards is that review and ownership, not who types.
+
 - **Infographics are a standing output lane, produced two ways.** Adopted
   2026-08-01 for the publishing funnel (LinkedIn post → profile →
   synopsis document → technical companion → repository). Most viewers
