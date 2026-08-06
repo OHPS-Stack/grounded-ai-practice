@@ -3,10 +3,23 @@
 This folder is the public landing site. GitHub Pages serves it from
 `/docs` on `main`, and the same files will answer for
 `groundedaipractice.co.uk` once the domain is pointed at it. That step
-is a separate decision, recorded in `project_log.md`. One page, plain
-HTML and CSS. No framework, no build step, no JavaScript.
+is a separate decision, recorded in `project_log.md`. Plain HTML and
+CSS. No framework, no JavaScript.
+
+**The HTML in this folder is generated.** Pages are assembled from
+`site/` by `tools/build_site_pages.py`, which holds the header, nav and
+footer in one shared layout instead of copying them into every page.
+Edit the layout and fragments in `site/`; anything changed here is lost
+at the next build. The exception is `404.html`, which uses no shared
+shell and is still maintained by hand.
 
 Everything the pages load lives in this folder.
+
+- The pages themselves are built from `site/layout.html`,
+  `site/pages.json` and the fragments in `site/pages/`. The build
+  refuses to write anything unless every page passes its checks,
+  including that every link and every `#anchor` resolves to something
+  that exists.
 
 - The logo files are copies of the canonical exports in `assets/logo/`.
 
@@ -38,6 +51,7 @@ Everything the pages load lives in this folder.
   already has the font downloads nothing.
 
 ```
+python tools/build_site_pages.py
 python tools/build_site_figures.py --og
 python tools/build_site_fonts.py
 ```

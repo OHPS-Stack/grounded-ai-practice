@@ -258,6 +258,14 @@ a:hover {
 
 .band h2 { margin-bottom: 1rem; }
 
+/* Subpages open with their own h1 (the home page's lives in the hero);
+   the global heading sizes already fit, these add the spacing. The
+   narrative pages also use h2 as running subheads inside .prose.
+   Added 2026-08-06 with the about page. */
+.band h1 { margin-bottom: 1rem; }
+.prose h2 { margin-top: 2.5rem; }
+.prose > h2:first-child { margin-top: 0; }
+
 /* -------------------------------------------------------------- hero */
 
 .hero { padding-block: clamp(3rem, 8vw, 5.5rem); }

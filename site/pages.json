@@ -1,0 +1,59 @@
+{
+  "site": {
+    "name": "Grounded AI Practice",
+    "base_url": "https://ohps-stack.github.io/grounded-ai-practice/",
+    "og_image": "assets/figures/og_card.png"
+  },
+
+  "nav": [
+    { "page": "evidence", "href": "evidence/", "label": "The numbers" },
+    { "page": "method",   "href": "method/",   "label": "Method" },
+    { "page": "system",   "href": "system/",   "label": "The system" },
+    { "page": "about",    "href": "about/",    "label": "About" },
+    { "url": "https://github.com/OHPS-Stack/grounded-ai-practice", "label": "GitHub", "class": "btn" }
+  ],
+
+  "pages": [
+    {
+      "slug": "index",
+      "fragment": "index.html",
+      "output": "index.html",
+      "url": "",
+      "title": "Grounded AI Practice — independent research on the UK's AI skills gap",
+      "description": "Independent research on the UK's AI skills gap, by someone who tried the official route first. What was promised, what the numbers show, and a better way to learn.",
+      "og_description": "What was promised, what the published numbers show, and whether anyone outside government can check them. Research in the open, sources included."
+    },
+    {
+      "slug": "evidence",
+      "fragment": "evidence.html",
+      "output": "evidence/index.html",
+      "url": "evidence/",
+      "title": "Counted in courses, promised in people — Grounded AI Practice",
+      "description": "What the UK government promised on AI skills, what has actually been counted, and the number that would connect the two. Every source named, with whose interest it serves."
+    },
+    {
+      "slug": "method",
+      "fragment": "method.html",
+      "output": "method/index.html",
+      "url": "method/",
+      "title": "How the research works — Grounded AI Practice",
+      "description": "Four rules this project runs on: facts kept apart from conclusions, every source tagged by who produced it, looking for what would prove a claim wrong, and corrections left visible."
+    },
+    {
+      "slug": "system",
+      "fragment": "system.html",
+      "output": "system/index.html",
+      "url": "system/",
+      "title": "The system behind the research — Grounded AI Practice",
+      "description": "The rules, logs and custom tools the research is produced with, and the gap between how a large organisation deploys AI and what a small firm usually gets."
+    },
+    {
+      "slug": "about",
+      "fragment": "about.html",
+      "output": "about/index.html",
+      "url": "about/",
+      "title": "The story behind the project — Grounded AI Practice",
+      "description": "Four years as a mechanic, an official training route that led to signup pages instead of skills, a first build that collapsed under its own complexity, and the method that came out of it."
+    }
+  ]
+}

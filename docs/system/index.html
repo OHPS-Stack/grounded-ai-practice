@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy"
+      content="default-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#F9F9F9">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#27221E">
+
+<title>The system behind the research — Grounded AI Practice</title>
+<meta name="description"
+      content="The rules, logs and custom tools the research is produced with, and the gap between how a large organisation deploys AI and what a small firm usually gets.">
+
+<link rel="canonical" href="https://ohps-stack.github.io/grounded-ai-practice/system/">
+<link rel="icon" href="../assets/logo_symbol_flat.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/logo_symbol_flat_32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/logo_symbol_flat_256.png">
+<link rel="preload" href="../fonts/public_sans_400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/public_sans_800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../styles.css">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Grounded AI Practice">
+<meta property="og:title" content="The system behind the research — Grounded AI Practice">
+<meta property="og:description"
+      content="The rules, logs and custom tools the research is produced with, and the gap between how a large organisation deploys AI and what a small firm usually gets.">
+<meta property="og:url" content="https://ohps-stack.github.io/grounded-ai-practice/system/">
+<meta property="og:image" content="https://ohps-stack.github.io/grounded-ai-practice/assets/figures/og_card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="../" aria-label="Grounded AI Practice, home page">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="../assets/logo_symbol_reversed.svg">
+        <img src="../assets/logo_symbol_flat.svg" alt="Grounded AI Practice" width="34" height="34">
+      </picture>
+    </a>
+    <nav class="site-nav" aria-label="Site">
+      <ul>
+        <li><a href="../evidence/">The numbers</a></li>
+        <li><a href="../method/">Method</a></li>
+        <li><a href="../system/" aria-current="page">The system</a></li>
+        <li><a href="../about/">About</a></li>
+        <li><a class="btn" href="https://github.com/OHPS-Stack/grounded-ai-practice">GitHub</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ========================================================== system -->
+  <section class="band band-warm" id="system" aria-labelledby="system-h">
+    <div class="container">
+      <span class="eyebrow">The system</span>
+      <h2 id="system-h">The system behind the research</h2>
+      <div class="prose">
+        <p>The most useful thing this project has built is not any single
+        report. It is the way the work is done. The repository holds the
+        project's rules, its logs, and the custom tools built to produce
+        and verify its work, all written so any capable AI assistant can
+        read them and work from them directly. A person reviews every
+        decision. The research on this page came out of that system. The
+        system itself is in the same repository, open to read.</p>
+      </div>
+
+      <div class="sysdiagram">
+        <ul class="sys-col sys-in" aria-label="What the repository holds">
+          <li><span class="icon-well"><img src="../assets/icons/decisions_and_adrs.svg" alt="" width="512" height="512"></span>Working rules and conventions</li>
+          <li><span class="icon-well"><img src="../assets/icons/monitoring_and_logs.svg" alt="" width="512" height="512"></span>Research and decision logs</li>
+          <li><span class="icon-well"><img src="../assets/icons/tools_and_configuration.svg" alt="" width="512" height="512"></span>Custom tools</li>
+          <li><span class="icon-well"><img src="../assets/icons/storage.svg" alt="" width="512" height="512"></span>Project memory</li>
+        </ul>
+        <div class="sys-arrow" aria-hidden="true"></div>
+        <div class="sys-engine">
+          <span class="icon-well"><img src="../assets/icons/ai_assistant.svg" alt="" width="512" height="512"></span>
+          <span>Any capable AI assistant</span>
+        </div>
+        <div class="sys-arrow" aria-hidden="true"></div>
+        <ul class="sys-col sys-out" aria-label="What it produces">
+          <li><span class="icon-well"><img src="../assets/icons/export_and_publishing.svg" alt="" width="512" height="512"></span>Research reports</li>
+          <li><span class="icon-well"><img src="../assets/icons/learning_and_documentation.svg" alt="" width="512" height="512"></span>Learning units</li>
+          <li><span class="icon-well"><img src="../assets/icons/local_ai.svg" alt="" width="512" height="512"></span>Custom local tools</li>
+        </ul>
+        <div class="sys-gate">
+          <span class="icon-well"><img src="../assets/icons/verification.svg" alt="" width="512" height="512"></span>
+          A person reviews every decision
+        </div>
+      </div>
+      <p class="small syscaption">The repository read as a system, rather
+      than as a folder of documents.</p>
+
+      <div class="prose">
+        <p>The gap is not only who uses AI, but how. A large organisation
+        typically gives models its own data to work from, connects them
+        to the systems it already runs, builds custom agents for specific
+        jobs, and sets rules for how output is checked. A small firm
+        usually gets the chat box. The OECD's case studies describe most
+        small firms using embedded AI tools for peripheral tasks, and
+        among small and medium firms using generative AI, only 29% report
+        using it in their core activities.</p>
+      </div>
+
+      <div class="compare">
+        <div class="compare-col">
+          <h3>How a large organisation typically deploys AI</h3>
+          <ul>
+            <li><span class="icon-well"><img src="../assets/icons/files.svg" alt="" width="512" height="512"></span>Models work from the organisation's own data</li>
+            <li><span class="icon-well"><img src="../assets/icons/api_and_mcp.svg" alt="" width="512" height="512"></span>Connected to the systems it already runs</li>
+            <li><span class="icon-well"><img src="../assets/icons/workflow_and_automation.svg" alt="" width="512" height="512"></span>Custom agents for specific jobs, with rules and review</li>
+          </ul>
+        </div>
+        <div class="compare-col">
+          <h3>What a small firm usually gets</h3>
+          <ul>
+            <li><span class="icon-well"><img src="../assets/icons/cloud_ai.svg" alt="" width="512" height="512"></span>A general chat tool, off the shelf</li>
+            <li><span class="icon-well"><img src="../assets/icons/models.svg" alt="" width="512" height="512"></span>The same model as everyone else, with none of its own context</li>
+            <li><span class="icon-well"><img src="../assets/icons/security_and_privacy.svg" alt="" width="512" height="512"></span>No agreed rules for checking what comes back</li>
+          </ul>
+        </div>
+      </div>
+      <p class="small syscaption">Typical patterns rather than universals:
+      the OECD's case studies find small firms at every level of AI
+      maturity.</p>
+
+      <div class="prose">
+        <p>The direction adopted in August 2026 is to close that gap for
+        small organisations and individuals: proper use of the AI tools
+        now available to them, optimising the context a model is given
+        for each task, and custom tools and workflows built for the job
+        in hand. Some of those run entirely on the organisation's own
+        machines, which cuts usage cost, increases privacy and reduces
+        reliance on cloud services. None of it is exotic. It is the
+        pattern large firms already use, scaled to a small one.</p>
+      </div>
+
+      <figure class="panel">
+        <picture>
+          <source media="(prefers-color-scheme: dark)" srcset="../assets/figures/adoption_gap_dark.svg">
+          <img src="../assets/figures/adoption_gap.svg"
+               width="960" height="492" loading="lazy"
+               alt="Bar chart of the share of firms using AI across the OECD area, 2024 or latest available year: large firms with 250 or more employees, 40 per cent; medium firms with 50 to 249 employees, 20.4 per cent; small firms with 10 to 49 employees, 11.9 per cent.">
+        </picture>
+        <figcaption>Across the OECD, small firms adopt AI at less than a
+        third of the rate of large ones. Those firms are who this project
+        designs for.</figcaption>
+      </figure>
+
+      <div class="prose">
+        <p class="small">This is a direction, not a finished product.
+        Whether small organisations want this, and what they would pay
+        for, is still an open question, and the log records it as
+        one.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="foot-cols">
+      <div class="foot-mark">
+        <img src="../assets/logo_wordmark_reversed.svg" alt="Grounded AI Practice" width="963" height="358">
+      </div>
+      <nav aria-label="Repository links">
+        <ul>
+          <li><a href="https://github.com/OHPS-Stack/grounded-ai-practice">GitHub repository</a></li>
+          <li><a href="https://github.com/OHPS-Stack/grounded-ai-practice/blob/main/research_log.md">Research log</a></li>
+          <li><a href="https://github.com/OHPS-Stack/grounded-ai-practice/blob/main/project_brief.md">Project brief</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="legal">
+      <p>This site sets no cookies, runs no scripts and loads nothing from
+      third parties. Its host, GitHub Pages, logs visitor IP addresses for
+      security. See the
+      <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement">GitHub
+      privacy statement</a>.</p>
+      <p class="mt-s">Research and document production are AI-assisted,
+      with human review at every decision point.</p>
+      <p class="mt-s">Independent research project · United Kingdom ·
+      2026</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
