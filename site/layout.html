@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy"
-      content="default-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+      content="default-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'self'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F9F9F9">
@@ -21,6 +21,7 @@
 <link rel="preload" href="{{root}}fonts/public_sans_400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{{root}}fonts/public_sans_800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{{root}}styles.css">
+<script src="{{root}}theme.js"></script>
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="{{site_name}}">
@@ -49,6 +50,7 @@
     <nav class="site-nav" aria-label="Site">
       <ul>
 {{nav}}
+        <li><button type="button" class="theme-toggle" id="theme-toggle" hidden>Theme: auto</button></li>
       </ul>
     </nav>
   </div>
@@ -75,9 +77,10 @@
       </nav>
     </div>
     <div class="legal">
-      <p>This site sets no cookies, runs no scripts and loads nothing from
-      third parties. Its host, GitHub Pages, logs visitor IP addresses for
-      security. See the
+      <p>This site sets no cookies and loads nothing from third parties.
+      Its one script is the theme switch in the header, which stores your
+      choice on this device and sends nothing anywhere. Its host, GitHub
+      Pages, logs visitor IP addresses for security. See the
       <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement">GitHub
       privacy statement</a>.</p>
       <p class="mt-s">Research and document production are AI-assisted,

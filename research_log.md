@@ -190,6 +190,10 @@ Full citation is given once here; log entries below cite the short tag only.
 | `[PMLTW25-VIDEO]` | Government/Official content via Broadcast/Commercial host (Sky News upload of the speech) | Sky News, "Starmer says artificial intelligence 'makes us more human' — London Tech Week speech", YouTube `KB4DzJhHZU8`, 45m24s — **NOT read.** The only caption track is auto-generated (ASR); YouTube returns HTTP 200 with an empty body to every programmatic caption request, signed out, across all formats. Auto-captions would in any case be an unsafe basis for quoting a head of government, since ASR mis-renders exactly the numbers this project cites. Any use requires the timestamped-verification protocol in `CLAUDE.md`. |
 | `[TECHFIRST25]` | Government/Official (No.10/DSIT press release) | "PM launches national skills drive to unlock opportunities for young people in tech", 8 June 2025 — PRIMARY, read via targeted extraction. States "£187 million" for TechFirst and "7.5 million UK workers to gain essential AI skills by 2030 through industry partnership". gov.uk |
 | `[OPENBADGES]` | Independent/Reference (an open technical standard) | Mozilla Open Badges, published 15 September 2011 with MacArthur Foundation funding; version 1.0 in 2012; stewardship passed to IMS Global, now 1EdTech, in 2017. Used here only to date the technology, not as evidence about its effectiveness. |
+| `[MVBEO-2023]` | Government/Official | The Competition Act 1998 (Motor Vehicle Agreements Block Exemption) Order 2023, SI 2023/501 — PRIMARY, provisions read directly via legislation.gov.uk (made version). In force 1 June 2023, expires 31 May 2029. legislation.gov.uk/uksi/2023/501/made |
+| `[EU-858-UK]` | Government/Official (UK retained EU law) | Regulation (EU) 2018/858, Article 61 (access to vehicle OBD and repair and maintenance information), UK retained version stated up to date to 5 Aug 2026 — PRIMARY, article read directly. legislation.gov.uk/eur/2018/858/article/61 |
+| `[SERMI-UK26]` | Advocacy/Membership body (Independent Garage Association — operator of the UK scheme and trade body for the independent sector, so an interested party in its own launch claims) | "SERMI Now Live: A Momentous Day for Independent Garages", sermi.co.uk, 2026 — PRIMARY for the scheme's own account, read directly. UK go-live 1 April 2026. sermi.co.uk/sermi-now-live-a-momentous-day-for-independent-garages/ |
+| `[CMA-MVA-GUIDE23]` | Government/Official | CMA, *Guidance on Motor Vehicle Agreements*, June 2023 — located and cited as corroboration of `[MVBEO-2023]` only; **not yet read in full**. assets.publishing.service.gov.uk/media/647d9cb15f7bb700127fa41a/2.0_CMA_Guidance_on_Motor_Vehicle_Agreements.pdf |
 
 ---
 
@@ -4743,3 +4747,86 @@ it ever grows its own open-items list.*
 - **Effect on project direction:** The chart's promise lane carries
   the milestone "The Prime Minister leaves office (June 2026); the
   target stands." Source key gains `[STARMER-RESIGN26]`.
+
+### Entry 067 — Vehicle diagnostic access: the law compels it, the practice gates it
+
+- **Date logged:** 2026-08-07
+
+- **Priority / Question:** Not tied to a numbered research priority —
+  verifies a first-person claim published on the site's about page (that
+  modern vehicle diagnosis is increasingly gated by manufacturer tools,
+  software and access agreements), and tests the stronger version of it
+  before any external use.
+
+- **Source:** `[MVBEO-2023]`, `[EU-858-UK]`, `[SERMI-UK26]`;
+  `[CMA-MVA-GUIDE23]` as corroboration only.
+
+- **Checked date:** 2026-08-07
+
+- **What the sources directly support:**
+
+  - **The legal baseline is access, not lockout.** UK retained
+    Regulation 2018/858 Article 61 obliges manufacturers to provide
+    "unrestricted, standardised and non-discriminatory access to vehicle
+    OBD information, diagnostic and other equipment, tools", in
+    machine-readable and electronically processable form, with vehicle
+    repair records available to independent repairers free of charge.
+
+  - **Restricting that access is treated as an antitrust problem.** The
+    Motor Vehicle Block Exemption Order 2023 (in force 1 June 2023,
+    expires 31 May 2029) makes a restriction of an independent
+    operator's ability to access information, tools or training an
+    *excluded restriction*, where it disadvantages them compared with
+    authorised repairers. Article 6(6) defines repair and maintenance
+    information to include vehicle-generated data and the information
+    needed to interpret it, and defines independent operators broadly.
+
+  - **Security-related functions had no independent route in the UK
+    until 2026.** Key programming, immobiliser work and security-module
+    coding sat behind manufacturer authorisation until the SERMI scheme
+    went live in the UK on 1 April 2026, operated by the Independent
+    Garage Association with 22 brands supporting at launch. Access
+    requires business vetting, audit, and a five-year digital
+    certificate per technician.
+
+  - The scheme's operator describes the timeline as "17 years of
+    sustained effort to secure fair access to essential vehicle data"
+    (`[SERMI-UK26]`).
+
+- **Inference drawn (each this entry's own):**
+
+  1. The about page's published wording is supported in each part: the
+     data sits with the manufacturer (the MVBEO had to define it into
+     reach), the tools and software are the manufacturer's, and access
+     runs through agreements, credentials and schemes.
+
+  2. Two decades of repeated regulatory intervention against access
+     restriction is evidence that restriction pressure is real and
+     persistent enough to legislate against more than once.
+
+  3. The creator's years in the trade pre-date the UK SERMI route
+     entirely, so the testimony describes the period before the remedy
+     rather than the position today.
+
+- **Limitations / conflicting evidence:** The **intent** claim — that
+  manufacturers make diagnosis hard deliberately in order to exclude
+  independents — is **not** established here and remains the creator's
+  own read, held in the internal notes rather than published. Regulators
+  legislating against a behaviour evidences its effect, not its motive;
+  vehicle security and liability are genuine competing explanations for
+  gating, which is why SERMI vets rather than opens. The flat claim that
+  independents cannot diagnose modern cars would be false: the supported
+  form is that access exists, is legally compelled, is credentialed and
+  conditional in practice, and arrived for security functions in the UK
+  only in April 2026. `[CMA-MVA-GUIDE23]` is unread in full.
+  `[SERMI-UK26]` is the scheme operator describing its own launch, so
+  its framing is interested even where its dates are checkable. EU-side
+  developments after 2022 are not retained UK law and were not verified.
+
+- **Effect on project direction:** The about page needs no correction —
+  it states the structure and withholds the motive, which is what the
+  evidence supports. The stronger form must not be used externally,
+  including in LinkedIn material, unless explicitly framed as personal
+  opinion. Source key gains four rows. The workshop-to-research parallel
+  the about page draws now has a citable regulatory record behind its
+  vehicle half.

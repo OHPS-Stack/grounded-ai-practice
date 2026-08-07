@@ -4,7 +4,8 @@ This folder is the public landing site. GitHub Pages serves it from
 `/docs` on `main`, and the same files will answer for
 `groundedaipractice.co.uk` once the domain is pointed at it. That step
 is a separate decision, recorded in `project_log.md`. Plain HTML and
-CSS. No framework, no JavaScript.
+CSS. No framework, and exactly one script: the theme switch, described
+under Security below.
 
 **The HTML in this folder is generated.** Pages are assembled from
 `site/` by `tools/build_site_pages.py`, which holds the header, nav and
@@ -44,6 +45,10 @@ Everything the pages load lives in this folder.
   session earns its place. The `figure.replica` CSS is still here for
   that.
 
+- `theme.js` is the theme switch: one localStorage key, no network
+  requests, and it also swaps the dark logo and figure variants, which
+  follow the system query rather than the override without it.
+
 - The web fonts are Public Sans subsets built by
   `tools/build_site_fonts.py` from the locally installed faces. The
   licence ships beside them and the build refuses to run without it.
@@ -60,13 +65,18 @@ python tools/build_site_fonts.py
 
 The site's main defence is having almost nothing to attack.
 
-- No JavaScript, no cookies, no third-party requests. Every asset is
-  served from the same origin, the fonts included.
+- No cookies, no third-party requests, and one first-party script:
+  `theme.js`, the theme switch. It stores a single preference in the
+  browser's localStorage, makes no network requests, and without
+  JavaScript the button never appears and the site works exactly as
+  before. Every asset is served from the same origin, the fonts
+  included.
 
 - A Content-Security-Policy `<meta>` tag sets `default-src 'none'`,
-  with images, styles and fonts limited to `'self'`, plus
+  with images, styles, fonts and scripts limited to `'self'`, plus
   `base-uri 'none'` and `form-action 'none'`. The policy forbids inline
-  styles and scripts, so the pages use none.
+  styles and scripts, so the pages carry none: the one script is an
+  external same-origin file.
 
 - Referrer-Policy is `no-referrer`, so outbound clicks carry no URL
   data.
@@ -88,7 +98,7 @@ If the site later moves to a host that can send headers, add these and
 drop the two `<meta>` tags in their favour:
 
 ```
-Content-Security-Policy: default-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
+Content-Security-Policy: default-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
 X-Content-Type-Options: nosniff
 Referrer-Policy: no-referrer
 Permissions-Policy: camera=(), microphone=(), geolocation=()
@@ -126,8 +136,12 @@ reads to a screen reader like any other text.
 `tools/build_site_figures.py` audits every palette pair the site
 relies on against WCAG 2.1 AA and refuses to build on a failure; the
 printed ratios are the site's accessibility record. Dark mode follows
-the visitor's system setting. There is no toggle, because a toggle
-needs JavaScript the site otherwise has no reason to carry.
+the visitor's system setting, with a manual override in the header
+cycling auto, light and dark. The override earned its place the day a
+pinned browser scheme made half the site unreachable during review:
+some browsers report one scheme regardless of the operating system,
+and a visitor in that position could otherwise never see the other
+theme. It is the reason the site carries its one script.
 
 ## Adding a learning unit
 

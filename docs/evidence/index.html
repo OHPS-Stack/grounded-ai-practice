@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy"
-      content="default-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+      content="default-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'self'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F9F9F9">
@@ -21,6 +21,7 @@
 <link rel="preload" href="../fonts/public_sans_400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../fonts/public_sans_800.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../styles.css">
+<script src="../theme.js"></script>
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Grounded AI Practice">
@@ -53,6 +54,7 @@
         <li><a href="../system/">The system</a></li>
         <li><a href="../about/">About</a></li>
         <li><a class="btn" href="https://github.com/OHPS-Stack/grounded-ai-practice">GitHub</a></li>
+        <li><button type="button" class="theme-toggle" id="theme-toggle" hidden>Theme: auto</button></li>
       </ul>
     </nav>
   </div>
@@ -64,8 +66,13 @@
   <section class="band band-tint" id="evidence" aria-labelledby="evidence-h">
     <div class="container">
       <span class="eyebrow">The numbers</span>
-      <h2 id="evidence-h">Counted in courses, promised in people</h2>
+      <h1 id="evidence-h">Counted in courses, promised in people</h1>
       <div class="prose">
+        <p>This page holds the checkable core of the research: what was
+        promised, what has been counted, and who did the counting. My
+        own experience of the training platform is on
+        <a href="../about/">the about page</a>, and nothing below
+        rests on it.</p>
         <p>In June 2025 the government announced a training partnership
         with eleven technology companies, Microsoft, Google, Amazon and
         IBM among them, and a promise to train 7.5&nbsp;million workers
@@ -126,13 +133,19 @@
         <p>What the figures leave out matters as much as what they show.
         Nothing published says how many individual people were trained,
         what counts as a completed course, or which company delivered
-        what. The question here is deliberately narrow: can anyone outside
-        government check these claims? Whether the ambition is right is a
-        separate argument, and it is not the one being made.</p>
+        what. The question here is deliberately narrow: can anyone
+        outside government check these claims? Whether the ambition is
+        right is a separate argument, and it is not the one I am
+        making.</p>
       </div>
+    </div>
+  </section>
 
+  <!-- ======================================================= interests -->
+  <section class="band" aria-labelledby="interests-h">
+    <div class="container">
+      <h2 id="interests-h">Who builds it, and who supplies the evidence</h2>
       <div class="prose">
-        <h3>Who builds it, and who supplies the evidence</h3>
         <p>The government commissioned PwC to design, build and run the
         AI Skills Hub, the platform the training sits on. The White Paper
         making the case for that work drew its skills-gap evidence mainly
@@ -172,9 +185,10 @@
       </nav>
     </div>
     <div class="legal">
-      <p>This site sets no cookies, runs no scripts and loads nothing from
-      third parties. Its host, GitHub Pages, logs visitor IP addresses for
-      security. See the
+      <p>This site sets no cookies and loads nothing from third parties.
+      Its one script is the theme switch in the header, which stores your
+      choice on this device and sends nothing anywhere. Its host, GitHub
+      Pages, logs visitor IP addresses for security. See the
       <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement">GitHub
       privacy statement</a>.</p>
       <p class="mt-s">Research and document production are AI-assisted,

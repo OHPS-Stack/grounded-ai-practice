@@ -3632,3 +3632,177 @@ no external citation:
   the commit format, and its extraction-pass line moves to today. Future
   commits follow the format; future references to commits use titles,
   not hashes.
+
+### Entry 061 — External peer review: the site redrafted in first person around the origin story
+
+- **Date logged:** 2026-08-07
+
+- **Priority / Question:** The landing site and the project's outward
+  register. Second external review of the project's written work, and
+  the first of the site.
+
+- **Source:** Trusted-peer feedback relayed by the creator, 2026-08-07
+  (peer unnamed by design); creator rulings the same day.
+
+- **What happened:**
+
+  1. The peer judged the site professional, well reasoned and
+     genuinely valuable primary research; found the personal origin
+     story missing and said it should be central, given that the
+     project's present value is substantially as a portfolio piece, a
+     framing the creator endorsed; and flagged prose reading as
+     AI-generated, naming two passages in the system section.
+
+  2. The diagnosis the creator set out and Claude accepted: the
+     register rules were being applied at constant density. Exact
+     mimicry of the creator's own tics, applied uniformly, reads as
+     more AI-generated rather than less. Entry 042's external review
+     had caught the opposite failure, abstract and over-qualified, and
+     the rules written in response overcorrected into this one.
+
+  3. A second defect in the flagged passages, found on inspection:
+     both were conclusions about concepts the page had never
+     introduced. For a project whose output is teaching, prose that
+     performs conclusions instead of explaining them contradicts its
+     own purpose.
+
+  4. Creator rulings: redraft the whole site's prose; first person
+     throughout; the origin story leads the home page and gets its own
+     about page; the mechanic-to-researcher arc is published,
+     exercising the option Entry 049's limitations deliberately left
+     open on 2026-07-29; structure and tooling unchanged.
+
+  5. A framing rule was set for the trade narrative and recorded with
+     the primary account internally: nothing published may imply the
+     previous employer lacked diagnostic rigour. The supported framing,
+     that diagnosis is gated by manufacturer tools, software and access
+     agreements, was then evidenced at `research_log.md` Entry 067,
+     which also confirmed the motive version stays unpublished.
+
+- **Inference drawn:** A style rule has now failed in both directions,
+  hedged in Entry 042 and uniform here. The durable lesson is that any
+  register applied at constant density reads synthetic, including the
+  author's own; the `CLAUDE.md` refinement written from this pass
+  carries it.
+
+- **Limitations / conflicting evidence:** One reviewer, and register
+  judgement is partly taste. The control is that the creator reviewed
+  every redrafted block, correcting the workshop passage twice before
+  approving it.
+
+- **Effect on project direction:** The site speaks as its author on
+  every page. Candidate teaching material flagged for the prompting
+  unit: two external reviews producing opposite failures of the same
+  rule is a better lesson about instructions than either alone.
+
+### Entry 062 — The site becomes multi-page: assembler tool, page split, about page
+
+- **Date logged:** 2026-08-07
+
+- **Priority / Question:** Landing-site infrastructure, following the
+  creator's decision that the site is the project's primary output
+  rather than a landing page, and will later host the gated pilot on
+  its own subdomain.
+
+- **Source:** Creator decisions, 2026-08-07.
+
+- **What happened:**
+
+  1. `tools/build_site_pages.py` assembles `docs/` from `site/`
+     sources: one shared shell, one fragment per page, plain HTML out,
+     and nothing written unless every page passes every check. Jekyll
+     was considered and declined on the project's own grounds. GitHub
+     Pages runs it free, but it can only be verified after publishing,
+     and this project verifies before. The rebuilt single page was
+     proved identical to the reviewed original before any splitting,
+     which is what made the split safe.
+
+  2. Split into home, evidence, method, system and about, each with
+     its own `h1`, restoring the heading order the one-page structure
+     had left broken. About joined the nav; a hidden portfolio page
+     would defeat its purpose.
+
+  3. The about page was drafted from the internal primary account and
+     Entries 049 and 025, through creator review. Constraints held: no
+     dates, since the experience is not precisely dated; the unpinned
+     "1 million delivered" figure omitted; the employer and the IT
+     consultant unnamed. The page states plainly that it describes the
+     platform as found then, that testimony is not data, and that the
+     checkable claims live elsewhere and do not rest on it.
+
+  4. Hosting was settled: one site, plain portable static files, on
+     Pages for now, with the gated pilot to sit on its own subdomain
+     when it exists. Portability comes from how the site is built
+     rather than where it is hosted, so nothing is trapped.
+
+  5. The approved state was committed as a checkpoint before an
+     autonomous overnight pass, so that everything produced unattended
+     stayed individually reviewable and reversible.
+
+- **Inference drawn:** None — build and decision record.
+
+- **Limitations / conflicting evidence:** GitHub Pages serves
+  `404.html` for nested missing paths, where that page's relative
+  asset links resolve wrongly. The fix belongs with the custom-domain
+  work and is parked until then.
+
+- **Effect on project direction:** `docs/README.md` and `CLAUDE.md`
+  updated to match. The description of the site as one page is retired
+  everywhere it appeared.
+
+### Entry 063 — Autonomous overnight pass: remaining pages redrafted, theme toggle, preview-cache fix
+
+- **Date logged:** 2026-08-07
+
+- **Priority / Question:** Completing the site, executed autonomously
+  while the creator rested, under rails agreed first: nothing committed
+  beyond the approved checkpoint, nothing pushed or published, no edits
+  to the logs or `CLAUDE.md`, and research staged rather than appended.
+
+- **Source:** Creator direction, 2026-08-07.
+
+- **What happened:**
+
+  1. System, evidence and method redrafted in first person, including
+     both peer-flagged passages. The OECD claims were re-read from
+     Entry 065 at drafting time, per the re-read rule, and the 29%
+     sentence now tracks that entry's generative-AI scope exactly. The
+     evidence page was deliberately the lightest touch, since its
+     factual sentences had already been reviewed.
+
+  2. The theme toggle the creator asked for at the start of the day:
+     one external script, `script-src 'self'` added to the policy,
+     dark values duplicated behind a `data-theme` override, and the
+     `<picture>` dark sources switched by script because they follow
+     the system query rather than the override. That is the same
+     mismatch found earlier in the day, when a browser's pinned theme
+     made half the site unreachable. The button is hidden entirely
+     without JavaScript. The footer privacy line and `docs/README.md`
+     were rewritten in the same pass, so that no published claim
+     outlived the change it described.
+
+  3. Two defects found beyond the agreed scope and fixed. The 404 page
+     still told visitors the site was a single page. And the preview
+     server allowed browser caching, so a rebuilt page rendered
+     against a stale stylesheet and the new toggle appeared broken
+     when it was not; `tools/serve_site.py` now serves `docs/` with
+     caching disabled, and `.claude/launch.json` runs it.
+
+  4. Verification: every page at three widths in both themes, no
+     horizontal overflow, correct breakpoint behaviour, and the toggle
+     checked end to end including persistence across reload.
+     Screenshots were unavailable, since the browser pane does not
+     composite unattended, so the evidence is measurement, the same
+     method as the figure geometry checks.
+
+- **Inference drawn:** None — production record.
+
+- **Limitations / conflicting evidence:** The pass produced one
+  deliberate rule exception: `tools/serve_site.py` was written without
+  its `CLAUDE.md` index entry, because `CLAUDE.md` was off-limits
+  overnight. The entry landed with this one, closing the gap in the
+  same commit rather than the same edit.
+
+- **Effect on project direction:** The site is redrafted in one voice
+  across every page, and the rendered review that gates enabling Pages
+  is the only step left before publication decisions resume.

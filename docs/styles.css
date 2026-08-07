@@ -74,8 +74,12 @@
   color-scheme: light dark;
 }
 
+/* Dark values appear twice: once behind the system query (unless the
+   visitor has overridden to light) and once behind the manual override
+   (docs/theme.js sets data-theme on <html>). Keep the two blocks
+   identical when editing either. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: var(--ink);
     --text: var(--paper);
     --muted: var(--mist);
@@ -85,6 +89,17 @@
     --card: color-mix(in srgb, var(--ink) 88%, white);
     --hairline: color-mix(in srgb, var(--stone) 55%, transparent);
   }
+}
+
+:root[data-theme="dark"] {
+  --bg: var(--ink);
+  --text: var(--paper);
+  --muted: var(--mist);
+  --faint: color-mix(in srgb, var(--mist) 80%, var(--ink));
+  --band: color-mix(in srgb, var(--ink) 94%, white);
+  --band-warm: color-mix(in srgb, var(--ink) 90%, var(--ember));
+  --card: color-mix(in srgb, var(--ink) 88%, white);
+  --hairline: color-mix(in srgb, var(--stone) 55%, transparent);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -217,6 +232,22 @@ a:hover {
 }
 
 .site-nav a:hover { text-decoration: underline; text-decoration-color: var(--ember); text-decoration-thickness: 2px; }
+
+/* The theme switch. Hidden until docs/theme.js reveals it, so a
+   visitor without JavaScript never sees a button that does nothing. */
+.theme-toggle {
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: inherit;
+  background: none;
+  border: 2px solid var(--hairline);
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.7rem;
+  cursor: pointer;
+}
+
+.theme-toggle:hover { border-color: var(--ember); }
 
 /* ------------------------------------------------------------ buttons */
 
@@ -498,12 +529,19 @@ ol.flow li::before {
 }
 
 @media (prefers-color-scheme: dark) {
-  .sys-in li { background: var(--card); color: var(--text); }
-  .sys-out li {
+  :root:not([data-theme="light"]) .sys-in li { background: var(--card); color: var(--text); }
+  :root:not([data-theme="light"]) .sys-out li {
     background: var(--card);
     color: var(--text);
     border-left: 3px solid var(--sage);
   }
+}
+
+:root[data-theme="dark"] .sys-in li { background: var(--card); color: var(--text); }
+:root[data-theme="dark"] .sys-out li {
+  background: var(--card);
+  color: var(--text);
+  border-left: 3px solid var(--sage);
 }
 
 /* ------------------------------------------------------------ callout */
@@ -614,8 +652,10 @@ figure.replica img { width: 100%; }
 }
 
 @media (prefers-color-scheme: dark) {
-  .site-footer { border-top: 1px solid var(--hairline); }
+  :root:not([data-theme="light"]) .site-footer { border-top: 1px solid var(--hairline); }
 }
+
+:root[data-theme="dark"] .site-footer { border-top: 1px solid var(--hairline); }
 
 /* ------------------------------------------------------------- print */
 
