@@ -5,5 +5,9 @@
 # platform. Without this, autocrlf checks them out as CRLF on Windows, the
 # builder rewrites them as LF, and git reports the file as modified when its
 # content is identical.
-docs/*.html text eol=lf
+docs/**/*.html text eol=lf
+
+# GitHub Pages reads docs/CNAME literally. A stray CR makes the domain not
+# match and the site falls back to the github.io URL, so pin it to LF.
+docs/CNAME text eol=lf
 
