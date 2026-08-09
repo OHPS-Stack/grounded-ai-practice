@@ -1,11 +1,10 @@
 # The landing site
 
 This folder is the public landing site. GitHub Pages serves it from
-`/docs` on `main`, and the same files will answer for
-`groundedaipractice.co.uk` once the domain is pointed at it. That step
-is a separate decision, recorded in `project_log.md`. Plain HTML and
-CSS. No framework, and exactly one script: the theme switch, described
-under Security below.
+`/docs` on `main`, and it answers for **`groundedaipractice.co.uk`**,
+which is the site's canonical address. Plain HTML and CSS. No
+framework, and exactly one script: the theme switch, described under
+Security below.
 
 **The HTML in this folder is generated.** Pages are assembled from
 `site/` by `tools/build_site_pages.py`, which holds the header, nav and
@@ -105,27 +104,43 @@ Permissions-Policy: camera=(), microphone=(), geolocation=()
 Strict-Transport-Security: max-age=31536000; includeSubDomains
 ```
 
-## Custom domain, in the safe order
+## Custom domain
 
-The domain also carries the project's mailbox. Only ever add records;
-never change MX or existing TXT records.
+Attached and live. DNS is at the registrar, which also serves the
+project's Microsoft 365 mailbox from the same zone — so **only ever add
+or edit the website records.** Never touch `MX`, anything beginning
+`v=spf1`, `_dmarc`, or any name containing `domainkey`. Deleting one
+breaks mail silently, with no error and no bounce.
 
-1. **Verify the domain first.** GitHub account settings, Pages, add
-   `groundedaipractice.co.uk` as a verified domain. Add the TXT record
-   GitHub specifies at the DNS host, wait for it to propagate, verify.
-   Keep the record afterwards. An [unverified domain can be claimed by
-   someone
-   else](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages)
-   if it ever comes unlinked.
+The records the site depends on:
 
-2. **Point DNS.** Four `A` records on the bare domain to GitHub's
-   Pages addresses, and a `www` CNAME to `ohps-stack.github.io`. Never
-   use the registrar's domain forwarding for this; it breaks HTTPS.
+- Four `A` records on the apex to GitHub's Pages addresses
+  (`185.199.108.153` through `185.199.111.153`).
 
-3. **Attach and encrypt.** Set the custom domain in the repository's
-   Pages settings, wait for the DNS check and the certificate, then
-   tick "Enforce HTTPS". Update `canonical` and the `og:` URLs in
-   `index.html` to the domain.
+- A `www` CNAME to `ohps-stack.github.io`.
+
+- `docs/CNAME`, which is what actually attaches the domain — setting it
+  in the repository's Pages settings does the same thing by writing
+  that file.
+
+Two things to know if this is ever rebuilt or moved:
+
+- **Never use the registrar's domain forwarding.** It looks equivalent
+  and it breaks HTTPS, because a certificate cannot be issued for a
+  name that redirects rather than resolves.
+
+- **Attach before worrying about verification.** GitHub's account-level
+  domain verification protects the domain if it ever comes unlinked,
+  and the TXT record should be kept. But a domain whose `A` records
+  point at Pages while it belongs to no repository is in exactly the
+  window where [another repository can claim
+  it](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages),
+  so attaching is the way out of that window rather than something to
+  defer until verification completes.
+
+`base_url` in `site/pages.json` feeds `canonical` and the `og:` URLs.
+Changing the domain means changing it there and rebuilding, not editing
+the generated HTML.
 
 ## Accessibility
 

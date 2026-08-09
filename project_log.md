@@ -3806,3 +3806,142 @@ no external citation:
 - **Effect on project direction:** The site is redrafted in one voice
   across every page, and the rendered review that gates enabling Pages
   is the only step left before publication decisions resume.
+
+### Entry 064 — The landing site goes live on groundedaipractice.co.uk
+
+- **Date logged:** 2026-08-08
+
+- **Priority / Question:** Publication decisions, resumed after the
+  rendered review gate that closed Entry 063.
+
+- **Source:** Creator decision and session work, 2026-08-08.
+
+- **What happened:** The domain was attached and the site published.
+  Pages was already serving from `/docs`, so the work was DNS and the
+  repo-side switch.
+
+  At the registrar: four `A` records on the apex to GitHub's Pages
+  addresses, the `www` `CNAME` retargeted from the apex to
+  `ohps-stack.github.io`, and GitHub's verification `TXT` added. The
+  domain also carries a Microsoft 365 mailbox, so eleven email records
+  were identified and left alone, and `MX` was re-checked after every
+  change.
+
+  Repo side: `docs/CNAME` added and `base_url` in `site/pages.json`
+  switched from the github.io project URL to the domain. Nav and asset
+  links were already relative, so nothing else needed touching — the
+  `{{root}}` design in `tools/build_site_pages.py` paid for itself
+  here. A latent defect surfaced in the same pass: the line-ending rule
+  in `.gitattributes` matched only `docs/*.html`, so the four pages in
+  subdirectories were checked out CRLF, rewritten LF by the builder,
+  and reported as modified when their content was identical.
+
+  Verified over the live domain rather than assumed: apex 200 with a
+  valid certificate, `http` and `www` both 301 to it, all four subpages
+  200, the custom 404 returning a real 404 status, stylesheet and
+  subset web fonts loading, no broken images, and the `og` card
+  reachable. Enforce HTTPS ticked.
+
+  One documented step was found to be in the wrong order.
+  `docs/README.md` said to verify the domain with GitHub before
+  pointing DNS. That is correct from a clean start, but once the `A`
+  records are live and the domain is not yet attached to a repository,
+  the site sits in precisely the window where another repository can
+  claim it — so attaching is the way out of that window, not something
+  to hold back pending verification. The README now says so.
+
+- **Inference drawn:** None — production record.
+
+- **Limitations / conflicting evidence:** A defect was found in the
+  zone that belongs to the mailbox rather than the site: the `SPF`
+  record authorises GoDaddy's mail servers while `MX` delivers to
+  Microsoft 365, so mail sent from Microsoft 365 fails `SPF` against a
+  hard fail. `DKIM` is configured for Microsoft and should carry
+  `DMARC`, so delivery is probably unaffected — but the margin is one
+  broken signature wide. Left unchanged and recorded as a separate
+  task. A live mailbox is not something to edit in passing.
+
+- **Effect on project direction:** The site is public at its own
+  domain. Posting the link anywhere remains a per-item decision.
+
+### Entry 065 — Ubuntu installed on the server; hardware record corrected in four places
+
+- **Date logged:** 2026-08-08
+
+- **Priority / Question:** Priority 6 — the server build reaching a
+  working base for the first time.
+
+- **Source:** Session work at the machine, 2026-08-08.
+
+- **What happened:** Ubuntu 26.04 LTS was installed to the NVMe in UEFI
+  mode. The machine now boots to its own desktop with no boot menu, and
+  drives the projector through the receiver with wireless input from
+  across the room.
+
+  The session opened on a false premise. The build was believed to have
+  Ubuntu installed and merely a boot-order problem, since it needed
+  `F11` at every power-on. The boot menu showed no `ubuntu` firmware
+  entry at all, and booting the NVMe reached an abandoned Windows 10/11
+  setup. Ubuntu had never been installed — every prior session had been
+  running the live USB, which leaves nothing behind, and that is why
+  the setup never appeared to finish.
+
+  Four corrections to the hardware record follow, each observed rather
+  than inferred:
+
+  1. **The system drive is a Crucial P1 500 GB NVMe (`CT500P1SSD8`),
+     not the WD Blue 500 GB M.2 SATA** recorded throughout the build
+     documents. It uses PCIe lanes, so the standing open question about
+     which SATA port the M.2 module disables is void, and all four SATA
+     ports are available.
+
+  2. **Windows sits on the 500 GB Seagate, not the 2 TB** — the
+     firmware entry reads `Windows Boot Manager (ST500DM002-1BD142)`.
+     Both drives carry GPT layouts with Microsoft reserved partitions,
+     so neither is the legacy MBR Windows 7 install the recovery plan
+     assumed.
+
+  3. **There are four spare drives, not three.** The two unknown
+     capacities are now known: 320 GB `ST3320418AS` (2010) and 160 GB
+     Hitachi `HDS721016CLA382` (2010), alongside the 2 TB
+     `ST2000DM001` (2012) and 500 GB `ST500DM002` (2014).
+
+  4. **Noise is a consideration, not the dominant constraint**, at the
+     creator's direction. This softens what the build document recorded
+     and changes fan-curve and siting advice.
+
+  Two decisions were taken during the install. **No disk encryption:**
+  it defends only against physical theft, does nothing while an
+  always-on machine is running, and its passphrase prompt would cancel
+  the settled "Restore on AC/Power Loss → Power On" requirement, since
+  nothing can unlock the disk remotely before networking exists. The
+  hardware-backed alternative needs Secure Boot, which this build
+  disables so the Nvidia kernel modules load without signing problems.
+  **Plain ext4, no LVM:** data lives on separate drives, and one less
+  abstraction between the creator and a recoverable system is worth
+  more than a feature that might be wanted in a year.
+
+- **Inference drawn:** The transferable finding is about handover
+  documents. A brief supplied mid-session carried a four-day-old state
+  that contradicted the repo in six places, and its hardware inventory
+  was wrong in ways the repo had never caught either. Both were
+  corrected only because the machine itself was read — the boot menu
+  and the drive labels — rather than the documents describing it. The
+  same instinct as the re-read rule in `CLAUDE.md`, applied to hardware
+  instead of citations.
+
+- **Limitations / conflicting evidence:** SMART health of every drive
+  remains untested, and the 2 TB is a fourteen-year-old Barracuda
+  7200.14, the generation whose 3 TB member is the best-documented
+  consumer drive failure case there is. Nothing should be trusted with
+  data until the long tests pass. The install was also completed with
+  both hard drives connected, against the advice to unplug them; the
+  confirmation screen was read instead and showed every `sd` partition
+  unchanged. A forced power-off during the session risked the package
+  database, which was checked afterwards with `dpkg --audit` and found
+  clean.
+
+- **Effect on project direction:** The server has a working base for
+  the first time. SMART long tests, the recovery pass on both Windows
+  drives, storage mounts, Stremio, Tailscale and the firewall all
+  remain.

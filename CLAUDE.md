@@ -1083,8 +1083,12 @@ attempt it unilaterally.
   and often only thing a visitor reads.
 
 - `docs/` — the public landing site, served by GitHub Pages from `/docs`
-  on `main` (enabled in the repo's Pages settings) and intended to answer
-  for `groundedaipractice.co.uk` once the domain is pointed at it. A
+  on `main` and live at **`groundedaipractice.co.uk`**, its canonical
+  address (`project_log.md` Entry 064). `docs/CNAME` is what attaches
+  the domain, and `base_url` in `site/pages.json` is what feeds the
+  `canonical` and `og:` URLs — change it there and rebuild, never in
+  the generated HTML. The same DNS zone serves the project's mailbox,
+  so the mail records are never touched. A
   static site of five pages (home, evidence, method, system, about,
   plus `404.html`), written in the creator's first person: no
   framework, nothing loaded from a third party, and exactly one script
