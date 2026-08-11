@@ -106,6 +106,28 @@ the five immediate research priorities driving current work.
   those, not a person, so the rule's test — would someone without a
   terminal habit ever run this — does not reach them.
 
+- **Lessons are markdown-first; the export pipeline is a promotion
+  step.** Adopted 2026-08-09 at the creator's direction. The creator is
+  the project's first pilot learner; infrastructure sessions double as
+  learning-material generation. Long technical instruction is produced
+  as a house-conventions markdown unit (callouts, blank-line lists —
+  readable as-is in Obsidian and GitHub), with chat carrying only a
+  skimmable summary. The docx/PDF pipeline runs when a unit stabilises
+  or needs distribution — its Word-render self-check is the main cost,
+  so iteration stays in markdown. Where a mechanism or relationship is
+  the point, a diagram beats a callout — Mermaid in the markdown for
+  sketches (rendered to images at promotion, since `md_to_docx.py`
+  takes `![caption](path)` only), the data-driven figures rule for
+  anything with numbers in it; callouts are for warnings and tips, not
+  the only graphic. Technical specifics are verified against
+  documentation or the machine before being presented as instruction —
+  the internal build guide's BIOS section, whose menu paths were
+  asserted from memory and found wrong on the real board (2026-08-08),
+  is the cautionary case. Units teach the reading of output — the
+  fields that matter, the values that decide, the traps — rather than
+  paste-and-analyse loops. First exemplar:
+  `drafts/reading_smart_results.md`.
+
 - **Fine visual/spatial refinement gets handed to a real tool, not
   iterated through description.** Early concept exploration (comparing
   directions, testing palettes, rough layouts) works well as an inline
@@ -1191,6 +1213,17 @@ attempt it unilaterally.
   construction history remains in `project_log.md` Entries 015 and 019 —
   those entries are historical records and are deliberately **not**
   rewritten to hide that the files once existed.
+
+- `drafts/reading_smart_results.md` — learning-unit draft: how to read
+  a drive's SMART results. The `smartctl` command decomposed and the
+  Disks GUI route beside it, the self-test log statuses, the five
+  attributes Backblaze's failure data says to read raw, the Seagate
+  raw-value trap, and a verdict table for what the outcomes decide.
+  Written 2026-08-09 during the server build — the first unit drafted
+  directly from the pilot-learner sessions; generic by design, no
+  machine specifics. `drafts/Reading_SMART_Results.docx` (+ self-check
+  `.pdf`) is generated from it by `tools/md_to_docx.py`; the markdown
+  is the source of truth.
 
 - `drafts/home_server_synopsis.md` — the **public** account of the home
   server build: what it does, the four decisions worth explaining (no
