@@ -76,6 +76,13 @@ PALETTE = {
     "sage":     "#D5E2E1",
     "stone":    "#6E6E6E",
     "graphite": "#404040",
+    # Midpoints of the ordered ramps. Ember->Ink on light figures,
+    # Ember->Sand on dark; only the middle step is a colour the brand did
+    # not already have. Both are computed in tools/palette_check.py, which
+    # is where the ramps are defined and audited — these are here so the
+    # contrast pairs below can name them.
+    "ramp_light_mid": "#864235",
+    "ramp_dark_mid":  "#FBA794",
 }
 
 FONT = "'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif"
@@ -114,10 +121,12 @@ BRIDGEAI_DATA = {
     # Entry 044 (research log), [IUK-BRIDGEAI-YR3]: launched 2023, £100m
     # backed by UKRI's Technologies Mission Fund and Innovate UK; figures
     # to end of 2025.
+    # The title now carries "£100 million programme", so the intro no
+    # longer repeats it.
     "intro": (
-        "The government's own £100 million AI programme. Launched 2023, "
-        "run by Innovate UK; funds projects and business support as well "
-        "as training. From launch to the end of 2025:"
+        "The government's own AI programme, launched 2023 and run by "
+        "Innovate UK. It funds projects and business support as well as "
+        "training. From launch to the end of 2025:"
     ),
     "stats": [
         ("£74.6m", "of £100m allocated"),
@@ -191,6 +200,12 @@ CONTRAST_PAIRS = [
     ("mist", "ink", 4.5, "secondary text, dark"),
     ("ember", "ink", 3.0, "large stat numbers, dark"),
     ("paper", "graphite", 4.5, "raised strip text, dark"),
+    # Ordered ramp marks. 3.0 is the graphical-object threshold (WCAG 2.1
+    # SC 1.4.11), not the 4.5 text takes — a bar is not text.
+    ("ramp_light_mid", "paper", 3.0, "adoption ramp, light"),
+    ("ink", "paper", 3.0, "adoption ramp, light"),
+    ("ramp_dark_mid", "ink", 3.0, "adoption ramp, dark"),
+    ("sand", "ink", 3.0, "adoption ramp, dark"),
 ]
 
 
@@ -269,6 +284,10 @@ def theme(dark):
             "box": PALETTE["graphite"], "box_text": PALETTE["paper"],
             "out_box": PALETTE["graphite"], "out_text": PALETTE["paper"],
             "bar": PALETTE["paper"],
+            # Ordered ramp, least to most. On a dark ground the brighter
+            # end reads as "more", so it runs Ember -> Sand.
+            "ramp": [PALETTE["ember"], PALETTE["ramp_dark_mid"],
+                     PALETTE["sand"]],
         }
     return {
         "bg": PALETTE["paper"], "text": PALETTE["ink"],
@@ -278,6 +297,7 @@ def theme(dark):
         "box": PALETTE["mist"], "box_text": PALETTE["ink"],
         "out_box": PALETTE["sage"], "out_text": PALETTE["ink"],
         "bar": PALETTE["ink"],
+        "ramp": [PALETTE["ember"], PALETTE["ramp_light_mid"], PALETTE["ink"]],
     }
 
 
@@ -389,7 +409,11 @@ def fig_bridgeai(dark):
     t = theme(dark)
     W = 960
     d = BRIDGEAI_DATA
-    title = "BridgeAI, at a glance"
+    # A title states the finding; "BridgeAI, at a glance" named the
+    # subject and left the reader to do the work. The two facts placed
+    # together are the finding, and the conclusion is left withheld, per
+    # the understatement rule.
+    title = "A £100 million programme, 1,700 course completions"
     desc = (
         "BridgeAI is the government's own 100 million pound AI programme, "
         "launched 2023 and run by Innovate UK; it funds projects and "
@@ -436,12 +460,17 @@ def fig_bridgeai(dark):
 def fig_adoption(dark):
     t = theme(dark)
     W = 960
-    title = "AI adoption by firm size"
+    # Was "AI adoption by firm size", which named the axes. The ratio is
+    # computed below from the same constants, so the two cannot drift.
+    title = "Small firms adopt AI at a third the rate of large ones"
     desc = (
-        "Share of firms using AI across the OECD area, 2024 or latest "
-        "available year: large firms with 250 or more employees, 40 "
-        "percent; medium firms with 50 to 249 employees, 20.4 percent; "
-        "small firms with 10 to 49 employees, 11.9 percent."
+        "Bar chart, shaded from dark to light as firm size falls. Share of "
+        "firms using AI across the OECD area, 2024 or latest available "
+        "year: large firms with 250 or more employees, 40 percent; medium "
+        "firms with 50 to 249 employees, 20.4 percent; small firms with 10 "
+        "to 49 employees, 11.9 percent. Adoption falls at every step down "
+        "in firm size, with small firms adopting at 30 percent of the "
+        "large-firm rate."
     )
     parts = []
     y = 64
@@ -457,8 +486,16 @@ def fig_adoption(dark):
     label_w, bar_x = 300, 360
     bar_max = W - bar_x - 120
     scale = bar_max / 40.0
-    for label, value in ADOPTION_DATA["bars"]:
-        colour = t["accent"] if label == ADOPTION_DATA["highlight"] else t["bar"]
+    bars = ADOPTION_DATA["bars"]
+    # Firm size is an ordered variable, so it takes the ordered ramp rather
+    # than a highlight: the finding here is the gradient, and a ramp shows
+    # a gradient where one Ember bar among two greys shows a single number.
+    # Darkest step is the highest rate, which is the convention and also
+    # lands Ember on small firms — the lowest rate, and the group this
+    # project is about. Colour carries the ordering; the value labels carry
+    # the magnitude, so nothing is lost if colour is lost.
+    for i, (label, value) in enumerate(bars):
+        colour = t["ramp"][len(bars) - 1 - i]
         lab_lines = wrap(label, 16, label_w)
         block, _ = text_block(48, y + 28, lab_lines, 16, t["text"], weight="600")
         parts.append(block)
@@ -470,7 +507,16 @@ def fig_adoption(dark):
         parts.append(block)
         y += 76
 
-    y += 8
+    # The comparison the bars imply, stated once and computed from the data
+    # above rather than typed in, so it cannot drift from the figures.
+    hi = max(v for _, v in bars)
+    lo = min(v for _, v in bars)
+    block, _ = text_block(
+        48, y + 12,
+        [f"Small firms adopt at {lo / hi:.0%} of the large-firm rate."],
+        17, t["text"], weight="600")
+    parts.append(block)
+    y += 36
     parts.append(f'<line x1="48" y1="{y}" x2="{W - 48}" y2="{y}" '
                  f'stroke="{t["hairline"]}" stroke-width="1" opacity="0.5"/>')
     y += 26

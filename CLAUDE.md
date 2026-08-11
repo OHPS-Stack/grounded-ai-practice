@@ -200,7 +200,51 @@ the five immediate research priorities driving current work.
   each other, and containment inside the box each belongs to. Same
   instinct as `word_preview.ps1` for documents, and it caught real
   defects repeatedly. Applies to any generated diagram or figure, not
-  only the site's.
+  only the site's. Extended 2026-08-11 to charts built through
+  `tools/gap_chart.py`, which carries the same checks in code: a render
+  that did not complete, and overlapping labels in the rendered SVG.
+  Both were written after the defect they catch — Vega reports errors
+  from its embedded JavaScript runtime by printing and carrying on, so a
+  bad axis format produced a plausible figure with every tick label
+  silently missing, and an offset it ignored put six data labels on top
+  of their own points.
+
+- **A chart is a published claim, so it takes the finished-research bar
+  rather than its source document's.** Adopted 2026-08-11 at the
+  creator's direction. Figures travel further than the documents they
+  come from — the infographics rule below already requires each one to
+  carry its own source line precisely because most viewers only ever
+  see the image — so a chart drawn from a rough draft publishes that
+  draft's gaps as findings. Before drawing: read the source document's
+  own status note, close the open questions the figure depends on, and
+  re-read the relevant `research_log.md` entries directly rather than
+  working from a draft's summary of them. The case: the budget-VRAM
+  scatter was built from a document whose first line reads "rough
+  draft", which also recorded one comparator "not priced this pass" and
+  one supporting source "unread". The chart was conceptually and
+  structurally sound, and made no comparison at all at 12 GB or 32 GB,
+  where only Intel cards had been priced — the single comparison the
+  figure existed to make. `check_coverage()` in `tools/gap_chart.py`
+  blocks that specific shape, counting categories at each level of the
+  x variable and refusing a build where a level carries only one; the
+  general case is judgement and lives here.
+
+- **A chart title states the finding; a title that describes the chart
+  is a label.** Adopted 2026-08-11 at the creator's direction. The test
+  is whether someone who reads only the title walks away with the
+  point. "AI adoption by firm size" names the axes and leaves the
+  reader to do the work; "Small firms adopt AI at a third the rate of
+  large ones" carries it. This is the same instinct as the
+  understatement rule under File conventions and subject to the same
+  limit — a title still states facts and lets the conclusion land,
+  rather than telling the reader what to feel about them.
+  `check_title()` in `tools/gap_chart.py` flags the common label shapes
+  (no verb, an axis-naming " by " construction, an "Overview of"
+  opening) but stays advisory, because it cannot tell whether a
+  sentence carries an insight: it flags "A £100 million programme,
+  1,700 course completions", which is a noun phrase and also exactly
+  the withheld-adjective construction this project's prose rules are
+  built on.
 
 - **Infographics are a standing output lane, produced two ways.** Adopted
   2026-08-01 for the publishing funnel (LinkedIn post → profile →
@@ -1232,13 +1276,31 @@ attempt it unilaterally.
   the realistic options, measured Arc inference performance, the
   software-stack risk (IPEX-LLM archived; LLM Scaler "beta at best"),
   the break-even against API pricing, and the uncounted costs stated
-  per the bias checklist. Built 2026-08-11 on `research_log.md` Entries
-  068–069 at the creator's direction; extends the Entry 030/042
-  local-vs-cloud thread. Rough draft — structure and evidence in
+  per the bias checklist. Built 2026-08-11 on `research_log.md`
+  Entries 068–071 at the creator's direction; extends the Entry
+  030/042 local-vs-cloud thread. Carries the `vram_price_capacity`
+  figure; the comparator prices and previously unread benchmark
+  sources that its first pass left open were closed the same day
+  (Entries 070–071). Rough draft — structure and evidence in
   place, final prose the creator's, per the outward-facing prose rule.
   Every price is a dated single-day listing; the closing section holds
   the design sketch for the hands-on follow-up unit (hardware purchase
   is a creator decision).
+
+- `drafts/effective_prompting.md` — the pilot learning unit, first
+  full draft: "Effective prompting — what's really happening when
+  you hit send." The five moves (task and reader, background, shape,
+  example, exclusions), the fill-every-gap mental model folded in as
+  scaffolding per the Entry 040 sequencing evidence, a symptom→fix
+  table for diagnosing answers from the answer alone, three guided
+  exercises (two deliberately tool-free), an independent-practice
+  template, the when-prompting-is-not-the-fix cases, and a spaced
+  one-week return. GRR-sequenced, PRIMES-sized (45–60 minutes),
+  tool-neutral; technique claims verified against vendor guidance
+  (`research_log.md` Entry 072). Drafted 2026-08-11 — see
+  `project_log.md` Entry 068 for the production decisions. Untested
+  with learners; final prose the creator's; the learner trial is the
+  unit's own next step.
 
 - `drafts/home_server_synopsis.md` — the **public** account of the home
   server build: what it does, the four decisions worth explaining (no
@@ -1266,6 +1328,9 @@ attempt it unilaterally.
   `tools/build_server_guide_figures.py`; regenerate before rebuilding
   either document. Shared by the public synopsis and the internal guide,
   which is why they live in `assets/` rather than beside either one.
+  Since 2026-08-11 the folder also holds the budget-VRAM chart
+  (`vram_price_capacity`, light and dark, SVG and PNG), generated by
+  `tools/build_vram_figures.py` for its own draft document.
 
 - `assets/replicas/` — terminal replicas for the build guide and the
   landing site: a `.json` spec and its rendered `.png` per screenshot,
@@ -1551,6 +1616,88 @@ attempt it unilaterally.
   the Public Sans faces are needed only for `--og`. Command-line by the
   Entry 049 decision — a build step, not a learner-facing tool.
 
+- `tools/palette_check.py` — decides and verifies the colours charts are
+  allowed to use. The brand palette was designed for a *page*: one accent
+  and a set of near-white grounds. A chart needs something a page never
+  did, several colours that stay apart **from each other** on one
+  background, and the ways that fails are invisible to the person
+  choosing them — red and green collapse into one colour for roughly one
+  reader in twelve, and any categorical set collapses entirely in
+  black-and-white print. Both are arithmetic, so both are checked here:
+  WCAG contrast against each ground (3:1 for marks, per SC 1.4.11, not
+  the 4.5:1 text uses), pairwise distance in OKLab, the same distances
+  recomputed through Machado (2009) simulations of the three
+  colour-vision deficiencies, and greyscale. **The pass mark is
+  calibrated, not invented** — `--calibrate` measures the weakest pair in
+  the Okabe-Ito colour-universal set and uses that, so a candidate is
+  held to what an established safe palette actually achieves. Greyscale
+  is reported but never enforced, because Okabe-Ito itself manages only
+  dE 0.006 there; the honest response to a low number is a figure that
+  direct-labels rather than a different palette. Holds the settled
+  three-tier system (`--audit settled`): highlight-against-context for
+  the ordinary case, five nominal categories per ground, and Ember→Ink /
+  Ember→Sand ramps for ordered data, which are the only part that
+  survives printing. Ordered ramps are audited on different criteria from
+  categorical sets — adjacent steps in a ramp are *meant* to be close.
+  `--solve` and `--proof` show the working: the constraint that decides
+  everything is that a mark clearing 3:1 on both Paper and Ink must sit
+  in a luminance band only 0.132 wide. Two defects reached the proof
+  sheet past a passing audit — Paper against Mist at less than half the
+  floor, and an optimiser returning Ember plus two blues because blue
+  survives red-green CVD — so `--proof` is not optional polish; it is the
+  step that catches what the numbers were not asked about. Requires
+  Python, standard library only; `--proof out.png` additionally needs
+  Pillow. Command-line by the Entry 049 decision.
+
+- `tools/gap_chart.py` — the Vega-Lite layer, and the other half of
+  `build_site_figures.py`. That one composes SVG by hand, every
+  coordinate a literal and text wrapping a width estimate; it is right
+  for the editorial stat strips it was written for and it cannot draw a
+  chart, having no scales, axes or marks. This module supplies the
+  brand theme, renders without a browser, and adds the furniture
+  Vega-Lite has no opinion about. **The division is deliberate:
+  Vega-Lite draws the plot, this draws everything around it** — the
+  source line, the caveat, the editorial layout — because Vega-Lite is
+  excellent at scales and poor at editorial furniture, and fighting it
+  for the second would be worse than the hand-composed route. Palette
+  comes from `palette_check.py` rather than a copy, so a colour
+  correction reaches every chart; `TIER` names the sets by what they
+  encode. Three self-checks, and each exists because the defect got
+  through first: `_verify` refuses to write a chart that did not fully
+  render, since Vega reports errors by printing and continuing;
+  `check_labels` walks the rendered SVG accumulating transforms to find
+  overlapping text, and is advisory because its width estimate is
+  approximate; `check_coverage` blocks a comparison the data cannot
+  support, and is *not* advisory because counting categories involves
+  no estimation. `check_title` enforces the label/title rule as far as
+  a machine can. Note that UK currency formatting is a **render-time**
+  argument (`format_locale`) — setting `numberFormatLocale` in spec
+  config is silently ignored and the axis comes out in dollars.
+  Requires Python with `vl-convert-python`, which embeds its own
+  JavaScript runtime: no Node, no browser, no network. It also
+  rasterises plain SVG, which gives the repo an SVG-to-PNG converter it
+  otherwise lacks on machines without Inkscape. A library, not a
+  command.
+
+- `tools/build_vram_figures.py` — the figures for
+  `drafts/budget_vram_for_local_ai.md`, and the first built on
+  `gap_chart.py`: a scatter of price against capacity, coloured by
+  software stack, with the used RTX 3090 drawn as a range because the
+  trackers disagree and averaging them would hide that. Kept here
+  rather than in the chart module because figures belong with the
+  document that argues from them, as the server-guide figures do.
+  Builds clean as of 2026-08-11: the comparator research that blocked
+  it (`research_log.md` Entries 070–071) priced a non-Intel card at
+  every level and `check_coverage()` passes on real data — the
+  refusal-first history is `project_log.md` Entry 066. Output is
+  `assets/figures/vram_price_capacity.{svg,png}` plus dark variants.
+  One defect class its checks cannot see: a second field on the y
+  encoding channel silently deleted the visible price axis while
+  every check passed — caught only by looking at the render, which
+  is what the geometry rule is for. `--allow-gaps` remains for
+  deliberately partial review builds and says in its own help that
+  the result is not publishable.
+
 - `tools/build_site_replica.py` — keeps the landing site's terminal
   replica verbatim-true to the tool it pictures: runs the real figure
   build, captures its output, rewrites the replica spec and renders it
@@ -1644,7 +1791,24 @@ files are machine-specific and don't travel between machines (desktop vs.
 laptop) or reliably resurface from old conversation logs — the repo is the
 one place guaranteed to travel with the project. Applies in every session
 working in this repo, not just the one that first set this up.
-**Last run: 2026-08-06.** That pass confirmed the five pre-move memory
+**Last run: 2026-08-11.** Both memory files under the current project
+path were audited. `feedback-teach-in-house-style` is already captured
+here as the markdown-first lessons rule adopted 2026-08-09 — the memory
+itself says to check whether that rule landed before treating it as the
+only record, and it did. Its one uncaptured element, a preference for
+skimmable chat formatting, is interaction-level and stays machine-local
+by the same logic that kept agent-spawning and tool preferences there.
+`public-guidance-wording` is machine-local by its own explicit terms and
+must remain so. So local memory again contributed nothing needing
+migration, the third consecutive pass with that result; the pattern is
+now consistent enough to treat as the expected outcome rather than a
+finding. Everything durable came from the session: two rules promoted
+into Working approach (a chart takes the finished-research bar rather
+than its source document's; a chart title states the finding), an
+extension of the geometry-self-check rule to cover charts, and index
+entries for `gap_chart.py` and `build_vram_figures.py`.
+Previous line, kept for the record:
+**last run 2026-08-06.** That pass confirmed the five pre-move memory
 files are all captured in the repo already (short pasted fragments,
 community-built tools, the government-recognition goal in
 `project_brief.md`, the research workflow, and agent-spawning now

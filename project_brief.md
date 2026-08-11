@@ -370,6 +370,37 @@ path-conversion — completed in Inkscape 24 July 2026), and every file
 listed below remains valid and in use. The primary "GAP" wordmark was
 built 30–31 July 2026 and is described immediately below.
 
+### Chart palette
+
+The palette above was designed for a page: one accent, two neutrals and
+four near-white grounds. A chart needs something a page never did —
+several colours that stay distinguishable **from each other** on a single
+background — so charts draw on a small extension of it, in three tiers
+chosen by what the data is rather than by preference.
+
+| Tier | Use | Light figures | Dark figures |
+|---|---|---|---|
+| Highlight | one series against context — the ordinary case | Ember, Ink, Stone | Ember, Paper, Stone |
+| Categorical | up to five nominal categories | Ember `#F15E4B`, Gold `#774D04`, Sage deep `#0CA1A2`, Slate `#00579F`, Plum `#5F014E` | Ember `#F15E4B`, Gold `#FBA929`, Sage deep `#2DA9AB`, Slate `#006EC5`, Plum `#E6CFD8` |
+| Ordered | ranked or graduated data | Ember → `#864235` → Ink | Ember → `#FBA794` → Sand |
+
+Ember stays the accent and the most saturated colour in any figure. The
+categorical hues sit on the brand's own axis, Ember at one pole and Sage
+at the other, with only their lightness chosen by search — under
+red-green colour blindness hue collapses and lightness is what survives.
+The ordered ramps interpolate toward a brand neutral, which is what keeps
+them from drifting into saturated magenta as they darken.
+
+`tools/palette_check.py` is the authority: it audits contrast against
+each ground, separation between colours, the same separation under three
+colour-vision deficiencies, and greyscale, and its pass mark is measured
+from the Okabe-Ito colour-universal set rather than chosen. Two facts
+that constrain any future addition — a mark clearing 3:1 on both Paper
+and Ink must sit in a luminance band only 0.132 wide, and **no
+categorical set survives greyscale**, the Okabe-Ito reference included,
+so a figure that may be printed direct-labels its categories rather than
+relying on colour.
+
 ### Primary mark
 
 The existing symbol is a book-and-cursor device inherited in character

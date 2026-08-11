@@ -1,20 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 492" width="960" height="492" role="img" aria-labelledby="t d">
-<title id="t">AI adoption by firm size</title>
-<desc id="d">Share of firms using AI across the OECD area, 2024 or latest available year: large firms with 250 or more employees, 40 percent; medium firms with 50 to 249 employees, 20.4 percent; small firms with 10 to 49 employees, 11.9 percent.</desc>
-<rect width="960" height="492" fill="#F9F9F9"/>
-<text x="48" y="64.0" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="30" font-weight="700" fill="#27221E" text-anchor="start">AI adoption by firm size</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520" role="img" aria-labelledby="t d">
+<title id="t">Small firms adopt AI at a third the rate of large ones</title>
+<desc id="d">Bar chart, shaded from dark to light as firm size falls. Share of firms using AI across the OECD area, 2024 or latest available year: large firms with 250 or more employees, 40 percent; medium firms with 50 to 249 employees, 20.4 percent; small firms with 10 to 49 employees, 11.9 percent. Adoption falls at every step down in firm size, with small firms adopting at 30 percent of the large-firm rate.</desc>
+<rect width="960" height="520" fill="#F9F9F9"/>
+<text x="48" y="64.0" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="30" font-weight="700" fill="#27221E" text-anchor="start">Small firms adopt AI at a third the rate of large ones</text>
 <text x="48" y="96.0" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="16" font-weight="400" fill="#404040" text-anchor="start">Share of firms using AI — OECD area, 2024 or latest available year</text>
 <text x="48" y="180.0" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="16" font-weight="600" fill="#27221E" text-anchor="start">Large firms (250+ employees)</text>
 <rect x="360" y="152" width="480" height="44" rx="6" fill="#27221E"/>
 <text x="854.0" y="182.0" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="20" font-weight="700" fill="#27221E" text-anchor="start">40%</text>
 <text x="48" y="256.0" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="16" font-weight="600" fill="#27221E" text-anchor="start">Medium firms (50–249)</text>
-<rect x="360" y="228" width="245" height="44" rx="6" fill="#27221E"/>
+<rect x="360" y="228" width="245" height="44" rx="6" fill="#864235"/>
 <text x="618.8" y="258.0" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="20" font-weight="700" fill="#27221E" text-anchor="start">20.4%</text>
 <text x="48" y="332.0" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="16" font-weight="600" fill="#27221E" text-anchor="start">Small firms (10–49)</text>
 <rect x="360" y="304" width="143" height="44" rx="6" fill="#F15E4B"/>
 <text x="516.8" y="334.0" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="20" font-weight="700" fill="#27221E" text-anchor="start">11.9%</text>
-<line x1="48" y1="388" x2="912" y2="388" stroke="#6E6E6E" stroke-width="1" opacity="0.5"/>
-<text x="48" y="414.0" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="14" font-weight="400" fill="#404040" text-anchor="start" font-style="italic">Firms with 10 or more employees, 2024 or latest available year per country (the UK&#x27;s is 2020). OECD-wide, not</text>
-<text x="48" y="434.3" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="14" font-weight="400" fill="#404040" text-anchor="start" font-style="italic">UK-specific; firms under 10 employees are not counted.</text>
-<text x="48" y="460.9" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#6E6E6E" text-anchor="start">Source: OECD, “AI adoption by small and medium-sized enterprises”, Dec 2025 · groundedaipractice.co.uk · Aug 2026</text>
+<text x="48" y="392.0" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="17" font-weight="600" fill="#27221E" text-anchor="start">Small firms adopt at 30% of the large-firm rate.</text>
+<line x1="48" y1="416" x2="912" y2="416" stroke="#6E6E6E" stroke-width="1" opacity="0.5"/>
+<text x="48" y="442.0" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="14" font-weight="400" fill="#404040" text-anchor="start" font-style="italic">Firms with 10 or more employees, 2024 or latest available year per country (the UK&#x27;s is 2020). OECD-wide, not</text>
+<text x="48" y="462.3" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="14" font-weight="400" fill="#404040" text-anchor="start" font-style="italic">UK-specific; firms under 10 employees are not counted.</text>
+<text x="48" y="488.9" font-family="'Public Sans', 'Segoe UI', -apple-system, Arial, sans-serif" font-size="12.5" font-weight="400" fill="#6E6E6E" text-anchor="start">Source: OECD, “AI adoption by small and medium-sized enterprises”, Dec 2025 · groundedaipractice.co.uk · Aug 2026</text>
 </svg>

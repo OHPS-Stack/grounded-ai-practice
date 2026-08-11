@@ -3945,3 +3945,191 @@ no external citation:
   the first time. SMART long tests, the recovery pass on both Windows
   drives, storage mounts, Stremio, Tailscale and the firewall all
   remain.
+
+### Entry 066 — A chart layer, a categorical palette, and a figure refused for incomplete research
+
+- **Date logged:** 2026-08-11
+
+- **Priority / Question:** Priority 7 — how research findings reach a
+  public audience, and Priority 10 — the repository demonstrating
+  credible practice.
+
+- **Source:** Session work, 2026-08-11.
+
+- **What was decided:** The project's data figures gain a second
+  production route. `build_site_figures.py` composes SVG by hand and
+  cannot draw a chart, having no scales, axes or marks; `gap_chart.py`
+  adds a Vega-Lite layer for figures that need them, with the division
+  that Vega-Lite draws the plot and the module draws the editorial
+  furniture around it. Rendering is through `vl-convert`, which embeds
+  its own JavaScript runtime, so nothing reaches a browser, a Node
+  install or the network.
+
+  A categorical palette was settled first, since every figure depends on
+  it. `palette_check.py` audits contrast, colour-vision deficiency and
+  greyscale against a pass mark calibrated from the Okabe-Ito
+  colour-universal set rather than invented. Three tiers:
+  highlight-against-context, five nominal categories per ground, and
+  ordered Ember ramps. The constraint that decided the shape is that a
+  mark clearing 3:1 on both Paper and Ink sits in a luminance band only
+  0.132 wide.
+
+  Two figure titles were rewritten under a rule adopted this session:
+  a title states the finding, and one that describes the chart is a
+  label. The OECD firm-size figure moved from a highlight to an ordered
+  ramp, firm size being an ordinal variable and the gradient being the
+  finding.
+
+- **How it was checked:** Every claim above is a number the tools print.
+  The palette audit reports its ratios and distances on each run; the
+  contrast audit refuses to build on a failure. Beyond that, each of the
+  chart layer's self-checks was written after the defect it catches got
+  through: a render that failed and wrote the file anyway, six data
+  labels placed on top of their own points, a dollar sign on a UK price
+  axis, and two colours in the dark palette that were one colour to the
+  eye. The last was found only by rendering a proof sheet and looking at
+  it, having passed an audit that had not been pointed at that set.
+
+- **What went wrong:** The first chart built on the new layer was drawn
+  from `drafts/budget_vram_for_local_ai.md`, whose first line records it
+  as a rough draft and which separately notes one comparator "not priced
+  this pass" and one supporting source unread. The figure was
+  conceptually and structurally sound and made no comparison at 12 GB or
+  32 GB, where only Intel cards had been priced — the single comparison
+  it existed to make. The four generated files were deleted.
+
+  The mechanical half is now blocked by `check_coverage()`, which counts
+  categories at each level of the x variable and refuses a build where a
+  level carries only one. The general half is judgement and became a
+  standing rule: a chart is a published claim and takes the
+  finished-research bar rather than its source document's, because a
+  figure travels further than the document it came from.
+
+- **Effect on project direction:** Figures with real axes are now
+  possible, which was previously a hard limit on what the research could
+  show. The VRAM figure stays unbuilt until a non-Intel comparator is
+  priced at 12 GB and at 32 GB. Nothing in `project_brief.md` has been
+  amended; the palette recorded there as final now has a charting
+  extension awaiting a decision on whether to fold it in.
+
+### Entry 067 — The VRAM research completed and the figure built; site outputs re-verified
+
+- **Date logged:** 2026-08-11
+
+- **Priority / Question:** Priority 6 (research completion) and
+  Priority 7 (outputs), executed autonomously while the creator was
+  away, on their direction to finalise the open research and
+  regenerate public-facing outputs.
+
+- **Source:** Session work, 2026-08-11.
+
+- **What happened:**
+
+  1. The research that blocked the VRAM figure was closed as
+     `research_log.md` Entries 070–072: non-Intel comparators priced
+     at every capacity tier, the surfaced-but-unread benchmark
+     sources read directly (two source rows upgraded from leads, two
+     added), and vendor prompting guidance read for the pilot unit.
+     The draft document was updated throughout from the new entries,
+     and now embeds the figure.
+
+  2. `tools/build_vram_figures.py` builds clean: coverage passes on
+     real data at 12/16/24/32 GB, and the title changed with the
+     finding — the CUDA options do not run out above 24 GB, they
+     triple in price. The 48 GB tier stays off the chart (its CUDA
+     comparator was priced only in the US used market) and lives in
+     the draft's table instead.
+
+  3. A defect the tool checks cannot catch was found by looking at
+     the render, per the geometry rule: labels were given their own
+     y-field so clustered columns could spread, and that second field
+     on the y channel silently deleted the visible price axis — on a
+     price chart — while the render, coverage and label checks all
+     passed. Fixed by feeding labels a separate dataset that reuses
+     the same field name; the lesson is recorded in the tool's
+     comments and its `CLAUDE.md` index entry.
+
+  4. Site outputs re-verified: figures rebuilt with the palette audit
+     passing, `build_site_pages.py --check` reporting no drift, and
+     the terminal replica resynced after this session's figure-script
+     changes.
+
+- **Inference drawn:** None — production record.
+
+- **Limitations / conflicting evidence:** Everything is uncommitted
+  working-tree state for the creator's review; nothing was committed
+  or pushed. The R9700 price in the figure is a search-snippet
+  figure, marked as such on the image's own source line.
+
+- **Effect on project direction:** The budget-VRAM thread's desk
+  research is done and its figure is publishable-quality pending the
+  creator's review; what remains on the thread is empirical
+  (Open Threads, Priority 6).
+
+### Entry 068 — Pilot unit first draft: effective prompting
+
+- **Date logged:** 2026-08-11
+
+- **Priority / Question:** Immediate priority Q5 / Priorities 3–4 —
+  drafting the pilot unit that Entry 013's capability decision
+  unblocked, at the creator's direction in the same autonomous
+  session.
+
+- **Source:** Session work, 2026-08-11. Design basis re-read at
+  drafting time per the re-read rule: `research_log.md` Entries
+  039–040 (candidate evidence and sequencing check), 026–027 (PRIMES
+  criteria, GRR model), `project_log.md` Entry 013 (decision and
+  rationale); techniques verified against `[ANTHROPIC-PROMPTDOCS26]`
+  (`research_log.md` Entry 072).
+
+- **What was decided (production decisions, all open to review):**
+
+  1. The Entry 013 rationale is executed structurally: the unit opens
+     with a "what happens when you hit send" mechanism section — the
+     compressed Candidate C scaffolding Entry 040's sequencing
+     evidence called for — built around one idea (the model fills
+     every gap you leave with the most ordinary assumption) and one
+     Mermaid diagram of the gap between what the learner knows and
+     what they typed.
+
+  2. The technique content is five named moves: task and reader,
+     background, shape, example, exclusions. The Entry 039 risk that
+     a prompting unit reads as generic tool-training is countered by
+     centring diagnosis: a symptom→fix table mapping what an answer
+     looks like to which move was missing, so the unit teaches
+     reading output, not reciting recipes.
+
+  3. GRR mapping: worked example (a price-increase email, invented
+     but SME-shaped) → three guided exercises, the first two
+     deliberately tool-free since the skill practised is diagnosis →
+     independent practice on the learner's own real task via a
+     five-line template → a one-week spaced return, scaling GRR's
+     spaced-practice recommendation and PRIMES' revisit instinct to
+     unit size.
+
+  4. PRIMES alignment: 45–60 minutes, one sitting or two; builds on
+     informal use rather than assuming none; an explicit
+     when-prompting-is-not-the-fix section covering the
+     when-not-to-use requirement; tool-neutral throughout for the
+     Expandable criterion. The invented-specifics warning keeps the
+     project's verification framing present and names checking AI
+     output as the planned second unit, so Candidates A and D are
+     deferred visibly rather than dropped.
+
+  5. Illustrative outputs are framed as illustrative — the unit
+     describes the shape of what comes back and has the learner
+     generate the real comparison in Exercise 3, rather than
+     presenting fabricated tool output as a real transcript.
+
+- **Limitations / conflicting evidence:** Untested with learners —
+  the unit says so in its own closing section, and Priority 9
+  (evaluation) now becomes load-bearing, as Open Threads already
+  notes. Prose is draft register for the creator to rewrite. The
+  worked example is invented rather than drawn from real logged
+  usage; real learner material would strengthen a revision.
+
+- **Effect on project direction:** The project's first output exists
+  as a reviewable draft at `drafts/effective_prompting.md`, indexed
+  in `CLAUDE.md` the same day. Next steps in order: creator review
+  and prose pass, then the learner trial, then promotion through the
+  docx pipeline if distribution needs it.
