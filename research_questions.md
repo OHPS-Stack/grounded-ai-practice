@@ -123,6 +123,9 @@ The first research phase should answer five connected questions:
 
 - Which tasks are better suited to local, cloud or hybrid processing?
 
+- What does budget accelerator hardware change about the local-AI break-even
+  for individuals and small organisations?
+
 - How should prompting, context engineering, retrieval, memory, MCP, agents and
   automation be taught as distinct but connected concepts?
 

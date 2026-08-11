@@ -1225,6 +1225,21 @@ attempt it unilaterally.
   `.pdf`) is generated from it by `tools/md_to_docx.py`; the markdown
   is the source of truth.
 
+- `drafts/budget_vram_for_local_ai.md` — research-document draft: what
+  budget GPU hardware (Intel's Arc Pro line foremost) changes about the
+  local-AI cost question, and what it doesn't. Why VRAM is the deciding
+  purchase number, the 2026 memory-price crisis, dated UK prices for
+  the realistic options, measured Arc inference performance, the
+  software-stack risk (IPEX-LLM archived; LLM Scaler "beta at best"),
+  the break-even against API pricing, and the uncounted costs stated
+  per the bias checklist. Built 2026-08-11 on `research_log.md` Entries
+  068–069 at the creator's direction; extends the Entry 030/042
+  local-vs-cloud thread. Rough draft — structure and evidence in
+  place, final prose the creator's, per the outward-facing prose rule.
+  Every price is a dated single-day listing; the closing section holds
+  the design sketch for the hands-on follow-up unit (hardware purchase
+  is a creator decision).
+
 - `drafts/home_server_synopsis.md` — the **public** account of the home
   server build: what it does, the four decisions worth explaining (no
   RAID, Ubuntu Desktop over a server distribution, nothing exposed to the

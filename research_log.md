@@ -194,6 +194,17 @@ Full citation is given once here; log entries below cite the short tag only.
 | `[EU-858-UK]` | Government/Official (UK retained EU law) | Regulation (EU) 2018/858, Article 61 (access to vehicle OBD and repair and maintenance information), UK retained version stated up to date to 5 Aug 2026 — PRIMARY, article read directly. legislation.gov.uk/eur/2018/858/article/61 |
 | `[SERMI-UK26]` | Advocacy/Membership body (Independent Garage Association — operator of the UK scheme and trade body for the independent sector, so an interested party in its own launch claims) | "SERMI Now Live: A Momentous Day for Independent Garages", sermi.co.uk, 2026 — PRIMARY for the scheme's own account, read directly. UK go-live 1 April 2026. sermi.co.uk/sermi-now-live-a-momentous-day-for-independent-garages/ |
 | `[CMA-MVA-GUIDE23]` | Government/Official | CMA, *Guidance on Motor Vehicle Agreements*, June 2023 — located and cited as corroboration of `[MVBEO-2023]` only; **not yet read in full**. assets.publishing.service.gov.uk/media/647d9cb15f7bb700127fa41a/2.0_CMA_Guidance_on_Motor_Vehicle_Agreements.pdf |
+| `[SR-B70-26]` | Vendor/Commercial (independent tech press, advertising-funded; no Intel affiliation declared) | StorageReview, "Intel Arc Pro B70 Review: The Hardware Is Ready, the Stack Needs to Catch Up", 2026-07-14 — PRIMARY, read directly (fetch summary) 2026-08-11. storagereview.com/review/intel-arc-pro-b70-review |
+| `[BENTECH-ARC26]` | Independent (individual practitioner blog; single hobbyist test rig with a self-declared PCIe bandwidth bottleneck; no product to sell) | bentech.substack.com, "Intel Arc Pro B60 + B70 LLM Benchmarks: Most Quants, Every Backend", 2026-04-16 — PRIMARY, read directly (fetch summary) 2026-08-11. |
+| `[IPEXLLM-GH26]` | Vendor/Commercial (Intel first-party repository) | github.com/intel/ipex-llm — carries the archive notice: archived by the owner 2026-01-28, read-only, "Intel will not provide or guarantee development of or support for this project" — PRIMARY, read directly 2026-08-11. |
+| `[INTEL-CRESCENT26]` | Vendor/Commercial (Intel first-party, reached via multi-outlet search synthesis; the newsroom page itself NOT fetched directly) | Intel "Crescent Island" data-centre inference GPU: Xe3P architecture, 160GB LPDDR5X, air-cooled, positioned on performance-per-dollar and token economics, customer sampling H2 2026. newsroom.intel.com, "Intel to Expand AI Accelerator Portfolio with New GPU". |
+| `[ARC-ROADMAP-PRESS26]` | Vendor/Commercial (tech press reporting unnamed-source leaks; NOT confirmed by Intel) | Tom's Hardware / VideoCardz / TweakTown, April 2026: Xe3P "Celestial" discrete consumer gaming GPUs reportedly cancelled, Xe3P redirected to data-centre/workstation products, Xe4 "Druid" consumer plans uncertain. Search synthesis 2026-08-11. |
+| `[GPU-PRICES-UK26]` | Vendor/Commercial (retail listings and price trackers — primary for the listed price on the retrieval date only; listing prices are not sold prices) | UK street prices retrieved 2026-08-11: PriceSpy (Sparkle Arc Pro B60 24GB £829.99; Sparkle Arc Pro B70 32GB £1,289.99), idealo (Arc Pro B50 16GB from £379.99; RX 9060 XT from £309.98), OC3D (Arc B580 sub-£200 promotions; RTX 5060 Ti 16GB £379.99 events, ~£499 Amazon July 2026), bestvaluegpu.com (used RTX 3090 ~£751 Aug 2026), GPUDojo (used RTX 3090 £1,129 single eBay listing, retrieved 2026-08-11, described as "near low" of a £1,129–£1,294 Mar–Jul 2026 range). |
+| `[MEMCRISIS26]` | Vendor/Commercial (multi-outlet search synthesis; individual reports NOT independently fetched) | The 2026 memory-price crisis: GDDR6 spot prices roughly 3x since late 2025; DRAM contract prices up ~90% from their recent low; Nvidia's third 2026 GPU price rise (+20–30%) after January (+10–15%) and May; AMD +10–15%; shortage forecast to last into 2028; AI data centres projected to consume up to ~70% of world memory output in 2026. igorslab.de / wccftech / tweaktown.com / techtimes.com aggregate, 2026-08-11. |
+| `[ANTHROPIC-PRICING26]` | Vendor/Commercial (first-party price list) | Anthropic, platform.claude.com/docs/en/about-claude/pricing — PRIMARY, read directly 2026-08-11. Haiku 4.5 $1/$5 per million input/output tokens ($0.50/$2.50 batch); Sonnet 5 $2/$10 introductory to 2026-08-31, then $3/$15; cache reads 0.1x input price; the vendor's own worked example prices ~10,000 support conversations at ~$37 on Haiku 4.5. |
+| `[ARC-STACK-GUIDES26]` | Vendor/Commercial (SEO/tutorial blogs; weak, used as corroboration only) | Multiple mid-2026 setup guides (markaicode.com, destellotech.com, Medium): consensus that Ollama has no native Intel Arc support as of July 2026 and that IPEX-LLM-led guides are outdated. Search synthesis 2026-08-11. |
+| `[EMBEDDEDLLM-B60-26]` | Vendor/Commercial (AI infrastructure company blog) | embeddedllm.com, "Benchmarking LLM Inference on Intel Arc Pro B60" (vLLM; reports 50–64 concurrent requests with ~1,000 tok/s aggregate throughput) — **LEAD ONLY**, surfaced 2026-08-11, not fetched. |
+| `[PHORONIX-ARCPRO26]` | Vendor/Commercial (independent Linux tech press) | Phoronix: Arc Pro B50 Linux review (phoronix.com/review/intel-arc-pro-b50-linux) and Arc Pro B70 LLM/AI benchmark article — **LEADS ONLY**, surfaced 2026-08-11, not fetched. |
 
 ---
 
@@ -4417,6 +4428,33 @@ drafting until the creator reopens it. Its carried open items:
   and has never been checked against the current tool landscape or
   versions.
 
+**Budget-VRAM thread (Entries 068–069, 2026-08-11)** — the desk pass is
+done; what remains is empirical:
+
+- **Sold-price data for used 24GB cards** — both used-3090 trackers are
+  listing-based and conflict by ~£380; eBay sold/completed data would
+  settle the real street price.
+
+- **Single-card idle and load power for Arc Pro B-series** — the
+  always-on electricity term in any break-even is unquantified; the
+  surfaced Phoronix reviews likely carry measurements
+  (`[PHORONIX-ARCPRO26]`, unread).
+
+- **Surfaced but unread benchmark sources** — `[PHORONIX-ARCPRO26]`,
+  `[EMBEDDEDLLM-B60-26]`, and the Level1Techs B60 thread; reading them
+  would widen a currently thin (two-source) measured-performance base.
+
+- **The hands-on break-even unit** — buy one card (B580 at ~£250 or B60
+  at ~£830), run the llama.cpp and container stacks, measure tokens per
+  second per pound per watt on defined SME-shaped tasks, publish
+  including what failed. Hardware purchase is a creator decision; the
+  draft document's closing section holds the design sketch.
+
+- **Watch for Intel confirmation or contradiction of the reported
+  consumer-line cancellation** (`[ARC-ROADMAP-PRESS26]` is leak-based) —
+  it decides the shelf-life warning any published buying guidance must
+  carry.
+
 ### Priorities 7–10 — Largely untouched
 
 - **Priority 7 (delivery format)** — accessibility requirements,
@@ -4830,3 +4868,181 @@ it ever grows its own open-items list.*
   opinion. Source key gains four rows. The workshop-to-research parallel
   the about page draws now has a citable regulatory record behind its
   vehicle half.
+
+### Entry 068 — Budget VRAM in mid-2026: the hardware market has moved toward the project's question
+
+- **Date logged:** 2026-08-11
+
+- **Priority / Question:** Priority 6 ("Which tasks are better suited to
+  local, cloud or hybrid processing?") — a direct extension of the
+  Entry 030/042 break-even thread, run at the creator's direction to
+  investigate Intel GPUs as low-cost VRAM options for local inference.
+  This is a research pass only; the parked local-AI workstation
+  curriculum track (see Open Threads) is not reopened by it.
+
+- **Source:** `[GPU-PRICES-UK26]`, `[MEMCRISIS26]`,
+  `[ARC-ROADMAP-PRESS26]`, `[INTEL-CRESCENT26]`, `[SR-B70-26]` (for
+  list/street pricing), plus prior-turn spot checks recorded in the same
+  tags.
+
+- **Checked date:** 2026-08-11
+
+- **What the sources directly support:**
+
+  - **Intel ships a workstation inference line that exists to sell
+    cheap VRAM, and it is extending, not winding down.** Arc Pro B50
+    (16GB, 70W, $349 list, May 2025), Arc Pro B60 (24GB, $599–$799 US
+    retail against Intel's ~$500 estimate), Arc Pro B70 (32GB, launched
+    2026-03-25 at $949 list, US street >$1,100), plus partner dual-B60
+    48GB boards. UK retail carries the line (Overclockers UK), at a
+    heavy premium over US list: B60 24GB ~£830, B70 32GB ~£1,290, B50
+    from ~£380 (`[GPU-PRICES-UK26]`).
+
+  - **Every GPU price is currently inflating.** GDDR6 spot prices are
+    roughly 3x their late-2025 level, DRAM contract prices are up ~90%,
+    Nvidia has raised GeForce prices three times in 2026 and AMD once,
+    and the shortage is forecast to run into 2028, driven by AI
+    data-centre demand on memory fabs (`[MEMCRISIS26]`, search-level).
+    Consequence for any published figure: prices in this thread are
+    single-day listings and must carry their retrieval date.
+
+  - **The comparators have moved.** RTX 5060 Ti 16GB: £379.99 promotions
+    earlier in 2026, ~£499 in July. RX 9060 XT 16GB: from ~£310. Used
+    RTX 3090 24GB — the traditional budget path to 24GB — now shows
+    £751 on one tracker and £1,129 ("near low" of a £1,129–£1,294
+    2026 range) on another, both listing-based; the two figures do not
+    reconcile, but both sit far above the ~£550–650 street level
+    generally reported in 2025, and the direction is up.
+
+  - **Intel's GPU strategy is being redirected at inference economics,
+    away from consumer gaming.** April 2026 press reports (leak-based,
+    not Intel-confirmed) say Xe3P "Celestial" consumer gaming cards are
+    cancelled and Xe4 "Druid" is uncertain, with Xe3P redirected to
+    data-centre and workstation parts (`[ARC-ROADMAP-PRESS26]`). What is
+    Intel-confirmed: "Crescent Island", an inference-only data-centre
+    GPU on Xe3P with 160GB of LPDDR5X, air-cooled, positioned explicitly
+    on performance-per-dollar and token economics, sampling H2 2026
+    (`[INTEL-CRESCENT26]`); and $18bn+ of 2025–26 funding including
+    Nvidia's $5bn stake, $11.1bn from the US government and $2bn from
+    SoftBank.
+
+- **Inference drawn:** Capacity-per-pound over bandwidth is now Intel's
+  own stated GPU strategy — LPDDR5X instead of HBM on Crescent Island is
+  the same trade the Arc Pro line makes with GDDR6 — so the "cheap VRAM"
+  framing this pass was asked to test matches where the vendor itself is
+  pointing. Separately, the doubling of used-3090 prices materially
+  changes Entry 030's break-even inputs at the 24GB tier: a new,
+  warrantied B60 at ~£830 now sits at or below the used-Nvidia price on
+  some days, which was not true when Entry 030's "~$700 used consumer
+  GPU" low end was logged.
+
+- **Limitations / conflicting evidence:** All prices are listing prices
+  retrieved on one day (2026-08-11), not sold prices; the two used-3090
+  trackers conflict by ~£380 and neither publishes a sold-price
+  methodology, so the honest citable form is a range with the direction
+  noted. Two price pages could not be fetched directly (HTTP 429/403)
+  and their figures arrived via search snippets — an obtainable hole,
+  not an absence. The Celestial cancellation is press-reported leak
+  only. The UK premium over US list (B60 ~£830 vs $599–$658) is
+  documented but unexplained beyond the general memory squeeze; import
+  pricing, VAT and thin UK stock are plausible contributors not
+  separated here.
+
+- **Effect on project direction:** Feeds
+  `drafts/budget_vram_for_local_ai.md` (created this date) as the
+  hardware-landscape half of its evidence. Open Threads Priority 6
+  gains the empirical follow-ups (sold-price data, single-card power
+  measurements, the surfaced-but-unread benchmark sources).
+
+### Entry 069 — Arc for local inference: measured performance is real; the software stack is the risk
+
+- **Date logged:** 2026-08-11
+
+- **Priority / Question:** Priority 6, same pass as Entry 068 — the
+  software and measured-performance half, plus the API-cost anchor the
+  break-even claim needs.
+
+- **Source:** `[SR-B70-26]`, `[BENTECH-ARC26]`, `[IPEXLLM-GH26]`,
+  `[ANTHROPIC-PRICING26]` — all read directly this date.
+  `[EMBEDDEDLLM-B60-26]`, `[PHORONIX-ARCPRO26]`, `[ARC-STACK-GUIDES26]`
+  as surfaced leads/corroboration only.
+
+- **Checked date:** 2026-08-11
+
+- **What the sources directly support:**
+
+  - **Multi-GPU serving throughput per pound is independently measured
+    and strong.** StorageReview (2026-07-14), four B70s (128GB VRAM,
+    ~$3,800 of GPU at list) in a Supermicro server: Mistral Small 24B
+    at 8,321 tok/s at batch 32 — reported ~65% ahead of an RTX Pro 6000
+    at maximum concurrency, a card that alone costs roughly double the
+    four B70s; Llama 3.1 8B ~12,000 tok/s; GPT-OSS 120B 6,870 tok/s;
+    Qwen3 Coder 30B 6,643 tok/s; against a consumer RTX 5070, "up to
+    85% higher token throughput" and "up to 6.2x faster on
+    time-to-first-token under load" (`[SR-B70-26]`).
+
+  - **Single-card performance is usable for the 27–32B class.**
+    Practitioner benchmarks (2026-04-16): Gemma 4 31B Q4_K_M at 18.6
+    tok/s (SYCL, single B70); Qwen3.5-27B Q4_K_M at 10.1 tok/s — on
+    Vulkan, because the SYCL backend had a state-leak bug on that
+    architecture where "the second response answers the first
+    question"; SYCL roughly 2x Vulkan on dense models when it works
+    (`[BENTECH-ARC26]`). Human reading speed is ~5 tok/s, so these are
+    interactive-usable rates.
+
+  - **The same review that measured the throughput judged the stack
+    immature:** Intel's LLM Scaler (the containerised vLLM branch that
+    produced the multi-GPU numbers, Linux/Docker) is "in our opinion
+    still a beta release at best", with limited model coverage
+    (`[SR-B70-26]`). It is, however, actively developed: the April 2026
+    release added official B70 support.
+
+  - **Intel archived its consumer LLM path.** The IPEX-LLM repository —
+    the official route to Ollama and llama.cpp on Arc for individual
+    users — was archived 2026-01-28 with the notice that Intel "will
+    not provide or guarantee development of or support for this
+    project" (`[IPEXLLM-GH26]`). Ollama has no native Arc support as of
+    July 2026 (`[ARC-STACK-GUIDES26]`, weak sources, consistent with
+    the archive fact). What remains for individuals is llama.cpp's SYCL
+    and Vulkan backends.
+
+  - **The API-cost anchor for break-even:** Haiku 4.5 costs $1/$5 per
+    million input/output tokens, half that via batch processing, and
+    Anthropic's own worked example prices ~10,000 support conversations
+    at roughly $37 (`[ANTHROPIC-PRICING26]`). At that rate an £830 B60
+    represents roughly two years of a 10,000-conversation-per-month
+    workload before electricity is counted.
+
+- **Inference drawn:** The binding constraint on the Arc value case has
+  moved from silicon to software longevity: the hardware's
+  price-performance is independently verified, and in the same year
+  Intel extended the hardware line it withdrew support from the
+  consumer software path. The honest characterisation for this
+  project's audience: Arc Pro is a strong price on VRAM for a
+  technically supported deployment (containers, Linux, someone
+  responsible for the stack), not a plug-and-play consumer saving — and
+  the break-even logic of Entries 030/042 still stands: below
+  high-volume or privacy-constrained use, the API route remains
+  cheaper. Which is the shape of Entry 030's original inference,
+  now with harder numbers on both sides.
+
+- **Limitations / conflicting evidence:** The independent benchmark
+  base is thin — one professional review and one practitioner blog
+  whose author declares a PCIe bottleneck in his own dual-GPU numbers;
+  the Phoronix and embeddedllm tests that would widen it were surfaced
+  but not read (logged as leads). No idle/load power measurement for a
+  single B-series card was gathered, so the always-on electricity term
+  in any break-even is currently unquantified — an obtainable hole.
+  Capability adequacy for specific SME workflows rests on Entry 042's
+  general open-vs-frontier gap evidence, not on task-level testing.
+  API prices are one vendor's; a cross-vendor anchor would strengthen
+  the break-even figure but is unlikely to change its order of
+  magnitude.
+
+- **Effect on project direction:** Feeds
+  `drafts/budget_vram_for_local_ai.md` as the software and economics
+  half of its evidence. The empirical hands-on unit (buy a card, run
+  the stack, measure tokens per second per pound per watt on defined
+  tasks, publish including failures) is flagged in the draft as the
+  step that would settle what desk research cannot; purchasing
+  hardware is a creator decision and is not scheduled by this entry.
