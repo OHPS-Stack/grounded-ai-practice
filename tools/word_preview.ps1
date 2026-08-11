@@ -22,6 +22,11 @@ $Path = (Resolve-Path $Path).Path
 if (-not $OutPath) {
     $OutPath = [System.IO.Path]::ChangeExtension($Path, "pdf")
 }
+elseif (-not [System.IO.Path]::IsPathRooted($OutPath)) {
+    # Word COM resolves relative paths against its own working directory,
+    # not this shell's, and fails with "directory name isn't valid".
+    $OutPath = Join-Path (Get-Location).Path $OutPath
+}
 
 $before = @(Get-Process WINWORD -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Id)
 

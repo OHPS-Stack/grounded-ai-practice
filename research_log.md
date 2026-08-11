@@ -195,16 +195,20 @@ Full citation is given once here; log entries below cite the short tag only.
 | `[SERMI-UK26]` | Advocacy/Membership body (Independent Garage Association — operator of the UK scheme and trade body for the independent sector, so an interested party in its own launch claims) | "SERMI Now Live: A Momentous Day for Independent Garages", sermi.co.uk, 2026 — PRIMARY for the scheme's own account, read directly. UK go-live 1 April 2026. sermi.co.uk/sermi-now-live-a-momentous-day-for-independent-garages/ |
 | `[CMA-MVA-GUIDE23]` | Government/Official | CMA, *Guidance on Motor Vehicle Agreements*, June 2023 — located and cited as corroboration of `[MVBEO-2023]` only; **not yet read in full**. assets.publishing.service.gov.uk/media/647d9cb15f7bb700127fa41a/2.0_CMA_Guidance_on_Motor_Vehicle_Agreements.pdf |
 | `[SR-B70-26]` | Vendor/Commercial (independent tech press, advertising-funded; no Intel affiliation declared) | StorageReview, "Intel Arc Pro B70 Review: The Hardware Is Ready, the Stack Needs to Catch Up", 2026-07-14 — PRIMARY, read directly (fetch summary) 2026-08-11. storagereview.com/review/intel-arc-pro-b70-review |
-| `[BENTECH-ARC26]` | Independent (individual practitioner blog; single hobbyist test rig with a self-declared PCIe bandwidth bottleneck; no product to sell) | bentech.substack.com, "Intel Arc Pro B60 + B70 LLM Benchmarks: Most Quants, Every Backend", 2026-04-16 — PRIMARY, read directly (fetch summary) 2026-08-11. |
+| `[BENTECH-ARC26]` | Independent (individual practitioner blog; single hobbyist test rig with a self-declared PCIe bandwidth bottleneck; no product to sell) | bentech.substack.com, two posts, both PRIMARY, read directly (fetch summary) 2026-08-11: "Intel Arc Pro B60 + B70 LLM Benchmarks: Most Quants, Every Backend" (2026-04-16) and "Running Local LLMs on Intel Arc Pro B60 and B70 GPUs" (2026-04-13 — the operational path: kernel 6.12+ with a manual GuC firmware step, Ubuntu shipping 70.44.1 against the kernel wanting 70.60.0; Intel's llm-scaler Docker image recommended over mainline vLLM; FP8 conversion needing ~54 GiB system RAM; measured power under vLLM generation B70 231 W at its TDP cap, B60 153 W; verdict "maturing fast but not mature"). |
 | `[IPEXLLM-GH26]` | Vendor/Commercial (Intel first-party repository) | github.com/intel/ipex-llm — carries the archive notice: archived by the owner 2026-01-28, read-only, "Intel will not provide or guarantee development of or support for this project" — PRIMARY, read directly 2026-08-11. |
 | `[INTEL-CRESCENT26]` | Vendor/Commercial (Intel first-party, reached via multi-outlet search synthesis; the newsroom page itself NOT fetched directly) | Intel "Crescent Island" data-centre inference GPU: Xe3P architecture, 160GB LPDDR5X, air-cooled, positioned on performance-per-dollar and token economics, customer sampling H2 2026. newsroom.intel.com, "Intel to Expand AI Accelerator Portfolio with New GPU". |
-| `[ARC-ROADMAP-PRESS26]` | Vendor/Commercial (tech press reporting unnamed-source leaks; NOT confirmed by Intel) | Tom's Hardware / VideoCardz / TweakTown, April 2026: Xe3P "Celestial" discrete consumer gaming GPUs reportedly cancelled, Xe3P redirected to data-centre/workstation products, Xe4 "Druid" consumer plans uncertain. Search synthesis 2026-08-11. |
-| `[GPU-PRICES-UK26]` | Vendor/Commercial (retail listings and price trackers — primary for the listed price on the retrieval date only; listing prices are not sold prices) | UK street prices retrieved 2026-08-11: PriceSpy (Sparkle Arc Pro B60 24GB £829.99; Sparkle Arc Pro B70 32GB £1,289.99), idealo (Arc Pro B50 16GB from £379.99; RX 9060 XT from £309.98), OC3D (Arc B580 sub-£200 promotions; RTX 5060 Ti 16GB £379.99 events, ~£499 Amazon July 2026), bestvaluegpu.com (used RTX 3090 ~£751 Aug 2026), GPUDojo (used RTX 3090 £1,129 single eBay listing, retrieved 2026-08-11, described as "near low" of a £1,129–£1,294 Mar–Jul 2026 range). |
+| `[ARC-ROADMAP-PRESS26]` | Vendor/Commercial (tech press reporting unnamed-source leaks; NOT confirmed by Intel) | Tom's Hardware / VideoCardz / TweakTown, April 2026: Xe3P "Celestial" discrete consumer gaming GPUs reportedly cancelled, Xe3P redirected to data-centre/workstation products, Xe4 "Druid" consumer plans uncertain. Search synthesis 2026-08-11. Re-checked 2026-08-11 (Entry 070): no Intel confirmation or denial found; still leak-based. |
+| `[GPU-PRICES-UK26]` | Vendor/Commercial (retail listings and price trackers — primary for the listed price on the retrieval date only; listing prices are not sold prices) | UK street prices retrieved 2026-08-11: PriceSpy (Sparkle Arc Pro B60 24GB £829.99; Sparkle Arc Pro B70 32GB £1,289.99), idealo (Arc Pro B50 16GB from £379.99; RX 9060 XT from £309.98), OC3D (Arc B580 sub-£200 promotions; RTX 5060 Ti 16GB £379.99 events, ~£499 Amazon July 2026), bestvaluegpu.com (used RTX 3090 ~£751 Aug 2026), GPUDojo (used RTX 3090 £1,129 single eBay listing, retrieved 2026-08-11, described as "near low" of a £1,129–£1,294 Mar–Jul 2026 range). Comparator rows retrieved 2026-08-11, same date: bestvaluegpu.com (RTX 5070 12GB new £599, used ~£495; RTX 5090 32GB new £4,199, used ~£3,373, against a £1,919 UK launch MSRP; RTX 3060 12GB used ~£205, residual new stock £411); idealo search snippet (PowerColor Radeon AI PRO R9700 32GB from £1,249.99 — direct fetch blocked on two routes, 403/error page); Destello Tech retail listing (Maxsun Arc Pro B60 Dual 48GB £1,699.99, pre-order with 2–4 week estimate, UK dispatch claimed; US launch price $1,200 per VideoCardz); GPUDojo (used RTX A6000 48GB $3,650, eBay US, updated 2026-08-11, down from ~$6,350 in March 2026). |
 | `[MEMCRISIS26]` | Vendor/Commercial (multi-outlet search synthesis; individual reports NOT independently fetched) | The 2026 memory-price crisis: GDDR6 spot prices roughly 3x since late 2025; DRAM contract prices up ~90% from their recent low; Nvidia's third 2026 GPU price rise (+20–30%) after January (+10–15%) and May; AMD +10–15%; shortage forecast to last into 2028; AI data centres projected to consume up to ~70% of world memory output in 2026. igorslab.de / wccftech / tweaktown.com / techtimes.com aggregate, 2026-08-11. |
 | `[ANTHROPIC-PRICING26]` | Vendor/Commercial (first-party price list) | Anthropic, platform.claude.com/docs/en/about-claude/pricing — PRIMARY, read directly 2026-08-11. Haiku 4.5 $1/$5 per million input/output tokens ($0.50/$2.50 batch); Sonnet 5 $2/$10 introductory to 2026-08-31, then $3/$15; cache reads 0.1x input price; the vendor's own worked example prices ~10,000 support conversations at ~$37 on Haiku 4.5. |
 | `[ARC-STACK-GUIDES26]` | Vendor/Commercial (SEO/tutorial blogs; weak, used as corroboration only) | Multiple mid-2026 setup guides (markaicode.com, destellotech.com, Medium): consensus that Ollama has no native Intel Arc support as of July 2026 and that IPEX-LLM-led guides are outdated. Search synthesis 2026-08-11. |
-| `[EMBEDDEDLLM-B60-26]` | Vendor/Commercial (AI infrastructure company blog) | embeddedllm.com, "Benchmarking LLM Inference on Intel Arc Pro B60" (vLLM; reports 50–64 concurrent requests with ~1,000 tok/s aggregate throughput) — **LEAD ONLY**, surfaced 2026-08-11, not fetched. |
-| `[PHORONIX-ARCPRO26]` | Vendor/Commercial (independent Linux tech press) | Phoronix: Arc Pro B50 Linux review (phoronix.com/review/intel-arc-pro-b50-linux) and Arc Pro B70 LLM/AI benchmark article — **LEADS ONLY**, surfaced 2026-08-11, not fetched. |
+| `[EMBEDDEDLLM-B60-26]` | Vendor/Commercial (AI infrastructure company blog; test hardware supplied by Sparkle, a B60 board partner) | embeddedllm.com, "Benchmarking LLM Inference on Intel Arc Pro B60: A Comparative Analysis of vLLM", 2026-02-14 — PRIMARY, read directly 2026-08-11. 4× B60 workstation, tensor parallelism 4, Qwen3-VL-30B-A3B-Instruct: ~1,000 tok/s aggregate at peak, near-linear scaling 16→64 concurrent requests. Stock vLLM 0.12 (built from source) against Intel's LLM-Scaler 1.2: LLM-Scaler ~20–25% faster per output token (44–48ms vs 59–61ms at 16 concurrent), stock vLLM roughly half the time-to-first-token (1.8–2.1s vs 2.8–4.2s). embeddedllm.com/blog/benchmarking-llm-inference-intel-arc-pro-b60 |
+| `[PHORONIX-ARCPRO26]` | Vendor/Commercial (independent Linux tech press, advertising-funded; review hardware supplied by Intel) | Phoronix, two Arc Pro B70 articles read directly 2026-08-11: "Intel Arc Pro B70 Benchmarks With LLM / AI, OpenCL, OpenGL & Vulkan" (2026-04-08 — B70 vs B50/B580/A770 on Ubuntu 26.04; llama.cpp Vulkan performance strong; carries no power figures because the Intel Xe driver on Linux 7.0 does not expose GPU power via sysfs) and "Intel Arc Pro B70 Open-Source Linux Performance Against NVIDIA RTX & AMD Radeon AI PRO" (2026-04-15 — B70 roughly matches the prior-generation Radeon PRO W7900 ($3,999, 48GB) on 8B llama.cpp prompt processing; "only the Radeon AI PRO R9700 was delivering better value"; GPT-OSS 20B underperforms on Intel under llama.cpp; Intel's vLLM upstream support noted as trailing AMD ROCm and NVIDIA CUDA). phoronix.com/review/intel-arc-pro-b70-linux; phoronix.com/review/intel-arc-pro-b70. Third article read directly 2026-08-11: the Arc Pro B50 launch review (2025-09-03, phoronix.com/review/intel-arc-pro-b50-linux) — a workstation-graphics review, no LLM tests: B50 at 1.47x an RTX A1000 overall on Linux ($349 vs $420 list), measured GPU power 59 W average / 71 W peak across the benchmark span, sensor exposure working on that 2025 driver stack. |
+| `[L1T-B60-26]` | Independent (enthusiast forum thread; self-reported member benchmarks, no product to sell) | Level1Techs forum, "Arc Pro B60 for Local LLMs", thread running 2026-03-04 to 2026-04-21 — PRIMARY, read directly 2026-08-11. Single B60, llama.cpp: Qwen3.5-35B-A3B Q4_K_XL at 37.24 tok/s generation (SYCL build 8688); Qwen3.5-9B at 33.41 tok/s on the April build against 23.01 on the March build — ~45% gained from software alone in seven weeks; member comparison point RTX Pro 4500 at 133.47 tok/s on the same 35B model. forum.level1techs.com/t/arc-pro-b60-for-local-llms/246971 |
+| `[PMZFX-B70-26]` | Independent (individual benchmark repository; methodology and raw numbers published, unverified) | PMZFX, intel-arc-pro-b70-benchmarks (GitHub), llama.cpp SYCL build of 2026-04-21 — PRIMARY, read directly 2026-08-11. Single B70: Qwen3.6-35B-A3B at 54.7 tok/s generation, 615 tok/s prompt processing; 70B dense at 11.5 tok/s across two cards; measured load power averages 37–186 W by model (0.06–1.68 tokens/joule); SYCL ~2.2× Vulkan on generation; dual-card row-split segfaults, layer-split works. github.com/PMZFX/intel-arc-pro-b70-benchmarks |
+| `[VLLM-ARC25]` | Vendor/Commercial (authored by the "Intel vLLM Team" on the vLLM project blog — Intel-written despite the venue) | vLLM blog, "Fast and Affordable LLMs serving on Intel Arc Pro B-Series GPUs with vLLM", 2025-11-11 — PRIMARY, read directly 2026-08-11. Claims: 80%+ MoE hardware efficiency on B60; GPT-OSS-20B up to 1,210.74 tok/s and GPT-OSS-120B up to 1,495.12 tok/s serving throughput; long-context scaling 1K to 40K+; stated commitment to deepen vLLM upstream integration. vllm.ai/blog/2025-11-11-intel-arc-pro-b |
+| `[ANTHROPIC-PROMPTDOCS26]` | Vendor/Commercial (first-party product documentation) | Anthropic, "Prompt engineering overview" and "Prompting best practices", platform.claude.com/docs — PRIMARY, read directly 2026-08-11. Core principles: clear, explicit instructions with the desired output format stated; context and motivation supplied (the model as "a brilliant but new employee who lacks context"); examples described as one of the most reliable ways to steer format, tone and structure; and a stated test — show the prompt to a colleague with minimal context, and if they would be confused, so will the model. |
 
 ---
 
@@ -4428,21 +4432,19 @@ drafting until the creator reopens it. Its carried open items:
   and has never been checked against the current tool landscape or
   versions.
 
-**Budget-VRAM thread (Entries 068–069, 2026-08-11)** — the desk pass is
-done; what remains is empirical:
+**Budget-VRAM thread (Entries 068–071, 2026-08-11)** — the desk pass
+and the source reads are done; what remains is empirical:
 
 - **Sold-price data for used 24GB cards** — both used-3090 trackers are
   listing-based and conflict by ~£380; eBay sold/completed data would
   settle the real street price.
 
-- **Single-card idle and load power for Arc Pro B-series** — the
-  always-on electricity term in any break-even is unquantified; the
-  surfaced Phoronix reviews likely carry measurements
-  (`[PHORONIX-ARCPRO26]`, unread).
-
-- **Surfaced but unread benchmark sources** — `[PHORONIX-ARCPRO26]`,
-  `[EMBEDDEDLLM-B60-26]`, and the Level1Techs B60 thread; reading them
-  would widen a currently thin (two-source) measured-performance base.
+- **Single-card idle power for Arc Pro B-series** — load power is
+  now measured at three points (B50 59 W average, B60 153 W, B70
+  231 W — Entries 071/073), but no idle figure was found anywhere,
+  and the Intel Xe driver on Linux 7.0 does not expose GPU power via
+  sysfs (Entry 071) — so settling it takes a wall meter on real
+  hardware, which the hands-on unit design already includes.
 
 - **The hands-on break-even unit** — buy one card (B580 at ~£250 or B60
   at ~£830), run the llama.cpp and container stacks, measure tokens per
@@ -4451,7 +4453,9 @@ done; what remains is empirical:
   draft document's closing section holds the design sketch.
 
 - **Watch for Intel confirmation or contradiction of the reported
-  consumer-line cancellation** (`[ARC-ROADMAP-PRESS26]` is leak-based) —
+  consumer-line cancellation** (`[ARC-ROADMAP-PRESS26]` is leak-based;
+  re-checked 2026-08-11, still no Intel statement either way, Entry
+  070) —
   it decides the shelf-life warning any published buying guidance must
   carry.
 
@@ -5046,3 +5050,258 @@ it ever grows its own open-items list.*
   tasks, publish including failures) is flagged in the draft as the
   step that would settle what desk research cannot; purchasing
   hardware is a creator decision and is not scheduled by this entry.
+
+### Entry 070 — The missing comparators priced: the CUDA options do not run out above 24 GB, they triple in price
+
+- **Date logged:** 2026-08-11
+
+- **Priority / Question:** Priority 6 — completing the Entry 068 pricing
+  pass. `project_log.md` Entry 066 records the VRAM figure refusing to
+  build because no non-Intel comparator was priced at 12 GB or 32 GB —
+  the single comparison the figure exists to make. This entry closes
+  that, plus the two items the draft document named as outstanding (the
+  48 GB B60 Dual unpriced; the consumer-roadmap watch item).
+
+- **Source:** `[GPU-PRICES-UK26]` (comparator rows added this date:
+  bestvaluegpu.com trackers for RTX 5070/5090/3060, Destello Tech
+  retail listing for the B60 Dual, GPUDojo for the used RTX A6000,
+  idealo search snippet for the R9700), `[ARC-ROADMAP-PRESS26]`
+  (re-check).
+
+- **Checked date:** 2026-08-11
+
+- **What the sources directly support:**
+
+  - **12 GB, CUDA:** RTX 5070 12GB new £599, used ~£495. The used
+    RTX 3060 12GB sits at ~£205 with residual new stock at £411 — the
+    budget CUDA route at this capacity is effectively used-only.
+
+  - **32 GB, CUDA:** RTX 5090 32GB new £4,199, used ~£3,373, against a
+    £1,919 UK launch MSRP — the card has more than doubled its own
+    launch price, consistent with the `[MEMCRISIS26]` direction.
+
+  - **32 GB, AMD:** Radeon AI PRO R9700 32GB from £1,249.99 (search
+    snippet; both direct fetch routes blocked — an obtainable hole). It
+    undercuts the Arc Pro B70's £1,290 at UK prices, and Phoronix's
+    cross-vendor review judged it the better value of the two at US
+    prices (Entry 071).
+
+  - **48 GB:** the Maxsun Arc Pro B60 Dual 48GB has a real UK listing
+    at £1,699.99 — pre-order, 2–4 week dispatch estimate — against a
+    $1,200 reported US launch price. The used CUDA route at 48 GB, the
+    RTX A6000, tracks at $3,650 (eBay US, this date, down from ~$6,350
+    in March 2026 — the one falling price found anywhere in this
+    thread).
+
+  - **The consumer-line cancellation remains leak-only.** Re-checked
+    this date: no Intel statement either way since the April reporting.
+
+- **Inference drawn:** A UK buyer can now be shown a like-for-like
+  comparison at every capacity tier, and the shape is consistent: the
+  CUDA option costs ~2.4x at 12 GB (£599 vs £245), converges at 24 GB
+  where the used 3090's range overlaps the new B60, and separates hard
+  at 32 GB — £4,199 against £1,250–£1,290, roughly 3.3x. The drafted
+  figure title ("above 24 GB, the CUDA options run out") is wrong and
+  falls: the CUDA options exist at every tier priced; what happens
+  above 24 GB is that their price triples. Separately, the R9700
+  marginally undercutting the B70 means "the open stack" is not one
+  price position either — AMD is now the second open-stack option at
+  32 GB and needs naming as such, not folding into Intel silently.
+
+- **Limitations / conflicting evidence:** All listing prices on one
+  day, per Entry 068's standing caveat. The R9700 figure is a search
+  snippet, not a fetched page. The B60 Dual is a pre-order listing,
+  not stock on a shelf; whether it ships at that price is unobserved.
+  The A6000 figure is US-market; no UK used listing was priced. The
+  RTX 5090 is a consumer gaming card set against workstation cards —
+  same silicon class, different warranty and driver tier — and it is
+  the only new CUDA card sold at 32 GB, which is itself part of the
+  finding.
+
+- **Effect on project direction:** Unblocks
+  `tools/build_vram_figures.py` — `check_coverage()` passes with real
+  data at every level. The figure's title changes to follow the
+  corrected finding. `drafts/budget_vram_for_local_ai.md` comparison
+  table updated the same day.
+
+### Entry 071 — The unread benchmark sources read: the measured base widens from two rigs to five
+
+- **Date logged:** 2026-08-11
+
+- **Priority / Question:** Priority 6 — closing the surfaced-but-unread
+  list from Entry 069's limitations, at the creator's direction to read
+  unread sources directly rather than leave them as leads.
+
+- **Source:** `[EMBEDDEDLLM-B60-26]` and `[PHORONIX-ARCPRO26]` (both
+  upgraded from leads to direct reads this date), `[L1T-B60-26]` and
+  `[PMZFX-B70-26]` (both added this date).
+
+- **Checked date:** 2026-08-11
+
+- **What the sources directly support:**
+
+  - **Single-card B60, 35B-class mixture-of-experts: 37.24 tok/s**
+    (Qwen3.5-35B-A3B, llama.cpp SYCL, `[L1T-B60-26]`). This corrects
+    the draft's search-level "~39 tok/s on the B60", which had
+    conflated B60 and B70 numbers from different rigs.
+
+  - **Single-card B70: 54.7 tok/s** on Qwen3.6-35B-A3B with 615 tok/s
+    prompt processing (`[PMZFX-B70-26]`) — same model class, next card
+    up.
+
+  - **Load power is now measured; idle power still is not.** PMZFX
+    logs 37–186 W averages by model (0.06–1.68 tokens/joule). No idle
+    figure was found anywhere, and Phoronix's review explains why its
+    own article has no power data at all: the Intel Xe driver on Linux
+    7.0 does not expose GPU power through the standard sysfs interface
+    — so even measuring it locally takes a wall meter, not software.
+
+  - **Serving scale on 4×B60: ~1,000 tok/s aggregate**, scaling
+    near-linearly from 16 to 64 concurrent requests
+    (`[EMBEDDEDLLM-B60-26]`). Notably, stock vLLM 0.12 built from
+    source ran the hardware — Intel's fork is not the only serving
+    path — with a measured split: Intel's LLM-Scaler ~20–25% faster
+    per output token, stock vLLM roughly half the time-to-first-token.
+
+  - **The software is moving fast, in both directions.** A 45%
+    single-model generation gain between the March and April llama.cpp
+    SYCL builds on identical hardware (`[L1T-B60-26]`); against that,
+    GPT-OSS 20B underperforming on Intel under llama.cpp in April, and
+    Phoronix noting Intel's vLLM upstream support trails AMD ROCm and
+    NVIDIA CUDA (`[PHORONIX-ARCPRO26]`).
+
+  - **Cross-vendor measured context now exists:** the B70 roughly
+    matches the prior-generation Radeon PRO W7900 — a $3,999, 48 GB
+    card — on 8B prompt processing, and Phoronix judged the R9700 the
+    better value of the two current 32 GB open-stack cards at US
+    prices (`[PHORONIX-ARCPRO26]`).
+
+- **Inference drawn:** Entry 069's conclusion survives on a wider
+  base, and the software risk is now more precisely located: the pace
+  of improvement is real and steep, but coverage is uneven per model
+  and Intel's upstream position sits behind AMD's. For a buyer the
+  practical reading is unchanged — strong price on VRAM for a
+  technically supported deployment. For the document, the measured
+  numbers previously resting on two sources now rest on five, at the
+  cost of noting that three of the five have hardware-supply
+  relationships with the vendors being measured.
+
+- **Limitations / conflicting evidence:** `[L1T-B60-26]` is
+  self-reported forum benchmarking; `[PMZFX-B70-26]` is one
+  individual's repository; `[EMBEDDEDLLM-B60-26]` ran on
+  partner-supplied hardware, as did Phoronix's reviews. Remaining
+  unread: the Phoronix B50 review, bentech's follow-up post, and the
+  vLLM project's own Arc blog post — leads, lower priority now the
+  base is wider. Idle power remains the open empirical hole, and it
+  now has a known measurement constraint attached.
+
+- **Effect on project direction:** `drafts/budget_vram_for_local_ai.md`
+  performance and software sections rewritten from these reads; its
+  "two primary sources" caveat retired. Open Threads Priority 6
+  updated: the benchmark-breadth thread closes, the idle-power thread
+  narrows to a wall-meter measurement on real hardware, which the
+  hands-on unit design already includes.
+
+### Entry 072 — Vendor prompting guidance read directly, verifying the pilot unit's technique claims
+
+- **Date logged:** 2026-08-11
+
+- **Priority / Question:** Priority 6 ("How should prompting, context
+  engineering ... be taught") and Priority 4, in support of drafting
+  the pilot unit. The markdown-first lessons rule requires technical
+  specifics verified against documentation before being presented as
+  instruction; the unit's technique section is exactly that.
+
+- **Source:** `[ANTHROPIC-PROMPTDOCS26]`
+
+- **Checked date:** 2026-08-11
+
+- **What the source directly supports:** The vendor's current guidance
+  rests on the same small set the unit teaches: clear, explicit
+  instructions with the desired output format stated; context and
+  motivation supplied, with the model framed as "a brilliant but new
+  employee who lacks context"; examples described as among the most
+  reliable ways to steer output format, tone and structure; and a
+  working test for prompt quality — show it to a colleague with
+  minimal context on the task, and if they would be confused, so will
+  the model.
+
+- **Inference drawn:** The unit's five moves are consistent with the
+  vendor's own guidance while staying tool-neutral. This is
+  convergence, not independent corroboration — product documentation
+  has an interest in its product being used well, and no cross-vendor
+  comparison of prompting guides was run this pass.
+
+- **Limitations / conflicting evidence:** One vendor's documentation,
+  read for verification rather than as a curriculum source; the unit's
+  evidence for *why prompting* is Entries 039–040, not this. The
+  guidance page is written for API users building applications; the
+  unit's audience uses chat interfaces, so the transferable core was
+  taken and the API-specific techniques (XML structuring, prefills,
+  chaining) deliberately left out.
+
+- **Effect on project direction:** Unblocks the pilot unit's technique
+  section. `drafts/effective_prompting.md` drafted the same day —
+  `project_log.md` Entry 068 records the production decisions.
+
+### Entry 073 — The last three leads read: vLLM's own Arc post, the bentech follow-up, the Phoronix B50 review
+
+- **Date logged:** 2026-08-11
+
+- **Priority / Question:** Priority 6 — closing the remaining unread
+  leads noted in Entry 071, so the promoted budget-VRAM document
+  carries no unread-source caveat.
+
+- **Source:** `[VLLM-ARC25]` (added this date), `[BENTECH-ARC26]`
+  (second post, same blog), `[PHORONIX-ARCPRO26]` (the B50 review,
+  previously the row's one unread item).
+
+- **Checked date:** 2026-08-11
+
+- **What the sources directly support:**
+
+  - **The upstream-vLLM story is Intel writing on the project's
+    blog.** The official Arc Pro support post (2025-11-11) is
+    authored by the "Intel vLLM Team": 80%+ MoE hardware efficiency
+    on B60, GPT-OSS-20B up to 1,210.74 tok/s and 120B up to
+    1,495.12 tok/s serving, long-context scaling to 40K+, and a
+    stated commitment to deepen upstream integration. Support is
+    real and improving; the authorship means it is not yet
+    independent of the vendor.
+
+  - **The operational path has named frictions.** The bentech
+    follow-up (2026-04-13): kernel 6.12+ with a manual firmware step
+    (Ubuntu ships GuC 70.44.1, the kernel wants 70.60.0), Intel's
+    Docker image recommended over mainline vLLM, FP8 conversion
+    needing ~54 GiB of system RAM, Vulkan-for-hybrid /
+    SYCL-for-dense as the working backend split, and half the tested
+    backends failing on hybrid-architecture recurrent state. Verdict:
+    "maturing fast but not mature". Measured power under vLLM
+    generation: B70 231 W (at its TDP cap), B60 153 W.
+
+  - **The B50 review is graphics, not LLM** (2025-09-03): B50 at
+    1.47x an RTX A1000 overall on Linux ($349 vs $420), and measured
+    GPU power of 59 W average / 71 W peak across the span — sensor
+    exposure worked on that 2025 stack, unlike the 2026 Linux 7.0
+    situation Entry 071 recorded.
+
+- **Inference drawn:** Load power is now bounded by measurement at
+  three points across two independent sources (B50 59 W average,
+  B60 153 W, B70 231 W); only idle remains unmeasured. The software
+  story sharpens rather than changes: the fastest path is Intel's
+  container, the upstream path is Intel-authored and improving, and
+  the frictions are exactly the operator-shaped ones Entry 069
+  inferred — now named and reproducible rather than characterised.
+
+- **Limitations / conflicting evidence:** The vLLM post's throughput
+  numbers are the vendor's own and were not independently rerun; the
+  bentech rig is one dual-GPU machine with a declared PCIe
+  bottleneck; the B50 power average covers graphics/compute
+  workloads, not LLM inference. No idle-power figure exists anywhere
+  found.
+
+- **Effect on project direction:** `drafts/budget_vram_for_local_ai.md`
+  loses its still-unread caveat, gains the measured power line, and
+  is promoted to docx/PDF the same day (`project_log.md` Entry 069).
+  Open Threads: the remaining-leads item closes; the idle-power item
+  narrows again.

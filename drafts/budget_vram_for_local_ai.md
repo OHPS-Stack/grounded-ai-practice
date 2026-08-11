@@ -1,7 +1,7 @@
 # Budget VRAM for local AI: the Intel question
 
-> **NOTE** Draft status: rough draft, research pass of 2026-08-11
-> (`research_log.md` Entries 068–069). Structure and evidence are in
+> **NOTE** Draft status: rough draft, research passes of 2026-08-11
+> (`research_log.md` Entries 068–073). Structure and evidence are in
 > place; final prose is the creator's, per the project's
 > outward-facing-documents rule. Every price in this document is a UK
 > listing price retrieved on 2026-08-11 unless stated otherwise, and
@@ -35,7 +35,7 @@ What the tiers buy, at mid-2026 model sizes:
 
 | VRAM | What fits (quantised) | Measured example |
 |---|---|---|
-| 12 GB | 7–9B dense models; small mixture-of-experts models | Entry-level drafting, classification, extraction |
+| 12 GB | 7–9B dense models; small mixture-of-experts models | — |
 | 16 GB | 12–14B dense; 20B-class mixture-of-experts | — |
 | 24 GB | 27–32B dense at 4-bit | Gemma 4 31B at 18.6 tok/s on one card `[BENTECH-ARC26]` |
 | 32 GB | 27–32B at higher precision or longer context | Qwen3 Coder 30B served at scale `[SR-B70-26]` |
@@ -82,7 +82,7 @@ capacity per pound, aimed squarely at local AI inference.
 | Arc B580 (consumer) | 12 GB | ~190 W | $249 | £200–290, promotions below £200 |
 | Arc Pro B50 | 16 GB | 70 W | $349 | from ~£380 (one listing £310) |
 | Arc Pro B60 | 24 GB | 120–200 W | ~$500–599 | ~£830 |
-| Arc Pro B60 Dual (partner boards) | 48 GB | ~300 W | ~$1,200 class | not priced this pass |
+| Arc Pro B60 Dual (partner boards) | 48 GB | ~400 W | ~$1,200 class | £1,699.99, pre-order (2–4 weeks) |
 | Arc Pro B70 | 32 GB | 160–290 W | $949 | ~£1,290 |
 
 (`[GPU-PRICES-UK26]`, `[SR-B70-26]`; the B70 launched 2026-03-25 and
@@ -107,8 +107,8 @@ winding down.
 ## What it measures like
 
 The independent measurements are thinner than for Nvidia hardware —
-two primary sources this pass — but they are consistent, and they are
-not small numbers.
+five primary sources this pass, three of them run on vendor-supplied
+hardware — but they are consistent, and they are not small numbers.
 
 At serving scale: a July 2026 professional review put four B70s
 (128 GB of VRAM, about $3,800 of GPU at list) in one server and
@@ -118,30 +118,44 @@ Nvidia card costing about double the four Intel cards together. The
 same rig reached ~12,000 tok/s on Llama 3.1 8B and 6,870 tok/s on
 GPT-OSS 120B, and against a consumer RTX 5070 showed up to 85% higher
 throughput and 6.2x faster time-to-first-token under load
-(`[SR-B70-26]`).
+(`[SR-B70-26]`). A second serving test confirms the shape on the
+cheaper card: four B60s running a 30B-class mixture-of-experts model
+measured ~1,000 tokens per second aggregate, scaling near-linearly
+from 16 to 64 simultaneous requests — on stock vLLM built from
+source as well as Intel's own container, which matters below
+(`[EMBEDDEDLLM-B60-26]`).
 
 On one card: a practitioner benchmark measured Gemma 4 31B (4-bit) at
 18.6 tok/s and Qwen3.5-27B at 10.1 tok/s on a single B70
 (`[BENTECH-ARC26]`) — three to four times reading speed for models in
 the class that handles serious drafting, summarisation and extraction
-work. A 35B mixture-of-experts model has been reported at ~39 tok/s on
-the cheaper B60, though only at search level this pass
-(`[EMBEDDEDLLM-B60-26]` and related, unread).
+work. The 35B-class mixture-of-experts models run quicker still:
+37.2 tok/s on a single B60 (`[L1T-B60-26]`, read directly this pass,
+replacing an earlier search-level figure that had mixed up the two
+cards) and 54.7 tok/s on a single B70, from a repository that also
+logged measured load power of 37–186 W depending on the model
+(`[PMZFX-B70-26]`).
 
 ## The comparison, honestly
 
-What ~£20–47 per gigabyte buys across the realistic options, at the
-dated prices:
+What the realistic options cost per gigabyte, at the dated prices —
+the span now runs about £20 to £131:
 
 | Option | VRAM | UK price (2026-08-11) | £/GB | Software path |
 |---|---|---|---|---|
 | Arc B580, new | 12 GB | ~£245 | ~£20 | llama.cpp (Vulkan/SYCL) |
+| RTX 5070, new | 12 GB | ~£599 | ~£50 | Everything (CUDA) |
 | RX 9060 XT 16GB, new | 16 GB | ~£330 | ~£21 | llama.cpp (Vulkan/ROCm) |
 | Arc Pro B50, new | 16 GB | ~£380 | ~£24 | llama.cpp (Vulkan/SYCL) |
 | RTX 5060 Ti 16GB, new | 16 GB | ~£450 | ~£28 | Everything (CUDA) |
 | Arc Pro B60, new | 24 GB | ~£830 | ~£35 | llama.cpp; vLLM containers |
 | RTX 3090, used | 24 GB | £750–1,129 (trackers conflict) | £31–47 | Everything (CUDA), no warranty |
+| Radeon AI PRO R9700, new | 32 GB | ~£1,250 | ~£39 | llama.cpp; vLLM (ROCm) |
 | Arc Pro B70, new | 32 GB | ~£1,290 | ~£40 | llama.cpp; vLLM containers |
+| RTX 5090, new | 32 GB | ~£4,199 | ~£131 | Everything (CUDA) |
+| Arc Pro B60 Dual, pre-order | 48 GB | ~£1,700 | ~£35 | llama.cpp; vLLM containers |
+
+![UK street price against VRAM for the realistic options, 11 August 2026 — the pre-order 48 GB board is in the table only. At every capacity the CUDA card costs more; at 32 GB about three times more.](../assets/figures/vram_price_capacity.png)
 
 Reading the table rather than just ranking it:
 
@@ -163,10 +177,28 @@ Reading the table rather than just ranking it:
   overlaps it. That overlap did not exist when this project first
   logged the local-AI cost question (Entry 030).
 
-- Nvidia's premium at 16 GB (~£450 vs ~£330–380) is not for the
-  silicon; it is for CUDA — every tool, every new model, every tutorial
-  works there first, usually on day one. Whether that is worth ~£100+
-  depends entirely on who is operating the machine.
+- Nvidia's premium is not for the silicon; it is for CUDA — every
+  tool, every new model, every tutorial works there first, usually
+  on day one. But it is not one number: roughly £100 at 16 GB, 2.4x
+  at 12 GB, and 3.3x at 32 GB, where the only new CUDA card carrying
+  that much memory is a £4,199 gaming flagship that launched at
+  £1,919. Whether the premium is worth paying depends on who is
+  operating the machine — and on which tier they are buying at.
+
+- The open stack is not only Intel's. AMD's Radeon AI PRO R9700 puts
+  32 GB at ~£1,250 — marginally under the B70 — and the one
+  cross-vendor review to measure both judged the AMD card the better
+  value at US prices, noting Intel's vLLM upstream support still
+  trails AMD's ROCm (`[PHORONIX-ARCPRO26]`). At this tier the
+  realistic comparison is two open-stack cards against one £4,199
+  CUDA card, not Intel against the field.
+
+- The 48 GB single-slot answer exists but is not yet ordinary
+  retail: the dual-GPU B60 board lists at £1,699.99 in the UK on
+  pre-order — the same ~£35/GB as the single B60, for double the
+  pool. The used CUDA route to 48 GB, the RTX A6000, tracks at
+  ~$3,650 in the US used market and was the one falling price found
+  in this entire pass (`[GPU-PRICES-UK26]`).
 
 - Apple's unified-memory machines are the other genuine route to large
   local models and are deliberately out of scope of a GPU table; they
@@ -185,7 +217,12 @@ The polished experience is CUDA-only. On Arc, what exists in mid-2026:
   dense models when it works). "When it works" is doing real work in
   that sentence: the practitioner benchmark found a SYCL bug on one new
   model architecture where the second response answered the first
-  question, and dropped to Vulkan for it (`[BENTECH-ARC26]`).
+  question, and dropped to Vulkan for it (`[BENTECH-ARC26]`). The
+  pace cuts both ways: one forum rig measured a 45% generation gain
+  on the same card between the March and April SYCL builds
+  (`[L1T-B60-26]`), while the April cross-vendor review still found
+  GPT-OSS 20B underperforming on Intel under llama.cpp
+  (`[PHORONIX-ARCPRO26]`).
 
 - **Intel archived its consumer path in January 2026.** IPEX-LLM — the
   official route to Ollama and llama.cpp on Arc, the one most setup
@@ -199,13 +236,28 @@ The polished experience is CUDA-only. On Arc, what exists in mid-2026:
   Linux, aimed at multi-GPU workstations. It produced the serving
   numbers above and is updated regularly — and the same review that
   measured those numbers calls it "still a beta release at best", with
-  limited model coverage (`[SR-B70-26]`).
+  limited model coverage (`[SR-B70-26]`). A measured alternative now
+  exists: stock upstream vLLM, built from source, ran the same
+  4×B60 rig — Intel's container ~20–25% faster per output token,
+  stock vLLM roughly half the time-to-first-token
+  (`[EMBEDDEDLLM-B60-26]`) — though Intel's upstream position in
+  vLLM still trails AMD's and Nvidia's (`[PHORONIX-ARCPRO26]`), and
+  the upstream-support story is itself Intel-authored: the vLLM
+  project's Arc post is written by the "Intel vLLM Team"
+  (`[VLLM-ARC25]`). What operating the stack looks like in practice,
+  from the one practitioner write-up to document the whole path: a
+  kernel floor of 6.12+, a manual firmware step where the shipped
+  and wanted GuC versions disagree, ~54 GiB of system RAM consumed
+  by one quantisation conversion, and a backend split the operator
+  must know (Vulkan for hybrid models, SYCL for dense) — summarised
+  by its author as "maturing fast but not mature"
+  (`[BENTECH-ARC26]`).
 
 > **WARNING** The pattern across those three facts: Intel is supporting
 > the deployment where a technical operator runs containers on Linux,
 > and has withdrawn from the deployment where an individual installs an
-> app. A buyer without that operator — in a small organisation, that
-> usually means anyone — is depending on community software, on
+> app. A buyer without that operator — and in a small organisation
+> that is usually everyone — is depending on community software, on
 > hardware whose vendor just demonstrated it will cut consumer tooling.
 
 For day-one support of newly released models, quantisation tooling and
@@ -261,7 +313,8 @@ that the software keeps improving (active, but "beta at best", and the
 consumer tier was just cut), and that the platform exists in three
 years (Intel's GPU division is now explicitly an inference-economics
 business with $18bn of fresh backing, including Nvidia's — and its
-consumer future is reported, not confirmed, to be ending). None of
+consumer future is reported, not confirmed, to be ending;
+re-checked 2026-08-11, still no Intel statement either way). None of
 those three legs is settled the way CUDA is settled. The discount is
 not free money; it is payment for carrying that uncertainty.
 
@@ -273,9 +326,14 @@ Stating the uncounted, per the project's bias checklist:
   less-trodden path — usually the largest real cost for a small
   organisation, and the one this document can least generalise.
 
-- **Electricity at idle.** No single-card idle-power measurement was
-  gathered this pass; for an always-on box it is a real term left
-  unquantified (flagged in Open Threads).
+- **Electricity at idle.** Load power is now measured at three
+  points — 59 W average on a B50 across mixed workstation loads
+  (`[PHORONIX-ARCPRO26]`), 153 W on a B60 and 231 W on a B70 under
+  vLLM generation (`[BENTECH-ARC26]`), with 37–186 W by model under
+  llama.cpp (`[PMZFX-B70-26]`) — but no idle figure was found
+  anywhere, and the current Linux driver does not expose GPU power
+  in software, so settling idle takes a wall meter on real hardware
+  (flagged in Open Threads).
 
 - **Model churn.** Local model files need replacing as the state of
   the art moves; the API route absorbs that invisibly.
@@ -284,10 +342,12 @@ Stating the uncounted, per the project's bias checklist:
   the two trackers conflict by ~£380 and neither publishes completed
   sales.
 
-- **Benchmark breadth.** Two primary performance sources, one of them
-  a single enthusiast rig with a declared PCIe bottleneck. Surfaced
-  but unread: Phoronix's reviews, a vLLM serving benchmark, and the
-  Level1Techs teardown.
+- **Benchmark breadth.** Seven primary sources now, every surfaced
+  lead read — but three ran on vendor-supplied hardware, one is
+  vendor-authored (the vLLM post), one declares a PCIe bottleneck,
+  and two are individual rigs with published but unverified
+  methodology. Independent replication on a rig nobody supplied
+  remains the hands-on unit's job.
 
 - **Resale and warranty claims practice** for a workstation line this
   young.
@@ -319,11 +379,13 @@ to its own subject matter.
 
 ## Sources
 
-Research basis: `research_log.md` Entries 068–069, 2026-08-11, and the
-source key rows they added — primary reads `[SR-B70-26]`,
-`[BENTECH-ARC26]`, `[IPEXLLM-GH26]`, `[ANTHROPIC-PRICING26]`; price
-snapshots `[GPU-PRICES-UK26]`; synthesis-level `[MEMCRISIS26]`,
+Research basis: `research_log.md` Entries 068–073, 2026-08-11, and
+the source key rows they added — primary reads `[SR-B70-26]`,
+`[BENTECH-ARC26]`, `[IPEXLLM-GH26]`, `[ANTHROPIC-PRICING26]`,
+`[EMBEDDEDLLM-B60-26]`, `[PHORONIX-ARCPRO26]`, `[L1T-B60-26]`,
+`[PMZFX-B70-26]`, `[VLLM-ARC25]`; price snapshots
+`[GPU-PRICES-UK26]`; synthesis-level `[MEMCRISIS26]`,
 `[ARC-ROADMAP-PRESS26]`, `[ARC-STACK-GUIDES26]`; Intel-confirmed
-strategy `[INTEL-CRESCENT26]`; unread leads `[PHORONIX-ARCPRO26]`,
-`[EMBEDDEDLLM-B60-26]`. Earlier evidence relied on: Entries 030 and
-042 (local-vs-cloud break-even and capability gap).
+strategy `[INTEL-CRESCENT26]`. Every surfaced lead in this thread
+has been read. Earlier evidence relied on: Entries 030 and 042
+(local-vs-cloud break-even and capability gap).

@@ -4017,9 +4017,9 @@ no external citation:
 - **Date logged:** 2026-08-11
 
 - **Priority / Question:** Priority 6 (research completion) and
-  Priority 7 (outputs), executed autonomously while the creator was
-  away, on their direction to finalise the open research and
-  regenerate public-facing outputs.
+  Priority 7 (outputs), executed autonomously at the creator's
+  direction to finalise the open research and regenerate
+  public-facing outputs.
 
 - **Source:** Session work, 2026-08-11.
 
@@ -4133,3 +4133,72 @@ no external citation:
   in `CLAUDE.md` the same day. Next steps in order: creator review
   and prose pass, then the learner trial, then promotion through the
   docx pipeline if distribution needs it.
+
+### Entry 069 — Both drafts promoted through the Word pipeline; a path quirk fixed in the preview tool
+
+- **Date logged:** 2026-08-11
+
+- **Priority / Question:** Priority 7 (delivery format) — the creator's
+  direction to produce polished Word/PDF versions of the budget-VRAM
+  research document and the pilot unit; the markdown-first rule's
+  promotion step, run for its second and third documents.
+
+- **Source:** Session work, 2026-08-11.
+
+- **What happened:**
+
+  1. The remaining research was closed first, so neither document
+     ships an unread-source caveat: `research_log.md` Entry 073 read
+     the vLLM project's Arc post (Intel-authored, it turns out), the
+     bentech operational follow-up (named frictions, and measured
+     B60/B70 load power), and the Phoronix B50 review
+     (sensor-measured 59 W average). The budget document's software,
+     power and sources sections were updated from it.
+
+  2. The unit's Mermaid sketch became a drawn figure
+     (`tools/build_prompting_figures.py`, importing the server-guide
+     script's helpers rather than copying them), because the
+     diagram's point is proportion — the tall column of what you know
+     against the small box of what you typed — and auto-layout gives
+     every node equal weight. Three geometry defects were caught by
+     looking at renders across two rebuild rounds: an arrow striking
+     through its own label, quote text sitting on a box border, and
+     body text flush against box edges.
+
+  3. Both documents then went through the full pipeline:
+     `md_to_docx.py` with a strapline marking each as a draft;
+     `fitshapes.py` (four callout cards fitted in each);
+     `word_preview.ps1`; a page-by-page read of both PDFs (8 and 6
+     pages — no blocking defects, tables banded with repeated
+     headers, quotes and code blocks mapping as intended); and
+     `word_roundtrip_test.ps1` against throwaway copies — SAVE OK for
+     both. Outputs: `drafts/Budget_VRAM_for_Local_AI.docx` and
+     `drafts/Effective_Prompting.docx`, each with its self-check
+     `.pdf` beside it.
+
+  4. One tool defect found and fixed in passing: `word_preview.ps1`
+     resolved its input path but handed a relative `-OutPath`
+     straight to Word COM, which resolves against its own working
+     directory and fails with "directory name isn't valid". The
+     parameter is now made absolute before use.
+
+  5. On review, two register defects flagged at handover were fixed at
+     the creator's direction — the tiers table's 12 GB cell claimed a
+     "measured example" that was a description, and now carries the
+     same em-dash the 16 GB row does; the WARNING card's aside was
+     reworded — and both documents were rebuilt through the same
+     pipeline, the unit's rebuild also carrying the creator's own
+     prose edits to the markdown.
+
+- **Inference drawn:** None — production record.
+
+- **Limitations / conflicting evidence:** Both documents remain drafts
+  in register, and each strapline says so; the unit remains untested
+  with learners. The docx files are generated outputs — the markdown
+  stays the source of truth, and publication of either document
+  remains a per-item creator decision.
+
+- **Effect on project direction:** Both deliverables exist in
+  distributable form pending the creator's prose pass. `CLAUDE.md`
+  indexed the new figure tool and the generated documents in the same
+  session.
