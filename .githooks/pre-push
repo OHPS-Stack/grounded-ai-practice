@@ -23,17 +23,21 @@ if [ ! -f "$markers_file" ]; then
     echo "Create it (an empty file is valid) before pushing."
     fail=1
 else
-    for f in $(git ls-files); do
-        [ -f "$f" ] || continue
-        while IFS= read -r m || [ -n "$m" ]; do
-            m=$(printf '%s' "$m" | tr -d '\r')
-            case "$m" in ''|\#*) continue ;; esac
-            if grep -Fiq "$m" "$f" 2>/dev/null; then
-                echo "BLOCKED: a private marker (see $markers_file) appears in tracked file: $f"
-                fail=1
-            fi
-        done < "$markers_file"
-    done
+    # One `git grep` per marker, not one `grep` per file per marker: the
+    # per-file shape spawned three processes for every tracked file and
+    # took minutes on Windows, where process creation is the cost.
+    # `git grep` covers the same ground in a single process — tracked
+    # files only, working-tree content, case-insensitive fixed string.
+    while IFS= read -r m || [ -n "$m" ]; do
+        m=$(printf '%s' "$m" | tr -d '\r')
+        case "$m" in ''|\#*) continue ;; esac
+        hits=$(git grep -Fil -e "$m" -- . 2>/dev/null)
+        if [ -n "$hits" ]; then
+            echo "BLOCKED: a private marker (see $markers_file) appears in tracked files:"
+            echo "$hits" | sed 's/^/    /'
+            fail=1
+        fi
+    done < "$markers_file"
 fi
 
 # --- 2. pushed commits must not touch internal/ ----------------------

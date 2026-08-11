@@ -11,3 +11,8 @@ docs/**/*.html text eol=lf
 # match and the site falls back to the github.io URL, so pin it to LF.
 docs/CNAME text eol=lf
 
+# The guard hooks are sh scripts run by Git's own shell, which chokes on
+# carriage returns. Pin them to LF so a Windows checkout can never rewrite
+# them into a broken state.
+.githooks/* text eol=lf
+
