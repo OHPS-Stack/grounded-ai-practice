@@ -4345,3 +4345,27 @@ no external citation:
 - **Limitations / conflicting evidence:** Still outstanding on the profile: the education and certification entries (certificate facts pending), About confirmation, the company page creation, and the re-uploads of the abstract banner and GitHub-marked card — each a creator action.
 
 - **Effect on project direction:** None.
+
+### Entry 074 — Two FOI requests drafted and routed: the counting rules behind the headline figures
+
+- **Date logged:** 2026-08-12
+
+- **Priority / Question:** Research Priority 1's delivered-results thread — turning the log's documented unverifiability findings (`research_log.md` Entries 044, 051, 053, 056, 060, 061) into formal requests for the recorded information the published figures omit.
+
+- **Source:** Session work, 2026-08-12; precedent survey on WhatDoTheyKnow the same day.
+
+- **What happened:**
+
+  1. Two requests were drafted to `drafts/foi_requests.md`, each item mapped to the log entry it rests on, every entry re-read directly at drafting. DSIT, eight items on the 1,001,147 course-completion figure: the operational definition of "completed", the external/internal learner split, One Big Thing's contribution, UK filtering, unique individuals if held, the benchmark-checked proportion, the governing methodology documents with partner identities severable, and the recorded basis for measuring a workers target in course completions. UKRI/Innovate UK, six items on BridgeAI: the completion and accreditation definitions, unique individuals, the £74.6m breakdown, Hub reporting subsequent to UKRI's own disclosure FOI2026/00204, and any evaluation of the programme or its timetable — the last answering Entry 044's "no independent evaluation located".
+
+  2. The precedent survey found six adjacent requests, none covering these questions, and three facts that shaped the drafts: DSIT answered "not held" on Hub costs, placing the Hub's operational records with UKRI; UKRI has already disclosed quarterly Hub reports once, so the new request cites that reference and asks for subsequent editions; and a 2025 request on BridgeAI KPIs was partially successful. The disclosure-log PDFs behind FOI2026/00204 were located, not read — the Hub item is worded to be satisfied by newer editions of whatever they contain.
+
+  3. Two refusal triggers were designed out rather than argued with: per-partner figures are not a primary ask, since DSIT's explainer pre-flags commercial sensitivity and a league table invites section 43 against the whole request; and no policy advice is requested, avoiding section 35 — the counting rules and measurement methodology are asked for instead. Both requests carry the section 16 severability line so one expensive item cannot sink the rest.
+
+  4. The creator chose the WhatDoTheyKnow route — request, requester name and every response published permanently, creating a citable public thread — over direct email. Dispatch is the creator's own action; the statutory twenty working days run from receipt.
+
+- **Inference drawn:** None yet — findings arrive with the responses and land in `research_log.md` when they do.
+
+- **Limitations / conflicting evidence:** Either request can be refused in part or in full; the severable wording is mitigation, not a guarantee. Nothing in the requests should be described as evidence until a response is in hand — and a refusal, if it comes, is itself a documented fact about the figures' checkability.
+
+- **Effect on project direction:** The report's unverifiability findings acquire a formal test with a statutory clock. Responses feed the public-audience report; the request threads become citable the moment they are live.

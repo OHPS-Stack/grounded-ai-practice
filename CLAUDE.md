@@ -1309,6 +1309,20 @@ attempt it unilaterally.
   its mechanism diagram is the drawn `fig_prompt_gap.png` from
   `tools/build_prompting_figures.py`.
 
+- `drafts/foi_requests.md` — two Freedom of Information requests
+  drafted 2026-08-12, not yet sent: DSIT (the counting rules, splits,
+  UK filtering and benchmark coverage behind the 1,001,147
+  course-completion figure, and the recorded basis for measuring a
+  workers target in course completions) and UKRI/Innovate UK (the
+  BridgeAI completion and accreditation definitions, the £74.6m
+  breakdown, Hub reporting subsequent to disclosure FOI2026/00204,
+  and any evaluation). Grounded in `research_log.md` Entries 044,
+  051, 053, 056, 060 and 061, re-read at drafting; WhatDoTheyKnow
+  precedent check the same day (six adjacent requests, none covering
+  these questions). Requester details are never stored in the file;
+  sending, the route and the identity attached are per-item creator
+  decisions.
+
 - `drafts/home_server_synopsis.md` — the **public** account of the home
   server build: what it does, the four decisions worth explaining (no
   RAID, Ubuntu Desktop over a server distribution, nothing exposed to the

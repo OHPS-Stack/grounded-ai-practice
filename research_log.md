@@ -182,6 +182,9 @@ Full citation is given once here; log entries below cite the short tag only.
 | `[OSR-ABOUT]` | Independent/Official (the regulator describing its own remit) | Office for Statistics Regulation, *What we do*, and its *Official Statistics in Development* policy page. Source of the OSR's self-description as "the regulatory arm of the UK Statistics Authority", and of the September 2023 renaming of "experimental statistics" to "official statistics in development". osr.statisticsauthority.gov.uk |
 | `[AIOPP-DELIVERY26]` | Government/Official — **self-assessment**, the strongest caveat in this table. DSIT and Number 10 Data Science scoring their own department's delivery against their own plan, with no stated criterion for what "Commitment Met" requires and no external verification | *AI Opportunities Action Plan — 2026 Progress*, delivery.ai.gov.uk, January 2026 — PRIMARY, read directly. A page per recommendation carrying the CP 1242 response and a 2026 progress update; all 50 are served from `/data/ai-opportunities.json`, which is how they were read. Headline: 38 of 50 met (76%), 12 in progress. **Blocks ordinary fetching (403 site-wide); reachable through a browser.** See Entries 060 and 061. |
 | `[AISKILLS-JUN25]` | Government/Official (DSIT announcing its own partnership) | DSIT, "Tech giants join government to kick off plans to boost British worker AI skills", 14 June 2025 — PRIMARY, read via fetch extraction rather than raw text. Source of the original **7.5 million workers by 2030** target, the eleven named partners, and the separate projection that "around 10 million workers" would be *using* AI by **2035**. gov.uk |
+| `[UKRI-3797-SPEC]` | Government/Official (UKRI procurement document, disclosed under FOI) | *Specification for UKRI-3797 AI Skills Hub*, v1.2, 10pp — PRIMARY, full PDF read directly 2026-08-12; disclosed under UKRI FOI2026/00071, obtained via WhatDoTheyKnow. Source of the Hub's contract value (up to £4,166,666.67 ex VAT), the Annex A mandatory reporting metrics, the quarterly reporting cadence and six dated review meetings, the six-monthly white-paper duty, the 500/2,000-organisation engagement targets, and the initial period to March 2026 with a 12-month extension option. |
+| `[UKRI-WP1-25]` | Vendor/Commercial authorship, disclosed by Government/Official (PwC as the paid UKRI-3797 supplier, writing for Innovate UK; carries the disclaimer "written by third parties and does not necessarily reflect the views of the UK government" and must never be cited as government view) | *White Paper on training and skills gap for AI*, Innovate UK / PwC, June 2025, 118pp — PRIMARY, **read in full** 2026-08-12; disclosed as Annex 1 to UKRI FOI2026/00458. The Hub's own justifying evidence base: a 515/513-response employer survey, 31 interviews, a 128-document literature scan and a Lightcast job-postings analysis. Source of the barrier-to-remedy mapping, the four inconsistent sample sizes, and the Annex C sector posting shares. |
+| `[UKRI-FOI-THREADS26]` | Government/Official responses on a public FOI platform (WhatDoTheyKnow threads and UKRI disclosure-log entries, read 2026-08-12) | The AI Skills Hub FOI cluster: FOI2026/00204 (all quarterly reports under UKRI-3797 — **refused in full**, sections 41 and 43(2), 29 April 2026); FOI2026/00220 and its follow-up FOI2026/00458 (formal response 2 July 2026 **disclosing** a skills white paper and a KPI breakdown as annexes — response letters and the full KPI breakdown read directly 2026-08-12; the 118-page white paper unread beyond its structure, pp.23–69 identified by UKRI as PwC's audience research); and a separate customer-support reply of 7 July 2026 answering governance questions in general terms and asserting WCAG 2.2 AA compliance "as of March 2026". whatdotheyknow.com; ukri.disclosurelog.co.uk |
 | `[PMLTW25]` | Government/Official (the Prime Minister's published remarks) | Prime Minister's remarks at London Tech Week, 9 June 2025, Olympia — PRIMARY. The page is headed "Transcript of the speech, exactly as it was delivered" and runs roughly 3,100 words. **Read only via scoped extractions, never end to end** (a full reproduction was declined on copyright grounds), and the first pass missed a claim in plain text — treat every extraction from it as a search, not a read, until a human has read the page. Source of "7.5 million workers", "£185 million", and "50 recommendations, all of them accepted by the government". gov.uk |
 | `[AISKILLSBOOST-EXPAND26]` | Government/Official (DSIT announcing its own programme's expansion) | DSIT, "Free AI training for all as government and industry programme expands to provide 10 million workers with key AI skills by 2030", 28 January 2026 — PRIMARY, comprehensive extraction, not read end to end. Source of universal adult eligibility, the 27-partner list, the 2-million-SME-employee target, the AI foundations badge, and the absence of any stated measurement framework. gov.uk |
 | `[AIPLAYBOOK25]` | Government/Official (GDS, Cabinet Office) | *Artificial Intelligence Playbook for the UK Government*, published 10 February 2025, superseding the Generative AI Framework for HMG (January 2024) — PRIMARY, comprehensive extraction, **not read end to end**; a human read is required before characterising it in print. Written for civil servants and public sector organisations, not the public. Ten principles; states "We didn't pretend to have all of the answers". gov.uk |
@@ -4143,6 +4146,98 @@ Full citation is given once here; log entries below cite the short tag only.
   built for small businesses" (thehumansintheloop.ai) and the LSE Impact
   blog's February 2026 piece on the programme as a course directory,
   which may overlap the existing `[LSE-CARDOSO26]` entry.
+
+### Entry 074 — The Hub's mandated metrics exist, were refused wholesale, and yielded to a narrower ask
+
+- **Date logged:** 2026-08-12
+
+- **Priority / Question:** Priority 1 — the delivered-results thread. Before dispatching the project's own FOI requests (`drafts/foi_requests.md`), the disclosed contract specification and the existing AI Skills Hub FOI threads were read, at the creator's direction, so the requests neither duplicate public material nor invite known refusals.
+
+- **Source:** `[UKRI-3797-SPEC]`, `[UKRI-FOI-THREADS26]`
+
+- **Checked date:** 2026-08-12
+
+- **What the sources directly support:**
+
+  - **The metrics exist by contract.** The UKRI-3797 specification's Annex A defines a "minimal standard collection of metrics" the supplier must report quarterly: users of the Hub over time broken down by sector, place, organisation size, AI maturity and job role; individuals attending training as a result of the Hub; organisations receiving training; regional distribution; repeat engagement; and adoption outcomes. Mandatory monthly reporting and formal quarterly reports are required, with six review meetings dated 16 December 2024 to 17 March 2026, plus a six-monthly white paper on skills and training gaps "disseminated to the key stakeholder list".
+
+  - **Engagement targets with numbers.** 500 organisations in the first six months across the four focus sectors, expanding to 2,000 in the following twelve months — a denominator absent from every public delivery figure in this log.
+
+  - **Contract scale and horizon.** Up to £4,166,666.67 ex VAT to March 2026, a 12-month extension option "decided at the end of the initial contract period", and a required sustainability plan out to March 2034.
+
+  - **The wholesale ask was refused in full.** FOI2026/00204 requested all quarterly reports; UKRI confirmed it holds them and refused entirely under sections 41 (confidence) and 43(2) (commercial interests) on 29 April 2026, after a public-interest extension.
+
+  - **The narrower ask was answered.** FOI2026/00458 asked for pre-launch success measures and performance against them; the 2 July 2026 response disclosed a skills white paper and a KPI breakdown as annexes. A separate customer-support reply answered governance questions in general terms, stated PwC "carried out this work through a series of engagement events across the UK and subsequently published their findings", and asserted WCAG 2.2 AA compliance "as of March 2026".
+
+- **Inference drawn:** The performance data behind the Hub's public claims exists, is contractually mandated, and its disclosure turns on how it is asked for: the supplier's report documents were withheld as confidential and commercial, while aggregate measures and already-circulated documents were released weeks later. For this project's requests, that sets the construction — ask for metric values and disseminated outputs, never for "the reports". For the report's argument, the refusal itself is a documented fact: the delivery figures for a ~£4.17m publicly funded platform were withheld as commercially confidential even as headline claims built on them were published.
+
+- **Limitations / conflicting evidence:** The two FOI2026/00458 annexes are located but **not yet read** — nothing in them may be cited until they are, and they may already answer questions this project would otherwise ask. The FOI2026/00220 original response is likewise unread. The refused FOI2026/00204 letter is itself redacted, so the full reasoning is not public. The "PwC published their findings" market-research claim is unverified — where and what is an open lead.
+
+- **Effect on project direction:** Request 2 in `drafts/foi_requests.md` restructured the same day: Annex A metric values by quarter in place of the withheld reports, subsequent white papers and KPI breakdowns, the extension decision, and engagement-versus-target actuals, each anchored to the specification and the two FOI precedents. The annexes join the reading queue as likely evidence for the public report and its figures.
+
+### Entry 075 — The disclosed KPI set measures the supplier, not the learners
+
+- **Date logged:** 2026-08-12
+
+- **Priority / Question:** Priority 1 — continuation of Entry 074. The FOI2026/00458 annexes and both response letters were read directly before dispatching the project's own requests, at the creator's direction.
+
+- **Source:** `[UKRI-FOI-THREADS26]` — the FOI2026/00458 response letter and the full KPI Breakdown annex, plus the FOI2026/00071 response letter, all read directly; the 118-page white paper annex skimmed at structure level only and **its body remains unread**.
+
+- **Checked date:** 2026-08-12
+
+- **What the sources directly support:**
+
+  - **The KPI Breakdown contains eighteen indicators, all process or delivery measures, every one reported achieved.** Plans submitted; organisations "identified" then "engaged" (over 500 at six months, over 2000 by March 2026); over 200 technology partners; over 200 training providers; over 200 courses curated; at least two events a quarter; over 166 artefacts posted against an 11-per-year target; over 650 survey responses; MVP in place 6 May 2025; uptime above 99.8%; support response times; meeting attendance; no complaints reported. The inbound-contact-channel KPI was achieved as "a shared mailbox".
+
+  - **No indicator measures users, learners or outcomes.** Nothing counts unique visitors, registered users, course completions, training uptake, or any metric from the specification's own Annex A minimal standard collection (users over time by sector, place, organisation size, AI maturity and job role; individuals attending training as a result of the Hub; organisations receiving training).
+
+  - **The visitors question was answered by reference to a document containing no visitor data.** FOI2026/00458 Q3b asked for performance "including total unique visitors, traffic sources, and any measure of meaningful engagement or onward action"; the response reads "Please see the information requested in the attached document: FOI2026_00458 Annex 2 – KPI Breakdown."
+
+  - **Demographic user-research data was never recorded.** On research participants who were disabled, of low digital confidence, spoke English as an additional language, were from minority-ethnic backgrounds or lower socio-economic groups: "this information was not recorded" — while Annex A of the specification mandates an EDI usage metric ("number of under represented groups using AI Skills Hub").
+
+  - **WCAG 2.2 AA compliance "can be considered achieved from March 2026"** — ten months after the May 2025 MVP — "validated and verified through internal audit". UKRI holds no recorded information on disabled-user testing; PwC "have stated" testing was conducted by experts with lived experience, using NVDA, JAWS and ZoomText.
+
+  - PwC's pre-launch audience research is stated to be published as pp.23–69 of the disclosed white paper.
+
+- **Inference drawn:** The performance framework the funder disclosed for its national AI skills platform measures whether the supplier performed activities, not whether anyone learned anything, and its aggregate assertions are given without the sector, region and size breakdowns their own KPI definitions specify. Set beside Entry 074, the delivered-results picture reads: the outcome metrics were mandated by contract, the quarterly reports containing them were withheld as confidential, and the performance summary released instead contains none of them.
+
+- **Limitations / conflicting evidence:** The white paper's 118 pages are unread and may contain user or uptake data — nothing here claims otherwise, and pp.23–69 are the next read. The artefact count's basis is unknown and reported as stated. The KPI Breakdown is supplier-prepared material disclosed by the funder, and carries the same self-reporting caveat as every delivery figure in this log. The specification permitted KPIs to be agreed and revised quarterly (KPI 4), so the divergence between the agreed KPI set and Annex A may itself be documented in records not yet requested.
+
+- **Effect on project direction:** Request 2 sharpened the same day — aggregated Annex A survey results added to item 5 (over 650 responses are recorded as held), and item 8 recast to ask for the breakdowns the KPI definitions specify. For the public report, this entry supplies the framework-level form of the counting critique: process indicators achieved, learner outcomes absent from the disclosed measure set.
+
+### Entry 076 — The Hub's evidence base, read in full: a directory remedy, four sample sizes, and AI postings under 1% in two of four sectors
+
+- **Date logged:** 2026-08-12
+
+- **Priority / Question:** Priority 1 and Priority 5 — the evidence base on which the AI Skills Hub was designed and justified. Read in full at the creator's direction before dispatching the project's FOI requests, so nothing already public would be requested.
+
+- **Source:** `[UKRI-WP1-25]` — all 118 pages read directly.
+
+- **Checked date:** 2026-08-12
+
+- **What the source directly supports:**
+
+  - **Status and provenance.** *White Paper on training and skills gap for AI*, Innovate UK, June 2025, produced by PwC as the UKRI-3797 supplier and disclosed as Annex 1 to FOI2026/00458. It carries the disclaimer "written by third parties and does not necessarily reflect the views of the UK government", and commits on p.79 that further findings "will be included in the second White Paper, to be published in the next six months".
+
+  - **The Hub's own remedy is signposting.** The paper maps five barriers to five Hub responses (pp.75–76): for Awareness, "a one-stop shop directory of relevant and available AI training"; for Time — the largest barrier at 44 per cent — "employers can signpost their employees to the Hub, rather than spending time identifying or creating training themselves". The stated remedy for insufficient time to train addresses the employer's time locating training, not the workforce's time completing it.
+
+  - **Evidence-base concentration.** The employer survey was sourced through five channels including "Bridge AI's Existing Relationships... approximately 3,000 employers" and "Existing PwC Relationships", supplemented by a commercial panel; global benchmarking draws on PwC's own CEO Survey, AI Jobs Barometer and Global Investor Survey; the skills taxonomy derives from PwC's AI Barometer Skills Taxonomy over Lightcast data.
+
+  - **Four different survey sample sizes are stated for the same survey.** Annex B says "the survey received 515 responses" and the methodology table on p.12 gives a sector breakdown summing to 515; the Annex B sector table sums to 513, and within that table the "Small" column is totalled as 169 where its four entries sum to 159. Chart notes throughout state 508, one states 488 (p.66) and one states 407 (p.49), all in identical wording and none explained as a filtered base.
+
+  - **The headline 96 per cent is derived, not asked.** The note under the figure records the question put to respondents as "Which AI-related skills currently exist in your organisation and to what degree?"; the reported finding is that 96 per cent "said that they had an AI skills gap".
+
+  - **Annex C: AI postings are a small and mostly shrinking share.** In 2024, AI job postings were 0.7 per cent of all postings in Agriculture and Food Processing (272 of 40,793), 0.8 per cent in Construction (908 of 111,788), 1.7 per cent in Transport, Warehousing and Logistics (1,291 of 77,774) and 2.2 per cent in Creative Industries (794 of 36,600). In three of the four sectors the 2024 share is below the sector's own earlier peak (Agriculture 1.0 per cent in 2020; Transport 3.6 per cent in 2020; Creative 3.2 per cent in 2021), and absolute AI postings in 2024 stand 42 per cent below Transport's 2022 peak and 37 per cent below Creative's 2021 peak. Construction is the exception, rising from 0.4 to 0.8 per cent.
+
+  - **The paper states its own limitations candidly.** On job postings: employers list "an excessive range of skills, often without a clear understanding of what is truly required", so "our findings should be viewed with caution, as they may not accurately reflect the true skill demands within the AI job market". It also notes the data cannot see internal upskilling at all.
+
+  - **Presentation defects.** The "10 Fastest and Slowest Growing Skills" tables carry no AI filter and are led by items including Microsoft 365, Dicing, Deboning and Espresso Beverages, with mangled skill names ("Net Sero" at 18,390 per cent, "Soom (Video Conferencing Tool)", "Asure DevOps"). A bar labelled 44 per cent is drawn to the axis maximum of 30 per cent (p.74); an unfilled "(see Figure X)" placeholder survives on p.48; the Construction cluster table's note describes Agriculture data; and in two sector tables the 2018 cluster figures sum above the stated total (Agriculture 195 v 191, Creative 475 v 470) where every other year reconciles exactly.
+
+- **Inference drawn:** The evidence base for a ~£4.17m national platform is a supplier-run survey sampled substantially from the programme's own and the supplier's own networks, reported with four mutually inconsistent sample sizes, whose headline gap statistic is a derivation from a differently-worded question. Its own annex shows AI roles at under 1 per cent of postings in two of the four target sectors and a falling share of postings in three, while the argument in the body rests on relative growth rates. Separately, the supplier describes the Hub's remedy in the vocabulary of a directory and signposting — the same diagnosis this log recorded from external critics at Entries 018, 022 and 025, here in the funder's own commissioned document.
+
+- **Limitations / conflicting evidence:** The relative-growth claim and the low-share finding are not contradictory: AI skill mentions can grow faster than non-AI mentions while AI roles stay a small share of postings. What is at issue is which of the two the document leads with. The sample-size figures may have innocent explanations as filtered bases, but none is stated. The 2018 cluster sums exceeding their totals may reflect skills counted in more than one cluster; the paper does not say. The paper is supplier-authored and explicitly not a statement of government views, and must never be cited as one.
+
+- **Effect on project direction:** Two FOI items sharpened the same day — the second white paper is now requested by reference to the p.79 commitment rather than generically, and the employer survey's questionnaire and per-question response bases are requested, which the sample-size and question-wording findings make specific rather than fishing. PwC's audience research is now known to be published here, so it is **not** requested. For the public report, this supplies a documented case where the counting problem sits in the evidence base as well as the delivery figures.
 
 ## Open threads
 
