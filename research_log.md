@@ -4281,6 +4281,23 @@ possibilities is held in the project's internal working notes.
 
 ### Priority 1 — Problem and evidence
 
+**Two FOI responses awaited — due by 10 September 2026** (sent 12
+August 2026 via WhatDoTheyKnow at the creator's per-approach
+instruction; drafting record in `drafts/foi_requests.md`, grounding in
+Entries 074–077):
+
+- **DCMS** — the counting rules behind the 1,001,147 course-completion
+  figure: whatdotheyknow.com/request/ai_skills_boost_course_completio
+
+- **UKRI** — BridgeAI definitions, the £74.6m breakdown, the Hub's
+  Annex A performance figures, the second white paper, the contract
+  extension: whatdotheyknow.com/request/bridgeai_delivery_figures_and_ai
+
+- On response or on the deadline passing, log the outcome as a dated
+  entry (a refusal is itself a finding) and check the DCMS request was
+  not lost in the machinery-of-government handover — Entry 077 records
+  the wrong-door risk the request was built to survive.
+
 **Verification debt on the early evidence base**
 
 - **The systematic re-check has never been run** (Entry 013). Entries

@@ -1,4 +1,109 @@
-# Freedom of Information requests — drafted 2026-08-12
+# Freedom of Information requests — SENT 2026-08-12
+
+**Both requests are live on WhatDoTheyKnow, sent by the creator on 12
+August 2026. Responses due by 10 September 2026** (the platform's own
+banner date on both threads). The threads are the canonical public
+record of the wording as sent:
+
+- DCMS: whatdotheyknow.com/request/ai_skills_boost_course_completio
+
+- UKRI: whatdotheyknow.com/request/bridgeai_delivery_figures_and_ai
+
+Verified live by read-back the same day: correct authorities, the
+platform's salutation and signature added exactly once, no doubled
+letter. One platform behaviour worth knowing: newly sent requests can
+take hours to appear on the requester's public profile page, because
+profile listings are built from the site's search index — the request
+pages themselves are live immediately. Both threads are also tracked
+in `research_log.md`'s Open Threads with the due date and the
+follow-up plan.
+
+> **Paste from `foi_requests.txt`, not from this file.** The request
+> bodies below are in markdown quote blocks, which paste as literal
+> `>` characters. The `.txt` beside this file carries the same final
+> text as plain text, split at the exact block WhatDoTheyKnow wants
+> (no salutation, no sign-off — the platform adds both). This file is
+> the record: provenance, reasoning and the item-to-evidence mapping.
+
+**Final review pass, 2026-08-12** (after the first paste attempt hit
+the `>` problem). Both requests were re-read for clarity, sourcing
+and register, and the UKRI-3797 specification was re-read rather than
+recalled. That caught an error of my own making and produced three
+changes worth recording:
+
+- **A misstatement corrected.** The draft said the specification
+  "requires a white paper every six months". The specification says
+  both: Scope requires "a 6 monthly white paper", and Reporting
+  Requirements requires "quarterly reporting on industry skills gaps
+  and training gaps in the form of a white paper". Item 8 now cites
+  both and notes that more than one paper was due on either reading —
+  stronger than the original claim, and accurate.
+
+- **The metrics ask widened and anchored.** Annex A section (c) holds
+  a sixteen-outcome table, not the three metrics originally cited.
+  The item now requests the values reported against that table, and
+  quotes Annex A's own words that the reporting is "anonymized",
+  which forecloses a section 40 personal-data objection before it is
+  raised.
+
+- **The survey instruments named correctly.** They are the "Pre
+  intervention feed forward survey" and the "Long Term feedback
+  survey" (Annex A sections (a) and (b)), quoted in the
+  specification's own spelling.
+
+Register and structure were tightened in the same pass: three
+overloaded items carrying "Separately:" splices were split into
+separate numbered items, the "6a" numbering removed, the exemptions
+paragraph shortened from argument to statement of precedent,
+formulaic constructions ("I would be grateful if you would", "would
+be appreciated") replaced with plain requests, em-dash parentheticals
+reduced, and "toward" corrected to "towards".
+
+**One correction to an earlier note in this file:** the cost limit is
+not £600 for both. It is £600 (24 hours) for DCMS as a central
+government department and £450 (18 hours) for UKRI, which is not one.
+
+**Shortened before sending, 2026-08-12, at the creator's direction.**
+Both requests were cut hard: every item to one sentence, all
+justification removed from the request text (the Act requires none,
+and it adds reading burden and argument surface), and secondary
+questions held back for follow-up rounds — the two-round pattern that
+worked in the FOI2026/00220→00458 thread. Request 1 went from eight
+items to six; Request 2 from twelve to six. **Held back, deliberately,
+for follow-ups once the first responses land:**
+
+- The One Big Thing completion count (Request 1; the inclusion itself
+  is already documented in the explainer).
+
+- The standalone ask for data-sharing/methodology documents (Request
+  1; folded into item 1's "any guidance or reporting template").
+
+- The "126 accreditations" definition (Request 2; colour, not
+  load-bearing).
+
+- The aggregated results of the two Annex A survey instruments
+  (Request 2; largely contained in the Annex A(c) reported values now
+  asked for in item 4 — ask separately only if the response omits
+  them).
+
+- The white paper questionnaire and per-question response bases
+  (Request 2; the strongest candidate for a dedicated follow-up — a
+  single-subject request about one document's methodology, carrying
+  the four-sample-sizes observation, will read clearly on its own and
+  poorly buried at item ten).
+
+- The engagement breakdowns behind "over 500"/"over 2000" (Request 2;
+  the Annex A user metrics in item 4 cover the same ground for users,
+  and the org-engagement version can follow).
+
+The two-cadence white-paper observation (six-monthly in Scope,
+quarterly in Reporting Requirements) came out of the request text as
+argument, but survives as the page-79 citation; the full observation
+stays in Entry 076 for the report. The exemptions paragraph reduced
+to one clause inside item 4 ("not the quarterly report documents
+withheld under FOI2026/00204") plus Annex A's own word "anonymised".
+The sent text is `foi_requests.txt`, which is canonical for wording;
+this file remains canonical for reasoning.
 
 **Status: drafted 2026-08-12; Request 2 revised the same day, before
 sending, at the creator's direction** — the disclosed UKRI-3797
@@ -83,80 +188,55 @@ redirect, and note the redirect in the log.
 **Subject:** FOI request — AI Skills Boost course-completion figure
 (explainer of 28 January 2026)
 
-> Dear Department for Digital, Culture, Media and Sport,
->
 > This is a request under the Freedom of Information Act 2000. It
-> concerns information previously held by the Department for Science,
-> Innovation and Technology, whose functions were redistributed on 21
-> July 2026 (Machinery of Government Changes, HLWS298), with
-> responsibility for digital inclusion and skills transferring to
-> DCMS.
+> concerns a figure published by the Department for Science,
+> Innovation and Technology before its functions were redistributed
+> on 21 July 2026; responsibility for digital inclusion and skills
+> moved to DCMS. If another department now holds any part of what I
+> ask for, please transfer that part or tell me who to approach.
 >
-> If any part of this request relates to information now held by
-> another successor body — the Cabinet Office, which took
-> responsibility for AI strategy, or the Department for Business,
-> Innovation, Science and Trade — I would be grateful if you would
-> transfer that part in accordance with the section 45 code of
-> practice, or advise me which body to approach under your section 16
-> duty.
+> In January 2026 the government reported that 1,001,147 AI training
+> courses had been completed under the AI Skills Boost programme. The
+> figure appears in "AI Skills Boost: explainer" (GOV.UK, 28 January
+> 2026), which describes it as "course completion data shared with
+> DSIT by industry partners in January 2026". Please provide:
 >
-> The request concerns the figure of 1,001,147 completed AI training
-> courses published in "AI Skills Boost: explainer" (GOV.UK, 28
-> January 2026), described there as "course completion data shared
-> with DSIT by industry partners in January 2026".
+> 1. The definition of a "completed" course used for that figure, and
+> any guidance or reporting template issued to the partner companies
+> on what to count.
 >
-> Please provide the following recorded information:
+> 2. How many of the 1,001,147 completions were by the partner
+> companies' own employees, and how many were by external learners
+> (their customers, clients and platform users).
 >
-> 1. The operational definition of a "completed" course used in that
-> data collection, including any written guidance, reporting template
-> or data specification issued to partners setting out what should be
-> counted as a completion.
+> 3. Whether the figure is limited to learners in the UK, and how
+> learner location was determined.
 >
-> 2. The totals within the 1,001,147 figure for (a) external learners
-> (customers, clients and platform users) and (b) internal learners
-> (partner employees), as aggregate numbers.
+> 4. How many individual people completed those courses, if this is
+> held. One person completing several courses counts several times in
+> a course total; I am asking how many people the total represents.
 >
-> 3. The number of completions within the figure attributable to the
-> One Big Thing civil service initiative.
+> 5. How many of the counted courses were checked against Skills
+> England's "AI foundation skills for work" benchmark, and how many
+> met it.
 >
-> 4. Whether the figure is limited to learners located in the UK, and
-> any recorded methodology by which learner location is determined or
-> filtered.
+> 6. Any recorded method for measuring progress towards the target of
+> 10 million workers upskilled by 2030 using these course
+> completions, for example how completions are related to individual
+> workers.
 >
-> 5. If held: the number of unique individuals represented by the
-> 1,001,147 completions.
->
-> 6. The number of courses (or completions) within the figure that
-> have been checked against Skills England's "AI foundation skills
-> for work" benchmark, and the number found to meet it.
->
-> 7. Any data-sharing agreement, methodology note or quality-assurance
-> document governing the January 2026 collection of partner completion
-> data. Where such documents identify individual partners' figures, I
-> am content for partner-identifying details to be redacted: my
-> interest is in the counting rules, not any single company's numbers.
->
-> 8. The recorded basis on which progress toward the target of 10
-> million workers upskilled by 2030 is measured using course
-> completions, including any recorded method for relating completions
-> to workers, such as deduplication or conversion assumptions.
->
-> I would prefer the response by email. Where information is tabular,
-> a machine-readable format would be appreciated. If any part of this
-> request would exceed the cost limit, please advise under your
-> section 16 duty which parts can be met within it, rather than
-> refusing the request in full.
->
-> Yours faithfully,
->
-> [NAME]
+> If answering everything would exceed the cost limit, please tell me
+> which parts can be answered within it rather than refusing the
+> request in full.
 
-Item-to-evidence mapping: items 1–7 are the four gaps Entry 053 names
-as "the planned FOI['s] precise target" (definition of completed,
-internal/external split, UK filtering, benchmarked proportion), plus
-the One Big Thing inclusion and the unique-individuals question the
-same entry documents. Item 8 rests on Entries 061 and 053: the target
-is expressed in workers, progress in courses.
+(Salutation and sign-off omitted: WhatDoTheyKnow adds both.)
+
+Item-to-evidence mapping: items 1–5 are the gaps Entry 053 names as
+"the planned FOI['s] precise target" — definition of completed,
+internal/external split, UK filtering, benchmarked proportion — plus
+the unique-individuals question the same entry documents. Item 6
+rests on Entries 061 and 053: the target is expressed in workers,
+progress in courses.
 
 ---
 
@@ -167,119 +247,79 @@ is expressed in workers, progress in courses.
 **Subject:** FOI request — BridgeAI delivery figures and AI Skills
 Hub reporting
 
-> Dear UK Research and Innovation,
+> This is a request under the Freedom of Information Act 2000, about
+> the BridgeAI programme and the AI Skills Hub.
 >
-> This is a request under the Freedom of Information Act 2000. It
-> concerns the BridgeAI programme and the AI Skills Hub delivered
-> under contract UKRI-3797, whose specification is public (disclosed
-> under FOI2026/00071).
+> On BridgeAI, as reported in "Bridging the AI divide: Year three in
+> review" (March 2026):
 >
-> Please provide the following recorded information:
+> 1. For the reported figure of 1,700+ AI skills courses completed:
+> the definition of "completed" used, whether the unit counted is a
+> module or a full course, and, if held, how many individual people
+> the figure represents.
 >
-> 1. The operational definition of "AI skills courses completed"
-> behind the figure of 1,700+ completions in "Bridging the AI divide
-> — Innovate UK BridgeAI: Year three in review, 2025–2026" (March
-> 2026), including whether the unit counted is an individual module
-> or a full course, and which organisation supplied the count.
+> 2. How the £74.6 million reported as allocated by the end of 2025
+> breaks down, by part of the programme or by delivery partner, in
+> whatever form you hold it.
 >
-> 2. If held: the number of unique individuals represented by (a) the
-> 1,700+ course completions and (b) the approximately 12,000
-> individuals reached, and the definition of "reached" used for the
-> latter figure.
+> 3. Any evaluation of BridgeAI, whether internal or commissioned, or
+> the timetable for one if it is planned but not yet complete.
 >
-> 3. The definition of the "126 accreditations gained" reported in
-> the same document: which accreditation or accreditations these are,
-> and which body awards them.
+> On the AI Skills Hub, which PwC runs under contract UKRI-3797
+> (specification disclosed under FOI2026/00071):
 >
-> 4. A breakdown of the £74.6 million of grant funding reported as
-> allocated by the end of 2025, by programme strand and/or consortium
-> partner, at whatever level of aggregation is held.
+> 4. The Hub's performance figures: how many people have used it, and
+> how many individuals and organisations have taken training as a
+> result of it, for each quarter since it launched. PwC is required
+> to report these figures quarterly under the contract (Annex A of
+> the specification), in anonymised form. I am asking for the numbers
+> themselves, not for copies of PwC's quarterly reports, which were
+> withheld under FOI2026/00204.
 >
-> 5. The values of the metrics defined in Annex A of the UKRI-3797
-> specification ("Minimal standard collection of metrics for
-> reporting AI Skills Hub") — the number of users of the AI Skills
-> Hub as a function of time, broken down by sector, place,
-> organisation size, AI maturity and job role; the number of
-> individuals attending training as a result of interacting with the
-> Hub; and the number of organisations receiving training — for each
-> quarter from the start of provision to the most recent quarter
-> held. To be clear, I am requesting the aggregate metric values, not
-> the supplier's quarterly report documents withheld under
-> FOI2026/00204. Separately under this item: the aggregated results
-> of the pre-intervention feed-forward survey and the long-term
-> feedback survey defined in Annex A — the instruments through which
-> training uptake and outcomes were to be reported to the contracting
-> authority — to the most recent period held; KPI 11 of the KPI
-> Breakdown disclosed under FOI2026/00458 records over 650 responses
-> received, so response data is held.
+> 5. The second white paper on skills and training gaps. The first
+> was disclosed under FOI2026/00458 and states at page 79 that a
+> second was due within six months. Please also provide any KPI
+> breakdown covering periods after the one disclosed with it.
 >
-> 6. The second White Paper on the AI training and skills gap. The
-> first, disclosed as Annex 1 to FOI2026/00458, states at page 79
-> that further findings "will be included in the second White Paper,
-> to be published in the next six months", and the UKRI-3797
-> specification requires a white paper every six months. Please
-> provide it, or state whether it was produced. Please also provide
-> any KPI breakdown covering periods after the one disclosed as Annex
-> 2 to FOI2026/00458, and the technical reports the specification
-> requires summarising the skills landscape review, gap analysis and
-> roadmap, and the training landscape review, gap analysis and
-> roadmap.
+> 6. Whether the Hub's contract was extended when its initial period
+> ended in March 2026 (the contract provided for a 12-month extension
+> decided at that point), and the service's current contractual
+> status.
 >
-> 6a. For the employer survey reported in that first White Paper: the
-> survey questionnaire as administered, and the number of respondents
-> answering each question. I ask because the published report states
-> four different sample sizes for the same survey — 515 responses in
-> Annex B, a sector table summing to 513, and chart notes variously
-> stating 508, 488 and 407 — and because the finding that 96 per cent
-> of employers "said that they had an AI skills gap" is footnoted to
-> a differently worded question, "Which AI-related skills currently
-> exist in your organisation and to what degree?". I am seeking the
-> instrument and the bases, not respondent-level data.
->
-> 7. Whether the 12-month extension provided for in the UKRI-3797
-> contract (initial period to March 2026, extension "to be decided at
-> the end of the initial contract period") was exercised; the current
-> contractual status of the AI Skills Hub service; and the recorded
-> decision, including its date.
->
-> 8. The sector, region and organisation-size breakdowns of the
-> industry organisations engaged by the AI Skills Hub — the
-> breakdowns that KPIs 5 and 6 of the disclosed KPI Breakdown
-> themselves specify — behind the aggregate figures of "over 500"
-> organisations at six months and "over 2000" by March 2026.
-> Separately: any interim or final evaluation of the BridgeAI
-> programme, whether internal or commissioned, including its
-> monitoring and evaluation framework, or the recorded timetable for
-> one if an evaluation is planned but not yet complete.
->
-> On exemptions: I note that supplier quarterly reports were withheld
-> under sections 41 and 43(2) in FOI2026/00204, and that UKRI
-> subsequently disclosed a KPI breakdown and a white paper under
-> FOI2026/00458. This request follows the latter pattern. It seeks
-> aggregate performance values for a publicly funded service, and
-> documents already disseminated beyond the supplier, for which those
-> exemptions carry a materially weaker case — and the public interest
-> in the performance of a programme whose headline outcomes are
-> publicly claimed is substantial.
->
-> I would prefer the response by email. Where information is tabular,
-> a machine-readable format would be appreciated. If any part of this
-> request would exceed the cost limit, please advise under your
-> section 16 duty which parts can be met within it, rather than
-> refusing the request in full.
->
-> Yours faithfully,
->
-> [NAME]
+> If answering everything would exceed the cost limit, items 4 and 5
+> matter most, and I would rather have those than a refusal of the
+> whole request. Where an answer is a table of numbers, a spreadsheet
+> format such as CSV or Excel is preferred to a PDF.
 
-Item-to-evidence mapping: items 1–4 are the definitional gaps Entry
-044 records ("courses completed" undefined, no denominator, no
-disaggregation, £74.6m unbroken). Items 5–8 are built on Entry 074:
-the Annex A metrics and reporting duties the specification mandates,
-the FOI2026/00204 refusal and FOI2026/00458 disclosure precedents,
-the extension clause with its March 2026 decision point, the
-500/2,000 engagement expectations, and Entry 044's "no independent
-evaluation of BridgeAI has been located".
+(Salutation and sign-off omitted: WhatDoTheyKnow adds both.)
+
+**The audience lesson, recorded.** Item 4 was rewritten twice on
+2026-08-12 after the creator twice found it unclear. The fix that
+worked was theirs: write for the request's real audiences — a
+caseworker who has never read the specification, the programme team
+the request gets forwarded to, and the public thread — leading with
+the plain ask and demoting the contract reference to
+evidence-that-it-exists. The earlier versions defined the ask BY the
+reference, which was readable only to someone who had just read the
+specification. Both requests were then re-drafted in full on the same
+principle at the creator's direction: every item leads with the ask
+in plain words; references do existence-proof work only; technical
+shorthand went ("unique individuals" became "how many individual
+people", "at whatever level of aggregation is held" became "in
+whatever form you hold it", and "machine-readable format is welcome
+for anything tabular" became "a spreadsheet format such as CSV or
+Excel is preferred to a PDF" — a line the creator had to ask the
+meaning of, which by the signer test settled the matter). Request 1
+also gained a one-sentence plain opening stating what was reported,
+when and under which programme, so the request makes sense before any
+document is opened.
+
+Item-to-evidence mapping: items 1–3 are Entry 044's definitional gaps
+("courses completed" undefined, £74.6m unbroken, no evaluation
+located). Items 4–6 are built on Entries 074–075: the Annex A
+reporting the specification mandates, the FOI2026/00204 refusal and
+FOI2026/00458 disclosure precedents, and the extension clause with
+its March 2026 decision point.
 
 ---
 
@@ -304,7 +344,9 @@ FOI references cited in the request remain its own.
   choice. FOIA requires the requester's real name either way.
 
 Twenty working days for a response runs from the working day after
-receipt. Both requests were drafted to sit comfortably inside the
-central-government cost limit (£600 / 24 hours), and both carry the
-section 16 severability line so a single expensive item cannot sink
-the rest.
+receipt. Both carry the section 16 severability line so a single
+expensive item cannot sink the rest. On cost limits, see the
+correction at the top of this file: £600 for DCMS, £450 for UKRI.
+Aggregation under section 12(4) means splitting Request 2 into two
+threads would not reduce its cost exposure, so it stays as one
+request with a stated priority order.

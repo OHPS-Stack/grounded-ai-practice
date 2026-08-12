@@ -1,0 +1,92 @@
+FOI REQUESTS - PASTE SHEET
+Final text, shortened 2026-08-12. Companion to drafts/foi_requests.md,
+which holds the provenance, the reasoning, and the list of questions
+deliberately held back for follow-up requests.
+
+HOW TO PASTE INTO WHATDOTHEYKNOW
+Paste only the block between the START and END markers. The site adds
+"Dear ..." and "Yours faithfully" with your name from your account -
+do not paste them again.
+
+
+================================================================
+REQUEST 1 of 2
+AUTHORITY: Department for Digital, Culture, Media and Sport
+   (NOT DSIT - abolished 21 July 2026. If DCMS redirects, follow the
+   redirect; do not send to two departments in parallel.)
+SUMMARY / SUBJECT LINE:
+   AI Skills Boost course completion figure (January 2026)
+================================================================
+
+--- START OF REQUEST 1 ---
+
+This is a request under the Freedom of Information Act 2000. It concerns a figure published by the Department for Science, Innovation and Technology before its functions were redistributed on 21 July 2026; responsibility for digital inclusion and skills moved to DCMS. If another department now holds any part of what I ask for, please transfer that part or tell me who to approach.
+
+In January 2026 the government reported that 1,001,147 AI training courses had been completed under the AI Skills Boost programme. The figure appears in "AI Skills Boost: explainer" (GOV.UK, 28 January 2026), which describes it as "course completion data shared with DSIT by industry partners in January 2026". Please provide:
+
+1. The definition of a "completed" course used for that figure, and any guidance or reporting template issued to the partner companies on what to count.
+
+2. How many of the 1,001,147 completions were by the partner companies' own employees, and how many were by external learners (their customers, clients and platform users).
+
+3. Whether the figure is limited to learners in the UK, and how learner location was determined.
+
+4. How many individual people completed those courses, if this is held. One person completing several courses counts several times in a course total; I am asking how many people the total represents.
+
+5. How many of the counted courses were checked against Skills England's "AI foundation skills for work" benchmark, and how many met it.
+
+6. Any recorded method for measuring progress towards the target of 10 million workers upskilled by 2030 using these course completions, for example how completions are related to individual workers.
+
+If answering everything would exceed the cost limit, please tell me which parts can be answered within it rather than refusing the request in full.
+
+--- END OF REQUEST 1 ---
+
+
+================================================================
+REQUEST 2 of 2
+AUTHORITY: UK Research and Innovation
+   (NOT "Innovate UK" - UKRI handles its FOIs, and the references
+   cited are UKRI's own.)
+SUMMARY / SUBJECT LINE:
+   BridgeAI delivery figures and AI Skills Hub reporting (UKRI-3797)
+================================================================
+
+--- START OF REQUEST 2 ---
+
+This is a request under the Freedom of Information Act 2000, about the BridgeAI programme and the AI Skills Hub.
+
+On BridgeAI, as reported in "Bridging the AI divide: Year three in review" (March 2026):
+
+1. For the reported figure of 1,700+ AI skills courses completed: the definition of "completed" used, whether the unit counted is a module or a full course, and, if held, how many individual people the figure represents.
+
+2. How the £74.6 million reported as allocated by the end of 2025 breaks down, by part of the programme or by delivery partner, in whatever form you hold it.
+
+3. Any evaluation of BridgeAI, whether internal or commissioned, or the timetable for one if it is planned but not yet complete.
+
+On the AI Skills Hub, which PwC runs under contract UKRI-3797 (specification disclosed under FOI2026/00071):
+
+4. The Hub's performance figures: how many people have used it, and how many individuals and organisations have taken training as a result of it, for each quarter since it launched. PwC is required to report these figures quarterly under the contract (Annex A of the specification), in anonymised form. I am asking for the numbers themselves, not for copies of PwC's quarterly reports, which were withheld under FOI2026/00204.
+
+5. The second white paper on skills and training gaps. The first was disclosed under FOI2026/00458 and states at page 79 that a second was due within six months. Please also provide any KPI breakdown covering periods after the one disclosed with it.
+
+6. Whether the Hub's contract was extended when its initial period ended in March 2026 (the contract provided for a 12-month extension decided at that point), and the service's current contractual status.
+
+If answering everything would exceed the cost limit, items 4 and 5 matter most, and I would rather have those than a refusal of the whole request. Where an answer is a table of numbers, a spreadsheet format such as CSV or Excel is preferred to a PDF.
+
+--- END OF REQUEST 2 ---
+
+
+================================================================
+AFTER SENDING
+================================================================
+Paste both thread URLs back into the session. They get recorded in
+drafts/foi_requests.md and the due dates go into research_log.md's
+Open Threads. Twenty working days from the working day after receipt:
+sent 12 August 2026, both are due by about 10 September 2026.
+
+Questions deliberately held back for follow-up rounds (full list and
+reasoning in foi_requests.md): the One Big Thing count, the 126
+accreditations definition, the survey instruments' aggregated
+results, the white paper questionnaire and its response bases, and
+the engagement breakdowns. A short first request that gets answered
+beats a long one that gets refused; follow-ups ride on whatever the
+first response discloses.

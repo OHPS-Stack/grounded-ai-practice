@@ -1309,19 +1309,22 @@ attempt it unilaterally.
   its mechanism diagram is the drawn `fig_prompt_gap.png` from
   `tools/build_prompting_figures.py`.
 
-- `drafts/foi_requests.md` — two Freedom of Information requests
-  drafted 2026-08-12, not yet sent: DSIT (the counting rules, splits,
-  UK filtering and benchmark coverage behind the 1,001,147
-  course-completion figure, and the recorded basis for measuring a
-  workers target in course completions) and UKRI/Innovate UK (the
-  BridgeAI completion and accreditation definitions, the £74.6m
-  breakdown, Hub reporting subsequent to disclosure FOI2026/00204,
-  and any evaluation). Grounded in `research_log.md` Entries 044,
-  051, 053, 056, 060 and 061, re-read at drafting; WhatDoTheyKnow
-  precedent check the same day (six adjacent requests, none covering
-  these questions). Requester details are never stored in the file;
-  sending, the route and the identity attached are per-item creator
-  decisions.
+- `drafts/foi_requests.md` — two Freedom of Information requests,
+  **sent 2026-08-12 via WhatDoTheyKnow, responses due by 10 September
+  2026**: DCMS (the counting rules, splits, UK filtering and
+  benchmark coverage behind the 1,001,147 course-completion figure,
+  and how a workers target is measured in course completions —
+  re-addressed after DSIT's abolition, Entry 077) and UKRI/Innovate
+  UK (the BridgeAI completion definition, the £74.6m breakdown, the
+  Hub's contractually mandated performance figures, the second white
+  paper, and the contract-extension decision). Grounded in
+  `research_log.md` Entries 044, 051, 053, 056, 060, 061 and 074–077,
+  each read directly; shortened and re-drafted audience-first before
+  sending, with five questions deliberately held back for follow-up
+  rounds. The live thread URLs and due dates are in the file and in
+  `research_log.md`'s Open Threads. `drafts/foi_requests.txt` is the
+  paste-ready text as sent. Requester details are never stored in
+  either file.
 
 - `drafts/home_server_synopsis.md` — the **public** account of the home
   server build: what it does, the four decisions worth explaining (no
