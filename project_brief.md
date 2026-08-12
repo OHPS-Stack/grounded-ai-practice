@@ -514,7 +514,7 @@ beyond the existing symbol lockups, is undecided.
   **reversed** logo symbol (white book, Ink chevron/cursor) — this was the
   original/default styling until the standard/inverted roles were swapped
   this date; its spine-shadow opacity is unchanged at 0.42, which already
-  reads clearly against a white book. PNGs pending regeneration at
+  reads clearly against a white book. PNGs are exported at
   256/512/1024px for all four files.
 
 All symbol geometry reuses the approved PAWH "terminal + handbook" mark

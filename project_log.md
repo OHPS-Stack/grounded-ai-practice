@@ -4202,3 +4202,146 @@ no external citation:
   distributable form pending the creator's prose pass. `CLAUDE.md`
   indexed the new figure tool and the generated documents in the same
   session.
+
+### Entry 070 — Profile surfaces overhauled: LinkedIn copy pack, GitHub identity, README refresh
+
+- **Date logged:** 2026-08-12
+
+- **Priority / Question:** The publishing funnel's profile step (the
+  infographics lane's LinkedIn post → profile → repository chain) — the
+  creator's request to bring the outward profiles, LinkedIn foremost
+  and GitHub beside it, up to the project's current state.
+
+- **Source:** Session work, 2026-08-12.
+
+- **What happened:**
+
+  1. A full LinkedIn candidate copy pack was drafted into
+     `internal/linkedin_assets/` — headline options, About, experience
+     and education entries, skills, featured items and a settings
+     checklist. Per "Tracked logs record the project, not the person",
+     the content stays internal. The creator set the direction
+     in-session: employers first with the project as flagship proof of
+     capability; the approved real headshot on LinkedIn and the brand
+     mark on GitHub (the symbol-based avatar, since a 2.7:1 wordmark
+     cannot survive the platform's smallest renders). Drafted without
+     sight of the live profile — the browser extension was not
+     connected — so reconciliation against what is actually published
+     is the pack's first open item.
+
+  2. The GitHub account was found essentially unconfigured: no display
+     name, bio, website field or profile README. The July
+     profile-README draft was rewritten around the live site as the
+     lead link, with the wordmark and three current work items; an
+     identity checklist was prepared alongside. A username rename is
+     under consideration, with implications mapped from GitHub's own
+     documentation and `docs/README.md`'s DNS record rather than
+     memory: the `www` CNAME and the Pages verification TXT both embed
+     the username, local remotes need re-pointing, repository URLs
+     redirect until the old name is reclaimed, and old profile-page
+     links 404 permanently.
+
+  3. `README.md` was refreshed to current state: the live site linked
+     in the header, Current focus updated (the public report, the
+     now-drafted pilot unit, the budget-VRAM thread), `docs/` and
+     `tools/` added to the contents table, and Tooling expanded to
+     state the self-verification approach.
+
+  4. The banner was rebuilt through a new tool,
+     `tools/build_linkedin_banner.py`, which rasterises the SVG source
+     via `gap_chart.to_png`, overlays the reversed wordmark and domain
+     in Public Sans, and enforces the mobile-crop safe window, the
+     desktop avatar clearance and the wordmark's minimum usable width
+     in code, refusing to write otherwise. The first run failed its own
+     domain-line check — the imported font helper bakes in its home
+     script's canvas scale, so the text drew at roughly double size —
+     fixed by loading the face at exact pixel size. Renders were then
+     verified by reading them, per the geometry rule. `CLAUDE.md`
+     indexed the tool in the same edit session, and a stale note in
+     `project_brief.md` (avatar PNGs "pending regeneration" that have
+     existed since July) was corrected in passing.
+
+- **Inference drawn:** None — production record.
+
+- **Limitations / conflicting evidence:** The copy pack is a rough
+  draft under the outward-facing prose rule — final wording is the
+  creator's, several facts are bracketed for them to fill, and the pack
+  was written blind to the live profile. Nothing in this entry
+  publishes anything: applying profile changes, creating the profile
+  repository, any rename, and any DNS edit are each per-item creator
+  actions.
+
+- **Effect on project direction:** None — distribution-surface
+  maintenance ahead of the funnel's first use.
+
+### Entry 071 — Profile copy finalised interactively and applied live; banner redesigned; social cards added
+
+- **Date logged:** 2026-08-12
+
+- **Priority / Question:** Continuation of Entry 070 — interactive finalisation of the profile copy with the creator, its application to the live profile, and the visual-cohesion pass.
+
+- **Source:** Session work, 2026-08-12; live profile read back through the browser extension before and after application.
+
+- **What happened:**
+
+  1. Every copy block was finalised through creator review rounds rather than wholesale acceptance. The pattern worth recording: the creator repeatedly caught and corrected AI-register defects — compound jargon, repeated tics across blocks on one page, a causal overreach between paragraphs, and workflow transcription standing where skill statements belonged — and twice redirected emphasis on evidence-weight grounds, so that pinned skills lead with 3 yrs 9 mos of professional diagnosis ahead of weeks-old tool skills, and the skills-to-entry mapping was rebalanced the same way. One factual correction of note: a line on the live profile itself was flagged by the creator as overclaiming and replaced with the accurate mechanism. Flagged as candidate raw material for the prompting/verification curriculum (redactions needed: employer specifics).
+
+  2. Applied live by the creator and verified by read-back: headline (creator's final variant), both experience entries verbatim, a third entry with its real dates, and the skills mapping. Still to apply: About, Featured, education and certification entries, images, and the settings pass.
+
+  3. The banner was redesigned by concept selection — three directions rendered and shown, the creator choosing the Ink-dark symbol motif — and `tools/build_linkedin_banner.py` was rewritten around a code-generated base, retiring the radar-motif SVG. The same tool now composes 1280×640 social cards; two are built and tracked in `assets/social/` (repository social preview, general project card), indexed in `CLAUDE.md` in the same session. Placement remains code-enforced and every render got a human read.
+
+- **Inference drawn:** None — production record. One observation kept: the creator's corrections ran consistently in the direction of the project's own published register rules, applied unprompted to surfaces those rules were never written for.
+
+- **Limitations / conflicting evidence:** The profile is a personal surface; per the person/project rule the copy lives in `internal/` and this entry records process only. Uploading the banner, the repo social image and the remaining sections are per-item creator actions.
+
+- **Effect on project direction:** None — the publishing funnel's profile step is materially ready for first use.
+
+### Entry 072 — Visual pass, second round: abstract split banner, light repo card, resolution fix, avatar and icon routes
+
+- **Date logged:** 2026-08-12
+
+- **Priority / Question:** Continuation of Entries 070–071 — the creator's review of the applied profile against the live page.
+
+- **Source:** Session work, 2026-08-12; the creator's screenshots of the live profile.
+
+- **What happened:**
+
+  1. The creator reviewed the applied profile live and raised four defects: the banner rendered soft, the banner and headshot read as stylistically disconnected, several company entries carry placeholder icons, and the two Featured link cards were near-identical. All four confirmed on inspection — the last one being the site's Open Graph card and the repository card sharing one design language too closely.
+
+  2. Exports now leave `build_linkedin_banner.py` at composed resolution (3168×792 banner, 2560×1280 cards): both platforms recompress uploads, and a native-size export goes soft after their pass.
+
+  3. The banner moved to an abstract design at the creator's direction — three concepts carrying the aesthetic without the wordmark or symbol were rendered, and the Sand-over-Ink split chosen. It is now the tool's default style, the symbol design retained as an option. This supersedes Entry 071's banner choice the same day it was made: seeing the design live changed the decision, which is the review loop working as intended.
+
+  4. The repository social card was rebuilt as a light Sand theme so the Featured pair reads as siblings rather than twins. The card composer gained a theme option; text on the light ground is Ink throughout, because Ember fails the text-contrast threshold on Sand — the palette discipline reaching a new surface.
+
+  5. Routes chosen for the remaining defects: the headshot background is to be recomposed over a brand ground using a locally-run segmentation model (rembg — install and every upload remain the creator's actions; the photo never leaves the machine), and a LinkedIn Company Page will be created by the creator, which is the only mechanism that puts a real icon on the project's own entry; its fields are drafted in the internal pack, with the symbol avatar over the wordmark avatar because entry thumbnails render below the wordmark's minimum usable size. The other employers' icons depend on those companies' own pages existing, which is outside anyone's control here and recorded as such.
+
+- **Inference drawn:** None — production record.
+
+- **Limitations / conflicting evidence:** Uploads, the rembg install, and page creation are per-item creator actions; the headshot compositor is unbuilt until the install lands.
+
+- **Effect on project direction:** None.
+
+### Entry 073 — Profile review round: banner made fully abstract, GitHub-marked repo card, headshot recompose rejected
+
+- **Date logged:** 2026-08-12
+
+- **Priority / Question:** Continuation of Entries 070–072 — the creator's completeness review of the applied profile, and the outcomes of the remaining visual work.
+
+- **Source:** Session work, 2026-08-12; live profile read back through the browser extension.
+
+- **What happened:**
+
+  1. Live read-back confirmed the creator had applied the custom URL and the recruiters-only open-to-work configuration; the education and certification entries remain absent (blocked on certificate facts only the creator holds), and the About section could not be verified either way — the page extractor does not reliably surface mid-page sections, and the limit was reported as an instrument limit rather than a finding, per the streetlight discipline.
+
+  2. The banner's domain line was removed at the creator's direction, making the split design fully abstract: the creator found the text sliding behind the avatar at window sizes the placement model does not cover, and judged it redundant besides, since the URL lives on the Featured cards, in contact info and on the planned company page. Every element is now full-bleed, so the design is crop-immune by construction and the placement checks reduce to nothing — the strongest possible fix for a placement bug being to have nothing placed.
+
+  3. The repository social card was rebuilt with the official GitHub Mark leading in place of the GAP wordmark, at the creator's direction, so the Featured pair reads as siblings with distinct faces. The mark was downloaded from GitHub's own brand assets with the creator's explicit permission and is used unmodified per GitHub's logo terms; its PNG bakes an opaque white canvas, so the card composer derives transparency from luminance, leaving the glyph untouched. The mark is tracked beside the cards with its provenance noted in the index.
+
+  4. The headshot recompose (Entry 072's pending route) was built and rejected: rembg's model ran locally and produced four variants, and the creator declined all of them — the removal is not clean enough on the 400 px source. The original photo stays; the pipeline (`tools/build_profile_photo.py`) remains for a retry if a higher-resolution original surfaces.
+
+- **Inference drawn:** None — production record.
+
+- **Limitations / conflicting evidence:** Still outstanding on the profile: the education and certification entries (certificate facts pending), About confirmation, the company page creation, and the re-uploads of the abstract banner and GitHub-marked card — each a creator action.
+
+- **Effect on project direction:** None.

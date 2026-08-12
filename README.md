@@ -10,6 +10,8 @@
 *An independent, evidence-led research project on the UK's AI skills gap —
 and what a credible response to it would need to look like.*
 
+**Live site: [groundedaipractice.co.uk](https://groundedaipractice.co.uk)**
+
 </div>
 
 ---
@@ -70,15 +72,22 @@ Four rules the project holds itself to, visible throughout the logs:
 | [`exports/`](exports/) | Finished, approved outputs. |
 | [`drafts/`](drafts/) | Work in progress. Nothing here is settled. |
 | [`assets/`](assets/) | Visual identity: logo system and a 36-icon content set. |
+| [`docs/`](docs/) | The public landing site — generated from [`site/`](site/) and served by GitHub Pages, live at [groundedaipractice.co.uk](https://groundedaipractice.co.uk). |
+| [`tools/`](tools/) | Self-checking build and verification tooling: the document pipeline, chart layer, site build and asset preparation. |
 | [`CLAUDE.md`](CLAUDE.md) | Working rules and conventions, including how this repo separates public from internal material. |
 
 ## Current focus
 
-- A research report on the UK's AI climate, government posture, and
-  actually delivered results.
+- A short public report on the UK's AI skills ambition and its published
+  delivery numbers, with the fully source-tagged technical draft retained
+  behind it as the evidence companion.
 
-- A single pilot learning unit on effective prompting — deliberately small,
-  designed to be tested with real learners before anything is scaled.
+- A single pilot learning unit on effective prompting — now drafted,
+  deliberately small, and to be tested with real learners before anything
+  is scaled.
+
+- What budget GPU hardware changes about the cost of running AI locally —
+  the research thread behind the project's local-vs-cloud question.
 
 ## A note on completeness
 
@@ -92,7 +101,11 @@ published. The rules governing that split are themselves
 ## Tooling
 
 Research and document production are AI-assisted, with human review at
-every decision point. 
+every decision point. The tooling verifies its own output against ground
+truth rather than trusting a plausible result: documents render through
+real Word before they count as finished, charts refuse comparisons their
+data cannot support, and the site build fails rather than publish a
+broken link. The method is part of the subject matter.
 
 ---
 
