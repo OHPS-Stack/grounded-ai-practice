@@ -62,20 +62,48 @@ means) and weaken the rest of the request.
 
 ---
 
-## Request 1 — Department for Science, Innovation and Technology
+## Request 1 — Department for Digital, Culture, Media and Sport
 
-**To:** foi@dsit.gov.uk (or via WhatDoTheyKnow's DSIT page)
+**Re-addressed 2026-08-12.** DSIT was abolished on 21 July 2026 and
+its functions redistributed; WhatDoTheyKnow's DSIT page now reads
+"This authority no longer exists, so you cannot make a request to
+it." See `research_log.md` Entry 077. DCMS is the best fit —
+the written ministerial statement gives it "digital inclusion and
+skills" — but the allocation is genuinely ambiguous, since the
+Cabinet Office took "AI strategy" and AI Skills Boost is both a
+skills programme and an AI-strategy commitment. The request is
+therefore built to survive arriving at the wrong door: it names the
+change, cites the statement, and invokes the transfer and
+advice-and-assist duties in its opening. Do **not** simply resend to
+a second department in parallel — let the first either answer or
+redirect, and note the redirect in the log.
+
+**To:** via WhatDoTheyKnow's DCMS page
 
 **Subject:** FOI request — AI Skills Boost course-completion figure
 (explainer of 28 January 2026)
 
-> Dear Department for Science, Innovation and Technology,
+> Dear Department for Digital, Culture, Media and Sport,
 >
 > This is a request under the Freedom of Information Act 2000. It
-> concerns the figure of 1,001,147 completed AI training courses
-> published in "AI Skills Boost: explainer" (GOV.UK, 28 January
-> 2026), described there as "course completion data shared with DSIT
-> by industry partners in January 2026".
+> concerns information previously held by the Department for Science,
+> Innovation and Technology, whose functions were redistributed on 21
+> July 2026 (Machinery of Government Changes, HLWS298), with
+> responsibility for digital inclusion and skills transferring to
+> DCMS.
+>
+> If any part of this request relates to information now held by
+> another successor body — the Cabinet Office, which took
+> responsibility for AI strategy, or the Department for Business,
+> Innovation, Science and Trade — I would be grateful if you would
+> transfer that part in accordance with the section 45 code of
+> practice, or advise me which body to approach under your section 16
+> duty.
+>
+> The request concerns the figure of 1,001,147 completed AI training
+> courses published in "AI Skills Boost: explainer" (GOV.UK, 28
+> January 2026), described there as "course completion data shared
+> with DSIT by industry partners in January 2026".
 >
 > Please provide the following recorded information:
 >
@@ -254,6 +282,13 @@ the extension clause with its March 2026 decision point, the
 evaluation of BridgeAI has been located".
 
 ---
+
+**Request 2 is unaffected by the departmental change.** UKRI is a
+statutory body under the Higher Education and Research Act 2017, not
+a department; a machinery-of-government change moves its sponsorship
+(to DBIST, which took the science and innovation portfolio) without
+abolishing it. It remains the right and only addressee, and its own
+FOI references cited in the request remain its own.
 
 ## Send routes — creator decision
 
