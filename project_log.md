@@ -4369,3 +4369,169 @@ no external citation:
 - **Limitations / conflicting evidence:** Either request can be refused in part or in full; the severable wording is mitigation, not a guarantee. Nothing in the requests should be described as evidence until a response is in hand — and a refusal, if it comes, is itself a documented fact about the figures' checkability.
 
 - **Effect on project direction:** The report's unverifiability findings acquire a formal test with a statutory clock. Responses feed the public-audience report; the request threads become citable the moment they are live.
+
+### Entry 075 — The budget-VRAM findings drawn for the publishing funnel: the price-ladder figure
+
+- **Date logged:** 2026-08-12
+
+- **Priority / Question:** The Entry 067 thread — turning the completed budget-VRAM research into a graphic for the publishing funnel's first step, at the creator's direction to make the document's point clearer and feed-readable.
+
+- **Source:** Session work, 2026-08-12. Data unchanged from `research_log.md` Entries 068–073, re-read at build per the chart rule.
+
+- **What happened:**
+
+  1. A second figure joined `tools/build_vram_figures.py`: `vram_price_ladder`, the document's comparison table drawn as a ladder — one row per card, grouped by VRAM tier with the draft's what-fits descriptors as tier headers, every bar carrying its own name and price, and the per-tier finding annotated where the eye lands: 2.4x at 12 GB, +£120 at 16, used-meets-new at 24, 3.3x at 32. The title states the document's reading ("Nvidia's premium is for the software, not the silicon"); gently portrait output (1544x1678 at 2x) because the feed gives tall images more room.
+
+  2. The scatter stays as the in-document figure; the ladder exists because a feed viewer gives a graphic no axes-and-legend reading time. Same data, same date, and the honesty furniture kept: the 3090 as a two-tracker range marked used against the B60's new, the 48 GB board's exclusion stated with its reason, the software caveat in the subtitle, source-and-date line on the image.
+
+  3. Checks: coverage passes at all four tiers on real data; the label check reports no overlaps in either variant; and both renders were read by eye per the geometry rule — which caught what the code checks could not, a source line running off the canvas edge and the 32 GB annotation block sitting against the 5090's full-width bar. Both fixed and rebuilt.
+
+- **Inference drawn:** None — presentation work over settled findings; no claim appears on the figure that the document's table does not contain.
+
+- **Limitations / conflicting evidence:** The figure inherits its research's limits — single-day UK listing prices in a fast-moving market, stated on the image. It will date quickly; the build regenerates from corrected constants.
+
+- **Effect on project direction:** The post graphic exists as a candidate. The post text and any posting remain per-item creator decisions, and the figure itself awaits the creator's review.
+
+### Entry 076 — The post figure redrawn as launch-to-street; a missing-glyph self-check added
+
+- **Date logged:** 2026-08-12
+
+- **Priority / Question:** Supersedes the figure described in Entry 075, same day, at the creator's direction: show each card's original retail price alongside its UK street price, because the strategic story — where Intel's GPU division is now pointed — was being crowded out by current UK availability.
+
+- **Source:** Session work, 2026-08-12; launch prices from `research_log.md` Entry 078, gathered for this figure.
+
+- **What happened:**
+
+  1. `vram_price_ladder` was rebuilt from grouped bars to a dumbbell per card: hollow marker at the launch price, solid at today's UK street price, the line between them the move. The per-tier annotations now state the launch-price comparison, and the title uses three real UK sterling prices (B70 £1,290, RTX 5090 £1,919 launch and £4,199 today) so the headline claim needs none of the converted figures the rows carry.
+
+  2. The two price bases are not the same kind of number and the figure says so: vendor UK MSRPs exist for consumer cards, while every workstation card is a US list converted at a stated rate with VAT added, marked with an asterisk on each affected label. Mixing an unconverted dollar list with sterling on one axis would have been the larger error; converting and labelling it is the smaller one.
+
+  3. The launch layer is one card thinner than the street layer, because the CUDA card at 24 GB is a 2020 part on the used market. Rather than let that pass, `check_coverage` now runs on both layers and a thin launch level must be declared in `LAUNCH_GAP_NOTED` with the note the figure actually shows; an undeclared gap refuses the build.
+
+  4. **A new class of defect, and a new check for it.** Every label containing an arrow rendered in a serif face: Public Sans has no U+2192, and a single missing glyph drops the whole text run to a fallback font. The spec was valid, the render completed, and `_verify`, `check_labels` and `check_coverage` all passed on a chart with a dozen labels in the wrong typeface — it was visible only by looking. `gap_chart.check_glyphs()` now reads the rendered SVG's text against the font's character map and blocks on any character the brand face cannot draw. The arrow became a guillemet, which Public Sans carries.
+
+  5. Reading the render also caught a false claim written into the 24 GB annotation — "the widest gap on this chart", when the RTX 5090's 2.2x move is wider than the B60's 1.6x. Corrected to what the number actually supports.
+
+- **Inference drawn:** The creator's premise held in one direction and reversed in the other, which is recorded as a finding in `research_log.md` Entry 078 rather than resolved silently in the drawing.
+
+- **Limitations / conflicting evidence:** The figure now carries four lines of source and method, which is dense for a feed graphic; the alternative was dropping caveats the two price bases genuinely need. Launch dates span fifteen months of a moving memory market, so the hollow markers are not contemporaneous with each other.
+
+- **Effect on project direction:** `check_glyphs` applies to every future chart, not only this one. Entry 075's description of the figure is superseded from this date; the bar version is not kept.
+
+### Entry 077 — The post figure stripped back; a canvas-overflow check finds a clipped source line on a second figure
+
+- **Date logged:** 2026-08-12
+
+- **Priority / Question:** Creator review of the Entry 076 figure: the presentation was not right and the image carried too much text for a social post, most of which belongs in the post body.
+
+- **Source:** Session work, 2026-08-12.
+
+- **What happened:**
+
+  1. `vram_price_ladder` was cut to the comparison and nothing else — the four-line subtitle became two short lines, the three-line annotation block beside every tier went entirely, the tier descriptors dropped to three words, the footer went from four lines to three, and type sizes rose throughout. Rendered text elements fell from 39 to 24. The dumbbell form and the underlying data are unchanged.
+
+  2. **The design rule this establishes:** a figure for the publishing funnel's first step carries the comparison; the post body carries the argument. The earlier build failed that test by treating the image as a self-contained document, which is the right instinct for a report figure and the wrong one for a feed.
+
+  3. `check_labels` gained a canvas-overflow test. Pairwise overlap structurally cannot catch a label running off the edge, because it collides with nothing — so the check measured every label against the SVG's own viewBox width instead. It immediately found the defect twice: once on this figure's rewritten footer, and once, unprompted, on `vram_price_capacity`, whose source line has been clipped by about 57 px since it was built on 2026-08-11 and had passed every check since. Both fixed by splitting the line.
+
+- **Inference drawn:** None — presentation work over unchanged findings.
+
+- **Limitations / conflicting evidence:** The width estimate behind the overflow test is the same approximate character-count measure `check_labels` already used, so it will miss a marginal clip and can in principle cry wolf on one; it stays advisory for that reason. Stripping the annotations also removed the figure's statement of the launch-versus-street reversal recorded in `research_log.md` Entry 078, which now survives only in the draft document and the post text — a deliberate trade, but it means the image no longer carries that finding on its own.
+
+- **Effect on project direction:** The overflow test applies to every chart built on `gap_chart`. The spare-figure rule is recorded in the `build_vram_figures.py` index entry as the reasoning for its shape.
+
+### Entry 078 — The capability ladder: era anchors instead of an index number
+
+- **Date logged:** 2026-08-12
+
+- **Priority / Question:** Creator direction, extending the budget-VRAM publishing set: show what a 32 GB card's models are *capable of* against the frontier, with previously-frontier products (GPT-4, the free-ChatGPT models) as anchors a non-specialist recognises — explicitly not an "arbitrary intelligence number" presentation.
+
+- **Source:** Session work, 2026-08-12; research basis `research_log.md` Entry 079.
+
+- **What happened:**
+
+  1. Third figure added to `tools/build_vram_figures.py`: `vram_capability_ladder`, a two-column vertical ladder — the closed frontier's dated anchors on the left, the models that fit one card on the right, a dashed guide at the single-card best marking where the frontier stood in late 2024. Whiskers are drawn where the comparison is close (the two local models and o1) and omitted where a ±5 interval changes nothing; the log entry carries the full intervals.
+
+  2. **Scale choice was a source-discipline decision, not a convenience.** Artificial Analysis surfaced the models first, but its index is rescaled between versions, its reproduction terms are unclear, and it is a commercial benchmarking product. Epoch AI's Capabilities Index is independent, CC-BY, publishes per-model confidence intervals, and its raw CSVs were retrieved directly — so Epoch is the published axis and AA the cross-check, per the source-scope rule.
+
+  3. **The era-anchor labels are sourced product history, not colour.** GPT-4 is labelled as the paid ChatGPT of 2023 because it was never the free model — the free tier ran GPT-3.5 until GPT-4o mini replaced it in July 2024, confirmed against OpenAI's own announcement before the label was written. The creator's initial framing had GPT-4 as the free-app model; the correction is the kind the figure exists to get right.
+
+  4. `check_coverage` is deliberately not run on this figure: it guards categorical comparisons within levels of an x variable, and this chart has no such structure — both columns sit on one shared capability scale, which is the comparison. Noted in the script beside the call sites that do run it.
+
+- **Inference drawn:** The translation device that works for a feed audience is time, not points — "where the frontier stood in late 2024", "what free ChatGPT ran in 2024" — with the index shown but de-emphasised. Same lesson as Entry 077's spare-figure rule, applied to a scale nobody outside the field knows.
+
+- **Limitations / conflicting evidence:** The figure leans on one composite index; the cross-check agrees on ordering but not units. The "late 2024" placement rests on CI-overlapping equality with o1, stated as "level with", and o3's December announcement sits above the guide — the log entry records both rather than the figure arguing them.
+
+- **Effect on project direction:** The budget-VRAM publishing set is now three figures: price-against-capacity (report), price ladder (feed), capability ladder (either). Two candidate teaching artefacts flagged for the source-evaluation lane: the llm-explorer trap (a capability question answered from a popularity-sorted, FP16-assuming directory) and the three-tier confusion ("open models are 4 months behind" read as if it described single-card models).
+
+### Entry 079 — Prose register: the AI tells named, and a paired-rewrite session agreed
+
+- **Date logged:** 2026-08-13
+
+- **Priority / Question:** Creator feedback on generated prose across the project: despite the existing prose rules it still reads as AI-written, it can make a complicated field harder to follow than it needs to be, and on public surfaces that reading alone discredits the work.
+
+- **Source:** Session work, 2026-08-13; trusted-peer review of the project and site, reported by the creator in distilled form.
+
+- **What happened:**
+
+  1. The peer feedback, distilled: the project looks professional; parts are confusing or unclear; the prose sounds unnatural; and no product, conclusion or value proposition is stated. The same material persuaded when the creator explained it in person — which reads as a communication gap, not an evidence gap.
+
+  2. A LinkedIn reply drafted this session was rejected once on register. The redraft that passed differed in nameable ways, recorded because they generalise: balanced antithesis constructions in every sentence, epigram closers, things described instead of named, abstract nouns as agents, and project-internal shorthand in outward text. The first draft carried all five at once.
+
+  3. Agreed: a paired-rewrite register session — Claude drafts passages, the creator rewrites them in their own words — seeded with samples the creator wrote without AI involved, run over real project passages rather than invented exercises, and distilled afterwards into a voice reference and exemplar bank presented for review. Where the output lives (tracked or `internal/`) is undecided.
+
+- **Inference drawn:** Descriptions of a register underperform exemplars of it; the fix is paired examples available at drafting time, not more adjectives in the rules. The review gate stays regardless — this narrows the draft-to-final gap, it does not close it.
+
+- **Limitations / conflicting evidence:** The tells list is one session's observation against one reader's judgement. The Entry 061 lesson still binds: purging tells at uniform density would only manufacture a new uniform style.
+
+- **Effect on project direction:** Register session queued behind the pilot workstation work. Candidate teaching material flagged: making AI prose carry your own voice is precisely the audience's problem, and the session's method and before/after pairs are raw material for a unit on it (redaction pass needed on any pair the creator marks personal).
+
+### Entry 080 — The product hypothesis, and the desktop designated pilot testbed
+
+- **Date logged:** 2026-08-13
+
+- **Priority / Question:** Creator direction: define what the project could actually offer, and start proving it on hardware already owned.
+
+- **Source:** Session work, 2026-08-13; stack facts verified against vendor documentation (sources listed in the unit).
+
+- **What happened:**
+
+  1. Working hypothesis recorded — hypothesis, not commitment: an AI workstation installed on a small organisation's own premises, local or local-plus-API hybrid, carrying bespoke workflows and onboard guidance that teaches its own proper use. Positioned on data locality, cost predictability and learning value rather than raw capability, which is the positioning the budget-VRAM document's break-even and capability findings will actually support.
+
+  2. The project's desktop PC (8-core Ryzen X3D, 32 GB RAM, RDNA3 GPU with 20 GB VRAM) designated the phase-1 testbed. `drafts/pilot_ai_workstation.md` created: three phases — native Windows inference, the containerised deployment shape under WSL2, the SME task set and tutor layer — with a fixed three-prompt measurement protocol so the project's first own-hardware numbers stay comparable across runs and future cards.
+
+  3. This session ran on the laptop, so nothing was installed. The load-bearing stack facts were verified against official documentation: Ollama lists the RX 7900 XT on Windows with a driver-level requirement (no ROCm SDK install); AMD's WSL compatibility matrix (ROCm 7.2.1) lists the card under WSL2 on Ubuntu 24.04/22.04; vLLM carries gfx1100 support upstream. The SEO-blog tier that dominates these search terms was used as leads only, per the source-scope rule.
+
+  4. An Arc card purchase (B580 / B60 / B70) remains open and is the creator's decision; the pilot de-risks the product shape first at no new spend, and the Intel software question stays unanswerable without Intel hardware.
+
+  5. One claim offered alongside the hypothesis is parked as an unverified lead: that enterprise-tier LLM services can leak sensitive or proprietary information under repeated or adversarial prompting, resting on a video source not yet identified or verified — the "nobody has looked yet" kind of hole, per bias trigger 3. The claim is foundational to the fully-local positioning, so it takes a confirm/disconfirm pass before any outward use; the adjacent, already-citable framings (data governance and retention terms, prompt-injection exfiltration in tool-connected deployments) are the honest interim ground.
+
+- **Inference drawn:** The peer-review pattern and the product hypothesis point the same way: the evidence base is ahead of the communication of it, and the missing "so what" on the site is the offer this hypothesis, once tested, would supply.
+
+- **Limitations / conflicting evidence:** The hypothesis is untested end to end. Capability adequacy is task-specific and unmeasured — the pilot's own question. The workstation-as-product economics must survive the project's own break-even finding that below a high usage threshold the API route stays cheaper.
+
+- **Effect on project direction:** The pilot phases become the active workstream, alongside the queued register session. The hands-on unit thread in `research_log.md`'s Open Threads now has a concrete first machine and a written protocol.
+
+### Entry 081 — The Arc card decision: Arc Pro B70, 32 GB
+
+- **Date logged:** 2026-08-13
+
+- **Priority / Question:** Creator decision, closing the purchase question the budget-VRAM document and the pilot unit both recorded as open.
+
+- **Source:** Creator decision, 2026-08-13. Card selection reasoned from `research_log.md` Entries 068–073 and 078–079, re-read rather than recalled.
+
+- **What happened:**
+
+  1. **Decided: the Arc Pro B70**, 32 GB, ~£1,290 UK street at the 2026-08-11 price snapshot.
+
+  2. **Why the B70 rather than the cheaper cards the documents named.** The B580 at ~£245 tests the floor and the B60 at ~£830 tests the price claim, but neither reaches 32 GB — and 32 GB is where the project's own findings converge. Entry 078 found the Intel/Nvidia gap widest there at street prices, 3.3x against 2.3x at launch. Entry 079's capability ladder put the useful single-card open models, Qwen3.6 35B-A3B and Gemma 4 31B, at 24–32 GB. A cheaper card would have measured a tier the argument does not rest on.
+
+  3. **What it unblocks.** The three-prompt protocol in `drafts/pilot_ai_workstation.md` runs on it unchanged, which is what the protocol was built for. The VRAM document's "What would settle it" section becomes actionable. The idle-power hole, open since Entry 071 and unmeasurable in software because the Linux driver does not expose GPU power, becomes measurable with a wall meter.
+
+  4. Buying the card settles nothing by itself. Every claim in the VRAM document still stands or falls on measurement, and nothing is published from it until it has been run.
+
+- **Inference drawn:** Desk research on this question is finished. Seven primary benchmark sources, every surfaced lead read, and what remains is the kind of uncertainty only a card on a bench resolves.
+
+- **Limitations / conflicting evidence:** The purchase is made into a rising market, so the price paid is a snapshot and not a recommendation to a later reader. The break-even finding is unchanged and unflattering — below a high usage threshold the API route stays cheaper, and this card does not move that arithmetic. Two findings surfaced this session, ECC on the Arc Pro line and the memory-bandwidth cost of unified-memory machines, are not yet in `research_log.md` and nothing above rests on them.
+
+- **Effect on project direction:** Phase-1 AMD work and the Arc work now run in sequence on one protocol. Three tracked documents carry current-state claims the decision makes stale; corrected in the same edit.

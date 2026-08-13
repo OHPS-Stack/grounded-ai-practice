@@ -150,7 +150,18 @@ def check_title(title):
     warnings; never raises. A machine can spot the shapes a label usually
     takes — no verb, an ' by ' axis-naming construction, an opening
     'Overview of' — but it cannot tell whether a sentence carries an
-    insight, so this warns and leaves the call to the writer."""
+    insight, so this warns and leaves the call to the writer.
+
+    **It cannot see the failure that matters most, and it pushes the
+    wrong way on it.** Per the 2026-08-13 refinement in `CLAUDE.md`, a
+    title's first job is to name its subject; a finding-title about a
+    subject the reader has not met is a punchline nobody catches. A
+    subject-establishing title is usually a noun phrase, so the 'no
+    verb' warning below fires on exactly the titles the refined rule
+    wants. Ignore it freely in that case. What the check is still good
+    for is catching an axis-naming label ('AI adoption by firm size'),
+    which is a different and genuine defect — naming the subject is not
+    the same as naming the axes."""
     warn = []
     t = title.strip()
     low = t.lower()
@@ -165,7 +176,9 @@ def check_title(title):
                "falls", "fall", "rises", "rise", "costs", "cost", "adopts",
                "adopt", "stops", "stop", "grew", "grows", "beats", "leaves",
                "buys", "gets", "goes", "makes", "takes", "counts", "promised",
-               "reported", "published", "spent", "trains", "trained")
+               "reported", "published", "spent", "trains", "trained",
+               "sells", "sell", "sold", "listed", "lists", "launched",
+               "doubled", "tripled", "priced", "prices", "holds", "hold")
     if not any(w.strip(",.;:").lower() in verbish for w in t.split()):
         warn.append("no verb — reads as a noun phrase, which is a label")
     if len(t.split()) < 4:
@@ -359,6 +372,9 @@ def check_labels(svg_path, gap=1.0, verbose=True):
 
     SVG = "{http://www.w3.org/2000/svg}"
     tree = ET.parse(svg_path)
+    root = tree.getroot()
+    vb = (root.get("viewBox") or "").split()
+    canvas = float(vb[2]) if len(vb) == 4 else None
     items = []
 
     def walk(node, ox, oy):
@@ -393,7 +409,7 @@ def check_labels(svg_path, gap=1.0, verbose=True):
         for child in node:
             walk(child, ox, oy)
 
-    walk(tree.getroot(), 0.0, 0.0)
+    walk(root, 0.0, 0.0)
 
     hits = []
     for i in range(len(items)):
@@ -403,16 +419,101 @@ def check_labels(svg_path, gap=1.0, verbose=True):
             if (xa < xb + wb + gap and xb < xa + wa + gap and
                     ya < yb + sb + gap and yb < ya + sa + gap):
                 hits.append((ta, tb))
+
+    # Running off the canvas is the other way a label fails, and pairwise
+    # overlap cannot see it: a source line wider than the figure collides
+    # with nothing and is simply cut off at the edge. Caught twice on the
+    # same figure before this was added.
+    over = [(t, x + w - canvas) for t, x, _, w, _ in items
+            if canvas and x + w > canvas + 1]
+
     if verbose:
+        name = os.path.basename(svg_path)
         if hits:
-            print(f"  label check: {len(hits)} overlapping pair(s) in "
-                  f"{os.path.basename(svg_path)}")
+            print(f"  label check: {len(hits)} overlapping pair(s) in {name}")
             for a, b in hits[:8]:
                 print(f"    {a!r} overlaps {b!r}")
-        else:
-            print(f"  label check: {len(items)} labels, no overlaps "
-                  f"({os.path.basename(svg_path)})")
-    return hits
+        if over:
+            print(f"  label check: {len(over)} label(s) past the right edge "
+                  f"of {name}")
+            for t, by in over[:8]:
+                print(f"    {t[:60]!r} overflows by ~{by:.0f}px")
+        if not hits and not over:
+            print(f"  label check: {len(items)} labels, no overlaps, "
+                  f"none clipped ({name})")
+    return hits + over
+
+
+def check_glyphs(svg_path, font=FONT, verbose=True):
+    """Find characters the brand font cannot draw.
+
+    A missing glyph does not render as a blank or a box here: the SVG
+    renderer falls back for the whole text run, so one absent character
+    silently sets an entire label in a serif face. Nothing else catches
+    it — the spec is valid, the render completes, `_verify` counts the
+    text elements and `check_labels` measures their boxes, and all three
+    pass on a chart with a dozen labels in the wrong typeface.
+
+    Found when a dumbbell chart's labels used "→" (U+2192), which Public
+    Sans does not carry. Its en dash, middle dot, bullet, multiplication
+    sign and guillemets are all present, so the fix was a substitution
+    rather than a second font.
+
+    Blocking rather than advisory: glyph coverage is a lookup, not an
+    estimate, so a failure here is a fact about the file.
+    """
+    import re
+    import xml.etree.ElementTree as ET
+
+    try:
+        from fontTools.ttLib import TTFont
+    except ImportError:
+        if verbose:
+            print("  glyph check: skipped (needs fontTools)")
+        return set()
+
+    import glob
+    stem = font.split(",")[0].replace(" ", "")
+    faces = []
+    for root in (os.path.join(os.environ.get("WINDIR", r"C:\Windows"),
+                              "Fonts"),
+                 os.path.join(os.environ.get("LOCALAPPDATA", ""),
+                              "Microsoft", "Windows", "Fonts"),
+                 "/usr/share/fonts", os.path.expanduser("~/.fonts")):
+        faces += glob.glob(os.path.join(root, f"{stem}*.ttf"))
+        faces += glob.glob(os.path.join(root, "**", f"{stem}*.ttf"),
+                           recursive=True)
+    if not faces:
+        if verbose:
+            print(f"  glyph check: skipped ({font} not found locally)")
+        return set()
+
+    covered = set()
+    for path in faces[:4]:                       # a few faces is plenty
+        try:
+            covered |= set(TTFont(path).getBestCmap())
+        except Exception:
+            continue
+
+    SVG = "{http://www.w3.org/2000/svg}"
+    text = []
+    for node in ET.parse(svg_path).iter():
+        if node.tag in (f"{SVG}text", f"{SVG}tspan") and node.text:
+            text.append(node.text)
+    joined = "".join(text)
+
+    missing = {ch for ch in joined
+               if ord(ch) not in covered and not ch.isspace()}
+    # Entities the parser has already resolved are real characters; only
+    # control codes are noise.
+    missing = {ch for ch in missing if ord(ch) >= 0x20}
+    if missing and verbose:
+        shown = ", ".join(f"{ch!r} (U+{ord(ch):04X})" for ch in sorted(missing))
+        print(f"  GLYPH: {font} cannot draw {shown} — the whole text run "
+              f"falls back to another face")
+    elif verbose:
+        print(f"  glyph check: every character drawable in {font}")
+    return missing
 
 
 def to_png(svg_path, png_path, scale=2.0):

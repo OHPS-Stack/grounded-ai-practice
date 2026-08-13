@@ -1,11 +1,12 @@
 # Budget VRAM for local AI: the Intel question
 
 > **NOTE** Draft status: rough draft, research passes of 2026-08-11
-> (`research_log.md` Entries 068–073). Structure and evidence are in
-> place; final prose is the creator's, per the project's
-> outward-facing-documents rule. Every price in this document is a UK
-> listing price retrieved on 2026-08-11 unless stated otherwise, and
-> prices are currently moving fast — see "The market this lands in".
+> and 2026-08-12 (`research_log.md` Entries 068–073, 078–079).
+> Structure and evidence are in place; final prose is the creator's,
+> per the project's outward-facing-documents rule. Every price in this
+> document is a UK listing price retrieved on 2026-08-11 unless stated
+> otherwise, and prices are currently moving fast — see "The market
+> this lands in".
 
 Running a language model on your own machine instead of through a paid
 API is the most direct route to three things: work that never leaves
@@ -141,19 +142,27 @@ logged measured load power of 37–186 W depending on the model
 What the realistic options cost per gigabyte, at the dated prices —
 the span now runs about £20 to £131:
 
-| Option | VRAM | UK price (2026-08-11) | £/GB | Software path |
-|---|---|---|---|---|
-| Arc B580, new | 12 GB | ~£245 | ~£20 | llama.cpp (Vulkan/SYCL) |
-| RTX 5070, new | 12 GB | ~£599 | ~£50 | Everything (CUDA) |
-| RX 9060 XT 16GB, new | 16 GB | ~£330 | ~£21 | llama.cpp (Vulkan/ROCm) |
-| Arc Pro B50, new | 16 GB | ~£380 | ~£24 | llama.cpp (Vulkan/SYCL) |
-| RTX 5060 Ti 16GB, new | 16 GB | ~£450 | ~£28 | Everything (CUDA) |
-| Arc Pro B60, new | 24 GB | ~£830 | ~£35 | llama.cpp; vLLM containers |
-| RTX 3090, used | 24 GB | £750–1,129 (trackers conflict) | £31–47 | Everything (CUDA), no warranty |
-| Radeon AI PRO R9700, new | 32 GB | ~£1,250 | ~£39 | llama.cpp; vLLM (ROCm) |
-| Arc Pro B70, new | 32 GB | ~£1,290 | ~£40 | llama.cpp; vLLM containers |
-| RTX 5090, new | 32 GB | ~£4,199 | ~£131 | Everything (CUDA) |
-| Arc Pro B60 Dual, pre-order | 48 GB | ~£1,700 | ~£35 | llama.cpp; vLLM containers |
+| Option | VRAM | Launch | UK price (2026-08-11) | £/GB | Software path |
+|---|---|---|---|---|---|
+| Arc B580, new | 12 GB | £250 | ~£245 | ~£20 | llama.cpp (Vulkan/SYCL) |
+| RTX 5070, new | 12 GB | £539 | ~£599 | ~£50 | Everything (CUDA) |
+| RX 9060 XT 16GB, new | 16 GB | £315 | ~£330 | ~£21 | llama.cpp (Vulkan/ROCm) |
+| Arc Pro B50, new | 16 GB | £310* | ~£380 | ~£24 | llama.cpp (Vulkan/SYCL) |
+| RTX 5060 Ti 16GB, new | 16 GB | £399 | ~£450 | ~£28 | Everything (CUDA) |
+| Arc Pro B60, new | 24 GB | £532* | ~£830 | ~£35 | llama.cpp; vLLM containers |
+| RTX 3090, used | 24 GB | — | £750–1,129 (trackers conflict) | £31–47 | Everything (CUDA), no warranty |
+| Radeon AI PRO R9700, new | 32 GB | £1,153* | ~£1,250 | ~£39 | llama.cpp; vLLM (ROCm) |
+| Arc Pro B70, new | 32 GB | £842* | ~£1,290 | ~£40 | llama.cpp; vLLM containers |
+| RTX 5090, new | 32 GB | £1,919 | ~£4,199 | ~£131 | Everything (CUDA) |
+| Arc Pro B60 Dual, pre-order | 48 GB | — | ~£1,700 | ~£35 | llama.cpp; vLLM containers |
+
+Launch is the vendor's UK MSRP where one was published. The workstation
+cards have no UK RRP, so `*` marks a US list converted at $1 = £0.7396
+(2026-08-12) with 20% VAT added — a comparison aid, not a price anyone
+was ever quoted. Intel published no MSRP for the B60 at all; $599 was
+the launch retail entry. The used RTX 3090 is a 2020 card and has no
+comparable launch price. Sources and limits: `research_log.md`
+Entry 078.
 
 ![UK street price against VRAM for the realistic options, 11 August 2026 — the pre-order 48 GB board is in the table only. At every capacity the CUDA card costs more; at 32 GB about three times more.](../assets/figures/vram_price_capacity.png)
 
@@ -199,6 +208,18 @@ Reading the table rather than just ranking it:
   pool. The used CUDA route to 48 GB, the RTX A6000, tracks at
   ~$3,650 in the US used market and was the one falling price found
   in this entire pass (`[GPU-PRICES-UK26]`).
+
+- **Measured against their own launch prices, these cards have moved
+  very differently, and the two readings point opposite ways.** Every
+  option here now sells above its launch price except the B580. Intel's
+  workstation cards carry the steepest UK premium of any new card in the
+  table — the B60 at roughly 1.6x its converted list, the B70 1.5x —
+  and that premium is precisely what erases the B60's advantage at
+  24 GB. Yet at 32 GB the gap between Intel and Nvidia is *wider* at
+  today's street prices, 3.3x, than it was at launch, 2.3x, because the
+  RTX 5090 has moved furthest of anything here: £1,919 at its UK launch
+  to £4,199 now. So the UK market penalises the Intel case in the middle
+  of the table and flatters it at the top (`research_log.md` Entry 078).
 
 - Apple's unified-memory machines are the other genuine route to large
   local models and are deliberately out of scope of a GPU table; they
@@ -298,12 +319,23 @@ What moves the arithmetic toward the box:
   machine teaches what a metered API hides; that value is real but
   belongs in a different column from cost.
 
-> **CHECK** The capability gap still applies. The best open-weight
-> models lag the frontier by around four months on independent
-> measurement (Entry 042, Epoch AI), with the gap widest on complex
-> multi-step work. A workload has to be *adequately* served by a
-> 27–32B-class local model for any of the above to matter — and that
-> adequacy is task-specific and untested here.
+> **CHECK** The capability gap still applies — and the four-month
+> headline is not the buyer's number. The widely quoted finding that
+> open models lag the frontier by about four months (Entry 042) is
+> earned by trillion-parameter releases that need a server rack;
+> mixture-of-experts economics thin out the compute per token, not the
+> memory. On one capability scale (Entry 079, Epoch AI): the best
+> models that actually fit a 24–32 GB card — Qwen3.6 35B-A3B, Gemma 4
+> 31B — sit where the paid frontier stood in late 2024. That is
+> clearly above every ChatGPT model of 2023–24, level with the first
+> reasoning models, and about a year and a half behind today's
+> frontier, with the gap widest on exactly the complex multi-step work
+> that has improved most since. A workload still has to be
+> *adequately* served by that late-2024-class capability for any of
+> the above to matter — and that adequacy is task-specific and
+> untested here.
+
+![Today's single-card models against the frontier and the ChatGPT models a reader has used, on Epoch AI's capability index (retrieved 12 August 2026): the two open models that fit 24–32 GB sit level with ChatGPT's first reasoning model of December 2024.](../assets/figures/vram_capability_ladder.png)
 
 ## The roadmap risk
 
@@ -358,8 +390,8 @@ Desk research ends where this question actually gets decided. The step
 that would convert this document from assessment to evidence is small
 and concrete:
 
-- One card — the £245 B580 to test the floor, or the £830 B60 to test
-  the claim that matters — in the project's existing server.
+- One card — the £1,290 Arc Pro B70, decided 2026-08-13 for the 32 GB
+  tier the argument rests on (`project_log.md` Entry 081).
 
 - The two software paths as an ordinary technical user would find
   them: llama.cpp with Vulkan and SYCL, then the containerised vLLM
@@ -387,5 +419,9 @@ the source key rows they added — primary reads `[SR-B70-26]`,
 `[GPU-PRICES-UK26]`; synthesis-level `[MEMCRISIS26]`,
 `[ARC-ROADMAP-PRESS26]`, `[ARC-STACK-GUIDES26]`; Intel-confirmed
 strategy `[INTEL-CRESCENT26]`. Every surfaced lead in this thread
-has been read. Earlier evidence relied on: Entries 030 and 042
+has been read. Entries 078–079, 2026-08-12, added the launch-price
+layer (`[GPU-LAUNCH-PRICES26]`) and the capability comparison —
+primary reads `[EPOCH-ECIDATA26]`, `[EPOCH-GPUGAP25]`,
+`[OPENAI-4OMINI24]`; cross-checks `[AA-INDEX26]`,
+`[LLMEXPLORER26]`. Earlier evidence relied on: Entries 030 and 042
 (local-vs-cloud break-even and capability gap).

@@ -246,6 +246,31 @@ the five immediate research priorities driving current work.
   the withheld-adjective construction this project's prose rules are
   built on.
 
+  **Refined 2026-08-13 at the creator's direction.** Applied at full
+  strength this rule produces titles that are punchlines about a
+  subject the reader has not been introduced to, which in a technical
+  field costs more comprehension than the insight buys. The title's
+  first job is to say what the reader is looking at; stating the
+  finding is its second job, and it only gets to do both when both fit
+  in one plain sentence. Where they do not, **the subject wins and the
+  finding moves to the subtitle** — a title that names its subject is
+  not the failure this rule was written against. The failure it was
+  written against is a title that names the *axes* ("AI adoption by
+  firm size"), which tells the reader nothing they could not get from
+  looking. Naming the subject is not the same thing as naming the axes.
+
+  This is the same correction "Explain before concluding" makes to the
+  prose rules under File conventions, and it arrived four days earlier
+  there — the chart rule was written without inheriting it, which is
+  the actual defect rather than the rule being too strict.
+  `check_title()` **cannot see this failure mode**: it flags a title
+  for having no verb, which is the opposite pressure, so a
+  subject-establishing title will always warn. Treat its output as weak
+  evidence and ignore it freely when the title's job is to establish
+  the subject. Four figures were retitled on this refinement the day it
+  was adopted — `uk_ai_events`, `appg_programme` and the two internal
+  ones — and only the first kept both jobs in one sentence.
+
 - **Infographics are a standing output lane, produced two ways.** Adopted
   2026-08-01 for the publishing funnel (LinkedIn post → profile →
   synopsis document → technical companion → repository). Most viewers
@@ -1083,6 +1108,12 @@ attempt it unilaterally.
   change, or a decision worth reading later. Defaulting to the long form
   buries the commits that matter.
 
+  Refined 2026-08-13 at the creator's direction: even when a body is
+  earned, keep it brief and plain — short `- ` bullets rather than
+  paragraphs, ordinary words rather than project shorthand, and detail
+  left in the logs, which the commit references instead of restating.
+  The test: readable at a glance by someone who was not in the session.
+
   **History was normalised to this format on 2026-08-06** (`project_log.md`
   Entry 060). That pass changed expression only: no claim was altered,
   including claims later found wrong, and no body was invented for a
@@ -1279,10 +1310,11 @@ attempt it unilaterally.
   per the bias checklist. Built 2026-08-11 on `research_log.md`
   Entries 068–071 at the creator's direction; extends the Entry
   030/042 local-vs-cloud thread. Carries the `vram_price_capacity`
-  figure; the comparator prices and previously unread benchmark
-  sources that its first pass left open were closed the same day
-  (Entries 070–073 — every surfaced lead in the thread is now
-  read). `drafts/Budget_VRAM_for_Local_AI.docx` (+ self-check
+  and `vram_capability_ladder` figures; the comparator prices and
+  previously unread benchmark sources that its first pass left open
+  were closed the same day (Entries 070–073 — every surfaced lead in
+  the thread is now read), and the capability section was rebuilt
+  2026-08-12 on Entry 079's era-anchored comparison. `drafts/Budget_VRAM_for_Local_AI.docx` (+ self-check
   `.pdf`) is generated from it by `tools/md_to_docx.py`; the
   markdown is the source of truth. Rough draft — structure and evidence in
   place, final prose the creator's, per the outward-facing prose rule.
@@ -1345,6 +1377,21 @@ attempt it unilaterally.
   Moved 2026-08-05 at the creator's direction; `project_log.md` Entry 052
   records the split and the reasoning.
 
+- `drafts/pilot_ai_workstation.md` — the pilot AI workstation unit:
+  turning the project's desktop (RDNA3 GPU, 20 GB VRAM) into the
+  working proof of the product hypothesis in three phases — native
+  Windows inference through Ollama, the containerised deployment
+  shape (WSL2, Docker, vLLM over ROCm), then the SME-shaped task set
+  and tutor layer. Carries the fixed three-prompt measurement
+  protocol that keeps the project's first own-hardware numbers
+  comparable across runs and future cards, and keeps the Arc
+  purchase question explicitly separate from what the owned card can
+  prove. Stack facts verified against vendor documentation
+  2026-08-13; every step stays marked planned until it has been run
+  on the desktop, per the verify-before-teaching rule. Written
+  2026-08-13 (`project_log.md` Entry 080); markdown-first, no docx
+  export until the unit stabilises.
+
 - `assets/figures/` — the diagrams for the home server documents (drive
   layout and what the nightly job copies, why neither remote-access route
   needs an open port, where picture and sound go, annual running cost,
@@ -1352,11 +1399,17 @@ attempt it unilaterally.
   `tools/build_server_guide_figures.py`; regenerate before rebuilding
   either document. Shared by the public synopsis and the internal guide,
   which is why they live in `assets/` rather than beside either one.
-  Since 2026-08-11 the folder also holds the budget-VRAM chart
-  (`vram_price_capacity`, light and dark, SVG and PNG), generated by
+  Since 2026-08-11 the folder also holds the budget-VRAM figures
+  (`vram_price_capacity`, the LinkedIn-format `vram_price_ladder`, and
+  since 2026-08-12 the capability ladder `vram_capability_ladder`,
+  each light and dark, SVG and PNG), generated by
   `tools/build_vram_figures.py` for its own draft document, and the
   prompting unit's mechanism figure (`fig_prompt_gap.png`), from
-  `tools/build_prompting_figures.py`.
+  `tools/build_prompting_figures.py`. Since 2026-08-13 it also holds
+  `uk_ai_events` (light and dark, SVG and PNG), the events-and-cost
+  timeline from `tools/build_events_figure.py`, and `appg_programme`
+  (same four files), the APPG round-table calendar from
+  `tools/build_appg_figure.py`.
 
 - `assets/replicas/` — terminal replicas for the build guide and the
   landing site: a `.json` spec and its rendered `.png` per screenshot,
@@ -1718,14 +1771,23 @@ attempt it unilaterally.
   for the second would be worse than the hand-composed route. Palette
   comes from `palette_check.py` rather than a copy, so a colour
   correction reaches every chart; `TIER` names the sets by what they
-  encode. Three self-checks, and each exists because the defect got
+  encode. Four self-checks, and each exists because the defect got
   through first: `_verify` refuses to write a chart that did not fully
   render, since Vega reports errors by printing and continuing;
   `check_labels` walks the rendered SVG accumulating transforms to find
-  overlapping text, and is advisory because its width estimate is
+  text that overlaps other text **or runs past the canvas edge** — the
+  second was added 2026-08-12 after a source line was clipped on two
+  different figures, a failure pairwise overlap structurally cannot see
+  because a label running off the edge collides with nothing — and is
+  advisory because its width estimate is
   approximate; `check_coverage` blocks a comparison the data cannot
   support, and is *not* advisory because counting categories involves
-  no estimation. `check_title` enforces the label/title rule as far as
+  no estimation; `check_glyphs` reads the rendered text against the
+  font's character map and blocks on any character Public Sans cannot
+  draw, because one missing glyph silently resets that whole text run
+  in a fallback face — an arrow (U+2192) put a dozen labels in serif
+  while every other check passed, and only looking at the render found
+  it. `check_title` enforces the label/title rule as far as
   a machine can. Note that UK currency formatting is a **render-time**
   argument (`format_locale`) — setting `numberFormatLocale` in spec
   config is silently ignored and the axis comes out in dollars.
@@ -1745,14 +1807,97 @@ attempt it unilaterally.
   Builds clean as of 2026-08-11: the comparator research that blocked
   it (`research_log.md` Entries 070–071) priced a non-Intel card at
   every level and `check_coverage()` passes on real data — the
-  refusal-first history is `project_log.md` Entry 066. Output is
-  `assets/figures/vram_price_capacity.{svg,png}` plus dark variants.
+  refusal-first history is `project_log.md` Entry 066. Since
+  2026-08-12 it also draws `vram_price_ladder`, the publishing-funnel
+  form of the same table, built for the LinkedIn step where the
+  scatter's axes-and-legend reading asks too much of a feed viewer:
+  one dumbbell per card grouped by capacity tier, hollow marker at the
+  launch price and solid at today's UK street price. **It is
+  deliberately spare** — the first build carried a four-line subtitle,
+  a three-line annotation beside every tier and a four-line footer,
+  which is a blog post set in a PNG; the prose belongs in the post body
+  and the image gets about a second in a feed, so everything that is
+  not the comparison was cut. Launch prices are
+  `research_log.md` Entry 078 and come in two bases the figure marks
+  apart — vendor UK MSRP for consumer cards, US list converted plus
+  VAT (asterisked) for the workstation cards, which have no UK RRP.
+  Because the launch layer is one card thinner than the street layer,
+  `check_coverage` runs on both and a thin launch level must be
+  declared in `LAUNCH_GAP_NOTED` with the note the figure shows; an
+  undeclared gap refuses the build. Since 2026-08-12 it also draws
+  `vram_capability_ladder`, the capability side of the same argument:
+  the two open models that fit a 24–32 GB card placed on Epoch AI's
+  CC-BY capability index beside dated era anchors a lay reader has
+  used — GPT-4, the free-ChatGPT models, o1 — because a composite
+  score means nothing to the intended audience and time does
+  (`research_log.md` Entry 079; design decisions `project_log.md`
+  Entry 078). Its era labels are sourced product history, not colour
+  (GPT-4 was the *paid* ChatGPT; the free tier ran GPT-3.5 until
+  GPT-4o mini replaced it in July 2024), and `check_coverage` is
+  deliberately not run on it — both columns sit on one shared scale,
+  so there is no per-level category comparison to guard. Output is
+  `assets/figures/vram_price_capacity.{svg,png}`,
+  `vram_price_ladder.{svg,png}` and `vram_capability_ladder.{svg,png}`
+  plus dark variants.
   One defect class its checks cannot see: a second field on the y
   encoding channel silently deleted the visible price axis while
   every check passed — caught only by looking at the render, which
   is what the geometry rule is for. `--allow-gaps` remains for
   deliberately partial review builds and says in its own help that
   the result is not publishable.
+
+- `tools/build_events_figure.py` — draws `uk_ai_events`, the timeline
+  of UK AI events and what each one costs to enter, built on
+  `gap_chart.py`. Written 2026-08-13 when the project started
+  considering conferences as a route to the rooms its research argues
+  about. Every row was read from the organiser's own site rather than
+  from a search summary or an aggregator, and the two holes are
+  recorded as different kinds: Birmingham Tech Week publishes no
+  pricing where it could be reached, which is **not published rather
+  than absent**, and AI UK 2027 has no announced date so it is left off
+  the figure entirely rather than drawn at a guess. Three events were
+  checked and dropped as past or defunct — the BridgeAI Annual Showcase
+  (March 2026), AI Summit London 2026, and CogX, whose festival was
+  wound down in 2025. London Tech Week is drawn as unpriced because its
+  free early-career pass and £99.50 campus pass are **2026** prices
+  against a 2027 date, and carrying one forward would be the quiet
+  conflation the chart rules exist to catch. Travel and accommodation
+  are deliberately not plotted — they dominate the real cost from
+  outside the host city, but a defensible figure would need its own
+  dated pricing pass, so the absence is stated in words per the bias
+  checklist rather than estimated. `check_coverage` is not run, and the
+  reason is in the code: every event sits at its own date, so each
+  x level holds exactly one category by construction and the count
+  would refuse every honest version of this figure. One defect its
+  checks could not see: `align` and `dx` are mark properties, and
+  Vega-Lite silently ignored the scales put on them, centring every
+  cost label on top of its own marker — no check fires, because the
+  labels neither overlap nor leave the canvas, and only looking at the
+  render found it. Requires Python with `vl-convert-python`.
+
+- `tools/build_appg_figure.py` — draws `appg_programme`, the APPG on
+  AI's published two-year round-table calendar, built on `gap_chart.py`.
+  Written 2026-08-13 from the group's own 2026-2027 programme brochure.
+  The finding is narrow and checkable: the brochure's themes page names
+  "AI Skills and Workforce Preparedness" as a key area, and none of the
+  fourteen sessions is dedicated to it — stated flat and left there, with
+  the subtitle conceding that the January 2027 robotics session *does*
+  ask about skills gaps, so the claim is about a session of its own
+  rather than an absence of interest. All fourteen are plotted so the
+  count in the title can be checked against the figure. Three decisions
+  worth knowing: quarterly Advisory Board meetings are excluded as
+  internal governance, since counting them would inflate the denominator
+  the title rests on; colour encodes only held-versus-scheduled, because
+  the brochure's own eight themes exceed the five the categorical
+  palette can hold apart and collapsing them would mean inventing a
+  taxonomy the source does not use in order to fit a colour limit; and
+  **the brochure contradicts itself** on the environment session, dating
+  it 10 October 2027 on the detail page and 18 October in the overview
+  table — the later date is plotted and the discrepancy is printed on
+  the figure, because silently picking one of two published dates makes
+  an editorial call the reader cannot see. Requires Python with
+  `vl-convert-python`. Its internal counterpart, the priority calendar
+  that ranks these against other events, is indexed in `internal/`.
 
 - `tools/build_site_replica.py` — keeps the landing site's terminal
   replica verbatim-true to the tool it pictures: runs the real figure
