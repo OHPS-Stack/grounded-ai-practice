@@ -191,6 +191,22 @@ the five immediate research priorities driving current work.
   The review gate is the whole justification for Claude drafting
   candidate final prose at all, so skipping it removes the ground the
   rule above stands on.
+- **In an ongoing correspondence, read what has already been sent before
+  drafting the next message.** Adopted 2026-08-13. Claude does not
+  reliably track which points have already gone out, and a follow-up
+  that re-introduces the creator's own background, a decision already
+  announced, or a courtesy already extended reads as though nobody had
+  been listening. Caught during a long technical exchange with an
+  external contact, where a drafted reply repeated four things sent
+  hours earlier. Re-read the sent messages first, and name what was cut
+  as already covered, so the check is visible rather than assumed.
+
+  **Corollary, from the same exchange: while the other party is still
+  composing, silence on a question is not information.** Claude twice
+  read unanswered questions as evidence the correspondent had no answer;
+  he returned to each of them several messages later. Where a reading of
+  someone's behaviour would change what gets written, mark it as a
+  reading.
 
 - **Generated visual assets get a geometry self-check before they are
   accepted.** Adopted 2026-08-06. A script that draws an SVG cannot see
@@ -459,12 +475,38 @@ open threads). Key standing rules:
   ordinary practice, not concealment, but the unscripted portion is where
   a speaker departs from the brief, so it is usually the more revealing
   half and it will not be in the official text.
+  **Text read from an image is not the text either.** Extended
+  2026-08-13. The same failure arrives by a second route — a message
+  read from a screenshot rather than from pasted text. One read this way
+  produced a clause ambiguous between "that would be efficient" and
+  "efficiency would be low", opposite meanings, in the passage a reply
+  was about to be built on; the pasted text settled it. Use a screenshot
+  to locate a claim, ask for the text before quoting, translating or
+  reasoning from it, and say which of the two you are working from.
 
 - **Confirm/disconfirm pairing applies to foundational claims** — the ones
   that would actually change project direction — not to every statistic.
   Don't default to only searching for evidence that supports an existing
   hypothesis; this project has already caught itself doing this once (see
   Entry 013 in the log) and corrected for it.
+
+- **A completed evidence base still needs checking against the operating
+  questions.** Adopted 2026-08-13. Research assembled to answer a
+  purchase comparison answers that comparison and leaves the operating
+  envelope untouched — what the hardware is like to own, what it reports
+  about itself, what else can drive it, what breaks. The case:
+  `drafts/budget_vram_for_local_ai.md` rested on seven primary benchmark
+  sources and recorded that every surfaced lead had been read, and one
+  practitioner conversation then found four gaps in it
+  (`research_log.md` Entries 082-083) — ECC memory, the bandwidth cost of
+  unified-memory machines, OpenCL as a working software path, and a
+  vendor telemetry tool that disproved a stated limitation. None was a
+  failure of rigour. All four sat outside the question the document had
+  been built to answer, which is precisely why its sources never
+  surfaced them. So when an evidence base is declared complete, run one
+  separate pass asking how the thing is actually operated — and treat a
+  practitioner's account as the cheapest route to those questions, while
+  logging it at testimony's weight rather than a source's.
 
 - **Exhaustive adversarial verification of every claim is deferred** to
   dedicated deep-research passes later, once scope is firmer. Right now,
@@ -2030,6 +2072,22 @@ files are machine-specific and don't travel between machines (desktop vs.
 laptop) or reliably resurface from old conversation logs — the repo is the
 one place guaranteed to travel with the project. Applies in every session
 working in this repo, not just the one that first set this up.
+**Last run: 2026-08-13.** All three memory files under the current
+project path were audited and none needed migrating — the fourth
+consecutive pass with that result, which is now the expected outcome
+rather than a finding. `public-guidance-wording` is machine-local by its
+own explicit terms. `feedback-teach-in-house-style` asks whether its
+CLAUDE.md rule landed, and it did: the markdown-first lessons rule of
+2026-08-09. `feedback-prose-register-ai-tells` asks whether the
+paired-rewrite register session's output reached the repo, and it has
+not — `project_log.md` Entry 079 records that session as agreed rather
+than run, so that memory remains the live record and must stay.
+Everything durable came from the session instead: three rules promoted
+(read the sent record before drafting a follow-up; text read from an
+image is not the text; a completed evidence base still needs checking
+against the operating questions) and two research entries logged from an
+external technical exchange (Entries 082-083).
+Previous line, kept for the record:
 **Last run: 2026-08-11.** Both memory files under the current project
 path were audited. `feedback-teach-in-house-style` is already captured
 here as the markdown-first lessons rule adopted 2026-08-09 — the memory
