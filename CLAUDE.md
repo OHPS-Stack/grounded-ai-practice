@@ -1196,6 +1196,35 @@ attempt it unilaterally.
   immediately after a local commit the user asked for. The user handles
   pushes themselves.
 
+- **A file-sync layer sits over this repo, and it does not merge.**
+  Adopted 2026-08-14. `internal/` is gitignored, so it can only reach
+  another machine by file sync — Proton Drive, currently — and tracked
+  files can arrive the same way: during one session a sync landed the
+  desktop's uncommitted work on five tracked files mid-conversation.
+  Sync copies whichever version of a file it saw last. It does not
+  reconcile two machines' edits, which is precisely what git is for. So
+  **commit before leaving a machine**, and say when a push is due so the
+  user can make it — never push, per the rule above.
+
+  It also changes how a numbered log is appended to. `research_log.md`
+  gained six source-key rows and Entries 086-087 between one read and
+  the next, while Claude's context still held the file as ending at
+  Entry 083. Nothing was lost, and the numbering stayed sequential only
+  because the other machine had independently skipped ahead; two tracks
+  numbering entries in one file is the collision `project_log.md` Entry
+  017 already records. So **re-read the tail of a numbered log
+  immediately before writing an entry into it**, rather than trusting a
+  read from earlier in the same session, and treat an unexplained change
+  in a tracked file as a sync rather than a mystery.
+
+  Where two unrelated sets of additions have already landed in one file,
+  they can still be committed apart rather than bundled: build the
+  intended content, stage it with `git hash-object -w --path <file>` and
+  `git update-index --cacheinfo`, then check `git diff --cached` before
+  committing. The `--path` argument matters — it applies the repo's own
+  CRLF clean filter, and hashing a working-tree file without it stages a
+  blob that differs from HEAD in every line.
+
 - **Commit messages (and any other outward-facing prose — docs, summaries)
   must match the user's own voice**: short, direct, no AI-register
   em-dash-chaining, and never third-person references to the user (e.g.
@@ -1470,7 +1499,18 @@ attempt it unilaterally.
   087). `drafts/Pilot_AI_Workstation.docx` (+ self-check `.pdf`) is
   generated from it by `tools/md_to_docx.py`; the markdown is the
   source of truth, and its two figures come from
-  `tools/build_pilot_figures.py`.
+  `tools/build_pilot_figures.py`. Three send-copies exist alongside it,
+  all generated and all regenerable: `drafts/pilot_ai_workstation.txt`
+  (the markdown with figure references made readable, for platforms
+  that reject `.md`), and a Korean edition —
+  `drafts/pilot_ai_workstation_ko.md` as its source, with
+  `Pilot_AI_Workstation_KO.docx` and its self-check `.pdf` built from
+  it. The Korean edition leaves product names, commands, citation keys
+  and **the three fixed measurement prompts** in English, the prompts
+  because they are the measurement's input and translating them would
+  end comparability; a translator's note in the document says so.
+  Build it with `--east-asia "Malgun Gothic"` and fit it with
+  `--measure-face` and `--line-scale`, per `project_log.md` Entry 086.
 
 - `assets/figures/` — the diagrams for the home server documents (drive
   layout and what the nightly job copies, why neither remote-access route
@@ -1583,7 +1623,16 @@ attempt it unilaterally.
   Public Sans TTF faces installed as system fonts. **Does not verify its
   own output** — always run `word_preview.ps1` and
   `word_roundtrip_test.ps1` after, same as any other document construction
-  step.
+  step. For a non-Latin edition, `--measure-face` measures widths with a
+  font that has the script's glyphs and `--line-scale` compensates for
+  Word laying CJK lines out taller than the font's own metrics (about
+  1.28 for Malgun Gothic; a multiplier rather than padding, because the
+  shortfall grows with the line count). Until 2026-08-14 it measured the
+  writer's escaped XML rather than the text — seven characters for every
+  em-dash, and about five for every Korean syllable — so **every card it
+  had ever fitted was slightly too tall**; the defect survived because it
+  erred toward padding and never toward clipping (`project_log.md`
+  Entry 086).
 
 - `tools/docx_text.py` — extracts a `.docx`'s readable text, including the
   text inside callout cards and pull quotes, which are drawing shapes
@@ -1695,7 +1744,12 @@ attempt it unilaterally.
   a Caption paragraph; an italic-only line directly under the `#` title
   becomes the template's real Subtitle style (added 2026-08-14, matching
   the creator's hand pattern). `--highlight` colours a literal token
-  Ember wherever it appears. Holds lists open across the blank lines this
+  Ember wherever it appears. `--east-asia FONT` names a face on
+  `w:eastAsia`, the attribute Word resolves CJK characters through, so a
+  translated edition keeps Public Sans for Latin and renders Hangul or
+  Kana in a font that has the glyphs (added 2026-08-14 for the Korean
+  edition; applied as one sweep over the assembled XML, because a single
+  missed run is a paragraph of tofu). Holds lists open across the blank lines this
   repo's Markdown convention mandates. Each numbered list restarts at 1,
   via its own numbering instance rather than the template's shared one —
   before 2026-08-14 every list after the first continued the previous

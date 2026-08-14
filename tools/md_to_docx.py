@@ -170,6 +170,34 @@ def _emit(body, bold, italic, mono, colour, size, highlight, out):
     out.append(_run(body, bold, italic, mono, colour, size))
 
 
+EAST_ASIA = None        # set by --east-asia; see apply_east_asia() below
+
+
+def apply_east_asia(xml):
+    """Name an East Asian face on every run, for documents not in Latin script.
+
+    Public Sans carries no Hangul, Kana or Han glyphs, so a translated
+    document renders as tofu or falls back to whatever Word happens to
+    pick. Word resolves East Asian characters through a separate
+    w:eastAsia attribute rather than w:ascii, so naming a face there
+    leaves Latin text in the brand font and draws the rest in a face that
+    has the glyphs. That split is exactly what a translated technical
+    document needs, because the product names, commands and file paths
+    stay in Latin script however much of the prose does not.
+
+    Done as one sweep over the assembled XML rather than at each of the
+    five places a run is built, because completeness is the whole point:
+    a single missed site is a paragraph of tofu in the middle of an
+    otherwise correct document.
+    """
+    if not EAST_ASIA:
+        return xml
+    return re.sub(
+        r'<w:rFonts\b((?:(?!w:eastAsia)[^>])*?)/>',
+        lambda m: '<w:rFonts%s w:eastAsia="%s"/>' % (m.group(1), EAST_ASIA),
+        xml)
+
+
 def _run(text, bold, italic, mono, colour, size):
     font = MONO if mono else "Public Sans"
     size = size - 2 if mono else size
@@ -955,9 +983,9 @@ def build(md_path, out_path, template, footer_text, eyebrow, strapline,
     with zipfile.ZipFile(tmp, "w", zipfile.ZIP_DEFLATED) as z:
         z.writestr("[Content_Types].xml", content_types)
         z.writestr("_rels/.rels", package_rels)
-        z.writestr("word/document.xml", document)
+        z.writestr("word/document.xml", apply_east_asia(document))
         z.writestr("word/_rels/document.xml.rels", "".join(doc_rels))
-        z.writestr("word/footer1.xml", footer)
+        z.writestr("word/footer1.xml", apply_east_asia(footer))
         z.writestr("word/_rels/footer1.xml.rels", footer_rels)
         # Styles and settings come from the template unchanged — including the
         # compatibilityMode 15 declaration the shape groups need.
@@ -994,10 +1022,16 @@ def main():
                     help="literal token to colour Ember wherever it appears")
     ap.add_argument("--break-before-h1", action="store_true",
                     help="start each top-level section on a new page")
+    ap.add_argument("--east-asia", default=None, metavar="FONT",
+                    help="East Asian font for CJK text, e.g. 'Malgun Gothic' "
+                         "for Korean; Latin text stays in Public Sans")
     args = ap.parse_args()
 
     if not os.path.exists(args.template):
         sys.exit("template not found: %s" % args.template)
+
+    global EAST_ASIA
+    EAST_ASIA = args.east_asia
 
     blocks, media, callouts = build(
         args.markdown, args.output, args.template, args.footer,

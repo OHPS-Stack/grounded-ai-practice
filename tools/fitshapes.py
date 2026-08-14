@@ -62,6 +62,7 @@ from __future__ import annotations
 
 import argparse
 import glob
+import html
 import os
 import re
 import shutil
@@ -121,7 +122,43 @@ def find_font_dir(override: str | None) -> str:
     )
 
 
+_measure_face: str | None = None
+_line_scale: float = 1.0
+
+
+def _resolve_measure_face(bold: bool) -> str:
+    """The override face, with a bold sibling when one sits beside it.
+
+    Measuring Korean text with Public Sans is measuring glyphs the font
+    does not have: every Hangul syllable comes back as .notdef, the line
+    is underestimated, and the card is then fitted too short for its own
+    contents. Pointing this at a face that covers the script is the fix.
+    Malgun Gothic ships bold as malgunbd.ttf beside malgun.ttf, which is
+    the usual Windows convention, so try that before falling back.
+    """
+    if not bold:
+        return _measure_face
+    stem, ext = os.path.splitext(_measure_face)
+    for cand in (stem + "bd" + ext, stem + "-Bold" + ext, stem + "b" + ext):
+        if os.path.exists(cand):
+            return cand
+    return _measure_face
+
+
 def _font(bold: bool, italic: bool, pt: float):
+    """The width-measuring font: the override face when one is set."""
+    key = (bold, italic, round(pt, 2))
+    if _measure_face:
+        ckey = ("measure",) + key
+        if ckey not in _font_cache:
+            _font_cache[ckey] = ImageFont.truetype(
+                _resolve_measure_face(bold), max(1, round(pt * SCALE)))
+        return _font_cache[ckey]
+    return _metrics_font(bold, italic, pt)
+
+
+def _metrics_font(bold: bool, italic: bool, pt: float):
+    """Public Sans, always — the document's base font, used for line height."""
     key = (bold, italic, round(pt, 2))
     if key not in _font_cache:
         for name in FACE_NAMES[(bold, italic)]:
@@ -142,8 +179,20 @@ def text_width_pt(text: str, bold: bool, italic: bool, pt: float) -> float:
 
 
 def natural_line_pt(bold: bool, italic: bool, pt: float) -> float:
+    """Line height from whichever face is actually drawing the text.
+
+    A CJK face carries taller ascent and descent than a Latin one, and Word
+    lays the line out with the font it renders in, so the override face is
+    the right source when one is set. An earlier version of this function
+    forced Public Sans here, on the theory that Malgun metrics were what
+    made Korean cards render several times too deep. That theory was wrong:
+    the depth came from measuring XML numeric references instead of
+    characters (see paragraphs_of). With that fixed, using the real face's
+    metrics is both correct and necessary — Public Sans metrics under-size a
+    Korean card and clip its last line.
+    """
     asc, desc = _font(bold, italic, pt).getmetrics()
-    return (asc + desc) / SCALE
+    return (asc + desc) / SCALE * _line_scale
 
 
 def wrap_count(text: str, bold: bool, italic: bool, pt: float, width_pt: float) -> int:
@@ -181,7 +230,14 @@ def paragraphs_of(txbx_xml: str):
                 m = re.search(r'w:after="(\d+)"', sp.group(1))
                 if m:
                     after = int(m.group(1))
-        text = "".join(re.findall(r"<w:t(?:\s[^>]*)?>([^<]*)</w:t>", p))
+        # Unescape before measuring. The writer emits non-ASCII as XML numeric
+        # references, so the raw run text holds "&#8212;" where the document
+        # shows one em-dash, and "&#47928;" per Korean syllable. Measuring the
+        # reference instead of the character counts seven characters for one
+        # and inflates the fitted height — mildly in English, by a factor of
+        # about five in Korean, which is how this was finally noticed.
+        text = html.unescape(
+            "".join(re.findall(r"<w:t(?:\s[^>]*)?>([^<]*)</w:t>", p)))
         rpr = re.search(r"<w:rPr>(.*?)</w:rPr>", p, re.S)
         bold = italic = False
         sz = DEFAULT_SZ
@@ -343,13 +399,32 @@ def main() -> None:
     parser.add_argument("--quote-pad", type=float, default=4.0,
                         help="pull-quote vertical padding in points, each side (default: 4)")
     parser.add_argument("--font-dir", help="folder containing the Public Sans TTF faces")
+    parser.add_argument("--measure-face", metavar="TTF",
+                        help="measure with this font file instead of Public "
+                             "Sans, for documents whose script Public Sans "
+                             r"cannot draw (e.g. C:\Windows\Fonts\malgun.ttf "
+                             "for Korean)")
+    parser.add_argument("--line-scale", type=float, default=1.0, metavar="N",
+                        help="multiply computed line height by N. Word lays "
+                             "CJK lines out taller than the font's own "
+                             "ascent+descent, and the shortfall grows with "
+                             "the number of lines, so padding cannot absorb "
+                             "it. Measured at about 1.15 for Korean in Malgun "
+                             "Gothic; leave at 1.0 for Latin documents.")
     args = parser.parse_args()
 
     if args.in_place == bool(args.dest):
         sys.exit("Pass either a destination path or --in-place, not both or neither.")
 
-    global _font_dir
+    global _font_dir, _measure_face, _line_scale
     _font_dir = find_font_dir(args.font_dir)
+    if args.measure_face:
+        if not os.path.exists(args.measure_face):
+            sys.exit(f"--measure-face does not exist: {args.measure_face}")
+        _measure_face = args.measure_face
+    if args.line_scale <= 0:
+        sys.exit("--line-scale must be positive")
+    _line_scale = args.line_scale
 
     dest = args.source if args.in_place else args.dest
     n = fit_docx(args.source, dest, args.pad, args.quote_pad)
