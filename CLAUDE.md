@@ -207,6 +207,17 @@ the five immediate research priorities driving current work.
   where they read a little oddly, because the file is canonical and the
   register is the creator's.
 
+  A factual claim is a third case, and it follows neither branch: a
+  hand edit asserting something primary evidence contradicts gets
+  corrected, and the correction reported. Ownership covers the
+  register and the argument, not a fact the record disproves.
+  Matching such a claim exactly, which is what this rule says to do
+  with wording, publishes a falsehood to the very people the document
+  was written for. Where the correction is itself worth reading, give
+  it room in the document rather than silently swapping the claim.
+  Added 2026-08-14; the case that prompted it involves a private
+  third party and stays in `internal/`.
+
 - **In an ongoing correspondence, read what has already been sent before
   drafting the next message.** Adopted 2026-08-13. Claude does not
   reliably track which points have already gone out, and a follow-up
