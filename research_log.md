@@ -225,6 +225,10 @@ Full citation is given once here; log entries below cite the short tag only.
 | `[ARCPRO-ECC26]` | Vendor/Commercial (launch coverage and product listings, via search synthesis) | Arc Pro B70 memory type, gathered 2026-08-13 at **search level only — no page fetched directly**. Multiple outlets state 32 GB of **ECC** GDDR6 on the B70, with Notebookcheck's pre-launch leak coverage naming ECC in its headline and later reviews (StorageReview, Puget Systems, Tom's Hardware) and retail listings repeating it alongside ISV-certified drivers. Bus width 256-bit and bandwidth 608 GB/s are from the same tier of source. Needs a primary pass against Intel's own product page before anything is published on it. |
 | `[GB10-SPECS26]` | Vendor/Commercial (OEM datasheet and review coverage, via search synthesis) | HP ZGX Nano G1n specifications, gathered 2026-08-13 at **search level**: 128 GB LPDDR5X unified memory shared between the Arm CPU and Blackwell GPU on NVIDIA's GB10, memory bandwidth **up to 273 GB/s**, 240 W system power adapter. HP's own datasheet and QuickSpecs appeared among the results but were not fetched; the figure is corroborated across ServeTheHome's review and multiple outlets. The 273 GB/s figure was independently reproduced by a technical correspondent's own specification table the same day. |
 | `[KATAGO-BACKENDS26]` | Independent/Academic-adjacent (open-source project documentation) | KataGo repository (lightvector/KataGo), read at search level 2026-08-13. Documents an **OpenCL backend** described as the most general GPU version, running on any GPU or accelerator supporting OpenCL including Intel, and requiring no CUDA-style installation; the project notes OpenCL implementation quality is inconsistent, specifically for Intel integrated graphics and older AMD parts. Also documents per-GPU self-tuning on first run. No dedicated SYCL or Arc-optimised backend was found. |
+| `[GOVWALES-AI26]` | Government/Official (Welsh Government) | Welsh Government, "£2.1 million support to help Welsh businesses adopt AI", 12 Jan 2026 — PRIMARY, read directly 2026-08-14. gov.wales/21-million-support-help-welsh-businesses-adopt-ai |
+| `[GOVWALES-STR26]` | Government/Official (Welsh Government ministerial written statement — the government's own account of its response to its own reviews) | Welsh Government, "Written Statement: Short-Term Reviews – Update", 12 March 2026 — PRIMARY, read directly 2026-08-14. Neither underlying review is named or read from this; the reviews themselves remain unlocated. gov.wales/written-statement-short-term-reviews-update |
+| `[MSPARC26]` | Delivery body's own site (M-SParc / Menai Science Park, Bangor University's science park; an interested party describing its own delivery role) | M-SParc pages: "From Anglesey to MIT" (m-sparc.com/mit2026) and the SMART FIS Welsh-SME generative-AI research call (m-sparc.com/ai-smes) — PRIMARY, both read directly 2026-08-14. |
+| `[UKLLM-BANGOR25]` | University/Official announcement of its own project, co-branded with a commercial vendor (NVIDIA) whose platform it uses | Bangor University news, "Reaching Across the Isles: UK-LLM Brings AI to UK Languages With NVIDIA Nemotron", 15 Sept 2025 — PRIMARY, read directly 2026-08-14; a parallel NVIDIA blog post exists, not separately read. bangor.ac.uk/news/2025-09-15-reaching-across-the-isles-uk-llm-brings-ai-to-uk-languages-with-nvidia-nemotron |
 
 ---
 
@@ -4558,6 +4562,22 @@ Entries 074–077):
   closest match but is Finnish in origin. Worth a dedicated check if a
   general-public audience remains live.
 
+- **The Welsh delivery comparator is open at both ends** (Entry 084) —
+  neither short-term review behind the £2.1m package has been located
+  or read, and no delivery or outcome figures exist yet. Check what
+  Wales publishes as results around the programme's 12-month mark
+  (early 2027): whether it counts attendance, adoptions or completions
+  is this project's central question. Copa AI becomes a candidate row
+  for the `uk_ai_events` figure only once an organiser page is read
+  directly — aggregators disagree on its date (6 vs 15 July 2026).
+
+- **Whether the AI Skills Hub's UK-wide reach claims overlap devolved
+  provision** (Entry 084) — skills and economic development are
+  devolved and Wales funds its own AI-adoption support, so the UK
+  filtering question in the DCMS FOI has a concrete devolved
+  counter-example now. Candidate question for the FOI follow-up rounds
+  already held back per `drafts/foi_requests.md`.
+
 ### Priority 6 — Technical and conceptual scope
 
 **The local AI workstation track is parked**, not dropped — a confirmed
@@ -5587,3 +5607,39 @@ it ever grows its own open-items list.*
 - **Contradicting evidence / caveats:** **All three are search-level and none is a primary read** — no vendor page was fetched for the ECC or GB10 figures, and the KataGo documentation was read through a search summary rather than directly. They are logged as leads with named sources, not as settled findings, and each needs a primary pass before publication. A separate and sharper caveat on the third: **the existence of KataGo's OpenCL backend is documented, but the claim that it performs usably on an Arc A770 is one practitioner's unpublished testimony, n=1, and cannot be logged at the same evidential weight as the backend's existence.** A claim that an Arc-optimised KataGo build is in progress could not be confirmed at all. Note also that `[ARCPRO-ECC26]` and `[GB10-SPECS26]` are vendor-tier sources describing their own products.
 
 - **Effect on project direction:** Three corrections queued for `drafts/budget_vram_for_local_ai.md`, each gated on a primary read first: an ECC row or note in the comparison table; a bandwidth qualification on the unified-memory bullet; and OpenCL added to the software section as a fourth path with its own reliability caveat. Together with Entry 082 this is four gaps found in one document by one outside reader with no access to this log — against seven primary benchmark sources and a stated position that every surfaced lead had been read. **The methodological lesson is the larger finding and is carried to the working rules for review:** a completed evidence base should be checked separately against the operating questions, because they are invisible to a comparison built on purchase price and throughput.
+
+### Entry 084 — Wales's £2.1m AI-adoption package buys in-person delivery through existing business-support infrastructure
+
+- **Date logged:** 2026-08-14
+
+- **Priority / Question:** Priority 5 (comparable products and programmes), touching Priority 2 (audience and need) — how does another UK administration deliver AI adoption support to SMEs, and what does it count?
+
+- **Source:** `[GOVWALES-AI26]`, `[GOVWALES-STR26]`, `[MSPARC26]` (all added this date)
+
+- **Checked date:** 2026-08-14
+
+- **What the sources directly support:** On 12 January 2026 the Welsh Government announced £2.1 million for SME AI adoption in three strands (`[GOVWALES-AI26]`): £600,000 to Business Wales to develop and deliver an AI awareness and adoption support programme, implementing recommendations from short-term reviews of SME productivity and AI adoption; £500,000 for the tourism and events sectors — the AI Pollination Project, with the Hartree Centre Cardiff Hub and Cardiff University's Digital Transformation Innovation Institute, running in-person workshops targeting up to 1,000 tourism microbusinesses and SMEs on digital marketing and content creation; and £1 million for an AI upskilling offer through the existing Flexible Skills Programme, under which employers pay 25% of AI training costs against 50% for other FSP courses. Announced by Rebecca Evans (Cabinet Secretary for Economy, Energy and Planning) and Jack Sargeant (Skills Minister). The March 2026 written statement (`[GOVWALES-STR26]`) places the package inside a wider response: an AI Plan for Wales in development, two AI Growth Zones (north and south Wales) carrying £5 million of local support funding each, and productivity-review responses routed through existing delivery bodies (Business Wales, the Development Bank of Wales, SMART Cymru). M-SParc — Menai Science Park, Bangor University's science park on Anglesey — states that it leads delivery of the SME AI-adoption support under the Business Wales programme (`[MSPARC26]`); the same source records Welsh Government membership of MIT's Industrial Liaison Programme with an April 2026 delegation, and a Welsh Government SMART FIS-funded Bangor Business School project (Dr Fariba Darabi, with Prof Michael Butler and Dr Junyu Zhou) surveying generative-AI use in Welsh SMEs to shape "future innovation plans, skills development programmes and policy direction across Wales".
+
+- **Inference (the project's own, not stated by the sources):** The delivery model is the finding. The UK-wide flagship for the same audience is a training-navigation portal (`[AISKILLSHUB]`), reported at £4.1m — a figure in circulation sourced only to a commercially interested reviewer (Entry 046) — whose delivery is counted in course completions (Entries 044, 074–076). Wales's £2.1m buys the opposite shape: in-person workshops, sector-targeted strands, delivery led by a science park inside business-support infrastructure that already existed, a commissioned review preceding the spend, an academic survey feeding the next iteration, and a price signal (the 25% AI co-payment against 50% for other courses) rather than a portal. Smaller money, thicker delivery — as a design. Whether it works is unknown and unclaimed here: no outcome figures exist yet. It also sharpens the live FOI thread. Skills and economic development are devolved, so the Hub's UK-wide reach claims coexist with devolved provision like this, and the DCMS counting questions — UK filtering, what a completion means — now have a concrete devolved counter-model to be read against.
+
+- **Contradicting evidence / caveats:** The "leads the delivery" claim is the delivery body's own page, uncorroborated. The Business Wales page surfaced by search as describing AI workshops was fetched and carries no AI content at all (it is cost-of-doing-business guidance), so delivery specifics at the Business Wales strand level are search-level only; the tourism strand has local-press corroboration surfaced but not fetched (Visit Wales's second round of free AI workshops, West Wales Chronicle, 30 June 2026). A fully-funded, free-to-attend all-day AI summit at AberInnovation under the programme (Copa AI 2026) is documented only across aggregators that disagree on its date — 6 versus 15 July 2026 — with no organiser page read, consistent with the standing finding that aggregators disagree with official sites on event dates. Neither short-term review has been located or read, and the written statement does not name their authors. No independent evaluation of any strand exists; the programme is under a year old.
+
+- **Effect on project direction:** Opens a comparator thread the UK-climate critique arguably needs: the argument against the portal model gains force if a neighbouring administration demonstrably chose the opposite delivery shape — and loses force if Wales turns out to count the same way, which is exactly what to check when Wales first publishes results. Two follow-ups queued in Open Threads (Priority 5): locate and read the two short-term reviews, and check what the programme publishes at its 12-month mark. Copa AI is a candidate row for the `uk_ai_events` figure once an organiser page is read directly. Dr Darabi's project goes to the comment-contacts register (internal working notes).
+
+### Entry 085 — The UK sovereign-LLM effort ships a Welsh model, with Bangor building the evaluation data
+
+- **Date logged:** 2026-08-14
+
+- **Priority / Question:** Priority 5 (comparable programmes — public AI capability-building whose output is infrastructure rather than training); surfaced while mapping the Welsh ecosystem for Entry 084.
+
+- **Source:** `[UKLLM-BANGOR25]` (added this date)
+
+- **Checked date:** 2026-08-14
+
+- **What the source directly supports:** UK-LLM, established in 2023 as BritLLM and led by University College London, is a sovereign-AI effort building language models for UK languages, using the Isambard-AI supercomputer at Bristol (£225 million of government investment). Its Welsh model, built on NVIDIA Nemotron, reasons in both English and Welsh; the Welsh training data was created by translating over 30 million entries from NVIDIA's English datasets. Bangor University's Language Technologies Unit at Canolfan Bedwyr — Gruffudd Prys, senior terminologist, with roughly two decades in Welsh language technology — verifies the machine-translated training data and the manually translated evaluation data. The model and the Welsh training and evaluation datasets "are expected to be made available for enterprise and public sector use", and the work is aligned with Cymraeg 2050, the strategy for a million Welsh speakers by 2050.
+
+- **Inference (the project's own, not stated by the source):** Context for Entry 084 rather than a free-standing finding: the same devolved ecosystem runs adoption support and language-model infrastructure, each tied to a published national strategy. The released-datasets plan is also a concrete instance of public AI capability-building whose output is a reusable artefact rather than a course-completion count — the counting contrast this project keeps finding, in one more form.
+
+- **Contradicting evidence / caveats:** A single university press release about its own collaboration, co-branded with the commercial vendor whose platform it uses; read directly, but nothing in it is independent of the project's participants. Release plans are "expected", not shipped — whether the model and datasets actually became available after September 2025 is unchecked. Nothing about model quality is logged, and nothing here has been verified against the UCL side of the project.
+
+- **Effect on project direction:** Background for the UK-climate thread; no action queued beyond checking release status before any outward-facing citation.
