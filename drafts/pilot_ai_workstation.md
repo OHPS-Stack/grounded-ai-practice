@@ -24,7 +24,7 @@ local-plus-API hybrid, carrying workflows built for that organisation's
 actual work, with enough onboard guidance to teach its own proper use.
 
 The last clause is the point of the whole thing. The machine carries a
-tutor layer — its own front-end, holding guidance on proper use, built
+tutor layer: its own front-end, holding guidance on proper use, built
 eventually on self-populated user profiles. This is where real
 practical AI skills can be developed: the user learns by logging onto
 the workstation and asking questions. It makes people self-sufficient,
@@ -32,7 +32,7 @@ able to improve and refine their own understanding and workflows
 independently, and nothing else found so far bundles it with the
 hardware. One small, custom deployed AI workstation could act as a
 realistic, grass-roots alternative to training that is currently
-measured only in course completions.
+centred around medium/large organisations and cloud computing.
 
 Before that idea is put in front of anyone, it has to run. The
 project's existing desktop PC is the testbed, and the pilot answers
@@ -80,13 +80,13 @@ The comfortable target class for this card is roughly 20–30B
 mixture-of-experts and up to ~24B dense at 4-bit, keeping 2–3 GB free
 for context.
 
-> **TIP** Model names move fast, so this unit names classes and lets
-> the operator pick current releases at install time. The models the
-> project has already benchmarked from published sources — Mistral
-> Small 24B, the 30–35B-A3B mixture-of-experts family — mark the
-> classes worth starting with. A 24B dense pick has a bonus: it is the
-> model the `[SR-B70-26]` review measured on Arc hardware, which keeps
-> a like-for-like thread open if an Arc card arrives later.
+> **TIP** Model names move fast, so this unit names classes of models
+> and lets the operator pick current releases at install time. The
+> models the project has already benchmarked from published sources:
+> Mistral Small 24B, the 30–35B-A3B mixture-of-experts family. A 24B
+> dense pick has a bonus: it is the model the `[SR-B70-26]` review
+> measured on Arc hardware, which keeps a like-for-like thread open if
+> an Arc card arrives later.
 
 ## Phase 1 — first tokens, native Windows
 
@@ -124,17 +124,17 @@ first measurements recorded.
 
 3. **Install Ollama for Windows** from ollama.com. The installer adds
    a background service, the `ollama` command, and a tray app. No
-   account, no telemetry decisions beyond the installer's own prompts —
-   read them rather than clicking through.
+   account, no telemetry decisions beyond the installer's own prompts,
+   so read them rather than clicking through.
 
 4. **Pull one model sized to the card.** Check the file size on the
-   model page before pulling: it should sit well under 20 GB. One
-   ~24B dense at 4-bit, one ~30B-A3B mixture-of-experts; nothing else
-   until both are measured.
+   model page before downloading; it should sit well under 20 GB. Pull
+   one ~24B dense model at 4-bit and one ~30B-A3B mixture-of-experts
+   model. Pull nothing else until both are measured.
 
 5. **First run with statistics on:** `ollama run <model> --verbose`.
-   The stats block after each reply is the phase's whole point — read
-   it, don't skim it:
+   The stats block after each reply is the whole point of this phase,
+   so read it, don't skim it.
 
    - *prompt eval rate* is how fast the model reads the input
      (tokens/second on the prompt);
@@ -156,13 +156,15 @@ first measurements recorded.
    whether the model file exceeded free VRAM (spill); the server log,
    which names the backend it loaded and the devices it found.
 
-> **TIP** LM Studio is the no-terminal route to the same card, with
-> ROCm and Vulkan runtimes on Windows, and it matters to this project
-> for exactly that reason: it is the shape of tool a learner without a
-> terminal habit would actually use, which is the audience the product
-> serves. Its current 7900-series support is **not yet verified** by
-> this unit — check its documentation at install time if this route is
-> taken. Phase 1 measurements use Ollama either way, for comparability.
+> **TIP** LM Studio is the GUI route to the same card, with ROCm and
+> Vulkan runtimes on Windows, and it matters to this project for
+> exactly that reason: it is the type of tool a learner without prior
+> CLI experience would be comfortable using. This demographic (workers
+> with relatively low technical knowledge) is the exact audience the
+> product serves. LM Studio RX 7900 series support is **not yet
+> verified** by this unit. Check the documentation at install time if
+> this route is taken. Phase 1 measurements use Ollama either way, for
+> comparability.
 
 ## The measurement protocol
 
@@ -207,8 +209,8 @@ beside this file once measurement starts:
 | VRAM used (Task Manager) | Confirms placement and shows context headroom. |
 | Notes | Thermals, noise, anything odd. By ear is fine at this stage. |
 
-Three runs per prompt; report the middle eval rate, which resists the
-odd stall better than an average.
+Three runs per prompt; report the median eval rate. This resists the
+odd stall better than a mean average.
 
 > **WARNING** Published serving benchmarks are a different measurement.
 > The `[SR-B70-26]` figures the VRAM document quotes are batch-32
@@ -220,13 +222,13 @@ odd stall better than an average.
 ## Phase 2 — the deployment shape (WSL2, Docker, vLLM)
 
 **Goal:** the same card serving an OpenAI-compatible endpoint from a
-Linux container, with a web front-end in a second container — the form
-a deployed workstation would actually take, administered without
-touching the model runtime.
+Linux container, with a web front-end in a second container. This is
+the form a deployed workstation would actually take, administered
+without touching the model runtime.
 
 > **WARNING** This phase is **the AMD card's route only.** WSL2 works
 > here because AMD's compatibility matrix supports the 7900 XT under
-> it. No vendor documentation places a B-series Arc card under WSL2 —
+> it. No vendor documentation places a B-series Arc card under WSL2;
 > PyTorch's validated client-GPU list names Windows 11 and Ubuntu, and
 > Intel's IPEX documentation explicitly excludes B-series from WSL2
 > (`research_log.md` Entry 087). The Arc half of this phase runs on
@@ -239,19 +241,19 @@ touching the model runtime.
   PyTorch, ONNX and TensorFlow at official production support.
 
 - vLLM supports the 7900 series' architecture (gfx1100) upstream,
-  added without flash-attention — so some engine features are gated on
-  this card class, and that is expected rather than a fault.
+  added without flash-attention, so some engine features are gated on
+  this card class. That is expected rather than a fault.
 
 - **Not yet verified:** which current vLLM release/container actually
   serves gfx1100 out of the box, and whether the ROCm-under-WSL2 path
-  runs vLLM specifically — AMD's matrix names the three frameworks
+  runs vLLM specifically - AMD's matrix names the three frameworks
   above and stops. These two facts get settled against vLLM's own AMD
-  installation documentation, on the machine, before this phase's
-  steps are written up as instruction.
+  installation documentation before this phase's steps are written up
+  as instruction.
 
 **Planned steps** (outline only, for the reason above):
 
-1. `wsl --install` — installs WSL2 and a default Ubuntu, needs
+1. `wsl --install` installs WSL2 and a default Ubuntu, needs
    virtualisation enabled in BIOS and one reboot.
 
 2. Cap WSL2's memory in `.wslconfig` (around 16 GB of the 32): WSL2
@@ -263,8 +265,8 @@ touching the model runtime.
    added. No kernel driver gets installed in Linux, which surprises
    people who have done this on bare metal.
 
-4. Docker Engine inside the distribution, not Docker Desktop — closer
-   to the deployment shape, and Docker Desktop carries per-seat
+4. Docker Engine inside the distribution, not Docker Desktop. This is
+   closer to the deployment shape, and Docker Desktop carries per-seat
    licensing above a size threshold that a customer organisation would
    have to check; Engine does not.
 
@@ -290,23 +292,24 @@ VRAM document's closing sketch and the product hypothesis:
     practice is currently undecided.
 
 - **The tutor layer**, whose purpose is stated in "What this pilot is
-  for" above. What Phase 3 has to establish is narrower than the
-  vision: whether guidance delivered at the moment of use, on a
-  machine of this class, actually teaches anyone anything. It stays a
+  for" above. What Phase 3 must decide is narrower than the wider
+  project vision: does guidance delivered at the moment of use, on a
+  machine of this class actually teach anyone anything? It stays a
   sketch until the serving layer under it exists.
 
 ## Where the Arc card goes
 
 Phases 1–3 prove the product shape on hardware the project already
 owns, for nothing, and they exercise the AMD half of the open stack.
-The Intel stack — the VRAM document's central open question — needs
+The Intel stack (the VRAM document's central open question) needs
 Intel hardware, and that card is now decided: the **Arc Pro B70**,
-32 GB, ~£1,290 at the 2026-08-11 price snapshot, chosen over the
-cheaper B580 and B60 because 32 GB is the tier the project's own
-findings converge on (`project_log.md` Entry 081).
+32 GB, ~£1,290 at the 2026-08-11 price snapshot. This was chosen over
+the cheaper B580 and B60 cards because 32 GB VRAM is the tier the
+project's findings converge on (`project_log.md` Entry 081).
 
 **It goes in this same desktop** (`project_log.md` Entry 083), reusing
-the build above rather than the always-on server. The measurement
+the build above rather than the existing, always-on AM4 Ubuntu
+server. The measurement
 protocol runs on it unchanged, which is what the protocol was built
 for, and the comparison the project has so far only read about becomes
 one it has measured. Buying the card settles nothing on its own; the
@@ -350,8 +353,6 @@ two environments comparable. The three options, against that:
 
 ![Where each card's stack is documented, per the vendors' own pages: every Intel-validated route to the B70 runs on native Linux — the OS the shared environment agreement already assumes.](../assets/figures/fig_pilot_os_matrix.png)
 
-Not decided.
-
 ### Before the card arrives
 
 Two checks remain, neither needing the card in hand:
@@ -359,8 +360,8 @@ Two checks remain, neither needing the card in hand:
 1. **MSI's slot specification, read by hand.** Their site blocks
    automated reading, so PCI_E2 and PCI_E3 are published-spec only.
 
-2. **ReBAR and Above 4G Decoding confirmed in BIOS** — enabled, not
-   assumed.
+2. **ReBAR and Above 4G Decoding confirmed in BIOS** – confirmed
+   enabled, not assumed.
 
 The third from the first draft is closed: the PSU is a Corsair
 RM1000x (2021), 1000 W, 80+ Gold — read off the unit 2026-08-14, and

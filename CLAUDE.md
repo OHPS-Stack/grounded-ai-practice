@@ -191,6 +191,22 @@ the five immediate research priorities driving current work.
   The review gate is the whole justification for Claude drafting
   candidate final prose at all, so skipping it removes the ground the
   rule above stands on.
+- **A generated document edited by hand becomes canonical, and the
+  markdown is reconciled to it.** Adopted 2026-08-14 after two rounds
+  of it on the pilot unit. The loop: copy the `.docx` aside before
+  running anything; extract its text with `tools/docx_text.py
+  --styles`; port every change into the markdown source; regenerate;
+  extract the rebuild and **diff the two extractions**. The diff is the
+  proof, and it catches two things a read does not. Deletions —
+  a sentence the creator cut is simply absent from the new file, and
+  nothing draws the eye to a gap. And limits of the converter — nested
+  list items flatten to their parent's level, so hierarchy has to be
+  carried in the wording instead. Mechanical slips (a doubled word, a
+  stray article, a spelling inconsistent with the rest of the document)
+  get fixed and reported; wording choices are matched exactly, even
+  where they read a little oddly, because the file is canonical and the
+  register is the creator's.
+
 - **In an ongoing correspondence, read what has already been sent before
   drafting the next message.** Adopted 2026-08-13. Claude does not
   reliably track which points have already gone out, and a follow-up
@@ -762,6 +778,21 @@ as demonstrated to work.
   performs conclusions instead of explaining them contradicts its own
   purpose, so the fix was to teach the idea first and let the
   conclusion land after.
+
+  **The em-dash apposition is this project's most persistent AI tell.**
+  Adopted 2026-08-14, from two consecutive revision passes on the pilot
+  unit in which the creator's edits were overwhelmingly one move: an
+  aside bracketed by em-dashes, broken out into a colon, a semicolon or
+  a new sentence. "...beyond the installer's own prompts — read them
+  rather than clicking through" became "...beyond the installer's own
+  prompts, so read them rather than clicking through", a dozen times
+  over. The construction is not banned; being the *default* is the
+  defect. Draft the aside as its own short sentence first and reach for
+  paired dashes only where the interruption earns it — about as often
+  as the withheld adjective, which is to say rarely. This is the
+  sentence-level companion to the understatement rule above: the same
+  instinct at a smaller scale, and the same failure mode of applying a
+  signature move at constant density.
 
   **The site speaks in first person** (creator decision, 2026-08-07):
   one narrator on every page, the origin story leading, plain
@@ -2110,6 +2141,33 @@ files are machine-specific and don't travel between machines (desktop vs.
 laptop) or reliably resurface from old conversation logs — the repo is the
 one place guaranteed to travel with the project. Applies in every session
 working in this repo, not just the one that first set this up.
+**Last run: 2026-08-14.** All eighteen memory files under the current
+project path were audited — the count is up because the memory system
+has been writing steadily, not because anything was missed before.
+Sixteen are already captured here: the interaction rules (ask don't
+probe, PowerShell aliases, plain language, model-fit flagging,
+proactive tool recommendations, missing-tool flagging, vector-editing
+handoff, SVG layer naming, self-check tooling, early-rules-deliberate),
+the git rules (commit review, no auto-push), the prose rules
+(understatement, voice matching), the OOXML constraints, and the
+command-understanding ethos. Two are correctly machine-local and stay:
+`user_hardened_firefox` (the creator's own environment, not a project
+rule) and `project_floated_folder_unit_and_tool_spinout` (three
+undecided ideas — the repo logs decisions, not candidates, and one of
+them references an internal contact's work).
+**One genuine gap, and it was the day's own evidence that found it.**
+`feedback_voice_matching` carries "break comma- and dash-stacked
+sentences into two or three short direct ones", which the repo only
+covered for commit messages and site copy — not for unit prose, where
+two consecutive revision passes on the pilot unit showed it was the
+creator's dominant edit. Promoted above as the em-dash apposition rule.
+A second rule came from the session rather than from memory: the
+canonical-hand-edit reconciliation loop, also above. A third candidate
+— units taking a short title plus a subtitle — was **deliberately not
+added**, being already recorded in the `md_to_docx.py` index entry and
+enforced by the converter; the bias-checklist warning against growing
+rule lists applies to this file too.
+Previous line, kept for the record:
 **Last run: 2026-08-13.** All three memory files under the current
 project path were audited and none needed migrating — the fourth
 consecutive pass with that result, which is now the expected outcome
