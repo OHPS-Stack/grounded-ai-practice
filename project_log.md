@@ -4675,3 +4675,29 @@ no external citation:
 - **Limitations / conflicting evidence:** `--line-scale` is an empirical constant, not a derivation — it was fitted by rendering and reading, and 1.28 is calibrated for Malgun Gothic at this document's sizes rather than established for CJK generally. Two intermediate explanations were wrong before the real cause was found: first that CJK line metrics were to blame, then that Malgun carried a line gap PIL was not reporting. Both were tested and discarded, the second by measurement. The translation is unreviewed by a native speaker; the creator's own check is the gate before it is sent.
 
 - **Effect on project direction:** The document pipeline can now produce non-Latin editions, which it could not this morning. Anything previously fitted carries slightly generous callout padding and will tighten on the next rebuild — cosmetic, and not worth regenerating documents for on its own.
+
+### Entry 087 — Two machines' work in one tracked file, committed apart; the sync rule and the tool from it
+
+- **Date logged:** 2026-08-14
+
+- **Priority / Question:** Housekeeping rather than research: how uncommitted work from two machines in the same tracked file gets committed apart, and what prevents the entry-numbering collision it risks.
+
+- **Source:** Session work, 2026-08-14, on the laptop: the repository's own state and `git reflog`.
+
+- **What happened:**
+
+  1. **A file sync landed the other machine's uncommitted work mid-session.** `research_log.md` ended up holding two independent sets of additions: a Welsh delivery-comparator thread written here (`research_log.md` Entries 084-085) and the Arc software-stack entries written on the desktop (086-087), with four other tracked files changed alongside. Nothing was lost — 124 insertions, no deletions — and the numbering stayed sequential only because the desktop side had independently skipped ahead. Two tracks numbering entries in one file is the collision Entry 017 already records, arriving by a route that did not exist when it was written.
+
+  2. **The two threads were committed apart rather than bundled.** `git add -p` is the ordinary answer and cannot be driven by the harness Claude runs under, so the Welsh subset was built as content and written into the index with `git hash-object -w --path` and `git update-index --cacheinfo`. The `--path` argument is the load-bearing part: it applies the repo's own CRLF clean filter, and without it the staged blob differs from HEAD in every line. The split was checked by reconciliation before either commit — 56 staged plus 68 left unstaged against the 124 the original diff reported.
+
+  3. **A rule was adopted in `CLAUDE.md`** under Git conventions: the sync layer copies whichever version it last saw and does not merge, so commit before leaving a machine, say when a push is due rather than pushing, and **re-read the tail of a numbered log immediately before appending to it.**
+
+  4. **The technique was promoted to `tools/stage_subset.py`** under the scratch-script rule, carrying the refusals that make it safe for a later session to reach for: a file with deletions against HEAD, where "drop these added lines" is ambiguous; a path already carrying staged changes; a pattern that matched nothing; a subset identical to HEAD or to the working tree; a bare LF introduced into a CRLF file; and a post-staging reconciliation that fails loudly if the counts do not add up. Indexed in `CLAUDE.md` in the same edit.
+
+  5. **The rule earned itself inside the hour.** This entry was drafted as Entry 086 against a read taken earlier in the session. By the time it was written, another machine had committed Entry 086 — the Korean edition above — and pushed. Re-reading the tail first, which is exactly what the new rule asks for, is what turned a collision into a renumber.
+
+- **Inference drawn:** The near-miss is the finding, not the recovery. Nothing was lost, and the reason was luck: the other machine happened to skip ahead on its own. A convention that holds only while two machines avoid picking the same number is not a convention, which is why the check belongs at the moment of writing rather than in a habit of reading early.
+
+- **Limitations / conflicting evidence:** **The mechanism was not verified.** Proton Drive is confirmed only as the route `internal/` travels, since git cannot carry it; what moved the tracked-file changes mid-session was inferred from their arrival rather than observed, and two commits from another machine also appeared during the session. The tool has been exercised once, on the case that produced it, by its author: the refusal paths were tested directly, the staging path only on that live split.
+
+- **Effect on project direction:** The rule, the tool and this record mean the next session meeting a two-machine file does not have to rediscover the method. What the rule actually asks for is cheap — read a log's tail before writing into it, and commit before walking away from a machine.

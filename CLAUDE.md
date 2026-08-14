@@ -2146,6 +2146,29 @@ attempt it unilaterally.
   assets change. A build utility run at development time, not a
   learner-facing tool. Requires Python with Pillow.
 
+- `tools/stage_subset.py` — stages part of one file's uncommitted
+  additions, so two unrelated sets of changes to the same file can be
+  committed apart rather than bundled. It exists because the file-sync
+  layer over this repo does not merge (see Git conventions): a sync can
+  leave one tracked file holding this machine's additions alongside
+  another machine's, and `git add -p`, the ordinary answer, cannot be
+  driven by the harness Claude runs under. The subset is described by
+  what to leave out — `--drop` for line prefixes, `--drop-from` to cut
+  to end of file — because the lines to exclude are the identifiable
+  ones: a source-key tag, an entry heading. **It refuses anything it
+  cannot do safely:** a file carrying deletions against HEAD, where
+  "drop these added lines" is ambiguous; a path with changes already
+  staged; a pattern that matched nothing; a subset identical to HEAD or
+  to the working tree; a bare LF introduced into a CRLF file. After
+  staging it reconciles the split and fails loudly if staged plus
+  unstaged additions do not equal the original count. Stages through
+  `git hash-object -w --path` so the repo's own CRLF clean filter
+  applies, since without `--path` the blob differs from HEAD in every
+  line. Never modifies the working tree and never commits, so reviewing
+  `git diff --cached` stays a separate step. `--dry-run` reports the
+  split without touching the index. Requires Python, standard library
+  only. Command-line by the Entry 049 decision.
+
 ## Claude's memory: what's in the repo vs. outside it
 
 Two separate systems hold context across sessions — don't confuse them:
