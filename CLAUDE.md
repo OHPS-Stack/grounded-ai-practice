@@ -1431,8 +1431,15 @@ attempt it unilaterally.
   prove. Stack facts verified against vendor documentation
   2026-08-13; every step stays marked planned until it has been run
   on the desktop, per the verify-before-teaching rule. Written
-  2026-08-13 (`project_log.md` Entry 080); markdown-first, no docx
-  export until the unit stabilises.
+  2026-08-13 (`project_log.md` Entry 080). Revised 2026-08-14 on the
+  desktop itself: the hardware table carries what the machine reports,
+  and the Arc card's host is decided — it goes in this desktop, which
+  makes the operating system rather than the machine the open question
+  (`project_log.md` Entry 083, evidence in `research_log.md` Entry
+  087). `drafts/Pilot_AI_Workstation.docx` (+ self-check `.pdf`) is
+  generated from it by `tools/md_to_docx.py`; the markdown is the
+  source of truth, and its two figures come from
+  `tools/build_pilot_figures.py`.
 
 - `assets/figures/` — the diagrams for the home server documents (drive
   layout and what the nightly job copies, why neither remote-access route
@@ -1451,7 +1458,11 @@ attempt it unilaterally.
   `uk_ai_events` (light and dark, SVG and PNG), the events-and-cost
   timeline from `tools/build_events_figure.py`, and `appg_programme`
   (same four files), the APPG round-table calendar from
-  `tools/build_appg_figure.py`.
+  `tools/build_appg_figure.py`. Since 2026-08-14 it holds the pilot
+  unit's `fig_pilot_stacks.png` and `fig_pilot_os_matrix.png`, from
+  `tools/build_pilot_figures.py`, and the `brand_icons/` subfolder of
+  third-party monochrome marks those figures use — see that folder's
+  README for source and licence before touching them.
 
 - `assets/replicas/` — terminal replicas for the build guide and the
   landing site: a `.json` spec and its rendered `.png` per screenshot,
@@ -1650,11 +1661,20 @@ attempt it unilaterally.
   because it clips rather than reflows, and a wrapped command is a wrong
   command), `> **NOTE**`/`TIP`/`WARNING`/`CHECK` blockquotes to callout
   cards, and `![caption](path)` to a figure sized to the text column with
-  a Caption paragraph. `--highlight` colours a literal token Ember
-  wherever it appears. Holds lists open across the blank lines this
-  repo's Markdown convention mandates. **Emits callout cards at a guessed
+  a Caption paragraph; an italic-only line directly under the `#` title
+  becomes the template's real Subtitle style (added 2026-08-14, matching
+  the creator's hand pattern). `--highlight` colours a literal token
+  Ember wherever it appears. Holds lists open across the blank lines this
+  repo's Markdown convention mandates. Each numbered list restarts at 1,
+  via its own numbering instance rather than the template's shared one —
+  before 2026-08-14 every list after the first continued the previous
+  one's count, wrongly, in every document the tool had produced
+  (`project_log.md` Entry 084, which also covers the fenced-block,
+  column-width and two-digit-marker fixes made the same day).
+  **Emits callout cards at a guessed
   height** — always run `fitshapes.py` and then both Word checks after,
-  same as any other construction step. Requires Python; Pillow only if
+  same as any other construction step. None of those checks can see a
+  wrong list number, so read the render as well. Requires Python; Pillow only if
   the document has figures.
 
 - `tools/replica.py` — renders **terminal replicas**: realistic pictures
@@ -1694,6 +1714,24 @@ attempt it unilaterally.
   arrows on a computed grid with no curve work in them — and Inkscape is
   not installed on every machine this repo runs on, while Pillow already
   is. Requires Python with Pillow and the Public Sans faces installed.
+
+- `tools/build_pilot_figures.py` — draws the pilot workstation unit's
+  two figures: `fig_pilot_stacks` (one machine, two card eras over the
+  single shared PCIe slot — the AMD-era Windows/WSL2 stack beside the
+  Arc-era native-Ubuntu stack) and `fig_pilot_os_matrix` (where each
+  card's stack is documented per the vendors' own pages, the unit's
+  OS argument as a grid). Imports its helpers from
+  `build_server_guide_figures.py` like the prompting script does. The
+  stacks figure carries real vendor marks at the creator's 2026-08-14
+  direction — monochrome, tinted at render time from the SVGs in
+  `assets/figures/brand_icons/` (that folder's README records source,
+  licence and the takedown fallback); identification, not endorsement,
+  and never redrawn by hand. Rasterises the marks through
+  `vl-convert-python` where present, else Inkscape, discovered the way
+  `trace_reference.py` finds it — the desktop has Inkscape and not
+  vl-convert, the laptop the reverse. Requires Python with Pillow, the
+  Public Sans faces, its sibling script, and one of the two
+  rasterisers. Command-line by the Entry 049 decision.
 
 - `tools/build_prompting_figures.py` — draws the effective-prompting
   unit's mechanism figure (`assets/figures/fig_prompt_gap.png`): what

@@ -35,8 +35,12 @@ side by side.
 What it maps
 ------------
     # / ## / ### / ####    Title / Heading1 / Heading2 / Heading3
+    *italic line* directly under the # title    the Subtitle style
     paragraph              Normal, with **bold**, *italic*, `code` runs
-    - item / 1. item       bulleted and numbered lists (house numbering)
+    - item / 1. item       bulleted and numbered lists (house numbering).
+                           Each numbered list restarts at 1, and a fenced
+                           block indented under an item is emitted as a code
+                           block with the list resuming after it.
     | a | b |              table with Ink header row and Paper/Mist banding
     ```fenced```           shaded single-cell table, Consolas, no wrapping
     > **NOTE** — text      callout card (NOTE/TIP/WARNING/CHECK)
@@ -189,6 +193,9 @@ def parse(md):
     """Parse Markdown text into a flat list of (kind, payload) blocks."""
     lines = md.replace("\r\n", "\n").split("\n")
     blocks, i, n = [], 0, len(lines)
+    # Set when a numbered list is interrupted by a fenced block and resumes
+    # after it, so the resumed part keeps counting instead of restarting.
+    list_continues = False
 
     def is_item(s):
         return bool(re.match(r"^\s*(?:[-*]\s+|\d+\.\s+)", s))
@@ -263,8 +270,36 @@ def parse(md):
         # List — held open across the blank lines the repo's style mandates
         if is_item(stripped):
             items, ordered = [], bool(re.match(r"^\s*\d+\.\s", stripped))
+            continues, split = list_continues, False
+            list_continues = False
             while i < n:
                 cur = lines[i]
+                if cur.strip().startswith("```") and items:
+                    # A fenced block indented under a list item. Without this
+                    # the indented-continuation branch below swallows it as
+                    # prose and the block's line breaks are lost — which turns
+                    # a fixed test input into one run-on line. Emit the list so
+                    # far, then the block; if items resume after it they carry
+                    # on counting rather than restarting at 1.
+                    lang = cur.strip()[3:].strip()
+                    i += 1
+                    fenced = []
+                    while i < n and not lines[i].strip().startswith("```"):
+                        fenced.append(lines[i])
+                        i += 1
+                    i += 1
+                    pad = min((len(x) - len(x.lstrip())
+                               for x in fenced if x.strip()), default=0)
+                    fenced = [x[pad:] if x.strip() else "" for x in fenced]
+                    j = i
+                    while j < n and not lines[j].strip():
+                        j += 1
+                    resumes = j < n and is_item(lines[j].strip())
+                    blocks.append(("list", (ordered, items, continues)))
+                    blocks.append(("code", (lang, fenced)))
+                    list_continues = ordered and resumes
+                    split = True
+                    break
                 if is_item(cur.strip()):
                     items.append(re.sub(r"^\s*(?:[-*]\s+|\d+\.\s+)", "",
                                         cur.strip()))
@@ -286,7 +321,8 @@ def parse(md):
                     i += 1
                 else:
                     break
-            blocks.append(("list", (ordered, items)))
+            if not split:
+                blocks.append(("list", (ordered, items, continues)))
             continue
 
         # Paragraph
@@ -332,13 +368,51 @@ def p_para(text, highlight):
     return "<w:p>%s</w:p>" % "".join(runs(text, highlight=highlight))
 
 
-def p_list(ordered, items, highlight):
-    num_id = 2 if ordered else 1
+ORDERED_NUM_BASE = 100
+
+
+def numbering_with_restarts(xml, num_ids):
+    """Give every numbered list its own numbering instance, restarting at 1.
+
+    The template defines numId 2 for numbered lists. Pointing every list in a
+    document at that single instance makes Word continue one sequence across
+    the whole file, so a document's second numbered list starts at 7 rather
+    than 1. That defect passed the fitter, the render check and the
+    round-trip check, and was caught only by reading a rendered page — see
+    project_log.md Entry 084.
+
+    The abstract definition is untouched, so the house numbering format still
+    comes from the template and nowhere else. This adds *instances* of it,
+    each carrying a startOverride, which is exactly what Word writes when a
+    person restarts a list by hand.
+    """
+    if not num_ids:
+        return xml
+    m = re.search(r'<w:num\b[^>]*w:numId="2"[^>]*>\s*'
+                  r'<w:abstractNumId\s+w:val="(\d+)"\s*/>', xml)
+    if not m:
+        sys.exit("template numbering.xml has no numId 2 for numbered lists")
+    abstract = m.group(1)
+    added = "".join(
+        '<w:num w:numId="%d"><w:abstractNumId w:val="%s"/>'
+        '<w:lvlOverride w:ilvl="0"><w:startOverride w:val="1"/>'
+        "</w:lvlOverride></w:num>" % (nid, abstract)
+        for nid in num_ids)
+    if "</w:numbering>" not in xml:
+        sys.exit("template numbering.xml has no closing element")
+    return xml.replace("</w:numbering>", added + "</w:numbering>")
+
+
+def p_list(ordered, items, highlight, num_id):
     out = []
     for it in items:
+        # The hanging indent has to clear the widest marker the list will
+        # produce. 240 twips fits "9." and collides with "14.", which only
+        # showed up on a rendered page — a list has to reach ten items before
+        # the defect exists at all.
         ppr = ('<w:pPr><w:numPr><w:ilvl w:val="0"/>'
                '<w:numId w:val="%d"/></w:numPr>'
-               '<w:spacing w:after="120"/><w:ind w:left="420" w:hanging="240"/>'
+               '<w:spacing w:after="120"/><w:ind w:left="480" w:hanging="300"/>'
                "</w:pPr>" % num_id)
         out.append("<w:p>%s%s</w:p>" % (ppr, "".join(runs(it,
                                                           highlight=highlight))))
@@ -464,15 +538,35 @@ def column_widths(rows, cols):
         # 300-character cell would take the whole table.
         weights.append(max(4.5, longest ** 0.62))
 
-    total = sum(weights)
-    widths = [max(MIN_COL_TWIPS, int(CONTENT_TWIPS * w / total))
-              for w in weights]
+    # A column has to fit its longest unbreakable word. Weighting alone gave a
+    # narrow first column the word "Motherboard" and Word broke it mid-word
+    # ("Moth / erboa / rd"). Estimated rather than measured: this tool takes no
+    # font dependency by design, so the estimate must run generous — the first
+    # constant tried (100 twips/char + 260) was still ~150 twips short for
+    # "Motherboard" at body size and the break survived a render check that
+    # was read too quickly. 122/char + 340 clears it with margin to spare;
+    # erring wide costs a little space, erring narrow costs legibility.
+    floors = []
+    for c in range(cols):
+        longest_word = 0
+        for row in rows:
+            cell = row[c] if c < len(row) else ""
+            for word in MARKUP_RE.sub("", cell).split():
+                longest_word = max(longest_word, len(word))
+        floors.append(min(CONTENT_TWIPS // 2,
+                          max(MIN_COL_TWIPS, longest_word * 122 + 340)))
 
-    # Re-normalise: the minimum-width clamp may have pushed the total over.
+    total = sum(weights)
+    widths = [max(floors[i], int(CONTENT_TWIPS * w / total))
+              for i, w in enumerate(weights)]
+
+    # Re-normalise: the floors may have pushed the total over. Take the excess
+    # from whichever column has the most room above its own floor.
     over = sum(widths) - CONTENT_TWIPS
     while over > 0:
-        biggest = widths.index(max(widths))
-        take = min(over, widths[biggest] - MIN_COL_TWIPS)
+        slack = [w - floors[k] for k, w in enumerate(widths)]
+        biggest = slack.index(max(slack))
+        take = min(over, slack[biggest])
         if take <= 0:
             break
         widths[biggest] -= take
@@ -687,7 +781,9 @@ def build(md_path, out_path, template, footer_text, eyebrow, strapline,
     doc_id = [3000]
     seen_h1 = [False]
     used_callouts = set()
+    ordered_nums = []
 
+    prev_kind = [None]
     for kind, payload in blocks:
         if kind == "h1":
             body.append(p_heading("Title", payload, False, highlight))
@@ -700,9 +796,32 @@ def build(md_path, out_path, template, footer_text, eyebrow, strapline,
         elif kind in ("h4", "h5", "h6"):
             body.append(p_heading("Heading3", payload, False, highlight))
         elif kind == "para":
+            # An italic-only paragraph directly under the document title is
+            # its subtitle, and takes the template's real Subtitle style
+            # rather than an italic Normal — matching the Title/Subtitle
+            # split the creator applied by hand on 2026-08-14.
+            m_sub = re.fullmatch(r"\*([^*].*?)\*", payload.strip())
+            if prev_kind[0] == "h1" and m_sub:
+                body.append('<w:p><w:pPr><w:pStyle w:val="Subtitle"/>'
+                            "</w:pPr>%s</w:p>"
+                            % "".join(runs(m_sub.group(1),
+                                           highlight=highlight)))
+                prev_kind[0] = "subtitle"
+                continue
             body.append(p_para(payload, highlight))
         elif kind == "list":
-            body.append(p_list(payload[0], payload[1], highlight))
+            ordered, items = payload[0], payload[1]
+            continues = payload[2] if len(payload) > 2 else False
+            if not ordered:
+                num_id = 1
+            elif continues and ordered_nums:
+                # Resumed after a code block that sat inside an item, so it
+                # carries on counting rather than restarting.
+                num_id = ordered_nums[-1]
+            else:
+                num_id = ORDERED_NUM_BASE + len(ordered_nums)
+                ordered_nums.append(num_id)
+            body.append(p_list(ordered, items, highlight, num_id))
         elif kind == "table":
             body.append(p_table(payload, highlight))
         elif kind == "code":
@@ -743,6 +862,7 @@ def build(md_path, out_path, template, footer_text, eyebrow, strapline,
             doc_id[0] += 1
             if caption:
                 body.append(p_caption(caption, highlight))
+        prev_kind[0] = kind
 
     footer_rid = from_template("logo_symbol_256.png")
     footer = (
@@ -839,11 +959,16 @@ def build(md_path, out_path, template, footer_text, eyebrow, strapline,
         z.writestr("word/_rels/document.xml.rels", "".join(doc_rels))
         z.writestr("word/footer1.xml", footer)
         z.writestr("word/_rels/footer1.xml.rels", footer_rels)
-        # Style, numbering and settings come from the template unchanged —
-        # including the compatibilityMode 15 declaration the shape groups need.
-        for part in ("word/styles.xml", "word/numbering.xml",
-                     "word/settings.xml"):
+        # Styles and settings come from the template unchanged — including the
+        # compatibilityMode 15 declaration the shape groups need.
+        for part in ("word/styles.xml", "word/settings.xml"):
             z.writestr(part, tpl.read(part))
+        # Numbering comes from the template too; the only addition is one
+        # restarting instance per numbered list. See numbering_with_restarts.
+        z.writestr("word/numbering.xml",
+                   numbering_with_restarts(
+                       tpl.read("word/numbering.xml").decode("utf-8"),
+                       ordered_nums).encode("utf-8"))
         for name, data in media.items():
             z.writestr(name, data)
     tpl.close()

@@ -1,12 +1,19 @@
-# The pilot AI workstation: proving the product on the desktop
+# The pilot AI workstation
+
+*Proving the product on the desktop*
 
 > **NOTE** Draft status: rough draft, written 2026-08-13 on the laptop,
 > before any software has been installed on the target machine. Every
 > stack fact below is verified against vendor documentation and says so,
-> with the date it was read. Nothing has yet been verified against the
-> machine itself: steps are marked **planned** until they have been run
-> on the desktop, and only then promoted to instruction, per the
-> project's verify-before-teaching rule. Final prose is the creator's.
+> with the date it was read. Steps are marked **planned** until they
+> have been run on the desktop, and only then promoted to instruction,
+> per the project's verify-before-teaching rule. Final wording is the
+> creator's.
+>
+> Revised 2026-08-14 on the desktop itself: the hardware table now
+> carries what the machine reports rather than what was remembered, and
+> the Arc card's host is decided (`project_log.md` Entry 083). The
+> software steps remain unrun.
 
 ## What this pilot is for
 
@@ -15,6 +22,17 @@ The project now has a working product hypothesis, recorded in
 organisation's own premises, running models locally or in a
 local-plus-API hybrid, carrying workflows built for that organisation's
 actual work, with enough onboard guidance to teach its own proper use.
+
+The last clause is the point of the whole thing. The machine carries a
+tutor layer — its own front-end, holding guidance on proper use, built
+eventually on self-populated user profiles. This is where real
+practical AI skills can be developed: the user learns by logging onto
+the workstation and asking questions. It makes people self-sufficient,
+able to improve and refine their own understanding and workflows
+independently, and nothing else found so far bundles it with the
+hardware. One small, custom deployed AI workstation could act as a
+realistic, grass-roots alternative to training that is currently
+measured only in course completions.
 
 Before that idea is put in front of anyone, it has to run. The
 project's existing desktop PC is the testbed, and the pilot answers
@@ -28,34 +46,39 @@ three questions in order:
    than hand-installed apps? (Phase 2)
 
 3. Is the capability *adequate* for the work a small organisation would
-   actually give it? (Phase 3 — the question
-   `drafts/budget_vram_for_local_ai.md` ends on, and the one that
-   decides whether the product is honest to sell.)
+   actually give it? (Phase 3)
 
-What this pilot deliberately does not answer: **the Intel question.**
-The desktop carries an AMD card, so everything here exercises the AMD
-half of the open stack (ROCm and Vulkan). The Arc Pro line's own
-software story — SYCL, the archived IPEX-LLM, LLM Scaler — can only be
-tested on an Arc card, and that purchase is now made
-(`project_log.md` Entry 081). See "Where the Arc question fits" at
-the end.
+What phases 1–3 deliberately do not answer: **the Intel question.**
+The desktop currently carries an AMD card, so those phases exercise
+the AMD half of the open stack (ROCm and Vulkan). The Arc Pro line's
+own software story — SYCL, OMIX, the archived IPEX-LLM, LLM Scaler —
+can only be tested on an Arc card. That purchase is now made
+(`project_log.md` Entry 081) and the card goes in this same machine
+(Entry 083), which is why the AMD phases are sequenced first: the two
+cards share one usable slot. See "Where the Arc card goes" at the
+end.
+
+![One machine, two card eras: the AMD phases run on Windows and WSL2, the Arc phase on native Linux, and the two cards share one PCIe 4.0 x16 slot — swap, not stack.](../assets/figures/fig_pilot_stacks.png)
 
 ## The machine
 
 | Part | Spec | What it means for the pilot |
 |---|---|---|
-| CPU | Ryzen 7 7800X3D (8 cores) | More than enough to feed one GPU. |
+| CPU | Ryzen 7 7800X3D (8 cores) | More than enough to feed one GPU. AM5, so Resizable BAR is available — which is the Arc cards' actual platform requirement. |
 | RAM | 32 GB | Fine for running models. Not enough for converting them: one logged quantisation conversion consumed ~54 GiB of system RAM (`[BENTECH-ARC26]`, via the VRAM document). Download pre-quantised files instead of converting locally. |
-| GPU | Radeon RX 7900 XT, 20 GB VRAM | The number that decides everything else. See below. |
-| Cooling | High-quality air/liquid, well ventilated | Generation is a sustained load, not a burst; thermals get noted during measurement, not assumed. |
+| Motherboard | MSI B650 GAMING PLUS WIFI (MS-7E26) | **One graphics-usable slot.** PCI_E1 runs PCIe 4.0 x16 from the CPU; PCI_E2 is Gen3 x1 from the chipset, which is not a graphics slot in any useful sense. Two GPUs therefore take turns rather than coexisting. Slot layout is from published specification, not yet confirmed by hand — MSI's site blocks automated reading. |
+| GPU | Radeon RX 7900 XT, 20 GB VRAM | The number that decides everything else. See below. Confirmed negotiating Gen4 x16, which is this card's own ceiling. |
+| PSU | Corsair RM1000x (2021), 1000 W, 80+ Gold, fully modular | Recorded 2026-08-14 from the unit. Ample headroom for either card — and the one-slot board means the ~315 W Radeon and the 230 W-TBP B70 never draw together. The swap-risk check from the first draft is closed. |
+| Cooling | High efficiency air-cooled | Generation is a sustained load, not a burst; thermals get noted during measurement, not assumed. |
 
-20 GB sits between the two tiers the VRAM document prices. Against its
-capacity table: the 16 GB class (12–14B dense models, 20B-class
-mixture-of-experts) fits with room to spare; the 24 GB class (27–32B
-dense at 4-bit) is the stretch, and the largest of those will not leave
-enough free VRAM for a long context. The comfortable target class for
-this card is roughly 20–30B mixture-of-experts and up to ~24B dense at
-4-bit, keeping 2–3 GB free for context.
+20 GB sits between the two tiers the VRAM document prices and
+compares. Against its capacity table: the 16 GB class (12–14B dense
+models, 20B-class mixture-of-experts) fits with room to spare. The
+24 GB class (27–32B dense at 4-bit) is potentially less viable; the
+largest of those will not leave enough free VRAM for a long context.
+The comfortable target class for this card is roughly 20–30B
+mixture-of-experts and up to ~24B dense at 4-bit, keeping 2–3 GB free
+for context.
 
 > **TIP** Model names move fast, so this unit names classes and lets
 > the operator pick current releases at install time. The models the
@@ -74,13 +97,13 @@ first measurements recorded.
 **Verified against documentation (2026-08-13):**
 
 - Ollama's GPU documentation lists the Radeon RX 7900 XT as supported
-  on Windows, and states the requirement as an AMD ROCm v7 /
-  HIP7-capable **driver** stack — the ordinary current Adrenalin
+  on Windows. They state the requirement as an AMD ROCm v7 /
+  HIP7-capable **driver** stack. This just means the current Adrenalin
   driver, not a separate ROCm SDK install.
 
-- Ollama also carries a Vulkan backend with its own controls
-  (`OLLAMA_VULKAN=0` disables it; `GGML_VK_VISIBLE_DEVICES` selects
-  devices). Two backends on one card is the same shape as the Arc
+- Ollama also carries a Vulkan backend with its own controls.
+  `OLLAMA_VULKAN=0` disables it and `GGML_VK_VISIBLE_DEVICES` selects
+  devices. Two backends on one card is the same shape as the Arc
   document's Vulkan/SYCL split, and worth remembering when a result
   looks odd: which backend served it is part of the result.
 
@@ -180,7 +203,7 @@ beside this file once measurement starts:
 |---|---|
 | Date, driver version, Ollama version | Results move with software; undated numbers are the trap the VRAM document warns about. |
 | Model, quantisation tag, context length | The three settings that change the result most. |
-| Prompt eval rate / eval rate | The two speeds, kept separate. |
+| Prompt eval rate / eval rate | The two speeds, kept separate to avoid conflation. |
 | VRAM used (Task Manager) | Confirms placement and shows context headroom. |
 | Notes | Thermals, noise, anything odd. By ear is fine at this stage. |
 
@@ -200,6 +223,14 @@ odd stall better than an average.
 Linux container, with a web front-end in a second container — the form
 a deployed workstation would actually take, administered without
 touching the model runtime.
+
+> **WARNING** This phase is **the AMD card's route only.** WSL2 works
+> here because AMD's compatibility matrix supports the 7900 XT under
+> it. No vendor documentation places a B-series Arc card under WSL2 —
+> PyTorch's validated client-GPU list names Windows 11 and Ubuntu, and
+> Intel's IPEX documentation explicitly excludes B-series from WSL2
+> (`research_log.md` Entry 087). The Arc half of this phase runs on
+> native Linux instead; see the closing section.
 
 **Verified against documentation (2026-08-13):**
 
@@ -246,32 +277,101 @@ touching the model runtime.
 Not specified until phases 1–2 produce numbers. The shape, from the
 VRAM document's closing sketch and the product hypothesis:
 
-- A fixed task set shaped like SME work — batch classification,
-  extraction, drafting against a house style — run entirely locally,
-  scored for *adequacy* against the late-2024-class capability ceiling
-  the project logged for single-card models (`research_log.md`
-  Entry 079).
+- **A fixed task set**, run entirely locally and scored for *adequacy*
+  against the late-2024-class capability ceiling the project logged
+  for single-card models (`research_log.md` Entry 079). Two
+  candidates, at different stages of maturity:
 
-- The tutor layer: the machine's own front-end carrying guidance on
-  proper use — the project's teaching material where it is needed, at
-  the moment of use. This is the part of the hypothesis nothing else
-  in the market bundles, and it stays a sketch until the serving layer
-  under it exists.
+  - *Candidate one, ordinary SME work:* batch classification,
+    extraction, drafting against a house style. This is the one the
+    measurement protocol above already fits.
 
-## Where the Arc question fits
+  - *Candidate two, medical RAG workflows:* what this means in
+    practice is currently undecided.
 
-This pilot proves the product shape on hardware the project already
-owns, for nothing. It does not touch the Intel stack, which is the
-VRAM document's central open question.
+- **The tutor layer**, whose purpose is stated in "What this pilot is
+  for" above. What Phase 3 has to establish is narrower than the
+  vision: whether guidance delivered at the moment of use, on a
+  machine of this class, actually teaches anyone anything. It stays a
+  sketch until the serving layer under it exists.
 
-That card is now decided: the **Arc Pro B70**, 32 GB, ~£1,290 at the
-2026-08-11 price snapshot — chosen over the cheaper B580 and B60
-because 32 GB is the tier the project's own findings converge on
-(`project_log.md` Entry 081). The measurement protocol above runs on
-it unchanged, which is what it was built for, and the comparison the
-project has so far only read about becomes one it has measured.
-Buying the card settles nothing on its own; the numbers still have to
-be produced.
+## Where the Arc card goes
+
+Phases 1–3 prove the product shape on hardware the project already
+owns, for nothing, and they exercise the AMD half of the open stack.
+The Intel stack — the VRAM document's central open question — needs
+Intel hardware, and that card is now decided: the **Arc Pro B70**,
+32 GB, ~£1,290 at the 2026-08-11 price snapshot, chosen over the
+cheaper B580 and B60 because 32 GB is the tier the project's own
+findings converge on (`project_log.md` Entry 081).
+
+**It goes in this same desktop** (`project_log.md` Entry 083), reusing
+the build above rather than the always-on server. The measurement
+protocol runs on it unchanged, which is what the protocol was built
+for, and the comparison the project has so far only read about becomes
+one it has measured. Buying the card settles nothing on its own; the
+numbers still have to be produced.
+
+### What the host decides, and what it does not
+
+Three things were checked before this was written, because each was a
+plausible reason to spend money or change plan
+(`research_log.md` Entry 087):
+
+- **An Intel motherboard and CPU are not required.** Resizable BAR is
+  the cards' actual platform requirement, an AM5 Ryzen 7000 system
+  provides it, and Intel's own documentation allows for non-Intel
+  platforms with ReBAR or Smart Access Memory enabled. What a board
+  change would buy is slot topology, not compatibility.
+
+- **The two cards take turns.** One graphics-usable slot means the
+  7900 XT comes out when the B70 goes in. This sequences the work
+  rather than changing it: finish phases 1–2 on the Radeon, then swap.
+  It also rules out the two-card configurations discussed elsewhere —
+  a board limit, not a vendor one.
+
+- **WSL2 is not a documented path for this card.** Which makes the
+  operating system, rather than the machine, the remaining open
+  question.
+
+### The three OS routes
+
+Two requirements converge here. Phase 2 needs native Linux for the Arc
+card, on the evidence above; the shared environment agreed with the
+external correspondent independently assumes Ubuntu 26.04. The route
+that satisfies the project's own next step is the one that keeps the
+two environments comparable. The three options, against that:
+
+| Route | What it gets | What it costs |
+|---|---|---|
+| Native Windows 11 | Validated PyTorch XPU; Ollama's Vulkan backend. Enough for Phase 1 numbers. | No OMIX, no Intel-validated containers, no Phase 2 deployment shape. Diverges from the shared environment agreed with the external correspondent, so results stop being comparable. |
+| Dual-boot Ubuntu 26.04 | Everything: OMIX, the B70-validated containers, the full verification path, and an environment matching the collaboration. | A reboot between the AMD and Intel halves of the pilot. |
+| Ubuntu outright | The same, without the reboot. | The desktop stops being a Windows desktop. |
+
+![Where each card's stack is documented, per the vendors' own pages: every Intel-validated route to the B70 runs on native Linux — the OS the shared environment agreement already assumes.](../assets/figures/fig_pilot_os_matrix.png)
+
+Not decided.
+
+### Before the card arrives
+
+Two checks remain, neither needing the card in hand:
+
+1. **MSI's slot specification, read by hand.** Their site blocks
+   automated reading, so PCI_E2 and PCI_E3 are published-spec only.
+
+2. **ReBAR and Above 4G Decoding confirmed in BIOS** — enabled, not
+   assumed.
+
+The third from the first draft is closed: the PSU is a Corsair
+RM1000x (2021), 1000 W, 80+ Gold — read off the unit 2026-08-14, and
+not a constraint on any configuration this board allows.
+
+Then the bring-up order, which the Intel documentation and the
+correspondent's checkpoint document agree on: confirm the board and
+its power requirement, confirm OS and a kernel 6.17-class Xe driver,
+verify the card enumerates (device E223) and binds, verify it through
+Level Zero and OpenCL, then prove real tensor work under
+`torch.xpu` — before any model is loaded and any number is believed.
 
 ## Sources
 
@@ -291,6 +391,14 @@ no claim in this unit:
 
 - vLLM upstream gfx1100 support (vllm-project PR #2768) — read at
   search level; confirm against current vLLM AMD docs at phase 2.
+
+Read directly 2026-08-14, for the Arc host section
+(`research_log.md` Entries 086–087): PyTorch's Intel-GPU
+getting-started page (validated client OS list); Intel's dgpu-docs
+(OMIX install guide and support matrix, Xe driver table) and IPEX
+end-of-life page; Ollama's GPU and Docker pages; and the machine
+itself, read via CIM and PnP device properties. The figures carry
+these facts; their brand marks are identification, not endorsement.
 
 Findings from running this unit land in `research_log.md` as normal
 dated entries; this file is procedure, not findings.

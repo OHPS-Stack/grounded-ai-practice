@@ -4535,3 +4535,117 @@ no external citation:
 - **Limitations / conflicting evidence:** The purchase is made into a rising market, so the price paid is a snapshot and not a recommendation to a later reader. The break-even finding is unchanged and unflattering — below a high usage threshold the API route stays cheaper, and this card does not move that arithmetic. Two findings surfaced this session, ECC on the Arc Pro line and the memory-bandwidth cost of unified-memory machines, are not yet in `research_log.md` and nothing above rests on them.
 
 - **Effect on project direction:** Phase-1 AMD work and the Arc work now run in sequence on one protocol. Three tracked documents carry current-state claims the decision makes stale; corrected in the same edit.
+
+### Entry 082 — The technical exchange produces a common-environment agreement and two baseline documents; both verified and converted through the pipeline
+
+- **Date logged:** 2026-08-14
+
+- **Priority / Question:** The external practitioner exchange (running since 2026-08-13; private record in the internal working notes, per the pointer pattern) reaching its first joint work products, on the thread the B70 purchase opened (Entry 081).
+
+- **Source:** Session work, 2026-08-14: the correspondence transcript supplied by the creator, two received documents, vendor verification (`research_log.md` Entry 086), and the repo's own hardware records.
+
+- **What happened:**
+
+  1. **A common working environment was proposed by the correspondent and accepted in principle: Ubuntu 26.04 LTS Desktop, x86-64** — chosen to match what the project's always-on server already runs. Staging: the correspondent builds and validates the shared stack on his own 16 GB Arc card first, then evaluates how much transfers to the project's incoming B70; exact versions recorded at every verified stage, toward a shared "reference environment manifest". His stated principle — stability and reproducibility before newest versions — matches the pilot unit's protocol design, arrived at independently.
+
+  2. **Two source-checked baseline documents were received**: a 24-page A770 AI/RAG installation-and-verification guide (the shared-stack half, staged INSTALL → VERIFY → RECORD → NEXT with explicit PASS gates), and a B70-specific checkpoint supplement keyed to the project's card. The author's own caveat is carried on both: cross-checked against Intel's current documentation, **not yet validated on hardware** — his phrase, "source-checked first, hardware-validated next".
+
+  3. **The load-bearing citations were verified at the vendor the same day** — `research_log.md` Entry 086. Every checked claim resolved, including the OMIX stack the B70 document is built around, which had entered the exchange as an unverified AI-search result and turns out to be real and current. One label could not be re-pinned (Ollama's Vulkan path described as "Experimental" — not found on the two pages fetched), and Intel's OMIX matrix already lists a release beyond the one the documents cite — which confirms the documents' own freeze-at-install advice rather than faulting them.
+
+  4. **Both documents were converted through the project's pipeline** (`tools/md_to_docx.py` → `tools/fitshapes.py` → both Word self-checks) as the demonstration promised to the correspondent — faithfully: prose unaltered, code blocks re-indented only where PDF text extraction had flattened them, and discrepancy findings reported in chat rather than edited into another author's documents. Outputs delivered in-session and deliberately not tracked: third-party-authored content, with the internal reference-material folder as the archive location if wanted.
+
+  5. **The reconciliation surfaced a hardware decision the repo has not recorded: which machine hosts the B70.** *(Answered by the creator the same day — Entry 083. Left as written because the surfacing is what this entry records.)* The server is the Ubuntu 26.04 machine the environment agreement anchors on, but it is a one-slot Mini-ITX B350 build — a PCIe 3.0 link two generations below the card's Gen5 interface, a 2015-line 450 W PSU already logged as the build's open unmitigated risk (Entry 035) set against a 230 W-TBP card, an incumbent GPU doing display duty to the projector, and Resizable BAR support unverified under the build's standing do-not-update-BIOS note. The desktop is the stronger platform but runs Windows for the pilot's phases 1–2, and its board slot layout and PSU rating are unrecorded. Neither machine matches the documents' assumed environment without a decision, and the decision is cheaper made before the card arrives than after.
+
+- **Inference drawn:** The exchange has moved from findings about the project's documents (`research_log.md` Entries 082–083) to joint infrastructure. The verification outcome is worth stating plainly: the correspondent's documents passed a hostile citation check — every URL real, every quoted support level as stated — and the one thing the check could not do, validate against hardware, is the thing the documents themselves name as next.
+
+- **Limitations / conflicting evidence:** The environment agreement is in-principle, not installed fact; nothing has been stood up on either side. The reconciliation also caught one currency gap on the project's own side: the creator described the desktop's WSL2/Ollama/Docker layer to the correspondent as running, while the pilot unit still records phases 1–2 as planned — to be reconciled whichever way is true before the pilot doc's status notes are next relied on.
+
+- **Effect on project direction:** The B70 host-machine decision joins the queue ahead of the card's arrival, with the PSU question attached to it. The pilot's Arc phase gains a peer-review loop — the A770 end of the shared stack gets validated by someone who owns the card. `research_log.md` Entry 086 carries the software-stack corrections queued for the VRAM draft.
+
+### Entry 083 — The B70 goes in the desktop; the real question turns out to be the operating system, not the platform
+
+- **Date logged:** 2026-08-14
+
+- **Priority / Question:** Creator decision, closing the host-machine question Entry 082 surfaced the same day.
+
+- **Source:** Creator decision, 2026-08-14. Requirements checked against vendor documentation and against the machine itself before writing — `research_log.md` Entry 087.
+
+- **What happened:**
+
+  1. **Decided: the B70 goes in the existing desktop**, the Ryzen 7 7800X3D machine already designated the pilot testbed (Entry 080), reusing that build's foundations rather than the always-on server. Native Linux, WSL2 and a possible new motherboard and CPU were all raised by the creator as things the route might need; each was checked rather than assumed.
+
+  2. **The desktop is the better host on every axis that was in doubt.** It carries the faster CPU, a modern AM5 platform with Resizable BAR, and a graphics slot at PCIe 4.0 x16 from the CPU. The server would have offered a 2015-line 450 W PSU already logged as an unmitigated risk, a PCIe 3.0 link, and its only slot occupied by the card driving the projector. The decision removes the whole cluster of constraints Entry 082 item 5 listed.
+
+  3. **A new Intel motherboard and CPU are not required by the card.** Resizable BAR is the actual platform requirement, an AM5 Ryzen 7000 system satisfies it, and Intel's documentation allows for non-Intel platforms with ReBAR or Smart Access Memory enabled. What a board change would buy is slot topology rather than compatibility — see below — so it is a later question and not on the path to first tokens.
+
+  4. **Two real constraints replaced the imagined one.** The board publishes one graphics-usable slot (PCI_E1 Gen4 x16 from the CPU; PCI_E2 is Gen3 x1 from the chipset), so the 7900 XT and the B70 take turns rather than coexisting — which sequences the pilot rather than changing it, AMD phases first, then swap. And **WSL2 is not a documented path for a B-series Arc card**: PyTorch's validated client-GPU list names Windows 11 and Ubuntu only, and Intel's IPEX documentation explicitly excludes B-series from WSL2. Phase 2's containerised deployment shape therefore means native Linux for the Arc half.
+
+  5. **So the open question is now the operating system, not the machine.** Three routes, priced in `drafts/pilot_ai_workstation.md`: native Windows (validated for PyTorch XPU and Ollama, but no OMIX, no Intel containers, and none of the shared stack agreed with the external correspondent); dual-boot Ubuntu 26.04 (everything, at the cost of rebooting between the AMD and Intel halves); or Ubuntu outright (everything, at the cost of the desktop's current use). Nothing is decided here.
+
+  6. **Three checks queued before the card arrives:** MSI's own slot specification read by hand, since their site blocks automated fetching and the second and third slots are search-level; the PSU rating read off the unit, unrecorded and unreadable in software; and ReBAR with Above 4G Decoding confirmed in BIOS.
+
+- **Inference drawn:** The decision converges with the collaboration rather than diverging from it. The shared environment agreement assumes Ubuntu 26.04, and the WSL2 finding independently forces native Linux for the containerised phase — so the route that satisfies the project's own Phase 2 is the same route that keeps the two environments comparable.
+
+- **Limitations / conflicting evidence:** Both load-bearing negatives are the weakest-sourced claims in the entry — the WSL2 exclusion comes from an EOL-dated product's documentation at search level, and PyTorch's silence is absence of validation rather than a statement of impossibility. Cheap to test once the card is here, and worth testing rather than inheriting. The board's slot layout is likewise search-level. The PSU is the check with actual physical risk behind it and it is still open.
+
+- **Effect on project direction:** `drafts/pilot_ai_workstation.md` revised in the same session — machine table, Phase 2 scope, and the Arc section rebuilt around host and OS. The Entry 082 note that neither candidate host could negotiate Gen5 is superseded: this board does Gen4 x16 from the CPU, which is a different and better answer than the server's Gen3, and enough for single-card inference either way.
+
+### Entry 084 — Every numbered list after the first was wrong, in every document the converter has made
+
+- **Date logged:** 2026-08-14
+
+- **Priority / Question:** Promoting `drafts/pilot_ai_workstation.md` through the docx pipeline at the creator's direction, the foundations now being settled.
+
+- **Source:** Session work, 2026-08-14. Defects found by reading rendered pages; fixes in `tools/md_to_docx.py`.
+
+- **What happened:**
+
+  1. **The unit was promoted.** `drafts/Pilot_AI_Workstation.docx` and its self-check `.pdf` now exist, which the file's own index entry had deferred until the unit stabilised. The markdown remains the source of truth.
+
+  2. **Reading the render found four defects, none of which any automated check caught.** The fitter, the Word render check and the save round-trip all passed on a document that was visibly wrong.
+
+     - **Numbered lists never restarted.** Every ordered list in a document pointed at the template's single numbering instance, so Word continued one sequence file-wide: the pilot unit's first procedure began at step 4 and its prompt set at 13. Fixed by emitting one numbering instance per list, each carrying a `startOverride`. The template's abstract definition — the house numbering format — is untouched, so the tool still contributes no formatting of its own.
+
+     - **A fenced block indented under a list item was swallowed as prose.** The continuation branch appended it to the item's text, which collapsed the pilot's fixed extraction test input from five lines into one. Fixed by emitting the block properly, with the list resuming afterwards on the same numbering.
+
+     - **A table column could be narrower than a word in it**, so Word broke "Motherboard" mid-word across three lines. Columns now carry a floor sized to their longest unbreakable word, estimated generously rather than measured — the tool takes no font dependency by design.
+
+     - **Two-digit list markers collided with their text** ("11.STEP 11"), the hanging indent having been sized for a single digit. This one only exists in lists of ten or more items, which is why nothing had hit it before.
+
+  3. **The already-converted documents were rebuilt.** The two received from the external correspondent (`project_log.md` Entry 082) carried the numbering defect — the B70 document's "Proceed" sequence rendered as 7, 8, 9 and its fourteen-step bring-up sequence would have followed on from an earlier list. Both regenerated and re-verified before being sent anywhere.
+
+  4. **The rest of the repo's generated documents were checked rather than assumed.** Counting ordered lists in each source found only one other affected file, the internal build guide with five; the other units carry one list or none, where the defect cannot show. That one was regenerated too, its original footer recovered from the existing file rather than guessed.
+
+- **Inference drawn:** The self-check tooling verifies what it was built to verify and stays silent on everything else. `fitshapes.py` measures card heights, `word_preview.ps1` proves a document renders, `word_roundtrip_test.ps1` proves it saves — and a document can pass all three while numbering its steps wrongly from beginning to end. The geometry rule already says generated visual assets get looked at; this extends the same reasoning to generated documents, where the failure is not a clipped label but a wrong instruction.
+
+- **Limitations / conflicting evidence:** The column-width floor is an estimate, not a measurement, so a table with an unusually wide heading may still be tighter or looser than a person would set it. The numbering fix has been verified on four documents, not proven in general — a document mixing nested ordered lists, which the converter flattens anyway, has not been tested.
+
+- **Effect on project direction:** `tools/md_to_docx.py` gains the four fixes and the docstring notes to match. Anything previously converted and sent outside the project should be assumed to carry the numbering defect and regenerated before it is relied on.
+
+### Entry 085 — The creator's revision reconciled, the PSU recorded, and the pilot unit gets its two figures
+
+- **Date logged:** 2026-08-14
+
+- **Priority / Question:** The pilot unit's revision pass, at the creator's direction: check the validity of its points, propose structural strengthening, record the PSU, and build one or two figures where the information genuinely benefits.
+
+- **Source:** Session work, 2026-08-14: the creator's hand-edited `.docx` (backed up before anything regenerated over it), the machine's own reports, and the vendor documentation already logged in `research_log.md` Entries 080 and 086–087.
+
+- **What happened:**
+
+  1. **The creator edited the generated Word file directly, and the edits were ported back into the markdown source rather than lost.** The revision was extracted and checked first: no non-breaking spaces, styles intact — the paste defects of Entries 039–041 did not recur. Ported: the title split to Title + Subtitle, shorter declarative sentences through the Phase 1 evidence bullets, the cooling spec, a softened 24 GB-class claim, and a Phase 3 expansion — a medical-RAG task-set bullet marked undecided, and the tutor layer's learning vision. Two mechanical slips were fixed in the port and reported; two register questions (an "ineffective training" characterisation and an unhedged market-uniqueness claim) were raised in chat for decision rather than edited, per the revised-draft rule.
+
+  2. **The PSU is recorded: Corsair RM1000x (2021), 1000 W, 80+ Gold, fully modular** — stated by the creator from the unit. That closes the third pre-arrival check and the swap-risk concern; the hardware table and `[GAP-DESKTOP26]` carry it.
+
+  3. **Two figures built, and a new tool to build them.** `fig_pilot_stacks` — one machine, two card eras over the single shared slot, carrying real vendor marks at the creator's direction, monochrome so eight brand colour schemes do not compete with the document (sources and licence: `assets/figures/brand_icons/README.md`). `fig_pilot_os_matrix` — where each card's stack is documented per the vendors' own pages, which is the unit's OS argument as a grid. `tools/build_pilot_figures.py` draws both on the server-guide helpers and rasterises the marks through vl-convert or Inkscape, whichever the machine has: this desktop has Inkscape and not `vl-convert-python`, the reverse of the laptop, so the chart layer's own figures cannot rebuild here until that package is installed.
+
+  4. **The converter learned the Title/Subtitle split as a rule:** an italic-only line directly under the `#` title now takes the template's real Subtitle style, so the creator's hand pattern is reproducible from markdown.
+
+  5. **One correction owned.** Entry 084's column-width floor was still ~150 twips short for "Motherboard", and the mid-word break survived — the render check that "confirmed" the fix had been read too quickly. The constant is corrected and the fix verified on the actual page this time. Both figures' first renders also each carried one defect (text touching a box border; a source line clipped at the canvas edge — the same overflow class `gap_chart` checks for in code), caught by reading the renders.
+
+- **Inference drawn:** Item 5's, again and sharper: a check that exists but is skim-read is a check that does not exist. The Pillow figure family has no coded equivalent of `check_labels`, so its geometry rule is only as good as the reading.
+
+- **Limitations / conflicting evidence:** The figure family's overlap checking is manual; worth code if the family grows past these three scripts. The validity findings on the two Phase 3 claims are proposals awaiting the creator's decision, not applied changes.
+
+- **Effect on project direction:** The pilot unit carries its figures, the recorded PSU, and the creator's own register through the Phase 1 prose. `tools/build_pilot_figures.py` and `assets/figures/brand_icons/` are indexed in `CLAUDE.md` in the same edit. The two register questions stand open in chat.
+
+- **Follow-up, same day — the register questions decided and the argument restructured.** The creator took both wording proposals and three of the five structural ones. The two claims that outran the evidence are now inside it: "otherwise ineffective training for SMEs in the UK" became "training that is currently measured only in course completions" — which is what Entries 044 and 074–076 actually support — and the market-uniqueness claim is hedged to "nothing else found so far", pending a Priority 5 comparables scan that has never been run. Structurally: the tutor-layer vision moved from page six into "What this pilot is for", where it now states the product's purpose before the hardware detail rather than after it; Phase 3 keeps only what Phase 3 can test, with the two task sets folded into one concept carrying two candidates; and the OS-routes section states its convergence before the table so the table reads as evidence, ending on "Not decided." One flattening defect was caught in the render and fixed: the converter renders nested list items at their parent's level, so the two task-set candidates arrived as siblings of the bullet that introduced them — the opposite of the change requested. Italic "Candidate one/two" labels restore the hierarchy in both markdown and Word without teaching the converter to nest, which is a larger change than this earned.
