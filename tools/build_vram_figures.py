@@ -556,6 +556,116 @@ def capability_spec(dark=False):
     }
 
 
+# ------------------------------------------------- price-per-gigabyte
+#
+# The third form, and the simplest: one bar per card, £ per gigabyte of
+# VRAM. It buys one thing the tiered views cannot show — a comparison
+# *across* capacities on a single axis, which is what makes the fair and
+# surprising pairing visible: Intel's 32 GB card costs less per gigabyte
+# than Nvidia's 12 GB one.
+#
+# It also carries a trap the document names, so the figure has to answer
+# it. Per gigabyte the small cards win, but capability moves in steps,
+# not gradients: a 12 GB card at £20/GB cannot run what a 32 GB card runs
+# at any price. So capacity is printed on every bar and the subtitle says
+# it outright. Sorted ascending, cheapest first, because the £131/GB
+# outlier lands harder arriving last.
+
+PPG_SOURCE = (
+    "Bars are UK listing prices, 11 Aug 2026 — a market the memory "
+    "shortage is still moving.\n"
+    "Launch notches for the Arc Pro and Radeon R9700 cards are US list "
+    "converted at $1 = £0.74 plus VAT; those carry no UK RRP.\n"
+    "RTX 3090 is a used 2020 card with no launch price; its bar is the "
+    "spread between two trackers that disagree.  ·  "
+    "groundedaipractice.co.uk"
+)
+
+
+def ppg_spec(dark=False):
+    fg = gc.PALETTE["paper"] if dark else gc.PALETTE["ink"]
+
+    rows = []
+    for cap, _, cards in POST_TIERS:
+        for name, launch, basis, lo, hi, stack in cards:
+            street, top = lo / cap, (hi / cap) if hi else None
+            rows.append({
+                "label": f"{name}  ·  {cap} GB",
+                "stack": stack,
+                "ppg": street,
+                "ppg_hi": top,
+                "launch_ppg": (launch / cap) if launch else None,
+                "labx": top or street,
+                # No asterisk here. It marks a converted US list price,
+                # which is the *launch* figure — the street £/GB beside
+                # it is a real UK listing, so carrying the symbol on this
+                # label would attribute the conversion to the wrong
+                # number. The footer names the affected cards instead.
+                "text": (f"£{street:.0f}–{top:.0f}" if top
+                         else f"£{street:.0f}"),
+                # Sorted on the low value, not a range's midpoint: the
+                # eye ranks these by where the solid bar ends, so a
+                # midpoint sort makes the ordering look broken.
+                "sortk": street,
+            })
+    rows.sort(key=lambda r: r["sortk"])
+    order = [r["label"] for r in rows]
+
+    colour = {
+        "field": "stack", "type": "nominal", "title": None,
+        "scale": {"domain": [OPEN, CUDA],
+                  "range": [gc.PALETTE["ember"], gc.PALETTE["stone"]]},
+        "legend": {"orient": "top", "direction": "horizontal",
+                   "labelLimit": 340},
+    }
+    x = {"field": "ppg", "type": "quantitative",
+         "title": "£ per gigabyte of VRAM",
+         "scale": {"domain": [0, 145], "nice": False},
+         "axis": {"format": "$,d", "tickCount": 6}}
+    y = {"field": "label", "type": "nominal", "sort": order, "title": None,
+         "axis": {"labelFontSize": 14.5, "labelPadding": 12,
+                  "labelLimit": 260, "domain": False, "ticks": False,
+                  "labelColor": fg}}
+
+    return {
+        "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+        "title": {
+            "text": "Intel's 32 GB card costs less per gigabyte "
+                    "than Nvidia's 12 GB card",
+            "subtitle": [
+                "UK street prices, 11 August 2026. The notch on each bar "
+                "marks what that card cost per gigabyte at launch.",
+                "Capacity is printed on every bar: a cheap 12 GB card "
+                "still cannot run what 32 GB runs.",
+            ],
+        },
+        "layer": [
+            {"data": {"values": rows},
+             "mark": {"type": "bar", "height": 26, "cornerRadiusEnd": 3},
+             "encoding": {"x": x, "y": y, "color": colour}},
+            # the 3090's tracker disagreement, continuing its bar
+            {"data": {"values": [r for r in rows if r["ppg_hi"]]},
+             "mark": {"type": "bar", "height": 26, "cornerRadiusEnd": 3,
+                      "opacity": 0.42},
+             "encoding": {"x": x, "x2": {"field": "ppg_hi"}, "y": y,
+                          "color": colour}},
+            # launch price as a notch: a tick reads in both directions,
+            # and the Arc B580 is the one card that got *cheaper*
+            {"data": {"values": [r for r in rows if r["launch_ppg"]]},
+             "mark": {"type": "tick", "thickness": 3, "size": 30,
+                      "color": fg, "opacity": 0.9},
+             "encoding": {"x": {**x, "field": "launch_ppg"}, "y": y}},
+            {"data": {"values": rows},
+             "mark": {"type": "text", "align": "left", "baseline": "middle",
+                      "dx": 9, "fontSize": 14.5, "fontWeight": 700,
+                      "color": fg},
+             "encoding": {"x": {**x, "field": "labx"}, "y": y,
+                          "text": {"field": "text"}}},
+        ],
+        "resolve": {"scale": {"color": "shared"}},
+    }
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     p.add_argument("--out", default=os.path.join("assets", "figures"))
@@ -635,6 +745,29 @@ def main():
     for variant in ("light", "dark"):
         written += gc.render(post_spec(dark=(variant == "dark")), ladder,
                              width=760, height=600, source=POST_SOURCE,
+                             variants=(variant,))
+    for path in written:
+        gc.check_labels(path)
+        if gc.check_glyphs(path) and not a.allow_gaps:
+            raise SystemExit(
+                "refusing to write: a label uses a character Public Sans "
+                "cannot draw, which silently resets that run in a fallback "
+                "face. Substitute the character.")
+    if a.png:
+        for path in written:
+            gc.to_png(path, path[:-4] + ".png")
+
+    # check_coverage is not run on the £/GB figure: it plots every card
+    # on one shared axis rather than comparing within capacity levels, so
+    # there is no per-level grid to be thin. The trap it does carry —
+    # small cards flattering the ranking — is answered on the figure, in
+    # the capacity printed on every bar and in the subtitle.
+    print("building price-per-gigabyte bars")
+    ppg = os.path.join(a.out, "vram_price_per_gb")
+    written = []
+    for variant in ("light", "dark"):
+        written += gc.render(ppg_spec(dark=(variant == "dark")), ppg,
+                             width=760, height=470, source=PPG_SOURCE,
                              variants=(variant,))
     for path in written:
         gc.check_labels(path)

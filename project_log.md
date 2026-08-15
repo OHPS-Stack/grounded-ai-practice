@@ -4701,3 +4701,25 @@ no external citation:
 - **Limitations / conflicting evidence:** **The mechanism was not verified.** Proton Drive is confirmed only as the route `internal/` travels, since git cannot carry it; what moved the tracked-file changes mid-session was inferred from their arrival rather than observed, and two commits from another machine also appeared during the session. The tool has been exercised once, on the case that produced it, by its author: the refusal paths were tested directly, the staging path only on that live split.
 
 - **Effect on project direction:** The rule, the tool and this record mean the next session meeting a two-machine file does not have to rediscover the method. What the rule actually asks for is cheap — read a log's tail before writing into it, and commit before walking away from a machine.
+
+### Entry 088 — The post figure settles as price per gigabyte, the third form tried
+
+- **Date logged:** 2026-08-12
+
+- **Priority / Question:** Closing the figure iteration of Entries 075-077 at the creator's direction, having asked to see the price-per-gigabyte bar chart offered at the end of Entry 077.
+
+- **Source:** Session work, 2026-08-12. No new data — the same dated prices, derived per gigabyte.
+
+- **What happened:**
+
+  1. `vram_price_per_gb` was built from the same table as the ladder: one horizontal bar per card, £ per gigabyte of VRAM, sorted cheapest first, coloured by software stack, with a notch on each bar marking what that card cost per gigabyte at launch. The notch is a tick rather than a shaded extension because the Arc B580 is the one card that got *cheaper*, and a tick reads in both directions.
+
+  2. **It earns its place by comparing across capacities on one axis**, which neither earlier form could: the tier views compare like with like and therefore cannot show that Intel's 32 GB card costs less per gigabyte than Nvidia's 12 GB one. That is the figure's title, and a reader can check it against two bars without leaving the image.
+
+  3. Two defects were caught by reading the render rather than by any check. The asterisk marking a converted US list price sat on the street £/GB label, attributing the conversion to a genuine UK listing; it was removed and the footer now names the affected cards instead. And the used RTX 3090's range bar was sorted on its midpoint while the eye ranks bars by where they end, which made the ordering look broken; ranges now sort on their low value.
+
+- **Inference drawn:** None — presentation over unchanged findings. Worth recording as method, though: three forms were built from one dataset before one was right, and each was rejected for a different reason — the scatter for asking too much of a feed reader, the ladder first for carrying a blog post and then for its form, the £/GB bars kept. The cost of that is low because the data lives in one structure and each figure derives from it.
+
+- **Limitations / conflicting evidence:** Per gigabyte is a ratio, and ratios flatter small cards: the cheapest bar on the figure is a 12 GB card that cannot run the models the document is about. The figure answers this in its subtitle and by printing capacity on every bar, but a reader who takes only the ranking away will take away the wrong thing, and no self-check can catch that. The launch notches for the workstation cards remain converted US list prices, with the currency and VAT assumption stated on the figure.
+
+- **Effect on project direction:** `vram_price_per_gb` is the candidate for the LinkedIn post. The ladder and the scatter stay: the scatter is the draft document's in-text figure, and the ladder still shows the launch-to-street movement per tier, which the £/GB view compresses into a notch. Posting remains a creator decision.
