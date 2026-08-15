@@ -1454,6 +1454,33 @@ attempt it unilaterally.
   icons, current palette). `svg/` for sources, `png/` for 64/128/256px
   exports, `README.md` for the filename→topic manifest.
 
+  The set's own geometry is a measured convention rather than a style
+  note, and `tools/gap_icon.py` depends on it: every icon's longest
+  axis, stroke included, sits on 358.4 units — 70.0% of the 512 canvas
+  — centred, with each icon carrying its own `translate/scale` on a
+  group called `icon_canvas` to get there. `verification`, `storage`
+  and `terminal_and_cli` agree on it to within 0.4%. Ink outlines are
+  stroke-width 14. Changing either number means rebuilding the library
+  icons below.
+
+- `assets/icons/library/` — third-party icons converted into the set
+  above, from **Lucide, pinned at release 1.31.0**, by
+  `tools/gap_icon.py`. Added 2026-08-15. Vendored on demand rather than
+  in bulk: 1,768 icons exist upstream and the folder carries only the
+  ones something actually uses, which is how `docs/assets/icons/`
+  already works. `svg/` for sources, `png/` only where `--png` was
+  asked for, `README.md` for the manifest and the reasoning, and
+  `LICENSE` for the ISC and Feather-MIT texts — that file is the whole
+  of what both licences require, so it stays for as long as any icon
+  here does. The icons are derivative works and are not this project's
+  own design; nothing here is presented as such.
+
+  They read as a plainer tier than the bespoke 36 — pure line art,
+  where the bespoke icons use white and Sage fills and carry more
+  detail. Stroke weight and visual size match, which is what the
+  conversion guarantees and what was checked; the difference in
+  richness is inherent to Lucide and is not a conversion defect.
+
 - `assets/logo/` — the finished logo system. The lead identity is the
   stylised "GAP" wordmark: `logo_wordmark.svg` (Ink letterforms, Ember
   marking the A's two counters), plus `logo_wordmark_mono.svg` (single
@@ -1722,6 +1749,46 @@ attempt it unilaterally.
   why its output is never a finished asset. Run with no arguments (or
   `--gui`) for the windowed interface — pick the image, preview the
   colour separation, trace — per the GUI rule under Working approach.
+
+- `tools/gap_icon.py` — brings a Lucide icon into the GAP icon set's
+  geometry and palette, writing to `assets/icons/library/`. Added
+  2026-08-15. It converts rather than copies because the two systems
+  draw the same way at incompatible proportions: Lucide is a 24 grid at
+  stroke-width 2, the set is a 512 canvas at stroke-width 14, so a
+  naive scale-up lands at 42.7 — about three times too heavy — and
+  fills 83% of the canvas where the set fills 70%. Each icon is
+  refitted to the measured house convention recorded under
+  `assets/icons/` above, and **path data is never rewritten**: the
+  original elements are wrapped in a transformed `icon_canvas` group,
+  which avoids both float drift and parsing the SVG path grammar.
+
+  The bounding box is measured by **rendering, not by parsing `d`
+  attributes** — ground truth, and the same render doubles as the
+  geometry self-check the project requires, verifying span, centring
+  and canvas containment before anything is written. That check is
+  taken on a frame padded by half a canvas each side, and the padding
+  is load-bearing rather than tidiness: rendering clips to the viewBox,
+  so a bbox measured on the canvas itself can never exceed it and the
+  containment test was literally unable to fail until the padding was
+  added. An overflowing icon reported a plausible clipped span instead.
+  Verified by deliberately perturbing a good conversion three ways and
+  confirming each is rejected.
+
+  Ember accents are **not** guessed. A run prints the icon's elements
+  with indices and `--accent` names which take Ember; without it the
+  icon is single-colour Ink, a legitimate finished state. Two of the
+  first five accent choices were wrong and only the contact sheet
+  showed it, which is the argument for `--sheet OUT.png` — it renders
+  the library beside the bespoke 36 at matched size, because the
+  numbers confirm an icon hits the geometry and cannot say whether it
+  looks like it belongs. Upstream is pinned to a release, never `main`
+  or `@latest`, so a rebuild months later produces the same file; the
+  `brand_icons/` folder carries that weakness and this deliberately
+  does not. Requires Python with Pillow and an SVG rasteriser
+  (vl-convert-python or Inkscape 1.x). **Command-line only so far, and
+  the GUI rule's test is genuinely open here** — picking an icon and
+  converting it is something the creator might do without Claude, which
+  would earn it a window under the Entry 049 reasoning.
 
 - `tools/fitshapes.py` — fits a `.docx`'s callout-card and pull-quote
   drawing groups to the text they actually contain. These are Word groups

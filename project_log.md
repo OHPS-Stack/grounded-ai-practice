@@ -4749,3 +4749,33 @@ no external citation:
 - **Limitations / conflicting evidence:** The scheme is untested against anything that has not arrived yet, and six top-level folders is already close to the point at which an index stops helping — the next addition should prompt a check that an existing folder's purpose has not drifted, rather than a seventh folder. The moves also replay through the file-sync layer, so a conflict there would surface later rather than now. A copy of the flat directory was taken before any move, in temporary session storage rather than anywhere durable.
 
 - **Effect on project direction:** `CLAUDE.md`'s rule that internal material is indexed inside `internal/` is extended from contents to shape, and the pinned marker path is now stated where the hooks are described. `internal/README.md` gains the structure, the placement rules for files that arrive later, and the four breakage classes above.
+
+### Entry 090 — An open-source icon library, and the house geometry it had to be measured against
+
+- **Date logged:** 2026-08-15
+
+- **Priority / Question:** Copy production at the creator's direction. The bespoke set of 36 icons covers the project's early subjects and has no icon for money, dates, institutions or people, all of which appear in current documents.
+
+- **Source:** Session work, 2026-08-15. Licence and version facts read from the upstream repository at the pinned release, not from recall.
+
+- **What happened:**
+
+  1. **Lucide was chosen, pinned at release 1.31.0.** It carries 1,768 icons under the ISC licence, with icons derived from Feather under MIT. Tabler was the alternative at about 6,150 icons under MIT, and was rejected for offering roughly three and a half times the coverage of a set the project has so far needed 36 of. Both licences require only that the copyright and permission notices travel with the files, so the full text is vendored at `assets/icons/library/LICENSE` and stays for as long as any icon does.
+
+  2. **The two systems draw the same way at incompatible proportions**, which is why these are converted rather than copied. Lucide is a stroke outline with no fill and round caps on a 24 grid at stroke-width 2. The set is the same construction on a 512 canvas at stroke-width 14. Scaled naively to 512 a Lucide icon arrives at stroke-width 42.7, about three times too heavy, filling 83% of its canvas where the set fills 70%. Beside a bespoke icon it would have read as a second, louder system.
+
+  3. **The set's geometry turned out to be a precise convention that had never been written down.** Measuring `verification`, `storage` and `terminal_and_cli` showed each fitting its longest axis, stroke included, to 358.4 units, 70.0% of the canvas, centred, each by its own `translate/scale` on a group named `icon_canvas`. The three agree to within 0.4%. So the convention is per-icon bounding-box fitting to a fixed visual size rather than a fixed scale factor, and `tools/gap_icon.py` reproduces exactly that. The numbers are now recorded in `CLAUDE.md` under `assets/icons/`, where they are a dependency rather than a style note.
+
+  4. **The bounding box is measured by rendering rather than by parsing path data**, which avoids trusting a hand-written parser over arcs and curves, and lets the same render serve as the geometry self-check the project requires of generated visual assets.
+
+  5. **That self-check was written wrong first, and the defect is worth recording.** Taken on the 512 canvas it could not fail: rendering clips to the viewBox, so a measured bounding box can never exceed it, and an icon overflowing the canvas reported a plausible clipped span instead of the true one. Measuring on a frame padded by half a canvas on each side fixed it. The error was found by deliberately perturbing a good conversion three ways and checking each was rejected, which is the only reason it surfaced at all, since the check passed every real icon either way.
+
+  6. **Ember accents are a judgement and the tool does not guess them.** A run prints the icon's elements with indices and `--accent` names which take Ember. Of the first five icons, two accent choices were wrong, and neither was visible in the numbers: a large Ember head on `users` read as an error state, and `calendar_days` was left plain where the house style would mark its dots. Both were caught by `--sheet`, which renders the library beside the bespoke 36 at matched size.
+
+  7. Incidental, from checking which rasteriser was available: this desktop has both vl-convert 1.9.0 and Inkscape, the latter installed but not on `PATH`. `CLAUDE.md` states under `tools/build_pilot_figures.py` that the desktop has Inkscape and not vl-convert and the laptop the reverse, which is now wrong on at least the desktop half. Not corrected in this session, pending the creator's read.
+
+- **Inference drawn:** The convention a set follows and the convention it documents are different things, and only the first constrains anything built against it. The fitting rule had been applied consistently across 36 icons and written down nowhere, so it had to be recovered by measurement before a single icon could be added without visibly breaking the set.
+
+- **Limitations / conflicting evidence:** The converted icons are a visibly plainer tier than the bespoke ones. They are pure line art, where the bespoke icons carry white and Sage fills and more detail. Stroke weight and visual size match, which is what the conversion guarantees and what was checked, but the difference in richness is inherent to Lucide and no conversion fixes it. Five icons is also too few to know whether the fitting rule holds on shapes very unlike these. The site continues to serve its own copies from `docs/assets/icons/`, so using one of these on a page still means copying the file across by hand.
+
+- **Effect on project direction:** `assets/icons/library/` and `tools/gap_icon.py` are added and indexed in `CLAUDE.md`, along with the measured geometry of the bespoke set. The tool is command-line only, and whether it earns a window under the standing GUI rule is genuinely open, since choosing an icon and converting it is something the creator might plausibly do without Claude.

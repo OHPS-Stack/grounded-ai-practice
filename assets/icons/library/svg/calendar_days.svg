@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <title>Calendar Days</title>
+  <desc>Lucide calendar-days icon, converted to the GAP canvas by tools/gap_icon.py. Fitted from a measured source bbox of 20.016 x 21.012 units to a 358.4-unit span, 70% of the 512 canvas: scale 18.11514, stroke 14/18.11514 = 0.77283 local units.</desc>
+
+  <g transform="translate(38.618,47.640) scale(18.11514)" id="icon_canvas"
+     fill="none" stroke="#27221E" stroke-width="0.77283"
+     stroke-linecap="round" stroke-linejoin="round">
+    <path xmlns="http://www.w3.org/2000/svg" d="M8 2v3"/>
+    <path xmlns="http://www.w3.org/2000/svg" d="M16 2v3"/>
+    <rect xmlns="http://www.w3.org/2000/svg" x="3" y="3" width="18" height="18" rx="2"/>
+    <path xmlns="http://www.w3.org/2000/svg" d="M3 9h18"/>
+    <path xmlns="http://www.w3.org/2000/svg" d="M8 13h.01" stroke="#F15E4B"/>
+    <path xmlns="http://www.w3.org/2000/svg" d="M12 13h.01" stroke="#F15E4B"/>
+    <path xmlns="http://www.w3.org/2000/svg" d="M16 13h.01" stroke="#F15E4B"/>
+    <path xmlns="http://www.w3.org/2000/svg" d="M8 17h.01" stroke="#F15E4B"/>
+    <path xmlns="http://www.w3.org/2000/svg" d="M12 17h.01" stroke="#F15E4B"/>
+    <path xmlns="http://www.w3.org/2000/svg" d="M16 17h.01" stroke="#F15E4B"/>
+  </g>
+</svg>

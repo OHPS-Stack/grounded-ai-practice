@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <title>Shield Check</title>
+  <desc>Lucide shield-check icon, converted to the GAP canvas by tools/gap_icon.py. Fitted from a measured source bbox of 18.000 x 22.008 units to a 358.4-unit span, 70% of the 512 canvas: scale 17.21328, stroke 14/17.21328 = 0.81333 local units.</desc>
+
+  <g transform="translate(49.441,49.441) scale(17.21328)" id="icon_canvas"
+     fill="none" stroke="#27221E" stroke-width="0.81333"
+     stroke-linecap="round" stroke-linejoin="round">
+    <path xmlns="http://www.w3.org/2000/svg" d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+    <path xmlns="http://www.w3.org/2000/svg" d="m9 12 2 2 4-4" stroke="#F15E4B"/>
+  </g>
+</svg>
