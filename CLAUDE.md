@@ -218,6 +218,25 @@ the five immediate research priorities driving current work.
   Added 2026-08-14; the case that prompted it involves a private
   third party and stays in `internal/`.
 
+- **Nothing outward is sent by Claude. Draft it, show it, stop.**
+  Adopted 2026-08-14, stated explicitly by the creator and demonstrated
+  the same day: three connection notes and a post comment were drafted
+  in chat, and the creator sent the ones they chose. It covers every
+  outward communication — email, LinkedIn messages and connection
+  notes, comments, form submissions, anything addressed to another
+  person — and asking first does not satisfy it. "Draft a message to X"
+  is a request for a draft, and approval of one message never carries
+  to the next.
+
+  The reason is the one behind never pushing to the remote: an outward
+  message carries the creator's name and their relationships, and it
+  cannot be recalled. Where a platform imposes a limit, offer two or
+  three options with character counts and say which one you would send
+  and why. Recording that an approach happened, and what came of it,
+  belongs in the internal register once the creator confirms they sent
+  it. The contacts register's per-approach rule is the narrow case of
+  this; this is the general one.
+
 - **In an ongoing correspondence, read what has already been sent before
   drafting the next message.** Adopted 2026-08-13. Claude does not
   reliably track which points have already gone out, and a follow-up
@@ -369,6 +388,26 @@ the five immediate research priorities driving current work.
   subtle tradeoff analysis, high-stakes prose), say so with the reason.
   Model switching is done by the creator in the app UI, never by Claude.
   One clear flag at the natural boundary — do not nag.
+
+- **Report what changes in Claude Code, and what it means here.** Adopted
+  2026-08-15 at the creator's direction. On a new release, or when a task
+  touches a feature that has moved, say what changed and what it costs or
+  unlocks — verified against the changelog
+  (`https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md`)
+  and `code.claude.com/docs`, **never from recall**, since the model's
+  knowledge cutoff sits months behind the installed build and a confidently
+  wrong account of the tool's own behaviour is worse than none. Filter to
+  this project: Windows, PowerShell, solo (no org or managed settings), a
+  public repo with a gitignored `internal/`, the `.docx` and figure
+  pipelines, the laptop/desktop split. Skip enterprise, Bedrock/Vertex and
+  team features unless asked. One flag at a natural boundary, per the
+  model-fit rule above — not a changelog dump. The same applies to new
+  skills, plugins and marketplace tools that fit work in hand, which is the
+  standing tool-recommendation rule above applied to a moving target.
+
+  The version is not reliably discoverable on this machine: the desktop app
+  puts no `claude` on `PATH`, and carries no version in the registry or
+  under `%APPDATA%\Claude`. Ask rather than probe.
 
 - **Prompt-craft feedback, brief and when earned.** The creator is
   deliberately building prompt-engineering skill, and the pilot unit
@@ -2258,6 +2297,25 @@ attempt it unilaterally.
   split without touching the index. Requires Python, standard library
   only. Command-line by the Entry 049 decision.
 
+- `tools/sync_memory.py` — mirrors Claude Code's machine-local memory
+  into `internal/claude_memory/<machine>/`, so it survives the move
+  between laptop and desktop. Resolves the memory folder from the
+  repository path rather than a remembered one, since the 2026-08-03
+  orphaning happened when that path changed. **Writes one folder per
+  machine and never touches another's**, because the sync layer does
+  not reconcile and a shared folder would let one machine's sync erase
+  the other's memories. It refuses rather than guesses: no `internal/`,
+  no memory folder for this project (reporting every path searched),
+  a destination escaping the mirror root, or a mirrored file *newer*
+  than its local counterpart — that last one means the mirror holds
+  something this machine does not, so it is reported and skipped until
+  `--force`. Deletion is never propagated, since "gone from this
+  machine" and "should be gone everywhere" are different statements.
+  `--status` lists every machine's mirror and names what the other one
+  holds; `--dry-run` reports without writing. Requires Python, standard
+  library only. Command-line by the Entry 049 decision — housekeeping
+  at a session boundary, not a learner-facing tool.
+
 ## Claude's memory: what's in the repo vs. outside it
 
 Two separate systems hold context across sessions — don't confuse them:
@@ -2285,6 +2343,28 @@ Two separate systems hold context across sessions — don't confuse them:
   rather than mirrored into the repo, per the user's decision on
   2026-07-24.
 
+- **A mirror of that memory in `internal/claude_memory/<machine>/`,
+  one folder per machine.** Adopted 2026-08-15 at the creator's
+  direction, who moves between laptop and desktop constantly and was
+  losing memory and fighting the sync at every switch. `internal/`
+  already travels between machines by file sync, and it is gitignored
+  and hook-blocked, which suits material that is behavioural and about
+  the creator's own environment. `tools/sync_memory.py` writes it.
+
+  **One folder per machine is load-bearing, not tidiness.** The sync
+  layer copies whichever version of a file it saw last and does not
+  reconcile, so a single shared folder would have the second machine's
+  sync silently overwrite the first machine's memories — a worse loss
+  than the one the mirror prevents. Each machine writes only its own
+  folder. `--status` names what the other machine holds and this one
+  does not, which is the reason to run it on arrival.
+
+  This does not supersede the 2026-07-24 decision above. Memory still
+  stays out of the *tracked* repo; the mirror is untracked by
+  construction. Nor does it replace the extraction pass below: mirroring
+  a rule is not capturing it, and anything durable and project-level
+  still has to reach this file to travel on the repo's own.
+
 The context window shown in the Claude Code UI for a given session is
 dominated by that session's own message history (tool calls, search
 results, file reads) — not by these memory/rule files, which are small.
@@ -2307,6 +2387,30 @@ files are machine-specific and don't travel between machines (desktop vs.
 laptop) or reliably resurface from old conversation logs — the repo is the
 one place guaranteed to travel with the project. Applies in every session
 working in this repo, not just the one that first set this up.
+**Last run: 2026-08-15.** Nineteen memory files under the current
+project path, one more than the last pass counted. Seventeen are
+already captured here, or correctly machine-local on the reasoning the
+earlier passes recorded, and re-reading them changed nothing. The two
+that stay out of this file stay out: `user_hardened_firefox` (the
+creator's own environment, not a project rule) and
+`project_floated_folder_unit_and_tool_spinout` (three undecided
+candidates — the repo logs decisions, not options, and one of them
+references an internal contact's work). **Not promoted is no longer
+the same as not preserved**: the creator judged both worth keeping as
+context, and the same day's memory mirror puts every file in
+`internal/claude_memory/`, so a decision to leave something out of the
+tracked repo no longer risks losing it at the next machine switch.
+**One genuine gap, and the previous pass had it in front of it.**
+`feedback_no_autonomous_sending` was written at 09:01 on 2026-08-14 and
+the pass that ran later that morning reported eighteen files, so it was
+either missed or wrongly counted among the captured. It was not
+captured: this file carried no general rule against sending, only three
+narrower ones scoped to the internal contacts register, to infographics
+and to posting the site link. Promoted above as the outward-sending
+rule. The lesson is the one the standing task exists for — a rule
+living only in local memory does not travel between machines, and a
+file count is not an audit.
+Previous line, kept for the record:
 **Last run: 2026-08-14.** All eighteen memory files under the current
 project path were audited — the count is up because the memory system
 has been writing steadily, not because anything was missed before.
