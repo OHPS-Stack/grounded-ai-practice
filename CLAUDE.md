@@ -1084,6 +1084,32 @@ tracked files. Where a tracked file genuinely needs to record that an
 internal position exists, use the pointer pattern above without naming
 the sensitive party. Decided by the creator 2026-07-28.
 
+**This covers the directory's shape, not only its contents.** Extended
+2026-08-15, when `internal/` was reorganised by subject so that it could
+be navigated at all. Grouping by subject is exactly what turns folder
+names into the disclosure risk filenames already were, so the layout is
+recorded in `internal/README.md` alongside the contents. This file says
+that the directory is organised; it does not say how.
+
+**Build scripts for an internal document live beside it in `internal/`,
+never in `tools/`.** Adopted 2026-08-15. A script is a worse disclosure
+than a bare filename, because its docstring explains what the document
+is for — so a figure builder sitting in a public directory announces
+both that a private document exists and what it argues. Caught the same
+day the rule above was written, when a figure script for an internal
+setup guide was written into `tools/` and indexed here. Nothing in it
+was compromising, which is why the fix was a move rather than a history
+rewrite.
+
+The outputs follow the script: an internal script's figures are internal
+too, because `assets/figures/` entries all name the tracked script that
+builds them, and a tracked image whose builder is private breaks the
+source-of-truth convention the whole folder relies on. Where a diagram
+is genuinely worth publishing, write a public counterpart rather than
+letting one script straddle the line — `tools/build_events_figure.py`
+and its internal sibling are the model. The ordinary case needs no such
+pairing: the builder simply sits beside the document it builds.
+
 ### Enforcement, and its honest limits
 
 Two layers:
@@ -1362,9 +1388,14 @@ attempt it unilaterally.
 
 - `internal/` — **gitignored, never committed.** Private contacts,
   candid assessments, funding strategy, political reads, third-party
-  reference material. Indexed by its own `internal/README.md`, not
-  here — see "Public repo vs. internal working files" above for what
-  belongs in it, why, and the indexing rule.
+  reference material. Organised by subject into a handful of folders
+  rather than the flat list it was until 2026-08-15, when it reached
+  about 75 files and stopped being navigable. The folder names are
+  themselves disclosive, so the structure is indexed alongside the
+  contents in its own `internal/README.md`, not here — see "Public
+  repo vs. internal working files" above for what belongs in it, why,
+  and the indexing rule. One path inside it is fixed rather than free:
+  `internal/private_markers.txt`, which both hooks hard-code.
 
 - `.githooks/` — the local guard layer: `pre-commit` blocks commits
   staging `internal/` or containing a private marker, and additionally
@@ -1374,6 +1405,8 @@ attempt it unilaterally.
   tree and the pushed commits before anything leaves the machine. Both
   read their marker list from `internal/private_markers.txt` (never
   tracked; a missing file blocks, an empty one is a deliberate opt-out).
+  **That path is hard-coded in both hooks**, so it is fixed against any
+  reorganisation of `internal/` and must never be moved.
   Install per machine with `git config core.hooksPath .githooks`.
   Guardrails against accident, not security controls.
 

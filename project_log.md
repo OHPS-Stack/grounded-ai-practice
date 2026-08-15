@@ -4723,3 +4723,29 @@ no external citation:
 - **Limitations / conflicting evidence:** Per gigabyte is a ratio, and ratios flatter small cards: the cheapest bar on the figure is a 12 GB card that cannot run the models the document is about. The figure answers this in its subtitle and by printing capacity on every bar, but a reader who takes only the ranking away will take away the wrong thing, and no self-check can catch that. The launch notches for the workstation cards remain converted US list prices, with the currency and VAT assumption stated on the figure.
 
 - **Effect on project direction:** `vram_price_per_gb` is the candidate for the LinkedIn post. The ladder and the scatter stay: the scatter is the draft document's in-text figure, and the ladder still shows the launch-to-street movement per tier, which the £/GB view compresses into a notch. Posting remains a creator decision.
+
+### Entry 089 — internal/ reorganised by subject, and the four things a file move breaks
+
+- **Date logged:** 2026-08-15
+
+- **Priority / Question:** Housekeeping at the creator's direction — `internal/` had grown to about 75 files in one flat directory and had stopped being navigable.
+
+- **Source:** Session work, 2026-08-15. No new research.
+
+- **What happened:**
+
+  1. The directory was reorganised into six subject folders behind two root files. The layout itself is recorded in `internal/README.md` rather than here, per the rule this entry extends: grouping by subject is exactly what turns folder names into the disclosure risk filenames already were.
+
+  2. **The organising principle is subject, not file type**, because material arrives as a new person, a new build or a new engagement rather than as a new category of file. A subject's document, its figures, the script that draws them and its source captures stay in one folder. A `docs/` and `figures/` split was rejected for a mechanical reason as well as a navigational one: figure scripts write their output beside themselves, and markdown resolves image paths relative to itself, so the split breaks both.
+
+  3. **Four things broke, each found by breaking it.** Both git hooks hard-code `internal/private_markers.txt`, so that file cannot move without blocking every commit and push on the machine. Six figure scripts reached `tools/` by a single hard-coded `..` hop and failed at any greater depth; they now walk up until they find the directory, so filing depth no longer matters to them. One document embeds fourteen images from the tracked `assets/` tree by relative path, and the number of `../` segments changes with the file's depth — `md_to_docx.py` fails loudly with `image not found`, so a rebuild catches it, but only if a rebuild is actually run. And cross-references between internal files now use the bare filename rather than a path, since every filename there is unique and a bare name survives the next reorganisation.
+
+  4. **A check written separately from the work caught a silent no-op.** A pass rewriting stale paths reported success and had changed nothing: `[System.IO.File]` calls resolve relative paths against .NET's working directory, which `Set-Location` does not change. A separate pass that resolved every image reference against the disk found the real state. The lesson is not the .NET quirk but the shape — the doing and the checking were independent, so one could catch the other.
+
+  5. Two incidental findings came out of the file-by-file pass. Two capture files named in the internal index are not on disk and had not been for some time, the loss unnoticed until now. And one document's two figures are missing on this machine because a commit removed them from tracked content while the destination copies had not arrived, so that document still opens from its built file but cannot be rebuilt.
+
+- **Inference drawn:** An index is only as good as the last pass that checked it against the disk. Both incidental findings had been sitting in a maintained index that described files which were not there, and neither surfaced through ordinary use — a flat directory of 75 files hides a missing file completely. Nothing here automates that check, so it will drift again.
+
+- **Limitations / conflicting evidence:** The scheme is untested against anything that has not arrived yet, and six top-level folders is already close to the point at which an index stops helping — the next addition should prompt a check that an existing folder's purpose has not drifted, rather than a seventh folder. The moves also replay through the file-sync layer, so a conflict there would surface later rather than now. A copy of the flat directory was taken before any move, in temporary session storage rather than anywhere durable.
+
+- **Effect on project direction:** `CLAUDE.md`'s rule that internal material is indexed inside `internal/` is extended from contents to shape, and the pinned marker path is now stated where the hooks are described. `internal/README.md` gains the structure, the placement rules for files that arrive later, and the four breakage classes above.
