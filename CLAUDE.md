@@ -1573,10 +1573,6 @@ attempt it unilaterally.
   unit's `fig_pilot_stacks.png` and `fig_pilot_os_matrix.png`, from
   `tools/build_pilot_figures.py`, and the `brand_icons/` subfolder of
   third-party monochrome marks those figures use — see that folder's
-  README for source and licence before touching them. Since 2026-08-15
-  it also holds `proton_architecture.png` and `proton_file_states.png`,
-  from `tools/build_proton_figures.py` — tracked despite illustrating an
-  internal document, because neither carries a private path.
   README for source and licence before touching them.
 
 - `assets/replicas/` — terminal replicas for the build guide and the
@@ -1861,18 +1857,6 @@ attempt it unilaterally.
   vl-convert, the laptop the reverse. Requires Python with Pillow, the
   Public Sans faces, its sibling script, and one of the two
   rasterisers. Command-line by the Entry 049 decision.
-
-- `tools/build_proton_figures.py` — draws the two figures in the
-  internal Proton Drive setup guide: `proton_architecture`, the choice
-  between syncing the repository root and syncing only `internal/`, and
-  `proton_file_states`, the three states a synced file can occupy and
-  what each means for a script reading it. Imports its helpers, palette
-  and fonts from `build_server_guide_figures.py` like the prompting and
-  pilot scripts do. The outputs are tracked in `assets/figures/` even
-  though the document is internal, because both are generic mechanism
-  drawings carrying no private paths. Requires Python with Pillow, the
-  Public Sans faces, and its sibling script beside it. Command-line by
-  the Entry 049 decision. Added 2026-08-15.
 
 - `tools/build_prompting_figures.py` — draws the effective-prompting
   unit's mechanism figure (`assets/figures/fig_prompt_gap.png`): what
