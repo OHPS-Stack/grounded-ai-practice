@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy"
+      content="default-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; script-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#F9F9F9">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#27221E">
+
+<title>The workstation — an AI machine that teaches its own use — Grounded AI Practice</title>
+<meta name="description"
+      content="A working hypothesis: an AI workstation on a small organisation's own premises, running models locally, carrying that organisation's own workflows, and teaching its own proper use. What is built, what is planned, and what is still unproven.">
+
+<link rel="canonical" href="https://groundedaipractice.co.uk/workstation/">
+<link rel="icon" href="../assets/logo_symbol_flat.svg" type="image/svg+xml">
+<link rel="icon" href="../assets/logo_symbol_flat_32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/logo_symbol_flat_256.png">
+<link rel="preload" href="../fonts/public_sans_400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../fonts/public_sans_800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../styles.css">
+<script src="../theme.js"></script>
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Grounded AI Practice">
+<meta property="og:title" content="The workstation — an AI machine that teaches its own use — Grounded AI Practice">
+<meta property="og:description"
+      content="A working hypothesis: an AI workstation on a small organisation's own premises, running models locally, carrying that organisation's own workflows, and teaching its own proper use. What is built, what is planned, and what is still unproven.">
+<meta property="og:url" content="https://groundedaipractice.co.uk/workstation/">
+<meta property="og:image" content="https://groundedaipractice.co.uk/assets/figures/og_card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="../" aria-label="Grounded AI Practice, home page">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="../assets/logo_symbol_reversed.svg">
+        <img src="../assets/logo_symbol_flat.svg" alt="Grounded AI Practice" width="34" height="34">
+      </picture>
+    </a>
+    <nav class="site-nav" aria-label="Site">
+      <ul>
+        <li><a href="../evidence/">The numbers</a></li>
+        <li><a href="../workstation/" aria-current="page">Workstation</a></li>
+        <li><a href="../learning/">Learning</a></li>
+        <li><a href="../method/">Method</a></li>
+        <li><a href="../about/">About</a></li>
+        <li><a href="../contact/">Contact</a></li>
+        <li><a class="btn" href="https://github.com/OHPS-Stack/grounded-ai-practice">GitHub</a></li>
+        <li><button type="button" class="theme-toggle" id="theme-toggle" hidden>Theme: auto</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===================================================== workstation -->
+  <section class="band" aria-labelledby="ws-h">
+    <div class="container">
+      <span class="eyebrow">What I am building</span>
+      <h1 id="ws-h">A workstation that teaches its own use</h1>
+      <div class="prose">
+        <p>The research on this site keeps arriving at the same place. A
+        large company prepares before anyone types a question: the model
+        gets the firm's own documents, it is wired into the software
+        staff already use, and someone has decided what a person checks
+        before an answer is acted on. A small organisation gets the chat
+        window and none of that preparation. Meanwhile the national
+        training answer is counted in courses completed, and the number
+        of people who can actually do something afterwards is not
+        published.</p>
+        <p>So this is what I am building in response. An AI workstation
+        that sits on a small organisation's own premises. It runs models
+        on its own hardware, or splits the work between that hardware
+        and a paid service where the split makes sense. It carries
+        workflows built around the jobs that organisation actually has.
+        And it carries a tutor layer, which is the part I think matters
+        most.</p>
+      </div>
+
+      <aside class="callout mt">
+        <span class="icon-well"><img src="../assets/icons/information.svg" alt="" width="512" height="512"></span>
+        <div class="callout-body">
+          <p><strong>This is a hypothesis, and the page is written as
+          one.</strong> Nothing below has been proven end to end. The
+          machine exists and the plan is written; the software has not
+          been run on it yet. Where a step is untested, it says so.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ========================================================== ground -->
+  <section class="band band-tint" aria-labelledby="ground-h">
+    <div class="container">
+      <h2 id="ground-h">What it is built on</h2>
+      <div class="prose">
+        <p>Three claims, and deliberately not a fourth. A machine like
+        this will not out-think a frontier model running in somebody
+        else's data centre, and I am not going to argue that it does.
+        What it can offer is different.</p>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <span class="icon-well"><img src="../assets/icons/security_and_privacy.svg" alt="" width="512" height="512"></span>
+          <h3>The work stays in the building</h3>
+          <p>Client records, quotes, drawings, correspondence. When the
+          model runs on a machine in the office, none of it has to leave
+          to be useful.</p>
+        </div>
+        <div class="card">
+          <span class="icon-well"><img src="../assets/icons/monitoring_and_logs.svg" alt="" width="512" height="512"></span>
+          <h3>The cost is known in advance</h3>
+          <p>Hardware is bought once and the running cost is
+          electricity. There is no per-question meter, which makes a
+          small budget easier to plan against.</p>
+        </div>
+        <div class="card">
+          <span class="icon-well"><img src="../assets/icons/learning_and_documentation.svg" alt="" width="512" height="512"></span>
+          <h3>People get better at using it</h3>
+          <p>The machine is meant to teach as it works, so the
+          organisation ends up more capable rather than more dependent.
+          That is the tutor layer below.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================== tutor -->
+  <section class="band" aria-labelledby="tutor-h">
+    <div class="container">
+      <h2 id="tutor-h">The tutor layer</h2>
+      <div class="prose">
+        <p>A workstation that only serves models is a faster way to do
+        what people already half know how to do. It does not make anyone
+        better at the work. The tutor layer is the part meant to change
+        that.</p>
+        <p>It is the machine's own front end, and it holds the guidance
+        on using the thing properly rather than leaving that in a course
+        somebody took once. The intention is that it builds a picture of
+        each person over time, so what it offers fits who is asking.
+        Someone learns by logging on and asking, and the answer they get
+        is shaped by what they have already worked through. That is a
+        different shape from completing a course and returning to the
+        job unchanged.</p>
+        <p>I have not found anything else that bundles this with the
+        hardware. That is a statement about what I have looked at so
+        far, not a finding about the market.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================= progress -->
+  <section class="band band-tint" aria-labelledby="progress-h">
+    <div class="container">
+      <h2 id="progress-h">Where it has actually got to</h2>
+      <div class="prose">
+        <p>Before any of this goes in front of an organisation, it has
+        to run. The project's own desktop is the testbed, and it answers
+        three questions in order. The rule I work to is that a step
+        stays marked planned until it has been run on the machine, so
+        the statuses below are the real ones.</p>
+      </div>
+
+      <div class="card-grid mt">
+        <div class="card">
+          <span class="status status-ready">Testbed ready · not yet run</span>
+          <h3>Phase 1 — does owned hardware serve a useful model?</h3>
+          <p>An eight-core desktop with a 20&nbsp;GB graphics card,
+          running a model natively. The question is whether hardware I
+          already own answers at a speed someone would tolerate. A fixed
+          set of three prompts is written so every future run and every
+          future card can be compared against the same measure.</p>
+        </div>
+        <div class="card">
+          <span class="status status-planned">Planned</span>
+          <h3>Phase 2 — does it work as a deployable shape?</h3>
+          <p>The same capability, but as Linux containers that could be
+          stood up on a customer's machine rather than hand-installed
+          application by application. A thing that only works because I
+          set it up by hand is not a product.</p>
+        </div>
+        <div class="card">
+          <span class="status status-planned">Design only</span>
+          <h3>Phase 3 — is it good enough for real work?</h3>
+          <p>Capability is task-specific, so the honest test is a set of
+          jobs a small organisation would actually hand over. This phase
+          also carries the tutor layer, and it is deliberately held back
+          until phases one and two produce numbers.</p>
+        </div>
+      </div>
+
+      <div class="placeholder mt">
+        <span class="icon-well"><img src="../assets/icons/local_ai.svg" alt="" width="512" height="512"></span>
+        <div class="placeholder-body">
+          <span class="status status-planned">This section is coming</span>
+          <h3>The measurements, once the machine has actually run them</h3>
+          <p>When phase one runs, this is where the numbers land: the
+          models tried, the speed each returned at, memory used, and
+          where it stopped being usable. The same three prompts every
+          time, so a later run on different hardware is a fair
+          comparison rather than a fresh anecdote. The Intel Arc Pro
+          card described below gets the same treatment when it goes in,
+          and both sets of results are published whichever way they
+          fall.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== hardware -->
+  <section class="band" aria-labelledby="hw-h">
+    <div class="container">
+      <h2 id="hw-h">The hardware question</h2>
+      <div class="prose">
+        <p>How much graphics memory a card has decides which models will
+        run on it at all, and that single number drives most of the cost
+        of a machine like this. I researched the options at length
+        before spending anything, and the working document is in the
+        repository with every price dated and sourced.</p>
+        <p>The desktop currently holds an AMD card, so the first phases
+        exercise the AMD side of the open software stack. An Intel Arc
+        Pro B70 with 32&nbsp;GB is the card chosen to go in alongside
+        it, which is why the AMD phases are sequenced first: the two
+        cards share one usable slot. Intel's own software route for
+        these cards can only be tested on Intel hardware, so that
+        question stays open until the card is in and running.</p>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn-quiet" href="https://github.com/OHPS-Stack/grounded-ai-practice/blob/main/drafts/budget_vram_for_local_ai.md">The hardware research, in full</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================== honest -->
+  <section class="band band-warm" aria-labelledby="honest-h">
+    <div class="container">
+      <h2 id="honest-h">What is not settled</h2>
+      <div class="prose">
+        <p>Four things are genuinely open, and I would rather state them
+        here than have someone find them later.</p>
+        <p><strong>It is untested end to end.</strong> No part of the
+        deployment has been run on the target machine yet. The plan is
+        written and verified against the manufacturers' own
+        documentation; that is not the same as it working.</p>
+        <p><strong>The cost case has a threshold in it.</strong> My own
+        research on this found that below a certain level of use, paying
+        a cloud provider per question stays cheaper than buying and
+        running a machine. Owning the hardware wins on data locality and
+        on predictability well before it wins on price, and an honest
+        version of this offer has to say which of the three a given
+        organisation is actually buying.</p>
+        <p><strong>Nobody has shown that small organisations want
+        this.</strong> The gap in provision is evidenced and the pages
+        on this site set out that evidence. Whether firms would adopt an
+        on-premises machine, and what they would pay for it, is not
+        evidenced at all. It is recorded as an open question in the
+        project log rather than quietly assumed.</p>
+        <p><strong>The tutor layer is the least proven part of
+        it.</strong> It is also the part I think the whole idea rests
+        on, which is an uncomfortable combination and the reason phase
+        three exists.</p>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn" href="../evidence/">The evidence behind this</a>
+        <a class="btn-quiet" href="../contact/">Get in touch</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="foot-cols">
+      <div class="foot-mark">
+        <img src="../assets/logo_wordmark_reversed.svg" alt="Grounded AI Practice" width="963" height="358">
+      </div>
+      <nav aria-label="Repository and contact links">
+        <ul>
+          <li><a href="../contact/">Contact and business details</a></li>
+          <li><a href="https://github.com/OHPS-Stack/grounded-ai-practice">GitHub repository</a></li>
+          <li><a href="https://github.com/OHPS-Stack/grounded-ai-practice/blob/main/research_log.md">Research log</a></li>
+          <li><a href="https://github.com/OHPS-Stack/grounded-ai-practice/blob/main/project_brief.md">Project brief</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="legal">
+      <p>This site sets no cookies and loads nothing from third parties.
+      Its one script is the theme switch in the header, which stores your
+      choice on this device and sends nothing anywhere. Its host, GitHub
+      Pages, logs visitor IP addresses for security. See the
+      <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement">GitHub
+      privacy statement</a>.</p>
+      <p class="mt-s">Research and document production are AI-assisted,
+      with human review at every decision point.</p>
+      <p class="mt-s">Grounded AI Practice · Independent AI research and
+      practice · United Kingdom · Established 2026</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

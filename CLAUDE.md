@@ -1392,8 +1392,9 @@ attempt it unilaterally.
   `canonical` and `og:` URLs — change it there and rebuild, never in
   the generated HTML. The same DNS zone serves the project's mailbox,
   so the mail records are never touched. A
-  static site of five pages (home, evidence, method, system, about,
-  plus `404.html`), written in the creator's first person: no
+  static site of eight pages (home, evidence, workstation, learning,
+  method, system, about, contact, plus `404.html`), written in the
+  creator's first person: no
   framework, nothing loaded from a third party, and exactly one script
   — `theme.js`, the light/dark override, which the CSP admits via
   `script-src 'self'`. **Everything in `docs/` ending `.html` is

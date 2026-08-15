@@ -233,6 +233,20 @@ a:hover {
 
 .site-nav a:hover { text-decoration: underline; text-decoration-color: var(--ember); text-decoration-thickness: 2px; }
 
+/* The nav wraps rather than collapsing to a menu button, which keeps
+   the site script-free. Wrapping costs vertical space once there are
+   several pages, so below the tablet break the type and gaps tighten:
+   at 375px this is the difference between a header that takes a
+   quarter of the viewport and one that takes a seventh. */
+@media (max-width: 48rem) {
+  .site-header .container { padding-block: 0.7rem; gap: 0.5rem 1rem; }
+  .site-nav ul { gap: 0.15rem 1rem; }
+  .site-nav a { font-size: 0.9rem; }
+  .site-nav .btn { padding: 0.35rem 0.8rem; font-size: 0.9rem; }
+  .theme-toggle { padding: 0.15rem 0.55rem; font-size: 0.85rem; }
+  .brand img { height: 26px; }
+}
+
 /* The theme switch. Hidden until docs/theme.js reveals it, so a
    visitor without JavaScript never sees a button that does nothing. */
 .theme-toggle {
@@ -392,6 +406,81 @@ blockquote.pull footer {
 
 @media (max-width: 40rem) {
   .card-grid.rules { grid-template-columns: 1fr; }
+}
+
+/* Status chips carry their meaning in their own text ("Planned",
+   "Published"), so the border variation below is reinforcement rather
+   than the signal — nothing here depends on distinguishing a colour. */
+
+.status-live { border-color: var(--ember); }
+.status-ready { border-style: solid; }
+.status-planned { border-style: dashed; }
+
+/* -------------------------------------------------------- placeholders
+   Blocks for work that is planned but not built. They have to read as
+   deliberately unfinished at a glance, or a visitor takes a description
+   of an intention for a description of a thing that exists. Hence the
+   dashed edge and the hatch, both kept far below text contrast so the
+   copy inside stays as readable as any other block. */
+
+.placeholder {
+  display: flex;
+  gap: 1.1rem;
+  align-items: flex-start;
+  border: 2px dashed var(--hairline);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  background:
+    repeating-linear-gradient(
+      135deg,
+      transparent 0 11px,
+      color-mix(in srgb, var(--stone) 7%, transparent) 11px 12px
+    ),
+    color-mix(in srgb, var(--card) 55%, transparent);
+}
+
+.placeholder .icon-well { opacity: 0.85; }
+.placeholder .status { margin-bottom: 0.7rem; }
+.placeholder h3 { margin-bottom: 0.6rem; }
+.placeholder p { font-size: 0.97rem; max-width: 42rem; }
+
+@media (max-width: 34rem) {
+  .placeholder { flex-direction: column; gap: 0.9rem; }
+}
+
+/* ------------------------------------------------------------ identity
+   The business details block on the contact page. A definition list
+   rather than prose because the same facts have to be readable at a
+   glance by a person checking them against a form. */
+
+.identity {
+  max-width: 46rem;
+  border: 1px solid var(--hairline);
+  border-radius: 0.75rem;
+  background: var(--card);
+  padding: 1.6rem;
+}
+
+.identity-h { font-size: 1.15rem; margin-bottom: 0.4rem; }
+
+.identity-row {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: 0.25rem 1.25rem;
+  padding-block: 0.75rem;
+  border-top: 1px solid var(--hairline);
+}
+
+.identity-row dt {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.identity-row dd { overflow-wrap: anywhere; }
+
+@media (max-width: 34rem) {
+  .identity-row { grid-template-columns: 1fr; }
 }
 
 /* ---------------------------------------------------------- icon wells

@@ -6,10 +6,12 @@
   },
 
   "nav": [
-    { "page": "evidence", "href": "evidence/", "label": "The numbers" },
-    { "page": "method",   "href": "method/",   "label": "Method" },
-    { "page": "system",   "href": "system/",   "label": "The system" },
-    { "page": "about",    "href": "about/",    "label": "About" },
+    { "page": "evidence",    "href": "evidence/",    "label": "The numbers" },
+    { "page": "workstation", "href": "workstation/", "label": "Workstation" },
+    { "page": "learning",    "href": "learning/",    "label": "Learning" },
+    { "page": "method",      "href": "method/",      "label": "Method" },
+    { "page": "about",       "href": "about/",       "label": "About" },
+    { "page": "contact",     "href": "contact/",     "label": "Contact" },
     { "url": "https://github.com/OHPS-Stack/grounded-ai-practice", "label": "GitHub", "class": "btn" }
   ],
 
@@ -20,7 +22,7 @@
       "output": "index.html",
       "url": "",
       "title": "Grounded AI Practice — independent research on the UK's AI skills gap",
-      "description": "Independent research on the UK's AI skills gap, by someone who tried the official route first. What was promised, what the numbers show, and a better way to learn.",
+      "description": "Independent research on the UK's AI skills gap, by someone who tried the official route first. What was promised, what the numbers show, and the on-premises AI workstation being built in response.",
       "og_description": "What was promised, what the published numbers show, and whether anyone outside government can check them. Research in the open, sources included."
     },
     {
@@ -30,6 +32,22 @@
       "url": "evidence/",
       "title": "Counted in courses, promised in people — Grounded AI Practice",
       "description": "What the UK government promised on AI skills, what has actually been counted, and the number that would connect the two. Every source named, with whose interest it serves."
+    },
+    {
+      "slug": "workstation",
+      "fragment": "workstation.html",
+      "output": "workstation/index.html",
+      "url": "workstation/",
+      "title": "The workstation — an AI machine that teaches its own use — Grounded AI Practice",
+      "description": "A working hypothesis: an AI workstation on a small organisation's own premises, running models locally, carrying that organisation's own workflows, and teaching its own proper use. What is built, what is planned, and what is still unproven."
+    },
+    {
+      "slug": "learning",
+      "fragment": "learning.html",
+      "output": "learning/index.html",
+      "url": "learning/",
+      "title": "Learning units — Grounded AI Practice",
+      "description": "Short, practical units on using AI well: one skill at a time, tested with real learners before anything larger is built. What is drafted, what is planned, and what has been published so far."
     },
     {
       "slug": "method",
@@ -54,6 +72,14 @@
       "url": "about/",
       "title": "The story behind the project — Grounded AI Practice",
       "description": "Four years as a mechanic, an official training route that led to signup pages instead of skills, a first build that collapsed under its own complexity, and the method that came out of it."
+    },
+    {
+      "slug": "contact",
+      "fragment": "contact.html",
+      "output": "contact/index.html",
+      "url": "contact/",
+      "title": "Contact and business details — Grounded AI Practice",
+      "description": "Who runs Grounded AI Practice, where it is based, what it offers, and how to get in touch. Independent AI research and practical capability work for small organisations in the United Kingdom."
     }
   ]
 }
