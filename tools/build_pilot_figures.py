@@ -83,8 +83,9 @@ def _rasterise(svg_text, px_device):
     """SVG text -> PNG bytes at px_device square.
 
     vl-convert first (the chart layer's rasteriser, no processes spawned);
-    Inkscape second, discovered the way trace_reference.py does — the two
-    machines this repo runs on each have one of them, not both.
+    Inkscape second, discovered the way trace_reference.py does. A machine
+    may have either or both, and Inkscape is often installed without being
+    on PATH, which is why the search also checks Program Files.
     """
     try:
         import vl_convert as vlc

@@ -1993,8 +1993,10 @@ attempt it unilaterally.
   licence and the takedown fallback); identification, not endorsement,
   and never redrawn by hand. Rasterises the marks through
   `vl-convert-python` where present, else Inkscape, discovered the way
-  `trace_reference.py` finds it — the desktop has Inkscape and not
-  vl-convert, the laptop the reverse. Requires Python with Pillow, the
+  `trace_reference.py` finds it. Both paths are kept because a machine
+  may have either or both. Inkscape is also often installed without
+  being on `PATH`, so the search checks the default Program Files
+  locations as well. Requires Python with Pillow, the
   Public Sans faces, its sibling script, and one of the two
   rasterisers. Command-line by the Entry 049 decision.
 
