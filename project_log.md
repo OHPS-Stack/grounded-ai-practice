@@ -4807,3 +4807,107 @@ no external citation:
 - **Limitations / conflicting evidence:** Every figure here is vendor documentation read on one day, and the tiers are named by model generation, so a new model changes them. Nothing is verified against the API's own behaviour — the token-counting endpoint would do it and is not used, because that needs a key and a network call, which this tool deliberately does not have. `--metadata safe` covers EXIF only; XMP and IPTC blocks are not parsed, so a file carrying location in those alone would keep it. The Recycle Bin path is Windows-native and falls back to `send2trash` elsewhere, which is untested here.
 
 - **Effect on project direction:** `tools/prep_photos.py` is rewritten and re-indexed in `CLAUDE.md`. The token-cost arithmetic is also the clearest teaching material the project has produced for what an AI actually charges for an image, and is a candidate for the prompting curriculum's cost section — the before-and-after number needs no redaction.
+
+### Entry 092 — A security setting that lies about itself, and the photo tool rebuilt around explaining things
+
+- **Priority / Question:** Creator feedback on Entry 091's tool, from actually running it: it failed on a real folder, the window did not carry the features the log claimed, nothing explained itself, and the styling was generic. Plus two additions — other AI providers, and emphasis on the token saving.
+
+- **Source:** Session work, 2026-08-29. Provider limits read from vendor documentation, not recalled: `developers.openai.com/api/docs/guides/images-vision` and `ai.google.dev/gemini-api/docs/image-understanding`, alongside the Anthropic pages already logged in Entry 091.
+
+- **What happened:**
+
+  1. **The failure was Windows ransomware protection, and its error message actively misleads.** Controlled Folder Access is on, guarding Documents, Pictures and Desktop against programs it does not recognise. A blocked write does not report as a permission error. It reports as `[Errno 2] No such file or directory`, naming a path whose folder plainly exists, which sends the reader hunting for a missing file. Thirteen photos produced thirteen identical misleading lines. Reproduced deliberately: a one-byte write to the protected folder raises `FileNotFoundError errno=2`, the same write to Temp succeeds.
+
+  2. **The fix is a pre-flight check and a translation, not a workaround.** Every destination folder is tested before a single file is converted, so a blocked folder gives one clear explanation instead of one cryptic failure per photo. The tool names the two remedies — save elsewhere, or allow Python through in Windows Security — and **changes nothing itself**, because silently working around a security control the user switched on is not a bug fix.
+
+  3. **The window could not show the error even when it had it.** Its log pane was set to no-wrap with no horizontal scrollbar, so every message was clipped at the right edge. The one screenshot of the failure was unreadable past the drive letter, which is a reasonable summary of how much use it was.
+
+  4. **Testing had a hole exactly where the defect was.** Entry 091's checks all ran on synthetic JPEG and PNG files written into a scratch directory. The tool's primary input is HEIC from a phone, and its primary destination is a folder someone keeps photos in — neither was ever exercised. The images were fine; the *destination* was the untested variable, and no amount of image-format coverage would have found it.
+
+  5. **Other providers were added on the same argument as Claude.** OpenAI bills 32 px patches with a 1.2 multiplier against a 2500-patch budget; Gemini charges 258 tokens per 768 px tile, or 258 flat below 384 px. Both are computed from published formulas and both are marked *estimated* in the output, against Claude's *exact*, because Anthropic publish their resizing algorithm and the other two do not. The self-test now also asserts each vendor's own worked example. Gemini documents no hard dimension cap, so nothing is resized for it and the tool says that rather than inventing a limit.
+
+  6. **Every section of the window gained a `?` explaining itself in plain language** — what the control does, why it matters, and what to pick when unsure. None of them name a flag. This is the GUI rule's own logic carried one step further: a window exists so the tool is reachable without a terminal, and a control nobody can explain to themselves is one they will leave alone.
+
+  7. **The saving is now the headline rather than a log line.** A banner shows the percentage, the before-and-after token counts and a bar of what is actually sent. Where nothing can be saved the banner says the images already fit, rather than showing a large `0%`, which reads as a failure.
+
+- **Inference drawn:** An error message is part of a tool's interface, and a wrong one is worse than none — this one cost a real session and pointed at entirely the wrong thing. More generally, the defect was not in the code under test but in the environment the code was never tested in. Synthetic fixtures in a scratch directory test the logic and quietly assume the world; the one variable that mattered here was a security setting on the destination, which no fixture would have modelled.
+
+- **Limitations / conflicting evidence:** The OpenAI and Gemini figures are arithmetic from documentation with no API verification, and OpenAI's own page ties patch budgets to model families that will move. The Controlled Folder Access diagnosis is inferred from the shape of the failure — folder exists, read succeeds, write raises `FileNotFoundError` — so a different cause producing the same shape would be reported with the same wording. `diagnose()` covers the failure modes reproduced on this machine and no others. The window has been driven programmatically and captured, but not used by anyone other than its author.
+
+- **Effect on project direction:** `tools/prep_photos.py` is rewritten again and re-indexed in `CLAUDE.md`. Two things are candidate teaching material and need no redaction: the misleading-error case, which is a clean worked example of verifying what a message actually means rather than what it says, and the cross-provider token comparison, which makes the cost of an image concrete in a way no explanation has.
+
+### Entry 093 — The photo tool's window, rebuilt on use rather than on inspection
+
+- **Priority / Question:** A second round of creator feedback, all of it from having the window open: copy that read like a changelog, an error box referring to a message never shown, a help button that played the Windows *alert* sound, a token figure too small and overlapping itself, Explorer opening over the results, unclear progress, wrong date format, and a palette described as pale peach. Plus three additions — a progress bar, a light/dark toggle defaulting to dark, and cost in currency.
+
+- **Source:** Session work, 2026-08-29. Prices read from each vendor's own pricing page rather than recalled (`platform.claude.com/docs/en/about-claude/pricing`, `developers.openai.com`, `ai.google.dev/gemini-api/docs/pricing`); exchange rates dated 28/08/2026.
+
+- **What happened:**
+
+  1. **Help text had been written as release notes.** "The tool now says so plainly" tells a reader about a change they never saw, in a panel whose job is to explain a control. This file already carries the rule — state the current position, do not narrate how it changed — and it had been applied to repo documents and not to the interface, which is the one place a stranger reads. Rewritten in present tense throughout and cut by 37%, from 3,292 characters to 2,060.
+
+  2. **An error box referred to an error the reader had not been shown.** The pre-flight check runs *before* anything fails, so "it reports this as 'file not found', which is why the message looks wrong" pointed at nothing. The explanation of the misleading errno belongs in the docstring, where the person reading is the one maintaining the code; the dialog now states the cause and the two remedies in three lines.
+
+  3. **The help button played the system alert sound**, because `messagebox.showinfo` does. A button that reports nothing wrong should not sound like a failure, so help is a Toplevel: silent, and able to carry the palette.
+
+  4. **The headline figure overlapped itself, twice, in the same way.** Both attempts positioned text at coordinates tuned by eye; both were correct at one display scale and collided at another, because the fonts are larger when the process is DPI-aware. The fix was not better numbers but removing the assumption: every item is now placed from the measured extent of the one before it, and the panel's worst case is reserved once at startup so a preview cannot reflow the window. A collision check now runs over every theme, model, currency and saving level — 120 combinations.
+
+  5. **The layout also had to be measured rather than estimated.** The results pane sat below the bottom edge of the window on the actual screen, so the one thing a run produces was invisible. Measuring each row's required height against what the window could give found it exactly: 1,153 needed against 1,080 available, and the deficit was closed by folding one line of the panel, moving the progress label beside its bar, and shortening two lists.
+
+  6. **Opening Explorer on completion threw a window over the results.** It is now a button the reader presses.
+
+  7. **Dark is the default and the palette carries a toggle.** Sand had been used for every section head, which at that coverage reads as a wash of pale peach rather than the warm tint `project_brief.md` describes; it is now a selection tint only, and light mode uses Mist. The toggle rebuilds the window and copies the state across, the window being cheap to build and recolouring every widget in place meaning tracking every widget.
+
+  8. **Dates are day-first, and the filenames cannot match the display.** Shown dates are `DD/MM/YYYY`. Filenames cannot contain `/`, so the default writes `29-08-2026` — which **does not sort chronologically in a file browser**, the property the previous format had. That trade was stated rather than absorbed, `--date-format iso` restores it, and the manifest is now ordered by capture time regardless of the naming.
+
+  9. **Cost estimates are quoted at a named model per provider.** A tier holds several models at different prices, so an averaged figure would be uncheckable; the figure names the model it is for. Exchange rates are printed with their date on screen, because a converted price with an undated rate silently ages.
+
+- **Inference drawn:** Everything in this round came from the tool being used rather than inspected, and none of it would have surfaced from reading the code. The two failures worth carrying forward are of a kind: interface copy drifting into changelog voice, which the repo's own rule already forbids for documents and had never been applied to a user interface; and geometry tuned by eye, which passes at the scale it was tuned at and fails everywhere else. The fix in both cases was to remove a judgement rather than improve it — present tense by rule, positions by measurement.
+
+- **Limitations / conflicting evidence:** Prices and exchange rates are single-day figures that age from the moment they are written, and the tool can only date them, not refresh them. The cost figure ignores output tokens and any subscription, so it is the price of the upload and not of the conversation. The OpenAI and Gemini token counts remain estimates from published formulas. The collision check covers the drawn panels only — the rest of the layout is verified by measurement and by reading a screenshot, not by an assertion. And the window has still only been driven by its author.
+
+- **Effect on project direction:** `tools/prep_photos.py` and its `CLAUDE.md` entry updated. The DPI-scale overlap is worth adding to the geometry self-check rule when that rule is next revisited: this project's existing checks measure rendered *output* files, and a resizable interface needs the same treatment at more than one scale.
+
+### Entry 094 — Two visual defects the code could not see, and the same lesson a third time
+
+- **Priority / Question:** Creator feedback on the rebuilt window, both points visual: the header mark "looks like a clumsy boxed image upload", and the saving's bar "looks weird".
+
+- **Source:** Session work, 2026-08-29, from annotated screenshots.
+
+- **What happened:**
+
+  1. **The header had the wrong logo face.** The band is dark and the lead wordmark is Ink letterforms, so it had been given a pale plate to sit on — which reads as a screenshot pasted into the header rather than as the identity. The logo system already holds the answer: `logo_wordmark_reversed`, white letterforms with the Ember counters kept, made for exactly this ground. `tools/embed_logo.py` now emits that face as a fourth constant and the band carries it directly, plate gone.
+
+  2. **The saving's bar was one track with a caption inside it**, which reads as a progress bar that has stalled — particularly beside an actual progress bar sitting directly below it. Replaced with a stacked before/after pair: full-width muted for what the originals cost, Ember at the proportional width for what is now sent, tagged at the ends. No caption needed.
+
+  3. **The tags then overlapped, and the fix took three attempts, all the same mistake.** A 7pt label was assumed to be roughly 7px tall, then 12, then 15. It renders **19px** on a DPI-aware Windows process. Each guess passed inspection at the scale it was written at and failed the check. The rule had already been adopted for the rest of the panel and simply had not been applied here: place from the measured extent, never from an estimate of it. Printing the actual bounding boxes ended it in one pass.
+
+- **Inference drawn:** The check earns its keep by being run rather than by existing. It caught all three attempts, and the third only stopped because the numbers were finally read instead of adjusted — the collision report says *that* two items overlap, and printing the boxes says *why*, which is the difference between iterating and diagnosing. Both defects were also invisible from the code and obvious in a screenshot, which is the case for handing the window to someone who will use it.
+
+- **Limitations / conflicting evidence:** The collision check covers text against text on the two drawn panels. It does not check text against the bars, the tags against the canvas edge, or anything in the rest of the layout, all of which are still verified by reading a render. The 19px figure is this machine at this scaling and is an illustration of the problem, not a constant to rely on.
+
+- **Effect on project direction:** `tools/prep_photos.py`, `tools/embed_logo.py` and both `CLAUDE.md` entries updated. The DPI-scale point now sits in the tool's index entry, and remains the candidate addition to the geometry self-check rule noted in Entry 093: this project's existing checks measure rendered output files, and an interface needs the same treatment at more than one display scale.
+
+### Entry 095 — Repo audit and rule-extraction pass: a rule in the log is not a rule in force
+
+- **Priority / Question:** Both standing passes run together at the creator's direction: the scheduled repository audit (last run 2026-08-03, so overdue against its own monthly rule) and the periodic rule-extraction pass over machine-local memory.
+
+- **Source:** Session work, 2026-08-29. Tracked tree and all 105 commits of history scanned; six memory files under the current project path read in full.
+
+- **What happened:**
+
+  1. **The audit found one real defect and it was structural rather than sensitive.** `tools/gap_motion.py` was indexed in `CLAUDE.md` while still untracked, having arrived by file sync from the other machine mid-session along with its own index entry. Committing the index without the file would have published a broken reference; the file was verified first (it compiles, its own `--selftest` passes 36 checks) and committed with it. Checking the index in both directions is what caught it: every indexed path exists, and every tracked tool is indexed.
+
+  2. **Nothing else was found.** No private names, contact details, credentials or machine-specific absolute paths in tracked files. Across all 105 commits: no private marker, no `internal/` path, no credential-shaped string. The only email address in the tree is a published institutional FOI address in a document written to use it. Both hooks are present and installed.
+
+  3. **Two stale current-state claims were corrected** — the audit date and the extraction-pass date, both of which are the defect rather than the record, per the living-content tier.
+
+  4. **The extraction pass found two genuine gaps, and they share a shape.** `feedback-commit-on-request` had never reached `CLAUDE.md` at all. And the named AI prose tells sat in Entry 079 of this log — a dated historical record — rather than in the working rules, which is why they kept recurring in drafts through several sessions.
+
+  5. **Four memory files stay machine-local**, each on its own reasoning rather than by default: one by its own explicit terms, one because it names a private contact and points into `internal/`, one whose rule landed in 2026-08-09, and one whose subject — the paired-rewrite register session — Entry 079 records as agreed and which is still unrun, leaving that memory the live record of it.
+
+- **Inference drawn:** **A rule that lives only in the log is not in force.** The standing extraction task was written on the premise that machine-local memory does not travel between machines; this pass found the same failure one step further in, where the material had reached the repository but landed in the wrong file. `project_log.md` records what was decided on a date and is not read while drafting; `CLAUDE.md` is. Writing a finding into the log discharges the record and not the rule, and the prose tells recurring for sixteen days after being named is the evidence.
+
+- **Limitations / conflicting evidence:** The audit's second pass — an independent read by a different model — was not run, and has now been skipped on three consecutive audits, which makes it a standing gap rather than an occasional omission. The tracked-file scan is lexical: it finds a name, a marker or a path, and cannot judge whether a passage reads as a candid assessment. The history scan covers the current object graph, so anything unreachable is out of scope.
+
+- **Effect on project direction:** Two rules promoted into `CLAUDE.md` — a commit asked for without a review request, and the named prose tells with the constant-density caveat. Both status lines updated. `tools/gap_motion.py` tracked. The unrun second-model pass is the one thing this audit leaves open.

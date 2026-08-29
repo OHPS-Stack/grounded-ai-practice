@@ -872,6 +872,26 @@ as demonstrated to work.
   instinct at a smaller scale, and the same failure mode of applying a
   signature move at constant density.
 
+  **The other tells, named.** Promoted here 2026-08-29 from
+  `project_log.md` Entry 079, where they had been recorded and never
+  turned into a working rule — which is why they kept recurring. A
+  rejected draft carried five at once and they generalise: balanced
+  antithesis in every sentence ("X, not Y"); epigram closers; things
+  described where they could be named ("the one card that matches
+  them" for "an RTX 5090"); abstract nouns doing the acting ("the
+  subtitle argues"); and project shorthand ("research pass") in
+  outward text. Two more from the same feedback: a uniform two-beat
+  sentence rhythm, and colon-heavy construction. Prefer plain
+  sentences, concrete names, and paragraphs allowed to end without a
+  rhetorical turn.
+
+  **Read that as a list to vary, not a list to purge.** The Entry 061
+  lesson binds here exactly as it does above: any of these corrections
+  applied at constant density manufactures a new uniform style, which
+  is the defect rather than the cure. The list is also one session's
+  observation against one reader's judgement, so treat it as a prompt
+  to check a draft, not as a specification for one.
+
   **The site speaks in first person** (creator decision, 2026-08-07):
   one narrator on every page, the origin story leading, plain
   first-person procedure on the evidence and method pages. Voice-matching
@@ -1218,7 +1238,15 @@ Three passes, in order, because they catch different things:
    are the creator's alone.
 
 Record each audit's date and outcome in `project_log.md`. **Last audit:
-2026-08-03** (`project_log.md` Entry 048; found the private marker inside
+2026-08-29** (`project_log.md` Entry 095; index checked both ways — every
+indexed path exists and every tracked tool is indexed — after correcting
+one dangling entry, `tools/gap_motion.py` having been indexed while still
+untracked. No private names, contact details, credentials or
+machine-specific paths in tracked files; no marker, no `internal/` path
+and no credential-shaped string anywhere in 105 commits of history. Two
+stale status lines corrected. The independent second-model pass was again
+not run, which now stands unrun across three consecutive audits.)
+Previous: 2026-08-03 (`project_log.md` Entry 048; found the private marker inside
 the pre-commit hook itself, six days public across 17 of 33 commits —
 history rewritten, marker list moved out of tracked content, review gate
 adopted; two stale current-state claims corrected; no other findings. The
@@ -1258,6 +1286,23 @@ attempt it unilaterally.
   one-liner the user dictated directly). A go-ahead like "let's commit
   this" means prepare it, not execute it unreviewed — commits are
   semi-permanent and this repo may go public.
+
+- **A commit asked for without a review request is a decision, not an
+  oversight.** Adopted 2026-08-15, promoted into this file 2026-08-29.
+  "Commit this" with no request to see the message first means proceed;
+  stalling for a round the user has already waived spends a round trip
+  on something they have decided. Compensate by making the message
+  *shorter and safer* than it would otherwise be: a subject line, or a
+  subject plus two or three short bullets stating only what the diff
+  verifiably shows — no interpretation, and nothing that would need
+  retracting later.
+
+  **The content review gate above still applies in full**, because that
+  is the part protecting the repository rather than the wording. Read
+  the changes for private names, personal circumstances, credentials,
+  machine-specific paths and dangling references, and report anything
+  found rather than committing through it. A push still needs its own
+  explicit go-ahead unless it was given in the same breath.
 
 - **Commit messages follow one fixed format.** Adopted 2026-08-06 after
   an audit found five subject-line styles across the history (imperative,
@@ -1913,19 +1958,42 @@ attempt it unilaterally.
   capping the long edge does not satisfy it: until 2026-08-29 `--ai`
   capped at 1568 px and a 4:3 phone photo came out 1568×1176, costing
   2352 tokens against a budget of 1568 and so downscaled again on
-  arrival. `--tier standard|high|none` now resizes to the largest size
-  the tier actually accepts, computed with Anthropic's published
-  reference algorithm; `--selftest` asserts that maths against the
-  worked examples in their documentation, since a wrongly sized file is
-  a perfectly good image that fails silently. Every count printed is the
-  real cost of the file written, and `--dry-run` prices a batch before
-  anything is written.
+  arrival. `--model` now resizes to the largest size that model actually
+  accepts, computed with Anthropic's published reference algorithm;
+  `--selftest` asserts that maths against the worked examples in their
+  documentation, since a wrongly sized file is a perfectly good image
+  that fails silently. Every count printed is the real cost of the file
+  written, and `--dry-run` prices a batch before anything is written.
 
-  Presets: `--ai` is JPEG quality 85 at the standard tier; `--text` is
-  PNG at the high-resolution tier for documents, whiteboards and
-  screenshots, PNG because Anthropic's own guidance warns heavy JPEG
-  compression makes small text unreadable. Each of
-  `--format`/`--tier`/`--max-edge`/`--quality` overrides its preset.
+  **`--model` also covers other providers** (`openai`, `gemini`), added
+  2026-08-29 at the creator's direction, since the argument holds
+  wherever an image is sent. **Only the Claude figures are exact** —
+  Anthropic publish their resizing algorithm and the tool runs a port of
+  it; OpenAI (32 px patches ×1.2, 2500-patch budget) and Gemini (768 px
+  tiles at 258 tokens, 258 flat under 384 px) are computed from
+  published formulas, checked in `--selftest` against those vendors'
+  own worked examples, and labelled *estimated* in the output. Gemini
+  documents no hard dimension cap, so nothing is resized for it and the
+  tool says so rather than inventing a limit. `--model none` resizes
+  nothing and prints what the batch would cost on each provider.
+
+  Presets: `--ai` is JPEG quality 85; `--text` is PNG for documents,
+  whiteboards and screenshots, PNG because Anthropic's own guidance
+  warns heavy JPEG compression makes small text unreadable. Each of
+  `--format`/`--model`/`--max-edge`/`--quality` overrides its preset;
+  `--tier` still works as a hidden alias for the two Claude models.
+
+  **The error messages are the other half of the tool.** Windows
+  ransomware protection (Controlled Folder Access) guards Documents,
+  Pictures and Desktop and reports a blocked write as `[Errno 2] No such
+  file or directory`, which sends the reader hunting for a missing file
+  when the cause is a security setting — it defeated a real run on
+  2026-08-29 with thirteen identical misleading failures. Every
+  destination folder is now checked before anything is converted, and
+  `diagnose()` translates that case plus a file open elsewhere, a full
+  disk, a truncated image, a source moved since the scan, and an
+  over-long path. **The tool never changes the security setting**; it
+  names the two remedies and leaves the choice with the reader.
   The tool warns where a batch meets a published limit — 20 images per
   claude.ai message (100 per API request), the stricter 2000 px
   per-image rule on API requests holding more than 20, and the 10 MB
@@ -1953,8 +2021,46 @@ attempt it unilaterally.
   every file it writes as an integrity check. `-o` collects output into
   one folder, `--recurse` descends. Run with no arguments (or `--gui`)
   for the windowed interface over the same code — per the GUI rule under
-  Working approach; the window carries the three presets and the three
-  options, and asks before deleting anything. Default (no preset) output
+  Working approach. The window was rebuilt 2026-08-29 at the creator's
+  direction: a dark header band, five bordered cards each with a **`?`
+  button explaining that section in plain language** rather than flag
+  names, the provider dropdown, and the saving drawn as a headline
+  figure with the money beside it (`55% fewer tokens · 59,481 → 27,045 ·
+  £0.22 → £0.10`) because a line buried in a log is not an emphasis. A
+  drawn progress bar reports a run, and the saving's own bar is a
+  stacked before/after pair — one track with a caption sitting in its
+  empty half read as a stalled progress bar. **It opens dark and carries
+  a light/dark toggle**; light uses Mist for section heads, Sand having
+  been demoted to a selection tint after the peach wash it produced at
+  full coverage. The header band carries the **reversed** wordmark
+  directly, since the Ink face needs a pale plate on a dark ground and a
+  plate reads as a boxed image dropped onto the header;
+  `tools/embed_logo.py` now emits both faces. Help panels are Toplevels, not `messagebox.showinfo`,
+  which plays the system *alert* sound on a button that reports nothing
+  wrong. Its log pane wraps, since an earlier one clipped long error
+  messages at the right edge with no way to read them.
+
+  **Nothing in either drawn panel is positioned by a hard-coded pixel** —
+  every item is placed from the measured extent of the one before it,
+  and the panel's worst case is reserved once at startup so a preview
+  cannot reflow the window. Coordinates tuned by eye overlapped at a
+  different display scale three times before that: **a 7pt label renders
+  19px tall on a DPI-aware Windows process**, so guessed pitches of 10px
+  and then 15px both collided, and only asking Tk for the bounding box
+  settled it. The collision check runs over every theme × model ×
+  currency × saving-level combination — 120 in all.
+
+  Dates shown to a person are `DD/MM/YYYY`. Filenames cannot contain
+  `/`, so `--date-format uk` (the default, 2026-08-29) writes
+  `29-08-2026`; **that order does not sort chronologically in a file
+  browser** and `--date-format iso` restores the year-first form for
+  anyone who wants a self-sorting folder. The manifest is ordered by
+  capture time regardless. `--currency` (GBP default, also USD and EUR)
+  turns the token counts into money at each vendor's published
+  input-token price, quoted at **one named model per provider** because
+  a tier holds several at different prices and a named price can be
+  checked where an average cannot; exchange rates are dated on screen
+  and `--fx`/`--price` replace either number. Default (no preset) output
   is full-size PNG — several times the source size for photographs.
   Requires Python with Pillow; pillow-heif (`pip install pillow-heif`,
   wheel bundles libheif) only when HEIC is among the inputs. **The
@@ -2200,6 +2306,66 @@ attempt it unilaterally.
   otherwise lacks on machines without Inkscape. A library, not a
   command.
 
+- `tools/gap_motion.py` — the motion layer, and the third way this repo
+  draws. `build_server_guide_figures.py` draws one picture and
+  `gap_chart.py` draws one plot; this one calls a `draw(d, t)` function
+  once per frame and encodes the result. It draws nothing itself, which
+  is the point: frames come from the existing helpers, so the palette,
+  Public Sans and the logical grid are inherited rather than
+  reimplemented. Added 2026-08-29.
+
+  **Remotion was the obvious answer and was rejected on fit.** It is
+  React, TypeScript and a Chrome Headless Shell downloaded into
+  `node_modules`, against a repo with no JavaScript build step; its
+  licence is free for an individual and for a non-profit of any size,
+  so the threshold is not the objection. Motion Canvas was the closer
+  call — MIT, no threshold, built for explanatory animation — but
+  headless rendering is an open request upstream and its model is a
+  human at an interactive editor, which Claude cannot see. The route
+  taken was the one already here.
+
+  Five self-checks, the first four blocking. `check_motion` refuses a
+  clip whose frames are all identical, which is what a `t` accepted and
+  never used produces: a valid video of a still image, with nothing to
+  notice until someone watches it. `check_dimensions` refuses odd pixel
+  dimensions, because H.264 at `yuv420p` cannot represent an odd edge
+  and `imageio-ffmpeg` otherwise resizes silently to a multiple of 16.
+  `check_duration` refuses a clip under the target platform's floor.
+  `check_persistence` is the source-line rule made enforceable — a
+  moving image breaks it quietly, since a line drawn for six frames of
+  a six-second clip passes any single-frame check and attributes
+  nothing; it asserts ink in a named region in **every** frame, and its
+  honest limit is that it verifies something is drawn there, not that
+  the something is right. `check_tail` is advisory and flags a clip
+  still running after the motion stopped.
+
+  `contact_sheet` is not a check but what makes checking possible:
+  sampled frames tiled into one labelled PNG, so a clip can be read in
+  a single image. Same move as `--sheet` in `gap_icon.py`, and it
+  earned itself immediately — the dead tail on the first demo render
+  was visible in the sheet before `check_tail` existed. The blocking
+  checks were verified by breaking a good clip four ways and confirming
+  each is refused while a control still writes; that pass found a
+  defect in the module rather than the clips, the persistence check
+  having been wired to fire only when `render` drew the source line
+  itself, so a caller drawing its own attribution got no check and no
+  warning that none had run.
+
+  Frames go to disk, not a list: 180 frames of a 1080x1080 clip is half
+  a gigabyte held in memory for no gain, and written-out frames stay
+  inspectable, which is the render-inspect-fix loop rather than an
+  obstacle to it. `PROFILES` carries the feed sizes and the 3-second
+  LinkedIn floor **from secondary sources read 2026-08-29, not from
+  LinkedIn's own pages** — vendor tier under the source-scope rule, and
+  flagged as such in the file; verify before publishing. Requires
+  Python with Pillow, the Public Sans faces, and
+  `build_server_guide_figures.py` beside it. GIF and WebP need nothing
+  more; MP4 needs `imageio-ffmpeg`, whose wheel carries a static ffmpeg
+  so no system install is required. `--selftest` asserts the easing and
+  check logic; `--demo` renders a clip that claims nothing.
+  Command-line by the Entry 049 decision — a build step, not a
+  learner-facing tool.
+
 - `tools/build_vram_figures.py` — the figures for
   `drafts/budget_vram_for_local_ai.md`, and the first built on
   `gap_chart.py`: a scatter of price against capacity, coloured by
@@ -2389,7 +2555,10 @@ attempt it unilaterally.
   (or first inserts, or refreshes) the `LOGO_*_PNG` constants in a
   target script from the canonical exports in `assets/logo/png/` —
   wordmark resized for the header (default 180 px, kept above the
-  wordmark's ~160 px minimum usable width), symbol at its native 64 and
+  wordmark's ~160 px minimum usable width), **the reversed wordmark
+  alongside it** (added 2026-08-29, for a tool whose header band is
+  dark: the Ink face needs a pale plate there, and a plate reads as a
+  boxed image dropped onto the header), symbol at its native 64 and
   32 px for the title bar. Tk decodes base64 PNG natively, so a patched
   tool gains no imports. Python targets get triple-quoted constants,
   inserted above `__main__` if absent; PowerShell targets get
@@ -2513,6 +2682,27 @@ files are machine-specific and don't travel between machines (desktop vs.
 laptop) or reliably resurface from old conversation logs — the repo is the
 one place guaranteed to travel with the project. Applies in every session
 working in this repo, not just the one that first set this up.
+**Last run: 2026-08-29.** Six memory files under the current project
+path — fewer than the nineteen counted on 2026-08-15 because the memory
+system has since consolidated them, not because any were lost. Four are
+correctly machine-local and stay: `public-guidance-wording` by its own
+explicit terms; a voice-reference memory that names a private contact
+and points into `internal/`;
+`feedback-teach-in-house-style`, whose rule landed as the markdown-first
+lessons rule of 2026-08-09, its one loose element being
+interaction-level; and `feedback-prose-register-ai-tells`, whose
+paired-rewrite session `project_log.md` Entry 079 records as agreed is
+still unrun, so that memory remains the live record of it.
+**Two genuine gaps, both promoted above.** `feedback-commit-on-request`
+had never reached this file, leaving the git conventions saying only
+that a message is drafted for review — now paired with what a waived
+review means and what compensates for it. And the named prose tells sat
+in `project_log.md` Entry 079, a dated historical record, rather than in
+the working rules, which is why they kept recurring: **a rule that lives
+only in the log is not in force.** That is a sharper form of this
+standing task's own premise, which until now was about memory files not
+travelling between machines.
+Previous line, kept for the record:
 **Last run: 2026-08-15.** Nineteen memory files under the current
 project path, one more than the last pass counted. Seventeen are
 already captured here, or correctly machine-local on the reasoning the

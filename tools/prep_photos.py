@@ -19,13 +19,36 @@ not a format conversion. Live Photo .mov companions and video are ignored.
 
 The window
 ----------
-Run with no arguments (or --gui) and a small window opens instead of the
-command line: pick photos or a folder, type the naming word, choose a
-preset, preview the new names, convert. It drives exactly the same
-functions as the command line — the window exists so the tool is reachable
-without a terminal, not as a different tool — and it exposes only the
-decisions a person actually makes; every finer control below stays
-command-line on purpose.
+Run with no arguments (or --gui) and a window opens instead of the command
+line: pick photos or a folder, name them, choose which AI they are going
+to, preview, convert. It drives exactly the same functions as the command
+line — the window exists so the tool is reachable without a terminal, not
+as a different tool — and it exposes only the decisions a person actually
+makes; every finer control below stays command-line on purpose.
+
+Each of the five sections carries a "?" button explaining what that
+section does and why it matters, in plain language rather than flag
+names. Those panels are Toplevels rather than messagebox.showinfo, which
+plays the system alert sound - wrong for a button that reports nothing
+wrong. The saving is drawn as a headline figure with the money beside it,
+because the reduction is the reason to use the tool at all, and a drawn
+progress bar reports a run in place of a scrolling log.
+
+It opens dark and carries a light/dark toggle in the header, whose band
+uses the reversed wordmark - white letterforms on the dark ground. The
+Ink wordmark would need a pale plate behind it, and a plate on a dark
+band reads as a boxed image dropped onto the header rather than as the
+identity. tools/embed_logo.py generates both faces.
+
+Nothing in either panel is positioned by a hard-coded pixel: every item
+is placed from the measured extent of the one before it, because
+coordinates tuned by eye at one display scale overlap at another - which
+happened three times before the rule was applied properly. A 7pt label
+renders 19px tall on a DPI-aware Windows process, so guessed pitches of
+10px and then 15px both collided; asking Tk is the only reliable answer.
+The saving is shown as a stacked before/after pair rather than one track,
+because a single bar with a caption sitting in its empty half reads as a
+progress bar that has stalled.
 
 Sizing for the model, not for the disk
 --------------------------------------
@@ -45,22 +68,58 @@ which costs 56 x 42 = 2352 tokens against a budget of 1568, so it is
 downscaled again on arrival — to 1270x952. An earlier version of this tool
 did exactly that, and shipped a third more pixels than any model kept.
 
-So --tier resizes to the largest size the tier actually accepts, computed
-with Anthropic's published reference algorithm rather than by capping an
-edge. --selftest asserts that maths against the worked examples in their
-documentation, because a wrongly sized file looks perfectly fine and fails
-silently. Every count the tool prints is the real cost of the file it
-wrote: --dry-run prices a batch before anything is written.
+So --model resizes to the largest size that model actually accepts,
+computed with Anthropic's published reference algorithm rather than by
+capping an edge. --selftest asserts that maths against the worked examples
+in their documentation, because a wrongly sized file looks perfectly fine
+and fails silently. Every count the tool prints is the real cost of the
+file it wrote: --dry-run prices a batch before anything is written.
+
+Other providers
+---------------
+--model also takes `openai` and `gemini`, because the same argument holds
+wherever you send an image, and the numbers differ enough to matter:
+
+    claude-standard  28 px patches, 1568 px / 1568 tokens
+    claude-high      28 px patches, 2576 px / 4784 tokens
+    openai           32 px patches x1.2, 2500-patch budget at high detail
+    gemini           768 px tiles at 258 tokens, or 258 flat under 384 px
+
+**Only the Claude figures are exact.** Anthropic publish their resizing
+algorithm and this tool runs a port of it, checked against their own worked
+examples. The OpenAI and Gemini numbers are computed from published
+formulas and are close estimates — the self-test checks them against the
+worked examples those vendors give, which is as far as arithmetic can go
+without an API key. Gemini documents no hard dimension cap, so nothing is
+resized for it and the tool says so rather than inventing a limit.
+
+With --model none the tool resizes nothing and prints what the batch would
+cost on each provider, which is the cheapest way to see the difference.
+
+When it will not write
+----------------------
+Windows ransomware protection (Controlled Folder Access) guards Documents,
+Pictures and Desktop, and blocks programs it does not recognise. It
+reports a blocked write as **"[Errno 2] No such file or directory"** — a
+message that sends you looking for a missing file when the real problem is
+a security setting. The tool checks every destination folder before
+converting anything and explains that specific case, because otherwise one
+blocked folder produces one identical, misleading failure per photo, which
+is exactly what it did. The remedy is to save elsewhere, or to allow
+Python through in Windows Security; the tool never changes that setting.
+diagnose() covers the other likely failures — a file open in another
+program, a full disk, a truncated image, a source that moved since the
+scan, a path too long for Windows.
 
 Presets and limits
 ------------------
---ai      JPEG at quality 85, standard tier. The everyday case.
---text    PNG (lossless, so small writing survives), high-resolution tier
-          — for documents, whiteboards and screenshots. Anthropic's own
-          guidance warns that heavy JPEG compression makes text hard to
-          read, which is the whole reason this preset is not just --ai.
+--ai      JPEG at quality 85. The everyday case, for photographs.
+--text    PNG (lossless, so small writing survives) — for documents,
+          whiteboards and screenshots. Anthropic's own guidance warns that
+          heavy JPEG compression makes text hard to read, which is the
+          whole reason this preset is not just --ai.
 
-Each of --format, --tier, --max-edge and --quality overrides its preset.
+Each of --format, --model, --max-edge and --quality overrides its preset.
 The tool also warns where a batch meets a published limit: 20 images per
 message on claude.ai (100 per API request), the stricter 2000 px per-image
 rule that applies to API requests holding more than 20 images, and the
@@ -120,18 +179,42 @@ works with Pillow alone. The window needs tkinter, which ships with
 Python on Windows. Note that Claude accepts JPEG, PNG, GIF and WebP only —
 HEIC, TIFF, BMP and AVIF have to be converted, which is this tool's job.
 
-Limits and figures are from platform.claude.com/docs/en/build-with-claude/
-vision and .../vision-coordinates, read 2026-08-29. They move; re-read them
+Limits and figures are vendor documentation read 2026-08-29:
+platform.claude.com/docs/en/build-with-claude/vision and
+.../vision-coordinates; developers.openai.com/api/docs/guides/images-vision;
+ai.google.dev/gemini-api/docs/image-understanding. They move; re-read them
 before trusting the numbers, and re-run --selftest after any change.
+
+Dates, and why the filenames are not what they show
+---------------------------------------------------
+Dates shown to a person are DD/MM/YYYY. Filenames cannot contain "/", so
+--date-format uk (the default) writes 29-08-2026, which reads the way UK
+dates are written. **That order does not sort chronologically in a file
+browser**, which the year-first form does, so --date-format iso is there
+for anyone who wants a folder that sorts itself. The manifest is always
+ordered by capture time regardless, since the ordering is its whole job.
+
+What it costs
+-------------
+--currency turns the token counts into money (GBP by default, also USD
+and EUR) using each vendor's published input-token price. Two honesty
+notes carried into the output itself: the figure is quoted at one named
+model per provider, since a tier holds several at different prices and a
+named price can be checked where an average cannot; and the exchange
+rates are dated on screen, because they move daily. --fx and --price
+replace either number.
 
 Usage
 -----
     python tools/prep_photos.py                    # no arguments: the window
     python tools/prep_photos.py C:\imports --label whiteboard --ai
     python tools/prep_photos.py C:\scans --label contract --text --manifest
-    python tools/prep_photos.py C:\imports --ai --dry-run    # price it first
+    python tools/prep_photos.py C:\imports --ai --model openai
+    python tools/prep_photos.py C:\imports --model none --dry-run  # compare
     python tools/prep_photos.py C:\imports --ai --delete-originals
     python tools/prep_photos.py IMG_4232.HEIC shot.webp -o C:\out
+    python tools/prep_photos.py C:\imports --ai --currency USD
+    python tools/prep_photos.py C:\imports --ai --date-format iso
     python tools/prep_photos.py --selftest         # check the sizing maths
 """
 
@@ -146,6 +229,7 @@ from datetime import datetime
 from pathlib import Path
 
 from PIL import Image, ImageOps, features
+from PIL import UnidentifiedImageError
 
 try:
     from pillow_heif import register_heif_opener
@@ -179,8 +263,177 @@ CLAUDE_AI_PER_MESSAGE = 20   # images per message on claude.ai
 MANY_IMAGE_EDGE = 2000       # per-image edge cap once a request holds >20
 MAX_UPLOAD_MB = 10           # per image, claude.ai and the API direct
 
-OWN_OUTPUT = re.compile(r"\d{4}-\d{2}-\d{2}_[a-z0-9_]+_\d{2,}\.(png|jpg)",
-                        re.IGNORECASE)
+OPENAI_PATCH = 32        # developers.openai.com/api/docs/guides/images-vision
+OPENAI_MULTIPLIER = 1.2  # current GPT-5.x families bill 1.2x the patch count
+OPENAI_BUDGET = 2500     # patch budget at "high" detail on budgeted models
+GEMINI_TILE_TOKENS = 258     # ai.google.dev/gemini-api/docs/image-understanding
+GEMINI_SMALL_EDGE = 384      # both sides at or under this: one flat charge
+GEMINI_CROP_DIVISOR = 1.5    # crop unit is the short side over 1.5
+
+
+def _claude_count(w, h):
+    return -(-w // PATCH) * -(-h // PATCH)
+
+
+def _openai_count(w, h):
+    patches = -(-w // OPENAI_PATCH) * -(-h // OPENAI_PATCH)
+    return round(patches * OPENAI_MULTIPLIER)
+
+
+def _ceil(value):
+    """Ceiling of a float, without dragging in math for three call sites."""
+    whole = int(value)
+    return whole if whole == value else whole + 1
+
+
+def _gemini_count(w, h):
+    """Gemini charges 258 tokens a tile, or 258 flat for a small image."""
+    if w <= GEMINI_SMALL_EDGE and h <= GEMINI_SMALL_EDGE:
+        return GEMINI_TILE_TOKENS
+    crop = max(min(w, h) / GEMINI_CROP_DIVISOR, 1)
+    return _ceil(w / crop) * _ceil(h / crop) * GEMINI_TILE_TOKENS
+
+
+def _openai_fit(w, h):
+    """Largest aspect-preserving size inside OpenAI's high-detail budget."""
+    return _budget_fit(w, h, OPENAI_PATCH, OPENAI_BUDGET)
+
+
+def _budget_fit(w, h, patch, budget):
+    if -(-w // patch) * -(-h // patch) <= budget:
+        return w, h
+    if h > w:
+        tall_h, tall_w = _budget_fit(h, w, patch, budget)
+        return tall_w, tall_h
+    aspect = w / h
+    lo, hi = 1, w
+    while lo + 1 < hi:
+        mid = (lo + hi) // 2
+        short = max(round(mid / aspect), 1)
+        if -(-mid // patch) * -(-short // patch) <= budget:
+            lo = mid
+        else:
+            hi = mid
+    return lo, max(round(lo / aspect), 1)
+
+
+# The models the tool can size for. `fit` returns the size the provider will
+# actually keep, or None where the provider documents no hard limit and
+# resizing is the user's own tradeoff rather than a rule. `exact` marks the
+# one provider whose own reference algorithm is published and ported here;
+# the others are computed from published formulas and are good estimates.
+MODELS = {
+    "claude-standard": {
+        "label": "Claude - Sonnet 4.5, Haiku 4.5 and earlier",
+        "short": "Claude (standard)",
+        "count": _claude_count,
+        "fit": lambda w, h: fit_to_tier(w, h, *TIERS["standard"]),
+        "formats": ("JPEG", "PNG", "GIF", "WebP"),
+        "per_message": CLAUDE_AI_PER_MESSAGE,
+        "max_mb": MAX_UPLOAD_MB,
+        "exact": True,
+        "note": "1568 px longest edge, 1568 visual tokens",
+    },
+    "claude-high": {
+        "label": "Claude - Opus 5, Sonnet 5 and 4.7 (high resolution)",
+        "short": "Claude (high resolution)",
+        "count": _claude_count,
+        "fit": lambda w, h: fit_to_tier(w, h, *TIERS["high"]),
+        "formats": ("JPEG", "PNG", "GIF", "WebP"),
+        "per_message": CLAUDE_AI_PER_MESSAGE,
+        "max_mb": MAX_UPLOAD_MB,
+        "exact": True,
+        "note": "2576 px longest edge, 4784 visual tokens",
+    },
+    "openai": {
+        "label": "ChatGPT / OpenAI - GPT-5 family",
+        "short": "ChatGPT",
+        "count": _openai_count,
+        "fit": _openai_fit,
+        "formats": ("JPEG", "PNG", "GIF", "WebP"),
+        "per_message": None,
+        "max_mb": None,
+        "exact": False,
+        "note": "32 px patches, 2500-patch budget at high detail",
+    },
+    "gemini": {
+        "label": "Google Gemini",
+        "short": "Gemini",
+        "count": _gemini_count,
+        "fit": None,          # no hard cap documented: resizing is a choice
+        "formats": ("JPEG", "PNG", "WebP", "HEIC", "HEIF"),
+        "per_message": None,
+        "max_mb": None,
+        "exact": False,
+        "note": "768 px tiles at 258 tokens each",
+    },
+}
+# Input-token prices, USD per million, from each vendor's own pricing page
+# read 2026-08-29. A tier holds several models at different prices, so each
+# entry names the one model its figure is for: a reader can check a named
+# price and cannot check an averaged one. Override with --price.
+#   Claude   platform.claude.com/docs/en/about-claude/pricing
+#   OpenAI   developers.openai.com/api/docs/pricing
+#   Gemini   ai.google.dev/gemini-api/docs/pricing
+PRICES = {
+    "claude-standard": (3.00, "Sonnet 4.5"),
+    "claude-high": (5.00, "Opus 5"),
+    "openai": (5.00, "GPT-5.6 Sol"),
+    "gemini": (0.75, "Gemini 3.7 Flash"),
+}
+
+# Rates recorded 2026-08-28; they move daily, so the tool dates them wherever
+# it shows money and --fx replaces the number. USD is the base because every
+# vendor publishes in it.
+FX_DATE = "28/08/2026"
+CURRENCIES = {
+    "GBP": ("£", 0.7321),
+    "USD": ("$", 1.0),
+    "EUR": ("€", 0.8620),
+}
+DEFAULT_CURRENCY = "GBP"
+
+
+def money(tokens, model, currency=DEFAULT_CURRENCY, rate=None, price=None):
+    """What `tokens` input tokens cost, as a rendered string, or None.
+
+    Deliberately returns a string with its own precision: at these prices a
+    batch of photos costs fractions of a penny, and a figure rounded to two
+    decimal places would read "£0.00" and teach the reader nothing.
+    """
+    if not model or model not in PRICES:
+        return None
+    per_mtok = price if price is not None else PRICES[model][0]
+    symbol, default_rate = CURRENCIES.get(currency, ("", 1.0))
+    amount = (tokens / 1_000_000) * per_mtok * (default_rate if rate is None
+                                                else rate)
+    if amount >= 1:
+        return f"{symbol}{amount:,.2f}"
+    if amount >= 0.01:
+        return f"{symbol}{amount:.2f}"
+    if amount >= 0.0001:
+        return f"{symbol}{amount:.4f}"
+    return f"under {symbol}0.0001"
+
+
+def priced_as(model):
+    """The model name a cost figure is quoted at, for showing beside it."""
+    return PRICES[model][1] if model in PRICES else ""
+
+DEFAULT_MODEL = "claude-high"
+TIER_ALIAS = {"standard": "claude-standard", "high": "claude-high"}
+
+# Either date order counts as this tool's own output, so a folder prepared
+# under one setting is still skipped after the setting changes.
+OWN_OUTPUT = re.compile(
+    r"(\d{4}-\d{2}-\d{2}|\d{2}-\d{2}-\d{4})_[a-z0-9_]+_\d{2,}\.(png|jpg)",
+    re.IGNORECASE)
+# Filenames cannot contain "/", so the day-first setting uses hyphens. It
+# reads the way UK dates are written; the ISO setting sorts chronologically
+# in a file browser, which day-first cannot.
+DATE_FORMATS = {"uk": "%d-%m-%Y", "iso": "%Y-%m-%d"}
+DEFAULT_DATE_FORMAT = "uk"
+DISPLAY_DATE = "%d/%m/%Y"        # dates shown to a person, never in a name
 EXIF_IFD = 0x8769          # pointer to the EXIF sub-IFD, where capture time lives
 DATETIME_ORIGINAL = 36867  # capture time (sub-IFD)
 DATETIME = 306             # file-level timestamp (IFD0)
@@ -202,6 +455,25 @@ PAPER = "#F9F9F9"       # main background
 MIST = "#EFEEED"        # secondary background: neutral buttons, borders
 SAND = "#F9E8DC"        # warm tint: hover and selections
 STONE = "#6E6E6E"       # neutral grey: hints and secondary text
+
+# Two palettes over the one brand. Dark is the default at the creator's
+# direction: the light scheme leaned on Sand for section heads and read as a
+# wash of pale peach across the whole window. Sand is now a selection tint
+# only, which is the role project_brief.md gives it.
+THEMES = {
+    "dark": {"ground": "#1B1815", "card": "#262220", "head": "#332D29",
+             "text": "#F4F1EE", "muted": "#9E958D", "line": "#3B3430",
+             "field": "#151211", "btn": "#3A3430", "btn_active": "#4A423C",
+             "track": "#151211", "select": "#4A3A34", "band": "#131110",
+             "band_text": "#FFFFFF", "band_muted": "#9E958D"},
+    "light": {"ground": PAPER, "card": "#FFFFFF", "head": MIST,
+              "text": INK, "muted": STONE, "line": "#E4E1DE",
+              "field": "#FFFFFF", "btn": MIST, "btn_active": SAND,
+              "track": "#FFFFFF", "select": SAND, "band": INK,
+              "band_text": "#FFFFFF", "band_muted": "#B9B2AC"},
+}
+DEFAULT_THEME = "dark"
+
 
 
 def snake_case(text):
@@ -243,34 +515,102 @@ def fit_to_tier(width, height, max_edge, max_tokens):
     return lo, max(round(lo / aspect), 1)
 
 
-def target_size(width, height, tier, max_edge=None):
-    """Final pixel size for one image: the manual cap first, then the tier."""
+def target_size(width, height, model, max_edge=None):
+    """Final pixel size for one image: the manual cap first, then the model."""
     if max_edge and max(width, height) > max_edge:
         scale = max_edge / max(width, height)
         width = max(round(width * scale), 1)
         height = max(round(height * scale), 1)
-    if tier:
-        width, height = fit_to_tier(width, height, *TIERS[tier])
+    fit = MODELS[model]["fit"] if model else None
+    if fit:
+        width, height = fit(width, height)
     return width, height
 
 
+def token_cost(width, height, model):
+    """Tokens this size costs on one model, or None if no model is chosen."""
+    return MODELS[model]["count"](width, height) if model else None
+
+
+def diagnose(exc, src=None, dest=None):
+    """Turn an exception into a sentence someone can act on.
+
+    Every branch here is a failure mode seen or reproduced on this machine,
+    not a guess at what might go wrong. The first is the reason this
+    function exists: Windows ransomware protection reports a blocked write
+    as "no such file or directory", so the honest error is actively
+    misleading and the tool has to translate it.
+    """
+    folder = Path(dest).parent if dest else None
+    if isinstance(exc, FileNotFoundError):
+        if folder and folder.is_dir():
+            return ("Windows ransomware protection is blocking writes to "
+                    "this folder.\n\nSave the copies somewhere else, or "
+                    "allow Python through Controlled folder access in "
+                    "Windows Security.")
+        if src and not Path(src).exists():
+            return "the original has moved or been deleted since the scan"
+        if folder:
+            return f"the folder {folder} does not exist"
+    if isinstance(exc, PermissionError):
+        return ("the file is open in another program, or is marked "
+                "read-only")
+    if isinstance(exc, OSError) and getattr(exc, "errno", None) == 28:
+        return "the disk is full"
+    if isinstance(exc, OSError) and "truncated" in str(exc).lower():
+        return "the image is damaged or was only partly copied"
+    if isinstance(exc, UnidentifiedImageError):
+        return "this is not an image the tool can read, whatever its name says"
+    if isinstance(exc, MemoryError):
+        return "the image is too large to fit in memory"
+    if dest and len(str(Path(dest).resolve())) > 255:
+        return ("the full path is too long for Windows; save into a folder "
+                "nearer the top of the drive")
+    return str(exc)
+
+
+def writable(folder):
+    """None if files can be written to `folder`, else why they cannot.
+
+    Run before converting anything: without it a blocked folder produces
+    one identical cryptic failure per photo, which is what it did.
+    """
+    folder = Path(folder)
+    if not folder.exists():
+        try:
+            folder.mkdir(parents=True, exist_ok=True)
+        except Exception as exc:
+            return diagnose(exc, dest=folder / "x")
+    probe = folder / f".gap_write_probe_{os.getpid()}"
+    try:
+        probe.write_bytes(b"")
+        probe.unlink()
+        return None
+    except Exception as exc:
+        try:
+            probe.unlink()
+        except OSError:
+            pass
+        return diagnose(exc, dest=probe)
+
+
 def resolve_settings(ai=False, text=False, fmt=None, max_edge=None,
-                     quality=None, tier=..., metadata=None):
+                     quality=None, model=..., metadata=None):
     """Fill unset options from a preset or the plain defaults.
 
-    Returns (fmt, max_edge, quality, ext, tier, metadata). --text wins over
+    Returns (fmt, max_edge, quality, ext, model, metadata). --text wins over
     --ai where they disagree; an explicit flag wins over both.
     """
     if fmt is None:
         fmt = "png" if text or not ai else "jpg"
-    if tier is ...:
-        tier = "high" if text else (DEFAULT_TIER if ai else None)
+    if model is ...:
+        model = DEFAULT_MODEL if (ai or text) else None
     if quality is None:
         quality = AI_QUALITY
     if metadata is None:
         metadata = "safe"
     return fmt, max_edge, quality, (".jpg" if fmt == "jpg" else ".png"), \
-        tier, metadata
+        model, metadata
 
 
 def inspect(src):
@@ -382,7 +722,7 @@ def collect(sources, recurse):
     return unique, skipped
 
 
-def analyse(files, tier=None, max_edge=None):
+def analyse(files, model=None, max_edge=None, resize=True):
     """Read each file's capture time, size and disclosures.
 
     Also works out the size and token cost each output will have, so a dry
@@ -395,21 +735,24 @@ def analyse(files, tier=None, max_edge=None):
         except Exception as exc:
             failures.append((src, f"unreadable: {exc}"))
             continue
-        out = target_size(*size, tier, max_edge)
+        out = target_size(*size, model if resize else None, max_edge)
         records.append({"src": src, "when": when, "origin": origin,
                         "size": size, "located": located, "out_size": out,
-                        "tokens": count_tokens(*out)})
+                        "tokens": token_cost(*out, model) or 0})
     return records, failures
 
 
-def plan_names(records, label, ext, outdir):
+def plan_names(records, label, ext, outdir, date_format=DEFAULT_DATE_FORMAT):
     """Assign each record a destination, never claiming a taken name."""
     by_date = defaultdict(list)
     for rec in records:
-        by_date[rec["when"].strftime("%Y-%m-%d")].append(rec)
+        by_date[rec["when"].date()].append(rec)
     claimed = set()  # lowercased: NTFS will not distinguish two casings
-    for date_str in sorted(by_date):
-        batch = sorted(by_date[date_str],
+    # Grouped and sorted by the real date, never by the formatted string:
+    # day-first text does not sort chronologically.
+    for day in sorted(by_date):
+        date_str = day.strftime(DATE_FORMATS[date_format])
+        batch = sorted(by_date[day],
                        key=lambda r: (r["when"], r["src"].name.lower()))
         width = max(2, len(str(len(batch))))
         seq = 1
@@ -425,12 +768,12 @@ def plan_names(records, label, ext, outdir):
             rec["dest"] = dest
 
 
-def convert(src, dest, fmt, max_edge, quality, tier=None, metadata="safe"):
+def convert(src, dest, fmt, max_edge, quality, model=None, metadata="safe"):
     """Write one prepared copy. Returns its (width, height)."""
     with Image.open(src) as im:
         im = ImageOps.exif_transpose(im)
         exif = im.getexif()  # orientation already applied and removed
-        target = target_size(*im.size, tier, max_edge)
+        target = target_size(*im.size, model, max_edge)
         if target != im.size:
             im = im.resize(target, Image.Resampling.LANCZOS)
         has_alpha = im.mode in ("RGBA", "LA") or (
@@ -458,7 +801,23 @@ def convert(src, dest, fmt, max_edge, quality, tier=None, metadata="safe"):
     return written
 
 
-def upload_notes(records, tier, fmt):
+def savings(records, model):
+    """(before, after, percent_saved) in tokens for the chosen model.
+
+    "Before" is what the untouched originals would have cost on the same
+    model, so the pair is a like-for-like comparison rather than a
+    flattering one against a different yardstick.
+    """
+    if not records or not model:
+        return None
+    before = sum(token_cost(*r["size"], model) for r in records)
+    after = sum(token_cost(*r["out_size"], model) for r in records)
+    if not before:
+        return None
+    return before, after, round(100 * (before - after) / before)
+
+
+def upload_notes(records, model, fmt, currency=DEFAULT_CURRENCY):
     """Lines about what this batch will cost and where it hits a limit.
 
     Kept out of both front ends because the CLI and the window need exactly
@@ -466,33 +825,50 @@ def upload_notes(records, tier, fmt):
     """
     if not records:
         return []
-    total = sum(r["tokens"] for r in records)
     count = len(records)
-    tier_name = {"standard": "a standard-resolution model",
-                 "high": "a high-resolution model (Claude 4.7 and later)"}
-    notes = [f"{count} image(s), about {total:,} visual tokens"
-             + (f" on {tier_name[tier]}" if tier else "")]
-    if not tier:
-        billed = {name: sum(count_tokens(*fit_to_tier(*r["out_size"], *limits))
-                            for r in records)
-                  for name, limits in TIERS.items()}
-        notes.append("  no model tier set, so that is what you upload, not "
-                     "what you are billed for: Claude downscales these to "
-                     f"about {billed['standard']:,} tokens (standard) or "
-                     f"{billed['high']:,} (high-resolution)")
-    if count > CLAUDE_AI_PER_MESSAGE:
-        messages = -(-count // CLAUDE_AI_PER_MESSAGE)
-        notes.append(f"  claude.ai takes {CLAUDE_AI_PER_MESSAGE} images per "
+    if not model:
+        each = {key: sum(token_cost(*spec["fit"](*r["size"]) if spec["fit"]
+                                    else r["size"], key) for r in records)
+                for key, spec in MODELS.items()}
+        notes = [f"{count} image(s), left at original size"]
+        notes.append("  no model chosen, so nothing was resized. Sized for "
+                     "one, these would cost about: "
+                     + ", ".join(f"{MODELS[k]['short']} {v:,}"
+                                 for k, v in each.items()))
+        if fmt == "png":
+            notes.append("  PNG keeps text crisp but uploads large; use the "
+                         "photo preset for photographs")
+        return notes
+
+    spec = MODELS[model]
+    saved = savings(records, model)
+    notes = [f"{count} image(s), {saved[1]:,} tokens on {spec['short']}"
+             + ("" if spec["exact"] else " (estimated)")]
+    if saved and saved[2] > 0:
+        line = (f"  down from {saved[0]:,} unprepared - "
+                f"{saved[2]}% fewer tokens")
+        was, now = money(saved[0], model, currency), money(saved[1], model,
+                                                           currency)
+        if was and now:
+            line += (f", {was} down to {now} per upload at "
+                     f"{priced_as(model)} pricing (rates {FX_DATE})")
+        notes.append(line)
+    if not spec["fit"]:
+        notes.append("  this provider documents no hard size limit, so "
+                     "nothing was resized for it; the count is what it costs")
+    if spec["per_message"] and count > spec["per_message"]:
+        messages = -(-count // spec["per_message"])
+        notes.append(f"  claude.ai takes {spec['per_message']} images per "
                      f"message, so this needs {messages} messages "
                      "(the API takes 100 in one request)")
         over = [r for r in records if max(r["out_size"]) > MANY_IMAGE_EDGE]
         if over:
             notes.append(f"  {len(over)} of them are over {MANY_IMAGE_EDGE} px "
                          "on a side, which a single API request of more than "
-                         f"{CLAUDE_AI_PER_MESSAGE} images rejects")
-    if fmt == "png":
-        notes.append("  PNG keeps text crisp but uploads large; use the AI "
-                     "preset for photographs")
+                         f"{spec['per_message']} images rejects")
+    if fmt == "png" and "PNG" in spec["formats"]:
+        notes.append("  PNG keeps text crisp but uploads large; use the "
+                     "photo preset for photographs")
     return notes
 
 
@@ -518,9 +894,12 @@ def write_manifest(records, path):
     the model has the pictures and no idea which is which.
     """
     lines = ["Images attached, in order:", ""]
-    for n, rec in enumerate(sorted(records, key=lambda r: r["dest"].name), 1):
+    # Ordered by when the photo was taken, not by filename: day-first names
+    # do not sort chronologically, and the order is the point of the list.
+    for n, rec in enumerate(sorted(records, key=lambda r: (r["when"],
+                                                           r["dest"].name)), 1):
         w, h = rec["out_size"]
-        when = rec["when"].strftime("%Y-%m-%d %H:%M")
+        when = rec["when"].strftime(DISPLAY_DATE + " %H:%M")
         dated = when if rec["origin"] == "exif" else when + " (file date)"
         lines.append(f"Image {n}: {rec['dest'].name} - taken {dated} "
                      f"- {w}x{h} px, {rec['tokens']:,} visual tokens")
@@ -569,12 +948,15 @@ def main():
                     help="preset for documents, whiteboards and screenshots: "
                          "PNG (lossless, so small text survives), sized to "
                          "the high-resolution tier")
+    ap.add_argument("--model", choices=tuple(MODELS) + ("none",), default=None,
+                    help="resize to exactly what this model keeps, so no "
+                         "uploaded pixel is thrown away: "
+                         + "; ".join(f"{k} ({v['note']})"
+                                     for k, v in MODELS.items())
+                         + f". Default: {DEFAULT_MODEL} under a preset, none "
+                         "otherwise")
     ap.add_argument("--tier", choices=tuple(TIERS) + ("none",), default=None,
-                    help="resize to exactly what this model tier accepts, so "
-                         "no uploaded pixel is thrown away server-side: "
-                         "standard (below Claude 4.7) or high (Claude 4.7 and "
-                         "later). Default: standard under --ai, high under "
-                         "--text, none otherwise")
+                    help=argparse.SUPPRESS)  # kept working; --model replaces it
     ap.add_argument("--metadata", choices=("keep", "safe", "strip"),
                     default=None,
                     help="EXIF carried into the copies: keep all; safe "
@@ -585,6 +967,22 @@ def main():
                     help="after a verified conversion, send each original to "
                          "the Recycle Bin; skips any file whose copy is "
                          "missing, and never runs under --dry-run")
+    ap.add_argument("--date-format", choices=tuple(DATE_FORMATS),
+                    default=DEFAULT_DATE_FORMAT,
+                    help="date order in the new filenames: uk (default) is "
+                         "day-first and reads the way UK dates are written; "
+                         "iso is year-first and is the only one that sorts "
+                         "chronologically in a file browser")
+    ap.add_argument("--currency", choices=tuple(CURRENCIES),
+                    default=DEFAULT_CURRENCY,
+                    help=f"currency for the cost estimate (default "
+                         f"{DEFAULT_CURRENCY})")
+    ap.add_argument("--fx", type=float, default=None, metavar="RATE",
+                    help=f"USD-to-currency rate, replacing the one recorded "
+                         f"on {FX_DATE}")
+    ap.add_argument("--price", type=float, default=None, metavar="USD",
+                    help="USD per million input tokens, replacing the "
+                         "model's published price")
     ap.add_argument("--manifest", action="store_true",
                     help="also write a numbered list of the outputs to paste "
                          "alongside them in the chat")
@@ -605,10 +1003,11 @@ def main():
                     help="print the rename map and write nothing")
     args = ap.parse_args()
 
-    fmt, max_edge, quality, ext, tier, metadata = resolve_settings(
+    chosen = args.model or (TIER_ALIAS.get(args.tier, args.tier)
+                            if args.tier else None)
+    fmt, max_edge, quality, ext, model, metadata = resolve_settings(
         args.ai, args.text, args.format, args.max_edge, args.quality,
-        ... if args.tier is None else (None if args.tier == "none"
-                                       else args.tier),
+        ... if chosen is None else (None if chosen == "none" else chosen),
         args.metadata)
     label = snake_case(args.label)
 
@@ -625,26 +1024,32 @@ def main():
         sys.exit(".avif files are present but this Pillow build lacks AVIF "
                  "support.\nFix with:  pip install --upgrade pillow")
 
-    records, failures = analyse(files, tier, max_edge)
-    plan_names(records, label, ext, args.outdir)
+    records, failures = analyse(files, model, max_edge)
+    plan_names(records, label, ext, args.outdir, args.date_format)
 
-    if args.outdir and not args.dry_run:
-        args.outdir.mkdir(parents=True, exist_ok=True)
+    # Check every destination folder before writing a single file: without
+    # this a blocked folder yields one identical cryptic failure per photo.
+    if not args.dry_run:
+        for folder in sorted({r["dest"].parent for r in records}):
+            why = writable(folder)
+            if why:
+                sys.exit(f"Cannot write to {folder}.\n\n{why}")
 
     converted = 0
     for rec in records:
         note = "" if rec["origin"] == "exif" else "  (file date: no usable EXIF)"
         w, h = rec["out_size"]
+        cost = f", {rec['tokens']:,} tokens" if model else ""
         line = (f"{rec['src'].name} -> {rec['dest'].name}"
-                f"  [{w}x{h}, {rec['tokens']:,} tokens]{note}")
+                f"  [{w}x{h}{cost}]{note}")
         if args.dry_run:
             print(line)
             continue
         try:
             rec["written"] = convert(rec["src"], rec["dest"], fmt, max_edge,
-                                     quality, tier, metadata)
+                                     quality, model, metadata)
         except Exception as exc:
-            failures.append((rec["src"], str(exc)))
+            failures.append((rec["src"], diagnose(exc, rec["src"], rec["dest"])))
             rec["dest"].unlink(missing_ok=True)  # no half-written files left behind
             continue
         converted += 1
@@ -659,7 +1064,7 @@ def main():
         print(f"\n{converted} of {len(files)} file(s) converted to "
               f"{fmt.upper()}")
 
-    for line in upload_notes(done, tier, fmt):
+    for line in upload_notes(done, model, fmt, args.currency):
         print(line)
     if not args.dry_run:
         for line in size_warnings(done):
@@ -693,156 +1098,658 @@ def main():
         sys.exit(1)
 
 
+# The window's help text. Every control has an entry: a control a person
+# cannot explain to themselves is a control they will leave alone. Each entry
+# says what the thing does now — never what changed, which belongs in
+# project_log.md rather than in front of someone trying to use the tool.
+HELP = {
+    "photos": (
+        "Which photos to prepare",
+        "Add single photos, or a whole folder and every image in it is "
+        "picked up.\n\n"
+        "Reads HEIC (what iPhones produce), JPEG, PNG, WebP, TIFF, BMP, GIF "
+        "and AVIF. RAW camera files need a photo editor instead.\n\n"
+        "Your originals are never changed, unless you tick the Recycle Bin "
+        "option in step 5."),
+    "name": (
+        "What the copies are called",
+        "One plain word describing the batch. The copies come out as\n\n"
+        "        2026-08-29_whiteboard_01.jpg\n\n"
+        "so they sort into date order.\n\n"
+        "The date is when the photo was taken, read from the photo itself. "
+        "Where there is none, the file's own date is used and the results "
+        "say so."),
+    "model": (
+        "Which AI you are sending these to",
+        "Every AI shrinks your image before it looks at it, and charges you "
+        "for the result. Send a 12-megapixel photo and most of it is thrown "
+        "away on arrival.\n\n"
+        "Pick the one you are actually using and the copies are sized to "
+        "exactly what it keeps. Nothing visible is lost, because it would "
+        "have been discarded anyway.\n\n"
+        "Claude figures are exact. ChatGPT and Gemini are close estimates "
+        "from their published formulas.\n\n"
+        "Unsure? Claude (high resolution) is a safe default."),
+    "use": (
+        "What kind of images these are",
+        "Photographs - JPEG. Smallest files. Rooms, objects, people, "
+        "damage, places.\n\n"
+        "Documents and screenshots - PNG, which keeps small lettering "
+        "readable where JPEG smudges it. Use this for anything you want the "
+        "AI to read.\n\n"
+        "Full quality - no resizing. Much larger files, and the AI shrinks "
+        "them anyway. For your own records rather than for uploading."),
+    "save": (
+        "Where the copies go",
+        "Next to the originals, or all together in one folder. One folder "
+        "is usually easier when you are about to drag them into a chat.\n\n"
+        "Windows ransomware protection guards Documents, Pictures and "
+        "Desktop. If it blocks a folder, save somewhere else."),
+    "options": (
+        "The three optional extras",
+        "Location and camera details - photos carry hidden tags recording "
+        "where they were taken and which camera took them. The AI is never "
+        "shown them, but the file carries them wherever it goes next.\n\n"
+        "Numbered list - a small text file naming each image in order. "
+        "Paste it in with the pictures so the AI knows which is which.\n\n"
+        "Recycle Bin - happens only after each copy is written and checked. "
+        "Anything that failed is kept, and you can restore from the Recycle "
+        "Bin afterwards."),
+}
+
+
 class GuiApp:
     """The window: a thin layer over the same functions the CLI uses."""
 
-    def __init__(self):
+    def __init__(self, theme=DEFAULT_THEME):
         self.sources = []
         self.outdir = None
         self.running = False
-        self.open_when_done = True  # scripted tests switch this off
+        self.open_when_done = True     # scripted tests switch this off
         self.q = queue.Queue()
+        self.theme = theme
+        self._saved = None             # last computed saving, for redraws
+        self._saved_model = None
+        self._progress_state = (0, 0, "", "idle")
+        self._savings_h = 0            # reserved height, measured at startup
+        self._last_folder = None       # what "Show the files" opens
+        self._open_help = None
+        self._log = []                 # replayed when the theme is rebuilt
 
         self.root = tk.Tk()
         self.root.title("Prep photos for AI")
-        self.root.minsize(660, 780)
+        self.root.minsize(680, 520)
+        self._build_all()
+        self._fit_to_screen()
+
+    # ---------- construction, repeated when the theme changes ----------
+
+    def _build_all(self):
+        self.c = THEMES[self.theme]
         self._apply_brand()
-        frame = ttk.Frame(self.root, padding=12)
-        frame.grid(row=0, column=0, sticky="nsew")
+        self.root.configure(background=self.c["ground"])
         self.root.columnconfigure(0, weight=1)
-        self.root.rowconfigure(0, weight=1)
-        frame.columnconfigure(0, weight=1)
-        frame.rowconfigure(17, weight=1)
+        self.root.rowconfigure(1, weight=1)
+        self._build_header()
+        body = tk.Frame(self.root, background=self.c["ground"], padx=14,
+                        pady=8)
+        body.grid(row=1, column=0, sticky="nsew")
+        body.columnconfigure(0, weight=1)
+        body.columnconfigure(1, weight=1)
+        body.rowconfigure(7, weight=1)
+        self._build_sources(body)
+        self._build_naming(body)
+        self._build_destination(body)
+        self._build_actions(body)
+        self._build_log(body)
+        self._update_example()
 
+    def _toggle_theme(self):
+        """Rebuild in the other palette, carrying the window's state over.
+
+        Recolouring every widget in place would mean tracking each one; the
+        window is cheap to build, so it is built again and the state is
+        copied across.
+        """
+        keep = dict(
+            label=self.label_var.get(), mode=self.mode_var.get(),
+            model=self.model_var.get(), dest=self.dest_var.get(),
+            strip=self.strip_var.get(), manifest=self.manifest_var.get(),
+            delete=self.delete_var.get(), currency=self.currency_var.get())
+        self.theme = "light" if self.theme == "dark" else "dark"
+        for child in self.root.winfo_children():
+            child.destroy()
+        self._build_all()
+        self.label_var.set(keep["label"])
+        self.mode_var.set(keep["mode"])
+        self.model_var.set(keep["model"])
+        self.dest_var.set(keep["dest"])
+        self.strip_var.set(keep["strip"])
+        self.manifest_var.set(keep["manifest"])
+        self.delete_var.set(keep["delete"])
+        self.currency_var.set(keep["currency"])
+        self._refresh_sources()
+        if self.outdir:
+            self.outdir_label.config(text=self.outdir.name or str(self.outdir))
+        for line, tag in self._log:
+            self._write(line, tag)
+        self._update_example()
+        self._draw_savings(self._saved, self._saved_model)
+        self._draw_progress(*self._progress_state)
+        if self._last_folder:
+            self.show_btn.state(["!disabled"])
+
+    def _fit_to_screen(self):
+        """Size the window to what it needs, capped by the screen.
+
+        A hard-coded height put the results pane below the bottom edge on a
+        shorter display, so the one thing a run produces was invisible.
+        """
+        self.root.update_idletasks()
+        height = min(self.root.winfo_reqheight(),
+                     self.root.winfo_screenheight() - 120)
+        width = min(max(self.root.winfo_reqwidth(), 780),
+                    self.root.winfo_screenwidth() - 80)
+        self.root.geometry(f"{width}x{height}")
+
+    # ---------- chrome ----------
+
+    def _build_header(self):
+        """A dark band with the mark on it, so the window opens on something
+        other than a grey form. The band uses the reversed wordmark - white
+        letterforms, Ember counters kept - so the mark sits on the band
+        itself. The Ink wordmark would need a pale plate behind it, and a
+        plate on a dark band reads as a boxed image dropped onto the header
+        rather than as the identity."""
+        c = self.c
+        band = tk.Frame(self.root, background=c["band"])
+        band.grid(row=0, column=0, sticky="ew")
+        band.columnconfigure(1, weight=1)
         if self._load_logo():
-            ttk.Label(frame, image=self._logo).grid(
-                row=0, column=0, sticky="w", pady=(0, 12))
-        else:  # script travelling without the repo: text header, same layout
-            ttk.Label(frame, text="Grounded AI Practice",
-                      font=("Segoe UI", 13, "bold")).grid(
-                row=0, column=0, sticky="w", pady=(0, 12))
+            tk.Label(band, image=self._logo, background=c["band"],
+                     bd=0).grid(row=0, column=0, padx=(16, 14), pady=11)
+        else:  # script travelling without the repo: text mark, same layout
+            tk.Label(band, text="GAP", background=c["band"],
+                     foreground=c["band_text"], bd=0,
+                     font=("Segoe UI", 20, "bold")).grid(
+                row=0, column=0, padx=(16, 14), pady=11)
+        text = tk.Frame(band, background=c["band"])
+        text.grid(row=0, column=1, sticky="w", pady=9)
+        tk.Label(text, text="Prepare images for AI", background=c["band"],
+                 foreground=c["band_text"],
+                 font=("Segoe UI", 14, "bold")).pack(anchor="w")
+        tk.Label(text, text="Convert, rename, and size them to what the model "
+                            "actually keeps", background=c["band"],
+                 foreground=c["band_muted"], font=("Segoe UI", 9)).pack(
+            anchor="w")
+        moon = "☀  Light" if self.theme == "dark" else "☾  Dark"
+        tk.Button(band, text=moon, command=self._toggle_theme, relief="flat",
+                  background=c["band"], foreground=c["band_muted"],
+                  activebackground=c["band"], activeforeground=EMBER,
+                  font=("Segoe UI", 9), cursor="hand2", bd=0,
+                  padx=10, pady=4).grid(row=0, column=2, padx=14)
+        tk.Frame(self.root, background=EMBER, height=3).grid(
+            row=0, column=0, sticky="sew")
 
-        ttk.Label(frame, text="1.  Choose the photos",
-                  style="Header.TLabel").grid(row=1, column=0, sticky="w")
-        row = ttk.Frame(frame)
-        row.grid(row=2, column=0, sticky="w", pady=(4, 2))
+    def _card(self, parent, row, column, number, title, help_key,
+              columnspan=1):
+        """One numbered section, drawn as a bordered card with a ? button."""
+        c = self.c
+        outer = tk.Frame(parent, background=c["line"], padx=1, pady=1)
+        outer.grid(row=row, column=column, columnspan=columnspan,
+                   sticky="nsew", pady=(0, 7),
+                   padx=(0, 8) if columnspan == 1 and column == 0 else 0)
+        outer.columnconfigure(0, weight=1)
+        outer.rowconfigure(1, weight=1)
+        head = tk.Frame(outer, background=c["head"])
+        head.grid(row=0, column=0, sticky="ew")
+        head.columnconfigure(1, weight=1)
+        tk.Label(head, text=f" {number} ", background=EMBER,
+                 foreground="#FFFFFF", font=("Segoe UI", 9, "bold")).grid(
+            row=0, column=0, padx=(8, 6), pady=5)
+        tk.Label(head, text=title, background=c["head"], foreground=c["text"],
+                 font=("Segoe UI", 10, "bold")).grid(row=0, column=1,
+                                                     sticky="w")
+        tk.Button(head, text="?", width=2, relief="flat",
+                  background=c["head"], foreground=c["muted"],
+                  activebackground=EMBER, activeforeground="#FFFFFF",
+                  font=("Segoe UI", 9, "bold"), cursor="hand2", bd=0,
+                  command=lambda: self._help(help_key)).grid(
+            row=0, column=2, padx=(4, 6))
+        inner = tk.Frame(outer, background=c["card"], padx=10, pady=7)
+        inner.grid(row=1, column=0, sticky="nsew")
+        inner.columnconfigure(0, weight=1)
+        return inner
+
+    def _check(self, parent, var, text):
+        c = self.c
+        return tk.Checkbutton(
+            parent, variable=var, text=text, background=c["card"],
+            foreground=c["text"], activebackground=c["card"],
+            activeforeground=c["text"], selectcolor=c["field"],
+            font=("Segoe UI", 9), bd=0, highlightthickness=0, anchor="w")
+
+    def _radio(self, parent, var, value, text, command):
+        c = self.c
+        return tk.Radiobutton(
+            parent, variable=var, value=value, text=text, command=command,
+            background=c["card"], foreground=c["text"],
+            activebackground=c["card"], activeforeground=c["text"],
+            selectcolor=c["field"], font=("Segoe UI", 9), bd=0,
+            highlightthickness=0, anchor="w")
+
+    def _help(self, key):
+        """A branded panel rather than messagebox.showinfo, which plays the
+        system alert sound - wrong for a help button, which reports nothing
+        wrong. A Toplevel is silent and can carry the palette."""
+        c = self.c
+        title, body = HELP[key]
+        win = tk.Toplevel(self.root)
+        win.title(title)
+        win.configure(background=c["ground"])
+        win.transient(self.root)
+        win.resizable(False, False)
+        head = tk.Frame(win, background=c["band"])
+        head.pack(fill="x")
+        tk.Label(head, text=title, background=c["band"],
+                 foreground=c["band_text"], font=("Segoe UI", 11, "bold"),
+                 padx=16, pady=9).pack(anchor="w")
+        tk.Frame(win, background=EMBER, height=3).pack(fill="x")
+        tk.Message(win, text=body, background=c["ground"],
+                   foreground=c["text"], font=("Segoe UI", 9), width=430,
+                   justify="left", padx=16, pady=13).pack(fill="both",
+                                                          expand=True)
+        bar = tk.Frame(win, background=c["ground"])
+        bar.pack(fill="x", padx=16, pady=(0, 13))
+        ttk.Button(bar, text="Close", command=win.destroy,
+                   style="Accent.TButton").pack(side="right")
+        win.bind("<Escape>", lambda _e: win.destroy())
+        win.bind("<Return>", lambda _e: win.destroy())
+        win.update_idletasks()
+        x = self.root.winfo_rootx() + (self.root.winfo_width()
+                                       - win.winfo_width()) // 2
+        win.geometry(f"+{max(x, 0)}+{max(self.root.winfo_rooty() + 90, 0)}")
+        win.grab_set()
+        win.focus_set()
+        self._open_help = win          # scripted tests inspect and close it
+
+    # ---------- sections ----------
+
+    def _build_sources(self, body):
+        c = self.c
+        card = self._card(body, 0, 0, "1", "Choose the photos", "photos",
+                          columnspan=2)
+        row = tk.Frame(card, background=c["card"])
+        row.grid(row=0, column=0, sticky="w", pady=(0, 6))
         ttk.Button(row, text="Add photos...", command=self.add_photos).pack(
             side="left")
         ttk.Button(row, text="Add a folder...", command=self.add_folder).pack(
             side="left", padx=6)
-        ttk.Button(row, text="Clear", command=self.clear_sources).pack(side="left")
+        ttk.Button(row, text="Clear", command=self.clear_sources).pack(
+            side="left")
+        self.count_label = tk.Label(row, text="nothing chosen yet",
+                                    background=c["card"], foreground=c["muted"],
+                                    font=("Segoe UI", 9))
+        self.count_label.pack(side="left", padx=10)
         self.source_list = tk.Listbox(
-            frame, height=5, relief="flat", highlightthickness=1,
-            highlightbackground=MIST, highlightcolor=EMBER,
-            background="#FFFFFF", foreground=INK,
-            selectbackground=SAND, selectforeground=INK)
-        self.source_list.grid(row=3, column=0, sticky="ew", pady=(0, 10))
+            card, height=2, relief="flat", highlightthickness=1,
+            highlightbackground=c["line"], highlightcolor=EMBER,
+            background=c["field"], foreground=c["text"],
+            font=("Segoe UI", 9), selectbackground=c["select"],
+            selectforeground=c["text"])
+        self.source_list.grid(row=1, column=0, sticky="ew")
 
-        ttk.Label(frame, text="2.  Pick a word for the new names",
-                  style="Header.TLabel").grid(row=4, column=0, sticky="w")
-        row = ttk.Frame(frame)
-        row.grid(row=5, column=0, sticky="w", pady=(4, 10))
+    def _build_naming(self, body):
+        c = self.c
+        card = self._card(body, 1, 0, "2", "Name the copies", "name",
+                          columnspan=2)
+        row = tk.Frame(card, background=c["card"])
+        row.grid(row=0, column=0, sticky="w")
         self.label_var = tk.StringVar(value="img")
-        ttk.Entry(row, textvariable=self.label_var, width=22).pack(side="left")
-        self.example = ttk.Label(row, text="", style="Hint.TLabel")
-        self.example.pack(side="left", padx=8)
+        ttk.Entry(row, textvariable=self.label_var, width=20).pack(side="left")
+        self.example = tk.Label(row, text="", background=c["card"],
+                                foreground=c["muted"], font=("Consolas", 9))
+        self.example.pack(side="left", padx=10)
         self.label_var.trace_add("write", lambda *_: self._update_example())
 
-        ttk.Label(frame, text="3.  Choose the output",
-                  style="Header.TLabel").grid(row=6, column=0, sticky="w")
+        card = self._card(body, 2, 0, "3", "Which AI, and what kind of images",
+                          "model", columnspan=2)
+        row = tk.Frame(card, background=c["card"])
+        row.grid(row=0, column=0, sticky="ew", pady=(0, 7))
+        tk.Label(row, text="Sending to:", background=c["card"],
+                 foreground=c["text"], font=("Segoe UI", 9)).pack(
+            side="left", padx=(0, 8))
+        self.model_var = tk.StringVar(value=MODELS[DEFAULT_MODEL]["label"])
+        self.model_box = ttk.Combobox(
+            row, textvariable=self.model_var, state="readonly", width=42,
+            values=[m["label"] for m in MODELS.values()])
+        self.model_box.pack(side="left")
+        self.model_box.bind("<<ComboboxSelected>>",
+                            lambda _e: self._on_model_change())
+        tk.Label(row, text="Costs in:", background=c["card"],
+                 foreground=c["text"], font=("Segoe UI", 9)).pack(
+            side="left", padx=(12, 6))
+        self.currency_var = tk.StringVar(value=DEFAULT_CURRENCY)
+        currency = ttk.Combobox(row, textvariable=self.currency_var,
+                                state="readonly", width=5,
+                                values=list(CURRENCIES))
+        currency.pack(side="left")
+        currency.bind("<<ComboboxSelected>>",
+                      lambda _e: self._on_model_change())
         self.mode_var = tk.StringVar(value="ai")
-        ttk.Radiobutton(frame, variable=self.mode_var, value="ai",
-                        command=self._update_example,
-                        text="Photographs for AI chats - JPEG, sized to "
-                             "exactly what the AI keeps (recommended)").grid(
-            row=7, column=0, sticky="w", pady=(4, 0))
-        ttk.Radiobutton(frame, variable=self.mode_var, value="text",
-                        command=self._update_example,
-                        text="Documents, whiteboards and screenshots - PNG, "
-                             "so small writing stays readable").grid(
-            row=8, column=0, sticky="w")
-        ttk.Radiobutton(frame, variable=self.mode_var, value="full",
-                        command=self._update_example,
-                        text="Full quality - PNG at original size, much "
-                             "larger files").grid(row=9, column=0, sticky="w")
+        for value, text in (
+                ("ai", "Photographs - JPEG, smallest files"),
+                ("text", "Documents and screenshots - PNG, keeps small "
+                         "writing readable"),
+                ("full", "Full quality - no resizing, much larger files")):
+            self._radio(card, self.mode_var, value, text,
+                        self._update_example).grid(sticky="w", column=0)
+
+    def _build_destination(self, body):
+        c = self.c
+        card = self._card(body, 3, 0, "4", "Save the copies", "save")
         self.dest_var = tk.StringVar(value="beside")
-        ttk.Radiobutton(frame, variable=self.dest_var, value="beside",
-                        command=self._reset_outdir,
-                        text="Save next to the originals").grid(
-            row=10, column=0, sticky="w", pady=(6, 0))
-        row = ttk.Frame(frame)
-        row.grid(row=11, column=0, sticky="w")
-        ttk.Radiobutton(row, variable=self.dest_var, value="chosen",
-                        command=self._pick_outdir,
-                        text="Save into one folder:").pack(side="left")
-        self.outdir_label = ttk.Label(row, text="(none chosen)",
-                                      style="Hint.TLabel")
-        self.outdir_label.pack(side="left", padx=6)
+        self._radio(card, self.dest_var, "beside", "Next to the originals",
+                    self._reset_outdir).grid(row=0, column=0, sticky="w")
+        row = tk.Frame(card, background=c["card"])
+        row.grid(row=1, column=0, sticky="w")
+        self._radio(row, self.dest_var, "chosen", "One folder:",
+                    self._pick_outdir).pack(side="left")
+        self.outdir_label = tk.Label(row, text="(none chosen)",
+                                     background=c["card"],
+                                     foreground=c["muted"],
+                                     font=("Segoe UI", 9))
+        self.outdir_label.pack(side="left", padx=4)
 
-        ttk.Label(frame, text="4.  Anything else",
-                  style="Header.TLabel").grid(row=12, column=0, sticky="w",
-                                              pady=(10, 0))
+        card = self._card(body, 3, 1, "5", "Anything else", "options")
         self.strip_var = tk.BooleanVar(value=True)
-        ttk.Checkbutton(frame, variable=self.strip_var,
-                        text="Leave out where the photo was taken and who owns "
-                             "the camera").grid(row=13, column=0, sticky="w",
-                                                pady=(4, 0))
         self.manifest_var = tk.BooleanVar(value=False)
-        ttk.Checkbutton(frame, variable=self.manifest_var,
-                        text="Write a numbered list to paste with the images"
-                        ).grid(row=14, column=0, sticky="w")
         self.delete_var = tk.BooleanVar(value=False)
-        ttk.Checkbutton(frame, variable=self.delete_var,
-                        text="Send the originals to the Recycle Bin once the "
-                             "copies are made").grid(row=15, column=0,
-                                                     sticky="w")
+        for var, text in (
+                (self.strip_var, "Leave out location and camera details"),
+                (self.manifest_var, "Write a numbered list to paste with them"),
+                (self.delete_var, "Send originals to the Recycle Bin")):
+            self._check(card, var, text).grid(sticky="w", column=0)
 
-        row = ttk.Frame(frame)
-        row.grid(row=16, column=0, sticky="w", pady=10)
-        self.preview_btn = ttk.Button(row, text="Preview the new names",
+    def _build_actions(self, body):
+        c = self.c
+        row = tk.Frame(body, background=c["ground"])
+        row.grid(row=4, column=0, columnspan=2, sticky="ew", pady=(0, 7))
+        self.preview_btn = ttk.Button(row, text="Preview",
                                       command=self.preview)
         self.preview_btn.pack(side="left")
         self.convert_btn = ttk.Button(row, text="Convert", command=self.convert,
                                       style="Accent.TButton")
         self.convert_btn.pack(side="left", padx=8)
+        self.show_btn = ttk.Button(row, text="Show the files",
+                                   command=self._show_output)
+        self.show_btn.pack(side="right")
+        self.show_btn.state(["disabled"])
 
-        self.text = tk.Text(frame, height=12, state="disabled", wrap="none",
-                            font=("Consolas", 9), relief="flat",
-                            highlightthickness=1, highlightbackground=MIST,
-                            highlightcolor=EMBER, background="#FFFFFF",
-                            foreground=INK)
-        self.text.grid(row=17, column=0, sticky="nsew")
-        self._update_example()
+        panel = tk.Frame(body, background=c["line"], padx=1, pady=1)
+        panel.grid(row=5, column=0, columnspan=2, sticky="ew", pady=(0, 7))
+        panel.columnconfigure(0, weight=1)
+        self.savings = tk.Canvas(panel, height=84, background=c["head"],
+                                 highlightthickness=0)
+        self.savings.grid(row=0, column=0, sticky="ew")
+        self.progress = tk.Canvas(panel, height=38, background=c["card"],
+                                  highlightthickness=0)
+        self.progress.grid(row=1, column=0, sticky="ew")
+        # Both canvases size themselves from their width, so they have to be
+        # redrawn when the window is resized or they keep the first layout.
+        self.savings.bind("<Configure>",
+                          lambda _e: self._draw_savings(self._saved,
+                                                        self._saved_model))
+        self.progress.bind("<Configure>",
+                           lambda _e: self._draw_progress(
+                               *self._progress_state))
+        self._measure_savings()
+        self._draw_progress()
+
+    def _build_log(self, body):
+        c = self.c
+        wrap = tk.Frame(body, background=c["line"], padx=1, pady=1)
+        wrap.grid(row=7, column=0, columnspan=2, sticky="nsew")
+        wrap.columnconfigure(0, weight=1)
+        wrap.rowconfigure(0, weight=1)
+        # wrap="word" is deliberate: an earlier window clipped long error
+        # messages at the right edge with no way to read the rest of them.
+        self.text = tk.Text(wrap, height=4, state="disabled", wrap="word",
+                            font=("Consolas", 9), relief="flat", padx=8,
+                            pady=6, background=c["field"], foreground=c["text"],
+                            highlightthickness=0,
+                            insertbackground=c["text"])
+        self.text.grid(row=0, column=0, sticky="nsew")
+        bar = ttk.Scrollbar(wrap, orient="vertical", command=self.text.yview)
+        bar.grid(row=0, column=1, sticky="ns")
+        self.text.configure(yscrollcommand=bar.set)
+        self.text.tag_configure("error", foreground=EMBER)
+        self.text.tag_configure("note", foreground=c["muted"])
+        self.text.tag_configure("head", foreground=c["text"],
+                                font=("Consolas", 9, "bold"))
+
+    # ---------- the headline figure and the progress bar ----------
+
+    def _draw_savings(self, saved, model=None):
+        """The saving, drawn large. It is the reason the tool exists, so it
+        gets its own panel rather than a line in a log.
+
+        Nothing here is positioned by a hard-coded pixel. Every item is placed
+        from the measured extent of the one before it. Two earlier versions
+        overlapped their own text because the numbers were tuned by eye at
+        one display scale and the fonts are larger at another.
+        """
+        self._saved, self._saved_model = saved, model
+        c, col = self.savings, self.c
+        c.delete("all")
+        c.update_idletasks()
+        width = max(c.winfo_width(), 420)
+        pad = 15
+
+        def below(item, gap, x, **kw):
+            bottom = c.bbox(item)[3] if item else pad
+            return c.create_text(x, bottom + gap, anchor="nw", **kw)
+
+        if not saved:
+            first = c.create_text(pad, pad, anchor="nw", fill=col["muted"],
+                                  font=("Segoe UI", 11),
+                                  text="Choose photos and press Preview to "
+                                       "see what they cost")
+            below(first, 6, pad, fill=col["muted"], font=("Segoe UI", 9),
+                  text="Nothing is written until you press Convert.")
+            return self._fit_savings(c, pad)
+
+        before, after, percent = saved
+        name = MODELS[model]["short"] if model else ""
+        cur = self.currency_var.get() if hasattr(self, "currency_var") \
+            else DEFAULT_CURRENCY
+        cost_before = money(before, model, cur)
+        cost_after = money(after, model, cur)
+        if percent <= 0:
+            first = c.create_text(pad, pad, anchor="nw", fill=col["text"],
+                                  font=("Segoe UI", 15, "bold"),
+                                  text=f"{after:,} tokens"
+                                       + (f" on {name}" if name else ""))
+            below(first, 8, pad, fill=col["muted"], font=("Segoe UI", 9),
+                  text="Already within this model's limits - there is nothing "
+                       "to save by resizing.")
+            return self._fit_savings(c, pad)
+
+        big = c.create_text(pad, pad, anchor="nw", fill=EMBER,
+                            font=("Segoe UI", 27, "bold"), text=f"{percent}%")
+        caption = below(big, 0, pad, fill=col["text"],
+                        font=("Segoe UI", 9, "bold"), text="fewer tokens")
+        # The right column starts clear of the widest thing on the left.
+        left = max(c.bbox(big)[2], c.bbox(caption)[2]) + 24
+        counts = c.create_text(left, pad, anchor="nw", fill=col["text"],
+                               font=("Segoe UI", 14, "bold"),
+                               text=f"{before:,}  →  {after:,} tokens")
+        last = counts
+        if cost_before and cost_after:
+            last = below(counts, 2, left, fill=col["text"],
+                         font=("Segoe UI", 10, "bold"),
+                         text=f"{cost_before}  →  {cost_after} per upload")
+            last = below(last, 1, left, fill=col["muted"],
+                         font=("Segoe UI", 8),
+                         text=f"on {name}, {priced_as(model)} input pricing"
+                              f"  ·  rates {FX_DATE}")
+        else:
+            last = below(counts, 3, left, fill=col["muted"],
+                         font=("Segoe UI", 9),
+                         text=f"visual tokens" + (f", on {name}" if name
+                                                  else ""))
+        # Two bars, not one track with a caption inside it: a single bar
+        # with a label sitting in its empty half reads as a progress bar
+        # that has stalled. Stacked, the pair is a before-and-after and
+        # needs no caption at all.
+        bar_top = c.bbox(last)[3] + 6
+        tag_w = 40                                   # room for the end tags
+        bar_w = max(width - left - pad - tag_w, 80)
+        bar_h = 8
+        c.create_rectangle(left, bar_top, left + bar_w, bar_top + bar_h,
+                           fill=col["muted"], width=0)
+        first = c.create_text(left + bar_w + 5, bar_top + bar_h / 2,
+                              anchor="w", fill=col["muted"],
+                              font=("Segoe UI", 7), text="before")
+        # The end tags are centred on their bars, so each one reaches half
+        # its own height ABOVE the bar. The second row is placed from that
+        # measured height rather than a guessed pitch: a 7pt label renders
+        # 19px tall here, and pitches of 10 and 15 both overlapped.
+        top, bottom = c.bbox(first)[1], c.bbox(first)[3]
+        second = bottom + 2 + (bottom - top) / 2 - bar_h / 2
+        kept = max(bar_w * (after / before), 2) if before else 0
+        c.create_rectangle(left, second, left + bar_w, second + bar_h,
+                           fill=col["track"], width=0)
+        c.create_rectangle(left, second, left + kept, second + bar_h,
+                           fill=EMBER, width=0)
+        c.create_text(left + bar_w + 5, second + bar_h / 2, anchor="w",
+                      fill=EMBER, font=("Segoe UI", 7, "bold"), text="now")
+        return self._fit_savings(c, pad)
+
+    @staticmethod
+    def _fit_canvas(canvas, pad):
+        """Grow the canvas to whatever was actually drawn on it."""
+        box = canvas.bbox("all")
+        if box:
+            canvas.configure(height=box[3] + pad)
+
+    def _fit_savings(self, canvas, pad):
+        """Hold the panel at its reserved height rather than growing it.
+
+        Sizing it to its content made the window reflow on every preview and
+        squeezed the results pane off the bottom, so the worst case is
+        measured once at startup and the panel keeps that height throughout.
+        """
+        if self._savings_h:
+            canvas.configure(height=self._savings_h)
+            return
+        self._fit_canvas(canvas, pad)
+
+    def _measure_savings(self):
+        """Reserve room for the widest, tallest thing the panel can show.
+
+        The real figures are put back afterwards: measuring writes the dummy
+        worst case into _saved, and a later redraw (a theme change, a resize)
+        would otherwise put 999,999,999 back on screen.
+        """
+        keep = (self._saved, self._saved_model)
+        self._savings_h = 0
+        widest = max(MODELS, key=lambda k: len(MODELS[k]["short"]))
+        self._draw_savings((999999999, 111111111, 100), widest)
+        self.savings.update_idletasks()
+        box = self.savings.bbox("all")
+        self._savings_h = (box[3] + 15) if box else 120
+        self.savings.configure(height=self._savings_h)
+        self._saved, self._saved_model = keep
+        self._draw_savings(*keep)
+
+    def _draw_progress(self, done=0, total=0, current="", state="idle"):
+        """A drawn bar rather than ttk.Progressbar, which cannot be given the
+        palette on Windows and reads as a stray piece of another app."""
+        self._progress_state = (done, total, current, state)
+        c, col = self.progress, self.c
+        c.delete("all")
+        c.update_idletasks()
+        width = max(c.winfo_width(), 420)
+        pad = 12
+        track_w = width - 2 * pad
+        c.create_rectangle(pad, 6, pad + track_w, 17,
+                           fill=col["track"], outline=col["line"])
+        if state != "idle":
+            fraction = (done / total) if total else 0
+            if track_w * fraction >= 1:
+                c.create_rectangle(pad, 6, pad + track_w * fraction, 17,
+                                   fill=EMBER if state == "running"
+                                   else col["muted"], width=0)
+        if state == "idle":
+            label, right = "Ready", ""
+        elif state == "running":
+            label = f"Converting {min(done + 1, total)} of {total}"
+            if current:
+                label += f"   ·   {current}"
+            right = f"{round((done / total) * 100) if total else 0}%"
+        else:
+            label, right = f"Finished - {done} of {total} written", "100%"
+        c.create_text(pad, pad + 15, anchor="nw", fill=col["muted"],
+                      font=("Segoe UI", 8), text=label)
+        if right:
+            c.create_text(pad + track_w, pad + 15, anchor="ne",
+                          fill=col["muted"], font=("Segoe UI", 8), text=right)
+        self._fit_canvas(c, 4)
+
+    def _show_output(self):
+        """Opening Explorer automatically threw a window over the results the
+        user had just been shown, so it is a button they press instead."""
+        if self._last_folder and Path(self._last_folder).is_dir():
+            os.startfile(self._last_folder)
+
+    # ---------- behaviour ----------
 
     def _apply_brand(self):
-        """GAP palette over ttk's built-in clam theme — clam, unlike the
+        """GAP palette over ttk's built-in clam theme - clam, unlike the
         native Windows theme, honours colour configuration on every widget."""
-        self.root.configure(background=PAPER)
+        c = self.c
         style = ttk.Style(self.root)
         style.theme_use("clam")
-        style.configure(".", background=PAPER, foreground=INK,
+        style.configure(".", background=c["ground"], foreground=c["text"],
                         font=("Segoe UI", 9))
-        style.configure("TButton", background=MIST, foreground=INK,
-                        padding=(10, 4))
-        style.map("TButton", background=[("pressed", SAND), ("active", SAND)])
+        style.configure("TButton", background=c["btn"], foreground=c["text"],
+                        padding=(12, 5), borderwidth=0)
+        style.map("TButton", background=[("pressed", c["btn_active"]),
+                                         ("active", c["btn_active"])],
+                  foreground=[("disabled", c["muted"])])
         style.configure("Accent.TButton", background=EMBER,
-                        foreground="#FFFFFF")
+                        foreground="#FFFFFF", padding=(16, 5))
         style.map("Accent.TButton",
-                  background=[("disabled", MIST), ("pressed", EMBER_DEEP),
+                  background=[("disabled", c["btn"]), ("pressed", EMBER_DEEP),
                               ("active", EMBER_DEEP)],
-                  foreground=[("disabled", STONE)])
-        style.map("TRadiobutton", background=[("active", PAPER)])
-        style.configure("Header.TLabel", font=("Segoe UI", 10, "bold"))
-        style.configure("Hint.TLabel", foreground=STONE)
-        style.configure("TEntry", fieldbackground="#FFFFFF")
+                  foreground=[("disabled", c["muted"])])
+        style.configure("TEntry", fieldbackground=c["field"],
+                        foreground=c["text"], insertcolor=c["text"],
+                        borderwidth=1)
+        style.configure("TCombobox", fieldbackground=c["field"],
+                        background=c["btn"], foreground=c["text"],
+                        arrowcolor=c["text"], borderwidth=1)
+        style.map("TCombobox",
+                  fieldbackground=[("readonly", c["field"])],
+                  foreground=[("readonly", c["text"])],
+                  selectbackground=[("readonly", c["field"])],
+                  selectforeground=[("readonly", c["text"])])
+        style.configure("TScrollbar", background=c["btn"], troughcolor=c["ground"],
+                        arrowcolor=c["text"], borderwidth=0)
+        self.root.option_add("*TCombobox*Listbox.background", c["field"])
+        self.root.option_add("*TCombobox*Listbox.foreground", c["text"])
+        self.root.option_add("*TCombobox*Listbox.selectBackground", EMBER)
+        self.root.option_add("*TCombobox*Listbox.selectForeground", "#FFFFFF")
 
     def _load_logo(self):
-        """Header wordmark + title-bar symbol, embedded at the bottom of
-        this file as base64 PNG so a copy of the script keeps its branding
-        without the repo alongside. Tk decodes base64 PNG natively - no
-        extra imports and no files to find."""
+        """Header wordmark + title-bar symbol, embedded at the bottom of this
+        file as base64 PNG so a copy of the script keeps its branding without
+        the repo alongside. Tk decodes base64 PNG natively - no extra imports
+        and no files to find."""
         try:
-            self._logo = tk.PhotoImage(data=LOGO_WORDMARK_PNG)
+            self._logo = tk.PhotoImage(
+                data=LOGO_WORDMARK_REVERSED_PNG).subsample(2, 2)
             # title bar gets the symbol: the 2.7:1 wordmark dies at icon size
             self._icons = [tk.PhotoImage(data=d)
                            for d in (LOGO_SYMBOL_64_PNG, LOGO_SYMBOL_32_PNG)]
@@ -851,17 +1758,29 @@ class GuiApp:
         except Exception:  # blobs absent or corrupted: text header instead
             return False
 
+    def _model_key(self):
+        for key, spec in MODELS.items():
+            if spec["label"] == self.model_var.get():
+                return key
+        return DEFAULT_MODEL
+
+    def _on_model_change(self):
+        self._update_example()
+        self._draw_savings(self._saved, self._saved_model)
+
     def _settings(self):
         """The window's controls translated into the CLI's own settings."""
         mode = self.mode_var.get()
-        return resolve_settings(
-            ai=mode == "ai", text=mode == "text",
+        fmt, max_edge, quality, ext, _model, metadata = resolve_settings(
+            ai=mode == "ai", text=mode == "text", model=self._model_key(),
             metadata="safe" if self.strip_var.get() else "keep")
+        return fmt, max_edge, quality, ext, self._model_key(), metadata, \
+            mode != "full"
 
     def _update_example(self):
         ext = self._settings()[3]
-        stamp = datetime.now().strftime("%Y-%m-%d")
-        self.example.config(text=f"files become  {stamp}_"
+        stamp = datetime.now().strftime(DATE_FORMATS[DEFAULT_DATE_FORMAT])
+        self.example.config(text=f"becomes  {stamp}_"
                                  f"{snake_case(self.label_var.get())}_01{ext}")
 
     def add_photos(self):
@@ -882,6 +1801,7 @@ class GuiApp:
     def clear_sources(self):
         self.sources = []
         self._refresh_sources()
+        self._draw_savings(None)
 
     def _refresh_sources(self):
         self.source_list.delete(0, "end")
@@ -889,12 +1809,16 @@ class GuiApp:
             p = Path(s)
             self.source_list.insert(
                 "end", f"[folder]  {p}" if p.is_dir() else p.name)
+        n = len(self.sources)
+        self.count_label.config(
+            text="nothing chosen yet" if not n else
+            f"{n} item{'s' if n != 1 else ''} chosen")
 
     def _pick_outdir(self):
         picked = filedialog.askdirectory(title="Choose the output folder")
         if picked:
             self.outdir = Path(picked)
-            self.outdir_label.config(text=picked)
+            self.outdir_label.config(text=Path(picked).name or picked)
         elif self.outdir is None:
             self.dest_var.set("beside")  # dialog cancelled, nothing chosen
 
@@ -902,13 +1826,18 @@ class GuiApp:
         self.outdir = None
         self.outdir_label.config(text="(none chosen)")
 
-    def _append(self, line):
+    def _write(self, line, tag):
         self.text.configure(state="normal")
-        self.text.insert("end", line + "\n")
+        self.text.insert("end", line + "\n", tag or ())
         self.text.see("end")
         self.text.configure(state="disabled")
 
+    def _append(self, line, tag=None):
+        self._log.append((line, tag))
+        self._write(line, tag)
+
     def _clear_text(self):
+        self._log = []
         self.text.configure(state="normal")
         self.text.delete("1.0", "end")
         self.text.configure(state="disabled")
@@ -917,47 +1846,78 @@ class GuiApp:
         """The same assembly the CLI does; None if nothing can run."""
         if not self.sources:
             messagebox.showinfo("Nothing chosen yet",
-                                "Add photos or a folder first (step 1).")
+                                "Add photos or a folder first (step 1).",
+                                parent=self.root)
+            return None
+        missing = [s for s in self.sources if not Path(s).exists()]
+        if missing:
+            messagebox.showerror(
+                "Some of those are gone",
+                "These are no longer where they were when you added them:"
+                "\n\n" + "\n".join(Path(m).name for m in missing[:10])
+                + "\n\nUse Clear and add them again.", parent=self.root)
             return None
         files, skipped = collect(self.sources, recurse=False)
         if skipped:
             self._append(f"skipped {skipped} file(s) already named by this "
-                         "tool; add one by itself to reprocess it")
+                         "tool; add one by itself to reprocess it", "note")
         if not files:
-            messagebox.showinfo("Nothing to convert",
-                                "No supported photos found in what you chose.")
+            messagebox.showinfo(
+                "Nothing to convert",
+                "No supported photos found in what you chose.\n\nThe tool "
+                "reads HEIC, JPEG, PNG, WebP, TIFF, BMP, GIF and AVIF. RAW "
+                "camera files are not supported.", parent=self.root)
             return None
         if not HEIF_OK and any(p.suffix.lower() in HEIF_EXTS for p in files):
             messagebox.showerror(
                 "One extra install needed for HEIC",
                 "iPhone HEIC photos need the pillow-heif package.\n\n"
                 "Open a terminal, run\n\n        pip install pillow-heif\n\n"
-                "then start this tool again.")
+                "then start this tool again.", parent=self.root)
             return None
         if any(p.suffix.lower() == ".avif" for p in files) \
                 and not features.check("avif"):
             messagebox.showerror(
                 "AVIF needs a newer Pillow",
                 "Open a terminal, run\n\n        pip install --upgrade "
-                "pillow\n\nthen start this tool again.")
+                "pillow\n\nthen start this tool again.", parent=self.root)
             return None
-        fmt, max_edge, quality, ext, tier, metadata = self._settings()
-        records, failures = analyse(files, tier, max_edge)
+        fmt, max_edge, quality, ext, model, metadata, resize = self._settings()
+        records, failures = analyse(files, model, max_edge, resize)
         for src, why in failures:
-            self._append(f"FAILED  {src.name}: {why}")
+            self._append(f"FAILED  {src.name}: {why}", "error")
+        if not records:
+            messagebox.showerror(
+                "None of those could be read",
+                "Every file failed to open. The results panel says why for "
+                "each one.", parent=self.root)
+            return None
         plan_names(records, snake_case(self.label_var.get()), ext, self.outdir)
-        return records, (fmt, max_edge, quality, tier, metadata)
+        return records, (fmt, max_edge, quality, model, metadata, resize)
 
-    def _report(self, records, tier, fmt, metadata):
+    def _check_destinations(self, records):
+        """Refuse before writing anything if a target folder is blocked."""
+        for folder in sorted({r["dest"].parent for r in records}):
+            why = writable(folder)
+            if why:
+                messagebox.showerror(
+                    "Windows will not let the tool write there",
+                    f"{folder}\n\n{why}", parent=self.root)
+                self._append(f"cannot write to {folder}: {why}", "error")
+                return False
+        return True
+
+    def _report(self, records, model, fmt, metadata):
         """The batch notes, worded exactly as the command line words them."""
-        for line in upload_notes(records, tier, fmt):
-            self._append(line)
+        for line in upload_notes(records, model, fmt,
+                                 self.currency_var.get()):
+            self._append(line, "note" if line.startswith("  ") else "head")
         located = [r for r in records if r["located"]]
         if located:
             where = ("carried into the copies" if metadata == "keep"
                      else "left out of the copies")
             self._append(f"  {len(located)} original(s) record where the photo "
-                         f"was taken; that location is {where}")
+                         f"was taken; that location is {where}", "note")
 
     def preview(self):
         if self.running:
@@ -966,7 +1926,7 @@ class GuiApp:
         prepared = self._prepare()
         if not prepared:
             return
-        records, (fmt, _max_edge, _q, tier, metadata) = prepared
+        records, (fmt, _me, _q, model, metadata, _rs) = prepared
         for rec in records:
             note = "" if rec["origin"] == "exif" \
                 else "   (file date: no usable EXIF)"
@@ -974,8 +1934,9 @@ class GuiApp:
             self._append(f"{rec['src'].name}  ->  {rec['dest'].name}"
                          f"   [{w}x{h}, {rec['tokens']:,} tokens]{note}")
         self._append(f"\npreview only - nothing written yet. Convert will "
-                     f"write {len(records)} file(s).")
-        self._report(records, tier, fmt, metadata)
+                     f"write {len(records)} file(s).", "head")
+        self._report(records, model, fmt, metadata)
+        self._draw_savings(savings(records, model), model)
 
     def convert(self):
         if self.running:
@@ -985,19 +1946,22 @@ class GuiApp:
         if not prepared:
             return
         records, settings = prepared
+        if not self._check_destinations(records):
+            return
         if self.delete_var.get() and not messagebox.askyesno(
                 "Send the originals to the Recycle Bin?",
                 f"{len(records)} original file(s) will go to the Recycle Bin "
                 "once their copies are made and checked.\n\nAny file whose "
                 "copy fails is kept. You can restore anything from the "
-                "Recycle Bin afterwards.\n\nGo ahead?", default="no"):
-            self._append("cancelled - nothing written, nothing deleted")
+                "Recycle Bin afterwards.\n\nGo ahead?", default="no",
+                parent=self.root):
+            self._append("cancelled - nothing written, nothing deleted", "note")
             return
-        if self.outdir:
-            self.outdir.mkdir(parents=True, exist_ok=True)
         self.running = True
         self.preview_btn.state(["disabled"])
         self.convert_btn.state(["disabled"])
+        self.show_btn.state(["disabled"])
+        self._draw_progress(0, len(records), "", "running")
         # Read every Tk variable here, on the main thread: touching them from
         # the worker is not safe, and the user could change one mid-run.
         chores = (self.manifest_var.get(), self.delete_var.get(),
@@ -1007,43 +1971,49 @@ class GuiApp:
         self.root.after(100, self._poll)
 
     def _work(self, records, settings, chores):
-        fmt, max_edge, quality, tier, metadata = settings
+        fmt, max_edge, quality, model, metadata, resize = settings
         want_manifest, want_delete, label = chores
         folder = None
-        for rec in records:
+        for index, rec in enumerate(records):
             note = "" if rec["origin"] == "exif" \
                 else "   (file date: no usable EXIF)"
+            self.q.put(("progress", index, len(records), rec["src"].name))
             try:
                 rec["written"] = convert(rec["src"], rec["dest"], fmt,
-                                         max_edge, quality, tier, metadata)
+                                         max_edge, quality,
+                                         model if resize else None, metadata)
             except Exception as exc:
                 rec["dest"].unlink(missing_ok=True)
-                self.q.put(f"FAILED  {rec['src'].name}: {exc}")
+                self.q.put(("error", f"FAILED  {rec['src'].name}: "
+                                     f"{diagnose(exc, rec['src'], rec['dest'])}"))
                 continue
             folder = rec["dest"].parent
             w, h = rec["out_size"]
             self.q.put(f"{rec['src'].name}  ->  {rec['dest'].name}"
                        f"   [{w}x{h}, {rec['tokens']:,} tokens]{note}")
         done = [r for r in records if r.get("written")]
-        self.q.put(f"\n{len(done)} of {len(records)} file(s) converted")
-        self.q.put(("report", done, tier, fmt, metadata))
+        self.q.put(("head", f"\n{len(done)} of {len(records)} file(s) "
+                            "converted"))
+        self.q.put(("report", done, model, fmt, metadata))
         for line in size_warnings(done):
-            self.q.put(line)
+            self.q.put(("note", line))
         if want_manifest and done:
             try:
                 path = write_manifest(done, (folder or done[0]["dest"].parent)
                                       / f"{label}_manifest.txt")
-                self.q.put(f"  list written to {path.name}")
+                self.q.put(("note", f"  list written to {path.name}"))
             except Exception as exc:
-                self.q.put(f"  could not write the list: {exc}")
+                self.q.put(("error", f"  could not write the list: "
+                                     f"{diagnose(exc)}"))
         if want_delete:
             gone, kept = delete_originals(done)
-            self.q.put(f"  {gone} original(s) sent to the Recycle Bin")
+            self.q.put(("note", f"  {gone} original(s) sent to the Recycle "
+                                "Bin"))
             for src, why in kept:
-                self.q.put(f"  kept {src.name}: {why}")
+                self.q.put(("error", f"  kept {src.name}: {why}"))
         else:
-            self.q.put("  originals untouched")
-        self.q.put(("done", len(done), len(records), folder))
+            self.q.put(("note", "  originals untouched"))
+        self.q.put(("done", len(done), len(records), folder, done, model))
 
     def _poll(self):
         while True:
@@ -1053,19 +2023,28 @@ class GuiApp:
                 self.root.after(100, self._poll)
                 return
             if isinstance(item, tuple) and item[0] == "report":
-                _, records, tier, fmt, metadata = item
-                self._report(records, tier, fmt, metadata)
+                self._report(item[1], item[2], item[3], item[4])
                 continue
-            if isinstance(item, tuple):
-                _, done, total, folder = item
+            if isinstance(item, tuple) and item[0] == "progress":
+                self._draw_progress(item[1], item[2], item[3], "running")
+                continue
+            if isinstance(item, tuple) and item[0] == "done":
+                _, done, total, folder, records, model = item
+                self._draw_savings(savings(records, model), model)
+                self._draw_progress(done, total, "", "finished")
                 self.running = False
                 self.preview_btn.state(["!disabled"])
                 self.convert_btn.state(["!disabled"])
-                if folder and done and self.open_when_done:
-                    os.startfile(folder)  # show the results in Explorer
+                # Explorer is no longer opened automatically: it threw a
+                # window over the results the user had just been shown.
+                self._last_folder = folder if (folder and done) else None
+                self.show_btn.state(["!disabled"] if self._last_folder
+                                    else ["disabled"])
                 return
+            if isinstance(item, tuple):
+                self._append(item[1], item[0])
+                continue
             self._append(item)
-
 
 def selftest():
     """Check the sizing maths against Anthropic's own worked examples.
@@ -1107,13 +2086,37 @@ def selftest():
         bad += 1
     else:
         print(f"ok   portrait 1500x2000 -> {portrait}, mirrors the landscape")
-    if target_size(4000, 3000, "standard", max_edge=800) != (800, 600):
-        print("FAIL --max-edge is not applied before the tier fit")
+    if target_size(4000, 3000, "claude-standard", max_edge=800) != (800, 600):
+        print("FAIL --max-edge is not applied before the model fit")
         bad += 1
     else:
-        print("ok   --max-edge 800 caps before the tier fit")
-    print(f"\n{'FAILED' if bad else 'passed'}: {len(cases) + 2 - bad} of "
-          f"{len(cases) + 2} checks")
+        print("ok   --max-edge 800 caps before the model fit")
+    extra = 2
+    # The other providers' own worked examples, from their documentation.
+    for label, got, want in (
+            ("Gemini 960x540 (docs: 6 tiles)", _gemini_count(960, 540),
+             6 * GEMINI_TILE_TOKENS),
+            ("Gemini 300x300 (docs: flat 258)", _gemini_count(300, 300),
+             GEMINI_TILE_TOKENS),
+            ("OpenAI 1024x1024 patches x1.2", _openai_count(1024, 1024),
+             round(32 * 32 * OPENAI_MULTIPLIER))):
+        extra += 1
+        if got != want:
+            print(f"FAIL {label} -> {got}, expected {want}")
+            bad += 1
+        else:
+            print(f"ok   {label} -> {got}")
+    fitted = _openai_fit(4032, 3024)
+    patches = -(-fitted[0] // OPENAI_PATCH) * -(-fitted[1] // OPENAI_PATCH)
+    extra += 1
+    if patches > OPENAI_BUDGET:
+        print(f"FAIL OpenAI fit exceeds its budget: {patches}")
+        bad += 1
+    else:
+        print(f"ok   OpenAI fit 4032x3024 -> {fitted}, {patches} patches "
+              f"within {OPENAI_BUDGET}")
+    print(f"\n{'FAILED' if bad else 'passed'}: {len(cases) + extra - bad} of "
+          f"{len(cases) + extra} checks")
     return 1 if bad else 0
 
 
@@ -1245,6 +2248,99 @@ D6ukvy1Uxt16eqZPxyuWlEomIeVxvGnMTsclzSWL0OUveoYcM8O3DQ/vEHkraXYETNSaJlzjVNOu
 jCd33FnrZI6pHtbTeAODo98C8K11nZ3nOPw8km+QcL6A1SBOg9TGGg30GAWDii495Mb/WhkYfqqo
 1nMNKPGh8Wr1agLNyrS8cHwm3UUiGZ+ZmaT03Qbk8C1paftvcXp8UtLvkTzrIOKSMk/neUIfGRja
 uBUYOi4zX/8fsVsipdQVSM0AAAAASUVORK5CYII=
+"""
+
+LOGO_WORDMARK_REVERSED_PNG = """
+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
+AAAASUVORK5CYII=
 """
 
 LOGO_SYMBOL_64_PNG = """
