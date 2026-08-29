@@ -20,25 +20,73 @@ not a format conversion. Live Photo .mov companions and video are ignored.
 The window
 ----------
 Run with no arguments (or --gui) and a small window opens instead of the
-command line: pick photos or a folder, type the naming word, choose
-"smaller for AI" or "full quality", preview the new names, convert. It
-drives exactly the same functions as the command line — the window exists
-so the tool is reachable without a terminal, not as a different tool —
-and it exposes only the decisions a person actually makes; every finer
-control below stays command-line on purpose.
+command line: pick photos or a folder, type the naming word, choose a
+preset, preview the new names, convert. It drives exactly the same
+functions as the command line — the window exists so the tool is reachable
+without a terminal, not as a different tool — and it exposes only the
+decisions a person actually makes; every finer control below stays
+command-line on purpose.
 
-The --ai preset
----------------
---ai resizes so the long edge is at most 1568 px and saves JPEG at quality
-85. The number comes from Anthropic's vision guidance rather than folklore:
-most Claude models scale any image beyond 1568 px on its long edge down
-before the model sees it, so pixels past that limit are upload weight with
-no fidelity gain. Current high-resolution Claude models accept up to
-2576 px at roughly three times the image-token cost — pass --max-edge 2576
-when that detail matters more than size. Typical result: a 3 MB HEIC
-becomes a 15-25 MB PNG untouched, or a JPEG of a few hundred KB under
---ai. Each of --format, --max-edge and --quality can also be set
-individually; an explicit value overrides the preset.
+Sizing for the model, not for the disk
+--------------------------------------
+This is what separates the tool from a general image compressor. Claude
+sees an image as a grid of 28x28-pixel patches, and each patch costs one
+visual token. Every model enforces two limits at once: a longest-edge
+limit, and a budget of visual tokens. An image over EITHER is downscaled
+server-side before the model ever sees it, so pixels past that point are
+upload weight, latency and nothing else.
+
+    Standard tier (below Claude 4.7)   1568 px long edge, 1568 tokens
+    High-resolution (Claude 4.7+)      2576 px long edge, 4784 tokens
+
+The token budget is the one that usually binds, and capping the long edge
+does not satisfy it. A 4:3 phone photo capped at 1568 px is 1568x1176,
+which costs 56 x 42 = 2352 tokens against a budget of 1568, so it is
+downscaled again on arrival — to 1270x952. An earlier version of this tool
+did exactly that, and shipped a third more pixels than any model kept.
+
+So --tier resizes to the largest size the tier actually accepts, computed
+with Anthropic's published reference algorithm rather than by capping an
+edge. --selftest asserts that maths against the worked examples in their
+documentation, because a wrongly sized file looks perfectly fine and fails
+silently. Every count the tool prints is the real cost of the file it
+wrote: --dry-run prices a batch before anything is written.
+
+Presets and limits
+------------------
+--ai      JPEG at quality 85, standard tier. The everyday case.
+--text    PNG (lossless, so small writing survives), high-resolution tier
+          — for documents, whiteboards and screenshots. Anthropic's own
+          guidance warns that heavy JPEG compression makes text hard to
+          read, which is the whole reason this preset is not just --ai.
+
+Each of --format, --tier, --max-edge and --quality overrides its preset.
+The tool also warns where a batch meets a published limit: 20 images per
+message on claude.ai (100 per API request), the stricter 2000 px per-image
+rule that applies to API requests holding more than 20 images, and the
+10 MB per-image ceiling.
+
+Metadata, and what it is really for
+-----------------------------------
+--metadata safe (the default) drops GPS location, camera owner and body
+serial from the copies, and keeps the capture time. Note precisely why:
+Anthropic documents that Claude is not given an image's metadata at all,
+so this is not about what the model reads. It is that the file itself
+carries those tags onward — to the service's storage, to whoever the
+folder is shared with next, to a different vendor entirely. --metadata
+keep restores the old carry-everything behaviour, --metadata strip drops
+the lot. Originals are never altered either way, and the tool reports how
+many of them record a location.
+
+Deleting the originals
+----------------------
+--delete-originals sends each original to the Recycle Bin, and only after
+its copy has been written, re-opened and verified: a file whose conversion
+failed is always kept, and a failed batch cannot cost anyone their photos.
+It never runs under --dry-run, and the window asks before doing it. There
+is deliberately no permanent-delete option — the whole safety case rests
+on the deletion being undoable, so where no Recycle Bin is available the
+tool refuses rather than falling back to an unlink.
 
 How it works
 ------------
@@ -54,23 +102,37 @@ How it works
    re-converted — pass such a file explicitly to reprocess it.
 
 3. Bakes EXIF orientation into the pixels, because viewers do not reliably
-   honour rotation metadata in PNG/JPEG, and carries the remaining EXIF
-   (capture time included) into the output. For JPEG output, transparency
-   is flattened onto white.
+   honour rotation metadata in PNG/JPEG, and carries the surviving EXIF
+   into the output under the --metadata policy above. For JPEG output,
+   transparency is flattened onto white.
 
-4. Re-opens every file it writes as an integrity self-check.
+4. Re-opens every file it writes as an integrity self-check — which is
+   also the precondition for deleting anything.
+
+5. Optionally writes a numbered manifest (--manifest) to paste alongside
+   the images. Anthropic's guidance asks for images to be introduced as
+   "Image 1:", "Image 2:" so a prompt can refer back to them; without it
+   the model has the pictures and no way to tell which is which.
 
 Requires Python with Pillow. pillow-heif (pip install pillow-heif) is
 needed only when HEIC/HEIF files are among the inputs; every other format
 works with Pillow alone. The window needs tkinter, which ships with
-Python on Windows.
+Python on Windows. Note that Claude accepts JPEG, PNG, GIF and WebP only —
+HEIC, TIFF, BMP and AVIF have to be converted, which is this tool's job.
+
+Limits and figures are from platform.claude.com/docs/en/build-with-claude/
+vision and .../vision-coordinates, read 2026-08-29. They move; re-read them
+before trusting the numbers, and re-run --selftest after any change.
 
 Usage
 -----
     python tools/prep_photos.py                    # no arguments: the window
     python tools/prep_photos.py C:\imports --label whiteboard --ai
-    python tools/prep_photos.py C:\imports --dry-run
+    python tools/prep_photos.py C:\scans --label contract --text --manifest
+    python tools/prep_photos.py C:\imports --ai --dry-run    # price it first
+    python tools/prep_photos.py C:\imports --ai --delete-originals
     python tools/prep_photos.py IMG_4232.HEIC shot.webp -o C:\out
+    python tools/prep_photos.py --selftest         # check the sizing maths
 """
 
 import argparse
@@ -103,13 +165,29 @@ HEIF_EXTS = {".heic", ".heif"}
 PIL_EXTS = {".jpg", ".jpeg", ".png", ".webp", ".tif", ".tiff", ".bmp", ".gif",
             ".avif"}
 INPUT_EXTS = HEIF_EXTS | PIL_EXTS
-AI_MAX_EDGE = 1568   # long edge beyond which most Claude models downscale anyway
 AI_QUALITY = 85
+
+# Claude's vision limits, from platform.claude.com/docs/en/build-with-claude/
+# vision and .../vision-coordinates, read 2026-08-29. A tier is
+# (max_edge_px, max_visual_tokens); an image over EITHER limit is downscaled
+# server-side, and for ordinary photos it is the token budget that binds.
+PATCH = 28               # Claude sees the image as 28x28-pixel patches
+TIERS = {"standard": (1568, 1568),   # every model below Claude 4.7
+         "high": (2576, 4784)}       # Claude 4.7 and later
+DEFAULT_TIER = "standard"
+CLAUDE_AI_PER_MESSAGE = 20   # images per message on claude.ai
+MANY_IMAGE_EDGE = 2000       # per-image edge cap once a request holds >20
+MAX_UPLOAD_MB = 10           # per image, claude.ai and the API direct
+
 OWN_OUTPUT = re.compile(r"\d{4}-\d{2}-\d{2}_[a-z0-9_]+_\d{2,}\.(png|jpg)",
                         re.IGNORECASE)
 EXIF_IFD = 0x8769          # pointer to the EXIF sub-IFD, where capture time lives
 DATETIME_ORIGINAL = 36867  # capture time (sub-IFD)
 DATETIME = 306             # file-level timestamp (IFD0)
+GPS_IFD = 0x8825           # pointer to the GPS IFD: where the photo was taken
+# Tags naming a person or a specific camera body, dropped by --metadata safe.
+IDENTIFYING_IFD0 = (315, 0x8298)             # Artist, Copyright
+IDENTIFYING_SUB = (0xA430, 0xA431, 0xA435)   # owner name, body serial, lens serial
 HEIF_INSTALL_MSG = (
     "HEIC/HEIF files are present but pillow-heif is not installed.\n"
     "Install it with:  pip install pillow-heif\n"
@@ -132,27 +210,146 @@ def snake_case(text):
     return re.sub(r"_{2,}", "_", text).strip("_") or "img"
 
 
-def resolve_settings(ai, fmt=None, max_edge=None, quality=None):
-    """Fill unset options from the --ai preset or the plain defaults."""
-    fmt = fmt or ("jpg" if ai else "png")
-    if max_edge is None:
-        max_edge = AI_MAX_EDGE if ai else None
+def count_tokens(width, height):
+    """Visual tokens an image costs Claude: one per 28x28 patch."""
+    return -(-width // PATCH) * -(-height // PATCH)
+
+
+def fit_to_tier(width, height, max_edge, max_tokens):
+    """The size Claude would downscale this image to, or it unchanged.
+
+    A direct port of Anthropic's published reference implementation (see the
+    module docstring). Both limits matter and the token budget is usually the
+    binding one, so this cannot be replaced by capping the long edge.
+    """
+    def fits(w, h):
+        return (-(-w // PATCH) * PATCH <= max_edge
+                and -(-h // PATCH) * PATCH <= max_edge
+                and count_tokens(w, h) <= max_tokens)
+
+    if fits(width, height):
+        return width, height
+    if height > width:                       # solve landscape, then swap back
+        tall_h, tall_w = fit_to_tier(height, width, max_edge, max_tokens)
+        return tall_w, tall_h
+    aspect = width / height
+    lo, hi = 1, width                        # lo always fits; hi never does
+    while lo + 1 < hi:
+        mid = (lo + hi) // 2
+        if fits(mid, max(round(mid / aspect), 1)):
+            lo = mid
+        else:
+            hi = mid
+    return lo, max(round(lo / aspect), 1)
+
+
+def target_size(width, height, tier, max_edge=None):
+    """Final pixel size for one image: the manual cap first, then the tier."""
+    if max_edge and max(width, height) > max_edge:
+        scale = max_edge / max(width, height)
+        width = max(round(width * scale), 1)
+        height = max(round(height * scale), 1)
+    if tier:
+        width, height = fit_to_tier(width, height, *TIERS[tier])
+    return width, height
+
+
+def resolve_settings(ai=False, text=False, fmt=None, max_edge=None,
+                     quality=None, tier=..., metadata=None):
+    """Fill unset options from a preset or the plain defaults.
+
+    Returns (fmt, max_edge, quality, ext, tier, metadata). --text wins over
+    --ai where they disagree; an explicit flag wins over both.
+    """
+    if fmt is None:
+        fmt = "png" if text or not ai else "jpg"
+    if tier is ...:
+        tier = "high" if text else (DEFAULT_TIER if ai else None)
     if quality is None:
         quality = AI_QUALITY
-    return fmt, max_edge, quality, (".jpg" if fmt == "jpg" else ".png")
+    if metadata is None:
+        metadata = "safe"
+    return fmt, max_edge, quality, (".jpg" if fmt == "jpg" else ".png"), \
+        tier, metadata
 
 
-def capture_time(src):
-    """Return (datetime, "exif" | "mtime") for one image."""
+def inspect(src):
+    """One open per file: capture time, pixel size, and what EXIF discloses.
+
+    Returns (datetime, "exif" | "mtime", (width, height), has_location).
+    """
     with Image.open(src) as im:
         exif = im.getexif()
         stamp = exif.get_ifd(EXIF_IFD).get(DATETIME_ORIGINAL) or exif.get(DATETIME)
+        size = im.size
+        if exif.get(274) in (5, 6, 7, 8):  # orientation: the transpose swaps them
+            size = (size[1], size[0])
+        located = bool(exif.get_ifd(GPS_IFD))
+    when = None
     if stamp:
         try:
-            return datetime.strptime(str(stamp).strip(), "%Y:%m:%d %H:%M:%S"), "exif"
+            when = datetime.strptime(str(stamp).strip(), "%Y:%m:%d %H:%M:%S")
         except ValueError:
             pass  # malformed stamp: fall through to mtime
-    return datetime.fromtimestamp(src.stat().st_mtime), "mtime"
+    if when:
+        return when, "exif", size, located
+    return datetime.fromtimestamp(src.stat().st_mtime), "mtime", size, located
+
+
+def clean_exif(exif, metadata):
+    """Apply the --metadata policy, returning EXIF bytes or None.
+
+    "keep" carries everything across; "safe" drops where the photo was taken
+    and who owns the camera, keeping the capture time; "strip" carries none.
+    """
+    if metadata == "strip" or not exif:
+        return None
+    if metadata == "safe":
+        for tag in (GPS_IFD,) + IDENTIFYING_IFD0:
+            exif.pop(tag, None)
+        sub = exif.get_ifd(EXIF_IFD)
+        for tag in IDENTIFYING_SUB:
+            sub.pop(tag, None)
+    try:
+        return exif.tobytes()
+    except Exception:
+        return None  # malformed source EXIF: better to drop it than to fail
+
+
+def recycle(path):
+    """Send one file to the Recycle Bin. Raises if that cannot be done.
+
+    Deliberately never falls back to unlink(): the whole safety case for
+    deleting originals at all is that the deletion is undoable.
+    """
+    if sys.platform == "win32":
+        import ctypes
+        from ctypes import wintypes
+
+        class SHFILEOPSTRUCTW(ctypes.Structure):
+            _fields_ = [("hwnd", wintypes.HWND),
+                        ("wFunc", wintypes.UINT),
+                        ("pFrom", wintypes.LPCWSTR),
+                        ("pTo", wintypes.LPCWSTR),
+                        ("fFlags", ctypes.c_uint16),
+                        ("fAnyOperationsAborted", wintypes.BOOL),
+                        ("hNameMappings", wintypes.LPVOID),
+                        ("lpszProgressTitle", wintypes.LPCWSTR)]
+
+        FO_DELETE, FOF_ALLOWUNDO, FOF_NOCONFIRMATION, FOF_SILENT = 3, 0x40, 0x10, 0x4
+        op = SHFILEOPSTRUCTW(
+            None, FO_DELETE, str(Path(path).resolve()) + "\0\0", None,
+            FOF_ALLOWUNDO | FOF_NOCONFIRMATION | FOF_SILENT, False, None, None)
+        result = ctypes.windll.shell32.SHFileOperationW(ctypes.byref(op))
+        if result != 0 or op.fAnyOperationsAborted:
+            raise OSError(f"the Recycle Bin refused it (code {result})")
+        return
+    try:
+        from send2trash import send2trash
+    except ImportError:
+        raise OSError("no Recycle Bin available on this platform without "
+                      "send2trash (pip install send2trash)")
+    send2trash(str(path))
 
 
 def collect(sources, recurse):
@@ -185,16 +382,23 @@ def collect(sources, recurse):
     return unique, skipped
 
 
-def analyse(files):
-    """Read each file's capture time; returns (records, failures)."""
+def analyse(files, tier=None, max_edge=None):
+    """Read each file's capture time, size and disclosures.
+
+    Also works out the size and token cost each output will have, so a dry
+    run can report the whole bill without writing anything.
+    """
     records, failures = [], []
     for src in files:
         try:
-            when, origin = capture_time(src)
+            when, origin, size, located = inspect(src)
         except Exception as exc:
             failures.append((src, f"unreadable: {exc}"))
             continue
-        records.append({"src": src, "when": when, "origin": origin})
+        out = target_size(*size, tier, max_edge)
+        records.append({"src": src, "when": when, "origin": origin,
+                        "size": size, "located": located, "out_size": out,
+                        "tokens": count_tokens(*out)})
     return records, failures
 
 
@@ -221,12 +425,14 @@ def plan_names(records, label, ext, outdir):
             rec["dest"] = dest
 
 
-def convert(src, dest, fmt, max_edge, quality):
+def convert(src, dest, fmt, max_edge, quality, tier=None, metadata="safe"):
+    """Write one prepared copy. Returns its (width, height)."""
     with Image.open(src) as im:
         im = ImageOps.exif_transpose(im)
         exif = im.getexif()  # orientation already applied and removed
-        if max_edge and max(im.size) > max_edge:
-            im.thumbnail((max_edge, max_edge), Image.Resampling.LANCZOS)
+        target = target_size(*im.size, tier, max_edge)
+        if target != im.size:
+            im = im.resize(target, Image.Resampling.LANCZOS)
         has_alpha = im.mode in ("RGBA", "LA") or (
             im.mode == "P" and "transparency" in im.info)
         if fmt == "jpg":
@@ -240,13 +446,109 @@ def convert(src, dest, fmt, max_edge, quality):
         elif im.mode not in ("RGB", "RGBA", "L", "LA"):
             im = im.convert("RGBA" if has_alpha else "RGB")
         params = {"optimize": True}
-        if exif:
-            params["exif"] = exif.tobytes()
+        carried = clean_exif(exif, metadata)
+        if carried:
+            params["exif"] = carried
         if fmt == "jpg":
             params["quality"] = quality
         im.save(dest, format="JPEG" if fmt == "jpg" else "PNG", **params)
+        written = im.size
     with Image.open(dest) as check:
         check.verify()
+    return written
+
+
+def upload_notes(records, tier, fmt):
+    """Lines about what this batch will cost and where it hits a limit.
+
+    Kept out of both front ends because the CLI and the window need exactly
+    the same warnings, and a limit stated in only one of them is a trap.
+    """
+    if not records:
+        return []
+    total = sum(r["tokens"] for r in records)
+    count = len(records)
+    tier_name = {"standard": "a standard-resolution model",
+                 "high": "a high-resolution model (Claude 4.7 and later)"}
+    notes = [f"{count} image(s), about {total:,} visual tokens"
+             + (f" on {tier_name[tier]}" if tier else "")]
+    if not tier:
+        billed = {name: sum(count_tokens(*fit_to_tier(*r["out_size"], *limits))
+                            for r in records)
+                  for name, limits in TIERS.items()}
+        notes.append("  no model tier set, so that is what you upload, not "
+                     "what you are billed for: Claude downscales these to "
+                     f"about {billed['standard']:,} tokens (standard) or "
+                     f"{billed['high']:,} (high-resolution)")
+    if count > CLAUDE_AI_PER_MESSAGE:
+        messages = -(-count // CLAUDE_AI_PER_MESSAGE)
+        notes.append(f"  claude.ai takes {CLAUDE_AI_PER_MESSAGE} images per "
+                     f"message, so this needs {messages} messages "
+                     "(the API takes 100 in one request)")
+        over = [r for r in records if max(r["out_size"]) > MANY_IMAGE_EDGE]
+        if over:
+            notes.append(f"  {len(over)} of them are over {MANY_IMAGE_EDGE} px "
+                         "on a side, which a single API request of more than "
+                         f"{CLAUDE_AI_PER_MESSAGE} images rejects")
+    if fmt == "png":
+        notes.append("  PNG keeps text crisp but uploads large; use the AI "
+                     "preset for photographs")
+    return notes
+
+
+def size_warnings(records):
+    """Outputs too big to upload. Reads the files, so run it after writing."""
+    warnings = []
+    for rec in records:
+        dest = rec.get("dest")
+        if not dest or not dest.exists():
+            continue
+        mb = dest.stat().st_size / 1_048_576
+        if mb > MAX_UPLOAD_MB:
+            warnings.append(f"  {dest.name} is {mb:.1f} MB, over the "
+                            f"{MAX_UPLOAD_MB} MB per-image upload limit")
+    return warnings
+
+
+def write_manifest(records, path):
+    """A paste-alongside list naming each image in the order it is sent.
+
+    Anthropic's vision guidance asks for images to be introduced as
+    "Image 1:", "Image 2:" so a prompt can refer back to them; without that
+    the model has the pictures and no idea which is which.
+    """
+    lines = ["Images attached, in order:", ""]
+    for n, rec in enumerate(sorted(records, key=lambda r: r["dest"].name), 1):
+        w, h = rec["out_size"]
+        when = rec["when"].strftime("%Y-%m-%d %H:%M")
+        dated = when if rec["origin"] == "exif" else when + " (file date)"
+        lines.append(f"Image {n}: {rec['dest'].name} - taken {dated} "
+                     f"- {w}x{h} px, {rec['tokens']:,} visual tokens")
+    lines += ["", f"Total: {len(records)} image(s), "
+                  f"{sum(r['tokens'] for r in records):,} visual tokens."]
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return path
+
+
+def delete_originals(records):
+    """Recycle the sources whose output is on disk and verified.
+
+    Never deletes a source whose conversion failed or whose output is
+    missing or empty, so a failed batch cannot cost anyone their photos.
+    """
+    gone, kept = 0, []
+    for rec in records:
+        dest = rec.get("dest")
+        if not rec.get("written") or not dest or not dest.exists() \
+                or dest.stat().st_size == 0:
+            kept.append((rec["src"], "its converted copy is missing"))
+            continue
+        try:
+            recycle(rec["src"])
+            gone += 1
+        except Exception as exc:
+            kept.append((rec["src"], str(exc)))
+    return gone, kept
 
 
 def main():
@@ -260,15 +562,37 @@ def main():
                     help="subject slug for the new names, snake_cased for you "
                          "(default: img)")
     ap.add_argument("--ai", action="store_true",
-                    help=f"preset for AI upload: JPEG, long edge <= "
-                         f"{AI_MAX_EDGE} px, quality {AI_QUALITY} "
+                    help="preset for AI upload: JPEG at quality "
+                         f"{AI_QUALITY}, sized to the standard model tier "
                          "(each part overridable below)")
+    ap.add_argument("--text", action="store_true",
+                    help="preset for documents, whiteboards and screenshots: "
+                         "PNG (lossless, so small text survives), sized to "
+                         "the high-resolution tier")
+    ap.add_argument("--tier", choices=tuple(TIERS) + ("none",), default=None,
+                    help="resize to exactly what this model tier accepts, so "
+                         "no uploaded pixel is thrown away server-side: "
+                         "standard (below Claude 4.7) or high (Claude 4.7 and "
+                         "later). Default: standard under --ai, high under "
+                         "--text, none otherwise")
+    ap.add_argument("--metadata", choices=("keep", "safe", "strip"),
+                    default=None,
+                    help="EXIF carried into the copies: keep all; safe "
+                         "(default) drops GPS location and camera "
+                         "owner/serial but keeps the capture time; strip "
+                         "drops the lot. Originals are never altered")
+    ap.add_argument("--delete-originals", action="store_true",
+                    help="after a verified conversion, send each original to "
+                         "the Recycle Bin; skips any file whose copy is "
+                         "missing, and never runs under --dry-run")
+    ap.add_argument("--manifest", action="store_true",
+                    help="also write a numbered list of the outputs to paste "
+                         "alongside them in the chat")
     ap.add_argument("--format", choices=("png", "jpg"), default=None,
                     help="output format (default: png, or jpg under --ai)")
     ap.add_argument("--max-edge", type=int, default=None, metavar="PX",
-                    help="shrink so the longest edge is at most PX; never "
-                         "upscales (default: no resize, or "
-                         f"{AI_MAX_EDGE} under --ai)")
+                    help="additionally cap the longest edge at PX, applied "
+                         "before the tier fit; never upscales")
     ap.add_argument("--quality", type=int, default=None, metavar="N",
                     help=f"JPEG quality 1-95 (default {AI_QUALITY}; "
                          "ignored for png)")
@@ -281,8 +605,11 @@ def main():
                     help="print the rename map and write nothing")
     args = ap.parse_args()
 
-    fmt, max_edge, quality, ext = resolve_settings(
-        args.ai, args.format, args.max_edge, args.quality)
+    fmt, max_edge, quality, ext, tier, metadata = resolve_settings(
+        args.ai, args.text, args.format, args.max_edge, args.quality,
+        ... if args.tier is None else (None if args.tier == "none"
+                                       else args.tier),
+        args.metadata)
     label = snake_case(args.label)
 
     files, skipped = collect(args.sources, args.recurse)
@@ -298,7 +625,7 @@ def main():
         sys.exit(".avif files are present but this Pillow build lacks AVIF "
                  "support.\nFix with:  pip install --upgrade pillow")
 
-    records, failures = analyse(files)
+    records, failures = analyse(files, tier, max_edge)
     plan_names(records, label, ext, args.outdir)
 
     if args.outdir and not args.dry_run:
@@ -307,12 +634,15 @@ def main():
     converted = 0
     for rec in records:
         note = "" if rec["origin"] == "exif" else "  (file date: no usable EXIF)"
-        line = f"{rec['src'].name} -> {rec['dest'].name}{note}"
+        w, h = rec["out_size"]
+        line = (f"{rec['src'].name} -> {rec['dest'].name}"
+                f"  [{w}x{h}, {rec['tokens']:,} tokens]{note}")
         if args.dry_run:
             print(line)
             continue
         try:
-            convert(rec["src"], rec["dest"], fmt, max_edge, quality)
+            rec["written"] = convert(rec["src"], rec["dest"], fmt, max_edge,
+                                     quality, tier, metadata)
         except Exception as exc:
             failures.append((rec["src"], str(exc)))
             rec["dest"].unlink(missing_ok=True)  # no half-written files left behind
@@ -320,12 +650,43 @@ def main():
         converted += 1
         print(line)
 
+    done = [r for r in records if r.get("written")]
     if args.dry_run:
         print(f"\ndry run: {len(records)} file(s) would be written as "
               f"{fmt.upper()}; nothing touched")
+        done = records
     else:
         print(f"\n{converted} of {len(files)} file(s) converted to "
-              f"{fmt.upper()}; originals untouched")
+              f"{fmt.upper()}")
+
+    for line in upload_notes(done, tier, fmt):
+        print(line)
+    if not args.dry_run:
+        for line in size_warnings(done):
+            print(line)
+
+    located = [r for r in records if r["located"]]
+    if located:
+        where = ("carried into the copies" if metadata == "keep"
+                 else "left out of the copies")
+        print(f"  {len(located)} original(s) record where the photo was "
+              f"taken; that location is {where}")
+
+    if args.manifest and done and not args.dry_run:
+        folder = args.outdir or done[0]["dest"].parent
+        path = write_manifest(done, folder / f"{label}_manifest.txt")
+        print(f"  list written to {path.name}")
+
+    if args.delete_originals and not args.dry_run:
+        gone, kept = delete_originals(done)
+        print(f"\n{gone} original(s) sent to the Recycle Bin")
+        for src, why in kept:
+            print(f"  kept {src.name}: {why}", file=sys.stderr)
+    elif args.delete_originals:
+        print("\ndry run: originals would be sent to the Recycle Bin")
+    else:
+        print("  originals untouched")
+
     for src, why in failures:
         print(f"FAILED  {src}: {why}", file=sys.stderr)
     if failures:
@@ -344,14 +705,14 @@ class GuiApp:
 
         self.root = tk.Tk()
         self.root.title("Prep photos for AI")
-        self.root.minsize(640, 620)
+        self.root.minsize(660, 780)
         self._apply_brand()
         frame = ttk.Frame(self.root, padding=12)
         frame.grid(row=0, column=0, sticky="nsew")
         self.root.columnconfigure(0, weight=1)
         self.root.rowconfigure(0, weight=1)
         frame.columnconfigure(0, weight=1)
-        frame.rowconfigure(12, weight=1)
+        frame.rowconfigure(17, weight=1)
 
         if self._load_logo():
             ttk.Label(frame, image=self._logo).grid(
@@ -392,20 +753,25 @@ class GuiApp:
         self.mode_var = tk.StringVar(value="ai")
         ttk.Radiobutton(frame, variable=self.mode_var, value="ai",
                         command=self._update_example,
-                        text="Smaller files for AI chats - JPEG, sized to what "
-                             "the AI actually uses (recommended)").grid(
+                        text="Photographs for AI chats - JPEG, sized to "
+                             "exactly what the AI keeps (recommended)").grid(
             row=7, column=0, sticky="w", pady=(4, 0))
+        ttk.Radiobutton(frame, variable=self.mode_var, value="text",
+                        command=self._update_example,
+                        text="Documents, whiteboards and screenshots - PNG, "
+                             "so small writing stays readable").grid(
+            row=8, column=0, sticky="w")
         ttk.Radiobutton(frame, variable=self.mode_var, value="full",
                         command=self._update_example,
-                        text="Full quality - PNG, much larger files").grid(
-            row=8, column=0, sticky="w")
+                        text="Full quality - PNG at original size, much "
+                             "larger files").grid(row=9, column=0, sticky="w")
         self.dest_var = tk.StringVar(value="beside")
         ttk.Radiobutton(frame, variable=self.dest_var, value="beside",
                         command=self._reset_outdir,
                         text="Save next to the originals").grid(
-            row=9, column=0, sticky="w", pady=(6, 0))
+            row=10, column=0, sticky="w", pady=(6, 0))
         row = ttk.Frame(frame)
-        row.grid(row=10, column=0, sticky="w")
+        row.grid(row=11, column=0, sticky="w")
         ttk.Radiobutton(row, variable=self.dest_var, value="chosen",
                         command=self._pick_outdir,
                         text="Save into one folder:").pack(side="left")
@@ -413,8 +779,26 @@ class GuiApp:
                                       style="Hint.TLabel")
         self.outdir_label.pack(side="left", padx=6)
 
+        ttk.Label(frame, text="4.  Anything else",
+                  style="Header.TLabel").grid(row=12, column=0, sticky="w",
+                                              pady=(10, 0))
+        self.strip_var = tk.BooleanVar(value=True)
+        ttk.Checkbutton(frame, variable=self.strip_var,
+                        text="Leave out where the photo was taken and who owns "
+                             "the camera").grid(row=13, column=0, sticky="w",
+                                                pady=(4, 0))
+        self.manifest_var = tk.BooleanVar(value=False)
+        ttk.Checkbutton(frame, variable=self.manifest_var,
+                        text="Write a numbered list to paste with the images"
+                        ).grid(row=14, column=0, sticky="w")
+        self.delete_var = tk.BooleanVar(value=False)
+        ttk.Checkbutton(frame, variable=self.delete_var,
+                        text="Send the originals to the Recycle Bin once the "
+                             "copies are made").grid(row=15, column=0,
+                                                     sticky="w")
+
         row = ttk.Frame(frame)
-        row.grid(row=11, column=0, sticky="w", pady=10)
+        row.grid(row=16, column=0, sticky="w", pady=10)
         self.preview_btn = ttk.Button(row, text="Preview the new names",
                                       command=self.preview)
         self.preview_btn.pack(side="left")
@@ -427,7 +811,7 @@ class GuiApp:
                             highlightthickness=1, highlightbackground=MIST,
                             highlightcolor=EMBER, background="#FFFFFF",
                             foreground=INK)
-        self.text.grid(row=12, column=0, sticky="nsew")
+        self.text.grid(row=17, column=0, sticky="nsew")
         self._update_example()
 
     def _apply_brand(self):
@@ -467,8 +851,15 @@ class GuiApp:
         except Exception:  # blobs absent or corrupted: text header instead
             return False
 
+    def _settings(self):
+        """The window's controls translated into the CLI's own settings."""
+        mode = self.mode_var.get()
+        return resolve_settings(
+            ai=mode == "ai", text=mode == "text",
+            metadata="safe" if self.strip_var.get() else "keep")
+
     def _update_example(self):
-        ext = ".jpg" if self.mode_var.get() == "ai" else ".png"
+        ext = self._settings()[3]
         stamp = datetime.now().strftime("%Y-%m-%d")
         self.example.config(text=f"files become  {stamp}_"
                                  f"{snake_case(self.label_var.get())}_01{ext}")
@@ -550,13 +941,23 @@ class GuiApp:
                 "Open a terminal, run\n\n        pip install --upgrade "
                 "pillow\n\nthen start this tool again.")
             return None
-        records, failures = analyse(files)
+        fmt, max_edge, quality, ext, tier, metadata = self._settings()
+        records, failures = analyse(files, tier, max_edge)
         for src, why in failures:
             self._append(f"FAILED  {src.name}: {why}")
-        fmt, max_edge, quality, ext = resolve_settings(
-            self.mode_var.get() == "ai")
         plan_names(records, snake_case(self.label_var.get()), ext, self.outdir)
-        return records, fmt, max_edge, quality
+        return records, (fmt, max_edge, quality, tier, metadata)
+
+    def _report(self, records, tier, fmt, metadata):
+        """The batch notes, worded exactly as the command line words them."""
+        for line in upload_notes(records, tier, fmt):
+            self._append(line)
+        located = [r for r in records if r["located"]]
+        if located:
+            where = ("carried into the copies" if metadata == "keep"
+                     else "left out of the copies")
+            self._append(f"  {len(located)} original(s) record where the photo "
+                         f"was taken; that location is {where}")
 
     def preview(self):
         if self.running:
@@ -565,13 +966,16 @@ class GuiApp:
         prepared = self._prepare()
         if not prepared:
             return
-        records = prepared[0]
+        records, (fmt, _max_edge, _q, tier, metadata) = prepared
         for rec in records:
             note = "" if rec["origin"] == "exif" \
                 else "   (file date: no usable EXIF)"
-            self._append(f"{rec['src'].name}  ->  {rec['dest'].name}{note}")
+            w, h = rec["out_size"]
+            self._append(f"{rec['src'].name}  ->  {rec['dest'].name}"
+                         f"   [{w}x{h}, {rec['tokens']:,} tokens]{note}")
         self._append(f"\npreview only - nothing written yet. Convert will "
                      f"write {len(records)} file(s).")
+        self._report(records, tier, fmt, metadata)
 
     def convert(self):
         if self.running:
@@ -580,32 +984,66 @@ class GuiApp:
         prepared = self._prepare()
         if not prepared:
             return
-        records, fmt, max_edge, quality = prepared
+        records, settings = prepared
+        if self.delete_var.get() and not messagebox.askyesno(
+                "Send the originals to the Recycle Bin?",
+                f"{len(records)} original file(s) will go to the Recycle Bin "
+                "once their copies are made and checked.\n\nAny file whose "
+                "copy fails is kept. You can restore anything from the "
+                "Recycle Bin afterwards.\n\nGo ahead?", default="no"):
+            self._append("cancelled - nothing written, nothing deleted")
+            return
         if self.outdir:
             self.outdir.mkdir(parents=True, exist_ok=True)
         self.running = True
         self.preview_btn.state(["disabled"])
         self.convert_btn.state(["disabled"])
-        threading.Thread(target=self._work,
-                         args=(records, fmt, max_edge, quality),
+        # Read every Tk variable here, on the main thread: touching them from
+        # the worker is not safe, and the user could change one mid-run.
+        chores = (self.manifest_var.get(), self.delete_var.get(),
+                  snake_case(self.label_var.get()))
+        threading.Thread(target=self._work, args=(records, settings, chores),
                          daemon=True).start()
         self.root.after(100, self._poll)
 
-    def _work(self, records, fmt, max_edge, quality):
-        done, folder = 0, None
+    def _work(self, records, settings, chores):
+        fmt, max_edge, quality, tier, metadata = settings
+        want_manifest, want_delete, label = chores
+        folder = None
         for rec in records:
             note = "" if rec["origin"] == "exif" \
                 else "   (file date: no usable EXIF)"
             try:
-                convert(rec["src"], rec["dest"], fmt, max_edge, quality)
+                rec["written"] = convert(rec["src"], rec["dest"], fmt,
+                                         max_edge, quality, tier, metadata)
             except Exception as exc:
                 rec["dest"].unlink(missing_ok=True)
                 self.q.put(f"FAILED  {rec['src'].name}: {exc}")
                 continue
-            done += 1
             folder = rec["dest"].parent
-            self.q.put(f"{rec['src'].name}  ->  {rec['dest'].name}{note}")
-        self.q.put(("done", done, len(records), folder))
+            w, h = rec["out_size"]
+            self.q.put(f"{rec['src'].name}  ->  {rec['dest'].name}"
+                       f"   [{w}x{h}, {rec['tokens']:,} tokens]{note}")
+        done = [r for r in records if r.get("written")]
+        self.q.put(f"\n{len(done)} of {len(records)} file(s) converted")
+        self.q.put(("report", done, tier, fmt, metadata))
+        for line in size_warnings(done):
+            self.q.put(line)
+        if want_manifest and done:
+            try:
+                path = write_manifest(done, (folder or done[0]["dest"].parent)
+                                      / f"{label}_manifest.txt")
+                self.q.put(f"  list written to {path.name}")
+            except Exception as exc:
+                self.q.put(f"  could not write the list: {exc}")
+        if want_delete:
+            gone, kept = delete_originals(done)
+            self.q.put(f"  {gone} original(s) sent to the Recycle Bin")
+            for src, why in kept:
+                self.q.put(f"  kept {src.name}: {why}")
+        else:
+            self.q.put("  originals untouched")
+        self.q.put(("done", len(done), len(records), folder))
 
     def _poll(self):
         while True:
@@ -614,10 +1052,12 @@ class GuiApp:
             except queue.Empty:
                 self.root.after(100, self._poll)
                 return
+            if isinstance(item, tuple) and item[0] == "report":
+                _, records, tier, fmt, metadata = item
+                self._report(records, tier, fmt, metadata)
+                continue
             if isinstance(item, tuple):
                 _, done, total, folder = item
-                self._append(f"\n{done} of {total} file(s) converted; "
-                             "originals untouched")
                 self.running = False
                 self.preview_btn.state(["!disabled"])
                 self.convert_btn.state(["!disabled"])
@@ -625,6 +1065,56 @@ class GuiApp:
                     os.startfile(folder)  # show the results in Explorer
                 return
             self._append(item)
+
+
+def selftest():
+    """Check the sizing maths against Anthropic's own worked examples.
+
+    The resize rule is the one thing here that cannot be checked by looking
+    at the output: a wrongly sized file is a perfectly good image, just one
+    that gets silently downscaled again on arrival. So the documented
+    examples are asserted in code rather than trusted to a careful reading.
+    """
+    std, high = TIERS["standard"], TIERS["high"]
+    cases = [  # (w, h, tier, expected size, expected tokens) from the docs
+        (200, 200, std, (200, 200), 64),
+        (1000, 1000, std, (1000, 1000), 1296),
+        (1092, 1092, std, (1092, 1092), 1521),
+        (1920, 1080, std, (1456, 819), 1560),
+        (3840, 2160, std, (1456, 819), 1560),
+        (3840, 2160, high, (2576, 1449), 4784),
+        (1920, 1080, high, (1920, 1080), 2691),
+        (1075, 1520, std, (924, 1307), None),   # the A4-scan example
+        (1075, 1520, high, (1075, 1520), 2145),
+    ]
+    bad = 0
+    for w, h, tier, want_size, want_tokens in cases:
+        got = fit_to_tier(w, h, *tier)
+        tokens = count_tokens(*got)
+        ok = got == want_size and (want_tokens is None or tokens == want_tokens)
+        # 2000x1500 is excluded above on purpose: the reference implementation
+        # returns 1270 where the docs print 1269 beside it, at an identical
+        # 1564 tokens. This follows the code, which is what the API runs.
+        if not ok:
+            bad += 1
+        print(f"{'ok  ' if ok else 'FAIL'} {w}x{h} tier {tier} -> {got} "
+              f"({tokens} tokens), expected {want_size}"
+              + (f" ({want_tokens} tokens)" if want_tokens else ""))
+    portrait = fit_to_tier(1500, 2000, *std)
+    if portrait != (fit_to_tier(2000, 1500, *std)[1],
+                    fit_to_tier(2000, 1500, *std)[0]):
+        print("FAIL portrait and landscape disagree")
+        bad += 1
+    else:
+        print(f"ok   portrait 1500x2000 -> {portrait}, mirrors the landscape")
+    if target_size(4000, 3000, "standard", max_edge=800) != (800, 600):
+        print("FAIL --max-edge is not applied before the tier fit")
+        bad += 1
+    else:
+        print("ok   --max-edge 800 caps before the tier fit")
+    print(f"\n{'FAILED' if bad else 'passed'}: {len(cases) + 2 - bad} of "
+          f"{len(cases) + 2} checks")
+    return 1 if bad else 0
 
 
 def run_gui():
@@ -829,5 +1319,7 @@ gg==
 if __name__ == "__main__":
     if len(sys.argv) == 1 or sys.argv[1:] == ["--gui"]:
         run_gui()
+    elif sys.argv[1:] == ["--selftest"]:
+        sys.exit(selftest())
     else:
         main()

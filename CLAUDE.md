@@ -1329,6 +1329,20 @@ attempt it unilaterally.
   CRLF clean filter, and hashing a working-tree file without it stages a
   blob that differs from HEAD in every line.
 
+- **Pull before starting, not just commit before leaving.** Adopted
+  2026-08-15. The rule above covers the end of a session; this covers
+  the start. Run `git fetch` and `git pull` before making any edit, and
+  say what arrived. On 2026-08-15 a single session saw three
+  divergences: a sync landed the other machine's uncommitted work on
+  five tracked files mid-conversation, tracked figures appeared and
+  vanished between two checks minutes apart, and two files edited
+  in-session were committed and pushed by another session while the
+  commit message for them was being drafted. That last one was harmless
+  only because the other session's edits happened to be a superset of
+  these. Git protects against conflicting commits; it does nothing about
+  two machines editing the same file before either commits, and pulling
+  first is the cheap guard. Pushing remains the user's.
+
 - **Commit messages (and any other outward-facing prose — docs, summaries)
   must match the user's own voice**: short, direct, no AI-register
   em-dash-chaining, and never third-person references to the user (e.g.
@@ -1889,23 +1903,65 @@ attempt it unilaterally.
   GIF, AVIF — not RAW/DNG), converts to PNG or JPEG, and renames
   `<YYYY-MM-DD>_<label>_<NN>` (`--label` sets the slug, default `img`;
   numbering runs per date, in capture order; date from EXIF capture time,
-  file-modified time as the stated fallback). `--ai` is the compression
-  preset for AI use: JPEG quality 85, long edge capped at 1568 px — the
-  point past which most Claude models downscale server-side anyway, per
-  Anthropic's vision guidance; `--max-edge 2576` reaches the current
-  high-resolution models' ceiling at ~3x the image-token cost. Each of
-  `--format`/`--max-edge`/`--quality` also works standalone. Bakes EXIF
-  orientation into the pixels, carries remaining EXIF across, flattens
-  transparency to white for JPEG, never overwrites (a taken name advances
-  the sequence), skips its own output when scanning folders so re-runs are
-  safe, leaves originals untouched, and re-opens every file it writes as
-  an integrity check. `--dry-run` previews, `-o` collects output into one
-  folder, `--recurse` descends. Run with no arguments (or `--gui`) for
-  the windowed interface over the same code — per the GUI rule under
-  Working approach. Default (no `--ai`) output is full-size
-  PNG — several times the source size for photographs. Requires Python
-  with Pillow; pillow-heif (`pip install pillow-heif`, wheel bundles
-  libheif) only when HEIC is among the inputs.
+  file-modified time as the stated fallback).
+
+  **What makes it an AI tool rather than an image compressor is that it
+  sizes for the model's real limits.** Claude reads an image as 28×28
+  patches costing one visual token each, and enforces a longest-edge
+  limit *and* a visual-token budget at once — 1568/1568 below Claude 4.7,
+  2576/4784 from 4.7 on. The token budget is usually the binding one, so
+  capping the long edge does not satisfy it: until 2026-08-29 `--ai`
+  capped at 1568 px and a 4:3 phone photo came out 1568×1176, costing
+  2352 tokens against a budget of 1568 and so downscaled again on
+  arrival. `--tier standard|high|none` now resizes to the largest size
+  the tier actually accepts, computed with Anthropic's published
+  reference algorithm; `--selftest` asserts that maths against the
+  worked examples in their documentation, since a wrongly sized file is
+  a perfectly good image that fails silently. Every count printed is the
+  real cost of the file written, and `--dry-run` prices a batch before
+  anything is written.
+
+  Presets: `--ai` is JPEG quality 85 at the standard tier; `--text` is
+  PNG at the high-resolution tier for documents, whiteboards and
+  screenshots, PNG because Anthropic's own guidance warns heavy JPEG
+  compression makes small text unreadable. Each of
+  `--format`/`--tier`/`--max-edge`/`--quality` overrides its preset.
+  The tool warns where a batch meets a published limit — 20 images per
+  claude.ai message (100 per API request), the stricter 2000 px
+  per-image rule on API requests holding more than 20, and the 10 MB
+  per-image ceiling — and `--manifest` writes the numbered
+  "Image 1:/Image 2:" list Anthropic's guidance asks for, without which
+  the model has the pictures and no way to tell which is which.
+
+  `--metadata safe` is the **default and a deliberate behaviour change**
+  (2026-08-29): GPS location, camera owner and body serial are dropped
+  from the copies, capture time kept. The reason is precise — Anthropic
+  documents that Claude is never given an image's metadata, so this is
+  not about what the model reads but about what the file carries onward
+  to storage, to whoever the folder is shared with next, to another
+  vendor. `--metadata keep` restores the old carry-everything behaviour,
+  `strip` drops the lot, and the tool reports how many originals record
+  a location. `--delete-originals` sends each original to the **Recycle
+  Bin** and only after its copy is written, re-opened and verified, so a
+  failed conversion always keeps its source; there is deliberately no
+  permanent-delete path, and where no Recycle Bin exists the tool
+  refuses rather than falling back to an unlink.
+
+  Bakes EXIF orientation into the pixels, flattens transparency to white
+  for JPEG, never overwrites (a taken name advances the sequence), skips
+  its own output when scanning folders so re-runs are safe, and re-opens
+  every file it writes as an integrity check. `-o` collects output into
+  one folder, `--recurse` descends. Run with no arguments (or `--gui`)
+  for the windowed interface over the same code — per the GUI rule under
+  Working approach; the window carries the three presets and the three
+  options, and asks before deleting anything. Default (no preset) output
+  is full-size PNG — several times the source size for photographs.
+  Requires Python with Pillow; pillow-heif (`pip install pillow-heif`,
+  wheel bundles libheif) only when HEIC is among the inputs. **The
+  limits are vendor figures read 2026-08-29 and they move** — re-read
+  `platform.claude.com/docs/en/build-with-claude/vision` and
+  `.../vision-coordinates` before trusting them, and re-run
+  `--selftest` after any change.
 
 - `tools/md_to_docx.py` — converts a Markdown file into a house-style
   `.docx`. Written 2026-08-04 for the home server guide, which needed to
