@@ -23,6 +23,98 @@ learning and hands-on projects.
 It is intended to make AI concepts and systems more understandable without
 assuming that every learner is (or intends to become) an AI engineer.
 
+## Core thesis, and why it matters (working decision — 23 October 2026)
+
+The project's creator has made an explicit — but, as with every working
+decision here, revisable — decision on what the project is centred on.
+
+**The thesis.** Good AI output depends on two things the model does not
+supply for itself: the context it is given to work from, and the checks
+and tools built around it so that its work can be verified rather than
+trusted. Both take real effort and rigour, which is why they are rarely
+done. Custom tools are built where a workflow keeps demanding the same
+thing, and only then — the test is the demonstrated need, not the
+ambition.
+
+The reason to centre on these two rather than on any model or tool is
+that they are the constant. Model capability rises with every release
+and with the hardware underneath it; the human input, and what the human
+builds around the model, is the one part of the exchange that does not
+change on a vendor's schedule, and so the one part a person can tailor
+and optimise and keep. This is the creator's reasoning rather than an
+evidenced claim, and it is what the evidence below is read against.
+
+This is the organising idea the rest of the brief hangs off. The seven
+gaps listed under "Problem being investigated" are its facets:
+verification is checking what the model produced from the context it
+had; cost trade-offs are largely about how much context can be afforded
+and where; the local-versus-cloud question is partly about what context
+one is willing to send off the machine. The practice system this
+repository holds is the thesis enacted — its working rules are a
+context-loading document grown rule by rule, and its tools exist because
+a described loop failed and a check against reality was built instead
+(`CLAUDE.md`, "Working approach"; the tools index there).
+
+**Why it matters — the evidenced part.** AI use is now general, and
+skilled use is not. Among UK firms, 54.3% used AI in some form by
+January 2026, up from about 23% in 2023, but only 10% had adopted
+anything built for their own operations, and the measurable workforce
+effects concentrate in that 10% (`research_log.md` Entry 029,
+`[BCC-ISER26]`). ONS's business survey has the average number of AI
+technologies per adopting business rising only from about 1.4 to 1.6
+over three years, which ONS itself reads as limited transformative
+impact so far (Entry 003, `[ONS-BICS26]`). The firm-size gap is
+documented across the OECD (Entry 065). On the individual side the
+evidence is thinner and partly secondary: a figure of 14% of UK workers
+having had any formal AI training is logged as provisional until read at
+source (Entry 008). So the picture the record supports is this: most
+people and most small organisations are already using AI, as a generic
+chatbot, and stopping there.
+
+**Why it matters — the creator's own view, labelled as such.** The
+creator reads the present moment as comparable to the early commercial
+internet: a technology that everyone will shortly be using, where the
+advantage goes to those who learn to use it well before the gap closes
+around them. Individuals and small businesses need to get ahead of that
+curve or be left behind by those who do.
+
+The stakes run both ways. The same capability that produces the upside
+produces serious harm when used badly, and in the creator's view the
+thing separating the two outcomes is the capability of the person using
+it. That is why the creator set out to train, and why the quality of the
+UK government's own training provision was a shock when encountered
+first-hand. If the upsides and downsides are as large as the government's
+own figures say, public preparedness should be built to match, and the
+skill and the capability should not develop only inside government and
+the large organisations that can already afford it.
+
+Put at its strongest, the creator sees this as close to a question of
+human and digital rights: left to run, AI looks like the next tool that
+widens the distance between the largest corporations and the average
+person, as earlier technologies have. The record has something adjacent
+to say here, and it is pointed to rather than claimed: the measurable
+effects of AI adoption concentrate in the minority of firms able to
+afford bespoke implementation, and the widening adoption gap between
+large and small firms is attributed by one source to scale rather than
+to productivity (`research_log.md` Entry 029). Whether that amounts to a
+rights question is the creator's framing, not a finding.
+
+All of this is opinion, not evidence. It is recorded because it is the
+motive behind the project, and because leaving it unstated has produced
+documents that read as though they had no reason to exist. Where the
+view touches something the record can speak to, the record is pointed
+to rather than the view: the national platform's documented structural
+problems are at `research_log.md` Entries 018, 022 and 025, and the
+first-hand account is the one the landing site opens with. No outward
+claim rests on the analogy or the view; the evidenced paragraph above is
+what outward text draws on.
+
+**What follows.** Every outward document and page opens with why its
+subject matters, drawn from the paragraphs above and adapted to the
+piece. Documents produced before this decision were found to be missing
+it, which is the demonstrated need behind the rule (`CLAUDE.md`,
+"Working approach"; `project_log.md` Entry 096).
+
 ## Problem being investigated
 
 AI systems are becoming increasingly accessible across work, education and
@@ -209,6 +301,8 @@ aim, observation, or flagged claim), per the project's evidence discipline.
   optimising the context a model is given in each case, and custom —
   sometimes fully local — tools and workflows where those cut usage
   cost, increase privacy and reduce reliance on cloud services.
+  The thesis this serves is stated as a working decision under "Core
+  thesis, and why it matters" above.
   Platform vendors productising this layer (persistent project context,
   skills, memory, agent tooling) are treated as infrastructure to
   leverage and teach, not as competition. The aim is to let small

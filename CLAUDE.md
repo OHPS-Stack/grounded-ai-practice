@@ -10,6 +10,15 @@ a living document, not a one-time export.
 **Grounded AI Practice** — practical AI capability through responsible,
 hands-on learning. Full detail: `project_brief.md`.
 
+**Core thesis (working decision, 2026-10-23):** good AI output depends
+on two things the model does not supply for itself — the context it is
+given, and the checks and tools built around it so its work can be
+verified rather than trusted. Custom tools are built where a workflow
+keeps demanding the same thing. Why it matters, in an evidenced register
+and the creator's own labelled view, is in `project_brief.md` under
+"Core thesis, and why it matters"; outward text draws on the evidenced
+part.
+
 **Current stage: research/scoping.** Nothing here is a finished
 specification, curriculum, or repo structure. See `research_questions.md` for
 the five immediate research priorities driving current work.
@@ -22,6 +31,20 @@ the five immediate research priorities driving current work.
   distinguished — never blur these together.
 
 - Major decisions are made explicitly, not inferred from drafts.
+
+- **Every outward document opens with why its subject matters.** Adopted
+  2026-10-23 at the creator's direction, after the documents produced so
+  far were found to read as accurate but unmotivated — the reason the
+  project exists had never been written down, so nothing downstream
+  could draw on it. The reason now lives in `project_brief.md` ("Core
+  thesis, and why it matters") in two registers: an evidenced paragraph,
+  which outward text draws on, and the creator's own read of the moment,
+  labelled as opinion and never the basis of a claim. Each document
+  adapts the evidenced reason to its own subject rather than pasting the
+  paragraph; a unit on prompting says why skilled prompting matters, a
+  hardware document says why owning the capability matters. The
+  understatement and explain-before-concluding rules under File
+  conventions still govern how it is said. `project_log.md` Entry 096.
 
 - Structures and rules are introduced only when they solve a demonstrated
   need. **The test is the need, not the timing.** A rule is not suspect

@@ -77,6 +77,12 @@ The first research phase should answer five connected questions:
 - Which capabilities should be prerequisites for local AI, RAG, MCP, agents or
   automation?
 
+- What independent evidence exists for the project's core thesis — that
+  output quality depends on the context a model is given and on the checks
+  and tools built around it — beyond vendor guidance and this project's own
+  experience? (Added 23 October 2026; `project_brief.md`, "Core thesis, and
+  why it matters".)
+
 ## 4. Learning design
 
 - Which recognised learning frameworks are suitable for this project?
