@@ -28,10 +28,14 @@ assistant can read them and work from them directly. That system is what
 produces the research in this repository — so how it is built, and why,
 is on show alongside what it found.
 
-Whether the same practice can be taught to other people is a working
-hypothesis, not a finding, and the brief records it as one. Most people
-using AI today use it as a chatbot and stop there. The untested claim is
-that a practice like this one produces better results at lower cost.
+The idea underneath it is simple to state and hard to do. A model's
+output is only as good as the context it is given and the checks built
+around it, and neither comes from the model. Models and hardware improve
+on their own schedule; the human input is the constant, so it is the
+part worth learning to do well. Most people and most small organisations
+now use AI, as a generic chatbot, and stop there. The untested claim is
+that a practice like this one produces better results at lower cost, and
+that it can be taught.
 
 It is currently at the **research and pilot-design stage**. This repository
 is the working record: the sources, the reasoning, the decisions, and the
